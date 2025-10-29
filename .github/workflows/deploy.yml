@@ -38,7 +38,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3 # PaperMod 需要新版 Hugo
         with:
-          hugo-version: '0.124.0' # PaperMod 至少需要 0.121+
+          hugo-version: '0.140.0' # PaperMod 至少需要 0.121+
           extended: true
 
       - name: Build
