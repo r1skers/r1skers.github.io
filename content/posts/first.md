@@ -1,7 +1,7 @@
 ---
 date: '2025-10-29T17:01:21+09:00'
 draft: false
-title: 'First'
+title: 'Markdown Functionality Test (LaTeX and Mermaid)'
 cover:
     image: img/avatar.jpg
     alt: 'This is maodie'
@@ -12,7 +12,7 @@ categories: ["Promethean Fire"]
 
 
 
-这是我的功能测试笔记。
+This post specifically tests the Markdown capabilities of this site, such as LaTeX and Mermaid.
 
 ## 1. LaTeX Test
 
