@@ -24,6 +24,8 @@ params:
 
   ShowPostNavLinks: false
 
+math: true
+
 
 menu:
   main:
