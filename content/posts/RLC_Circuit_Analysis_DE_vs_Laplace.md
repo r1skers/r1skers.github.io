@@ -85,7 +85,7 @@ As $t \to \infty$, the inductor acts as a short and the capacitor as an open cir
 $q_p = C \times E = (10^{-7} \text{ F}) \times (1000 \text{ V}) = 10^{-4} \text{ C}$.
 
 **2. Homogeneous Solution ($q_h$):**
-We solve the characteristic equation for $q_h'' + 25000 q_h' + 2.5 \times 10^9 q_h = 0$:
+We solve the characteristic equation for $$q_h'' + 25000 q_h' + 2.5 \times 10^9 q_h = 0$$
 $$s^2 + 25000s + 2,500,000,000 = 0$$
 
 This is of the form $s^2 + 2\alpha s + \omega_0^2 = 0$.
