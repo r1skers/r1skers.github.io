@@ -24,32 +24,29 @@
       <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
       <guid>http://localhost:1313/posts/first/</guid>
       <description>&lt;p&gt;这是我的功能测试笔记。&lt;/p&gt;
-&lt;h2 id=&#34;1-数学公式-latex-测试&#34;&gt;1. 数学公式 (LaTeX) 测试&lt;/h2&gt;
-&lt;p&gt;这是行内公式： $ \Psi(x, t) $。&lt;/p&gt;
-&lt;p&gt;这是薛定谔方程的块级公式：
+&lt;h2 id=&#34;1-latex-test&#34;&gt;1. LaTeX Test&lt;/h2&gt;
+&lt;p&gt;psi function： $ \Psi(x, t) $。&lt;/p&gt;
+&lt;p&gt;Schrödinger equation：
 $$
 \begin{aligned}
 &amp;amp;i\hbar\frac{\partial}{\partial t}\Psi(x, t) = \left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x, t) \right]\Psi(x, t)
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h2 id=&#34;2-流程图-mermaid-测试&#34;&gt;2. 流程图 (Mermaid) 测试&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;重要：&lt;/strong&gt; 要让 Mermaid.js 识别图表，您&lt;strong&gt;必须&lt;/strong&gt;使用这个特殊的 &lt;code&gt;div&lt;/code&gt; 标签：&lt;/p&gt;
+&lt;h2 id=&#34;2-mermaid-test&#34;&gt;2. Mermaid Test&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Important：&lt;/strong&gt; ```mermaid：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;flowchart LR
     A[Hard]--&amp;gt;B{Decision}
     B--&amp;gt;C[Result 1]
     B--&amp;gt;E[Result 2]   
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;3-代码-markdown-测试&#34;&gt;3. 代码 (Markdown) 测试&lt;/h2&gt;
-&lt;p&gt;这部分是 Markdown 原生支持的：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;3-markdown-test&#34;&gt;3. Markdown Test&lt;/h2&gt;
+&lt;p&gt;Supported by Markdown&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// 这应该会自动高亮
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4这下咱们来试试图片&#34;&gt;4.这下咱们来试试图片！&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;RUNOOB 图标&#34; loading=&#34;lazy&#34; src=&#34;https://static.jyshare.com/images/runoob-logo.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;RUNOOB 图标&#34; loading=&#34;lazy&#34; src=&#34;https://static.jyshare.com/images/runoob-logo.png&#34; title=&#34;RUNOOB&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
