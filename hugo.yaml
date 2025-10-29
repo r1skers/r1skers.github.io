@@ -25,6 +25,7 @@ params:
   ShowPostNavLinks: false
 
   math : true
+  mermaid : true
 
 
 menu:

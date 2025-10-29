@@ -14,34 +14,29 @@ categories: ["Promethean Fire"]
 
 这是我的功能测试笔记。
 
-## 1. 数学公式 (LaTeX) 测试
+## 1. LaTeX Test
 
-这是行内公式： $ \Psi(x, t) $。
+psi function： $ \Psi(x, t) $。
 
-这是薛定谔方程的块级公式：
+Schrödinger equation：
 $$
 \begin{aligned}
 &i\hbar\frac{\partial}{\partial t}\Psi(x, t) = \left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x, t) \right]\Psi(x, t)
 \end{aligned}
 $$
-## 2. 流程图 (Mermaid) 测试
+## 2. Mermaid Test
 
-**重要：** 要让 Mermaid.js 识别图表，您**必须**使用这个特殊的 `div` 标签：
+**Important：** ```mermaid：
 
-<div class="mermaid">
-
+```mermaid
 flowchart LR
+    A[Hard]-->B{Decision}
+    B-->C[Result 1]
+    B-->E[Result 2]   
+```
+## 3. Markdown Test
 
-A[Hard] -->|Text| B(Round)
-B --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-
-</div>
-
-## 3. 代码 (Markdown) 测试
-
-这部分是 Markdown 原生支持的：
+ Supported by Markdown 
 
 ```c
 #include <stdio.h>
@@ -51,11 +46,3 @@ int main() {
     return 0;
 }
 ```
-
-## 4.这下咱们来试试图片！
-![RUNOOB 图标](https://static.jyshare.com/images/runoob-logo.png)
-
-![RUNOOB 图标](https://static.jyshare.com/images/runoob-logo.png "RUNOOB")
-
-<img src="https://static.jyshare.com/images/runoob-logo.png" width="50%">
-

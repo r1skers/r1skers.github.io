@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Math on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/math/</link>
+    <description>Recent content in Math on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Oct 2025 19:01:21 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace</title>
+      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
+      <description>&lt;h1 id=&#34;rlc-circuit-analysis-a-comparison-of-differential-equation-and-laplace-transform-methods&#34;&gt;RLC Circuit Analysis: A Comparison of Differential Equation and Laplace Transform Methods&lt;/h1&gt;
+&lt;h2 id=&#34;problem-background&#34;&gt;Problem Background&lt;/h2&gt;
+&lt;p&gt;In class, I learned to analyze oscillatory circuits by solving second-order linear differential equations. The standard method involves finding a homogeneous solution (natural response) and a particular solution (forced response), then using initial conditions to find the unknown constants.&lt;/p&gt;
+&lt;p&gt;This process, especially finding the current $i(t) = \frac{dq}{dt}$, often involves &lt;strong&gt;messy differentiation with exponential and trigonometric functions&lt;/strong&gt;, which is time-consuming and easy to make mistakes in. This led me to search for a more systematic approach.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
