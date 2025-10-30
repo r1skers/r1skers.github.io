@@ -19,11 +19,11 @@
 &lt;p&gt;This process, especially finding the current $i(t) = \frac{dq}{dt}$, often involves &lt;strong&gt;messy differentiation with exponential and trigonometric functions&lt;/strong&gt;, which is time-consuming and easy to make mistakes in. This led me to search for a more systematic approach.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>First</title>
+      <title>Markdown Functionality Test (LaTeX and Mermaid)</title>
       <link>http://localhost:1313/posts/first/</link>
       <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
       <guid>http://localhost:1313/posts/first/</guid>
-      <description>&lt;p&gt;这是我的功能测试笔记。&lt;/p&gt;
+      <description>&lt;p&gt;This post specifically tests the Markdown capabilities of this site, such as LaTeX and Mermaid.&lt;/p&gt;
 &lt;h2 id=&#34;1-latex-test&#34;&gt;1. LaTeX Test&lt;/h2&gt;
 &lt;p&gt;psi function： $ \Psi(x, t) $。&lt;/p&gt;
 &lt;p&gt;Schrödinger equation：
