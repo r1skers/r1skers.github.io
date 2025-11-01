@@ -38,6 +38,8 @@
     <loc>http://localhost:1313/posts/second/</loc>
     <lastmod>2025-10-29T17:01:21+09:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/about/</loc>
+  </url><url>
     <loc>http://localhost:1313/archives/</loc>
   </url>
 </urlset>
