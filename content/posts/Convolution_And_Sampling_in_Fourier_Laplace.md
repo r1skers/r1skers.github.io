@@ -119,8 +119,7 @@ $$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrighta
 
 Conjugation Property<br>
 
-$$f^*(t) \longleftrightarrow F^*(-\omega)$$
-
+$$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 ***
 
 ## 2.Laplace()
