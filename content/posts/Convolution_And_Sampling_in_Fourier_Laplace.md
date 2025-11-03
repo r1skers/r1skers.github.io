@@ -2,8 +2,8 @@
 date: '2025-11-03T10:17:00+09:00'
 draft: false
 title: 'Convolution and Sampling in Fourier and Laplace'
-tags: ["basic", "markdown","math"]
-categories: ["Promethean Fire", "Delphic Musings"]
+tags: ["basic", "markdown","Fourier and Laplace"]
+categories: ["Promethean Fire", "Fireside Notes"]
 ---
 
 # Concepts Introdutions
