@@ -72,17 +72,15 @@ $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} 
 
 #### 1.2.3. Properties of the Fourier Transform
 
-<details>
+{{< details "basics" open >}}
 
-<summary>basics</summary>
-
-Linearity Property<br>
+##### Linearity Property<br>
 
 $$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$
 
 ***
 
-**Scaling Property**<br>
+##### **Scaling Property**<br>
 
 $$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
@@ -100,7 +98,7 @@ $$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$
 
 ***
 
-Time/Frequency-Shifting Property<br>
+##### Time/Frequency-Shifting Property<br>
 
 $$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$
 
@@ -108,7 +106,7 @@ $$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$
 
 ***
 
-Time/Frequency Differentiation Property<br>
+##### Time/Frequency Differentiation Property<br>
 
 $$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$
 
@@ -116,7 +114,7 @@ $$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$
 
 ***
 
-**Duality Property**<br>
+##### **Duality Property**<br>
 
 $$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$
 
@@ -144,41 +142,41 @@ $$\mathcal{F}\{F(t)\} = 2\pi f(-\omega)$$
 
 ***
 
-Conjugation Property<br>
+##### Conjugation Property<br>
 
 $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
+
 ***
-</details>
 
-<details>
+{{< /details >}}
 
-<summary>special</summary>
+{{< details "special" open >}}
 
-Dirac Delta Function
+##### Dirac Delta Function
 
 $$\delta(t) \longleftrightarrow 1$$
 
 ***
 
-Shifted Dirac Delta
+##### Shifted Dirac Delta
 
 $$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$
 
 ***
 
-Constant
+##### Constant
 
 $$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$
 
 ***
 
-Complex Exponential
+##### Complex Exponential
 
 $$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$
 
 ***
 
-**Periodic Dirac Comb**
+##### **Periodic Dirac Comb**
 
 $$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
 
@@ -200,9 +198,9 @@ $$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\
 
 Now look at the right side
 
-$$\mathcal{F}\left\{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \right\} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\left\{ e^{jk\omega_0 t} \right\}$$
+$$\mathcal{F}\left\{ \sum\_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega\_0 t} \right\} = \frac{1}{T} \sum\_{k=-\infty}^{\infty} \mathcal{F}\left\{ e^{jk\omega\_0 t} \right\}$$
 
-According to the Complex Exponential
+According to the [Complex Exponential](#complex-exponential)
 
 $$  \mathcal{F}\{e^{j\omega_A t}\} = 2\pi \delta(\omega - \omega_A)$$
 
@@ -210,13 +208,13 @@ $$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \s
 
 ***
 
-Parseval's Theorem
+##### Parseval's Theorem
 
 $$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \, d\omega$$
 
 ***
 
-</details>
+{{< /details >}}
 
 
 ## 2.Laplace()

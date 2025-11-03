@@ -46,3 +46,7 @@ int main() {
     return 0;
 }
 ```
+
+{{< details "这个默认是展开的" open >}}
+...内容...
+{{< /details >}}

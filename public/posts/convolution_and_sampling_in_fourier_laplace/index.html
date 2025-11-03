@@ -209,12 +209,13 @@ $$</p>
 <h4 id="122-synthesis-equation">1.2.2. Synthesis Equation<a hidden class="anchor" aria-hidden="true" href="#122-synthesis-equation">#</a></h4>
 <p>$$f(t) = \mathcal{F}^{-1}{F(\omega)} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} , d\omega$$</p>
 <h4 id="123-properties-of-the-fourier-transform">1.2.3. Properties of the Fourier Transform<a hidden class="anchor" aria-hidden="true" href="#123-properties-of-the-fourier-transform">#</a></h4>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Linearity Property<!-- raw HTML omitted --></p>
+
+<details>
+  <summary>Details</summary>
+  <h5 id="linearity-property">Linearity Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h5>
 <p>$$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$</p>
 <hr>
-<p><strong>Scaling Property</strong><!-- raw HTML omitted --></p>
+<h5 id="scaling-property"><strong>Scaling Property</strong><!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h5>
 <p>$$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$</p>
 <p>derivation:<!-- raw HTML omitted --></p>
 <p>Let $\tau = at$ , Differentiate: $d\tau = a \cdot dt \implies dt = \frac{1}{a} d\tau$</p>
@@ -223,15 +224,15 @@ $$</p>
 <p>$$G(\omega) = \frac{1}{a} \int_{-\infty}^{\infty} f(\tau) e^{-j\left(\frac{\omega}{a}\right)\tau} , d\tau$$</p>
 <p>$$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$</p>
 <hr>
-<p>Time/Frequency-Shifting Property<!-- raw HTML omitted --></p>
+<h5 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h5>
 <p>$$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$</p>
 <p>$$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$</p>
 <hr>
-<p>Time/Frequency Differentiation Property<!-- raw HTML omitted --></p>
+<h5 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h5>
 <p>$$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$</p>
 <p>$$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$</p>
 <hr>
-<p><strong>Duality Property</strong><!-- raw HTML omitted --></p>
+<h5 id="duality-property"><strong>Duality Property</strong><!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h5>
 <p>$$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$</p>
 <p>derivation:<!-- raw HTML omitted --></p>
 <p>According to Synthesis Equation</p>
@@ -245,25 +246,27 @@ $$</p>
 <p>Get</p>
 <p>$$\mathcal{F}{F(t)} = 2\pi f(-\omega)$$</p>
 <hr>
-<p>Conjugation Property<!-- raw HTML omitted --></p>
+<h5 id="conjugation-property">Conjugation Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#conjugation-property">#</a></h5>
 <p>$$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$</p>
 <hr>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Dirac Delta Function</p>
+</details>
+
+
+<details>
+  <summary>Details</summary>
+  <h5 id="dirac-delta-function">Dirac Delta Function<a hidden class="anchor" aria-hidden="true" href="#dirac-delta-function">#</a></h5>
 <p>$$\delta(t) \longleftrightarrow 1$$</p>
 <hr>
-<p>Shifted Dirac Delta</p>
+<h5 id="shifted-dirac-delta">Shifted Dirac Delta<a hidden class="anchor" aria-hidden="true" href="#shifted-dirac-delta">#</a></h5>
 <p>$$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$</p>
 <hr>
-<p>Constant</p>
+<h5 id="constant">Constant<a hidden class="anchor" aria-hidden="true" href="#constant">#</a></h5>
 <p>$$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$</p>
 <hr>
-<p>Complex Exponential</p>
+<h5 id="complex-exponential">Complex Exponential<a hidden class="anchor" aria-hidden="true" href="#complex-exponential">#</a></h5>
 <p>$$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$</p>
 <hr>
-<p><strong>Periodic Dirac Comb</strong></p>
+<h5 id="periodic-dirac-comb"><strong>Periodic Dirac Comb</strong><a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h5>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
 <p>We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal whicj we can use Fourier Series here:</p>
 <p>$$f(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$</p>
@@ -275,14 +278,15 @@ $$</p>
 <p>$$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\frac{1}{T}\right) e^{jk\omega_0 t}$$</p>
 <p>Now look at the right side</p>
 <p>$$\mathcal{F}\left{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \right} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\left{ e^{jk\omega_0 t} \right}$$</p>
-<p>According to the Complex Exponential</p>
+<p>According to the <a href="#complex-exponential">Complex Exponential</a></p>
 <p>$$  \mathcal{F}{e^{j\omega_A t}} = 2\pi \delta(\omega - \omega_A)$$</p>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
 <hr>
-<p>Parseval&rsquo;s Theorem</p>
+<h5 id="parsevals-theorem">Parseval&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#parsevals-theorem">#</a></h5>
 <p>$$\int_{-\infty}^{\infty} |f(t)|^2 , dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 , d\omega$$</p>
 <hr>
-<!-- raw HTML omitted -->
+</details>
+
 <h2 id="2laplace">2.Laplace()<a hidden class="anchor" aria-hidden="true" href="#2laplace">#</a></h2>
 <h1 id="interesting-place">Interesting place<a hidden class="anchor" aria-hidden="true" href="#interesting-place">#</a></h1>
 <h2 id="1-12pai-between-ft-and-ift">1. 1/2pai between FT and IFT<a hidden class="anchor" aria-hidden="true" href="#1-12pai-between-ft-and-ift">#</a></h2>
