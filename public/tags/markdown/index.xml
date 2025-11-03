@@ -65,9 +65,22 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;details&gt;
-  &lt;summary&gt;Details&lt;/summary&gt;
-  &lt;p&gt;&amp;hellip;内容&amp;hellip;&lt;/p&gt;</description>
+
+
+  
+
+
+
+
+  
+
+
+
+
+&lt;p&gt;&lt;details  open=true &gt;
+  &lt;summary markdown=&#34;span&#34;&gt;这个默认是展开的&lt;/summary&gt;
+  &amp;hellip;内容&amp;hellip;
+&lt;/details&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

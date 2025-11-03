@@ -150,7 +150,7 @@ $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 
 {{< /details >}}
 
-{{< details "special" open >}}
+{{< details "Special" open >}}
 
 ##### Dirac Delta Function
 

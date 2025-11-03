@@ -1,0 +1,33 @@
+{{/*
+  Compatibility wrapper for PaperMod's collapse shortcode.
+  Supports these forms:
+    {{< details "Summary text" open >}}
+    {{< details summary="Summary text" openByDefault=true >}}
+    {{< details summary="Summary text" >}}...{{< /details >}}
+
+  The template accepts either a positional first parameter (summary)
+  or the named param `summary`. It also recognizes `openByDefault`,
+  `open` (bare token) or a second positional token equal to "open".
+*/}}
+{{ $summary := .Get "summary" }}
+{{ if not $summary }}
+  {{ $summary = .Get 0 }}
+{{ end }}
+
+{{ $open := false }}
+{{ if eq (.Get "openByDefault") "true" }}
+  {{ $open = true }}
+{{ else if ne (.Get "open") "" }}
+  {{ $open = true }}
+{{ else if eq (.Get 1) "open" }}
+  {{ $open = true }}
+{{ end }}
+
+{{ if not $summary }}
+  {{ warnf "missing value for param 'summary' in details shortcode: %s" .Position }}
+{{ end }}
+
+<p><details {{ if $open }} open=true {{ end }}>
+  <summary markdown="span">{{ $summary | markdownify }}</summary>
+  {{ .Inner | markdownify }}
+</details></p>
