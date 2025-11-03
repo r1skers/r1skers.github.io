@@ -72,7 +72,11 @@ $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} 
 
 #### 1.2.3. Properties of the Fourier Transform
 Linearity Property<br>
+
+$$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$
+
 ***
+
 **Scaling Property**<br>
 
 $$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
@@ -90,14 +94,35 @@ $$G(\omega) = \frac{1}{a} \int_{-\infty}^{\infty} f(\tau) e^{-j\left(\frac{\omeg
 $$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$
 
 ***
+
 Time/Frequency-Shifting Property<br>
+
+$$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$
+
+$$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$
+
 ***
+
 Time/Frequency Differentiation Property<br>
+
+$$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$
+
+$$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$
+
 ***
+
 Duality Property<br>
+
+$$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$
+
 ***
+
 Conjugation Property<br>
+
+$$f^*(t) \longleftrightarrow F^*(-\omega)$$
+
 ***
+
 ## 2.Laplace()
 
 
