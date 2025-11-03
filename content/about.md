@@ -5,7 +5,7 @@ url: "/about/"
 summary: about
 ---
 
-## 1. The Hook
+## The Hook
 
 <br>
 
@@ -17,7 +17,7 @@ Welcome to **Hephaestus's Forge**. This site is my public "digital garden" and r
 
 ---
 
-## 2. The "Why"
+## The "Why"
 
 <br>
 
@@ -32,7 +32,7 @@ My long-term goal is to pursue a **Ph.D.** and become a "field-definer" who cont
 
 ---
 
-## 3. My Philosophy
+## My Philosophy
 
 <br>
 
@@ -46,7 +46,7 @@ My approach to this "marathon" is built on two principles:
 
 ---
 
-## 4. My Path Forward 
+## My Path Forward 
 
 <br>
 
