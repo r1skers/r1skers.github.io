@@ -198,7 +198,7 @@ $$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\
 
 Now look at the right side
 
-$$\mathcal{F}\left\{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \right\} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\left\{ e^{jk\omega_0 t} \right\}$$
+$$\mathcal{F}\{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\{ e^{jk\omega_0 t} \}$$
 
 According to the [Complex Exponential](#complex-exponential)
 

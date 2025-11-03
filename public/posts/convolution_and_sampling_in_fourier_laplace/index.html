@@ -174,9 +174,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <h3 id="31fourier-series">3.1.Fourier series<a hidden class="anchor" aria-hidden="true" href="#31fourier-series">#</a></h3>
 <p>A Fourier Series is a mathematical tool used to decompose any &ldquo;well-behaved&rdquo; periodic signal into a sum of simple, pure sinusoids (sines and cosines).</p>
 <h4 id="significance-why-is-it-so-important-in-engineering">Significance: Why is it so important in Engineering?<a hidden class="anchor" aria-hidden="true" href="#significance-why-is-it-so-important-in-engineering">#</a></h4>
-<p>Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.<!-- raw HTML omitted -->
-Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&rsquo;s underlying structure.<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.<br>
+Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&rsquo;s underlying structure.<br>
+<br>
 Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&rsquo;s &ldquo;spectrum&rdquo;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.</p>
 <h3 id="32-fourier-transform">3.2 Fourier transform<a hidden class="anchor" aria-hidden="true" href="#32-fourier-transform">#</a></h3>
 <p>We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).</p>
@@ -185,18 +185,18 @@ Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The 
 <h2 id="1-fourier">1. Fourier<a hidden class="anchor" aria-hidden="true" href="#1-fourier">#</a></h2>
 <h3 id="11-fourier-series">1.1. Fourier series<a hidden class="anchor" aria-hidden="true" href="#11-fourier-series">#</a></h3>
 <p>$$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$</p>
-<p>$\frac{a_0}{2}$ here represents the average value (or DC component) of the signal $f(t)$. This value is calculated by finding the &rsquo;net area&rsquo; under the $f(t)$ curve within one period and dividing by the period $T$.<!-- raw HTML omitted -->
+<p>$\frac{a_0}{2}$ here represents the average value (or DC component) of the signal $f(t)$. This value is calculated by finding the &rsquo;net area&rsquo; under the $f(t)$ curve within one period and dividing by the period $T$.<br>
 The coefficient $a_0$ itself is calculated as twice this average value:</p>
 <p>$$a_0 = \frac{2}{T} \int_{t_0}^{t_0+T} f(t) , dt$$</p>
 <p>The coefficients for the AC components ($a_n$ and $b_n$) are calculated as follows:</p>
 <p>$$a_n = \frac{2}{T} \int_{t_0}^{t_0+T} f(t) \cos(n\omega_0 t) , dt$$
 $$b_n = \frac{2}{T} \int_{t_0}^{t_0+T} f(t) \sin(n\omega_0 t) , dt$$</p>
-<p>Especially in electronics, we often use the Complex/Exponential Fourier Series, which is derived using Euler&rsquo;s Formula.<!-- raw HTML omitted --></p>
+<p>Especially in electronics, we often use the Complex/Exponential Fourier Series, which is derived using Euler&rsquo;s Formula.<br></p>
 <p>The derivation starts with Euler&rsquo;s Formula.
 $$e^{j\theta} = \cos(\theta) + j\sin(\theta) $$</p>
 <p>Conversely, $\cos(\theta)$ and $\sin(\theta)$ can be expressed as</p>
 <p>$$\cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2} \ \sin(\theta) = \frac{e^{j\theta} - e^{-j\theta}}{2j} $$</p>
-<p>By defining the complex coefficients $c_0$ = $\frac{a_0}{2}$ , $c_n$ = $\frac{a_n-jb_n}{2}$ , $c_{-n}$ = $\frac{a_n+jb_n}{2}$<!-- raw HTML omitted --></p>
+<p>By defining the complex coefficients $c_0$ = $\frac{a_0}{2}$ , $c_n$ = $\frac{a_n-jb_n}{2}$ , $c_{-n}$ = $\frac{a_n+jb_n}{2}$<br></p>
 <p>we can substitute these into the trigonometric series to get the final compact form:</p>
 <p>$$
 f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
@@ -224,29 +224,29 @@ $$</p>
 
 <p><details  open=true >
   <summary markdown="span">basics</summary>
-  <h5 id="linearity-property">Linearity Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h5>
+  <h5 id="linearity-property">Linearity Property<br><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h5>
 <p>$$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$</p>
 <hr>
-<h5 id="scaling-property"><strong>Scaling Property</strong><!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h5>
+<h5 id="scaling-property"><strong>Scaling Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h5>
 <p>$$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$</p>
-<p>derivation:<!-- raw HTML omitted --></p>
+<p>derivation:<br></p>
 <p>Let $\tau = at$ , Differentiate: $d\tau = a \cdot dt \implies dt = \frac{1}{a} d\tau$</p>
 <p>$$f(at)= \int_{\tau=-\infty}^{\infty} f(\tau) e^{-j\omega (\frac{\tau}{a})} \left( \frac{1}{a} d\tau \right)$$</p>
 <p>and then</p>
 <p>$$G(\omega) = \frac{1}{a} \int_{-\infty}^{\infty} f(\tau) e^{-j\left(\frac{\omega}{a}\right)\tau} , d\tau$$</p>
 <p>$$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$</p>
 <hr>
-<h5 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h5>
+<h5 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h5>
 <p>$$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$</p>
 <p>$$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$</p>
 <hr>
-<h5 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h5>
+<h5 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h5>
 <p>$$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$</p>
 <p>$$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$</p>
 <hr>
-<h5 id="duality-property"><strong>Duality Property</strong><!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h5>
+<h5 id="duality-property"><strong>Duality Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h5>
 <p>$$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$</p>
-<p>derivation:<!-- raw HTML omitted --></p>
+<p>derivation:<br></p>
 <p>According to Synthesis Equation</p>
 <p>$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} , d\omega$$</p>
 <p>We an get</p>
@@ -258,7 +258,7 @@ $$</p>
 <p>Get</p>
 <p>$$\mathcal{F}{F(t)} = 2\pi f(-\omega)$$</p>
 <hr>
-<h5 id="conjugation-property">Conjugation Property<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#conjugation-property">#</a></h5>
+<h5 id="conjugation-property">Conjugation Property<br><a hidden class="anchor" aria-hidden="true" href="#conjugation-property">#</a></h5>
 <p>$$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$</p>
 <hr>
 
@@ -302,7 +302,7 @@ $$</p>
 <p>$$c_k =  \frac{1}{T}$$</p>
 <p>$$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\frac{1}{T}\right) e^{jk\omega_0 t}$$</p>
 <p>Now look at the right side</p>
-<p>$$\mathcal{F}\left{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \right} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\left{ e^{jk\omega_0 t} \right}$$</p>
+<p>$$\mathcal{F}{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} } = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}{ e^{jk\omega_0 t} }$$</p>
 <p>According to the <a href="#complex-exponential">Complex Exponential</a></p>
 <p>$$  \mathcal{F}{e^{j\omega_A t}} = 2\pi \delta(\omega - \omega_A)$$</p>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>

@@ -3,6 +3,11 @@ baseURL: "https://r1skers.github.io/"
 languageCode: en-us
 title: r1skers' Blog
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 
 params:
   HomeInfoParams:

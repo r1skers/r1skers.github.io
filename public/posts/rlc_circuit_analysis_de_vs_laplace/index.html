@@ -189,7 +189,15 @@ $$ = s^2 F(s) - s f(0) - f&rsquo;(0)$$</p>
 <li><strong>Capacitor (C):</strong> $0.1 \ \mu\text{F} = 10^{-7} \text{ F}$</li>
 <li><strong>Initial Conditions:</strong> The circuit is initially at rest, so $q(0) = 0$ and $i(0) = q&rsquo;(0) = 0$.</li>
 </ul>
-<!-- raw HTML omitted -->
+<div class="mermaid">
+graph TD
+    subgraph Series RLC Circuit Example
+        E(E = 1000V) --> |closed at t=0| R[R = 100Ω]
+        R --> L[L = 4mH]
+        L --> C[C = 0.1μF]
+        C --> E
+    end
+</div>
 <p>The KVL equation for the circuit (in terms of charge $q$) is:
 $$L \frac{d^2q}{dt^2} + R \frac{dq}{dt} + \frac{1}{C} q = E(t)$$</p>
 <p>Plugging in the values:
