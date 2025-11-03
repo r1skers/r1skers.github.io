@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       Convolution and Sampling in Fourier and Laplace
     </h1>
-    <div class="post-meta"><span title='2025-11-03 10:17:00 +0900 JST'>November 3, 2025</span>&nbsp;·&nbsp;<span>3 min</span>
+    <div class="post-meta"><span title='2025-11-03 10:17:00 +0900 JST'>November 3, 2025</span>&nbsp;·&nbsp;<span>4 min</span>
 
 </div>
   </header> 
@@ -209,6 +209,8 @@ $$</p>
 <h4 id="122-synthesis-equation">1.2.2. Synthesis Equation<a hidden class="anchor" aria-hidden="true" href="#122-synthesis-equation">#</a></h4>
 <p>$$f(t) = \mathcal{F}^{-1}{F(\omega)} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} , d\omega$$</p>
 <h4 id="123-properties-of-the-fourier-transform">1.2.3. Properties of the Fourier Transform<a hidden class="anchor" aria-hidden="true" href="#123-properties-of-the-fourier-transform">#</a></h4>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Linearity Property<!-- raw HTML omitted --></p>
 <p>$$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$</p>
 <hr>
@@ -229,12 +231,58 @@ $$</p>
 <p>$$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$</p>
 <p>$$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$</p>
 <hr>
-<p>Duality Property<!-- raw HTML omitted --></p>
+<p><strong>Duality Property</strong><!-- raw HTML omitted --></p>
 <p>$$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$</p>
+<p>derivation:<!-- raw HTML omitted --></p>
+<p>According to Synthesis Equation</p>
+<p>$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} , d\omega$$</p>
+<p>We an get</p>
+<p>$$2\pi f(t) = \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} , d\omega$$</p>
+<p>Then Variable Substitution: $t$ -&gt; $-\omega$</p>
+<p>$$2\pi f(-\omega) = \int_{-\infty}^{\infty} F(\omega&rsquo;) e^{-j\omega \omega&rsquo;} , d\omega&rsquo;$$</p>
+<p>Because</p>
+<p>$$\mathcal{F}{F(t)} = \int_{-\infty}^{\infty} F(t&rsquo;) e^{-j\omega t&rsquo;} , dt&rsquo;$$</p>
+<p>Get</p>
+<p>$$\mathcal{F}{F(t)} = 2\pi f(-\omega)$$</p>
 <hr>
 <p>Conjugation Property<!-- raw HTML omitted --></p>
 <p>$$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$</p>
 <hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Dirac Delta Function</p>
+<p>$$\delta(t) \longleftrightarrow 1$$</p>
+<hr>
+<p>Shifted Dirac Delta</p>
+<p>$$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$</p>
+<hr>
+<p>Constant</p>
+<p>$$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$</p>
+<hr>
+<p>Complex Exponential</p>
+<p>$$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$</p>
+<hr>
+<p><strong>Periodic Dirac Comb</strong></p>
+<p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
+<p>We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal whicj we can use Fourier Series here:</p>
+<p>$$f(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$</p>
+<p>$$c_k = \frac{1}{T} \int_{T} f(t) e^{-jk\omega_0 t} , dt$$</p>
+<p>So we can get</p>
+<p>$$  c_k = \frac{1}{T} \int_{-T/2}^{T/2} \delta(t) e^{-jk\omega_0 t} , dt$$</p>
+<p>Because of $\delta$</p>
+<p>$$c_k =  \frac{1}{T}$$</p>
+<p>$$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\frac{1}{T}\right) e^{jk\omega_0 t}$$</p>
+<p>Now look at the right side</p>
+<p>$$\mathcal{F}\left{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \right} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\left{ e^{jk\omega_0 t} \right}$$</p>
+<p>According to the Complex Exponential</p>
+<p>$$  \mathcal{F}{e^{j\omega_A t}} = 2\pi \delta(\omega - \omega_A)$$</p>
+<p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
+<hr>
+<p>Parseval&rsquo;s Theorem</p>
+<p>$$\int_{-\infty}^{\infty} |f(t)|^2 , dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 , d\omega$$</p>
+<hr>
+<!-- raw HTML omitted -->
 <h2 id="2laplace">2.Laplace()<a hidden class="anchor" aria-hidden="true" href="#2laplace">#</a></h2>
 <h1 id="interesting-place">Interesting place<a hidden class="anchor" aria-hidden="true" href="#interesting-place">#</a></h1>
 <h2 id="1-12pai-between-ft-and-ift">1. 1/2pai between FT and IFT<a hidden class="anchor" aria-hidden="true" href="#1-12pai-between-ft-and-ift">#</a></h2>

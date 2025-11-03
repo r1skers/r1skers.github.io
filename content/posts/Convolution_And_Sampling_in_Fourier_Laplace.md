@@ -71,6 +71,11 @@ $e^{-j\omega t}$：This $e^{-j\omega t}$ is a 'factor'. The reason we use this '
 $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
 
 #### 1.2.3. Properties of the Fourier Transform
+
+<details>
+
+<summary>basics</summary>
+
 Linearity Property<br>
 
 $$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$
@@ -111,9 +116,31 @@ $$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$
 
 ***
 
-Duality Property<br>
+**Duality Property**<br>
 
 $$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$
+
+derivation:<br>
+
+According to Synthesis Equation
+
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
+
+We an get
+
+$$2\pi f(t) = \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
+
+Then Variable Substitution: $t$ -> $-\omega$
+
+$$2\pi f(-\omega) = \int_{-\infty}^{\infty} F(\omega') e^{-j\omega \omega'} \, d\omega'$$
+
+Because 
+
+$$\mathcal{F}\{F(t)\} = \int_{-\infty}^{\infty} F(t') e^{-j\omega t'} \, dt'$$
+
+Get
+
+$$\mathcal{F}\{F(t)\} = 2\pi f(-\omega)$$
 
 ***
 
@@ -121,6 +148,76 @@ Conjugation Property<br>
 
 $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 ***
+</details>
+
+<details>
+
+<summary>special</summary>
+
+Dirac Delta Function
+
+$$\delta(t) \longleftrightarrow 1$$
+
+***
+
+Shifted Dirac Delta
+
+$$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$
+
+***
+
+Constant
+
+$$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$
+
+***
+
+Complex Exponential
+
+$$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$
+
+***
+
+**Periodic Dirac Comb**
+
+$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
+
+We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal whicj we can use Fourier Series here:
+
+$$f(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$
+
+$$c_k = \frac{1}{T} \int_{T} f(t) e^{-jk\omega_0 t} \, dt$$
+
+So we can get 
+
+$$  c_k = \frac{1}{T} \int_{-T/2}^{T/2} \delta(t) e^{-jk\omega_0 t} \, dt$$
+
+Because of $\delta$
+
+$$c_k =  \frac{1}{T}$$
+
+$$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\frac{1}{T}\right) e^{jk\omega_0 t}$$
+
+Now look at the right side
+
+$$\mathcal{F}\left\{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \right\} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\left\{ e^{jk\omega_0 t} \right\}$$
+
+According to the Complex Exponential
+
+$$  \mathcal{F}\{e^{j\omega_A t}\} = 2\pi \delta(\omega - \omega_A)$$
+
+$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
+
+***
+
+Parseval's Theorem
+
+$$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \, d\omega$$
+
+***
+
+</details>
+
 
 ## 2.Laplace()
 
