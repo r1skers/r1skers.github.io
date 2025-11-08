@@ -170,6 +170,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">UART commmuniation analyse in vivado
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>[Important]Sth Important Here 1.Description 2.Detailed Analysis 2.1.uart_rx.v 2.1.1// Module: UART Receiver // Function: Convert serial RXD signal to 8-bit parallel data_out module uart_rx( input clk, input rxd, output reg [7:0] data_out, output reg data_valid ); parameter CLKS_PER_BIT = 5208; // Calculate (Clock Frequency / Baud Rate): For example, with FPGA clock at 50MHz and UART at 9600 baud, // FPGA needs 5208 clock cycles to receive one UART bit localparam STATE_IDLE = 0; localparam STATE_START = 1; localparam STATE_DATA = 2; localparam STATE_STOP = 3; // It&#39;s better to decide how many states we need.Here,We need four. reg [2:0] state = STATE_IDLE; // Initialize state register to hold 4 possible states (IDLE, START, DATA, STOP) reg [12:0] clk_counter = 0; // Clock counter, must be wide enough to hold 5208 cycles (needs 13 bits) reg [3:0] bit_counter = 0; // Counts received data bits (0 to 7, one byte) reg [7:0] data_reg = 0; // Temporary register to hold incoming data bits ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-08 10:17:00 +0900 JST'>November 8, 2025</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <a class="entry-link" aria-label="post link to UART commmuniation analyse in vivado" href="http://localhost:1313/posts/uart_communication_analyse/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Convolution and Sampling in Fourier and Laplace
     </h2>
   </header>
