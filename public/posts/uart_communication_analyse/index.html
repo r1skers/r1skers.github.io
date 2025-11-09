@@ -7,54 +7,21 @@
 <meta name="robots" content="noindex, nofollow">
 <title>UART commmuniation analyse in vivado | r1skers&#39; Blog</title>
 <meta name="keywords" content="basic, markdown, UART">
-<meta name="description" content="[Important]Sth Important Here
+<meta name="description" content="[Important] Key Concept
+1.The reason why we have to calculate (Frequency / Baud Rate) - See Section 2.1.1
+2.The reason why we use data_valid here - See Section 2.1.1
+3.The reason why we need another state_IDLE at the end of 2.2.2 - See Section 2.2.2
 
 1.Description
+Short overview: minimal UART RX &#43; simple command parser for FPGA.
+
+Goal: show a synthesizable UART receiver (uart_rx), a byte-oriented command_parser that recognizes &ldquo;ON&rdquo;/&ldquo;OFF&rdquo;, and a small fpga_top that wires them.
+Key idea: uart_rx asserts data_valid when a full byte is ready; the parser samples only on that strobe.
+
 2.Detailed Analysis
 2.1.uart_rx.v
 
-
-
-  
-
-
-
-
-  
-
-
-
-
-
-  2.1.1
-  // Module: UART Receiver
-// Function: Convert serial RXD signal to 8-bit parallel data_out 
-module uart_rx(
-    input             clk,        
-    input             rxd,        
-    output reg [7:0]  data_out,   
-    output reg        data_valid  
-    );
-
-    parameter CLKS_PER_BIT = 5208;
-    // Calculate (Clock Frequency / Baud Rate): For example, with FPGA clock at 50MHz and UART at 9600 baud,
-    // FPGA needs 5208 clock cycles to receive one UART bit
-    
-    localparam STATE_IDLE = 0;
-    localparam STATE_START = 1;
-    localparam STATE_DATA = 2;
-    localparam STATE_STOP = 3;
-    // It&#39;s better to decide how many states we need.Here,We need four.
-    reg [2:0] state = STATE_IDLE;
-    // Initialize state register to hold 4 possible states (IDLE, START, DATA, STOP)
-    reg [12:0] clk_counter = 0;
-    // Clock counter, must be wide enough to hold 5208 cycles (needs 13 bits)
-    reg [3:0] bit_counter = 0;
-    // Counts received data bits (0 to 7, one byte)
-    reg [7:0] data_reg = 0;
-    // Temporary register to hold incoming data bits
-
-">
+This section contains uart_rx (UART receiver) — very short summary:">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/uart_communication_analyse/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
@@ -198,15 +165,31 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       UART commmuniation analyse in vivado
     </h1>
-    <div class="post-meta"><span title='2025-11-08 10:17:00 +0900 JST'>November 8, 2025</span>&nbsp;·&nbsp;<span>4 min</span>
+    <div class="post-meta"><span title='2025-11-08 10:17:00 +0900 JST'>November 8, 2025</span>&nbsp;·&nbsp;<span>6 min</span>
 
 </div>
   </header> 
-  <div class="post-content"><h1 id="importantsth-important-here">[Important]Sth Important Here<a hidden class="anchor" aria-hidden="true" href="#importantsth-important-here">#</a></h1>
+  <div class="post-content"><h1 id="important-key-concept">[Important] Key Concept<a hidden class="anchor" aria-hidden="true" href="#important-key-concept">#</a></h1>
+<p>1.The reason why we have to calculate (Frequency / Baud Rate) - <a href="#211">See Section 2.1.1</a><br>
+2.The reason why we use data_valid here - <a href="#211">See Section 2.1.1</a><br>
+3.The reason why we need another state_IDLE at the end of 2.2.2 - <a href="#222">See Section 2.2.2</a><br></p>
 <hr>
 <h1 id="1description">1.Description<a hidden class="anchor" aria-hidden="true" href="#1description">#</a></h1>
+<p>Short overview: minimal UART RX + simple command parser for FPGA.</p>
+<ul>
+<li>Goal: show a synthesizable UART receiver (<code>uart_rx</code>), a byte-oriented <code>command_parser</code> that recognizes &ldquo;ON&rdquo;/&ldquo;OFF&rdquo;, and a small <code>fpga_top</code> that wires them.</li>
+<li>Key idea: <code>uart_rx</code> asserts <code>data_valid</code> when a full byte is ready; the parser samples only on that strobe.</li>
+</ul>
 <h1 id="2detailed-analysis">2.Detailed Analysis<a hidden class="anchor" aria-hidden="true" href="#2detailed-analysis">#</a></h1>
 <h2 id="21uart_rxv">2.1.uart_rx.v<a hidden class="anchor" aria-hidden="true" href="#21uart_rxv">#</a></h2>
+<p><a id="211"></a>
+This section contains <code>uart_rx</code> (UART receiver) — very short summary:</p>
+<ul>
+<li>Purpose: sample <code>rxd</code>, detect start, read 8 data bits, check stop, and assert <code>data_valid</code> with <code>data_out</code>.</li>
+<li>Tuning: set <code>CLKS_PER_BIT = ClockHz / BaudRate</code> so sampling hits bit centers.</li>
+<li>Ports: <code>clk</code>, <code>rxd</code>, <code>data_out[7:0]</code>, <code>data_valid</code>.</li>
+</ul>
+<p>Notes: FSM = IDLE → START → DATA → STOP. If stop bit fails, data_valid is not asserted (frame error).
 
 
 
@@ -234,6 +217,9 @@ document.addEventListener("DOMContentLoaded", function() {
 </span></span><span style="display:flex;"><span>    parameter <span style="color:#a6e22e">CLKS_PER_BIT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5208</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Calculate (Clock Frequency / Baud Rate): For example, with FPGA clock at 50MHz and UART at 9600 baud,
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// FPGA needs 5208 clock cycles to receive one UART bit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Explanation (Key Concept #1): CLKS_PER_BIT = ClockFrequency / BaudRate. This value sets how
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// many system clock cycles correspond to one UART bit. Use it to time sampling so the receiver
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// samples near the middle of each bit period for best reliability.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
 </span></span><span style="display:flex;"><span>    localparam <span style="color:#a6e22e">STATE_IDLE</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>    localparam <span style="color:#a6e22e">STATE_START</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
@@ -250,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Temporary register to hold incoming data bits
 </span></span></span></code></pre></div>
 </details></p>
-
+</p>
 
 
 
@@ -295,6 +281,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </span></span><span style="display:flex;"><span>            
 </span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">STATE_START</span>: begin 
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// CLKS_PER_BIT / 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// Explanation: sample the start bit at half a bit time to confirm a valid start and
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// align subsequent samples to the center of each data bit.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(clk_counter <span style="color:#f92672">==</span> (<span style="color:#a6e22e">CLKS_PER_BIT</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)) begin
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span>(rxd <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) begin 
 </span></span><span style="display:flex;"><span>                        state <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">STATE_DATA</span>; 
@@ -327,7 +315,10 @@ document.addEventListener("DOMContentLoaded", function() {
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(clk_counter <span style="color:#f92672">==</span> <span style="color:#a6e22e">CLKS_PER_BIT</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) begin
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span>(rxd <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) begin 
 </span></span><span style="display:flex;"><span>                        data_out <span style="color:#f92672">&lt;=</span> data_reg; 
-</span></span><span style="display:flex;"><span>                        data_valid <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>; 
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">// Explanation (Key Concept #2): Assert data_valid as a one-cycle strobe to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                        <span style="color:#75715e">// indicate that data_out is stable and ready for downstream logic to latch.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                        <span style="color:#75715e">// Consumers should sample data_out only when data_valid is high.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                        data_valid <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>; 
 </span></span><span style="display:flex;"><span>                    end
 </span></span><span style="display:flex;"><span>                    state <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">STATE_IDLE</span>; 
 </span></span><span style="display:flex;"><span>                end <span style="color:#66d9ef">else</span> begin
@@ -344,6 +335,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </details></p>
 
 <h2 id="22command_parserv">2.2.command_parser.v<a hidden class="anchor" aria-hidden="true" href="#22command_parserv">#</a></h2>
+<p><a id="222"></a>
+Short summary of <code>command_parser</code>:</p>
+<ul>
+<li>Purpose: simple FSM that reads bytes on <code>data_valid</code> and recognizes &ldquo;ON&rdquo; / &ldquo;OFF&rdquo; to set <code>led_out</code>.</li>
+<li>Ports: <code>clk</code>, <code>rst</code>, <code>data_in[7:0]</code>, <code>data_valid</code>, <code>led_out</code>.</li>
+<li>FSM: IDLE → GOT_O → GOT_OF. Uses ASCII compares (e.g., <code>8'h4F</code> for &lsquo;O&rsquo;).
 
 
 
@@ -378,9 +375,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    localparam STATE_GOT_OF = 2; 
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    reg [1:0] state = STATE_IDLE;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    // Explanation (Key Concept #3): Start in IDLE and return to IDLE after completing a command so
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    // the parser is ready to detect the next command sequence. The explicit return-to-IDLE at the
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    // end of a recognized sequence avoids accidental re-entry and makes the protocol edge-driven.
 </span></span></span></code></pre></div>
 </details></p>
-
+</li>
+</ul>
 
 
 
@@ -454,6 +455,11 @@ document.addEventListener("DOMContentLoaded", function() {
 </details></p>
 
 <h2 id="23fpga_topv">2.3.fpga_top.v<a hidden class="anchor" aria-hidden="true" href="#23fpga_topv">#</a></h2>
+<p><code>fpga_top</code> (very short):</p>
+<ul>
+<li>Purpose: wire <code>uart_rx</code> → <code>command_parser</code> and expose <code>led_out</code>.</li>
+<li>Reminder: tie <code>CLKS_PER_BIT</code> to your clock/baud, and add a real reset (<code>rst</code>) on hardware.</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-v" data-lang="v"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">module</span> <span style="color:#a6e22e">fpga_top</span>(
 </span></span><span style="display:flex;"><span>    input clk_in,  

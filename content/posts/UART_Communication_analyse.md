@@ -6,11 +6,26 @@ tags: ["basic", "markdown","UART"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
 
-# [Important]Sth Important Here
+# [Important] Key Concept
+1.The reason why we have to calculate (Frequency / Baud Rate) - [See Section 2.1.1](#211)<br>
+2.The reason why we use data_valid here - [See Section 2.1.1](#211)<br>
 ***
 # 1.Description
+Short overview: minimal UART RX + simple command parser for FPGA.
+
+- Goal: show a synthesizable UART receiver (`uart_rx`), a byte-oriented `command_parser` that recognizes "ON"/"OFF", and a small `fpga_top` that wires them.
+- Key idea: `uart_rx` asserts `data_valid` when a full byte is ready; the parser samples only on that strobe.
+
 # 2.Detailed Analysis
 ## 2.1.uart_rx.v
+<a id="211"></a>
+This section contains `uart_rx` (UART receiver) — very short summary:
+
+- Purpose: sample `rxd`, detect start, read 8 data bits, check stop, and assert `data_valid` with `data_out`.
+- Tuning: set `CLKS_PER_BIT = ClockHz / BaudRate` so sampling hits bit centers.
+- Ports: `clk`, `rxd`, `data_out[7:0]`, `data_valid`.
+
+Notes: FSM = IDLE → START → DATA → STOP. If stop bit fails, data_valid is not asserted (frame error).
 {{< details "2.1.1" open >}} 
 ```v
 // Module: UART Receiver
@@ -25,6 +40,9 @@ module uart_rx(
     parameter CLKS_PER_BIT = 5208;
     // Calculate (Clock Frequency / Baud Rate): For example, with FPGA clock at 50MHz and UART at 9600 baud,
     // FPGA needs 5208 clock cycles to receive one UART bit
+    // Explanation (Key Concept #1): CLKS_PER_BIT = ClockFrequency / BaudRate. This value sets how
+    // many system clock cycles correspond to one UART bit. Use it to time sampling so the receiver
+    // samples near the middle of each bit period for best reliability.
     
     localparam STATE_IDLE = 0;
     localparam STATE_START = 1;
@@ -43,7 +61,6 @@ module uart_rx(
 {{< /details >}}
 
 {{< details "2.1.2" open >}}
-
 ```mermaid
 graph TD
     A[STATE_IDLE] -- "rxd == 0 (Start bit detected)" --> B(STATE_START)
@@ -64,7 +81,10 @@ graph TD
 ```
 ```v
 always @(posedge clk) begin
-        data_valid <= 0; 
+    // Key Concept #2: default data_valid to 0 at each clock; assert it only when a full,
+    // valid byte has been captured. Downstream modules should sample `data_out` only when
+    // `data_valid` is high (one-cycle strobe).
+    data_valid <= 0; 
 
         case(state)
             STATE_IDLE: begin
@@ -76,13 +96,15 @@ always @(posedge clk) begin
             
             STATE_START: begin 
                 // CLKS_PER_BIT / 2
+                // Explanation: sample the start bit at half a bit time to confirm a valid start and
+                // align subsequent samples to the center of each data bit.
                 if(clk_counter == (CLKS_PER_BIT / 2)) begin
                     if(rxd == 0) begin 
                         state <= STATE_DATA; 
                         clk_counter <= 0; 
                         bit_counter <= 0;   
                     end else begin
-                        state <= STATE_IDLE; 
+                        state <= STATE_IDLE;
                     end
                 end else begin
                     clk_counter <= clk_counter + 1;
@@ -125,6 +147,12 @@ always @(posedge clk) begin
 {{< /details >}}
 
 ## 2.2.command_parser.v
+<a id="222"></a>
+Short summary of `command_parser`:
+
+- Purpose: simple FSM that reads bytes on `data_valid` and recognizes "ON" / "OFF" to set `led_out`.
+- Ports: `clk`, `rst`, `data_in[7:0]`, `data_valid`, `led_out`.
+- FSM: IDLE → GOT_O → GOT_OF. Uses ASCII compares (e.g., `8'h4F` for 'O').
 {{< details "2.2.1" open >}} 
 
 ```v
@@ -152,7 +180,6 @@ module command_parser(
 {{< /details >}}
 
 {{< details "2.2.2" open >}} 
-
 ```mermaid
 graph TD
     A(Current: STATE_IDLE) -- "Received new char 'O'" --> B(Go to: STATE_GOT_O)
@@ -218,6 +245,11 @@ always @(posedge clk) begin
 {{< /details >}}
 
 ## 2.3.fpga_top.v
+`fpga_top` (very short):
+
+- Purpose: wire `uart_rx` → `command_parser` and expose `led_out`.
+- Reminder: tie `CLKS_PER_BIT` to your clock/baud, and add a real reset (`rst`) on hardware.
+
 ```v
 
 module fpga_top(

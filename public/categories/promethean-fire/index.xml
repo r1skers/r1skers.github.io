@@ -13,52 +13,21 @@
       <link>http://localhost:1313/posts/uart_communication_analyse/</link>
       <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/uart_communication_analyse/</guid>
-      <description>&lt;h1 id=&#34;1description&#34;&gt;1.Description&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;important-key-concept&#34;&gt;[Important] Key Concept&lt;/h1&gt;
+&lt;p&gt;1.The reason why we have to calculate (Frequency / Baud Rate) - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
+2.The reason why we use data_valid here - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
+3.The reason why we need another state_IDLE at the end of 2.2.2 - &lt;a href=&#34;#222&#34;&gt;See Section 2.2.2&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;1description&#34;&gt;1.Description&lt;/h1&gt;
+&lt;p&gt;Short overview: minimal UART RX + simple command parser for FPGA.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Goal: show a synthesizable UART receiver (&lt;code&gt;uart_rx&lt;/code&gt;), a byte-oriented &lt;code&gt;command_parser&lt;/code&gt; that recognizes &amp;ldquo;ON&amp;rdquo;/&amp;ldquo;OFF&amp;rdquo;, and a small &lt;code&gt;fpga_top&lt;/code&gt; that wires them.&lt;/li&gt;
+&lt;li&gt;Key idea: &lt;code&gt;uart_rx&lt;/code&gt; asserts &lt;code&gt;data_valid&lt;/code&gt; when a full byte is ready; the parser samples only on that strobe.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;2detailed-analysis&#34;&gt;2.Detailed Analysis&lt;/h1&gt;
 &lt;h2 id=&#34;21uart_rxv&#34;&gt;2.1.uart_rx.v&lt;/h2&gt;
-
-
-
-  
-
-
-
-
-  
-
-
-
-
-&lt;p&gt;&lt;details  open=true &gt;
-  &lt;summary markdown=&#34;span&#34;&gt;2.1.1&lt;/summary&gt;
-  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-v&#34; data-lang=&#34;v&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Module: UART Receiver
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Function: Convert serial RXD signal to 8-bit parallel data_out 
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;module&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uart_rx&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    input             clk,        
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    input             rxd,        
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    output reg [&lt;span style=&#34;color:#a6e22e&#34;&gt;7&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;0&lt;/span&gt;]  data_out,   
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    output reg        data_valid  
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    parameter &lt;span style=&#34;color:#a6e22e&#34;&gt;CLKS_PER_BIT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5208&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Calculate (Clock Frequency / Baud Rate): For example, with FPGA clock at 50MHz and UART at 9600 baud,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// FPGA needs 5208 clock cycles to receive one UART bit
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    localparam &lt;span style=&#34;color:#a6e22e&#34;&gt;STATE_IDLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    localparam &lt;span style=&#34;color:#a6e22e&#34;&gt;STATE_START&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    localparam &lt;span style=&#34;color:#a6e22e&#34;&gt;STATE_DATA&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    localparam &lt;span style=&#34;color:#a6e22e&#34;&gt;STATE_STOP&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// It&amp;#39;s better to decide how many states we need.Here,We need four.
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    reg [&lt;span style=&#34;color:#a6e22e&#34;&gt;2&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;0&lt;/span&gt;] state &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;STATE_IDLE&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Initialize state register to hold 4 possible states (IDLE, START, DATA, STOP)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    reg [&lt;span style=&#34;color:#a6e22e&#34;&gt;12&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;0&lt;/span&gt;] clk_counter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Clock counter, must be wide enough to hold 5208 cycles (needs 13 bits)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    reg [&lt;span style=&#34;color:#a6e22e&#34;&gt;3&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;0&lt;/span&gt;] bit_counter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Counts received data bits (0 to 7, one byte)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    reg [&lt;span style=&#34;color:#a6e22e&#34;&gt;7&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;0&lt;/span&gt;] data_reg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Temporary register to hold incoming data bits
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/details&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a id=&#34;211&#34;&gt;&lt;/a&gt;
+This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Convolution and Sampling in Fourier and Laplace</title>
