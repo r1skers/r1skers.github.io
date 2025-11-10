@@ -9,14 +9,13 @@
     <lastBuildDate>Sat, 08 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>UART commmuniation analyse in vivado</title>
-      <link>http://localhost:1313/posts/uart_communication_analyse/</link>
+      <title>UART Communication Analysis in Vivado</title>
+      <link>http://localhost:1313/posts/uart_communication_analysis/</link>
       <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/uart_communication_analyse/</guid>
+      <guid>http://localhost:1313/posts/uart_communication_analysis/</guid>
       <description>&lt;h1 id=&#34;important-key-concept&#34;&gt;[Important] Key Concept&lt;/h1&gt;
 &lt;p&gt;1.The reason why we have to calculate (Frequency / Baud Rate) - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
-2.The reason why we use data_valid here - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
-3.The reason why we need another state_IDLE at the end of 2.2.2 - &lt;a href=&#34;#222&#34;&gt;See Section 2.2.2&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+2.The reason why we use data_valid here - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;1description&#34;&gt;1.Description&lt;/h1&gt;
 &lt;p&gt;Short overview: minimal UART RX + simple command parser for FPGA.&lt;/p&gt;
