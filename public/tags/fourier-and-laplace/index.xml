@@ -18,8 +18,22 @@
 &lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
 &lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
 &lt;h2 id=&#34;3-fourier&#34;&gt;3. Fourier&lt;/h2&gt;
-&lt;h3 id=&#34;31fourier-series&#34;&gt;3.1.Fourier series&lt;/h3&gt;
-&lt;p&gt;A Fourier Series is a mathematical tool used to decompose any &amp;ldquo;well-behaved&amp;rdquo; periodic signal into a sum of simple, pure sinusoids (sines and cosines).&lt;/p&gt;
+&lt;p&gt;
+
+
+  
+
+
+
+
+  
+
+
+
+
+&lt;p&gt;&lt;details  open=true &gt;
+  &lt;summary markdown=&#34;span&#34;&gt;Fourier series&lt;/summary&gt;
+  &lt;p&gt;A Fourier Series is a mathematical tool used to decompose any &amp;ldquo;well-behaved&amp;rdquo; periodic signal into a sum of simple, pure sinusoids (sines and cosines).&lt;/p&gt;
 &lt;h4 id=&#34;significance-why-is-it-so-important-in-engineering&#34;&gt;Significance: Why is it so important in Engineering?&lt;/h4&gt;
 &lt;p&gt;Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.&lt;br&gt;
 Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&amp;rsquo;s underlying structure.&lt;br&gt;
