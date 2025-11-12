@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <h2 id="2-sampling">2. Sampling()<a hidden class="anchor" aria-hidden="true" href="#2-sampling">#</a></h2>
 <h2 id="3-fourier">3. Fourier<a hidden class="anchor" aria-hidden="true" href="#3-fourier">#</a></h2>
 <details>
-  <summary>Fourier series</summary>
+  <summary style="font-size: 30px;">Fourier series</summary>
 A Fourier Series is a mathematical tool used to decompose any "well-behaved" periodic signal into a sum of simple, pure sinusoids (sines and cosines).
 #### Significance: Why is it so important in Engineering?
 Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.<br>
@@ -193,14 +193,14 @@ Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage
 Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal's "spectrum"—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.
 </details>
 <details >
-  <summary>Fourier transform</summary>
+  <summary style="font-size: 30px;">Fourier transform</summary>
 We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).
 </details>
 <h2 id="4-laplace">4. Laplace<a hidden class="anchor" aria-hidden="true" href="#4-laplace">#</a></h2>
 <h1 id="key-formulas">Key Formulas<a hidden class="anchor" aria-hidden="true" href="#key-formulas">#</a></h1>
 <h2 id="1-fourier">1. Fourier<a hidden class="anchor" aria-hidden="true" href="#1-fourier">#</a></h2>
 <details>
-  <summary>Fourier series</summary>
+  <summary style="font-size: 30px;">Fourier series</summary>
 <p>$$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$</p>
 <p>$\frac{a_0}{2}$ here represents the average value (or DC component) of the signal $f(t)$. This value is calculated by finding the &rsquo;net area&rsquo; under the $f(t)$ curve within one period and dividing by the period $T$.<br>
 The coefficient $a_0$ itself is calculated as twice this average value:</p>
@@ -221,18 +221,18 @@ $$</p>
 <p>$$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} , dt$$</p>
 </details>
 <details>
-  <summary>Fourier transform</summary>
+  <summary style="font-size: 30px;">Fourier transform</summary>
 <details>
-  <summary>Analysis Equation</summary>
+  <summary style="font-size: 20px;">Analysis Equation</summary>
 $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt$$
 <p>$e^{-j\omega t}$：This $e^{-j\omega t}$ is a &lsquo;factor&rsquo;. The reason we use this &lsquo;factor&rsquo; to multiply the signal is to seeing how much of the original signal satisfies the trigonometric function component。</p>
 </details>
 <details>
-  <summary>Synthesis Equation</summary>
+  <summary style="font-size: 20px;">Synthesis Equation</summary>
 <p>$$f(t) = \mathcal{F}^{-1}{F(\omega)} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} , d\omega$$</p>
 </details>
 <details>
-  <summary>Properties of the Fourier Transform</summary>
+  <summary style="font-size: 20px;">Properties of the Fourier Transform</summary>
 <details>
   <summary>basics</summary>
 <h5 id="linearity-property">Linearity Property<br><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h5>

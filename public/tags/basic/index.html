@@ -173,30 +173,13 @@ Goal: show a synthesizable UART receiver (uart_rx), a byte-oriented command_pars
   </header>
   <div class="entry-content">
     <p>Concepts Introdutions 1. Convolution the process of “mixing” or “modifying” one signal with another.
-2. Sampling() 3. Fourier Fourier seriesA Fourier Series is a mathematical tool used to decompose any “well-behaved” periodic signal into a sum of simple, pure sinusoids (sines and cosines).
-Significance: Why is it so important in Engineering? Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.
-Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal’s underlying structure.
-Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal’s “spectrum”—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.
+2. Sampling() 3. Fourier Fourier seriesA Fourier Series is a mathematical tool used to decompose any &#34;well-behaved&#34; periodic signal into a sum of simple, pure sinusoids (sines and cosines).#### Significance: Why is it so important in Engineering?Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.
+Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&#39;s underlying structure.
+Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&#39;s &#34;spectrum&#34;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.Fourier transformWe find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).4. Laplace Key Formulas 1. Fourier Fourier series$$f(t) = \frac{a_0}{2} &#43; \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) &#43; b_n \sin(n\omega_0 t) \right)$$
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-11-03 10:17:00 +0900 JST'>November 3, 2025</span>&nbsp;·&nbsp;<span>4 min</span></footer>
   <a class="entry-link" aria-label="post link to Convolution and Sampling in Fourier and Laplace" href="http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Convolution and Sampling in Fourier and Laplace
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Concepts Introdutions 1. Convolution the process of “mixing” or “modifying” one signal with another.
-2. Sampling() 3. Fourier Fourier series A Fourier Series is a mathematical tool used to decompose any &#34;well-behaved&#34; periodic signal into a sum of simple, pure sinusoids (sines and cosines). #### Significance: Why is it so important in Engineering? Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.
-Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&#39;s underlying structure.
-Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&#39;s &#34;spectrum&#34;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is. Fourier transform We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ). ## 4. Laplace Key Formulas 1. Fourier Fourier series $$f(t) = \frac{a_0}{2} &#43; \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) &#43; b_n \sin(n\omega_0 t) \right)$$
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-11-03 10:17:00 +0900 JST'>November 3, 2025</span>&nbsp;·&nbsp;<span>4 min</span></footer>
-  <a class="entry-link" aria-label="post link to Convolution and Sampling in Fourier and Laplace" href="http://localhost:1313/posts/first/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -211,6 +194,26 @@ This process, especially finding the current $i(t) = \frac{dq}{dt}$, often invol
   </div>
   <footer class="entry-footer"><span title='2025-10-29 19:01:21 +0900 JST'>October 29, 2025</span>&nbsp;·&nbsp;<span>6 min</span></footer>
   <a class="entry-link" aria-label="post link to RLC Circuit Analysis: A Comparison of Differential Equation and Laplace" href="http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/img/avatar.jpg" alt="This is maodie">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Markdown Functionality Test (LaTeX and Mermaid)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This post specifically tests the Markdown capabilities of this site, such as LaTeX and Mermaid.
+1. LaTeX Test psi function： $ \Psi(x, t) $。
+Schrödinger equation： $$ \begin{aligned} &amp;i\hbar\frac{\partial}{\partial t}\Psi(x, t) = \left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} &#43; V(x, t) \right]\Psi(x, t) \end{aligned} $$
+2. Mermaid Test Important： ```mermaid：
+flowchart LR A[Hard]--&gt;B{Decision} B--&gt;C[Result 1] B--&gt;E[Result 2] 3. Markdown Test Supported by Markdown
+#include &lt;stdio.h&gt; int main() { // 这应该会自动高亮 printf(&#34;Hello, World!\n&#34;); return 0; } 这个默认是展开的…内容…...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-10-29 17:01:21 +0900 JST'>October 29, 2025</span>&nbsp;·&nbsp;<span>1 min</span></footer>
+  <a class="entry-link" aria-label="post link to Markdown Functionality Test (LaTeX and Mermaid)" href="http://localhost:1313/posts/first/"></a>
 </article>
     </main>
     

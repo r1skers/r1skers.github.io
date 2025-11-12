@@ -13,7 +13,7 @@ the process of "**mixing**" or "**modifying**" one signal with another.
 ## 2. Sampling()
 ## 3. Fourier
 <details>
-  <summary>Fourier series</summary>
+  <summary style="font-size: 30px;">Fourier series</summary>
 A Fourier Series is a mathematical tool used to decompose any "well-behaved" periodic signal into a sum of simple, pure sinusoids (sines and cosines).
 #### Significance: Why is it so important in Engineering?
 Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.<br>
@@ -23,7 +23,7 @@ Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The 
 </details>
 
 <details >
-  <summary>Fourier transform</summary>
+  <summary style="font-size: 30px;">Fourier transform</summary>
 We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).
 </details>
 
@@ -35,7 +35,7 @@ We find that the Fourier Series cannot be directly applied to aperiodic signals.
 
 
 <details>
-  <summary>Fourier series</summary>
+  <summary style="font-size: 30px;">Fourier series</summary>
 
 $$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$
 
@@ -70,21 +70,21 @@ $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \, dt$$
 </details>
 
 <details>
-  <summary>Fourier transform</summary>
+  <summary style="font-size: 30px;">Fourier transform</summary>
 
 <details>
-  <summary>Analysis Equation</summary>
+  <summary style="font-size: 20px;">Analysis Equation</summary>
 $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt$$
 
 $e^{-j\omega t}$：This $e^{-j\omega t}$ is a 'factor'. The reason we use this 'factor' to multiply the signal is to seeing how much of the original signal satisfies the trigonometric function component。
 </details>
 <details>
-  <summary>Synthesis Equation</summary>
+  <summary style="font-size: 20px;">Synthesis Equation</summary>
 
 $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
 </details>
 <details>
-  <summary>Properties of the Fourier Transform</summary>
+  <summary style="font-size: 20px;">Properties of the Fourier Transform</summary>
 <details>
   <summary>basics</summary>
 
