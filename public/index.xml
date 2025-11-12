@@ -33,7 +33,10 @@ This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very 
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
       <pubDate>Mon, 03 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;interesting-place&#34;&gt;Interesting place&lt;/h1&gt;
+&lt;h2 id=&#34;1-12pai-between-ft-and-ift&#34;&gt;1. 1/2pai between FT and IFT&lt;/h2&gt;
+&lt;h2 id=&#34;2-analysis-equation-is-a-kind-of-correlation&#34;&gt;2. Analysis Equation is a kind of correlation&lt;/h2&gt;
+&lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
 &lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
 &lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
 &lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;

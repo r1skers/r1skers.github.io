@@ -6,6 +6,10 @@ tags: ["basic", "markdown","Fourier and Laplace"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
 
+# Interesting place
+## 1. 1/2pai between FT and IFT
+## 2. Analysis Equation is a kind of correlation
+
 # Concepts Introdutions
 
 ## 1. Convolution
@@ -237,6 +241,3 @@ $$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty
 ## 2.Laplace()
 
 
-# Interesting place
-## 1. 1/2pai between FT and IFT
-## 2. Analysis Equation is a kind of correlation
