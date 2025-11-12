@@ -33,33 +33,21 @@ This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very 
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
       <pubDate>Mon, 03 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;h1 id=&#34;interesting-place&#34;&gt;Interesting place&lt;/h1&gt;
-&lt;h2 id=&#34;1-12pai-between-ft-and-ift&#34;&gt;1. 1/2pai between FT and IFT&lt;/h2&gt;
-&lt;h2 id=&#34;2-analysis-equation-is-a-kind-of-correlation&#34;&gt;2. Analysis Equation is a kind of correlation&lt;/h2&gt;
+      <description>&lt;details&gt;
+    &lt;summary style=&#34;font-size: 25px;&#34;&gt;Interesting place&lt;/summary&gt;
+    &lt;p&gt;1. 1/2pai between FT and IFT&lt;p&gt;
+    &lt;p&gt;2. Analysis Equation is a kind of correlation&lt;p&gt;
+&lt;/details&gt;
 &lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
 &lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
 &lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
 &lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
-&lt;h2 id=&#34;3-fourier&#34;&gt;3. Fourier&lt;/h2&gt;
+&lt;h2 id=&#34;3-differences-between-ftfourier-transform-and-ltlaplace-transform&#34;&gt;3. Differences between FT(Fourier Transform) and LT(Laplace Transform)&lt;/h2&gt;
+&lt;p&gt;$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$&lt;/p&gt;
+&lt;p&gt;$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$&lt;/p&gt;
 &lt;details&gt;
-  &lt;summary style=&#34;font-size: 30px;&#34;&gt;Fourier series&lt;/summary&gt;
-A Fourier Series is a mathematical tool used to decompose any &#34;well-behaved&#34; periodic signal into a sum of simple, pure sinusoids (sines and cosines).
-#### Significance: Why is it so important in Engineering?
-Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.&lt;br&gt;
-Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&#39;s underlying structure.&lt;br&gt;
-&lt;br&gt;
-Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&#39;s &#34;spectrum&#34;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.
-&lt;/details&gt;
-&lt;details &gt;
-  &lt;summary style=&#34;font-size: 30px;&#34;&gt;Fourier transform&lt;/summary&gt;
-We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).
-&lt;/details&gt;
-&lt;h2 id=&#34;4-laplace&#34;&gt;4. Laplace&lt;/h2&gt;
-&lt;h1 id=&#34;key-formulas&#34;&gt;Key Formulas&lt;/h1&gt;
-&lt;h2 id=&#34;1-fourier&#34;&gt;1. Fourier&lt;/h2&gt;
-&lt;details&gt;
-  &lt;summary style=&#34;font-size: 30px;&#34;&gt;Fourier series&lt;/summary&gt;
-&lt;p&gt;$$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$&lt;/p&gt;</description>
+    &lt;summary style=&#34;font-size:25px;&#34;&gt;Difference in Kernal:&lt;/summary&gt;
+&lt;p&gt;$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace</title>

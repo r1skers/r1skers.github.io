@@ -5,41 +5,47 @@ title: 'Convolution and Sampling in Fourier and Laplace'
 tags: ["basic", "markdown","Fourier and Laplace"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
+<details>
+    <summary style="font-size: 25px;">Interesting place</summary>
+    <p>1. 1/2pai between FT and IFT<p>
+    <p>2. Analysis Equation is a kind of correlation<p>
 
-# Interesting place
-## 1. 1/2pai between FT and IFT
-## 2. Analysis Equation is a kind of correlation
+</details>
+
 
 # Concepts Introdutions
 
 ## 1. Convolution
 the process of "**mixing**" or "**modifying**" one signal with another.
 ## 2. Sampling()
-## 3. Fourier
+## 3. Differences between FT(Fourier Transform) and LT(Laplace Transform)
+
+$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \, dt$$
+
+$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \, dt$$
 <details>
-  <summary style="font-size: 30px;">Fourier series</summary>
-A Fourier Series is a mathematical tool used to decompose any "well-behaved" periodic signal into a sum of simple, pure sinusoids (sines and cosines).
-#### Significance: Why is it so important in Engineering?
-Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.<br>
-Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal's underlying structure.<br>
-<br>
-Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal's "spectrum"—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.
+    <summary style="font-size:25px;">Difference in Kernal:</summary>
+
+$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$
+
+$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}\_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}\_{\text{Oscillation}}$$
+
+The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these "never-decaying" pure sine/cosine waves.<br>
+The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these "oscillating waves that can decay or grow.
 </details>
 
-<details >
-  <summary style="font-size: 30px;">Fourier transform</summary>
-We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).
+<details>
+    <summary style="font-size:25px;">Difference in range:</summary>
+    <strong>FT</strong>:由公式可以看出傅里叶变换的上下限是双无穷，这是一个双边变换，一般用来分析永恒信号，分析那些没有起点的的信号，例如广播。<br>
+    <strong>LT</strong>:由公式可以看出拉普拉斯变换的上下限是0到正无穷，这是一个单边变换，完美模拟现实情况（时间不可能小于0）因此可以用来解决初始值问题.
 </details>
-
-## 4. Laplace
-
 
 # Key Formulas
 ## 1. Fourier
 
 
 <details>
-  <summary style="font-size: 30px;">Fourier series</summary>
+  <summary style="font-size: 25px;">Fourier series</summary>
 
 $$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$
 
@@ -74,7 +80,7 @@ $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \, dt$$
 </details>
 
 <details>
-  <summary style="font-size: 30px;">Fourier transform</summary>
+  <summary style="font-size: 25px;">Fourier transform</summary>
 
 <details>
   <summary style="font-size: 20px;">Analysis Equation</summary>

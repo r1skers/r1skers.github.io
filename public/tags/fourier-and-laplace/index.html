@@ -156,10 +156,10 @@ document.addEventListener("DOMContentLoaded", function() {
     </h2>
   </header>
   <div class="entry-content">
-    <p>Concepts Introdutions 1. Convolution the process of “mixing” or “modifying” one signal with another.
-2. Sampling() 3. Fourier Fourier seriesA Fourier Series is a mathematical tool used to decompose any &#34;well-behaved&#34; periodic signal into a sum of simple, pure sinusoids (sines and cosines).#### Significance: Why is it so important in Engineering?Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.
-Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&#39;s underlying structure.
-Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&#39;s &#34;spectrum&#34;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.Fourier transformWe find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).4. Laplace Key Formulas 1. Fourier Fourier series$$f(t) = \frac{a_0}{2} &#43; \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) &#43; b_n \sin(n\omega_0 t) \right)$$
+    <p>Interesting place1. 1/2pai between FT and IFT2. Analysis Equation is a kind of correlationConcepts Introdutions 1. Convolution the process of “mixing” or “modifying” one signal with another.
+2. Sampling() 3. Differences between FT(Fourier Transform) and LT(Laplace Transform) $$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$
+$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$
+Difference in Kernal:$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-11-03 10:17:00 +0900 JST'>November 3, 2025</span>&nbsp;·&nbsp;<span>4 min</span></footer>
