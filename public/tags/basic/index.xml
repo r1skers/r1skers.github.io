@@ -38,7 +38,7 @@ This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very 
 &lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
 &lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
 &lt;h2 id=&#34;3-fourier&#34;&gt;3. Fourier&lt;/h2&gt;
-&lt;p&gt;
+
 
 
   
@@ -61,6 +61,36 @@ Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage
 Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&amp;rsquo;s &amp;ldquo;spectrum&amp;rdquo;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Convolution and Sampling in Fourier and Laplace</title>
+      <link>http://localhost:1313/posts/first/</link>
+      <pubDate>Mon, 03 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/first/</guid>
+      <description>&lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
+&lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
+&lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
+&lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
+&lt;h2 id=&#34;3-fourier&#34;&gt;3. Fourier&lt;/h2&gt;
+&lt;details&gt;
+  &lt;summary&gt;Fourier series&lt;/summary&gt;
+A Fourier Series is a mathematical tool used to decompose any &#34;well-behaved&#34; periodic signal into a sum of simple, pure sinusoids (sines and cosines).
+#### Significance: Why is it so important in Engineering?
+Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.&lt;br&gt;
+Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal&#39;s underlying structure.&lt;br&gt;
+&lt;br&gt;
+Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal&#39;s &#34;spectrum&#34;—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.
+&lt;/details&gt;
+&lt;details open&gt;
+  &lt;summary&gt;Fourier transform&lt;/summary&gt;
+We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).
+&lt;/details&gt;
+## 4. Laplace
+&lt;h1 id=&#34;key-formulas&#34;&gt;Key Formulas&lt;/h1&gt;
+&lt;h2 id=&#34;1-fourier&#34;&gt;1. Fourier&lt;/h2&gt;
+&lt;details open&gt;
+  &lt;summary&gt;Fourier series&lt;/summary&gt;
+&lt;p&gt;$$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace</title>
       <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
       <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
@@ -69,52 +99,6 @@ Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The 
 &lt;h2 id=&#34;problem-background&#34;&gt;Problem Background&lt;/h2&gt;
 &lt;p&gt;In class, I learned to analyze oscillatory circuits by solving second-order linear differential equations. The standard method involves finding a homogeneous solution (natural response) and a particular solution (forced response), then using initial conditions to find the unknown constants.&lt;/p&gt;
 &lt;p&gt;This process, especially finding the current $i(t) = \frac{dq}{dt}$, often involves &lt;strong&gt;messy differentiation with exponential and trigonometric functions&lt;/strong&gt;, which is time-consuming and easy to make mistakes in. This led me to search for a more systematic approach.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Markdown Functionality Test (LaTeX and Mermaid)</title>
-      <link>http://localhost:1313/posts/first/</link>
-      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/posts/first/</guid>
-      <description>&lt;p&gt;This post specifically tests the Markdown capabilities of this site, such as LaTeX and Mermaid.&lt;/p&gt;
-&lt;h2 id=&#34;1-latex-test&#34;&gt;1. LaTeX Test&lt;/h2&gt;
-&lt;p&gt;psi function： $ \Psi(x, t) $。&lt;/p&gt;
-&lt;p&gt;Schrödinger equation：
-$$
-\begin{aligned}
-&amp;amp;i\hbar\frac{\partial}{\partial t}\Psi(x, t) = \left[ -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x, t) \right]\Psi(x, t)
-\end{aligned}
-$$&lt;/p&gt;
-&lt;h2 id=&#34;2-mermaid-test&#34;&gt;2. Mermaid Test&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Important：&lt;/strong&gt; ```mermaid：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;flowchart LR
-    A[Hard]--&amp;gt;B{Decision}
-    B--&amp;gt;C[Result 1]
-    B--&amp;gt;E[Result 2]   
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;3-markdown-test&#34;&gt;3. Markdown Test&lt;/h2&gt;
-&lt;p&gt;Supported by Markdown&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// 这应该会自动高亮
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-  
-
-
-
-
-  
-
-
-
-
-&lt;p&gt;&lt;details  open=true &gt;
-  &lt;summary markdown=&#34;span&#34;&gt;这个默认是展开的&lt;/summary&gt;
-  &amp;hellip;内容&amp;hellip;
-&lt;/details&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

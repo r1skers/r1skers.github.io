@@ -12,18 +12,21 @@ categories: ["Promethean Fire", "Fireside Notes"]
 the process of "**mixing**" or "**modifying**" one signal with another.
 ## 2. Sampling()
 ## 3. Fourier
-{{< details "Fourier series">}}
+<details>
+  <summary>Fourier series</summary>
 A Fourier Series is a mathematical tool used to decompose any "well-behaved" periodic signal into a sum of simple, pure sinusoids (sines and cosines).
 #### Significance: Why is it so important in Engineering?
 Its significance lies in its ability to translate problems from the Time Domain to the Frequency Domain.<br>
 Time Domain (Oscilloscope View): This is how we see a signal. We see its voltage (amplitude) changing over time. This view is very poor for understanding the signal's underlying structure.<br>
 <br>
 Frequency Domain (Spectrum Analyzer View): This is how we analyze a signal. The Fourier Series gives us this view. It shows us the signal's "spectrum"—a graph of which frequencies ($n\omega_0$) are present and how strong each one ($|c_n|$) is.
-{{< /details >}}
+</details>
 
-{{< details "Fourier transform" open >}}
+<details >
+  <summary>Fourier transform</summary>
 We find that the Fourier Series cannot be directly applied to aperiodic signals. Therefore, to extend this concept, we treat the aperiodic signal as if it were a periodic signal, but with an infinitely large period ( $T \to \infty$ ).
-{{< /details >}}
+</details>
+
 ## 4. Laplace
 
 
@@ -31,7 +34,8 @@ We find that the Fourier Series cannot be directly applied to aperiodic signals.
 ## 1. Fourier
 
 
-{{< details "Fourier series" open >}}
+<details>
+  <summary>Fourier series</summary>
 
 $$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$
 
@@ -63,21 +67,26 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
 $$
 
 $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \, dt$$
-{{< /details >}}
+</details>
 
-{{< details "Fourier transform" open >}}
+<details>
+  <summary>Fourier transform</summary>
 
-{{< details "Analysis Equation" open >}}
+<details>
+  <summary>Analysis Equation</summary>
 $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt$$
 
 $e^{-j\omega t}$：This $e^{-j\omega t}$ is a 'factor'. The reason we use this 'factor' to multiply the signal is to seeing how much of the original signal satisfies the trigonometric function component。
-{{< /details >}}
-{{< details "Synthesis Equation" open >}}
+</details>
+<details>
+  <summary>Synthesis Equation</summary>
 
 $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
-{{< /details >}}
-{{< details "Properties of the Fourier Transform" open >}}
-{{< details "basics" open >}}
+</details>
+<details>
+  <summary>Properties of the Fourier Transform</summary>
+<details>
+  <summary>basics</summary>
 
 ##### Linearity Property<br>
 
@@ -153,9 +162,10 @@ $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 
 ***
 
-{{< /details >}}
+</details>
 
-{{< details "Special" open >}}
+<details>
+  <summary>Special</summary>
 
 ##### Dirac Delta Function
 
@@ -219,10 +229,11 @@ $$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty
 
 ***
 
-{{< /details >}}
-{{< /details >}}
+</details>
+</details>
 
-{{< /details >}}
+</details>
+
 ## 2.Laplace()
 
 

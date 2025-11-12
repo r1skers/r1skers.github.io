@@ -50,3 +50,11 @@ int main() {
 {{< details "这个默认是展开的" open >}}
 ...内容...
 {{< /details >}}
+
+<details>Makeleio>
+  <summary>Fourier series</summary>
+  
+  <p>这里放你被折叠的内容。</p>
+  <p>可以有很多行。</p>
+
+</details>
