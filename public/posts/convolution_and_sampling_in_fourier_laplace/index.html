@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       Convolution and Sampling in Fourier and Laplace
     </h1>
-    <div class="post-meta"><span title='2025-11-03 10:17:00 +0900 JST'>November 3, 2025</span>&nbsp;·&nbsp;<span>4 min</span>
+    <div class="post-meta"><span title='2025-11-12 10:17:00 +0900 JST'>November 12, 2025</span>&nbsp;·&nbsp;<span>5 min</span>
 
 </div>
   </header> 
@@ -190,8 +190,8 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 </details>
 <details>
     <summary style="font-size:25px;">Difference in range:</summary>
-    <strong>FT</strong>:<br>
-LT:
+    <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
+    <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
 </details>
 <h1 id="key-formulas">Key Formulas<a hidden class="anchor" aria-hidden="true" href="#key-formulas">#</a></h1>
 <h2 id="1-fourier">1. Fourier<a hidden class="anchor" aria-hidden="true" href="#1-fourier">#</a></h2>
@@ -230,11 +230,11 @@ $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} 
 <details>
   <summary style="font-size: 20px;">Properties of the Fourier Transform</summary>
 <details>
-  <summary>basics</summary>
-<h5 id="linearity-property">Linearity Property<br><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h5>
+  <summary>Basics</summary>
+<h3 id="linearity-property">Linearity Property<br><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h3>
 <p>$$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$</p>
 <hr>
-<h5 id="scaling-property"><strong>Scaling Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h5>
+<h3 id="scaling-property"><strong>Scaling Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h3>
 <p>$$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$</p>
 <p>derivation:<br></p>
 <p>Let $\tau = at$ , Differentiate: $d\tau = a \cdot dt \implies dt = \frac{1}{a} d\tau$</p>
@@ -243,15 +243,15 @@ $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} 
 <p>$$G(\omega) = \frac{1}{a} \int_{-\infty}^{\infty} f(\tau) e^{-j\left(\frac{\omega}{a}\right)\tau} , d\tau$$</p>
 <p>$$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$</p>
 <hr>
-<h5 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h5>
+<h3 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h3>
 <p>$$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$</p>
 <p>$$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$</p>
 <hr>
-<h5 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h5>
+<h3 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h3>
 <p>$$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$</p>
 <p>$$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$</p>
 <hr>
-<h5 id="duality-property"><strong>Duality Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h5>
+<h3 id="duality-property"><strong>Duality Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h3>
 <p>$$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$</p>
 <p>derivation:<br></p>
 <p>According to Synthesis Equation</p>
@@ -265,25 +265,25 @@ $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} 
 <p>Get</p>
 <p>$$\mathcal{F}{F(t)} = 2\pi f(-\omega)$$</p>
 <hr>
-<h5 id="conjugation-property">Conjugation Property<br><a hidden class="anchor" aria-hidden="true" href="#conjugation-property">#</a></h5>
+<h3 id="conjugation-property">Conjugation Property<br><a hidden class="anchor" aria-hidden="true" href="#conjugation-property">#</a></h3>
 <p>$$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$</p>
 <hr>
 </details>
 <details>
   <summary>Special</summary>
-<h5 id="dirac-delta-function">Dirac Delta Function<a hidden class="anchor" aria-hidden="true" href="#dirac-delta-function">#</a></h5>
+<h3 id="dirac-delta-function">Dirac Delta Function<a hidden class="anchor" aria-hidden="true" href="#dirac-delta-function">#</a></h3>
 <p>$$\delta(t) \longleftrightarrow 1$$</p>
 <hr>
-<h5 id="shifted-dirac-delta">Shifted Dirac Delta<a hidden class="anchor" aria-hidden="true" href="#shifted-dirac-delta">#</a></h5>
+<h3 id="shifted-dirac-delta">Shifted Dirac Delta<a hidden class="anchor" aria-hidden="true" href="#shifted-dirac-delta">#</a></h3>
 <p>$$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$</p>
 <hr>
-<h5 id="constant">Constant<a hidden class="anchor" aria-hidden="true" href="#constant">#</a></h5>
+<h3 id="constant">Constant<a hidden class="anchor" aria-hidden="true" href="#constant">#</a></h3>
 <p>$$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$</p>
 <hr>
-<h5 id="complex-exponential">Complex Exponential<a hidden class="anchor" aria-hidden="true" href="#complex-exponential">#</a></h5>
+<h3 id="complex-exponential">Complex Exponential<a hidden class="anchor" aria-hidden="true" href="#complex-exponential">#</a></h3>
 <p>$$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$</p>
 <hr>
-<h5 id="periodic-dirac-comb"><strong>Periodic Dirac Comb</strong><a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h5>
+<h3 id="periodic-dirac-comb"><strong>Periodic Dirac Comb</strong><a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h3>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
 <p>We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal which we can use Fourier Series here:</p>
 <p>$$f(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$</p>
@@ -299,14 +299,81 @@ $$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} 
 <p>$$  \mathcal{F}{e^{j\omega_A t}} = 2\pi \delta(\omega - \omega_A)$$</p>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
 <hr>
-<h5 id="parsevals-theorem">Parseval&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#parsevals-theorem">#</a></h5>
+<h3 id="parsevals-theorem">Parseval&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#parsevals-theorem">#</a></h3>
 <p>$$\int_{-\infty}^{\infty} |f(t)|^2 , dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 , d\omega$$</p>
 <hr>
 </details>
 </details>
 </details>
 <h2 id="2laplace">2.Laplace()<a hidden class="anchor" aria-hidden="true" href="#2laplace">#</a></h2>
-
+<details>
+  <summary style="font-size: 25px;">Analysis Equation</summary>
+  $$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) \, dt$$
+</details>
+<details>
+  <summary style="font-size: 25px;">Synthesis Equation</summary>
+  $$f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s) \, ds$$
+</details>
+<details>
+  <summary style="font-size: 25px;">Properties of the Laplace Transform</summary>
+  <details>
+  <summary style="font-size: 20px;">Basic</summary>
+<h3 id="linearity-property-1">Linearity Property<a hidden class="anchor" aria-hidden="true" href="#linearity-property-1">#</a></h3>
+<p>$$\mathcal{L}[{a \cdot f(t) + b \cdot g(t)}] = a \cdot F(s) + b \cdot G(s)$$</p>
+<hr>
+<h3 id="scaling-property-1">Scaling Property<a hidden class="anchor" aria-hidden="true" href="#scaling-property-1">#</a></h3>
+<p>$$\mathcal{L}[{f(a \cdot t)}] = \frac{1}{|a|} \cdot F\left(\frac{s}{a}\right)$$</p>
+</details>
+<details>
+  <summary style="font-size: 20px;">Special</summary>
+<h3 id="differentiation-in-the-time-domaint">Differentiation in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#differentiation-in-the-time-domaint">#</a></h3>
+<p>$$\mathcal{L}\left[ f&rsquo;(t) \right] = s\mathcal{L}[f(t)] - f(0)$$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  <br> <img src="/img/proof/t时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+</details>
+<hr>
+<h3 id="integration-in-the-time-domaint">Integration in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#integration-in-the-time-domaint">#</a></h3>
+<p>$$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[f(t)]$$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/t时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
+</details>
+<hr>
+<h3 id="differentiation-in-the-frequency-domains">Differentiation in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#differentiation-in-the-frequency-domains">#</a></h3>
+<p>$$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/s时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
+</details>
+<hr>
+<h3 id="integration-in-the-frequency-domains">Integration in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#integration-in-the-frequency-domains">#</a></h3>
+<p>$$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigma$$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/s时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
+</details>
+<hr>
+<h3 id="shifting-in-the-time-domaint">Shifting in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#shifting-in-the-time-domaint">#</a></h3>
+<p>$$\mathcal{L}\left[ f(t-\lambda) u(t-\lambda) \right] = e^{-\lambda s} \mathcal{L}[f(t)]$$</p>
+<h3 id="shifting-in-the-frequency-domains">Shifting in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#shifting-in-the-frequency-domains">#</a></h3>
+<p>$$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/位移后的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
+</details>
+</details>
+</details>
 
   </div>
 

@@ -2,7 +2,7 @@
 date: '2025-10-29T19:01:21+09:00'
 draft: false
 title: 'RLC Circuit Analysis: A Comparison of Differential Equation and Laplace'
-tags: ["basic", "markdown","math"]
+tags: ["basic", "markdown","Fourier and Laplace"]
 categories: ["Promethean Fire", "Delphic Musings"]
 ---
 

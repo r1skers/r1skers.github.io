@@ -1,5 +1,5 @@
 ---
-date: '2025-11-03T10:17:00+09:00'
+date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: 'Convolution and Sampling in Fourier and Laplace'
 tags: ["basic", "markdown","Fourier and Laplace"]
@@ -36,8 +36,8 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 
 <details>
     <summary style="font-size:25px;">Difference in range:</summary>
-    <strong>FT</strong>:由公式可以看出傅里叶变换的上下限是双无穷，这是一个双边变换，一般用来分析永恒信号，分析那些没有起点的的信号，例如广播。<br>
-    <strong>LT</strong>:由公式可以看出拉普拉斯变换的上下限是0到正无穷，这是一个单边变换，完美模拟现实情况（时间不可能小于0）因此可以用来解决初始值问题.
+    <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
+    <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
 </details>
 
 # Key Formulas
@@ -96,15 +96,15 @@ $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} 
 <details>
   <summary style="font-size: 20px;">Properties of the Fourier Transform</summary>
 <details>
-  <summary>basics</summary>
+  <summary>Basics</summary>
 
-##### Linearity Property<br>
+### Linearity Property<br>
 
 $$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$
 
 ***
 
-##### **Scaling Property**<br>
+### **Scaling Property**<br>
 
 $$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
@@ -122,7 +122,7 @@ $$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$
 
 ***
 
-##### Time/Frequency-Shifting Property<br>
+### Time/Frequency-Shifting Property<br>
 
 $$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$
 
@@ -130,7 +130,7 @@ $$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$
 
 ***
 
-##### Time/Frequency Differentiation Property<br>
+### Time/Frequency Differentiation Property<br>
 
 $$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$
 
@@ -138,7 +138,7 @@ $$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$
 
 ***
 
-##### **Duality Property**<br>
+### **Duality Property**<br>
 
 $$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$
 
@@ -166,7 +166,7 @@ $$\mathcal{F}\{F(t)\} = 2\pi f(-\omega)$$
 
 ***
 
-##### Conjugation Property<br>
+### Conjugation Property<br>
 
 $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 
@@ -177,31 +177,31 @@ $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 <details>
   <summary>Special</summary>
 
-##### Dirac Delta Function
+### Dirac Delta Function
 
 $$\delta(t) \longleftrightarrow 1$$
 
 ***
 
-##### Shifted Dirac Delta
+### Shifted Dirac Delta
 
 $$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$
 
 ***
 
-##### Constant
+### Constant
 
 $$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$
 
 ***
 
-##### Complex Exponential
+### Complex Exponential
 
 $$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$
 
 ***
 
-##### **Periodic Dirac Comb**
+### **Periodic Dirac Comb**
 
 $$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
 
@@ -233,7 +233,7 @@ $$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \s
 
 ***
 
-##### Parseval's Theorem
+### Parseval's Theorem
 
 $$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \, d\omega$$
 
@@ -245,5 +245,95 @@ $$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty
 </details>
 
 ## 2.Laplace()
+<details>
+  <summary style="font-size: 25px;">Analysis Equation</summary>
+  $$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) \, dt$$
+</details>
+<details>
+  <summary style="font-size: 25px;">Synthesis Equation</summary>
+  $$f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s) \, ds$$
+</details>
+<details>
+  <summary style="font-size: 25px;">Properties of the Laplace Transform</summary>
+  <details>
+  <summary style="font-size: 20px;">Basic</summary>
 
+###  Linearity Property
+$$\mathcal{L}\[{a \cdot f(t) + b \cdot g(t)\}] = a \cdot F(s) + b \cdot G(s)$$
 
+***
+
+### Scaling Property
+$$\mathcal{L}\[{f(a \cdot t)\}] = \frac{1}{|a|} \cdot F\left(\frac{s}{a}\right)$$
+</details>
+<details>
+  <summary style="font-size: 20px;">Special</summary>
+
+### Differentiation in the Time Domain(t)
+$$\mathcal{L}\left[ f'(t) \right] = s\mathcal{L}[f(t)] - f(0)$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  <br> <img src="/img/proof/t时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+</details>
+
+***
+
+### Integration in the Time Domain(t)
+$$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[f(t)]$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/t时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+
+</details>
+
+***
+
+### Differentiation in the Frequency Domain(s)
+$$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/s时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+
+</details>
+
+***
+
+### Integration in the Frequency Domain(s)
+$$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigma$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/s时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+
+</details>
+
+***
+
+### Shifting in the Time Domain(t)
+
+$$\mathcal{L}\left[ f(t-\lambda) u(t-\lambda) \right] = e^{-\lambda s} \mathcal{L}[f(t)]$$
+
+### Shifting in the Frequency Domain(s)
+
+$$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/位移后的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+
+</details>
+
+</details>
+</details>

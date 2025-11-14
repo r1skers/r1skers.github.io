@@ -6,8 +6,29 @@
     <description>Recent content in Markdown on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convolution and Sampling in Fourier and Laplace</title>
+      <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
+      <description>&lt;details&gt;
+    &lt;summary style=&#34;font-size: 25px;&#34;&gt;Interesting place&lt;/summary&gt;
+    &lt;p&gt;1. 1/2pai between FT and IFT&lt;p&gt;
+    &lt;p&gt;2. Analysis Equation is a kind of correlation&lt;p&gt;
+&lt;/details&gt;
+&lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
+&lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
+&lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
+&lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
+&lt;h2 id=&#34;3-differences-between-ftfourier-transform-and-ltlaplace-transform&#34;&gt;3. Differences between FT(Fourier Transform) and LT(Laplace Transform)&lt;/h2&gt;
+&lt;p&gt;$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$&lt;/p&gt;
+&lt;p&gt;$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$&lt;/p&gt;
+&lt;details&gt;
+    &lt;summary style=&#34;font-size:25px;&#34;&gt;Difference in Kernal:&lt;/summary&gt;
+&lt;p&gt;$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$&lt;/p&gt;</description>
+    </item>
     <item>
       <title>UART Communication Analysis in Vivado</title>
       <link>http://localhost:1313/posts/uart_communication_analysis/</link>
@@ -27,27 +48,6 @@
 &lt;h2 id=&#34;21uart_rxv&#34;&gt;2.1.uart_rx.v&lt;/h2&gt;
 &lt;p&gt;&lt;a id=&#34;211&#34;&gt;&lt;/a&gt;
 This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Convolution and Sampling in Fourier and Laplace</title>
-      <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
-      <pubDate>Mon, 03 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;details&gt;
-    &lt;summary style=&#34;font-size: 25px;&#34;&gt;Interesting place&lt;/summary&gt;
-    &lt;p&gt;1. 1/2pai between FT and IFT&lt;p&gt;
-    &lt;p&gt;2. Analysis Equation is a kind of correlation&lt;p&gt;
-&lt;/details&gt;
-&lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
-&lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
-&lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
-&lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
-&lt;h2 id=&#34;3-differences-between-ftfourier-transform-and-ltlaplace-transform&#34;&gt;3. Differences between FT(Fourier Transform) and LT(Laplace Transform)&lt;/h2&gt;
-&lt;p&gt;$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$&lt;/p&gt;
-&lt;p&gt;$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$&lt;/p&gt;
-&lt;details&gt;
-    &lt;summary style=&#34;font-size:25px;&#34;&gt;Difference in Kernal:&lt;/summary&gt;
-&lt;p&gt;$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace</title>
