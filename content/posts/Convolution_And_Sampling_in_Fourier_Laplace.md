@@ -100,13 +100,13 @@ $$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} 
 
 ### Linearity Property<br>
 
-$$a f_1(t) + b f_2(t) \longleftrightarrow a F_1(\omega) + b F_2(\omega)$$
+$$a f_1(t) + b f_2(t) = a F_1(\omega) + b F_2(\omega)$$
 
 ***
 
 ### **Scaling Property**<br>
 
-$$f(at) \longleftrightarrow \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
+$$f(at) = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
 derivation:<br>
 
@@ -124,51 +124,25 @@ $$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$
 
 ### Time/Frequency-Shifting Property<br>
 
-$$f(t - t_0) \longleftrightarrow e^{-j\omega t_0} F(\omega)$$
+$$f(t - t_0) = e^{-j\omega t_0} F(\omega)$$
 
-$$e^{j\omega_0 t} f(t) \longleftrightarrow F(\omega - \omega_0)$$
+$$e^{j\omega_0 t} f(t) = F(\omega - \omega_0)$$
 
 ***
 
 ### Time/Frequency Differentiation Property<br>
 
-$$\frac{d^n}{dt^n} f(t) \longleftrightarrow (j\omega)^n F(\omega)$$
+$$\frac{d^n}{dt^n} f(t) = (j\omega)^n F(\omega)$$
 
-$$(-jt)^n f(t) \longleftrightarrow \frac{d^n}{d\omega^n} F(\omega)$$
+$$(-jt)^n f(t) = \frac{d^n}{d\omega^n} F(\omega)$$
 
 ***
 
 ### **Duality Property**<br>
 
-$$\text{if } f(t) \longleftrightarrow F(\omega) \text{,   } F(t) \longleftrightarrow 2\pi f(-\omega)$$
+$$\text{if } f(t) = F(\omega) \text{,   } F(t) = 2\pi f(-\omega)$$
 
-derivation:<br>
 
-According to Synthesis Equation
-
-$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
-
-We an get
-
-$$2\pi f(t) = \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
-
-Then Variable Substitution: $t$ -> $-\omega$
-
-$$2\pi f(-\omega) = \int_{-\infty}^{\infty} F(\omega') e^{-j\omega \omega'} \, d\omega'$$
-
-Because 
-
-$$\mathcal{F}\{F(t)\} = \int_{-\infty}^{\infty} F(t') e^{-j\omega t'} \, dt'$$
-
-Get
-
-$$\mathcal{F}\{F(t)\} = 2\pi f(-\omega)$$
-
-***
-
-### Conjugation Property<br>
-
-$$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 
 ***
 
@@ -179,31 +153,34 @@ $$f^{\ast}(t) \longleftrightarrow F^{\ast}(-\omega)$$
 
 ### Dirac Delta Function
 
-$$\delta(t) \longleftrightarrow 1$$
+$$\mathcal{F}[\delta(t)] =1$$
 
 ***
 
 ### Shifted Dirac Delta
 
-$$\delta(t - t_0) \longleftrightarrow e^{-j\omega t_0}$$
+$$\mathcal{F}[\delta(t - t_0)] = e^{-j\omega t_0}$$
 
 ***
 
 ### Constant
 
-$$C \longleftrightarrow 2\pi C \cdot \delta(\omega)$$
+$$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$
+
+ *Why we can't just calculate intergration here? Directly calculating from the definition of the Fourier transform , the integral is divergent in the ordinary sense (the integral result tends to infinity).*
+ $$\mathcal{F}[C] = \int_{-\infty}^{\infty} C e^{-j\omega t} \, dt$$
 
 ***
 
 ### Complex Exponential
 
-$$e^{j\omega_0 t} \longleftrightarrow 2\pi \delta(\omega - \omega_0)$$
+$$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$
 
 ***
 
 ### **Periodic Dirac Comb**
 
-$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
+$$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
 
 We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal which we can use Fourier Series here:
 
@@ -229,7 +206,7 @@ According to the [Complex Exponential](#complex-exponential)
 
 $$  \mathcal{F}\{e^{j\omega_A t}\} = 2\pi \delta(\omega - \omega_A)$$
 
-$$\sum_{n=-\infty}^{\infty} \delta(t - nT) \longleftrightarrow \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
+$$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
 
 ***
 
