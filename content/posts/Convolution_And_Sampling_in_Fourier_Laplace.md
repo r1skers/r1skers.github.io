@@ -76,7 +76,7 @@ $$
 f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
 $$
 
-$$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \, dt$$
+$$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$
 </details>
 
 <details>
