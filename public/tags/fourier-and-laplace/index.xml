@@ -29,5 +29,15 @@
     &lt;summary style=&#34;font-size:25px;&#34;&gt;Difference in Kernal:&lt;/summary&gt;
 &lt;p&gt;$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace</title>
+      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
+      <description>&lt;h1 id=&#34;rlc-circuit-analysis-a-comparison-of-differential-equation-and-laplace-transform-methods&#34;&gt;RLC Circuit Analysis: A Comparison of Differential Equation and Laplace Transform Methods&lt;/h1&gt;
+&lt;h2 id=&#34;problem-background&#34;&gt;Problem Background&lt;/h2&gt;
+&lt;p&gt;In class, I learned to analyze oscillatory circuits by solving second-order linear differential equations. The standard method involves finding a homogeneous solution (natural response) and a particular solution (forced response), then using initial conditions to find the unknown constants.&lt;/p&gt;
+&lt;p&gt;This process, especially finding the current $i(t) = \frac{dq}{dt}$, often involves &lt;strong&gt;messy differentiation with exponential and trigonometric functions&lt;/strong&gt;, which is time-consuming and easy to make mistakes in. This led me to search for a more systematic approach.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

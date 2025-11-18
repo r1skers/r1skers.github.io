@@ -8,7 +8,7 @@ categories: ["Promethean Fire", "Fireside Notes"]
 <details>
     <summary style="font-size: 25px;">Interesting place</summary>
     <p>1. 1/2pai between FT and IFT<p>
-    <p>2. Analysis Equation is a kind of correlation<p>
+    <p>2. t-domain->s-domain<p>
 
 </details>
 
@@ -84,14 +84,14 @@ $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \, dt$$
 
 <details>
   <summary style="font-size: 20px;">Analysis Equation</summary>
-$$F(\omega) = \mathcal{F}\{f(t)\} = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt$$
 
-$e^{-j\omega t}$：This $e^{-j\omega t}$ is a 'factor'. The reason we use this 'factor' to multiply the signal is to seeing how much of the original signal satisfies the trigonometric function component。
+$$F(\omega) = \mathcal{F}\[f(t)\] = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \ dt$$
+
 </details>
 <details>
   <summary style="font-size: 20px;">Synthesis Equation</summary>
 
-$$f(t) = \mathcal{F}^{-1}\{F(\omega)\} = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \, d\omega$$
+$$f(t) = \mathcal{F}^{-1}\[{F(\omega)\} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega$$
 </details>
 <details>
   <summary style="font-size: 20px;">Properties of the Fourier Transform</summary>
@@ -106,19 +106,16 @@ $$a f_1(t) + b f_2(t) = a F_1(\omega) + b F_2(\omega)$$
 
 ### **Scaling Property**<br>
 
-$$f(at) = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
+$$\mathcal{F}[f(at)] = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
-derivation:<br>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/傅里叶变换的相似性证明.jpg" alt="Proof" width="100%" height="auto">
 
-Let $\tau = at$ , Differentiate: $d\tau = a \cdot dt \implies dt = \frac{1}{a} d\tau$
-
-$$f(at)= \int_{\tau=-\infty}^{\infty} f(\tau) e^{-j\omega (\frac{\tau}{a})} \left( \frac{1}{a} d\tau \right)$$
-
-and then
-
-$$G(\omega) = \frac{1}{a} \int_{-\infty}^{\infty} f(\tau) e^{-j\left(\frac{\omega}{a}\right)\tau} \, d\tau$$
-
-$$G(\omega) = \frac{1}{a} F\left(\frac{\omega}{a}\right)$$
+</details>
 
 ***
 
@@ -166,9 +163,14 @@ $$\mathcal{F}[\delta(t - t_0)] = e^{-j\omega t_0}$$
 ### Constant
 
 $$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/常数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
 
- *Why we can't just calculate intergration here? Directly calculating from the definition of the Fourier transform , the integral is divergent in the ordinary sense (the integral result tends to infinity).*
- $$\mathcal{F}[C] = \int_{-\infty}^{\infty} C e^{-j\omega t} \, dt$$
+</details>
 
 ***
 

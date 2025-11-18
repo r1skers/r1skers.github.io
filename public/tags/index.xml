@@ -43,12 +43,5 @@
       <guid>http://localhost:1313/tags/verilog/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Math</title>
-      <link>http://localhost:1313/tags/math/</link>
-      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/tags/math/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
