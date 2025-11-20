@@ -24,16 +24,15 @@
       &lt;summary style=&#34;font-size: 20px;&#34;&gt;3. reverse in convolution.&lt;/summary&gt;
   &lt;/details&gt;
 &lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
-&lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
-&lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
-&lt;h2 id=&#34;2-sampling&#34;&gt;2. Sampling()&lt;/h2&gt;
-&lt;h2 id=&#34;3-differences-between-ftfourier-transform-and-ltlaplace-transform&#34;&gt;3. Differences between FT(Fourier Transform) and LT(Laplace Transform)&lt;/h2&gt;
+&lt;h2 id=&#34;1-differences-between-ftfourier-transform-and-ltlaplace-transform&#34;&gt;1. Differences between FT(Fourier Transform) and LT(Laplace Transform)&lt;/h2&gt;
 &lt;p&gt;$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$&lt;/p&gt;
 &lt;p&gt;$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$&lt;/p&gt;
 &lt;details&gt;
     &lt;summary style=&#34;font-size:25px;&#34;&gt;Difference in Kernal:&lt;/summary&gt;
 &lt;p&gt;$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$&lt;/p&gt;
-&lt;p&gt;$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}_{\text{Oscillation}}$$&lt;/p&gt;</description>
+&lt;p&gt;$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}_{\text{Oscillation}}$$&lt;/p&gt;
+&lt;p&gt;The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these &amp;ldquo;never-decaying&amp;rdquo; pure sine/cosine waves.&lt;br&gt;
+The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these &amp;ldquo;oscillating waves that can decay or grow.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

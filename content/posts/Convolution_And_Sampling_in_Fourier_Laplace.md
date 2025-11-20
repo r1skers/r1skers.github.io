@@ -6,7 +6,7 @@ tags: ["basic", "markdown","Fourier and Laplace","Convolution"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
 
-# Interesting place
+# Interesting place(after reading)
 
   <details>
       <summary style="font-size: 20px;">1. 1/2pai between FT and IFT</summary>
@@ -17,34 +17,12 @@ categories: ["Promethean Fire", "Fireside Notes"]
   <details>
       <summary style="font-size: 20px;">3. reverse in convolution.</summary>
   </details>
-
-
-# Concepts Introdutions
-
-## 1. Convolution
-the process of "**mixing**" or "**modifying**" one signal with another.
-## 2. Sampling()
-## 3. Differences between FT(Fourier Transform) and LT(Laplace Transform)
-
-$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \, dt$$
-
-$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \, dt$$
-<details>
-    <summary style="font-size:25px;">Difference in Kernal:</summary>
-
-$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$
-
-$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}\_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}\_{\text{Oscillation}}$$
-
-The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these "never-decaying" pure sine/cosine waves.<br>
-The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these "oscillating waves that can decay or grow.
-</details>
-
-<details>
-    <summary style="font-size:25px;">Difference in range:</summary>
-    <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
-    <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
-</details>
+  <details>
+      <summary style="font-size: 20px;">4. Power spectrum</summary>
+  </details>
+  <details>
+      <summary style="font-size: 20px;">5. How sampling influence s-domain</summary>
+  </details>
 
 # Key Formulas
 ## 1. Fourier
@@ -210,7 +188,7 @@ $$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\i
 
 ### Parseval's Theorem
 
-$$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \, d\omega$$
+$$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$
 
 ***
 
@@ -306,7 +284,29 @@ $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
 </details>
 </details>
 
-## 3.Signal Processing
+## 3.Differences between FT(Fourier Transform) and LT(Laplace Transform)
+
+$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \, dt$$
+
+$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \, dt$$
+<details>
+    <summary style="font-size:25px;">Difference in Kernal:</summary>
+
+$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$
+
+$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}\_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}\_{\text{Oscillation}}$$
+
+The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these "never-decaying" pure sine/cosine waves.<br>
+The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these "oscillating waves that can decay or grow.
+</details>
+
+<details>
+    <summary style="font-size:25px;">Difference in range:</summary>
+    <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
+    <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
+</details>
+
+## 4.Signal Processing
 <details>
   <summary style="font-size: 25px;">Convolution</summary>
   <details>
@@ -338,12 +338,30 @@ $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
 
 </details>
 <details>
-  <summary style="font-size: 25px;">Relative</summary>
-  
-
+  <summary style="font-size: 25px;">Correlation</summary>
+  <details>
+  <summary style="font-size: 20px;">Concepts</summary>
+   From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
+  $$R_{xy}(\tau) = \int_{-\infty}^{\infty} x(t) y(t + \tau) \ dt$$
+</details>
+ <details>
+  <summary style="font-size: 20px;">Power Spectral Density(Wiener–Khinchin theorem)</summary>
+  $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
+  This formula demonstrates the calculation of the Energy Spectral Density (ESD).
+</details>
 </details>
 <details>
   <summary style="font-size: 25px;">Sampling</summary>
-  
+  <details>
+  <summary style="font-size: 20px;">Concepts</summary>
+  Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
+  $$f_T(t) = f(t)\delta_T(t) =  \sum_{n=-\infty}^{\infty} f(nT)\delta(t - nT)$$
+  After Fourier Transform
+  $$\mathcal{F}[f_T(t)]= \frac{1}{T} \sum_{k=-\infty}^{\infty} F(\omega - k \omega_s)$$
+</details>
+ <details>
+  <summary style="font-size: 20px;">Nyquist–Shannon sampling theorem</summary>
+  In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$<$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.
+</details>
 
 </details>
