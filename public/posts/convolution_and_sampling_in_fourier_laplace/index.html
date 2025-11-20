@@ -274,22 +274,21 @@ $$</p>
 <hr>
 <h3 id="complex-exponential">Complex Exponential<a hidden class="anchor" aria-hidden="true" href="#complex-exponential">#</a></h3>
 <p>$$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/复数指数函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
+</details>
 <hr>
-<h3 id="periodic-dirac-comb"><strong>Periodic Dirac Comb</strong><a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h3>
+<h3 id="periodic-dirac-comb">Periodic Dirac Comb<a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h3>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
-<p>We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal which we can use Fourier Series here:</p>
-<p>$$f(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$</p>
-<p>$$c_k = \frac{1}{T} \int_{T} f(t) e^{-jk\omega_0 t} , dt$$</p>
-<p>So we can get</p>
-<p>$$  c_k = \frac{1}{T} \int_{-T/2}^{T/2} \delta(t) e^{-jk\omega_0 t} , dt$$</p>
-<p>Because of $\delta$</p>
-<p>$$c_k =  \frac{1}{T}$$</p>
-<p>$$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\frac{1}{T}\right) e^{jk\omega_0 t}$$</p>
-<p>Now look at the right side</p>
-<p>$$\mathcal{F}{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} } = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}{ e^{jk\omega_0 t} }$$</p>
-<p>According to the <a href="#complex-exponential">Complex Exponential</a></p>
-<p>$$  \mathcal{F}{e^{j\omega_A t}} = 2\pi \delta(\omega - \omega_A)$$</p>
-<p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/周期狄拉克函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
+</details>
 <hr>
 <h3 id="parsevals-theorem">Parseval&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#parsevals-theorem">#</a></h3>
 <p>$$\int_{-\infty}^{\infty} |f(t)|^2 , dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 , d\omega$$</p>
@@ -297,7 +296,7 @@ $$</p>
 </details>
 </details>
 </details>
-<h2 id="2laplace">2.Laplace()<a hidden class="anchor" aria-hidden="true" href="#2laplace">#</a></h2>
+<h2 id="2laplace">2.Laplace<a hidden class="anchor" aria-hidden="true" href="#2laplace">#</a></h2>
 <details>
   <summary style="font-size: 25px;">Analysis Equation</summary>
   $$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) \, dt$$
@@ -365,6 +364,22 @@ $$</p>
 <p><br> <img src="/img/proof/位移后的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 </details>
+</details>
+<h2 id="3signal-processing">3.Signal Processing<a hidden class="anchor" aria-hidden="true" href="#3signal-processing">#</a></h2>
+<details>
+  <summary style="font-size: 25px;">Convolution</summary>
+  <details>
+  <summary style="font-size: 20px;">Concepts</summary>
+</details>
+<details>
+  <summary style="font-size: 20px;">Formulas</summary>
+</details>
+</details>
+<details>
+  <summary style="font-size: 25px;">Relative</summary>
+</details>
+<details>
+  <summary style="font-size: 25px;">Sampling</summary>
 </details>
 
   </div>

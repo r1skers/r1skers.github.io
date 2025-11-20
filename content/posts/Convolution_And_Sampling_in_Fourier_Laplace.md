@@ -177,38 +177,28 @@ $$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$
 ### Complex Exponential
 
 $$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/复数指数函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
+
+</details>
 
 ***
 
-### **Periodic Dirac Comb**
+### Periodic Dirac Comb
 
 $$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/周期狄拉克函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
 
-We can find that  $f(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ is a periodic signal which we can use Fourier Series here:
-
-$$f(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}$$
-
-$$c_k = \frac{1}{T} \int_{T} f(t) e^{-jk\omega_0 t} \, dt$$
-
-So we can get 
-
-$$  c_k = \frac{1}{T} \int_{-T/2}^{T/2} \delta(t) e^{-jk\omega_0 t} \, dt$$
-
-Because of $\delta$
-
-$$c_k =  \frac{1}{T}$$
-
-$$  \sum_{n=-\infty}^{\infty} \delta(t - nT) = \sum_{k=-\infty}^{\infty} \left(\frac{1}{T}\right) e^{jk\omega_0 t}$$
-
-Now look at the right side
-
-$$\mathcal{F}\{ \sum_{k=-\infty}^{\infty} \frac{1}{T} e^{jk\omega_0 t} \} = \frac{1}{T} \sum_{k=-\infty}^{\infty} \mathcal{F}\{ e^{jk\omega_0 t} \}$$
-
-According to the [Complex Exponential](#complex-exponential)
-
-$$  \mathcal{F}\{e^{j\omega_A t}\} = 2\pi \delta(\omega - \omega_A)$$
-
-$$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
+</details>
 
 ***
 
@@ -223,7 +213,7 @@ $$\int_{-\infty}^{\infty} |f(t)|^2 \, dt = \frac{1}{2\pi} \int_{-\infty}^{\infty
 
 </details>
 
-## 2.Laplace()
+## 2.Laplace
 <details>
   <summary style="font-size: 25px;">Analysis Equation</summary>
   $$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) \, dt$$
@@ -315,4 +305,30 @@ $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
 </details>
 
 </details>
+</details>
+
+## 3.Signal Processing
+<details>
+  <summary style="font-size: 25px;">Convolution</summary>
+  <details>
+  <summary style="font-size: 20px;">Concepts</summary>
+  
+
+</details>
+<details>
+  <summary style="font-size: 20px;">Formulas</summary>
+  
+
+</details>
+
+</details>
+<details>
+  <summary style="font-size: 25px;">Relative</summary>
+  
+
+</details>
+<details>
+  <summary style="font-size: 25px;">Sampling</summary>
+  
+
 </details>
