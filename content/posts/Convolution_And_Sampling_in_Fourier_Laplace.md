@@ -1,16 +1,22 @@
 ---
-date: '2025-11-12T10:17:00+09:00'
+date: '2025-11-20T10:17:00+09:00'
 draft: false
 title: 'Convolution and Sampling in Fourier and Laplace'
-tags: ["basic", "markdown","Fourier and Laplace"]
+tags: ["basic", "markdown","Fourier and Laplace","Convolution"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
-<details>
-    <summary style="font-size: 25px;">Interesting place</summary>
-    <p>1. 1/2pai between FT and IFT<p>
-    <p>2. t-domain->s-domain<p>
 
-</details>
+# Interesting place
+
+  <details>
+      <summary style="font-size: 20px;">1. 1/2pai between FT and IFT</summary>
+  </details>
+  <details>
+      <summary style="font-size: 20px;">2. t-domain->s-domain</summary>
+  </details>
+  <details>
+      <summary style="font-size: 20px;">3. reverse in convolution.</summary>
+  </details>
 
 
 # Concepts Introdutions
@@ -295,14 +301,7 @@ $$\mathcal{L}\left[ f(t-\lambda) u(t-\lambda) \right] = e^{-\lambda s} \mathcal{
 ### Shifting in the Frequency Domain(s)
 
 $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
-<details>
-  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
-    Proof
-  </summary>
-  
-  <br> <img src="/img/proof/位移后的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
 
-</details>
 
 </details>
 </details>
@@ -312,13 +311,29 @@ $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
   <summary style="font-size: 25px;">Convolution</summary>
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
-  
+  In my opinion, convolution is a method for processing functions (and actually more than just functions). We often use it to describe the interaction (e.g., sliding weighted superposition) between two functions, especially in signal processing and system analysis.<p>
 
+  $$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$
+
+  This is the formula which shows how convolution works.There are some points that is very hard to understand.<p>
+
+1. [$ \tau $ and $-\tau$(*why do we need to reverse it here?*)](#interesting-place)
+2. [Why can reversing the sign of $ \tau $ here be used to show a function's characteristics?](#interesting-place)
 </details>
 <details>
-  <summary style="font-size: 20px;">Formulas</summary>
-  
+  <summary style="font-size: 20px;">Convolution Theorem</summary>
 
+  $$\mathcal{F} \[ f(t)* g(t) \] = \mathcal{F}[f(t)] \cdot \mathcal{F}[g(t)]$$
+
+  $$\mathcal{L} \[ f(t)* g(t) \] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
+  <details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/卷积定理的证明.jpg" alt="Proof" width="100%" height="auto">
+
+</details>
 </details>
 
 </details>

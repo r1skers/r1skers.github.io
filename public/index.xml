@@ -6,18 +6,23 @@
     <description>Recent content on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 20 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convolution and Sampling in Fourier and Laplace</title>
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
-      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <pubDate>Thu, 20 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;details&gt;
-    &lt;summary style=&#34;font-size: 25px;&#34;&gt;Interesting place&lt;/summary&gt;
-    &lt;p&gt;1. 1/2pai between FT and IFT&lt;p&gt;
-    &lt;p&gt;2. t-domain-&gt;s-domain&lt;p&gt;
-&lt;/details&gt;
+      <description>&lt;h1 id=&#34;interesting-place&#34;&gt;Interesting place&lt;/h1&gt;
+  &lt;details&gt;
+      &lt;summary style=&#34;font-size: 20px;&#34;&gt;1. 1/2pai between FT and IFT&lt;/summary&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+      &lt;summary style=&#34;font-size: 20px;&#34;&gt;2. t-domain-&gt;s-domain&lt;/summary&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+      &lt;summary style=&#34;font-size: 20px;&#34;&gt;3. reverse in convolution.&lt;/summary&gt;
+  &lt;/details&gt;
 &lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
 &lt;h2 id=&#34;1-convolution&#34;&gt;1. Convolution&lt;/h2&gt;
 &lt;p&gt;the process of &amp;ldquo;&lt;strong&gt;mixing&lt;/strong&gt;&amp;rdquo; or &amp;ldquo;&lt;strong&gt;modifying&lt;/strong&gt;&amp;rdquo; one signal with another.&lt;/p&gt;
