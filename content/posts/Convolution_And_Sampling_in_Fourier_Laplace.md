@@ -142,7 +142,7 @@ In signal processing, we simplify this by assuming a **unit resistance ($R=1\Ome
 Once I linked the mathematical "square" to the physical "power," the formula intuitively made sense.
   </details>
   <details>
-      <summary style="font-size: 20px;">5. How sampling influence s-domain</summary>
+      <summary style="font-size: 20px;">5. How sampling influence frequency domain</summary>
 
 Regarding sampling, I noticed that the Fourier Transform of a sampled continuous signal results in the periodic replication and shifting of the original spectrum. Why does this happen? This concept is somewhat difficult to understand.
 
