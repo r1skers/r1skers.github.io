@@ -9,33 +9,21 @@
     <lastBuildDate>Thu, 20 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Convolution and Sampling in Fourier and Laplace</title>
+      <title>Convolution and Sampling in Fourier and Laplace[To be continued]</title>
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
       <pubDate>Thu, 20 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;h1 id=&#34;interesting-place&#34;&gt;Interesting place&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;interesting-placeafter-reading&#34;&gt;Interesting place(after reading)&lt;/h1&gt;
   &lt;details&gt;
-      &lt;summary style=&#34;font-size: 20px;&#34;&gt;1. 1/2pai between FT and IFT&lt;/summary&gt;
-  &lt;/details&gt;
-  &lt;details&gt;
-      &lt;summary style=&#34;font-size: 20px;&#34;&gt;2. t-domain-&gt;s-domain&lt;/summary&gt;
-  &lt;/details&gt;
-  &lt;details&gt;
-      &lt;summary style=&#34;font-size: 20px;&#34;&gt;3. reverse in convolution.&lt;/summary&gt;
-  &lt;/details&gt;
-&lt;h1 id=&#34;concepts-introdutions&#34;&gt;Concepts Introdutions&lt;/h1&gt;
-&lt;h2 id=&#34;1-differences-between-ftfourier-transform-and-ltlaplace-transform&#34;&gt;1. Differences between FT(Fourier Transform) and LT(Laplace Transform)&lt;/h2&gt;
-&lt;p&gt;$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$&lt;/p&gt;
-&lt;p&gt;$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$&lt;/p&gt;
-&lt;details&gt;
-    &lt;summary style=&#34;font-size:25px;&#34;&gt;Difference in Kernal:&lt;/summary&gt;
-&lt;p&gt;$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$&lt;/p&gt;
-&lt;p&gt;$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}_{\text{Oscillation}}$$&lt;/p&gt;
-&lt;p&gt;The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these &amp;ldquo;never-decaying&amp;rdquo; pure sine/cosine waves.&lt;br&gt;
-The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these &amp;ldquo;oscillating waves that can decay or grow.&lt;/p&gt;</description>
+      &lt;summary style=&#34;font-size: 20px;&#34;&gt;1.The 1/2π Factor between FT and IFT&lt;/summary&gt;
+&lt;p&gt;Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in &lt;a href=&#34;#synthesis-equation&#34;&gt;Synthesis Equation of Fourier transform&lt;/a&gt;?And how can we summarize this pattern?&lt;/p&gt;
+&lt;p&gt;$$ f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$&lt;/p&gt;
+&lt;h2 id=&#34;the-process-of-obtaining-the-answer&#34;&gt;The process of obtaining the answer:&lt;/h2&gt;
+&lt;h3 id=&#34;1-firsti-consulted-aigemini&#34;&gt;1. First,I consulted AI(gemini)&lt;p&gt;&lt;/h3&gt;
+&lt;p&gt;Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>UART Communication Analysis in Vivado</title>
+      <title>UART Communication Analysis in Vivado[To be continued]</title>
       <link>http://localhost:1313/posts/uart_communication_analysis/</link>
       <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/uart_communication_analysis/</guid>
@@ -55,7 +43,7 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace</title>
+      <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]</title>
       <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
       <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
       <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
@@ -118,6 +106,13 @@ $$&lt;/p&gt;
       <description>&lt;h1 id=&#34;this-is-the-second&#34;&gt;This is the second&lt;/h1&gt;
 &lt;h2 id=&#34;is-this&#34;&gt;Is this&lt;/h2&gt;
 &lt;p&gt;Yes it is&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

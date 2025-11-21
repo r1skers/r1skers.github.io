@@ -9,26 +9,72 @@ categories: ["Promethean Fire", "Fireside Notes"]
 # Interesting place(after reading)
 
   <details>
-      <summary style="font-size: 20px;">1. 1/2pai between FT and IFT</summary>
+      <summary style="font-size: 20px;">1.The 1/2π Factor between FT and IFT</summary>
+
+Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in <a href="#synthesis-equation">Synthesis Equation of Fourier transform</a>?And how can we summarize this pattern?
+
+$$ f(t) = \mathcal{F}^{-1}\[{F(\omega)\} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$
+## The process of obtaining the answer:
+### 1. First,I consulted AI(gemini)<p>
+Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:
+
+$$ \mathcal{F}[f(t)]=\int_{-\infty}^{\infty} f(t) e^{-j2\pi f t} \ dt $$
+$$ f(t)=\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j2\pi f t} \ df $$
+
+Because $\omega=2\pi f$, we can get $d\omega=2\pi df$, By substituting this.
+
+$$\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j2\pi f t} \ df =\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j\omega t} \ d\omega $$
+
+### 2.Second,found something interesting
+$\frac{1}{2\pi}$ in Synthesis Equation is similar to $\frac{1}{T}$ in <a href="#1-fourier">Fourier series.</a>
+
+$$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$
+
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega$$
+
+**Intuition:**
+The process here involves **normalization**.
+* In Fourier Series, $c_n$ is calculated by dividing by the period $T$ to find the **average** value.
+* In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.  </details>
+
+more-->[DFT_and_FFT(Dive_Into_Fourier_Transform).md](https://www.your-link.com)
+  <details>
+      <summary style="font-size: 20px;">2.Time Domain to Frequency Domain</summary>
+
+I found that there is some difficulty to understand the <a href="#constant">Fourier Transform of a Constant</a>.
+$$ \mathcal{F}[C ]= 2\pi C \cdot \delta(\omega) $$      
+The key question is: Is it valid to use twice Fourier Transforms acccording to the verification.We all know Fourier Transform can be described as the transformation from t-domain to $\omega$-domain,so,what does the second tansform imply?
+
   </details>
   <details>
-      <summary style="font-size: 20px;">2. t-domain->s-domain</summary>
-  </details>
-  <details>
-      <summary style="font-size: 20px;">3. reverse in convolution.</summary>
+      <summary style="font-size: 20px;">3. Reversal in convolution.</summary>
+
+Here we focus on <a href="#convolution">Convolution</a>.<p>
+$$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$
+1. $ \tau $ and $-\tau$(*why do we need to reverse it here?*)<p>
+2. Why can reversing the sign of $ \tau $ here be used to reveal a function's characteristics?
+
   </details>
   <details>
       <summary style="font-size: 20px;">4. Power spectrum</summary>
+
+About power spectrum, the concepts can be a bit difficult to grasp the concepts,and here we use <a href="#parsevals-theorem">Parsevals-theorem</a> and <a href="#correlation">Power Spectral Density in Correlation</a>
+$$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$
+$$\mathcal{F} [\{ R_{xx}(\tau) \} ]= |X(\omega)|^2$$
+
   </details>
   <details>
       <summary style="font-size: 20px;">5. How sampling influence s-domain</summary>
+
+Regarding sampling, I noticed that the Fourier Transform of a sampled continuous signal results in the periodic replication and shifting of the original spectrum. Why does this happen? This concept is somewhat difficult to understand.
+
   </details>
 
 # Key Formulas
 ## 1. Fourier
 
 
-<details>
+<details open>
   <summary style="font-size: 25px;">Fourier series</summary>
 
 $$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$
@@ -63,23 +109,18 @@ $$
 $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$
 </details>
 
-<details>
+<details open>
   <summary style="font-size: 25px;">Fourier transform</summary>
 
-<details>
-  <summary style="font-size: 20px;">Analysis Equation</summary>
+### Analysis Equation
 
 $$F(\omega) = \mathcal{F}\[f(t)\] = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \ dt$$
 
-</details>
-<details>
-  <summary style="font-size: 20px;">Synthesis Equation</summary>
-
+### Synthesis Equation
 $$f(t) = \mathcal{F}^{-1}\[{F(\omega)\} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega$$
-</details>
-<details>
-  <summary style="font-size: 20px;">Properties of the Fourier Transform</summary>
-<details>
+<details open>
+  <summary style="font-size: 25px;">Properties of the Fourier Transform</summary>
+<details >
   <summary>Basics</summary>
 
 ### Linearity Property<br>
@@ -320,9 +361,9 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 <details>
   <summary style="font-size: 20px;">Convolution Theorem</summary>
 
-  $$\mathcal{F} \[ f(t)* g(t) \] = \mathcal{F}[f(t)] \cdot \mathcal{F}[g(t)]$$
+$$\mathcal{F} \[ f(t)* g(t) \] = \mathcal{F}[f(t)] \cdot \mathcal{F}[g(t)]$$
 
-  $$\mathcal{L} \[ f(t)* g(t) \] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
+$$\mathcal{L} \[ f(t)* g(t) \] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
   <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Proof
@@ -338,11 +379,11 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
    From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
-  $$R_{xy}(\tau) = \int_{-\infty}^{\infty} x(t) y(t + \tau) \ dt$$
+$$R_{xy}(\tau) = \int_{-\infty}^{\infty} x(t) y(t + \tau) \ dt$$
 </details>
  <details>
   <summary style="font-size: 20px;">Power Spectral Density(Wiener–Khinchin theorem)</summary>
-  $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
+$$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
   This formula demonstrates the calculation of the Energy Spectral Density (ESD).
 </details>
 

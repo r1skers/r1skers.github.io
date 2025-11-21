@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Fireside Notes on r1skers&#39; Blog</title>
-    <link>http://localhost:1313/categories/fireside-notes/</link>
-    <description>Recent content in Fireside Notes on r1skers&#39; Blog</description>
+    <title>Convolution and Sampling on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/convolution-and-sampling/</link>
+    <description>Recent content in Convolution and Sampling on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Nov 2025 10:17:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/fireside-notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/convolution-and-sampling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convolution and Sampling in Fourier and Laplace[To be continued]</title>
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
@@ -37,26 +37,6 @@
 &lt;p&gt;$$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$&lt;/p&gt;
 &lt;p&gt;$\frac{a_0}{2}$ here represents the average value (or DC component) of the signal $f(t)$. This value is calculated by finding the &amp;rsquo;net area&amp;rsquo; under the $f(t)$ curve within one period and dividing by the period $T$.&lt;br&gt;
 The coefficient $a_0$ itself is calculated as twice this average value:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>UART Communication Analysis in Vivado[To be continued]</title>
-      <link>http://localhost:1313/posts/uart_communication_analysis/</link>
-      <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/uart_communication_analysis/</guid>
-      <description>&lt;h1 id=&#34;important-key-concept&#34;&gt;[Important] Key Concept&lt;/h1&gt;
-&lt;p&gt;1.The reason why we have to calculate (Frequency / Baud Rate) - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
-2.The reason why we use data_valid here - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;1description&#34;&gt;1.Description&lt;/h1&gt;
-&lt;p&gt;Short overview: minimal UART RX + simple command parser for FPGA.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Goal: show a synthesizable UART receiver (&lt;code&gt;uart_rx&lt;/code&gt;), a byte-oriented &lt;code&gt;command_parser&lt;/code&gt; that recognizes &amp;ldquo;ON&amp;rdquo;/&amp;ldquo;OFF&amp;rdquo;, and a small &lt;code&gt;fpga_top&lt;/code&gt; that wires them.&lt;/li&gt;
-&lt;li&gt;Key idea: &lt;code&gt;uart_rx&lt;/code&gt; asserts &lt;code&gt;data_valid&lt;/code&gt; when a full byte is ready; the parser samples only on that strobe.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;2detailed-analysis&#34;&gt;2.Detailed Analysis&lt;/h1&gt;
-&lt;h2 id=&#34;21uart_rxv&#34;&gt;2.1.uart_rx.v&lt;/h2&gt;
-&lt;p&gt;&lt;a id=&#34;211&#34;&gt;&lt;/a&gt;
-This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
