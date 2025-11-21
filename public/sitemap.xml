@@ -2,38 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/basic/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <loc>http://localhost:1313/tags/advanced/</loc>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/convolution-and-sampling/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <loc>http://localhost:1313/categories/delphic-musings/</loc>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</loc>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/fireside-notes/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/fourier-and-laplace/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/markdown/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/promethean-fire/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-11-20T10:17:00+09:00</lastmod>
+    <lastmod>2025-11-21T10:17:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/basic/</loc>
+    <lastmod>2025-11-12T10:17:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</loc>
+    <lastmod>2025-11-12T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/uart/</loc>
     <lastmod>2025-11-08T10:17:00+09:00</lastmod>
@@ -43,9 +52,6 @@
   </url><url>
     <loc>http://localhost:1313/tags/verilog/</loc>
     <lastmod>2025-11-08T10:17:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/delphic-musings/</loc>
-    <lastmod>2025-10-29T19:01:21+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</loc>
     <lastmod>2025-10-29T19:01:21+09:00</lastmod>

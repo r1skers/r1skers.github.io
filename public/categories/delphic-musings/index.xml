@@ -6,8 +6,15 @@
     <description>Recent content in Delphic Musings on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Oct 2025 19:01:21 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/delphic-musings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DFT and FFT(Dive Into Fourier Transform)[To be continued]</title>
+      <link>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</link>
+      <pubDate>Fri, 21 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</guid>
+      <description></description>
+    </item>
     <item>
       <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]</title>
       <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>

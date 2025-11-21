@@ -156,12 +156,12 @@ document.addEventListener("DOMContentLoaded", function() {
     </h2>
   </header>
   <div class="entry-content">
-    <p>Interesting place(after reading) 1. 1/2pai between FT and IFTHere,We focus on $1/2\pai$2. t-domain-&gt;s-domain3. reverse in convolution.4. Power spectrum5. How sampling influence s-domainKey Formulas 1. Fourier Fourier series$$f(t) = \frac{a_0}{2} &#43; \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) &#43; b_n \sin(n\omega_0 t) \right)$$
-$\frac{a_0}{2}$ here represents the average value (or DC component) of the signal $f(t)$. This value is calculated by finding the ’net area’ under the $f(t)$ curve within one period and dividing by the period $T$.
-The coefficient $a_0$ itself is calculated as twice this average value:
+    <p>Interesting place(after reading) 1.The 1/2π Factor between FT and IFTHere, we focus on $\frac{1}{2\pi}$.Why is there a $\frac{1}{2\pi}$ in Synthesis Equation of Fourier transform?And how can we summarize this pattern?
+$$ f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$
+The process of obtaining the answer: 1. First,I consulted AI(gemini) Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-11-20 10:17:00 +0900 JST'>November 20, 2025</span>&nbsp;·&nbsp;<span>5 min</span></footer>
+  <footer class="entry-footer"><span title='2025-11-12 10:17:00 +0900 JST'>November 12, 2025</span>&nbsp;·&nbsp;<span>9 min</span></footer>
   <a class="entry-link" aria-label="post link to Convolution and Sampling in Fourier and Laplace[To be continued]" href="http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/"></a>
 </article>
 

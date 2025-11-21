@@ -1,7 +1,7 @@
 ---
 date: '2025-11-12T10:17:00+09:00'
 draft: false
-title: 'Convolution and Sampling in Fourier and Laplace[To be continued]'
+title: 'Convolution and Sampling in Fourier and Laplace[Finished]'
 tags: ["basic", "markdown","Fourier and Laplace","Convolution and Sampling"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
@@ -37,8 +37,31 @@ The process here involves **normalization**.
 * In Fourier Series, $c_n$ is calculated by dividing by the period $T$ to find the **average** value.
 * In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.  
 
-more-->[DFT_and_FFT(Dive_Into_Fourier_Transform).md](https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/)
+more-->[DFT_and_FFT(Dive_Into_Fourier_Transform)](https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/)
 
+### 3.Third,there is still something...
+
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \underbrace{\left[ \int_{-\infty}^{\infty} f(\tau) e^{-j\omega \tau} d\tau \right]}_{F(\omega)} \cdot e^{j\omega t} d\omega$$ 
+
+
+Here, let's distinguish the roles of $\tau$ and $t$:
+* **$\tau$ (The Traverser):** It iterates through all history (from $-\infty$ to $+\infty$) to compute the spectrum.
+* **$t$ (The Target):** It represents the specific moment we want to reconstruct.
+
+**1. When $\tau \neq t$ (Misalignment):**
+The exponential term $e^{j\omega (t-\tau)}$ **oscillates rapidly**.
+The integral of these oscillations over all frequencies results in **zero**. This implies **destructive interference**: "Yesterday's" data ($\tau$) implies no direct contribution to "Today's" value ($t$). They are orthogonal and cancel each other out.
+
+**2. When $\tau = t$ (Alignment):**
+The exponential term stops rotating ($e^0 = 1$).
+This results in **constructive interference**. Only the data at the exact moment $\tau$ determines the value at $t$.
+
+$$\int_{-\infty}^{\infty} e^{j\omega(t-\tau)} d\omega = \mathbf{2\pi} \delta(t-\tau)$$
+
+$$\int f(\tau) \cdot [2\pi \delta(t-\tau)] d\tau = \mathbf{2\pi} f(t)$$
+
+**Conclusion:**
+The integration process naturally generates a factor of $\mathbf{2\pi}$. Therefore, to recover the original $f(t)$, we must divide by $2\pi$ in the inverse formula to cancel it out.
 </details>
 
 
@@ -47,9 +70,29 @@ more-->[DFT_and_FFT(Dive_Into_Fourier_Transform).md](https://r1skers.github.io/p
 
 I found that there is some difficulty to understand the <a href="#constant">Fourier Transform of a Constant</a>.
 $$ \mathcal{F}[C ]= 2\pi C \cdot \delta(\omega) $$      
-The key question is: Is it valid to use twice Fourier Transforms acccording to the verification.We all know Fourier Transform can be described as the transformation from t-domain to $\omega$-domain,so,what does the second tansform imply?
+The key question is: Is it valid to use twice Fourier Transforms according to the verification.We all know Fourier Transform can be described as the transformation from t-domain to $\omega$-domain,so,what does the second tansform imply?
+The convolution involves a 'flip' to ensure that the newest input is weighted by the system's initial response (fresh), while older inputs are weighted by the decayed responses.
+## The proess of obtaining the answer:
+### 1. First, I consulted AI (Gemini)
+* **1st Transform:** Time Domain $\rightarrow$ Frequency Domain.
+* **2nd Transform:** Frequency Domain $\rightarrow$ Mirrored Time Domain.
+
+Therefore, applying the transform twice is equivalent to flipping the signal into the **Reflected Time Domain** ($f(-t)$).
+### 2. Second, I gained a new perspective
+I realized that my previous understanding of the Fourier Transform was too superficial. Mathematically, the Fourier Transform implies a **-90° rotation** in the complex unit circle (equivalent to multiplying by $-j$), rather than a simple conversion from time to frequency.
+
+* A single **Fourier Transform** represents a **90° clockwise rotation**.
+* The **Inverse Transform** represents a **90° counter-clockwise rotation**.
+
+(While this might seem obvious to many, it took me some time to fully grasp it).
+
+The key lies in the **Unit Circle** on the complex plane. The time domain representation can be seen as the **projection** of a rotating vector (function) onto the real axis. The frequency domain, however, focuses on the **attributes** of this unit circle: angular velocity $\omega$, vector amplitude $A$, and initial phase.
+
+For more details on why a single transform maps time to frequency, please read more:
+<a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">DFT and FFT (Dive Into Fourier Transform)</a>
 
   </details>
+
   <details>
       <summary style="font-size: 20px;">3. Reversal in convolution.</summary>
 
@@ -58,20 +101,88 @@ $$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$
 1. $ \tau $ and $-\tau$(*why do we need to reverse it here?*)<p>
 2. Why can reversing the sign of $ \tau $ here be used to reveal a function's characteristics?
 
+## The process of obtaining the answer:
+The convolution involves a 'flip' to ensure that the newest input is weighted by the system's initial response ("fresh"), while older inputs are weighted by the decayed responses.<br>
+
+* **I will stop the explanation here.**
+The reason why I don't share the full derivation process is simply...
+<br>
+*"おい、その先は地獄だぞ"* (That's hell you're walking into).
+
+* **<a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">The Gateway to Hell: DFT and FFT (Dive Into Fourier Transform)</a>**
   </details>
+
   <details>
       <summary style="font-size: 20px;">4. Power spectrum</summary>
 
-About power spectrum, the concepts can be a bit difficult to grasp the concepts,and here we use <a href="#parsevals-theorem">Parsevals-theorem</a> and <a href="#correlation">Power Spectral Density in Correlation</a>
+About power spectrum, the concepts can be a bit difficult to grasp, and here we use <a href="#parsevals-theorem">Parsevals-theorem</a> and <a href="#correlation">Power Spectral Density in Correlation</a>
 $$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$
 $$\mathcal{F} [\{ R_{xx}(\tau) \} ]= |X(\omega)|^2$$
 
+## The process of obtaining the answer:
+### 1. First, I consulted AI (Gemini)
+
+Parseval's Theorem calculates the Total Energy, whereas the Wiener-Khinchin Theorem focuses on the Energy Spectral Density (ESD).
+
+The numerical relationship is clear:
+Total Energy = The integral of ESD over the infinite frequency range, divided by $2\pi$.
+
+$$
+\underbrace{\int_{-\infty}^{\infty} |f(t)|^2 \ dt}\_{\text{Total Energy in Time Domain}} = \underbrace{\frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega}\_{\text{Total Energy in Freq Domain}}
+$$
+
+### 2.Second, I noticed something
+Initially, the definition $|F(\omega)|^2$ seemed abstract. Why does simply squaring the magnitude represent energy density?
+
+To understand this, I drew an analogy from **electrical circuit theory**.
+In circuits, the instantaneous power (rate of heat/work) is proportional to the square of the voltage or current.
+Recall the power formula: **$P = V^2/R$**.
+In signal processing, we simplify this by assuming a **unit resistance ($R=1\Omega$)**, leaving us with just the **square of the amplitude**.
+
+Once I linked the mathematical "square" to the physical "power," the formula intuitively made sense.
   </details>
   <details>
       <summary style="font-size: 20px;">5. How sampling influence s-domain</summary>
 
 Regarding sampling, I noticed that the Fourier Transform of a sampled continuous signal results in the periodic replication and shifting of the original spectrum. Why does this happen? This concept is somewhat difficult to understand.
 
+## Te process of obtaining the answer
+### I consulted AI(Gemini)
+I think Gemini give me a very good answer.
+#### 1. Physical Intuition: The "Ambiguity" of Identity
+If the mathematics feels too abstract, let's use physical intuition. The root cause is: **Discrete points cannot uniquely identify a continuous signal.**
+
+Imagine observing a rotating wheel (or a fan) in a dark room using a **strobe light** (the sampler).
+
+* **Case A:** The wheel rotates at **1 Hz**. You flash the light once per second (**1 Hz**).
+    * **Observation:** You see the wheel at the same position every time.
+    * **Conclusion:** The wheel appears **static (0 Hz)**.
+* **Case B:** The wheel rotates at **2 Hz**. You flash the light once per second (**1 Hz**).
+    * **Observation:** The wheel has spun exactly two full circles and returned to the start. You still see it at the same position.
+    * **Conclusion:** The wheel appears **static (0 Hz)**.
+* **Case C:** The wheel rotates at **1001 Hz**. You flash the light **1000 times** per second.
+    * **Observation:** You perceive the wheel rotating slowly at **1 Hz**.
+
+**The Core Problem:**
+For discrete sampling points, a **1 Hz** signal, a **1001 Hz** signal, and a **2001 Hz** signal produce **identical sample values**. The computer simply cannot distinguish between them.
+
+**The "Honest" Answer from the Frequency Domain:**
+The Fourier Transform is brutally honest. When you ask, *"What is the spectrum of these sample points?"*, it replies:
+> "Boss, this could be 1 Hz, or 1001 Hz, or 2001 Hz... I can't tell the difference. So, I will list **ALL** possible frequencies for you."
+
+**This is why the spectrum replicates periodically:** Every repeated waveform represents a valid high-frequency possibility that looks exactly the same at the sampling points.
+
+---
+
+#### 2. Conclusion
+
+**Why does the spectrum replicate?**
+
+1.  **Mathematical Mechanism:**
+    Sampling in the Time Domain is equivalent to **multiplying by an impulse train** ($ \sum \delta(t-nT) $). According to the Convolution Theorem, this corresponds to **convolving with an impulse train** in the Frequency Domain. Convolving with an impulse sequence results in the infinite **copying and shifting** of the original spectrum.
+
+2.  **Physical Intuition:**
+    It stems from the **"Ambiguity"** of discrete signals. For a given sampling rate $f_s$, the frequencies $f$ and $f + k \cdot f_s$ yield identical values at the sampling instants. The periodic replication in the frequency domain is the mathematical manifestation of this ambiguity (i.e., all these high-frequency signals are valid candidates for the sampled data).
   </details>
 
 # Key Formulas
