@@ -94,7 +94,7 @@ For more details on why a single transform maps time to frequency, please read m
   </details>
 
   <details>
-      <summary style="font-size: 20px;">3. Reversal in convolution.</summary>
+      <summary style="font-size: 20px;">3. Reversal in convolution</summary>
 
 Here we focus on <a href="#convolution">Convolution</a>.<p>
 $$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$
