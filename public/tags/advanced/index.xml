@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Advanced on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/advanced/</link>
+    <description>Recent content in Advanced on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DFT_and_FFT(Dive_Into_Fourier_Transform)[To be continued]</title>
+      <link>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</link>
+      <pubDate>Fri, 21 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

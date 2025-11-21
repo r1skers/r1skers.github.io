@@ -1,5 +1,5 @@
 ---
-date: '2025-11-20T10:17:00+09:00'
+date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: 'Convolution and Sampling in Fourier and Laplace[To be continued]'
 tags: ["basic", "markdown","Fourier and Laplace","Convolution and Sampling"]
@@ -35,9 +35,12 @@ $$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omeg
 **Intuition:**
 The process here involves **normalization**.
 * In Fourier Series, $c_n$ is calculated by dividing by the period $T$ to find the **average** value.
-* In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.  </details>
-
+* In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.  
 more-->[DFT_and_FFT(Dive_Into_Fourier_Transform).md](https://www.your-link.com)
+
+</details>
+
+
   <details>
       <summary style="font-size: 20px;">2.Time Domain to Frequency Domain</summary>
 
