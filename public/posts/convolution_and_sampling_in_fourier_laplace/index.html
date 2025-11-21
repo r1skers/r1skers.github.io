@@ -245,10 +245,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#shifting-in-the-frequency-domains" aria-label="Shifting in the Frequency Domain(s)">Shifting in the Frequency Domain(s)</a></li></ul>
                 </li>
                 <li>
-                    <a href="#3differences-between-ftfourier-transform-and-ltlaplace-transform" aria-label="3.Differences between FT(Fourier Transform) and LT(Laplace Transform)">3.Differences between FT(Fourier Transform) and LT(Laplace Transform)</a></li>
+                    <a href="#3differences-between-ftfourier-transform-and-ltlaplace-transform" aria-label="3.Differences between FT(Fourier Transform) and LT(Laplace Transform)">3.Differences between FT(Fourier Transform) and LT(Laplace Transform)</a><ul>
+                        
                 <li>
-                    <a href="#4signal-processing" aria-label="4.Signal Processing">4.Signal Processing</a>
+                    <a href="#difference-in-kernal" aria-label="Difference in Kernal">Difference in Kernal</a></li>
+                <li>
+                    <a href="#difference-in-range" aria-label="Difference in range">Difference in range</a></li></ul>
                 </li>
+                <li>
+                    <a href="#4signal-processing" aria-label="4.Signal Processing">4.Signal Processing</a><ul>
+                        
+                <li>
+                    <a href="#convolution" aria-label="Convolution">Convolution</a></li>
+                <li>
+                    <a href="#correlation" aria-label="Correlation">Correlation</a></li>
+                <li>
+                    <a href="#sampling" aria-label="Sampling">Sampling</a>
+                </li>
+            </ul>
+            </li>
             </ul>
             </li>
             </ul>
@@ -438,23 +453,18 @@ $$</p>
 </details>
 </details>
 <h2 id="3differences-between-ftfourier-transform-and-ltlaplace-transform">3.Differences between FT(Fourier Transform) and LT(Laplace Transform)<a hidden class="anchor" aria-hidden="true" href="#3differences-between-ftfourier-transform-and-ltlaplace-transform">#</a></h2>
-<p>$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} , dt$$</p>
-<p>$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} , dt$$</p>
-<details>
-    <summary style="font-size:25px;">Difference in Kernal:</summary>
+<p>$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \ dt$$</p>
+<p>$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \ dt$$</p>
+<h3 id="difference-in-kernal">Difference in Kernal<a hidden class="anchor" aria-hidden="true" href="#difference-in-kernal">#</a></h3>
 <p>$$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$</p>
 <p>$$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}_{\text{Oscillation}}$$</p>
 <p>The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these &ldquo;never-decaying&rdquo; pure sine/cosine waves.<br>
 The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these &ldquo;oscillating waves that can decay or grow.</p>
-</details>
-<details>
-    <summary style="font-size:25px;">Difference in range:</summary>
-    <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
-    <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
-</details>
+<h3 id="difference-in-range">Difference in range<a hidden class="anchor" aria-hidden="true" href="#difference-in-range">#</a></h3>
+<p><strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
+<strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.</p>
 <h2 id="4signal-processing">4.Signal Processing<a hidden class="anchor" aria-hidden="true" href="#4signal-processing">#</a></h2>
-<details>
-  <summary style="font-size: 25px;">Convolution</summary>
+<h3 id="convolution">Convolution<a hidden class="anchor" aria-hidden="true" href="#convolution">#</a></h3>
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
   In my opinion, convolution is a method for processing functions (and actually more than just functions). We often use it to describe the interaction (e.g., sliding weighted superposition) between two functions, especially in signal processing and system analysis.<p>
@@ -476,9 +486,7 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 <p><br> <img src="/img/proof/卷积定理的证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 </details>
-</details>
-<details>
-  <summary style="font-size: 25px;">Correlation</summary>
+<h3 id="correlation">Correlation<a hidden class="anchor" aria-hidden="true" href="#correlation">#</a></h3>
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
    From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
@@ -489,9 +497,7 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
   $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
   This formula demonstrates the calculation of the Energy Spectral Density (ESD).
 </details>
-</details>
-<details>
-  <summary style="font-size: 25px;">Sampling</summary>
+<h3 id="sampling">Sampling<a hidden class="anchor" aria-hidden="true" href="#sampling">#</a></h3>
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
   Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
@@ -502,8 +508,14 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
  <details>
   <summary style="font-size: 20px;">Nyquist–Shannon sampling theorem</summary>
   In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$<$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.
+  <details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+<p><br> <img src="/img/proof/采样定理的证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 </details>
+
 
   </div>
 

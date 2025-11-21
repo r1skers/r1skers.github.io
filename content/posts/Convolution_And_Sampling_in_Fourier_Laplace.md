@@ -1,8 +1,8 @@
 ---
 date: '2025-11-20T10:17:00+09:00'
 draft: false
-title: 'Convolution and Sampling in Fourier and Laplace'
-tags: ["basic", "markdown","Fourier and Laplace","Convolution"]
+title: 'Convolution and Sampling in Fourier and Laplace[To be continued]'
+tags: ["basic", "markdown","Fourier and Laplace","Convolution and Sampling"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
 
@@ -286,29 +286,26 @@ $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
 
 ## 3.Differences between FT(Fourier Transform) and LT(Laplace Transform)
 
-$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \, dt$$
+$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \ dt$$
 
-$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \, dt$$
-<details>
-    <summary style="font-size:25px;">Difference in Kernal:</summary>
+$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \ dt$$
 
+### Difference in Kernal
 $$e^{-j\omega t} = \cos(\omega t) - j \sin(\omega t)$$
 
 $$e^{-st} = e^{-(\sigma + j\omega)t} = \underbrace{e^{-\sigma t}}\_{\text{Decay/Growth}} \cdot \underbrace{e^{-j\omega t}}\_{\text{Oscillation}}$$
 
 The definition of the Fourier Transform is to decompose your signal $f(t)$ into an infinite sum of these "never-decaying" pure sine/cosine waves.<br>
 The definition of the Laplace Transform is to decompose your signal $f(t)$ into an infinite sum of these "oscillating waves that can decay or grow.
-</details>
 
-<details>
-    <summary style="font-size:25px;">Difference in range:</summary>
-    <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
-    <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
-</details>
+### Difference in range
+  <strong>FT</strong>:As can be seen from the formula, the upper and lower limits of the Fourier Transform are both infinity, making it a bilateral transform. It is generally used to analyze eternal signals, i.e., signals with no starting point, such as radio broadcasts.<br>
+  <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.
+
 
 ## 4.Signal Processing
-<details>
-  <summary style="font-size: 25px;">Convolution</summary>
+### Convolution
+
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
   In my opinion, convolution is a method for processing functions (and actually more than just functions). We often use it to describe the interaction (e.g., sliding weighted superposition) between two functions, especially in signal processing and system analysis.<p>
@@ -336,9 +333,8 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 </details>
 </details>
 
-</details>
-<details>
-  <summary style="font-size: 25px;">Correlation</summary>
+### Correlation
+
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
    From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
@@ -349,9 +345,9 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
   $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
   This formula demonstrates the calculation of the Energy Spectral Density (ESD).
 </details>
-</details>
-<details>
-  <summary style="font-size: 25px;">Sampling</summary>
+
+### Sampling
+
   <details>
   <summary style="font-size: 20px;">Concepts</summary>
   Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
@@ -362,6 +358,13 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
  <details>
   <summary style="font-size: 20px;">Nyquist–Shannon sampling theorem</summary>
   In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$<$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.
-</details>
+  <details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Proof
+  </summary>
+  
+  <br> <img src="/img/proof/采样定理的证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
+</details>
+

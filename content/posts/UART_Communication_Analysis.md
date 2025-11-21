@@ -1,7 +1,7 @@
 ---
 date: '2025-11-08T10:17:00+09:00'
 draft: false
-title: 'UART Communication Analysis in Vivado'
+title: 'UART Communication Analysis in Vivado[To be continued]'
 tags: ["basic", "markdown","UART", "verilog"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
