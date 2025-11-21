@@ -36,7 +36,8 @@ $$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omeg
 The process here involves **normalization**.
 * In Fourier Series, $c_n$ is calculated by dividing by the period $T$ to find the **average** value.
 * In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.  
-more-->[DFT_and_FFT(Dive_Into_Fourier_Transform).md](https://www.your-link.com)
+
+more-->[DFT_and_FFT(Dive_Into_Fourier_Transform).md](https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/)
 
 </details>
 
