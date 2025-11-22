@@ -56,7 +56,9 @@ $m$: mass<p>
 $v$: velocity<p>
 
 ### 哥本哈根解释
-
+1.  一个量子系统的量子态可以用波函数来完全地表述。波函数代表一个观察者对于量子系统所知道的全部信息。<p>
+2.  量子系统的描述是概率性的。一个事件的概率是波函数的绝对值平方。<p>
+3.  不确定性原理阐明，在量子系统里，一个粒子的位置和动量无法同时被确定。
 # The Wave Function
 ## 一维波函数的推导
 首先根据欧拉公式
@@ -174,15 +176,10 @@ $$\hat{H}\psi=E\psi$$
 ## 无限障壁
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
-    Diagram
+    Infinite Square Potential Well Diagram
   </summary>
   
-  <br> <img src="/img/diagram/Infinite_potential_well-en.svg" alt="一维无限深势阱示意图" width="100%" height="auto">
-  <div style="text-align: center; font-size: 11px; color: #888; margin-top: 6px;">
-    Author: Krishnavedala (Wikimedia Commons) / License: CC BY-SA 3.0
-    <br>
-    Source: <a href="https://commons.wikimedia.org/wiki/File:Infinite_potential_well-en.svg" style="color: #007bff; text-decoration: none;">Wikimedia Commons</a>
-  </div>
+  <br> <img src="/img/diagram/无限深势阱示意图.png" alt="一维无限深势阱示意图" width="100%" height="auto">
 </details>
 
 首先，我们建立一个最简单的模型。 想象一个电子被困在一个宽度为$L$的盒子里，墙壁无限高，电子绝对跑不出去。<p>
@@ -231,8 +228,8 @@ $$A^2 = \frac{2}{L} \implies A = \sqrt{\frac{2}{L}}$$
 $$\psi_n(x) = \sqrt{\frac{2}{L}} \sin\left( \frac{n\pi x}{L} \right)$$
 
 $$E_n = \frac{\hbar^2 k^2}{2m} = \frac{n^2 \pi^2 \hbar^2}{2m L^2}$$
-## 有限障壁
-## python simulation
+
+### python simulation
 <details>
   <summary>Code</summary>
 
@@ -303,17 +300,203 @@ plt.show()
   
   <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
-    Diagram
+    无限深势阱的能量图
   </summary>
   
   <br> <img src="/img/diagram/无限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
 
   </details>
-如何理解：
-1.概率是怎么体现的？<p>
-阴影面积就是概率。<p>
-2.波函数穿过0的那个点的意义？<p>
-那个位置概率为0，那为什么还有正负？发生了隧穿效应。
+关键点：<p>
+1.阴影面积就是概率。<p>
+2.波函数穿过0的那个点的位置：概率为0，有正负是因为发生了隧穿效应。
+</details>
+
+## 有限障壁
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Finite Square Potential Well Diagram
+  </summary>
+  
+  <br> <img src="/img/diagram/有限深势阱示意图.png" alt="一维有限方势阱（含波函数隧穿效应）" width="100%" height="auto">
+</details>
+
+同样，根据上面的图
+
+$$
+V(x) =
+\begin{cases}
+  0, & |x| < \frac{L}{2} \\\\
+  V_0, & \text{otherwise}
+\end{cases}
+$$
+
+我们要分三个区域，领域一（$x<-\frac{L}{2}$）,领域二（$-\frac{L}{2}<x<\frac{L}{2}$）,领域三（$x>\frac{L}{2}$）<p>
+首先分析领域二（$-\frac{L}{2}<x<\frac{L}{2}$），这里和无限量势阱是相似的
+
+$$\psi'' + k^2\psi = 0$$
+
+数学通解为：
+
+$$\psi_{II}(x) = A_2\cos(kx) +B_2\sin(kx)$$
+
+领域一（$x<-\frac{L}{2}$）
+
+$$\psi'' - \kappa^2\psi = 0$$
+
+数学通解为：
+
+$$\psi_I(x) = A_1e^{\kappa x} + B_1e^{-\kappa x}$$
+
+物理筛选：当 $x \to -\infty$ 时，$e^{-\kappa x}$ 会变成无穷大（物理上不允许）。<p>
+最终解为：
+
+$$\psi_I(x) = A_1e^{\kappa x}$$
+
+领域三（$x>\frac{L}{2}$）
+
+$$\psi'' - \kappa^2\psi = 0$$
+
+数学通解为：
+
+$$\psi_{III}(x) = A_3e^{\kappa x} + B_3e^{-\kappa x}$$
+
+物理筛选：当 $x \to +\infty$ 时，$e^{\kappa x}$ 会变成无穷大。最终解为：
+
+$$\psi_{III}(x) = B_3e^{-\kappa x}$$
+
+边界条件（在边界的时候波函数相同），可以解得超越函数，可解能量和概率：
+
+$$k \tan(kL/2) = \kappa$$
+
+### python simulation
+<details>
+  <summary>Code</summary>
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# --- 1. 设定示意性参数 ---
+L = 2.0           # 井宽 (示意值，比如 2nm，从 -1 到 1)
+V0 = 10.0         # 墙高 (示意值)
+x = np.linspace(-L*1.5, L*1.5, 1000) # 画宽一点，展示墙外
+
+# 定义区域
+inside_mask = np.abs(x) <= L/2
+outside_mask = np.abs(x) > L/2
+
+# --- 2. 构造示意性波函数 (非精确解，仅做视觉展示) ---
+# 我们需要手动调整 k (波数) 和 kappa (衰减系数) 来让图看起来像真的
+# 关键点：能量越高(n越大)，kappa越小(衰减越慢，渗透越深)
+
+def get_schematic_psi(n, x, L):
+    psi = np.zeros_like(x)
+    
+    # --- 手动调参区 (Magic Numbers for visuals) ---
+    if n == 1:   # 基态 (偶对称 cos)
+        E_schematic = 2.0
+        k = np.pi / (L * 1.1)  # 波长比无限井稍微长一点点
+        kappa = 3.5            # 衰减较快
+        
+        # 井内
+        psi[inside_mask] = np.cos(k * x[inside_mask])
+        # 边界值 (用于缝合)
+        boundary_val = np.cos(k * L/2)
+        # 井外 (指数衰减)
+        psi[outside_mask] = boundary_val * np.exp(-kappa * (np.abs(x[outside_mask]) - L/2))
+        
+    elif n == 2: # 第一激发态 (奇对称 sin)
+        E_schematic = 7.5
+        k = 2 * np.pi / (L * 1.15)
+        kappa = 1.5            # 能量高了，衰减变慢了 (渗透更深!)
+        
+        # 井内
+        psi[inside_mask] = np.sin(k * x[inside_mask])
+        # 边界值
+        boundary_val = np.sin(k * L/2)
+        # 井外 (指数衰减，注意要乘 sign(x) 保持奇对称)
+        psi[outside_mask] = boundary_val * np.exp(-kappa * (np.abs(x[outside_mask]) - L/2)) * np.sign(x[outside_mask])
+        
+    # 归一化视觉幅度
+    psi = psi / np.max(np.abs(psi))
+    return psi, E_schematic
+
+# --- 3. 绘图设置 ---
+plt.figure(figsize=(10, 7), dpi=120)
+plt.style.use('seaborn-v0_8-whitegrid')
+
+# 画势阱 V(x) 的轮廓
+V_x = np.zeros_like(x)
+V_x[outside_mask] = V0
+plt.plot(x, V_x, color='black', linewidth=3, alpha=0.6, label='Potential $V(x)$')
+plt.fill_between(x, V_x, V0+2, color='gray', alpha=0.2) # 给墙壁上色
+
+# --- 4. 循环画出能级 n=1, n=2 ---
+colors = ['#E63946', '#1D3557'] # 红、蓝
+states = [1, 2]
+
+for i, n in enumerate(states):
+    psi, E_level = get_schematic_psi(n, x, L)
+    prob = psi**2
+    
+    # 画能级基准线
+    plt.axhline(E_level, color=colors[i], linestyle='--', alpha=0.5)
+    plt.text(-L*1.4, E_level, f'State n={n}\n(Bound)', color=colors[i], va='center', fontweight='bold')
+    
+    # 画波函数 (稍微放大一点平移到能级上)
+    scale_factor = 1.5
+    plt.plot(x, psi * scale_factor + E_level, color=colors[i], linewidth=2, alpha=0.8, label=f'$\psi_{n}$')
+    
+    # 画概率密度 (重点展示渗透！)
+    plt.fill_between(x, E_level, prob * scale_factor + E_level, color=colors[i], alpha=0.3)
+
+# --- 5. 装饰图表 ---
+# 标出关键区域
+plt.axvline(-L/2, color='black', linestyle=':', alpha=0.5)
+plt.axvline(L/2, color='black', linestyle=':', alpha=0.5)
+plt.text(0, -1, 'Inside Well ($V=0$)\nOscillation', ha='center', fontsize=11)
+plt.text(-L, -1, 'Barrier ($V=V_0$)\nDecay', ha='center', fontsize=11)
+plt.text(L, -1, 'Barrier ($V=V_0$)\nDecay', ha='center', fontsize=11)
+
+# 标注 V0
+plt.text(L*1.1, V0, '$V_0$ (Barrier Height)', va='center', fontsize=12)
+
+# 重点：标注渗透现象
+plt.annotate('Penetration (Quantum Tunneling Tail)', 
+             xy=(L/2 + 0.2, E_level + 0.2), 
+             xytext=(L/2 + 0.8, E_level + 2),
+             arrowprops=dict(facecolor='black', arrowstyle='->'),
+             fontsize=10, color='darkblue')
+
+
+plt.title('Finite Potential Well: Wave Function Penetration (Schematic)', fontsize=14)
+plt.xlabel('Position $x$ (Center origin)', fontsize=12)
+plt.ylabel('Energy', fontsize=12)
+plt.yticks([]) # 隐藏Y轴刻度
+plt.xticks([-L/2, 0, L/2], ['$-L/2$', '$0$', '$L/2$']) # 设置X轴刻度
+plt.xlim(-L*1.5, L*1.5)
+plt.ylim(-2, V0 + 3)
+plt.legend(loc='upper right')
+
+plt.tight_layout()
+plt.show()
+# plt.savefig('finite_well_schematic.png')
+```
+</details>
+<details>
+  <summary>matplotlib output</summary>
+  
+  <details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    有限深势阱的能量图
+  </summary>
+  
+  <br> <img src="/img/diagram/有限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
+
+  </details>
+关键点：<p>
+1.比较一下 （低能量，红色）和 （高能量，蓝色）。会发现蓝色的尾巴衰减得更慢，伸得更远。这很符合直觉：电子能量越高，它就越‘不安分’，向墙里钻得就越深。<p>
+2.看这些延伸到墙壁里的彩色阴影！在经典物理中，这是绝对禁区。但在量子力学中，波函数没有在边界突然截止，而是以指数形式衰减。这证明了电子有一定概率存在于势垒内部。这就是‘隧道效应’的根本原因。
 </details>
 
 # Conclusion & Uncertainty Principle 

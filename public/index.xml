@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
-      <link>http://localhost:1313/posts/1.1/</link>
+      <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/1.1/</guid>
+      <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
       <description>&lt;p&gt;This article is actually used to prepare for test, but during the review, I realized how imperative quantom mechanics it is, So I decided to summarize my notes in detail.&lt;/p&gt;
 &lt;h1 id=&#34;after-reading&#34;&gt;After Reading&lt;/h1&gt;
 &lt;details&gt;
