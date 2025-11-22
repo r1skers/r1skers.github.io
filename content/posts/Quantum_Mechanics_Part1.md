@@ -308,8 +308,12 @@ plt.show()
   
   <br> <img src="/img/diagram/无限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
 
-</details>
+  </details>
 如何理解：
+1.概率是怎么体现的？<p>
+阴影面积就是概率。<p>
+2.波函数穿过0的那个点的意义？<p>
+那个位置概率为0，那为什么还有正负？发生了隧穿效应。
 </details>
 
 # Conclusion & Uncertainty Principle 
