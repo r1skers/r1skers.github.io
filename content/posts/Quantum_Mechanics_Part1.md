@@ -1,6 +1,7 @@
 ---
 date: '2025-11-22T10:17:00+09:00'
 draft: false
+weight: 1
 title: 'Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]'
 tags: ["basic", "Quantum Mechanics"]
 categories: ["Promethean Fire", "Fireside Notes"]
