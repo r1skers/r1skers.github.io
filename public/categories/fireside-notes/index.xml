@@ -6,8 +6,30 @@
     <description>Recent content in Fireside Notes on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/fireside-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
+      <link>http://localhost:1313/posts/1.1/</link>
+      <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/1.1/</guid>
+      <description>&lt;h1 id=&#34;introduce&#34;&gt;Introduce&lt;/h1&gt;
+&lt;h1 id=&#34;the-failure-of-classical-physics--duality&#34;&gt;The Failure of Classical Physics &amp;amp; Duality&lt;/h1&gt;
+&lt;h2 id=&#34;wave-particle-duality&#34;&gt;Wave-Particle Duality&lt;/h2&gt;
+&lt;h2 id=&#34;classic-physics-的局限&#34;&gt;Classic Physics 的局限&lt;/h2&gt;
+&lt;h1 id=&#34;the-wave-function&#34;&gt;The Wave Function&lt;/h1&gt;
+&lt;h2 id=&#34;推导&#34;&gt;推导&lt;/h2&gt;
+&lt;h2 id=&#34;波恩统计解释概率密度规格化条件&#34;&gt;波恩统计解释（概率密度）规格化条件&lt;/h2&gt;
+&lt;h2 id=&#34;算符-operators--演算子&#34;&gt;算符 (Operators / 演算子)&lt;/h2&gt;
+&lt;h1 id=&#34;量子世界的牛顿第二定律薛定谔方程-the-schrödinger-equation--シュレーディンガー方程式&#34;&gt;量子世界的“牛顿第二定律”：薛定谔方程 (The Schrödinger Equation / シュレーディンガー方程式)&lt;/h1&gt;
+&lt;h2 id=&#34;推导-1&#34;&gt;推导&lt;/h2&gt;
+&lt;h2 id=&#34;含时薛定谔方程&#34;&gt;含时薛定谔方程&lt;/h2&gt;
+&lt;h2 id=&#34;不含时薛定谔方程&#34;&gt;不含时薛定谔方程&lt;/h2&gt;
+&lt;h1 id=&#34;量子井户&#34;&gt;量子井户&lt;/h1&gt;
+&lt;h2 id=&#34;无限障壁&#34;&gt;无限障壁&lt;/h2&gt;
+&lt;h2 id=&#34;有限障壁&#34;&gt;有限障壁&lt;/h2&gt;
+&lt;h2 id=&#34;python-simulation&#34;&gt;python simulation&lt;/h2&gt;</description>
+    </item>
     <item>
       <title>DFT and FFT(Dive Into Fourier Transform)[To be continued]</title>
       <link>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</link>
@@ -16,7 +38,7 @@
       <description></description>
     </item>
     <item>
-      <title>Convolution and Sampling in Fourier and Laplace[To be continued]</title>
+      <title>Convolution and Sampling in Fourier and Laplace[Finished]</title>
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
       <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>

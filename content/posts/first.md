@@ -58,3 +58,17 @@ int main() {
   <p>可以有很多行。</p>
 
 </details>
+
+
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Diagram
+  </summary>
+  
+  <br> <img src="/img/diagram/Infinite_potential_well-en.svg" alt="一维无限深势阱示意图" width="100%" height="auto">
+  <div style="text-align: center; font-size: 11px; color: #888; margin-top: 6px;">
+    Author: Krishnavedala (Wikimedia Commons) / License: CC BY-SA 3.0
+    <br>
+    Source: <a href="https://commons.wikimedia.org/wiki/File:Infinite_potential_well-en.svg" style="color: #007bff; text-decoration: none;">Wikimedia Commons</a>
+  </div>
+</details>
