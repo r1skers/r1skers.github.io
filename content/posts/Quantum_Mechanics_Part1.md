@@ -9,15 +9,58 @@ categories: ["Promethean Fire", "Fireside Notes"]
 This article is actually used to prepare for test, but during the review, I realized how imperative quantom mechanics it is, So I decided to summarize my notes in detail.
 # After Reading
 <details>
-    <summary>1.为什么波函数在推导时只需要关注x轴？</summary>
+    <summary>1.Why do we only focus on the x-axis when deriving the wave function?</summary>
+
+**The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.**<p>
+• In the x-direction: The electron is trapped by the potential well (), creating "Standing Waves." This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.<p>
+• In the y and z directions: There are no potential walls (). The electron behaves like a Free Particle, traveling as "Traveling Waves." Its energy is continuous and follows classical physics logic, so we don't need to spend effort solving a complex Schrödinger equation for them.
+
 </details>
 <details>
     <summary>2.为什么波函数在推导时只取虚部？</summary>
+
+首先，我们的目的是推理出$E = \frac{p^2}{2m}$，根据德布罗意波的关系得到：
+
+$$E=\hbar \omega = \frac{(\hbar k)^2}{2m}$$
+
+也就是说，方程里必须体现出：$\omega$（频率） 与 $k^2$（波数平方）成正比。
+如果用实数波函数：
+
+$$\Psi = \cos(kx - \omega t)$$
+
+对应能量 E：我们需要对时间 $t$ 求导：
+
+$$\frac{\partial \Psi}{\partial t} = \omega \sin(kx - \omega t)$$
+
+对应动能 $p^2$）：
+我们需要对空间 $x$ 求二阶导数：
+
+$$\frac{\partial^2 \Psi}{\partial x^2} = -k^2 \cos(kx - \omega t)$$
+
+对应德布罗意波的公式，左边sin不永远等于右边cos，有相位差，能量守恒不成立了，所以只有$e^x$能做到这一点。
 </details>
 <details>
     <summary>3.为什么电子不适用于经典波动方程？</summary>
+It is because electrons and photons follow different Energy-Momentum Relations (Dispersion Relations).<p>
+
+经典波动方程:
+
+$$\frac{\partial^2 \Psi}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2 \Psi}{\partial t^2} = 0$$
+
+它暗示了一个数学关系:
+
+$$p^2 \propto E^2 \quad \text{或者} \quad E \propto p$$
 </details>
 
+对于光子 (Light)：$E = cp$。能量和动量是线性关系。所以光子完美契合经典方程。($E^2 = c^2 p^2$)
+
+对于非相对论的电子，它有质量 $m$，遵守牛顿的动能公式：
+
+$$E = \frac{p^2}{2m}$$
+
+这意味着：能量 ($E$) 与 动量平方 ($p^2$) 成正比。换算成导数就是：时间一阶导 ($\partial_t$) $\propto$ 空间二阶导 ($\partial_{xx}$),
+矛盾了。<p>
+**结论就是经典波动方程描述的是无质量、无色散的波（波速恒定）。 而电子波是有质量、有色散的波（波速随波长变），所以必须用新的方程——薛定谔方程（左边是一阶导，右边是二阶导）。**
 # Introduce
 为什么我们工程研究时要用到量子力学，一个最直接的原因是摩尔定律到达极限了。摩尔定律说的是集成电路上的晶体管数量每 18~24 个月翻一番，芯片性能也跟着暴涨。但这个定律能持续几十年，核心是晶体管越做越小，从早期的微米级，到现在手机、FPGA 里的晶体管已经小到3 纳米、2 纳米级别，甚至快逼近 1 纳米了。这个时候，不考虑量子的性质就不可行了，这就是量子力学的必要性。
 # The Failure of Classical Physics & Duality
@@ -501,3 +544,15 @@ plt.show()
 </details>
 
 # Conclusion & Uncertainty Principle 
+## Heisenberg Uncertainty Principle
+在结束第一篇笔记之前，我们必须面对量子力学中最核心、也最反直觉的原理——海森堡不确定性原理 (Heisenberg Uncertainty Principle)。<p>
+在我们计算无限深势井时，为什么量子数$n$不能等于 0？ 如果$n=0$，那么$E=0$，动量$p=0$，这意味着电子静止不动。 在经典力学里，把球放在盒底不动是完全合理的。但在量子力学里，这是被禁止的。这是因为不确定性原理规定： 我们无法同时精确地知道粒子的位置 (x) 和动量 (p)。
+
+$$\sigma_x \sigma_p \geq \frac{\hbar}{2}$$
+
+$\sigma_x$：位置的标准差（不确定度）<p>
+$\sigma_p$：动量的标准差<p>
+
+同时可以从傅里叶变换的角度来看，傅里叶变换告诉我们：一个信号在时域上越窄（位置越确定），它在频域上就必须越宽（动量越不确定）。如果你把电子死死关在极小的势井$L$里 ( $\sigma_x$很小 )，它的动量分布范围 $\sigma_p$就会极具增大，导致极高的动能。这就是为什么零点能 (Zero-Point Energy) 必须存在——电子被迫“躁动”以满足不确定性原理。<p>
+
+那么这对我们意味着什么，这意味着我们掌握了控制手段：通过调整势井的宽度$L$（改变材料厚度），我们就能精准控制电子的能级$E_n$（改变发射光的颜色）。这就是量子阱激光器的原理。

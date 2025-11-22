@@ -10,29 +10,10 @@
 <meta name="description" content="This article is actually used to prepare for test, but during the review, I realized how imperative quantom mechanics it is, So I decided to summarize my notes in detail.
 After Reading
 
-    1.为什么波函数在推导时只需要关注x轴？
-
-
-    2.为什么波函数在推导时只取虚部？
-
-
-    3.为什么电子不适用于经典波动方程？
-
-Introduce
-为什么我们工程研究时要用到量子力学，一个最直接的原因是摩尔定律到达极限了。摩尔定律说的是集成电路上的晶体管数量每 18~24 个月翻一番，芯片性能也跟着暴涨。但这个定律能持续几十年，核心是晶体管越做越小，从早期的微米级，到现在手机、FPGA 里的晶体管已经小到3 纳米、2 纳米级别，甚至快逼近 1 纳米了。这个时候，不考虑量子的性质就不可行了，这就是量子力学的必要性。
-The Failure of Classical Physics &amp; Duality
-Classic Physics 的局限
-当存在高速运动、微观尺度或极端条件时，经典力学的适用性就会受到限制。首先，当物体的运动速度接近光速时，经典力学的速度叠加定律和动量定律将失效。其次，当研究微观尺度下的物体时，例如原子、分子和粒子，经典力学的宏观近似将不再适用。在微观尺度下，存在量子力学效应，例如波粒二象性、不确定性原理等，它们无法通过经典力学的框架进行解释。
-Wave-Particle Duality
-光的波动性
-光的波动性是由众多实验观测得来的，不仅仅是杨氏双缝干涉实验，还有光的衍射实验，光的偏振实验等等。根据前人的成果，有以下公式：
-光的麦克斯韦方程式：
-$$c=f\lambda$$
-$c$: velocity of speed
-$f$: frequency
-$\lambda$: wavelength
-光的粒子性
-光的粒子性同样是有众多实验观察得来的，包括康普顿效应。光的粒子性体现在能量E，动量p上，有以下公式:">
+    1.Why do we only focus on the x-axis when deriving the wave function?
+The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.
+• In the x-direction: The electron is trapped by the potential well (), creating &ldquo;Standing Waves.&rdquo; This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.
+• In the y and z directions: There are no potential walls (). The electron behaves like a Free Particle, traveling as &ldquo;Traveling Waves.&rdquo; Its energy is continuous and follows classical physics logic, so we don&rsquo;t need to spend effort solving a complex Schrödinger equation for them.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/quantum_mechanics_part1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
@@ -176,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]
     </h1>
-    <div class="post-meta"><span title='2025-11-22 10:17:00 +0900 JST'>November 22, 2025</span>&nbsp;·&nbsp;<span>6 min</span>
+    <div class="post-meta"><span title='2025-11-22 10:17:00 +0900 JST'>November 22, 2025</span>&nbsp;·&nbsp;<span>7 min</span>
 
 </div>
   </header> <div class="toc">
@@ -265,8 +246,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 </li></ul>
                 </li>
                 <li>
-                    <a href="#conclusion--uncertainty-principle" aria-label="Conclusion &amp; Uncertainty Principle">Conclusion &amp; Uncertainty Principle</a>
+                    <a href="#conclusion--uncertainty-principle" aria-label="Conclusion &amp; Uncertainty Principle">Conclusion &amp; Uncertainty Principle</a><ul>
+                        
+                <li>
+                    <a href="#heisenberg-uncertainty-principle" aria-label="Heisenberg Uncertainty Principle">Heisenberg Uncertainty Principle</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -275,14 +261,39 @@ document.addEventListener("DOMContentLoaded", function() {
   <div class="post-content"><p>This article is actually used to prepare for test, but during the review, I realized how imperative quantom mechanics it is, So I decided to summarize my notes in detail.</p>
 <h1 id="after-reading">After Reading<a hidden class="anchor" aria-hidden="true" href="#after-reading">#</a></h1>
 <details>
-    <summary>1.为什么波函数在推导时只需要关注x轴？</summary>
+    <summary>1.Why do we only focus on the x-axis when deriving the wave function?</summary>
+<p><strong>The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.</strong><p>
+• In the x-direction: The electron is trapped by the potential well (), creating &ldquo;Standing Waves.&rdquo; This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.<p>
+• In the y and z directions: There are no potential walls (). The electron behaves like a Free Particle, traveling as &ldquo;Traveling Waves.&rdquo; Its energy is continuous and follows classical physics logic, so we don&rsquo;t need to spend effort solving a complex Schrödinger equation for them.</p>
 </details>
 <details>
     <summary>2.为什么波函数在推导时只取虚部？</summary>
+<p>首先，我们的目的是推理出$E = \frac{p^2}{2m}$，根据德布罗意波的关系得到：</p>
+<p>$$E=\hbar \omega = \frac{(\hbar k)^2}{2m}$$</p>
+<p>也就是说，方程里必须体现出：$\omega$（频率） 与 $k^2$（波数平方）成正比。
+如果用实数波函数：</p>
+<p>$$\Psi = \cos(kx - \omega t)$$</p>
+<p>对应能量 E：我们需要对时间 $t$ 求导：</p>
+<p>$$\frac{\partial \Psi}{\partial t} = \omega \sin(kx - \omega t)$$</p>
+<p>对应动能 $p^2$）：
+我们需要对空间 $x$ 求二阶导数：</p>
+<p>$$\frac{\partial^2 \Psi}{\partial x^2} = -k^2 \cos(kx - \omega t)$$</p>
+<p>对应德布罗意波的公式，左边sin不永远等于右边cos，有相位差，能量守恒不成立了，所以只有$e^x$能做到这一点。</p>
 </details>
 <details>
     <summary>3.为什么电子不适用于经典波动方程？</summary>
+It is because electrons and photons follow different Energy-Momentum Relations (Dispersion Relations).<p>
+<p>经典波动方程:</p>
+<p>$$\frac{\partial^2 \Psi}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2 \Psi}{\partial t^2} = 0$$</p>
+<p>它暗示了一个数学关系:</p>
+<p>$$p^2 \propto E^2 \quad \text{或者} \quad E \propto p$$</p>
 </details>
+<p>对于光子 (Light)：$E = cp$。能量和动量是线性关系。所以光子完美契合经典方程。($E^2 = c^2 p^2$)</p>
+<p>对于非相对论的电子，它有质量 $m$，遵守牛顿的动能公式：</p>
+<p>$$E = \frac{p^2}{2m}$$</p>
+<p>这意味着：能量 ($E$) 与 动量平方 ($p^2$) 成正比。换算成导数就是：时间一阶导 ($\partial_t$) $\propto$ 空间二阶导 ($\partial_{xx}$),
+矛盾了。<p>
+<strong>结论就是经典波动方程描述的是无质量、无色散的波（波速恒定）。 而电子波是有质量、有色散的波（波速随波长变），所以必须用新的方程——薛定谔方程（左边是一阶导，右边是二阶导）。</strong></p>
 <h1 id="introduce">Introduce<a hidden class="anchor" aria-hidden="true" href="#introduce">#</a></h1>
 <p>为什么我们工程研究时要用到量子力学，一个最直接的原因是摩尔定律到达极限了。摩尔定律说的是集成电路上的晶体管数量每 18~24 个月翻一番，芯片性能也跟着暴涨。但这个定律能持续几十年，核心是晶体管越做越小，从早期的微米级，到现在手机、FPGA 里的晶体管已经小到3 纳米、2 纳米级别，甚至快逼近 1 纳米了。这个时候，不考虑量子的性质就不可行了，这就是量子力学的必要性。</p>
 <h1 id="the-failure-of-classical-physics--duality">The Failure of Classical Physics &amp; Duality<a hidden class="anchor" aria-hidden="true" href="#the-failure-of-classical-physics--duality">#</a></h1>
@@ -647,6 +658,14 @@ $$</p>
 2.看这些延伸到墙壁里的彩色阴影！在经典物理中，这是绝对禁区。但在量子力学中，波函数没有在边界突然截止，而是以指数形式衰减。这证明了电子有一定概率存在于势垒内部。这就是‘隧道效应’的根本原因。
 </details>
 <h1 id="conclusion--uncertainty-principle">Conclusion &amp; Uncertainty Principle<a hidden class="anchor" aria-hidden="true" href="#conclusion--uncertainty-principle">#</a></h1>
+<h2 id="heisenberg-uncertainty-principle">Heisenberg Uncertainty Principle<a hidden class="anchor" aria-hidden="true" href="#heisenberg-uncertainty-principle">#</a></h2>
+<p>在结束第一篇笔记之前，我们必须面对量子力学中最核心、也最反直觉的原理——海森堡不确定性原理 (Heisenberg Uncertainty Principle)。<p>
+在我们计算无限深势井时，为什么量子数$n$不能等于 0？ 如果$n=0$，那么$E=0$，动量$p=0$，这意味着电子静止不动。 在经典力学里，把球放在盒底不动是完全合理的。但在量子力学里，这是被禁止的。这是因为不确定性原理规定： 我们无法同时精确地知道粒子的位置 (x) 和动量 (p)。</p>
+<p>$$\sigma_x \sigma_p \geq \frac{\hbar}{2}$$</p>
+<p>$\sigma_x$：位置的标准差（不确定度）<p>
+$\sigma_p$：动量的标准差<p></p>
+<p>同时可以从傅里叶变换的角度来看，傅里叶变换告诉我们：一个信号在时域上越窄（位置越确定），它在频域上就必须越宽（动量越不确定）。如果你把电子死死关在极小的势井$L$里 ( $\sigma_x$很小 )，它的动量分布范围 $\sigma_p$就会极具增大，导致极高的动能。这就是为什么零点能 (Zero-Point Energy) 必须存在——电子被迫“躁动”以满足不确定性原理。<p></p>
+<p>那么这对我们意味着什么，这意味着我们掌握了控制手段：通过调整势井的宽度$L$（改变材料厚度），我们就能精准控制电子的能级$E_n$（改变发射光的颜色）。这就是量子阱激光器的原理。</p>
 
 
   </div>
