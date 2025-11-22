@@ -113,7 +113,7 @@ $v$: velocity<p>
 
 # The Wave Function
 
-## 一维波函数的推导
+## Derivation of the one-dimensional wave function
 
 According to Euler's Formula
 
