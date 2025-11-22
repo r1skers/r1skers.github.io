@@ -6,219 +6,228 @@ title: 'Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be cont
 tags: ["basic", "Quantum Mechanics"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
-This article is actually used to prepare for test, but during the review, I realized how imperative quantom mechanics it is, So I decided to summarize my notes in detail.
+This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.
 # After Reading
 <details>
     <summary>1.Why do we only focus on the x-axis when deriving the wave function?</summary>
 
 **The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.**<p>
-• In the x-direction: The electron is trapped by the potential well (), creating "Standing Waves." This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.<p>
-• In the y and z directions: There are no potential walls (). The electron behaves like a Free Particle, traveling as "Traveling Waves." Its energy is continuous and follows classical physics logic, so we don't need to spend effort solving a complex Schrödinger equation for them.
+• In the x-direction: The electron is trapped by the potential well , creating "Standing Waves." This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.<p>
+• In the y and z directions: There are no potential walls. The electron behaves like a Free Particle, traveling as "Traveling Waves." Its energy is continuous and follows classical physics logic, so we don't need to spend effort solving a complex Schrödinger equation for them.
 
 </details>
 <details>
-    <summary>2.为什么波函数在推导时只取虚部？</summary>
+    <summary>2.Why is only the imaginary part taken when deriving the wavefunction?</summary>
 
-首先，我们的目的是推理出$E = \frac{p^2}{2m}$，根据德布罗意波的关系得到：
+First, our objective in this section is to derive$E = \frac{p^2}{2m}$，According to the de Broglie wave relations, we obtain:
 
 $$E=\hbar \omega = \frac{(\hbar k)^2}{2m}$$
 
-也就是说，方程里必须体现出：$\omega$（频率） 与 $k^2$（波数平方）成正比。
-如果用实数波函数：
+This means that the equation must reflect that $\omega$ (frequency) is proportional to $k^2$ (the square of the wavenumber).<p>
+If we use a real-valued wavefunction:
 
 $$\Psi = \cos(kx - \omega t)$$
 
-对应能量 E：我们需要对时间 $t$ 求导：
-
+Corresponding to energy E：We need to take the derivative with respect to time $t$:
+ 
 $$\frac{\partial \Psi}{\partial t} = \omega \sin(kx - \omega t)$$
 
-对应动能 $p^2$）：
-我们需要对空间 $x$ 求二阶导数：
+Corresponding to kinetic energy ($p^2$)：
+We need to take the second derivative with respect to space $x$:
 
 $$\frac{\partial^2 \Psi}{\partial x^2} = -k^2 \cos(kx - \omega t)$$
 
-对应德布罗意波的公式，左边sin不永远等于右边cos，有相位差，能量守恒不成立了，所以只有$e^x$能做到这一点。
+Regarding the de Broglie wave formula, the $sin$ on the left side is not always equal to the $cos$ on the right side. There is a phase difference, so energy conservation does not hold. Therefore, only $e^x$ can achieve this.
 </details>
 <details>
-    <summary>3.为什么电子不适用于经典波动方程？</summary>
-It is because electrons and photons follow different Energy-Momentum Relations (Dispersion Relations).<p>
+    <summary>3.Why does the classical wave equation not apply to electrons?</summary>
 
-经典波动方程:
+It is because electrons and photons follow different Energy-Momentum Relations 
+(Dispersion Relations).<p>
+
+classical wave equation:
 
 $$\frac{\partial^2 \Psi}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2 \Psi}{\partial t^2} = 0$$
 
-它暗示了一个数学关系:
+It implies a mathematical relationship:
 
-$$p^2 \propto E^2 \quad \text{或者} \quad E \propto p$$
+$$p^2 \propto E^2 \quad \text{or} \quad E \propto p$$
 
-对于光子 (Light)：$E = cp$。能量和动量是线性关系。所以光子完美契合经典方程。($E^2 = c^2 p^2$)
+For photons (Light): $E = cp$. Energy and momentum have a linear relationship. Therefore, photons perfectly fit the classical equation. ($E^2 = c^2 p^2$)
 
-对于非相对论的电子，它有质量 $m$，遵守牛顿的动能公式：
+For non-relativistic electrons, which have mass $m$, they follow Newton's kinetic energy formula:
 
 $$E = \frac{p^2}{2m}$$
 
-这意味着：能量 ($E$) 与 动量平方 ($p^2$) 成正比。换算成导数就是：时间一阶导 ($\partial_t$) $\propto$ 空间二阶导 ($\partial_{xx}$),
-矛盾了。<p>
-**结论就是经典波动方程描述的是无质量、无色散的波（波速恒定）。 而电子波是有质量、有色散的波（波速随波长变），所以必须用新的方程——薛定谔方程（左边是一阶导，右边是二阶导）。**
+This means that energy ($E$) is proportional to the square of momentum ($p^2$). When converted to derivatives, it becomes: the first-order time derivative ($\partial_t$) $\propto$ the second-order spatial derivative ($\partial_{xx}$), which is a contradiction.<p>
+**The conclusion is that the classical wave equation describes massless, non-dispersive waves (with a constant wave speed). However, electron waves are massive and dispersive (their wave speed changes with wavelength), so a new equation — the Schrödinger equation (with a first-order derivative on the left and a second-order derivative on the right) — must be used.**
 </details>
 
 # Introduce
-为什么我们工程研究时要用到量子力学，一个最直接的原因是摩尔定律到达极限了。摩尔定律说的是集成电路上的晶体管数量每 18~24 个月翻一番，芯片性能也跟着暴涨。但这个定律能持续几十年，核心是晶体管越做越小，从早期的微米级，到现在手机、FPGA 里的晶体管已经小到3 纳米、2 纳米级别，甚至快逼近 1 纳米了。这个时候，不考虑量子的性质就不可行了，这就是量子力学的必要性。
+
+One of the most straightforward reasons why we need to use quantum mechanics in engineering research is that Moore's Law has reached its limit. Moore's Law states that the number of transistors on an integrated circuit doubles every 18 to 24 months, and chip performance surges accordingly. However, the reason this law has been able to persist for decades is that transistors have been made smaller and smaller. From the early micrometer scale, transistors in current mobile phones and FPGAs have shrunk to 3 nanometers, 2 nanometers, and are even approaching 1 nanometer. At this point, it is no longer feasible to ignore quantum properties, which is why quantum mechanics is necessary.
+
 # The Failure of Classical Physics & Duality
-## Classic Physics 的局限
-当存在高速运动、微观尺度或极端条件时，经典力学的适用性就会受到限制。首先，当物体的运动速度接近光速时，经典力学的速度叠加定律和动量定律将失效。其次，当研究微观尺度下的物体时，例如原子、分子和粒子，经典力学的宏观近似将不再适用。在微观尺度下，存在量子力学效应，例如波粒二象性、不确定性原理等，它们无法通过经典力学的框架进行解释。
+## The Limitations of Classical Physics
+The applicability of classical mechanics is limited when there are high-speed motions, microscopic scales, or extreme conditions. First, when the speed of an object approaches the speed of light, the law of velocity addition and the law of momentum in classical mechanics will fail. Second, when studying objects at the microscopic scale, such as atoms, molecules, and particles, the macroscopic approximations of classical mechanics are no longer applicable. At the microscopic scale, there are quantum mechanical effects, such as wave-particle duality and the uncertainty principle, which cannot be explained by the framework of classical mechanics.
 ## Wave-Particle Duality
-### 光的波动性
-光的波动性是由众多实验观测得来的，不仅仅是杨氏双缝干涉实验，还有光的衍射实验，光的偏振实验等等。根据前人的成果，有以下公式：<p>
-#### 光的麦克斯韦方程式：
+
+### Wave Nature of Light
+
+The wave nature of light is derived from numerous experimental observations, not only Young's double-slit interference experiment, but also the diffraction experiment of light, the polarization experiment of light, and so on. Based on the achievements of predecessors, there are the following formulas:<p>
+
+#### Maxwell's Equations for Light:
 $$c=f\lambda$$
-$c$: velocity of speed<p>
+$c$: velocity of light<p>
 $f$: frequency<p>
 $\lambda$: wavelength<p>
 
-### 光的粒子性
-光的粒子性同样是有众多实验观察得来的，包括康普顿效应。光的粒子性体现在能量E，动量p上，有以下公式:<p>
-#### 一个光子的能量大小：
+### The particle nature of light
+The particle nature of light is also derived from numerous experimental observations, including the Compton effect. The particle nature of light is manifested in energy E and momentum p, with the following formulas:<p>
+#### The energy level of a photon:
 
 $$E=hf=h\frac{c}{\lambda}=h\frac{\omega}{2\pi}=\hbar\omega$$
 
-$h$ :普朗克常量<p>
+$h$ :Planck constant<p>
 
-$\hbar$ :约化普朗克常量，数值上等于普朗克常量除以$2\pi$,即$\hbar=\frac{h}{2\pi}$
+$\hbar$ :The reduced Planck constant, numerically equal to the Planck constant divided by $2\pi$, that is, $\hbar=\frac{h}{2\pi}$
 
-#### 一个光子的动能大小：
+#### The kinetic energy of a photon:
 $$p=\frac{h}{\lambda}=h\frac{k}{2\pi}=\hbar k$$
 
-$k$: 在$2\pi$长度的空间内，光波完整振动的次数
+$k$: The number of complete vibrations of a light wave within a space of length $2\pi$
 
-### 电子的波粒二象性
-#### 德布罗意波
-参考光的动量方程$p=\frac{h}{\lambda}$
+### Wave-Particle Duality of Electrons
+#### De Broglie Waves
+Refer to the momentum equation of light $p=\frac{h}{\lambda}$
 
 $$\lambda=\frac{h}{p}=\frac{h}{mv}$$
 
 $m$: mass<p>
 $v$: velocity<p>
 
-### 哥本哈根解释
-1.  一个量子系统的量子态可以用波函数来完全地表述。波函数代表一个观察者对于量子系统所知道的全部信息。<p>
-2.  量子系统的描述是概率性的。一个事件的概率是波函数的绝对值平方。<p>
-3.  不确定性原理阐明，在量子系统里，一个粒子的位置和动量无法同时被确定。
+### Copenhagen Interpretation
+1. The quantum state of a quantum system can be fully described by a wave function. The wave function represents all the information an observer has about the quantum system.<p>
+2. The description of a quantum system is probabilistic. The probability of an event is the square of the absolute value of the wave function.<p>
+3. The uncertainty principle states that in a quantum system, the position and momentum of a particle cannot be determined simultaneously.
+
 # The Wave Function
+
 ## 一维波函数的推导
-首先根据欧拉公式
+
+According to Euler's Formula
 
 $$e^{ix}=cos(x)+isin(x)$$
 
-我们可以用以下式子来描述在x轴上传播的波
+We can describe the wave propagating along the x-axis using the following formula.
 
 $$\Psi(x,t)=Acos(k(x-vt)+\theta_0)$$
 
-这里根据这个推导
+Here, based on this deduction
 
 $$v=f\lambda=\frac{\omega}{2\pi} \cdot \frac{2\pi}{k}=\frac{\omega}{k}$$
 
-结合欧拉公式，发现其实求的是实部
+Combined with Euler's formula, it is found that what is actually being calculated is the real part.
 
 $$\Psi(x,t)=Acos(kx-\omega t+\theta_0)=\mathrm{Re}[Ae^{i(kx-\omega t+\theta_0)}]$$
 
-不取实部，这里$Ae^{i\theta_0}$是复振幅，用$\widetilde{A}$代替后得到波函数
+Omitting the real part operation, here $Ae^{i\theta_0}$ is the complex amplitude. After replacing it with $\widetilde{A}$, the wave function is obtained.
 
 $$ \Psi(x,t)=\widetilde{A}e^{i(kx-\omega t)}$$
-## 波恩统计解释（概率密度）规格化条件
-### 波恩统计解释
-这部分非常有趣，首先要明确我们刚求的$\Psi$是什么，Max Born 在 1926 年提出了一个大胆的假设，这也让他拿到了诺贝尔奖。<p>
-核心概念： 本身没有直接的物理意义（你不能测量它），但是它的模方 (Modulus Squared) 代表了粒子在某处出现的概率密度 (Probability Density)。
 
+## Born's Statistical Interpretation (Probability Density) Normalization Condition
+### Born's Statistical Interpretation
+This part is very interesting. First, we need to clarify what the Ψ we just derived is. Max Born put forward a bold hypothesis in 1926, which also earned him the Nobel Prize.<p>
+Core concept:  itself has no direct physical meaning (you cannot measure it), but its modulus squared represents the probability density of a particle appearing at a certain location.
 $$P(x, t) = |\Psi(x, t)|^2 = \Psi^*(x, t) \cdot \Psi(x, t)$$
 
-<a href="">也许有人发现了一些有趣的东西。。。（Tips:Correlation）</a>
+<a href="">Maybe someone has found something interesting...（Tips:Correlation）</a>
 
 ### Normalization Condition
-既然$|\Psi|^2$代表概率密度，那么这就引出了一个逻辑上的必然结论： **电子必须存在于宇宙中的某个地方。** 
-如果我们在整个x轴上寻找这个电子，找到它的总概率必须是 100% (即 1)。
+Since $|\Psi|^2$ represents the probability density, this leads to a logical necessity: **the electron must exist somewhere in the universe.**
+If we search for this electron along the entire x-axis, the total probability of finding it must be 100% (i.e., 1).
 
 $$\int_{-\infty}^{+\infty} |\Psi(x, t)|^2 \, dx = 1$$
 
-<a href="">也许有人发现了一些有趣的东西。。。（Tips:Dirac delta function）</a>
+<a href="">Maybe someone has found something interesting...（Tips:Dirac delta function）</a>
 
-归一化就是用来算出$\widetilde{A}$的唯一工具。 没有归一化，我们的方程就只是一个比例，而不是精确的预测。
+Normalization is the only tool used to calculate $\widetilde{A}$. Without normalization, our equation would only be a proportion, not an accurate prediction.
 
 ## Classical Wave Equation(d'Alembert Equation)
 
-从波函数开始分别对x,t做二次求导，得到式子
+Starting from the wave function, take the second derivative with respect to x and t respectively to obtain the formula:
 
 $$\frac{\partial^2 \Psi}{\partial x^2} = (ik)^2 \Psi = -k^2 \Psi$$
 
 $$\frac{\partial^2 \Psi}{\partial t^2} = (-i\omega)^2 \Psi = -\omega^2 \Psi$$
 
-利用前面已经推导的$v=\frac{\omega}{k}$,可以得到$k^2=\frac{\omega^2}{v^2}$，带入上面二式可以得到经典波动方程：
+Using the previously derived formula \( v = \frac{\omega}{k} \), we can obtain \( k^2 = \frac{\omega^2}{v^2} \). Substituting this into the above second equation gives the classical wave equation:
 
 $$（\frac{\partial^2}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2}{\partial t^2} ）\Psi(x,t)= 0$$
 
-这个方程的意义是：任何在真空中传播的光（电磁波），都必须严格遵守这个法律.<p>
-<a href="">电子不能用这个方程</a>
+The significance of this equation is: any light (electromagnetic wave) propagating in a vacuum must strictly obey this law.<p>
+<a href="">Electrons cannot use this equation</a>
 
 # The Schrödinger Equation
-## 推导
-我们从能量守恒(动能加势能)入手：
+## Derivation
+We start with the conservation of energy (kinetic energy plus potential energy):
 
 $$E=K(t)+V(t)=\frac{p^2}{2m}+V(t)$$
 
-这里引入两个算符（计算的过程）
+Here, two operators (the calculation process) are introduced:
 
 $$\hat{p} = -i\hbar \frac{\partial}{\partial x}$$
 
 $$\hat{E} = i\hbar \frac{\partial}{\partial t}$$
 
-两边同时处理$\Psi(x,t)$
+Both sides process $\Psi(x,t)$ simultaneously:
 
 $$[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(t)]\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t)$$
 
-带入哈密顿算符$\hat{H}$
+Substitute the Hamiltonian operator $\hat{H}$:
 
 $$\hat{H}\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t)$$
 
-## 含时薛定谔方程
-从这里开始：
+## Time-Dependent Schrödinger Equation
+Starting from here:
 
 $$\hat{H}\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t)$$
 
-首先对波函数进行性参数分离
+First, perform a parametric separation of the wave function:
 
 $$\Psi(x,t)=\psi(x)f(t)$$
 
-代回原式
+Substitute back into the original formula:
+
 $$\frac{1}{\psi(x)} \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} \right] + V(x) = \frac{i\hbar}{f(t)} \frac{df(t)}{dt}=E$$
 
-或者是带入哈密顿算符
+Or using the Hamiltonian operator $\hat{H}$:
 
 $$\frac{\hat{H}\psi(x)}{\psi(x)}=\frac{i\hbar}{f(t)}\frac{df(t)}{dt}$$
 
+The meaning here is that the left side of the equal sign is only related to the space x, the right side is only related to the time t, and both are equal to the constant $E$.
 
+## Time-Independent Schrödinger Equation
 
-这里的意义是让等号左边只与空间x相关，右边只与时间t相关，二者都等于常数$E$。
-## 不含时薛定谔方程
-
-这里接着含时薛定谔方程
+This follows the time-dependent Schrödinger equation:
 
 $$\frac{1}{\psi(x)} \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} \right] + V(x) = \frac{i\hbar}{f(t)} \frac{df(t)}{dt}=E$$
 
-两边乘以$\psi(x)$
+Multiply both sides by $\psi(x)$:
 
 $$-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x)=E\psi(x)$$
 
-处理下
+Handle it:
 
 $$\psi(x) \left[ -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}+V(x) \right]=E\psi(x)$$
 
-带入哈密顿算符$\hat{H}$
+Substitute into the Hamiltonian operator $\hat{H}$:
 
 $$\hat{H}\psi=E\psi$$
 
-# 量子井户(薛定谔方程实战)
+# Quantum Well (Practical Application of Schrödinger Equation)
 
-## 无限障壁
+## Infinite Barrier
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Infinite Square Potential Well Diagram
@@ -227,48 +236,47 @@ $$\hat{H}\psi=E\psi$$
   <br> <img src="/img/diagram/无限深势阱示意图.png" alt="一维无限深势阱示意图" width="100%" height="auto">
 </details>
 
-首先，我们建立一个最简单的模型。 想象一个电子被困在一个宽度为$L$的盒子里，墙壁无限高，电子绝对跑不出去。<p>
-井内($0 < x < L$)：$V(x) = 0$（电子自由飞翔）。<p>
-井外 (其他区域)：$V(x) = \infty$（电子绝对去不了，概率为 0）。
+First, let's establish the simplest model. Imagine an electron trapped in a box with a width of $L$, where the walls are infinitely high, and the electron can never escape.<p>
+Inside the well ($0 < x < L$): $V(x) = 0$ (the electron flies freely).<p>
+Outside the well (other regions): $V(x) = \infty$ (the electron can never reach there, with a probability of 0).
 
-计算如下：<p>
-首先因为势能不随时间变化，所以我们用不含时薛定谔方程：$\hat{H}\psi=E\psi$，同时因为在L区域内$V(x)=0$,得到式子如下：
-
+The calculation is as follows: <p>
+First, since the potential energy does not change with time, we use the time-independent Schrödinger equation: $\hat{H}\psi=E\psi$. Also, because $V(x)=0$ in the L region, we obtain the following equation:
 $$-\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} = E \psi$$
 
-整理得：
+Sorted out as:
 
 $$\frac{d^2 \psi}{dx^2} + \frac{2mE}{\hbar^2} \psi = 0$$
 
-回顾之前的推导$E=\frac{p^2}{2m}$,$p=i\hbar$,代入得到Helmholtz Equation
+Reviewing the previous derivation $E=\frac{p^2}{2m}$, substituting $p=i\hbar$ gives the Helmholtz Equation
 
 $$\frac{d^2 \psi}{dx^2} + k^2 \psi = 0$$
 
-一眼微分方程，解为：
+At a glance, it's a differential equation, and the solution is:
 
 $$\psi(x) = A \sin(kx) + B \cos(kx)$$
 
-接下来是边界条件，因为不可能在墙上：
+Next are the boundary conditions, because it's impossible to be on the wall:
 
 $$\psi(0)=B=0$$
 
 $$\psi(L)=Asin(kx)=0$$
 
-这意味着$kL = n\pi \quad (n = 1, 2, 3, \dots)$
+This means that $kL = n\pi \quad (n = 1, 2, 3, \dots)$
 
-接下来调查归一化条件，势阱外波函数为0，所以可以简化为：
+Next, we investigate the normalization condition. The wave function outside the potential well is 0, so it can be simplified to:
 
 $$\int_{0}^{L} |\psi(x)|^2 \ dx = 1$$
 
-带入$\psi(x)=A\sin(\frac{nx\pi}{L})$
+Substitute $\psi(x) = A\sin\left(\frac{nx\pi}{L}\right)$
 
 $$A^2 \int_{0}^{L} \sin^2\left( \frac{n\pi x}{L} \right) \ dx = 1$$
 
-通过降幂，解方程得：
+By power reduction, solving the equation gives:
 
 $$A^2 = \frac{2}{L} \implies A = \sqrt{\frac{2}{L}}$$
 
-归一化后波函数：
+The normalized wave function:
 
 $$\psi_n(x) = \sqrt{\frac{2}{L}} \sin\left( \frac{n\pi x}{L} \right)$$
 
@@ -351,12 +359,12 @@ plt.show()
   <br> <img src="/img/diagram/无限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
 
   </details>
-关键点：<p>
-1.阴影面积就是概率。<p>
-2.波函数穿过0的那个点的位置：概率为0，有正负是因为发生了隧穿效应。
+Key points: <p>
+1. The area of the shadow is the probability. <p>
+2. The position of the point where the wave function crosses 0: the probability is 0, and the presence of positive and negative values is due to the occurrence of the tunneling effect.
 </details>
 
-## 有限障壁
+## finite-depth potential well
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Finite Square Potential Well Diagram
@@ -365,7 +373,7 @@ plt.show()
   <br> <img src="/img/diagram/有限深势阱示意图.png" alt="一维有限方势阱（含波函数隧穿效应）" width="100%" height="auto">
 </details>
 
-同样，根据上面的图
+Similarly, according to the above diagram
 
 $$
 V(x) =
@@ -375,41 +383,41 @@ V(x) =
 \end{cases}
 $$
 
-我们要分三个区域，领域一（$x<-\frac{L}{2}$）,领域二（$-\frac{L}{2}<x<\frac{L}{2}$）,领域三（$x>\frac{L}{2}$）<p>
-首先分析领域二（$-\frac{L}{2}<x<\frac{L}{2}$），这里和无限量势阱是相似的
+We need to divide into three domains: domain 1 ($x<-\frac{L}{2}$), domain 2 ($-\frac{L}{2}<x<\frac{L}{2}$), and domain 3 ($x>\frac{L}{2}$).<p>
+First, let's analyze domain 2 ($-\frac{L}{2}<x<\frac{L}{2}$), which is similar to an infinite potential well:
 
 $$\psi'' + k^2\psi = 0$$
 
-数学通解为：
+The general solution in mathematics is:
 
 $$\psi_{II}(x) = A_2\cos(kx) +B_2\sin(kx)$$
 
-领域一（$x<-\frac{L}{2}$）
+Domain 1 ($x < -\frac{L}{2}$):
 
 $$\psi'' - \kappa^2\psi = 0$$
 
-数学通解为：
+The general solution in mathematics is:
 
 $$\psi_I(x) = A_1e^{\kappa x} + B_1e^{-\kappa x}$$
 
-物理筛选：当 $x \to -\infty$ 时，$e^{-\kappa x}$ 会变成无穷大（物理上不允许）。<p>
-最终解为：
+Physical Constraints: When $x \to -\infty$, $e^{-\kappa x}$ becomes infinite (physically not allowed).<p>
+The final solution is:
 
 $$\psi_I(x) = A_1e^{\kappa x}$$
 
-领域三（$x>\frac{L}{2}$）
+Domain 3 ($x>\frac{L}{2}$):
 
 $$\psi'' - \kappa^2\psi = 0$$
 
-数学通解为：
+The mathematical general solution is:
 
 $$\psi_{III}(x) = A_3e^{\kappa x} + B_3e^{-\kappa x}$$
 
-物理筛选：当 $x \to +\infty$ 时，$e^{\kappa x}$ 会变成无穷大。最终解为：
+Physical screening: As $x \to +\infty$, $e^{\kappa x}$ becomes infinite. The final solution is:
 
 $$\psi_{III}(x) = B_3e^{-\kappa x}$$
 
-边界条件（在边界的时候波函数相同），可以解得超越函数，可解能量和概率：
+Boundary conditions (the wave functions are the same at the boundary) can solve the transcendental functions, and thus solve for energy and probability:
 
 $$k \tan(kL/2) = \kappa$$
 
@@ -539,21 +547,21 @@ plt.show()
   <br> <img src="/img/diagram/有限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
 
   </details>
-关键点：<p>
-1.比较一下 （低能量，红色）和 （高能量，蓝色）。会发现蓝色的尾巴衰减得更慢，伸得更远。这很符合直觉：电子能量越高，它就越‘不安分’，向墙里钻得就越深。<p>
-2.看这些延伸到墙壁里的彩色阴影！在经典物理中，这是绝对禁区。但在量子力学中，波函数没有在边界突然截止，而是以指数形式衰减。这证明了电子有一定概率存在于势垒内部。这就是‘隧道效应’的根本原因。
+Key points: <p>
+1. Compare (low energy, red) and (high energy, blue). It will be found that the blue tail decays more slowly and extends farther. This is quite intuitive: the higher the electron energy, the more 'restless' it is, and the deeper it penetrates into the wall. <p>
+2. Look at these colored shadows extending into the wall! In classical physics, this is an absolute forbidden zone. However, in quantum mechanics, the wave function does not suddenly cut off at the boundary but decays exponentially. This proves that electrons have a certain probability of existing inside the potential barrier. This is the fundamental reason for the 'tunneling effect'.
 </details>
 
 # Conclusion & Uncertainty Principle 
 ## Heisenberg Uncertainty Principle
-在结束第一篇笔记之前，我们必须面对量子力学中最核心、也最反直觉的原理——海森堡不确定性原理 (Heisenberg Uncertainty Principle)。<p>
-在我们计算无限深势井时，为什么量子数$n$不能等于 0？ 如果$n=0$，那么$E=0$，动量$p=0$，这意味着电子静止不动。 在经典力学里，把球放在盒底不动是完全合理的。但在量子力学里，这是被禁止的。这是因为不确定性原理规定： 我们无法同时精确地知道粒子的位置 (x) 和动量 (p)。
+Before concluding the first note, we must confront the most fundamental and counterintuitive principle in quantum mechanics—the Heisenberg Uncertainty Principle.<p>
+When we calculated the infinite potential well, why can the quantum number $n$ not be equal to 0? If $n = 0$, then $E = 0$ and momentum $p = 0$, which means the electron is stationary. In classical mechanics, it is perfectly reasonable to place a ball at the bottom of a box without moving it. But in quantum mechanics, this is forbidden. This is because the uncertainty principle states: we cannot precisely know both the position ($x$) and momentum ($p$) of a particle simultaneously.
 
 $$\sigma_x \sigma_p \geq \frac{\hbar}{2}$$
 
-$\sigma_x$：位置的标准差（不确定度）<p>
-$\sigma_p$：动量的标准差<p>
+$\sigma_x$: Standard deviation (uncertainty) of position<p>
+$\sigma_p$: Standard deviation of momentum<p>
 
-同时可以从傅里叶变换的角度来看，傅里叶变换告诉我们：一个信号在时域上越窄（位置越确定），它在频域上就必须越宽（动量越不确定）。如果你把电子死死关在极小的势井$L$里 ( $\sigma_x$很小 )，它的动量分布范围 $\sigma_p$就会极具增大，导致极高的动能。这就是为什么零点能 (Zero-Point Energy) 必须存在——电子被迫“躁动”以满足不确定性原理。<p>
+It can also be understood from the perspective of Fourier transform, which tells us that the narrower a signal is in the time domain (the more certain the position), the wider it must be in the frequency domain (the more uncertain the momentum). If you tightly confine an electron in an extremely small potential well $L$ (with a very small $\sigma_x$), the range of its momentum distribution $\sigma_p$ will increase dramatically, resulting in extremely high kinetic energy. This is why zero-point energy must exist—electrons are forced to fluctuate to satisfy the uncertainty principle.<p>
 
-那么这对我们意味着什么，这意味着我们掌握了控制手段：通过调整势井的宽度$L$（改变材料厚度），我们就能精准控制电子的能级$E_n$（改变发射光的颜色）。这就是量子阱激光器的原理。
+So what does this mean for us? It means we have a means of control: by adjusting the width $L$ of the potential well (changing the material thickness), we can precisely control the energy levels $E_n$ of electrons (changing the color of the emitted light). This is the principle behind quantum well lasers.
