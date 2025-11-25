@@ -147,7 +147,7 @@ $$P(x, t) = |\Psi(x, t)|^2 = \Psi^*(x, t) \cdot \Psi(x, t)$$
 Since $|\Psi|^2$ represents the probability density, this leads to a logical necessity: **the electron must exist somewhere in the universe.**
 If we search for this electron along the entire x-axis, the total probability of finding it must be 100% (i.e., 1).
 
-$$\int_{-\infty}^{+\infty} |\Psi(x, t)|^2 \, dx = 1$$
+$$\int_{-\infty}^{+\infty} |\Psi(x, t)|^2 \ dx = 1$$
 
 <a href="">Maybe someone has found something interesting...（Tips:Dirac delta function）</a>
 
