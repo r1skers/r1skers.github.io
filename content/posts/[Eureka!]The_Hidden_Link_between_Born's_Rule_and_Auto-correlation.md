@@ -1,7 +1,7 @@
 ---
 date: '2025-11-26T10:47:00+09:00'
 draft: false
-title: '[Eureka!] Is Probability Just Normalized Energy? The Hidden Link between Born''s Rule and Auto-correlation [To be continued]'
+title: '[Eureka!] Is Probability Just Normalized Energy? The Hidden Link between Born''s Rule and Auto-correlation [Finished]'
 tags: ["Advanced","Fourier and Laplace","Convolution and Sampling"]
 categories: ["Eureka!"]
 ---
