@@ -20,9 +20,7 @@
 &lt;p&gt;&lt;strong&gt;Auto-Correlation ($\tau =0$):&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;$$ E = R_{xx}(0) = \int_{-\infty}^{\infty} f(t) f^*(t) dt = \int_{-\infty}^{\infty} |f(t)|^2dt $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Born&amp;rsquo;s Rule:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;$$
-P=\langle \psi | \psi \rangle = \int_{-\infty}^{\infty} \psi^*(x) \psi(x) \ dx = 1
-$$&lt;/p&gt;</description>
+&lt;p&gt;$$P=\langle \psi | \psi \rangle = \int_{-\infty}^{\infty} \psi^*(x) \psi(x) \ dx = 1$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Math Tools[To be continued]</title>
