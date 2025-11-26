@@ -9,7 +9,14 @@
     <lastBuildDate>Wed, 26 Nov 2025 09:49:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/basic/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
+      <title>Math Tools[To be continued]</title>
+      <link>http://localhost:1313/posts/1/</link>
+      <pubDate>Wed, 26 Nov 2025 09:49:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/1/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
       <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
@@ -22,28 +29,20 @@
 • In the y and z directions: There are no potential walls. The electron behaves like a Free Particle, traveling as &amp;ldquo;Traveling Waves.&amp;rdquo; Its energy is continuous and follows classical physics logic, so we don&amp;rsquo;t need to spend effort solving a complex Schrödinger equation for them.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Math Tools[To be continued]</title>
-      <link>http://localhost:1313/posts/1/</link>
-      <pubDate>Wed, 26 Nov 2025 09:49:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/1/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;</description>
-    </item>
-    <item>
-      <title>Convolution and Sampling in Fourier and Laplace[Finished]</title>
+      <title>[Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished]</title>
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
       <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
       <description>&lt;h1 id=&#34;interesting-placeafter-reading&#34;&gt;Interesting place(after reading)&lt;/h1&gt;
-  &lt;details&gt;
-      &lt;summary style=&#34;font-size: 20px;&#34;&gt;1.The 1/2π Factor between FT and IFT&lt;/summary&gt;
+&lt;h2 id=&#34;1the-12π-factor-between-ft-and-ift&#34;&gt;1.The 1/2π Factor between FT and IFT&lt;/h2&gt;
 &lt;p&gt;Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in &lt;a href=&#34;#synthesis-equation&#34;&gt;Synthesis Equation of Fourier transform&lt;/a&gt;?And how can we summarize this pattern?&lt;/p&gt;
-&lt;p&gt;$$ f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$&lt;/p&gt;
+&lt;p&gt;$$ f(t) = \mathcal{F}^{-1}[F(\omega) ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t}d\omega$$&lt;/p&gt;
 &lt;h2 id=&#34;the-process-of-obtaining-the-answer&#34;&gt;The process of obtaining the answer:&lt;/h2&gt;
 &lt;h3 id=&#34;1-firsti-consulted-aigemini&#34;&gt;1. First,I consulted AI(gemini)&lt;p&gt;&lt;/h3&gt;
 &lt;p&gt;Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>UART Communication Analysis in Vivado[To be continued]</title>
+      <title>[Fireside Notes]UART Communication Analysis in Vivado[To be continued]</title>
       <link>http://localhost:1313/posts/uart_communication_analysis/</link>
       <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/uart_communication_analysis/</guid>
@@ -63,7 +62,7 @@
 This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]</title>
+      <title>[Delphic Musings]RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]</title>
       <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
       <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
       <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>

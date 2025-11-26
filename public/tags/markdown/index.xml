@@ -9,7 +9,7 @@
     <lastBuildDate>Wed, 26 Nov 2025 10:47:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Euraka!]Probability is just Normalized Energy? The Hidden Link between Borns Rule and Auto-correlation[To be continued]</title>
+      <title>[Eureka!]Probability is just Normalized Energy? The Hidden Link between Borns Rule and Auto-correlation[To be continued]</title>
       <link>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</link>
       <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</guid>
@@ -23,55 +23,11 @@
 &lt;p&gt;$$P = \langle \psi | \psi \rangle = \int_{-\infty}^{\infty} \psi(x) \psi^*(x) \ dx = 1$$&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[Euraka!]DFT_and_FFT(Dive_Into_Fourier_Transform)[To be continued]</title>
+      <title>[Eureka!]DFT_and_FFT(Dive_Into_Fourier_Transform)[To be continued]</title>
       <link>http://localhost:1313/posts/eurekadft_and_fftdive_into_fourier_transform/</link>
       <pubDate>Fri, 21 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/eurekadft_and_fftdive_into_fourier_transform/</guid>
       <description>&lt;h1 id=&#34;希尔伯特泛函&#34;&gt;希尔伯特泛函&lt;/h1&gt;</description>
-    </item>
-    <item>
-      <title>Convolution and Sampling in Fourier and Laplace[Finished]</title>
-      <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
-      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;h1 id=&#34;interesting-placeafter-reading&#34;&gt;Interesting place(after reading)&lt;/h1&gt;
-  &lt;details&gt;
-      &lt;summary style=&#34;font-size: 20px;&#34;&gt;1.The 1/2π Factor between FT and IFT&lt;/summary&gt;
-&lt;p&gt;Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in &lt;a href=&#34;#synthesis-equation&#34;&gt;Synthesis Equation of Fourier transform&lt;/a&gt;?And how can we summarize this pattern?&lt;/p&gt;
-&lt;p&gt;$$ f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$&lt;/p&gt;
-&lt;h2 id=&#34;the-process-of-obtaining-the-answer&#34;&gt;The process of obtaining the answer:&lt;/h2&gt;
-&lt;h3 id=&#34;1-firsti-consulted-aigemini&#34;&gt;1. First,I consulted AI(gemini)&lt;p&gt;&lt;/h3&gt;
-&lt;p&gt;Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>UART Communication Analysis in Vivado[To be continued]</title>
-      <link>http://localhost:1313/posts/uart_communication_analysis/</link>
-      <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/uart_communication_analysis/</guid>
-      <description>&lt;h1 id=&#34;important-key-concept&#34;&gt;[Important] Key Concept&lt;/h1&gt;
-&lt;p&gt;1.The reason why we have to calculate (Frequency / Baud Rate) - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
-2.The reason why we use data_valid here - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;1description&#34;&gt;1.Description&lt;/h1&gt;
-&lt;p&gt;Short overview: minimal UART RX + simple command parser for FPGA.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Goal: show a synthesizable UART receiver (&lt;code&gt;uart_rx&lt;/code&gt;), a byte-oriented &lt;code&gt;command_parser&lt;/code&gt; that recognizes &amp;ldquo;ON&amp;rdquo;/&amp;ldquo;OFF&amp;rdquo;, and a small &lt;code&gt;fpga_top&lt;/code&gt; that wires them.&lt;/li&gt;
-&lt;li&gt;Key idea: &lt;code&gt;uart_rx&lt;/code&gt; asserts &lt;code&gt;data_valid&lt;/code&gt; when a full byte is ready; the parser samples only on that strobe.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;2detailed-analysis&#34;&gt;2.Detailed Analysis&lt;/h1&gt;
-&lt;h2 id=&#34;21uart_rxv&#34;&gt;2.1.uart_rx.v&lt;/h2&gt;
-&lt;p&gt;&lt;a id=&#34;211&#34;&gt;&lt;/a&gt;
-This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]</title>
-      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
-      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
-      <description>&lt;h1 id=&#34;rlc-circuit-analysis-a-comparison-of-differential-equation-and-laplace-transform-methods&#34;&gt;RLC Circuit Analysis: A Comparison of Differential Equation and Laplace Transform Methods&lt;/h1&gt;
-&lt;h2 id=&#34;problem-background&#34;&gt;Problem Background&lt;/h2&gt;
-&lt;p&gt;In class, I learned to analyze oscillatory circuits by solving second-order linear differential equations. The standard method involves finding a homogeneous solution (natural response) and a particular solution (forced response), then using initial conditions to find the unknown constants.&lt;/p&gt;
-&lt;p&gt;This process, especially finding the current $i(t) = \frac{dq}{dt}$, often involves &lt;strong&gt;messy differentiation with exponential and trigonometric functions&lt;/strong&gt;, which is time-consuming and easy to make mistakes in. This led me to search for a more systematic approach.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Markdown Functionality Test (LaTeX and Mermaid)</title>

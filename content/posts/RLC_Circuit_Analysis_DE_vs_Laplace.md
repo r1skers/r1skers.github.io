@@ -1,9 +1,9 @@
 ---
 date: '2025-10-29T19:01:21+09:00'
 draft: false
-title: 'RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]'
-tags: ["basic", "markdown","Fourier and Laplace"]
-categories: ["Promethean Fire", "Delphic Musings"]
+title: '[Delphic Musings]RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]'
+tags: ["basic", "Fourier and Laplace", "schemdraw"]
+categories: ["Delphic Musings"]
 ---
 
 

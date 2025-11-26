@@ -5,13 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Convolution and Sampling in Fourier and Laplace[Finished] | r1skers&#39; Blog</title>
-<meta name="keywords" content="basic, markdown, Fourier and Laplace, Convolution and Sampling">
+<title>[Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] | r1skers&#39; Blog</title>
+<meta name="keywords" content="basic, Fourier and Laplace, Convolution and Sampling">
 <meta name="description" content="Interesting place(after reading)
-  
-      1.The 1/2π Factor between FT and IFT
+1.The 1/2π Factor between FT and IFT
 Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in Synthesis Equation of Fourier transform?And how can we summarize this pattern?
-$$ f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$
+$$ f(t) = \mathcal{F}^{-1}[F(\omega) ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t}d\omega$$
 The process of obtaining the answer:
 1. First,I consulted AI(gemini)
 Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:">
@@ -156,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <header class="post-header">
     <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
-      Convolution and Sampling in Fourier and Laplace[Finished]
+      [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished]
     </h1>
     <div class="post-meta"><span title='2025-11-12 10:17:00 +0900 JST'>November 12, 2025</span>&nbsp;·&nbsp;<span>12 min</span>
 
@@ -172,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#interesting-placeafter-reading" aria-label="Interesting place(after reading)">Interesting place(after reading)</a><ul>
                         
                 <li>
+                    <a href="#1the-12%cf%80-factor-between-ft-and-ift" aria-label="1.The 1/2π Factor between FT and IFT">1.The 1/2π Factor between FT and IFT</a><ul>
+                        
+                <li>
                     <a href="#the-process-of-obtaining-the-answer" aria-label="The process of obtaining the answer:">The process of obtaining the answer:</a><ul>
                         
                 <li>
@@ -180,7 +182,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#2secondfound-something-interesting" aria-label="2.Second,found something interesting">2.Second,found something interesting</a></li>
                 <li>
                     <a href="#3thirdthere-is-still-something" aria-label="3.Third,there is still something&hellip;">3.Third,there is still something&hellip;</a></li></ul>
+                </li></ul>
                 </li>
+                <li>
+                    <a href="#2time-domain-to-frequency-domain" aria-label="2.Time Domain to Frequency Domain">2.Time Domain to Frequency Domain</a><ul>
+                        
                 <li>
                     <a href="#the-proess-of-obtaining-the-answer" aria-label="The proess of obtaining the answer:">The proess of obtaining the answer:</a><ul>
                         
@@ -188,9 +194,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#1-first-i-consulted-ai-gemini" aria-label="1. First, I consulted AI (Gemini)">1. First, I consulted AI (Gemini)</a></li>
                 <li>
                     <a href="#2-second-i-gained-a-new-perspective" aria-label="2. Second, I gained a new perspective">2. Second, I gained a new perspective</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
-                    <a href="#the-process-of-obtaining-the-answer-1" aria-label="The process of obtaining the answer:">The process of obtaining the answer:</a></li>
+                    <a href="#3-reversal-in-convolution" aria-label="3. Reversal in convolution">3. Reversal in convolution</a><ul>
+                        
+                <li>
+                    <a href="#the-process-of-obtaining-the-answer-1" aria-label="The process of obtaining the answer:">The process of obtaining the answer:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-power-spectrum" aria-label="4. Power spectrum">4. Power spectrum</a><ul>
+                        
                 <li>
                     <a href="#the-process-of-obtaining-the-answer-2" aria-label="The process of obtaining the answer:">The process of obtaining the answer:</a><ul>
                         
@@ -198,13 +212,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#1-first-i-consulted-ai-gemini-1" aria-label="1. First, I consulted AI (Gemini)">1. First, I consulted AI (Gemini)</a></li>
                 <li>
                     <a href="#2second-i-noticed-something" aria-label="2.Second, I noticed something">2.Second, I noticed something</a></li></ul>
+                </li></ul>
                 </li>
+                <li>
+                    <a href="#5-how-sampling-influence-frequency-domain" aria-label="5. How sampling influence frequency domain">5. How sampling influence frequency domain</a><ul>
+                        
                 <li>
                     <a href="#te-process-of-obtaining-the-answer" aria-label="Te process of obtaining the answer">Te process of obtaining the answer</a><ul>
                         
                 <li>
-                    <a href="#i-consulted-aigemini" aria-label="I consulted AI(Gemini)">I consulted AI(Gemini)</a><ul>
-                        
+                    <a href="#i-consulted-aigemini" aria-label="I consulted AI(Gemini)">I consulted AI(Gemini)</a></li>
                 <li>
                     <a href="#1-physical-intuition-the-ambiguity-of-identity" aria-label="1. Physical Intuition: The &ldquo;Ambiguity&rdquo; of Identity">1. Physical Intuition: The &ldquo;Ambiguity&rdquo; of Identity</a></li>
                 <li>
@@ -219,9 +236,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#1-fourier" aria-label="1. Fourier">1. Fourier</a><ul>
                         
                 <li>
+                    <a href="#fourier-series" aria-label="Fourier series">Fourier series</a></li>
+                <li>
+                    <a href="#fourier-transform" aria-label="Fourier transform">Fourier transform</a><ul>
+                        
+                <li>
                     <a href="#analysis-equation" aria-label="Analysis Equation">Analysis Equation</a></li>
                 <li>
                     <a href="#synthesis-equation" aria-label="Synthesis Equation">Synthesis Equation</a></li>
+                <li>
+                    <a href="#properties-of-the-fourier-transform" aria-label="Properties of the Fourier Transform">Properties of the Fourier Transform</a><ul>
+                        
+                <li>
+                    <a href="#basics" aria-label="Basics">Basics</a><ul>
+                        
                 <li>
                     <a href="#linearity-property" aria-label="Linearity Property
 ">Linearity Property
@@ -241,7 +269,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li>
                     <a href="#duality-property" aria-label="Duality Property
 ">Duality Property
-</a></li>
+</a></li></ul>
+                </li>
+                <li>
+                    <a href="#special" aria-label="Special">Special</a><ul>
+                        
                 <li>
                     <a href="#dirac-delta-function" aria-label="Dirac Delta Function">Dirac Delta Function</a></li>
                 <li>
@@ -254,14 +286,31 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#periodic-dirac-comb" aria-label="Periodic Dirac Comb">Periodic Dirac Comb</a></li>
                 <li>
                     <a href="#parsevals-theorem" aria-label="Parseval&rsquo;s Theorem">Parseval&rsquo;s Theorem</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#2laplace" aria-label="2.Laplace">2.Laplace</a><ul>
                         
                 <li>
+                    <a href="#analysis-equation-1" aria-label="Analysis Equation">Analysis Equation</a></li>
+                <li>
+                    <a href="#synthesis-equation-1" aria-label="Synthesis Equation">Synthesis Equation</a></li>
+                <li>
+                    <a href="#properties-of-the-laplace-transform" aria-label="Properties of the Laplace Transform">Properties of the Laplace Transform</a><ul>
+                        
+                <li>
+                    <a href="#basic" aria-label="Basic">Basic</a><ul>
+                        
+                <li>
                     <a href="#linearity-property-1" aria-label="Linearity Property">Linearity Property</a></li>
                 <li>
-                    <a href="#scaling-property-1" aria-label="Scaling Property">Scaling Property</a></li>
+                    <a href="#scaling-property-1" aria-label="Scaling Property">Scaling Property</a></li></ul>
+                </li>
+                <li>
+                    <a href="#special-1" aria-label="Special">Special</a><ul>
+                        
                 <li>
                     <a href="#differentiation-in-the-time-domaint" aria-label="Differentiation in the Time Domain(t)">Differentiation in the Time Domain(t)</a></li>
                 <li>
@@ -274,6 +323,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#shifting-in-the-time-domaint" aria-label="Shifting in the Time Domain(t)">Shifting in the Time Domain(t)</a></li>
                 <li>
                     <a href="#shifting-in-the-frequency-domains" aria-label="Shifting in the Frequency Domain(s)">Shifting in the Frequency Domain(s)</a></li></ul>
+                </li></ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#3differences-between-ftfourier-transform-and-ltlaplace-transform" aria-label="3.Differences between FT(Fourier Transform) and LT(Laplace Transform)">3.Differences between FT(Fourier Transform) and LT(Laplace Transform)</a><ul>
@@ -287,12 +338,31 @@ document.addEventListener("DOMContentLoaded", function() {
                     <a href="#4signal-processing" aria-label="4.Signal Processing">4.Signal Processing</a><ul>
                         
                 <li>
-                    <a href="#convolution" aria-label="Convolution">Convolution</a></li>
+                    <a href="#convolution" aria-label="Convolution">Convolution</a><ul>
+                        
                 <li>
-                    <a href="#correlation" aria-label="Correlation">Correlation</a></li>
+                    <a href="#concepts" aria-label="Concepts">Concepts</a></li>
                 <li>
-                    <a href="#sampling" aria-label="Sampling">Sampling</a>
+                    <a href="#convolution-theorem" aria-label="Convolution Theorem">Convolution Theorem</a></li></ul>
                 </li>
+                <li>
+                    <a href="#correlation" aria-label="Correlation">Correlation</a><ul>
+                        
+                <li>
+                    <a href="#concepts-1" aria-label="Concepts">Concepts</a></li>
+                <li>
+                    <a href="#power-spectral-densitywienerkhinchin-theorem" aria-label="Power Spectral Density(Wiener–Khinchin theorem)">Power Spectral Density(Wiener–Khinchin theorem)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#sampling" aria-label="Sampling">Sampling</a><ul>
+                        
+                <li>
+                    <a href="#concepts-2" aria-label="Concepts">Concepts</a></li>
+                <li>
+                    <a href="#nyquistshannon-sampling-theorem" aria-label="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a>
+                </li>
+            </ul>
+            </li>
             </ul>
             </li>
             </ul>
@@ -303,18 +373,17 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
   <div class="post-content"><h1 id="interesting-placeafter-reading">Interesting place(after reading)<a hidden class="anchor" aria-hidden="true" href="#interesting-placeafter-reading">#</a></h1>
-  <details>
-      <summary style="font-size: 20px;">1.The 1/2π Factor between FT and IFT</summary>
+<h2 id="1the-12π-factor-between-ft-and-ift">1.The 1/2π Factor between FT and IFT<a hidden class="anchor" aria-hidden="true" href="#1the-12π-factor-between-ft-and-ift">#</a></h2>
 <p>Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in <a href="#synthesis-equation">Synthesis Equation of Fourier transform</a>?And how can we summarize this pattern?</p>
-<p>$$ f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$</p>
-<h2 id="the-process-of-obtaining-the-answer">The process of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-process-of-obtaining-the-answer">#</a></h2>
-<h3 id="1-firsti-consulted-aigemini">1. First,I consulted AI(gemini)<p><a hidden class="anchor" aria-hidden="true" href="#1-firsti-consulted-aigemini">#</a></h3>
+<p>$$ f(t) = \mathcal{F}^{-1}[F(\omega) ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t}d\omega$$</p>
+<h3 id="the-process-of-obtaining-the-answer">The process of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-process-of-obtaining-the-answer">#</a></h3>
+<h4 id="1-firsti-consulted-aigemini">1. First,I consulted AI(gemini)<p><a hidden class="anchor" aria-hidden="true" href="#1-firsti-consulted-aigemini">#</a></h4>
 <p>Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:</p>
 <p>$$ \mathcal{F}[f(t)]=\int_{-\infty}^{\infty} f(t) e^{-j2\pi f t} \ dt $$
 $$ f(t)=\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j2\pi f t} \ df $$</p>
 <p>Because $\omega=2\pi f$, we can get $d\omega=2\pi df$, By substituting this.</p>
 <p>$$\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j2\pi f t} \ df =\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j\omega t} \ d\omega $$</p>
-<h3 id="2secondfound-something-interesting">2.Second,found something interesting<a hidden class="anchor" aria-hidden="true" href="#2secondfound-something-interesting">#</a></h3>
+<h4 id="2secondfound-something-interesting">2.Second,found something interesting<a hidden class="anchor" aria-hidden="true" href="#2secondfound-something-interesting">#</a></h4>
 <p>$\frac{1}{2\pi}$ in Synthesis Equation is similar to $\frac{1}{T}$ in <a href="#1-fourier">Fourier series.</a></p>
 <p>$$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$</p>
 <p>$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega$$</p>
@@ -325,8 +394,8 @@ The process here involves <strong>normalization</strong>.</p>
 <li>In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.</li>
 </ul>
 <p>more&ndash;&gt;<a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">DFT_and_FFT(Dive_Into_Fourier_Transform)</a></p>
-<h3 id="3thirdthere-is-still-something">3.Third,there is still something&hellip;<a hidden class="anchor" aria-hidden="true" href="#3thirdthere-is-still-something">#</a></h3>
-<p>$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \underbrace{\left[ \int_{-\infty}^{\infty} f(\tau) e^{-j\omega \tau} d\tau \right]}_{F(\omega)} \cdot e^{j\omega t} d\omega$$</p>
+<h4 id="3thirdthere-is-still-something">3.Third,there is still something&hellip;<a hidden class="anchor" aria-hidden="true" href="#3thirdthere-is-still-something">#</a></h4>
+<p>$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \underbrace{\left[ \int_{-\infty}^{\infty} f(\tau) e^{-\mathrm{j}\omega \tau} d\tau \right]}_{F(\omega)} \cdot e^{\mathrm{j}\omega t} d\omega$$</p>
 <p>Here, let&rsquo;s distinguish the roles of $\tau$ and $t$:</p>
 <ul>
 <li><strong>$\tau$ (The Traverser):</strong> It iterates through all history (from $-\infty$ to $+\infty$) to compute the spectrum.</li>
@@ -342,21 +411,19 @@ This results in <strong>constructive interference</strong>. Only the data at the
 <p>$$\int f(\tau) \cdot [2\pi \delta(t-\tau)] d\tau = \mathbf{2\pi} f(t)$$</p>
 <p><strong>Conclusion:</strong>
 The integration process naturally generates a factor of $\mathbf{2\pi}$. Therefore, to recover the original $f(t)$, we must divide by $2\pi$ in the inverse formula to cancel it out.</p>
-</details>
-  <details>
-      <summary style="font-size: 20px;">2.Time Domain to Frequency Domain</summary>
-<p>I found that there is some difficulty to understand the <a href="#constant">Fourier Transform of a Constant</a>.
-$$ \mathcal{F}[C ]= 2\pi C \cdot \delta(\omega) $$   <br>
-The key question is: Is it valid to use twice Fourier Transforms according to the verification.We all know Fourier Transform can be described as the transformation from t-domain to $\omega$-domain,so,what does the second tansform imply?
+<h2 id="2time-domain-to-frequency-domain">2.Time Domain to Frequency Domain<a hidden class="anchor" aria-hidden="true" href="#2time-domain-to-frequency-domain">#</a></h2>
+<p>I found that there is some difficulty to understand the <a href="#constant">Fourier Transform of a Constant</a>.</p>
+<p>$$\mathcal{F}[C] = 2\pi C \cdot \delta(\omega)$$</p>
+<p>The key question is: Is it valid to use twice Fourier Transforms according to the verification.We all know Fourier Transform can be described as the transformation from t-domain to $\omega$-domain,so,what does the second tansform imply?
 The convolution involves a &lsquo;flip&rsquo; to ensure that the newest input is weighted by the system&rsquo;s initial response (fresh), while older inputs are weighted by the decayed responses.</p>
-<h2 id="the-proess-of-obtaining-the-answer">The proess of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-proess-of-obtaining-the-answer">#</a></h2>
-<h3 id="1-first-i-consulted-ai-gemini">1. First, I consulted AI (Gemini)<a hidden class="anchor" aria-hidden="true" href="#1-first-i-consulted-ai-gemini">#</a></h3>
+<h3 id="the-proess-of-obtaining-the-answer">The proess of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-proess-of-obtaining-the-answer">#</a></h3>
+<h4 id="1-first-i-consulted-ai-gemini">1. First, I consulted AI (Gemini)<a hidden class="anchor" aria-hidden="true" href="#1-first-i-consulted-ai-gemini">#</a></h4>
 <ul>
 <li><strong>1st Transform:</strong> Time Domain $\rightarrow$ Frequency Domain.</li>
 <li><strong>2nd Transform:</strong> Frequency Domain $\rightarrow$ Mirrored Time Domain.</li>
 </ul>
 <p>Therefore, applying the transform twice is equivalent to flipping the signal into the <strong>Reflected Time Domain</strong> ($f(-t)$).</p>
-<h3 id="2-second-i-gained-a-new-perspective">2. Second, I gained a new perspective<a hidden class="anchor" aria-hidden="true" href="#2-second-i-gained-a-new-perspective">#</a></h3>
+<h4 id="2-second-i-gained-a-new-perspective">2. Second, I gained a new perspective<a hidden class="anchor" aria-hidden="true" href="#2-second-i-gained-a-new-perspective">#</a></h4>
 <p>I realized that my previous understanding of the Fourier Transform was too superficial. Mathematically, the Fourier Transform implies a <strong>-90° rotation</strong> in the complex unit circle (equivalent to multiplying by $-j$), rather than a simple conversion from time to frequency.</p>
 <ul>
 <li>A single <strong>Fourier Transform</strong> represents a <strong>90° clockwise rotation</strong>.</li>
@@ -366,16 +433,14 @@ The convolution involves a &lsquo;flip&rsquo; to ensure that the newest input is
 <p>The key lies in the <strong>Unit Circle</strong> on the complex plane. The time domain representation can be seen as the <strong>projection</strong> of a rotating vector (function) onto the real axis. The frequency domain, however, focuses on the <strong>attributes</strong> of this unit circle: angular velocity $\omega$, vector amplitude $A$, and initial phase.</p>
 <p>For more details on why a single transform maps time to frequency, please read more:
 <a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">DFT and FFT (Dive Into Fourier Transform)</a></p>
-  </details>
-  <details>
-      <summary style="font-size: 20px;">3. Reversal in convolution</summary>
+<h2 id="3-reversal-in-convolution">3. Reversal in convolution<a hidden class="anchor" aria-hidden="true" href="#3-reversal-in-convolution">#</a></h2>
 <p>Here we focus on <a href="#convolution">Convolution</a>.<p>
 $$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$</p>
 <ol>
 <li>$ \tau $ and $-\tau$(<em>why do we need to reverse it here?</em>)<p></li>
 <li>Why can reversing the sign of $ \tau $ here be used to reveal a function&rsquo;s characteristics?</li>
 </ol>
-<h2 id="the-process-of-obtaining-the-answer-1">The process of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-process-of-obtaining-the-answer-1">#</a></h2>
+<h3 id="the-process-of-obtaining-the-answer-1">The process of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-process-of-obtaining-the-answer-1">#</a></h3>
 <p>The convolution involves a &lsquo;flip&rsquo; to ensure that the newest input is weighted by the system&rsquo;s initial response (&ldquo;fresh&rdquo;), while older inputs are weighted by the decayed responses.<br></p>
 <ul>
 <li>
@@ -386,35 +451,31 @@ The reason why I don&rsquo;t share the full derivation process is simply&hellip;
 </li>
 <li>
 <p><strong><a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">The Gateway to Hell: DFT and FFT (Dive Into Fourier Transform)</a></strong></p>
-</details>
-<details>
-    <summary style="font-size: 20px;">4. Power spectrum</summary>
 </li>
 </ul>
+<h2 id="4-power-spectrum">4. Power spectrum<a hidden class="anchor" aria-hidden="true" href="#4-power-spectrum">#</a></h2>
 <p>About power spectrum, the concepts can be a bit difficult to grasp, and here we use <a href="#parsevals-theorem">Parsevals-theorem</a> and <a href="#correlation">Power Spectral Density in Correlation</a>
 $$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$
 $$\mathcal{F} [{ R_{xx}(\tau) } ]= |X(\omega)|^2$$</p>
-<h2 id="the-process-of-obtaining-the-answer-2">The process of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-process-of-obtaining-the-answer-2">#</a></h2>
-<h3 id="1-first-i-consulted-ai-gemini-1">1. First, I consulted AI (Gemini)<a hidden class="anchor" aria-hidden="true" href="#1-first-i-consulted-ai-gemini-1">#</a></h3>
+<h3 id="the-process-of-obtaining-the-answer-2">The process of obtaining the answer:<a hidden class="anchor" aria-hidden="true" href="#the-process-of-obtaining-the-answer-2">#</a></h3>
+<h4 id="1-first-i-consulted-ai-gemini-1">1. First, I consulted AI (Gemini)<a hidden class="anchor" aria-hidden="true" href="#1-first-i-consulted-ai-gemini-1">#</a></h4>
 <p>Parseval&rsquo;s Theorem calculates the Total Energy, whereas the Wiener-Khinchin Theorem focuses on the Energy Spectral Density (ESD).</p>
 <p>The numerical relationship is clear:
 Total Energy = The integral of ESD over the infinite frequency range, divided by $2\pi$.</p>
 <p>$$
 \underbrace{\int_{-\infty}^{\infty} |f(t)|^2 \ dt}_{\text{Total Energy in Time Domain}} = \underbrace{\frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega}_{\text{Total Energy in Freq Domain}}
 $$</p>
-<h3 id="2second-i-noticed-something">2.Second, I noticed something<a hidden class="anchor" aria-hidden="true" href="#2second-i-noticed-something">#</a></h3>
+<h4 id="2second-i-noticed-something">2.Second, I noticed something<a hidden class="anchor" aria-hidden="true" href="#2second-i-noticed-something">#</a></h4>
 <p>Initially, the definition $|F(\omega)|^2$ seemed abstract. Why does simply squaring the magnitude represent energy density?</p>
 <p>To understand this, I drew an analogy from <strong>electrical circuit theory</strong>.
 In circuits, the instantaneous power (rate of heat/work) is proportional to the square of the voltage or current.
 Recall the power formula: <strong>$P = V^2/R$</strong>.
 In signal processing, we simplify this by assuming a <strong>unit resistance ($R=1\Omega$)</strong>, leaving us with just the <strong>square of the amplitude</strong>.</p>
 <p>Once I linked the mathematical &ldquo;square&rdquo; to the physical &ldquo;power,&rdquo; the formula intuitively made sense.</p>
-  </details>
-  <details>
-      <summary style="font-size: 20px;">5. How sampling influence frequency domain</summary>
+<h2 id="5-how-sampling-influence-frequency-domain">5. How sampling influence frequency domain<a hidden class="anchor" aria-hidden="true" href="#5-how-sampling-influence-frequency-domain">#</a></h2>
 <p>Regarding sampling, I noticed that the Fourier Transform of a sampled continuous signal results in the periodic replication and shifting of the original spectrum. Why does this happen? This concept is somewhat difficult to understand.</p>
-<h2 id="te-process-of-obtaining-the-answer">Te process of obtaining the answer<a hidden class="anchor" aria-hidden="true" href="#te-process-of-obtaining-the-answer">#</a></h2>
-<h3 id="i-consulted-aigemini">I consulted AI(Gemini)<a hidden class="anchor" aria-hidden="true" href="#i-consulted-aigemini">#</a></h3>
+<h3 id="te-process-of-obtaining-the-answer">Te process of obtaining the answer<a hidden class="anchor" aria-hidden="true" href="#te-process-of-obtaining-the-answer">#</a></h3>
+<h4 id="i-consulted-aigemini">I consulted AI(Gemini)<a hidden class="anchor" aria-hidden="true" href="#i-consulted-aigemini">#</a></h4>
 <p>I think Gemini give me a very good answer.</p>
 <h4 id="1-physical-intuition-the-ambiguity-of-identity">1. Physical Intuition: The &ldquo;Ambiguity&rdquo; of Identity<a hidden class="anchor" aria-hidden="true" href="#1-physical-intuition-the-ambiguity-of-identity">#</a></h4>
 <p>If the mathematics feels too abstract, let&rsquo;s use physical intuition. The root cause is: <strong>Discrete points cannot uniquely identify a continuous signal.</strong></p>
@@ -459,11 +520,9 @@ Sampling in the Time Domain is equivalent to <strong>multiplying by an impulse t
 It stems from the <strong>&ldquo;Ambiguity&rdquo;</strong> of discrete signals. For a given sampling rate $f_s$, the frequencies $f$ and $f + k \cdot f_s$ yield identical values at the sampling instants. The periodic replication in the frequency domain is the mathematical manifestation of this ambiguity (i.e., all these high-frequency signals are valid candidates for the sampled data).</p>
 </li>
 </ol>
-  </details>
 <h1 id="key-formulas">Key Formulas<a hidden class="anchor" aria-hidden="true" href="#key-formulas">#</a></h1>
 <h2 id="1-fourier">1. Fourier<a hidden class="anchor" aria-hidden="true" href="#1-fourier">#</a></h2>
-<details open>
-  <summary style="font-size: 25px;">Fourier series</summary>
+<h3 id="fourier-series">Fourier series<a hidden class="anchor" aria-hidden="true" href="#fourier-series">#</a></h3>
 <p>$$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$</p>
 <p>$\frac{a_0}{2}$ here represents the average value (or DC component) of the signal $f(t)$. This value is calculated by finding the &rsquo;net area&rsquo; under the $f(t)$ curve within one period and dividing by the period $T$.<br>
 The coefficient $a_0$ itself is calculated as twice this average value:</p>
@@ -482,21 +541,17 @@ $$e^{j\theta} = \cos(\theta) + j\sin(\theta) $$</p>
 f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
 $$</p>
 <p>$$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$</p>
-</details>
-<details open>
-  <summary style="font-size: 25px;">Fourier transform</summary>
-<h3 id="analysis-equation">Analysis Equation<a hidden class="anchor" aria-hidden="true" href="#analysis-equation">#</a></h3>
-<p>$$F(\omega) = \mathcal{F}[f(t)] = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \ dt$$</p>
-<h3 id="synthesis-equation">Synthesis Equation<a hidden class="anchor" aria-hidden="true" href="#synthesis-equation">#</a></h3>
-<p>$$f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega$$</p>
-<details open>
-  <summary style="font-size: 25px;">Properties of the Fourier Transform</summary>
-<details >
-  <summary>Basics</summary>
-<h3 id="linearity-property">Linearity Property<br><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h3>
+<h3 id="fourier-transform">Fourier transform<a hidden class="anchor" aria-hidden="true" href="#fourier-transform">#</a></h3>
+<h4 id="analysis-equation">Analysis Equation<a hidden class="anchor" aria-hidden="true" href="#analysis-equation">#</a></h4>
+<p>$$F(\omega) = \mathcal{F}[f(t)] = \int_{-\infty}^{\infty} f(t) e^{-j\omega t}dt$$</p>
+<h4 id="synthesis-equation">Synthesis Equation<a hidden class="anchor" aria-hidden="true" href="#synthesis-equation">#</a></h4>
+<p>$$f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty}F(\omega)e^{j\omega t}d\omega$$</p>
+<h4 id="properties-of-the-fourier-transform">Properties of the Fourier Transform<a hidden class="anchor" aria-hidden="true" href="#properties-of-the-fourier-transform">#</a></h4>
+<h5 id="basics">Basics<a hidden class="anchor" aria-hidden="true" href="#basics">#</a></h5>
+<h6 id="linearity-property">Linearity Property<br><a hidden class="anchor" aria-hidden="true" href="#linearity-property">#</a></h6>
 <p>$$a f_1(t) + b f_2(t) = a F_1(\omega) + b F_2(\omega)$$</p>
 <hr>
-<h3 id="scaling-property"><strong>Scaling Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h3>
+<h6 id="scaling-property"><strong>Scaling Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#scaling-property">#</a></h6>
 <p>$$\mathcal{F}[f(at)] = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -505,27 +560,25 @@ $$</p>
 <p><br> <img src="/img/proof/傅里叶变换的相似性证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h3>
+<h6 id="timefrequency-shifting-property">Time/Frequency-Shifting Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-shifting-property">#</a></h6>
 <p>$$f(t - t_0) = e^{-j\omega t_0} F(\omega)$$</p>
 <p>$$e^{j\omega_0 t} f(t) = F(\omega - \omega_0)$$</p>
 <hr>
-<h3 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h3>
+<h6 id="timefrequency-differentiation-property">Time/Frequency Differentiation Property<br><a hidden class="anchor" aria-hidden="true" href="#timefrequency-differentiation-property">#</a></h6>
 <p>$$\frac{d^n}{dt^n} f(t) = (j\omega)^n F(\omega)$$</p>
 <p>$$(-jt)^n f(t) = \frac{d^n}{d\omega^n} F(\omega)$$</p>
 <hr>
-<h3 id="duality-property"><strong>Duality Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h3>
+<h6 id="duality-property"><strong>Duality Property</strong><br><a hidden class="anchor" aria-hidden="true" href="#duality-property">#</a></h6>
 <p>$$\text{if } f(t) = F(\omega) \text{,   } F(t) = 2\pi f(-\omega)$$</p>
 <hr>
-</details>
-<details>
-  <summary>Special</summary>
-<h3 id="dirac-delta-function">Dirac Delta Function<a hidden class="anchor" aria-hidden="true" href="#dirac-delta-function">#</a></h3>
+<h5 id="special">Special<a hidden class="anchor" aria-hidden="true" href="#special">#</a></h5>
+<h6 id="dirac-delta-function">Dirac Delta Function<a hidden class="anchor" aria-hidden="true" href="#dirac-delta-function">#</a></h6>
 <p>$$\mathcal{F}[\delta(t)] =1$$</p>
 <hr>
-<h3 id="shifted-dirac-delta">Shifted Dirac Delta<a hidden class="anchor" aria-hidden="true" href="#shifted-dirac-delta">#</a></h3>
+<h6 id="shifted-dirac-delta">Shifted Dirac Delta<a hidden class="anchor" aria-hidden="true" href="#shifted-dirac-delta">#</a></h6>
 <p>$$\mathcal{F}[\delta(t - t_0)] = e^{-j\omega t_0}$$</p>
 <hr>
-<h3 id="constant">Constant<a hidden class="anchor" aria-hidden="true" href="#constant">#</a></h3>
+<h6 id="constant">Constant<a hidden class="anchor" aria-hidden="true" href="#constant">#</a></h6>
 <p>$$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -534,7 +587,7 @@ $$</p>
 <p><br> <img src="/img/proof/常数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="complex-exponential">Complex Exponential<a hidden class="anchor" aria-hidden="true" href="#complex-exponential">#</a></h3>
+<h6 id="complex-exponential">Complex Exponential<a hidden class="anchor" aria-hidden="true" href="#complex-exponential">#</a></h6>
 <p>$$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -543,7 +596,7 @@ $$</p>
 <p><br> <img src="/img/proof/复数指数函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="periodic-dirac-comb">Periodic Dirac Comb<a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h3>
+<h6 id="periodic-dirac-comb">Periodic Dirac Comb<a hidden class="anchor" aria-hidden="true" href="#periodic-dirac-comb">#</a></h6>
 <p>$$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -552,34 +605,23 @@ $$</p>
 <p><br> <img src="/img/proof/周期狄拉克函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="parsevals-theorem">Parseval&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#parsevals-theorem">#</a></h3>
+<h6 id="parsevals-theorem">Parseval&rsquo;s Theorem<a hidden class="anchor" aria-hidden="true" href="#parsevals-theorem">#</a></h6>
 <p>$$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$</p>
 <hr>
-</details>
-</details>
-</details>
 <h2 id="2laplace">2.Laplace<a hidden class="anchor" aria-hidden="true" href="#2laplace">#</a></h2>
-<details>
-  <summary style="font-size: 25px;">Analysis Equation</summary>
-  $$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) \, dt$$
-</details>
-<details>
-  <summary style="font-size: 25px;">Synthesis Equation</summary>
-  $$f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s) \, ds$$
-</details>
-<details>
-  <summary style="font-size: 25px;">Properties of the Laplace Transform</summary>
-  <details>
-  <summary style="font-size: 20px;">Basic</summary>
-<h3 id="linearity-property-1">Linearity Property<a hidden class="anchor" aria-hidden="true" href="#linearity-property-1">#</a></h3>
+<h3 id="analysis-equation-1">Analysis Equation<a hidden class="anchor" aria-hidden="true" href="#analysis-equation-1">#</a></h3>
+<p>$$F(s) =\mathcal{L}{f(t)} = \int_{0}^{\infty} e^{-st} f(t) , dt$$</p>
+<h3 id="synthesis-equation-1">Synthesis Equation<a hidden class="anchor" aria-hidden="true" href="#synthesis-equation-1">#</a></h3>
+<p>$$f(t) = \mathcal{L}^{-1}{F(s)} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s) , ds$$</p>
+<h3 id="properties-of-the-laplace-transform">Properties of the Laplace Transform<a hidden class="anchor" aria-hidden="true" href="#properties-of-the-laplace-transform">#</a></h3>
+<h4 id="basic">Basic<a hidden class="anchor" aria-hidden="true" href="#basic">#</a></h4>
+<h5 id="linearity-property-1">Linearity Property<a hidden class="anchor" aria-hidden="true" href="#linearity-property-1">#</a></h5>
 <p>$$\mathcal{L}[{a \cdot f(t) + b \cdot g(t)}] = a \cdot F(s) + b \cdot G(s)$$</p>
 <hr>
-<h3 id="scaling-property-1">Scaling Property<a hidden class="anchor" aria-hidden="true" href="#scaling-property-1">#</a></h3>
+<h5 id="scaling-property-1">Scaling Property<a hidden class="anchor" aria-hidden="true" href="#scaling-property-1">#</a></h5>
 <p>$$\mathcal{L}[{f(a \cdot t)}] = \frac{1}{|a|} \cdot F\left(\frac{s}{a}\right)$$</p>
-</details>
-<details>
-  <summary style="font-size: 20px;">Special</summary>
-<h3 id="differentiation-in-the-time-domaint">Differentiation in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#differentiation-in-the-time-domaint">#</a></h3>
+<h4 id="special-1">Special<a hidden class="anchor" aria-hidden="true" href="#special-1">#</a></h4>
+<h5 id="differentiation-in-the-time-domaint">Differentiation in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#differentiation-in-the-time-domaint">#</a></h5>
 <p>$$\mathcal{L}\left[ f&rsquo;(t) \right] = s\mathcal{L}[f(t)] - f(0)$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -588,7 +630,7 @@ $$</p>
   <br> <img src="/img/proof/t时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
 </details>
 <hr>
-<h3 id="integration-in-the-time-domaint">Integration in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#integration-in-the-time-domaint">#</a></h3>
+<h5 id="integration-in-the-time-domaint">Integration in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#integration-in-the-time-domaint">#</a></h5>
 <p>$$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[f(t)]$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -597,7 +639,7 @@ $$</p>
 <p><br> <img src="/img/proof/t时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="differentiation-in-the-frequency-domains">Differentiation in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#differentiation-in-the-frequency-domains">#</a></h3>
+<h5 id="differentiation-in-the-frequency-domains">Differentiation in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#differentiation-in-the-frequency-domains">#</a></h5>
 <p>$$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -606,7 +648,7 @@ $$</p>
 <p><br> <img src="/img/proof/s时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="integration-in-the-frequency-domains">Integration in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#integration-in-the-frequency-domains">#</a></h3>
+<h5 id="integration-in-the-frequency-domains">Integration in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#integration-in-the-frequency-domains">#</a></h5>
 <p>$$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigma$$</p>
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -615,12 +657,11 @@ $$</p>
 <p><br> <img src="/img/proof/s时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
 <hr>
-<h3 id="shifting-in-the-time-domaint">Shifting in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#shifting-in-the-time-domaint">#</a></h3>
+<h5 id="shifting-in-the-time-domaint">Shifting in the Time Domain(t)<a hidden class="anchor" aria-hidden="true" href="#shifting-in-the-time-domaint">#</a></h5>
 <p>$$\mathcal{L}\left[ f(t-\lambda) u(t-\lambda) \right] = e^{-\lambda s} \mathcal{L}[f(t)]$$</p>
-<h3 id="shifting-in-the-frequency-domains">Shifting in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#shifting-in-the-frequency-domains">#</a></h3>
+<hr>
+<h5 id="shifting-in-the-frequency-domains">Shifting in the Frequency Domain(s)<a hidden class="anchor" aria-hidden="true" href="#shifting-in-the-frequency-domains">#</a></h5>
 <p>$$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$</p>
-</details>
-</details>
 <h2 id="3differences-between-ftfourier-transform-and-ltlaplace-transform">3.Differences between FT(Fourier Transform) and LT(Laplace Transform)<a hidden class="anchor" aria-hidden="true" href="#3differences-between-ftfourier-transform-and-ltlaplace-transform">#</a></h2>
 <p>$$F(\omega) = \int_{-\infty}^{\infty} f(t) \cdot \underbrace{e^{-j\omega t}}_{\text{Kernel A}} \ dt$$</p>
 <p>$$F(s) = \int_{0}^{\infty} f(t) \cdot \underbrace{e^{-st}}_{\text{Kernel B}} \ dt$$</p>
@@ -634,18 +675,15 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 <strong>LT</strong>:As can be seen from the formula, the upper and lower limits of the Laplace Transform are from 0 to positive infinity, making it a unilateral transform. It perfectly simulates real-world situations (time cannot be less than 0) and thus can be used to solve initial value problems.</p>
 <h2 id="4signal-processing">4.Signal Processing<a hidden class="anchor" aria-hidden="true" href="#4signal-processing">#</a></h2>
 <h3 id="convolution">Convolution<a hidden class="anchor" aria-hidden="true" href="#convolution">#</a></h3>
-  <details>
-  <summary style="font-size: 20px;">Concepts</summary>
-  In my opinion, convolution is a method for processing functions (and actually more than just functions). We often use it to describe the interaction (e.g., sliding weighted superposition) between two functions, especially in signal processing and system analysis.<p>
+<h4 id="concepts">Concepts<a hidden class="anchor" aria-hidden="true" href="#concepts">#</a></h4>
+<p>In my opinion, convolution is a method for processing functions (and actually more than just functions). We often use it to describe the interaction (e.g., sliding weighted superposition) between two functions, especially in signal processing and system analysis.<p></p>
 <p>$$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$</p>
 <p>This is the formula which shows how convolution works.There are some points that is very hard to understand.<p></p>
 <ol>
 <li><a href="#interesting-place">$ \tau $ and $-\tau$(<em>why do we need to reverse it here?</em>)</a></li>
 <li><a href="#interesting-place">Why can reversing the sign of $ \tau $ here be used to show a function&rsquo;s characteristics?</a></li>
 </ol>
-</details>
-<details>
-  <summary style="font-size: 20px;">Convolution Theorem</summary>
+<h4 id="convolution-theorem">Convolution Theorem<a hidden class="anchor" aria-hidden="true" href="#convolution-theorem">#</a></h4>
 <p>$$\mathcal{F} [ f(t)* g(t) ] = \mathcal{F}[f(t)] \cdot \mathcal{F}[g(t)]$$</p>
 <p>$$\mathcal{L} [ f(t)* g(t) ] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$</p>
   <details>
@@ -654,35 +692,26 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
   </summary>
 <p><br> <img src="/img/proof/卷积定理的证明.jpg" alt="Proof" width="100%" height="auto"></p>
 </details>
-</details>
 <h3 id="correlation">Correlation<a hidden class="anchor" aria-hidden="true" href="#correlation">#</a></h3>
-  <details>
-  <summary style="font-size: 20px;">Concepts</summary>
-   From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
-$$R_{xy}(\tau) = \int_{-\infty}^{\infty} x(t) y(t + \tau) \ dt$$
-</details>
- <details>
-  <summary style="font-size: 20px;">Power Spectral Density(Wiener–Khinchin theorem)</summary>
-$$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
-  This formula demonstrates the calculation of the Energy Spectral Density (ESD).
-</details>
+<h4 id="concepts-1">Concepts<a hidden class="anchor" aria-hidden="true" href="#concepts-1">#</a></h4>
+<p>From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
+$$R_{xy}(\tau) = \int_{-\infty}^{\infty} x(t) y(t + \tau) \ dt$$</p>
+<h4 id="power-spectral-densitywienerkhinchin-theorem">Power Spectral Density(Wiener–Khinchin theorem)<a hidden class="anchor" aria-hidden="true" href="#power-spectral-densitywienerkhinchin-theorem">#</a></h4>
+<p>$$\mathcal{F} { R_{xx}(\tau) } = |X(\omega)|^2$$
+This formula demonstrates the calculation of the Energy Spectral Density (ESD).</p>
 <h3 id="sampling">Sampling<a hidden class="anchor" aria-hidden="true" href="#sampling">#</a></h3>
-  <details>
-  <summary style="font-size: 20px;">Concepts</summary>
-  Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
-  $$f_T(t) = f(t)\delta_T(t) =  \sum_{n=-\infty}^{\infty} f(nT)\delta(t - nT)$$
-  After Fourier Transform
-  $$\mathcal{F}[f_T(t)]= \frac{1}{T} \sum_{k=-\infty}^{\infty} F(\omega - k \omega_s)$$
-</details>
- <details>
-  <summary style="font-size: 20px;">Nyquist–Shannon sampling theorem</summary>
-  In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$<$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.
-  <details>
+<h4 id="concepts-2">Concepts<a hidden class="anchor" aria-hidden="true" href="#concepts-2">#</a></h4>
+<p>Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
+$$f_T(t) = f(t)\delta_T(t) =  \sum_{n=-\infty}^{\infty} f(nT)\delta(t - nT)$$
+After Fourier Transform
+$$\mathcal{F}[f_T(t)]= \frac{1}{T} \sum_{k=-\infty}^{\infty} F(\omega - k \omega_s)$$</p>
+<h4 id="nyquistshannon-sampling-theorem">Nyquist–Shannon sampling theorem</summary><a hidden class="anchor" aria-hidden="true" href="#nyquistshannon-sampling-theorem">#</a></h4>
+<p>In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$&lt;$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.</p>
+<details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Proof
   </summary>
 <p><br> <img src="/img/proof/采样定理的证明.jpg" alt="Proof" width="100%" height="auto"></p>
-</details>
 </details>
 
 
@@ -691,15 +720,14 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/basic/">Basic</a></li>
-      <li><a href="http://localhost:1313/tags/markdown/">Markdown</a></li>
       <li><a href="http://localhost:1313/tags/fourier-and-laplace/">Fourier and Laplace</a></li>
       <li><a href="http://localhost:1313/tags/convolution-and-sampling/">Convolution and Sampling</a></li>
     </ul>
 
 <ul class="share-buttons">
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on x"
-            href="https://x.com/intent/tweet/?text=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f&amp;hashtags=basic%2cmarkdown%2cFourierandLaplace%2cConvolutionandSampling">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on x"
+            href="https://x.com/intent/tweet/?text=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f&amp;hashtags=basic%2cFourierandLaplace%2cConvolutionandSampling">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -707,8 +735,8 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f&amp;title=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;summary=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f&amp;title=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;summary=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -716,8 +744,8 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f&title=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f&title=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -725,7 +753,7 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on facebook"
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on facebook"
             href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
@@ -734,8 +762,8 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on whatsapp"
-            href="https://api.whatsapp.com/send?text=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on whatsapp"
+            href="https://api.whatsapp.com/send?text=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -743,8 +771,8 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on telegram"
-            href="https://telegram.me/share/url?text=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on telegram"
+            href="https://telegram.me/share/url?text=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -752,8 +780,8 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Convolution and Sampling in Fourier and Laplace[Finished] on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Convolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&u=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished] on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=%5bFireside%20Notes%5dConvolution%20and%20Sampling%20in%20Fourier%20and%20Laplace%5bFinished%5d&u=http%3a%2f%2flocalhost%3a1313%2fposts%2fconvolution_and_sampling_in_fourier_laplace%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path

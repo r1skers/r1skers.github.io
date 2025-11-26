@@ -1,21 +1,21 @@
 ---
 date: '2025-11-12T10:17:00+09:00'
 draft: false
-title: 'Convolution and Sampling in Fourier and Laplace[Finished]'
-tags: ["basic", "markdown","Fourier and Laplace","Convolution and Sampling"]
-categories: ["Promethean Fire", "Fireside Notes"]
+title: '[Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished]'
+tags: ["basic", "Fourier and Laplace","Convolution and Sampling"]
+categories: ["Fireside Notes"]
 ---
 
 # Interesting place(after reading)
 
-  <details>
-      <summary style="font-size: 20px;">1.The 1/2π Factor between FT and IFT</summary>
+## 1.The 1/2π Factor between FT and IFT
 
 Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in <a href="#synthesis-equation">Synthesis Equation of Fourier transform</a>?And how can we summarize this pattern?
 
-$$ f(t) = \mathcal{F}^{-1}\[{F(\omega)\} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega $$
-## The process of obtaining the answer:
-### 1. First,I consulted AI(gemini)<p>
+$$ f(t) = \mathcal{F}^{-1}[F(\omega) ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t}d\omega$$
+
+### The process of obtaining the answer:
+#### 1. First,I consulted AI(gemini)<p>
 Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:
 
 $$ \mathcal{F}[f(t)]=\int_{-\infty}^{\infty} f(t) e^{-j2\pi f t} \ dt $$
@@ -25,7 +25,7 @@ Because $\omega=2\pi f$, we can get $d\omega=2\pi df$, By substituting this.
 
 $$\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j2\pi f t} \ df =\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathcal{F}[f(t)] e^{j\omega t} \ d\omega $$
 
-### 2.Second,found something interesting
+#### 2.Second,found something interesting
 $\frac{1}{2\pi}$ in Synthesis Equation is similar to $\frac{1}{T}$ in <a href="#1-fourier">Fourier series.</a>
 
 $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$
@@ -39,9 +39,9 @@ The process here involves **normalization**.
 
 more-->[DFT_and_FFT(Dive_Into_Fourier_Transform)](https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/)
 
-### 3.Third,there is still something...
+#### 3.Third,there is still something...
 
-$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \underbrace{\left[ \int_{-\infty}^{\infty} f(\tau) e^{-j\omega \tau} d\tau \right]}_{F(\omega)} \cdot e^{j\omega t} d\omega$$ 
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \underbrace{\left[ \int_{-\infty}^{\infty} f(\tau) e^{-\mathrm{j}\omega \tau} d\tau \right]}_{F(\omega)} \cdot e^{\mathrm{j}\omega t} d\omega$$
 
 
 Here, let's distinguish the roles of $\tau$ and $t$:
@@ -62,23 +62,24 @@ $$\int f(\tau) \cdot [2\pi \delta(t-\tau)] d\tau = \mathbf{2\pi} f(t)$$
 
 **Conclusion:**
 The integration process naturally generates a factor of $\mathbf{2\pi}$. Therefore, to recover the original $f(t)$, we must divide by $2\pi$ in the inverse formula to cancel it out.
-</details>
 
 
-  <details>
-      <summary style="font-size: 20px;">2.Time Domain to Frequency Domain</summary>
+
+## 2.Time Domain to Frequency Domain
 
 I found that there is some difficulty to understand the <a href="#constant">Fourier Transform of a Constant</a>.
-$$ \mathcal{F}[C ]= 2\pi C \cdot \delta(\omega) $$      
+
+$$\mathcal{F}[C] = 2\pi C \cdot \delta(\omega)$$
+
 The key question is: Is it valid to use twice Fourier Transforms according to the verification.We all know Fourier Transform can be described as the transformation from t-domain to $\omega$-domain,so,what does the second tansform imply?
 The convolution involves a 'flip' to ensure that the newest input is weighted by the system's initial response (fresh), while older inputs are weighted by the decayed responses.
-## The proess of obtaining the answer:
-### 1. First, I consulted AI (Gemini)
+### The proess of obtaining the answer:
+#### 1. First, I consulted AI (Gemini)
 * **1st Transform:** Time Domain $\rightarrow$ Frequency Domain.
 * **2nd Transform:** Frequency Domain $\rightarrow$ Mirrored Time Domain.
 
 Therefore, applying the transform twice is equivalent to flipping the signal into the **Reflected Time Domain** ($f(-t)$).
-### 2. Second, I gained a new perspective
+#### 2. Second, I gained a new perspective
 I realized that my previous understanding of the Fourier Transform was too superficial. Mathematically, the Fourier Transform implies a **-90° rotation** in the complex unit circle (equivalent to multiplying by $-j$), rather than a simple conversion from time to frequency.
 
 * A single **Fourier Transform** represents a **90° clockwise rotation**.
@@ -91,17 +92,14 @@ The key lies in the **Unit Circle** on the complex plane. The time domain repres
 For more details on why a single transform maps time to frequency, please read more:
 <a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">DFT and FFT (Dive Into Fourier Transform)</a>
 
-  </details>
-
-  <details>
-      <summary style="font-size: 20px;">3. Reversal in convolution</summary>
+## 3. Reversal in convolution
 
 Here we focus on <a href="#convolution">Convolution</a>.<p>
 $$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$
 1. $ \tau $ and $-\tau$(*why do we need to reverse it here?*)<p>
 2. Why can reversing the sign of $ \tau $ here be used to reveal a function's characteristics?
 
-## The process of obtaining the answer:
+### The process of obtaining the answer:
 The convolution involves a 'flip' to ensure that the newest input is weighted by the system's initial response ("fresh"), while older inputs are weighted by the decayed responses.<br>
 
 * **I will stop the explanation here.**
@@ -110,17 +108,15 @@ The reason why I don't share the full derivation process is simply...
 *"おい、その先は地獄だぞ"* (That's hell you're walking into).
 
 * **<a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">The Gateway to Hell: DFT and FFT (Dive Into Fourier Transform)</a>**
-  </details>
 
-  <details>
-      <summary style="font-size: 20px;">4. Power spectrum</summary>
+## 4. Power spectrum
 
 About power spectrum, the concepts can be a bit difficult to grasp, and here we use <a href="#parsevals-theorem">Parsevals-theorem</a> and <a href="#correlation">Power Spectral Density in Correlation</a>
 $$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$
 $$\mathcal{F} [\{ R_{xx}(\tau) \} ]= |X(\omega)|^2$$
 
-## The process of obtaining the answer:
-### 1. First, I consulted AI (Gemini)
+### The process of obtaining the answer:
+#### 1. First, I consulted AI (Gemini)
 
 Parseval's Theorem calculates the Total Energy, whereas the Wiener-Khinchin Theorem focuses on the Energy Spectral Density (ESD).
 
@@ -131,7 +127,7 @@ $$
 \underbrace{\int_{-\infty}^{\infty} |f(t)|^2 \ dt}\_{\text{Total Energy in Time Domain}} = \underbrace{\frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega}\_{\text{Total Energy in Freq Domain}}
 $$
 
-### 2.Second, I noticed something
+#### 2.Second, I noticed something
 Initially, the definition $|F(\omega)|^2$ seemed abstract. Why does simply squaring the magnitude represent energy density?
 
 To understand this, I drew an analogy from **electrical circuit theory**.
@@ -140,14 +136,13 @@ Recall the power formula: **$P = V^2/R$**.
 In signal processing, we simplify this by assuming a **unit resistance ($R=1\Omega$)**, leaving us with just the **square of the amplitude**.
 
 Once I linked the mathematical "square" to the physical "power," the formula intuitively made sense.
-  </details>
-  <details>
-      <summary style="font-size: 20px;">5. How sampling influence frequency domain</summary>
+
+## 5. How sampling influence frequency domain
 
 Regarding sampling, I noticed that the Fourier Transform of a sampled continuous signal results in the periodic replication and shifting of the original spectrum. Why does this happen? This concept is somewhat difficult to understand.
 
-## Te process of obtaining the answer
-### I consulted AI(Gemini)
+### Te process of obtaining the answer
+#### I consulted AI(Gemini)
 I think Gemini give me a very good answer.
 #### 1. Physical Intuition: The "Ambiguity" of Identity
 If the mathematics feels too abstract, let's use physical intuition. The root cause is: **Discrete points cannot uniquely identify a continuous signal.**
@@ -183,14 +178,10 @@ The Fourier Transform is brutally honest. When you ask, *"What is the spectrum o
 
 2.  **Physical Intuition:**
     It stems from the **"Ambiguity"** of discrete signals. For a given sampling rate $f_s$, the frequencies $f$ and $f + k \cdot f_s$ yield identical values at the sampling instants. The periodic replication in the frequency domain is the mathematical manifestation of this ambiguity (i.e., all these high-frequency signals are valid candidates for the sampled data).
-  </details>
 
 # Key Formulas
 ## 1. Fourier
-
-
-<details open>
-  <summary style="font-size: 25px;">Fourier series</summary>
+### Fourier series
 
 $$f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)$$
 
@@ -222,29 +213,27 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
 $$
 
 $$c_n = \frac{1}{T} \int_{T} f(t) e^{-jn\omega_0 t} \ dt$$
-</details>
 
-<details open>
-  <summary style="font-size: 25px;">Fourier transform</summary>
+### Fourier transform
 
-### Analysis Equation
+#### Analysis Equation
 
-$$F(\omega) = \mathcal{F}\[f(t)\] = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \ dt$$
+$$F(\omega) = \mathcal{F}[f(t)] = \int_{-\infty}^{\infty} f(t) e^{-j\omega t}dt$$
 
-### Synthesis Equation
-$$f(t) = \mathcal{F}^{-1}\[{F(\omega)\} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \ d\omega$$
-<details open>
-  <summary style="font-size: 25px;">Properties of the Fourier Transform</summary>
-<details >
-  <summary>Basics</summary>
+#### Synthesis Equation
+$$f(t) = \mathcal{F}^{-1}[{F(\omega)} ]= \frac{1}{2\pi} \int_{-\infty}^{\infty}F(\omega)e^{j\omega t}d\omega$$
 
-### Linearity Property<br>
+#### Properties of the Fourier Transform
+
+##### Basics
+
+###### Linearity Property<br>
 
 $$a f_1(t) + b f_2(t) = a F_1(\omega) + b F_2(\omega)$$
 
 ***
 
-### **Scaling Property**<br>
+###### **Scaling Property**<br>
 
 $$\mathcal{F}[f(at)] = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
@@ -259,7 +248,7 @@ $$\mathcal{F}[f(at)] = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
 ***
 
-### Time/Frequency-Shifting Property<br>
+###### Time/Frequency-Shifting Property<br>
 
 $$f(t - t_0) = e^{-j\omega t_0} F(\omega)$$
 
@@ -267,7 +256,7 @@ $$e^{j\omega_0 t} f(t) = F(\omega - \omega_0)$$
 
 ***
 
-### Time/Frequency Differentiation Property<br>
+###### Time/Frequency Differentiation Property<br>
 
 $$\frac{d^n}{dt^n} f(t) = (j\omega)^n F(\omega)$$
 
@@ -275,7 +264,7 @@ $$(-jt)^n f(t) = \frac{d^n}{d\omega^n} F(\omega)$$
 
 ***
 
-### **Duality Property**<br>
+###### **Duality Property**<br>
 
 $$\text{if } f(t) = F(\omega) \text{,   } F(t) = 2\pi f(-\omega)$$
 
@@ -283,24 +272,22 @@ $$\text{if } f(t) = F(\omega) \text{,   } F(t) = 2\pi f(-\omega)$$
 
 ***
 
-</details>
 
-<details>
-  <summary>Special</summary>
+##### Special
 
-### Dirac Delta Function
+###### Dirac Delta Function
 
 $$\mathcal{F}[\delta(t)] =1$$
 
 ***
 
-### Shifted Dirac Delta
+###### Shifted Dirac Delta
 
 $$\mathcal{F}[\delta(t - t_0)] = e^{-j\omega t_0}$$
 
 ***
 
-### Constant
+###### Constant
 
 $$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$
 <details>
@@ -314,7 +301,7 @@ $$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$
 
 ***
 
-### Complex Exponential
+###### Complex Exponential
 
 $$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$
 <details>
@@ -328,7 +315,7 @@ $$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$
 
 ***
 
-### Periodic Dirac Comb
+###### Periodic Dirac Comb
 
 $$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\infty} \delta(\omega - n\omega_0)$$
 <details>
@@ -342,43 +329,37 @@ $$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\i
 
 ***
 
-### Parseval's Theorem
+###### Parseval's Theorem
 
 $$\int_{-\infty}^{\infty} |f(t)|^2 \ dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} |F(\omega)|^2 \ d\omega$$
 
 ***
 
-</details>
-</details>
-
-</details>
 
 ## 2.Laplace
-<details>
-  <summary style="font-size: 25px;">Analysis Equation</summary>
+### Analysis Equation
   $$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t) \, dt$$
-</details>
-<details>
-  <summary style="font-size: 25px;">Synthesis Equation</summary>
-  $$f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s) \, ds$$
-</details>
-<details>
-  <summary style="font-size: 25px;">Properties of the Laplace Transform</summary>
-  <details>
-  <summary style="font-size: 20px;">Basic</summary>
 
-###  Linearity Property
-$$\mathcal{L}\[{a \cdot f(t) + b \cdot g(t)\}] = a \cdot F(s) + b \cdot G(s)$$
+### Synthesis Equation
+  $$f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s) \, ds$$
+
+### Properties of the Laplace Transform
+
+#### Basic
+
+#####  Linearity Property
+
+$$\mathcal{L}[{a \cdot f(t) + b \cdot g(t)}] = a \cdot F(s) + b \cdot G(s)$$
 
 ***
 
-### Scaling Property
-$$\mathcal{L}\[{f(a \cdot t)\}] = \frac{1}{|a|} \cdot F\left(\frac{s}{a}\right)$$
-</details>
-<details>
-  <summary style="font-size: 20px;">Special</summary>
+##### Scaling Property
 
-### Differentiation in the Time Domain(t)
+$$\mathcal{L}[{f(a \cdot t)}] = \frac{1}{|a|} \cdot F\left(\frac{s}{a}\right)$$
+
+#### Special
+
+##### Differentiation in the Time Domain(t)
 $$\mathcal{L}\left[ f'(t) \right] = s\mathcal{L}[f(t)] - f(0)$$
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -389,7 +370,7 @@ $$\mathcal{L}\left[ f'(t) \right] = s\mathcal{L}[f(t)] - f(0)$$
 
 ***
 
-### Integration in the Time Domain(t)
+##### Integration in the Time Domain(t)
 $$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[f(t)]$$
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -402,7 +383,7 @@ $$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[
 
 ***
 
-### Differentiation in the Frequency Domain(s)
+##### Differentiation in the Frequency Domain(s)
 $$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -415,7 +396,7 @@ $$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$
 
 ***
 
-### Integration in the Frequency Domain(s)
+##### Integration in the Frequency Domain(s)
 $$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigma$$
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -428,17 +409,18 @@ $$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigm
 
 ***
 
-### Shifting in the Time Domain(t)
+##### Shifting in the Time Domain(t)
 
 $$\mathcal{L}\left[ f(t-\lambda) u(t-\lambda) \right] = e^{-\lambda s} \mathcal{L}[f(t)]$$
 
-### Shifting in the Frequency Domain(s)
+***
+
+##### Shifting in the Frequency Domain(s)
 
 $$\mathcal{L}\left[ e^{\sigma t} f(t) \right] = F(s-\sigma)$$
 
 
-</details>
-</details>
+
 
 ## 3.Differences between FT(Fourier Transform) and LT(Laplace Transform)
 
@@ -462,8 +444,7 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 ## 4.Signal Processing
 ### Convolution
 
-  <details>
-  <summary style="font-size: 20px;">Concepts</summary>
+#### Concepts
   In my opinion, convolution is a method for processing functions (and actually more than just functions). We often use it to describe the interaction (e.g., sliding weighted superposition) between two functions, especially in signal processing and system analysis.<p>
 
   $$f(t) * g(t) = \int_{-\infty}^{\infty} f(\tau) g(t - \tau) \ d\tau$$
@@ -472,13 +453,12 @@ The definition of the Laplace Transform is to decompose your signal $f(t)$ into 
 
 1. [$ \tau $ and $-\tau$(*why do we need to reverse it here?*)](#interesting-place)
 2. [Why can reversing the sign of $ \tau $ here be used to show a function's characteristics?](#interesting-place)
-</details>
-<details>
-  <summary style="font-size: 20px;">Convolution Theorem</summary>
 
-$$\mathcal{F} \[ f(t)* g(t) \] = \mathcal{F}[f(t)] \cdot \mathcal{F}[g(t)]$$
+#### Convolution Theorem
 
-$$\mathcal{L} \[ f(t)* g(t) \] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
+$$\mathcal{F} [ f(t)* g(t) ] = \mathcal{F}[f(t)] \cdot \mathcal{F}[g(t)]$$
+
+$$\mathcal{L} [ f(t)* g(t) ] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
   <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Proof
@@ -487,34 +467,30 @@ $$\mathcal{L} \[ f(t)* g(t) \] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
   <br> <img src="/img/proof/卷积定理的证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
-</details>
+
 
 ### Correlation
 
-  <details>
-  <summary style="font-size: 20px;">Concepts</summary>
-   From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
+#### Concepts
+From the formula, we can see that correlation is essentially convolution without the flipping step (or with a time-reversed signal). Indeed, we use correlation to measure the similarity between two functions, or even a function with itself.<p>
 $$R_{xy}(\tau) = \int_{-\infty}^{\infty} x(t) y(t + \tau) \ dt$$
-</details>
- <details>
-  <summary style="font-size: 20px;">Power Spectral Density(Wiener–Khinchin theorem)</summary>
+
+#### Power Spectral Density(Wiener–Khinchin theorem)
 $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
   This formula demonstrates the calculation of the Energy Spectral Density (ESD).
-</details>
+
 
 ### Sampling
 
-  <details>
-  <summary style="font-size: 20px;">Concepts</summary>
-  Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
-  $$f_T(t) = f(t)\delta_T(t) =  \sum_{n=-\infty}^{\infty} f(nT)\delta(t - nT)$$
-  After Fourier Transform
-  $$\mathcal{F}[f_T(t)]= \frac{1}{T} \sum_{k=-\infty}^{\infty} F(\omega - k \omega_s)$$
-</details>
- <details>
-  <summary style="font-size: 20px;">Nyquist–Shannon sampling theorem</summary>
-  In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$<$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.
-  <details>
+#### Concepts
+Digital computers are incapable of processing continuous-time (analog) signals directly. Therefore, these signals must be converted into a discrete sequence of data points. This process is defined as sampling.
+$$f_T(t) = f(t)\delta_T(t) =  \sum_{n=-\infty}^{\infty} f(nT)\delta(t - nT)$$
+After Fourier Transform
+$$\mathcal{F}[f_T(t)]= \frac{1}{T} \sum_{k=-\infty}^{\infty} F(\omega - k \omega_s)$$
+
+#### Nyquist–Shannon sampling theorem</summary>
+In the frequency domain, if the sampling frequency is less than twice the maximum frequency of the signal ($\omega_s$<$2\omega_{max}$), aliasing occurs. Consequently, adjacent spectral replicas overlap, making it impossible to perfectly reconstruct the original continuous signal.
+<details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Proof
   </summary>
@@ -522,5 +498,5 @@ $$\mathcal{F} \{ R_{xx}(\tau) \} = |X(\omega)|^2$$
   <br> <img src="/img/proof/采样定理的证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
-</details>
+
 

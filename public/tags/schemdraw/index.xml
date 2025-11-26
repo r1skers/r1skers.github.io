@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Delphic Musings on r1skers&#39; Blog</title>
-    <link>http://localhost:1313/categories/delphic-musings/</link>
-    <description>Recent content in Delphic Musings on r1skers&#39; Blog</description>
+    <title>Schemdraw on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/schemdraw/</link>
+    <description>Recent content in Schemdraw on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Oct 2025 19:01:21 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/delphic-musings/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/schemdraw/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Delphic Musings]RLC Circuit Analysis: A Comparison of Differential Equation and Laplace[Finished]</title>
       <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Quantum Mechanics on r1skers&#39; Blog</title>
-    <link>http://localhost:1313/tags/quantum-mechanics/</link>
-    <description>Recent content in Quantum Mechanics on r1skers&#39; Blog</description>
+    <title>Matplotlib on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/matplotlib/</link>
+    <description>Recent content in Matplotlib on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Nov 2025 10:17:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/quantum-mechanics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
       <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
