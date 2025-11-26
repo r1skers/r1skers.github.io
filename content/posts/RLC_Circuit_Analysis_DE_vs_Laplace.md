@@ -18,13 +18,28 @@ This process, especially finding the current $i(t) = \frac{dq}{dt}$, often invol
 ## Example: Forced Series RLC Circuit
 
 Let's analyze a series RLC circuit with the following components and source, assuming the switch closes at $t=0$:
-* **Voltage Source (E):** $1000 \text{ V}$
-* **Resistor (R):** $100 \ \Omega$
-* **Inductor (L):** $4 \text{ mH} = 0.004 \text{ H}$
-* **Capacitor (C):** $0.1 \ \mu\text{F} = 10^{-7} \text{ F}$
-* **Initial Conditions:** The circuit is initially at rest, so $q(0) = 0$ and $i(0) = q'(0) = 0$.
 
-<br> <img src="/img/schematic/RLC示例图1.png" alt="Proof" width="100%" height="auto">
+<br> <img src="/img/schematic/RLC示例图1.png" alt="RLC示例图" width="50%" height="auto">
+<details>
+    <summary>Code(python)</summary>
+
+```python
+import schemdraw
+import schemdraw.elements as elm
+with schemdraw.Drawing(file='RLC示例图1') as d:
+    d += (V1 := elm.SourceSin().up().label('$V_{in}$\n$1000V$'))
+    d += elm.Resistor().right().label('$R$\n$100\Omega$')
+    d += elm.Inductor().right().label('$L$\n$4mH$')
+    d += elm.Capacitor().down().label('$C_1$\n$0.1\mu F$')
+    d += elm.Line().left().to(V1.start)
+    d += elm.Label().label("RLC Series Circuit 1").at((3, -2))
+
+print("图片已生成！")
+```
+
+</details>
+
+***
 
 The KVL equation for the circuit (in terms of charge $q$) is:
 $$L \frac{d^2q}{dt^2} + R \frac{dq}{dt} + \frac{1}{C} q = E(t)$$
