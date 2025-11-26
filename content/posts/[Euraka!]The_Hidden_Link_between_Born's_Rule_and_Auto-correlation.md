@@ -27,9 +27,9 @@ So what does the funtion multiple its conjugate describe?
 
 ** Signal Solution (Energy Density) **
 
-$$E(t)=f(t) \ndot f^*(t)=|f(t)|^2$$
+$$E(t) = f(t) f^*(t) = |f(t)|^2$$
 
 ** Quantum Mechanics (Born's Rule) **
 
-$$P(t)=\psi(x) \ndot \psi^*(x)=|\psi(x)|^2$$
+$$P(t) = \psi(x) \psi^*(x) = |\psi(x)|^2$$
 # More
