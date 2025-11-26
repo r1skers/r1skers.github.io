@@ -37,8 +37,8 @@
 &lt;h2 id=&#34;1the-12π-factor-between-ft-and-ift&#34;&gt;1.The 1/2π Factor between FT and IFT&lt;/h2&gt;
 &lt;p&gt;Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in &lt;a href=&#34;#synthesis-equation&#34;&gt;Synthesis Equation of Fourier transform&lt;/a&gt;?And how can we summarize this pattern?&lt;/p&gt;
 &lt;p&gt;$$ f(t) = \mathcal{F}^{-1}[F(\omega) ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t}d\omega$$&lt;/p&gt;
-&lt;h2 id=&#34;the-process-of-obtaining-the-answer&#34;&gt;The process of obtaining the answer:&lt;/h2&gt;
-&lt;h3 id=&#34;1-firsti-consulted-aigemini&#34;&gt;1. First,I consulted AI(gemini)&lt;p&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;the-process-of-obtaining-the-answer&#34;&gt;The process of obtaining the answer:&lt;/h3&gt;
+&lt;h4 id=&#34;1-firsti-consulted-aigemini&#34;&gt;1. First,I consulted AI(gemini)&lt;p&gt;&lt;/h4&gt;
 &lt;p&gt;Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:&lt;/p&gt;</description>
     </item>
     <item>
