@@ -13,6 +13,7 @@ First, Let's have a look of this two formulas<p>
 
 Auto-Correlation:
 
-$$R_{xx}(\tau) = E\left\{ x(t) \cdot x^*(t+\tau) \right\} = \int_{-\infty}^{+\infty} x(t) \cdot x^*(t+\tau) dt$$
+$$E = R_{xx}(0) = \int_{-\infty}^{\infty} f(t) f^*(t) \ dt = \int_{-\infty}^{\infty} |f(t)|^2 \ dt$$
+
 # Explain
 # More
