@@ -6,7 +6,7 @@ cover:
     image: img/avatar.jpg
     alt: 'This is maodie'
     caption: 'this is the caption'
-tags: ["basic", "markdown"]
+tags: ["basic"]
 categories: ["Promethean Fire"]
 ---
 
