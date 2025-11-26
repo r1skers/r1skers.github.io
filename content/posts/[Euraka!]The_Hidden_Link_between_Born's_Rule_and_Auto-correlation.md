@@ -6,3 +6,6 @@ title: '[Eureka!]Probability is just Normalized Energy? The Hidden Link between 
 tags: ["basic"]
 categories: ["Promethean Fire", "Fireside Notes"]
 ---
+
+
+# Description 
