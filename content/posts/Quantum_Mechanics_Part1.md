@@ -232,7 +232,7 @@ $$\hat{H}\psi=E\psi$$
     Infinite Square Potential Well Diagram
   </summary>
   
-  <br> <img src="/img/diagram/无限深势阱示意图.png" alt="一维无限深势阱示意图" width="100%" height="auto">
+  <br> <img src="/img/physics/无限深势阱示意图.png" alt="一维无限深势阱示意图" width="100%" height="auto">
 </details>
 
 First, let's establish the simplest model. Imagine an electron trapped in a box with a width of $L$, where the walls are infinitely high, and the electron can never escape.<p>
@@ -355,7 +355,7 @@ plt.show()
     无限深势阱的能量图
   </summary>
   
-  <br> <img src="/img/diagram/无限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
+  <br> <img src="/img/physics/无限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
 
   </details>
 Key points: <p>
@@ -369,7 +369,7 @@ Key points: <p>
     Finite Square Potential Well Diagram
   </summary>
   
-  <br> <img src="/img/diagram/有限深势阱示意图.png" alt="一维有限方势阱（含波函数隧穿效应）" width="100%" height="auto">
+  <br> <img src="/img/physics/有限深势阱示意图.png" alt="一维有限方势阱（含波函数隧穿效应）" width="100%" height="auto">
 </details>
 
 Similarly, according to the above diagram
@@ -543,7 +543,7 @@ plt.show()
     有限深势阱的能量图
   </summary>
   
-  <br> <img src="/img/diagram/有限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
+  <br> <img src="/img/physics/有限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
 
   </details>
 Key points: <p>
