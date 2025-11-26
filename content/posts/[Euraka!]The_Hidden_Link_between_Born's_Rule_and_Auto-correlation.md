@@ -11,7 +11,7 @@ When I checked my notes,I found that the formula of auto-correlation and Born's 
 # Formula
 First, Let's have a look of this two formulas<p>
 
-Auto-Correlation:
+Auto-Correlation($\tau =0$):
 
 $$E = R_{xx}(0) = \int_{-\infty}^{\infty} f(t) f^*(t) \ dt = \int_{-\infty}^{\infty} |f(t)|^2 \ dt$$
 
