@@ -19,30 +19,6 @@ This process, especially finding the current $i(t) = \frac{dq}{dt}$, often invol
 
 I recalled that the **Laplace Transform** is designed to convert differential equations into algebraic equations. This seems perfect for circuit analysis.
 
-### Concise Derivation of the Derivative Property
-
-The key property of the Laplace Transform comes from its definition, using integration by parts.
-
-We start with the transform of $f'(t)$:
-$$\mathcal{L}\{f'(t)\} = \int_0^\infty e^{-st} f'(t) dt$$
-
-Apply integration by parts $\int u \, dv = uv - \int v \, du$ (Let $u=e^{-st}$ and $dv=f'(t)dt$):
-$$ = \left[ e^{-st} f(t) \right]_0^\infty - \int_0^\infty f(t) (-s e^{-st}) dt$$
-
-Evaluating the boundary terms (assuming the term at $t \to \infty$ is zero) and using the definition of $F(s)$:
-$$= (0 - f(0)) + s \int_0^\infty f(t) e^{-st} dt$$
-$$= sF(s) - f(0)$$
-
-This gives us the **First Derivative Property**:
-$$\mathcal{L}\{f'(t)\} = sF(s) - f(0)$$
-
-Applying this rule **recursively** gives the second derivative:
-$$\mathcal{L}\{f''(t)\} = s\mathcal{L}\{f'(t)\} - f'(0)$$
-$$ = s\left[sF(s) - f(0)\right] - f'(0)$$
-$$ = s^2 F(s) - s f(0) - f'(0)$$
-
-This is the essential tool that converts differential equations into algebraic ones.
-
 ## Example: Forced Series RLC Circuit
 
 Let's analyze a series RLC circuit with the following components and source, assuming the switch closes at $t=0$:
