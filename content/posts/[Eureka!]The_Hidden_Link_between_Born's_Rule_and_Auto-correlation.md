@@ -84,26 +84,26 @@ Therefore, the "sameness" you see is because quantum mechanics directly borrowed
 # More
 We just talked about waht their formula look same, but it's still a little hard to understand why We can use the formula to describe energy. Here's the process about quantom mechanics
 
-1.  第一站：出发点 —— “它到底在哪？”
-任务： 我想描述一个量子粒子（比如电子）在某一刻的位置概率。 困境： 经典物理说粒子是个球，位置是确定的。但实验发现，微观粒子会发生干涉（像水波一样互相抵消）。 结论 1： 粒子不是一个点，它本质上是一种“波”。
+1.  First stop: Starting point — "Where exactly is it?"
+Task: I want to describe the position probability of a quantum particle (such as an electron) at a certain moment. Dilemma: Classical physics states that a particle is like a ball with a definite position. However, experiments have found that microscopic particles can undergo interference (canceling each other out like water waves). Conclusion 1: A particle is not a point; it is essentially a kind of "wave."
 
-2.  第二站：描述波 —— “我需要一个函数”
-任务： 我需要一个数学工具来描述这个波的起伏。 工具： 我们定义一个函数 $\psi(x)$，叫它波函数。 要求： 这个波必须能描述“干涉”。也就是说，波峰遇到波谷要能变成 0（相加抵消）。 结论 2：$\psi(x)$ 必须有正有负，甚至必须是复数（因为复数 $e^{i\theta}$ 描述旋转和相位最完美）。
+2.  Second stop: Describing waves — "I need a function"
+Task: I need a mathematical tool to describe the undulations of this wave. Tool: We define a function $\psi(x)$, calling it the wave function. Requirement: This wave must be able to describe "interference". That is, when a wave crest meets a wave trough, they should be able to become 0 (canceling each other out when added). Conclusion 2: $\psi(x)$ must have both positive and negative values, and it must even be a complex number (because the complex number $e^{i\theta}$ perfectly describes rotation and phase).
 
-3.  第三站：现实的鸿沟 —— “复数不存在”
-任务： 我要测量这个粒子出现的概率。 困境：<p>
-我的波函数 $\psi$ 是复数（比如$1+i$）。但是“概率”必须是实数（不可能有 30%+ $20i$ 的概率）。而且概率必须是非负的（不可能有 -10% 的概率）。 结论 3： $\psi$ 本身不能直接代表概率。我们需要对 $\psi$ 进行一种**改造**，把它变成正实数。
+3.  Third stop: The Gap in Reality — "Complex Numbers Do Not Exist"
+Task: I need to measure the probability of this particle appearing. Dilemma: <p>
+My wave function $\psi$ is a complex number (for example, $1 + i$). However, "probability" must be a real number (there can't be a probability of 30% + 20i). Moreover, probability must be non-negative (there can't be a probability of -10%). Conclusion 3: $\psi$ itself cannot directly represent probability. We need to perform a **modification** on $\psi$ to turn it into a positive real number.
 
-4.  第四站：经典的启示 —— “能量与振幅”
-任务： 寻找改造灵感。回顾经典物理（信号处理）：<p>
-光波： 光也是波。光的亮度（强度）不是电场 $E$，而是电场的平方 $E^2$。<p>
-声波： 声音的响度不是振幅 $A$，而是振幅的平方 $A^2$。<p>
-电压： 信号的能量不是 $V$，而是 $V^2$。<p>
-物理直觉： 在经典世界里，“波的强度（Intensity）”永远正比于“振幅的平方”。<p>
+4.  Fourth Stop: The Inspiration from Classics — "Energy and Amplitude"
+Task: Seeking inspiration for transformation. Review classical physics (signal processing):<p>
+Light waves: Light is also a wave. The brightness (intensity) of light is not the electric field $E$, but the square of the electric field $E^2$.<p>
+Sound waves: The loudness of sound is not the amplitude $A$, but the square of the amplitude $A^2$.<p>
+Voltage: The energy of a signal is not $V$, but $V^2$.<p>
+Physical intuition: In the classical world, "the intensity of a wave" is always proportional to "the square of its amplitude".<p>
 
-5.  第五站：终点 —— “波恩定则 (The Born Rule)”
-推理： 既然粒子是波，那么粒子在某处出现的“可能性的大小”（概率密度），应该就等同于这个波在那里的**强度**。
-操作：<p>
-把复数波函数 $\psi$ 看作“振幅”。模仿经典物理，计算它的“强度”。<p>
-因为是复数，计算模长的平方（自己乘共轭）：$|\psi|^2 = \psi \cdot \psi^*$。<p>
-最终结论： 概率密度 = 波的强度 = 波函数的模方 $|\psi|^2$ 。
+5.  Fifth stop: The destination — "The Born Rule"
+Reasoning: Since particles are waves, the "magnitude of possibility" (probability density) of a particle appearing somewhere should be equivalent to the **intensity** of the wave there.
+Operation: <p>
+Treat the complex wave function $\psi$ as the "amplitude". Following the example of classical physics, calculate its "intensity".<p>
+Because it is a complex number, calculate the square of its modulus (multiply it by its conjugate): $|\psi|^2 = \psi \cdot \psi^*$.<p>
+Final conclusion: Probability density = Intensity of the wave = Square of the modulus of the wave function $|\psi|^2$.
