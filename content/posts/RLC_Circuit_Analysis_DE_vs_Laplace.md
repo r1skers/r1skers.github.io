@@ -15,10 +15,6 @@ In class, I learned to analyze oscillatory circuits by solving second-order line
 
 This process, especially finding the current $i(t) = \frac{dq}{dt}$, often involves **messy differentiation with exponential and trigonometric functions**, which is time-consuming and easy to make mistakes in. This led me to search for a more systematic approach.
 
-## The Laplace Transform Insight
-
-I recalled that the **Laplace Transform** is designed to convert differential equations into algebraic equations. This seems perfect for circuit analysis.
-
 ## Example: Forced Series RLC Circuit
 
 Let's analyze a series RLC circuit with the following components and source, assuming the switch closes at $t=0$:
@@ -28,15 +24,7 @@ Let's analyze a series RLC circuit with the following components and source, ass
 * **Capacitor (C):** $0.1 \ \mu\text{F} = 10^{-7} \text{ F}$
 * **Initial Conditions:** The circuit is initially at rest, so $q(0) = 0$ and $i(0) = q'(0) = 0$.
 
-<div class="mermaid">
-graph TD
-    subgraph Series RLC Circuit Example
-        E(E = 1000V) --> |closed at t=0| R[R = 100Ω]
-        R --> L[L = 4mH]
-        L --> C[C = 0.1μF]
-        C --> E
-    end
-</div>
+<br> <img src="/img/schematic/RLC示例图1.png" alt="Proof" width="100%" height="auto">
 
 The KVL equation for the circuit (in terms of charge $q$) is:
 $$L \frac{d^2q}{dt^2} + R \frac{dq}{dt} + \frac{1}{C} q = E(t)$$
@@ -77,18 +65,21 @@ $$q_h(t) = e^{-\alpha t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)$
 $$q_h(t) = e^{-12500t} \left( A \cos(12500\sqrt{15} t) + B \sin(12500\sqrt{15} t) \right)$$
 
 **3. Total Solution and Initial Conditions:**
-$q(t) = q_p + q_h = 10^{-4} + e^{-12500t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)$
+$$q(t) = q_p + q_h = 10^{-4} + e^{-12500t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)$$
 
-* Apply $q(0) = 0$:
-    $q(0) = 10^{-4} + e^0 (A \cos(0) + B \sin(0)) = 0 \implies 10^{-4} + A = 0 \implies \mathbf{A = -10^{-4}}$
+Apply $q(0) = 0$:
+$$q(0) = 10^{-4} + e^0 (A \cos(0) + B \sin(0)) = 0 \implies 10^{-4} + A = 0 \implies \mathbf{A = -10^{-4}}$$
 
-* Apply $i(0) = q'(0) = 0$:
-    First, we must differentiate $q(t)$ (this is the messy part):
-    $i(t) = q'(t) = e^{-12500t} \left( -A\omega_d \sin(\omega_d t) + B\omega_d \cos(\omega_d t) \right) - 12500 e^{-12500t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)$
-    Now, set $t=0$:
-    $i(0) = e^0(-0 + B\omega_d) - 12500 e^0(A + 0) = 0$
-    $B\omega_d - 12500A = 0 \implies B = \frac{12500A}{\omega_d} = \frac{12500(-10^{-4})}{12500\sqrt{15}}$
-    $\mathbf{B = -\frac{10^{-4}}{\sqrt{15}}}$
+
+
+Apply $i(0) = q'(0) = 0$:<p>
+First, we must differentiate $q(t)$ (this is the messy part):
+$$i(t) = q'(t) = e^{-12500t} \left( -A\omega_d \sin(\omega_d t) + B\omega_d \cos(\omega_d t) \right) - 12500 e^{-12500t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)$$
+
+Now, set $t=0$:<p>
+$$i(0) = e^0(-0 + B\omega_d) - 12500 e^0(A + 0) = 0$$
+$$B\omega_d - 12500A = 0 \implies B = \frac{12500A}{\omega_d} = \frac{12500(-10^{-4})}{12500\sqrt{15}}$$
+$$\mathbf{B = -\frac{10^{-4}}{\sqrt{15}}}$$
 
 **4. Final Current $i(t)$:**
 To get the final expression for $i(t)$, we must plug these complex values of A and B back into the already massive equation for $q'(t)$. This is extremely tedious and a major source of potential errors.
@@ -113,9 +104,6 @@ Notice this is much faster! Let's divide the numerator and denominator by $L$:
 $$I(s) = \frac{E/L}{s^2 + (R/L)s + 1/LC}$$
 
 Now, plug in the values:
-* $E/L = 1000 / 0.004 = 250,000$
-* $R/L = 100 / 0.004 = 25,000$
-* $1/LC = 2,500,000,000$
 
 $$I(s) = \frac{250,000}{s^2 + 25000s + 2,500,000,000}$$
 

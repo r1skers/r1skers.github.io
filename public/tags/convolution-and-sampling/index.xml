@@ -6,14 +6,28 @@
     <description>Recent content in Convolution and Sampling on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 26 Nov 2025 10:47:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/convolution-and-sampling/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DFT and FFT(Dive Into Fourier Transform)[To be continued]</title>
-      <link>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</link>
+      <title>[Euraka!]Probability is just Normalized Energy? The Hidden Link between Borns Rule and Auto-correlation[To be continued]</title>
+      <link>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</link>
+      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</guid>
+      <description>&lt;h1 id=&#34;question-found&#34;&gt;Question found&lt;/h1&gt;
+&lt;p&gt;When I checked my notes,I found that the formula of auto-correlation and Born&amp;rsquo;s rule look same.Why? In this artical, we are going to check it.&lt;/p&gt;
+&lt;h1 id=&#34;formula&#34;&gt;Formula&lt;/h1&gt;
+&lt;p&gt;First, Let&amp;rsquo;s have a look of this two formulas&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Auto-Correlation($\tau =0$):&lt;/p&gt;
+&lt;p&gt;$$E = R_{xx}(0) = \int_{-\infty}^{\infty} f(t) f^*(t) \ dt = \int_{-\infty}^{\infty} |f(t)|^2 \ dt$$&lt;/p&gt;
+&lt;p&gt;Born&amp;rsquo;s Rule:&lt;/p&gt;
+&lt;p&gt;$$P = \langle \psi | \psi \rangle = \int_{-\infty}^{\infty} \psi(x) \psi^*(x) \ dx = 1$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[Euraka!]DFT_and_FFT(Dive_Into_Fourier_Transform)[To be continued]</title>
+      <link>http://localhost:1313/posts/eurekadft_and_fftdive_into_fourier_transform/</link>
       <pubDate>Fri, 21 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/eurekadft_and_fftdive_into_fourier_transform/</guid>
+      <description>&lt;h1 id=&#34;希尔伯特泛函&#34;&gt;希尔伯特泛函&lt;/h1&gt;</description>
     </item>
     <item>
       <title>Convolution and Sampling in Fourier and Laplace[Finished]</title>

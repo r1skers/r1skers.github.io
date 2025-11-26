@@ -6,46 +6,48 @@
     <description>Recent content in Posts on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 26 Nov 2025 10:47:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
       <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
-      <description>&lt;p&gt;This article is actually used to prepare for test, but during the review, I realized how imperative quantom mechanics it is, So I decided to summarize my notes in detail.&lt;/p&gt;
+      <description>&lt;p&gt;This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.&lt;/p&gt;
 &lt;h1 id=&#34;after-reading&#34;&gt;After Reading&lt;/h1&gt;
 &lt;details&gt;
-    &lt;summary&gt;1.为什么波函数在推导时只需要关注x轴？&lt;/summary&gt;
-&lt;/details&gt;
-&lt;details&gt;
-    &lt;summary&gt;2.为什么波函数在推导时只取虚部？&lt;/summary&gt;
-&lt;/details&gt;
-&lt;details&gt;
-    &lt;summary&gt;3.为什么电子不适用于经典波动方程？&lt;/summary&gt;
-&lt;/details&gt;
-&lt;h1 id=&#34;introduce&#34;&gt;Introduce&lt;/h1&gt;
-&lt;p&gt;为什么我们工程研究时要用到量子力学，一个最直接的原因是摩尔定律到达极限了。摩尔定律说的是集成电路上的晶体管数量每 18~24 个月翻一番，芯片性能也跟着暴涨。但这个定律能持续几十年，核心是晶体管越做越小，从早期的微米级，到现在手机、FPGA 里的晶体管已经小到3 纳米、2 纳米级别，甚至快逼近 1 纳米了。这个时候，不考虑量子的性质就不可行了，这就是量子力学的必要性。&lt;/p&gt;
-&lt;h1 id=&#34;the-failure-of-classical-physics--duality&#34;&gt;The Failure of Classical Physics &amp;amp; Duality&lt;/h1&gt;
-&lt;h2 id=&#34;classic-physics-的局限&#34;&gt;Classic Physics 的局限&lt;/h2&gt;
-&lt;p&gt;当存在高速运动、微观尺度或极端条件时，经典力学的适用性就会受到限制。首先，当物体的运动速度接近光速时，经典力学的速度叠加定律和动量定律将失效。其次，当研究微观尺度下的物体时，例如原子、分子和粒子，经典力学的宏观近似将不再适用。在微观尺度下，存在量子力学效应，例如波粒二象性、不确定性原理等，它们无法通过经典力学的框架进行解释。&lt;/p&gt;
-&lt;h2 id=&#34;wave-particle-duality&#34;&gt;Wave-Particle Duality&lt;/h2&gt;
-&lt;h3 id=&#34;光的波动性&#34;&gt;光的波动性&lt;/h3&gt;
-&lt;p&gt;光的波动性是由众多实验观测得来的，不仅仅是杨氏双缝干涉实验，还有光的衍射实验，光的偏振实验等等。根据前人的成果，有以下公式：&lt;p&gt;&lt;/p&gt;
-&lt;h4 id=&#34;光的麦克斯韦方程式&#34;&gt;光的麦克斯韦方程式：&lt;/h4&gt;
-&lt;p&gt;$$c=f\lambda$$
-$c$: velocity of speed&lt;p&gt;
-$f$: frequency&lt;p&gt;
-$\lambda$: wavelength&lt;p&gt;&lt;/p&gt;
-&lt;h3 id=&#34;光的粒子性&#34;&gt;光的粒子性&lt;/h3&gt;
-&lt;p&gt;光的粒子性同样是有众多实验观察得来的，包括康普顿效应。光的粒子性体现在能量E，动量p上，有以下公式:&lt;p&gt;&lt;/p&gt;</description>
+    &lt;summary&gt;1.Why do we only focus on the x-axis when deriving the wave function?&lt;/summary&gt;
+&lt;p&gt;&lt;strong&gt;The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.&lt;/strong&gt;&lt;p&gt;
+• In the x-direction: The electron is trapped by the potential well , creating &amp;ldquo;Standing Waves.&amp;rdquo; This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.&lt;p&gt;
+• In the y and z directions: There are no potential walls. The electron behaves like a Free Particle, traveling as &amp;ldquo;Traveling Waves.&amp;rdquo; Its energy is continuous and follows classical physics logic, so we don&amp;rsquo;t need to spend effort solving a complex Schrödinger equation for them.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>DFT and FFT(Dive Into Fourier Transform)[To be continued]</title>
-      <link>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</link>
+      <title>[Euraka!]Probability is just Normalized Energy? The Hidden Link between Borns Rule and Auto-correlation[To be continued]</title>
+      <link>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</link>
+      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</guid>
+      <description>&lt;h1 id=&#34;question-found&#34;&gt;Question found&lt;/h1&gt;
+&lt;p&gt;When I checked my notes,I found that the formula of auto-correlation and Born&amp;rsquo;s rule look same.Why? In this artical, we are going to check it.&lt;/p&gt;
+&lt;h1 id=&#34;formula&#34;&gt;Formula&lt;/h1&gt;
+&lt;p&gt;First, Let&amp;rsquo;s have a look of this two formulas&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Auto-Correlation($\tau =0$):&lt;/p&gt;
+&lt;p&gt;$$E = R_{xx}(0) = \int_{-\infty}^{\infty} f(t) f^*(t) \ dt = \int_{-\infty}^{\infty} |f(t)|^2 \ dt$$&lt;/p&gt;
+&lt;p&gt;Born&amp;rsquo;s Rule:&lt;/p&gt;
+&lt;p&gt;$$P = \langle \psi | \psi \rangle = \int_{-\infty}^{\infty} \psi(x) \psi^*(x) \ dx = 1$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Math Tools[To be continued]</title>
+      <link>http://localhost:1313/posts/1/</link>
+      <pubDate>Wed, 26 Nov 2025 09:49:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/1/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>[Euraka!]DFT_and_FFT(Dive_Into_Fourier_Transform)[To be continued]</title>
+      <link>http://localhost:1313/posts/eurekadft_and_fftdive_into_fourier_transform/</link>
       <pubDate>Fri, 21 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/dft_and_fftdive_into_fourier_transform/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/eurekadft_and_fftdive_into_fourier_transform/</guid>
+      <description>&lt;h1 id=&#34;希尔伯特泛函&#34;&gt;希尔伯特泛函&lt;/h1&gt;</description>
     </item>
     <item>
       <title>Convolution and Sampling in Fourier and Laplace[Finished]</title>
