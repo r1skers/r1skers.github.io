@@ -37,7 +37,7 @@ The process here involves **normalization**.
 * In Fourier Series, $c_n$ is calculated by dividing by the period $T$ to find the **average** value.
 * In the Inverse Fourier Transform, the term $\frac{1}{2\pi}$ acts as a normalization factor because the integration is over $d\omega$ (circumference), whereas the true amplitude corresponds to the radius concept.  
 
-more-->[DFT_and_FFT(Dive_Into_Fourier_Transform)](https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/)
+more-->[DFT_and_FFT(Dive_Into_Fourier_Transform)](https://r1skers.github.io/posts/eurekadft_and_fftdive_into_fourier_transform/)
 
 #### 3.Third,there is still something...
 
@@ -90,7 +90,7 @@ I realized that my previous understanding of the Fourier Transform was too super
 The key lies in the **Unit Circle** on the complex plane. The time domain representation can be seen as the **projection** of a rotating vector (function) onto the real axis. The frequency domain, however, focuses on the **attributes** of this unit circle: angular velocity $\omega$, vector amplitude $A$, and initial phase.
 
 For more details on why a single transform maps time to frequency, please read more:
-<a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">DFT and FFT (Dive Into Fourier Transform)</a>
+<a href="https://r1skers.github.io/posts/eurekadft_and_fftdive_into_fourier_transform/">DFT and FFT (Dive Into Fourier Transform)</a>
 
 ## 3. Reversal in convolution
 
@@ -107,7 +107,7 @@ The reason why I don't share the full derivation process is simply...
 <br>
 *"おい、その先は地獄だぞ"* (That's hell you're walking into).
 
-* **<a href="https://r1skers.github.io/posts/dft_and_fftdive_into_fourier_transform/">The Gateway to Hell: DFT and FFT (Dive Into Fourier Transform)</a>**
+* **<a href="https://r1skers.github.io/posts/eurekadft_and_fftdive_into_fourier_transform/">The Gateway to Hell: DFT and FFT (Dive Into Fourier Transform)</a>**
 
 ## 4. Power spectrum
 
