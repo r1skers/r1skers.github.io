@@ -23,4 +23,13 @@ So what does the funtion multiple its conjugate describe?
 
 # Explain
 
+## Math
+
+** Signal Solution (Energy Density) **
+
+$$E(t)=f(t) \ndot f^*(t)=|f(t)|^2$$
+
+** Quantum Mechanics (Born's Rule) **
+
+$$P(t)=\psi(x) \ndot \psi^*(x)=|\psi(x)|^2$$
 # More
