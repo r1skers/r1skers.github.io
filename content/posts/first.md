@@ -1,7 +1,7 @@
 ---
 date: '2025-10-29T17:01:21+09:00'
 draft: false
-title: '["Promethean Fire"] Markdown Functionality Test (LaTeX and Mermaid)'
+title: '[Promethean Fire] Markdown Functionality Test (LaTeX and Mermaid)'
 summary: "A meta-post testing the rendering capabilities of this blog. Including mathematical formulas (KaTeX) and diagrams (Mermaid)."
 cover:
     image: img/avatar.jpg

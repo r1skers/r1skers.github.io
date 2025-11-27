@@ -57,7 +57,7 @@ This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very 
       <description>Reflecting on the two distinct mathematical approaches to circuit analysis. Why do we shift from the tangible time domain to the abstract s-domain? A journey through the mathematical machinery of RLC circuits.</description>
     </item>
     <item>
-      <title>[&#34;Promethean Fire&#34;] Markdown Functionality Test (LaTeX and Mermaid)</title>
+      <title>[Promethean Fire] Markdown Functionality Test (LaTeX and Mermaid)</title>
       <link>http://localhost:1313/posts/first/</link>
       <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
       <guid>http://localhost:1313/posts/first/</guid>
