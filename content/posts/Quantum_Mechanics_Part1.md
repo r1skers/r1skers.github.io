@@ -1,10 +1,12 @@
 ---
 date: '2025-11-22T10:17:00+09:00'
 draft: false
-title: '[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]'
-tags: ["basic", "Quantum Mechanics","matplotlib"]
-categories: ["Fireside Notes"]
+title: '[Fireside Notes] Quantum Mechanics Part 1: From Schrödinger to Wave Functions'
+summary: "Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib)."
+tags: ["Quantum Mechanics", "Physics", "Python", "Matplotlib", "Schrödinger Equation"]
+categories: ["Fireside Notes", "Physics"]
 ---
+
 This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.
 # After Reading
 <details>

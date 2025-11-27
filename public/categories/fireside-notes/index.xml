@@ -6,8 +6,15 @@
     <description>Recent content in Fireside Notes on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Nov 2025 17:04:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/fireside-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Fireside Notes]The First Step into Embedded Systems: Blinking LED &amp; Speaking UART[To be continued]</title>
+      <link>http://localhost:1313/posts/stm32_learning1/</link>
+      <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/stm32_learning1/</guid>
+      <description>A journey from toggling GPIOs to mastering serial communication on STM32. Understanding the heartbeat and the voice of a microcontroller.</description>
+    </item>
     <item>
       <title>[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
       <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>

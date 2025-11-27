@@ -6,8 +6,15 @@
     <description>Recent content in Basic on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Nov 2025 09:49:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Nov 2025 17:04:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/basic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Fireside Notes]The First Step into Embedded Systems: Blinking LED &amp; Speaking UART[To be continued]</title>
+      <link>http://localhost:1313/posts/stm32_learning1/</link>
+      <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/stm32_learning1/</guid>
+      <description>A journey from toggling GPIOs to mastering serial communication on STM32. Understanding the heartbeat and the voice of a microcontroller.</description>
+    </item>
     <item>
       <title>Math Tools[To be continued]</title>
       <link>http://localhost:1313/posts/1/</link>

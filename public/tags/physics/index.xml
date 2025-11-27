@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Physics on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/physics/</link>
+    <description>Recent content in Physics on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
+      <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
+      <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
+      <description>&lt;p&gt;This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.&lt;/p&gt;
+&lt;h1 id=&#34;after-reading&#34;&gt;After Reading&lt;/h1&gt;
+&lt;details&gt;
+    &lt;summary&gt;1.Why do we only focus on the x-axis when deriving the wave function?&lt;/summary&gt;
+&lt;p&gt;&lt;strong&gt;The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.&lt;/strong&gt;&lt;p&gt;
+• In the x-direction: The electron is trapped by the potential well , creating &amp;ldquo;Standing Waves.&amp;rdquo; This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.&lt;p&gt;
+• In the y and z directions: There are no potential walls. The electron behaves like a Free Particle, traveling as &amp;ldquo;Traveling Waves.&amp;rdquo; Its energy is continuous and follows classical physics logic, so we don&amp;rsquo;t need to spend effort solving a complex Schrödinger equation for them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

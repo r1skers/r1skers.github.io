@@ -1,9 +1,10 @@
 ---
 date: '2025-11-12T10:17:00+09:00'
 draft: false
-title: '[Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished]'
-tags: ["basic", "Fourier and Laplace","Convolution and Sampling"]
-categories: ["Fireside Notes"]
+title: '[Fireside Notes] Convolution and Sampling in Fourier and Laplace'
+summary: "Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication."
+tags: ["Signal Processing", "Fourier Transform", "Laplace Transform", "Convolution", "Sampling"]
+categories: ["Fireside Notes", "Signal & Systems"]
 ---
 
 # Interesting place(after reading)
