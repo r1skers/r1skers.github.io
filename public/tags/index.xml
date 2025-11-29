@@ -9,38 +9,59 @@
     <lastBuildDate>Thu, 27 Nov 2025 17:04:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Basic</title>
-      <link>http://localhost:1313/tags/basic/</link>
+      <title>C/C&#43;&#43;</title>
+      <link>http://localhost:1313/tags/c/c&#43;&#43;/</link>
       <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/basic/</guid>
+      <guid>http://localhost:1313/tags/c/c&#43;&#43;/</guid>
       <description></description>
     </item>
     <item>
-      <title>Stm32</title>
+      <title>Embedded Systems</title>
+      <link>http://localhost:1313/tags/embedded-systems/</link>
+      <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/embedded-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>STM32</title>
       <link>http://localhost:1313/tags/stm32/</link>
       <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/stm32/</guid>
       <description></description>
     </item>
     <item>
-      <title>Advanced</title>
-      <link>http://localhost:1313/tags/advanced/</link>
+      <title>Auto-Correlation</title>
+      <link>http://localhost:1313/tags/auto-correlation/</link>
       <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/advanced/</guid>
+      <guid>http://localhost:1313/tags/auto-correlation/</guid>
       <description></description>
     </item>
     <item>
-      <title>Convolution and Sampling</title>
-      <link>http://localhost:1313/tags/convolution-and-sampling/</link>
+      <title>Born&#39;s Rule</title>
+      <link>http://localhost:1313/tags/borns-rule/</link>
       <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/convolution-and-sampling/</guid>
+      <guid>http://localhost:1313/tags/borns-rule/</guid>
       <description></description>
     </item>
     <item>
-      <title>Fourier and Laplace</title>
-      <link>http://localhost:1313/tags/fourier-and-laplace/</link>
+      <title>Hilbert Space</title>
+      <link>http://localhost:1313/tags/hilbert-space/</link>
       <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/fourier-and-laplace/</guid>
+      <guid>http://localhost:1313/tags/hilbert-space/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quantum Mechanics</title>
+      <link>http://localhost:1313/tags/quantum-mechanics/</link>
+      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/quantum-mechanics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Signal Processing</title>
+      <link>http://localhost:1313/tags/signal-processing/</link>
+      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/signal-processing/</guid>
       <description></description>
     </item>
     <item>
@@ -51,24 +72,66 @@
       <description></description>
     </item>
     <item>
-      <title>Quantum Mechanics</title>
-      <link>http://localhost:1313/tags/quantum-mechanics/</link>
+      <title>Physics</title>
+      <link>http://localhost:1313/tags/physics/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/quantum-mechanics/</guid>
+      <guid>http://localhost:1313/tags/physics/</guid>
       <description></description>
     </item>
     <item>
-      <title>UART</title>
-      <link>http://localhost:1313/tags/uart/</link>
-      <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/uart/</guid>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     <item>
-      <title>Verilog</title>
-      <link>http://localhost:1313/tags/verilog/</link>
-      <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/verilog/</guid>
+      <title>Schrödinger Equation</title>
+      <link>http://localhost:1313/tags/schr%C3%B6dinger-equation/</link>
+      <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/schr%C3%B6dinger-equation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Convolution</title>
+      <link>http://localhost:1313/tags/convolution/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/convolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fourier Transform</title>
+      <link>http://localhost:1313/tags/fourier-transform/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/fourier-transform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Laplace Transform</title>
+      <link>http://localhost:1313/tags/laplace-transform/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/laplace-transform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sampling</title>
+      <link>http://localhost:1313/tags/sampling/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/sampling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Differential Equations</title>
+      <link>http://localhost:1313/tags/differential-equations/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/tags/differential-equations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RLC Circuit</title>
+      <link>http://localhost:1313/tags/rlc-circuit/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/tags/rlc-circuit/</guid>
       <description></description>
     </item>
     <item>
@@ -76,6 +139,34 @@
       <link>http://localhost:1313/tags/schemdraw/</link>
       <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
       <guid>http://localhost:1313/tags/schemdraw/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LaTeX</title>
+      <link>http://localhost:1313/tags/latex/</link>
+      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/tags/latex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:1313/tags/markdown/</link>
+      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mermaid</title>
+      <link>http://localhost:1313/tags/mermaid/</link>
+      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/tags/mermaid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Meta</title>
+      <link>http://localhost:1313/tags/meta/</link>
+      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/tags/meta/</guid>
       <description></description>
     </item>
   </channel>

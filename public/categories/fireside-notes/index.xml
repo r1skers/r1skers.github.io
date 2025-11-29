@@ -9,57 +9,25 @@
     <lastBuildDate>Thu, 27 Nov 2025 17:04:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/fireside-notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Fireside Notes]The First Step into Embedded Systems: Blinking LED &amp; Speaking UART[To be continued]</title>
+      <title>[Fireside Notes] The First Step into Embedded Systems: Blinking LED &amp; Speaking UART</title>
       <link>http://localhost:1313/posts/stm32_learning1/</link>
       <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/stm32_learning1/</guid>
       <description>A journey from toggling GPIOs to mastering serial communication on STM32. Understanding the heartbeat and the voice of a microcontroller.</description>
     </item>
     <item>
-      <title>[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
+      <title>[Fireside Notes] Quantum Mechanics Part 1: From Schrödinger to Wave Functions</title>
       <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
-      <description>&lt;p&gt;This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.&lt;/p&gt;
-&lt;h1 id=&#34;after-reading&#34;&gt;After Reading&lt;/h1&gt;
-&lt;details&gt;
-    &lt;summary&gt;1.Why do we only focus on the x-axis when deriving the wave function?&lt;/summary&gt;
-&lt;p&gt;&lt;strong&gt;The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.&lt;/strong&gt;&lt;p&gt;
-• In the x-direction: The electron is trapped by the potential well , creating &amp;ldquo;Standing Waves.&amp;rdquo; This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.&lt;p&gt;
-• In the y and z directions: There are no potential walls. The electron behaves like a Free Particle, traveling as &amp;ldquo;Traveling Waves.&amp;rdquo; Its energy is continuous and follows classical physics logic, so we don&amp;rsquo;t need to spend effort solving a complex Schrödinger equation for them.&lt;/p&gt;</description>
+      <description>Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib).</description>
     </item>
     <item>
-      <title>[Fireside Notes]Convolution and Sampling in Fourier and Laplace[Finished]</title>
+      <title>[Fireside Notes] Convolution and Sampling in Fourier and Laplace</title>
       <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
       <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
-      <description>&lt;h1 id=&#34;interesting-placeafter-reading&#34;&gt;Interesting place(after reading)&lt;/h1&gt;
-&lt;h2 id=&#34;1the-12π-factor-between-ft-and-ift&#34;&gt;1.The 1/2π Factor between FT and IFT&lt;/h2&gt;
-&lt;p&gt;Here, we focus on $\frac{1}{2\pi}$.Why  is there a $\frac{1}{2\pi}$ in &lt;a href=&#34;#synthesis-equation&#34;&gt;Synthesis Equation of Fourier transform&lt;/a&gt;?And how can we summarize this pattern?&lt;/p&gt;
-&lt;p&gt;$$ f(t) = \mathcal{F}^{-1}[F(\omega) ]= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t}d\omega$$&lt;/p&gt;
-&lt;h3 id=&#34;the-process-of-obtaining-the-answer&#34;&gt;The process of obtaining the answer:&lt;/h3&gt;
-&lt;h4 id=&#34;1-firsti-consulted-aigemini&#34;&gt;1. First,I consulted AI(gemini)&lt;p&gt;&lt;/h4&gt;
-&lt;p&gt;Actually,the reason why Analysis Equation and Synthesis Equation are asymmetric is that we use $\omega$ to define the transform.If we use $f$ to define these two transform.they would look like this:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>[Fireside Notes]UART Communication Analysis in Vivado[To be continued]</title>
-      <link>http://localhost:1313/posts/uart_communication_analysis/</link>
-      <pubDate>Sat, 08 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/uart_communication_analysis/</guid>
-      <description>&lt;h1 id=&#34;important-key-concept&#34;&gt;[Important] Key Concept&lt;/h1&gt;
-&lt;p&gt;1.The reason why we have to calculate (Frequency / Baud Rate) - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;
-2.The reason why we use data_valid here - &lt;a href=&#34;#211&#34;&gt;See Section 2.1.1&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;1description&#34;&gt;1.Description&lt;/h1&gt;
-&lt;p&gt;Short overview: minimal UART RX + simple command parser for FPGA.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Goal: show a synthesizable UART receiver (&lt;code&gt;uart_rx&lt;/code&gt;), a byte-oriented &lt;code&gt;command_parser&lt;/code&gt; that recognizes &amp;ldquo;ON&amp;rdquo;/&amp;ldquo;OFF&amp;rdquo;, and a small &lt;code&gt;fpga_top&lt;/code&gt; that wires them.&lt;/li&gt;
-&lt;li&gt;Key idea: &lt;code&gt;uart_rx&lt;/code&gt; asserts &lt;code&gt;data_valid&lt;/code&gt; when a full byte is ready; the parser samples only on that strobe.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;2detailed-analysis&#34;&gt;2.Detailed Analysis&lt;/h1&gt;
-&lt;h2 id=&#34;21uart_rxv&#34;&gt;2.1.uart_rx.v&lt;/h2&gt;
-&lt;p&gt;&lt;a id=&#34;211&#34;&gt;&lt;/a&gt;
-This section contains &lt;code&gt;uart_rx&lt;/code&gt; (UART receiver) — very short summary:&lt;/p&gt;</description>
+      <description>Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication.</description>
     </item>
   </channel>
 </rss>

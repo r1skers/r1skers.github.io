@@ -9,7 +9,7 @@
     <lastBuildDate>Thu, 27 Nov 2025 17:04:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/embedded-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Fireside Notes]The First Step into Embedded Systems: Blinking LED &amp; Speaking UART[To be continued]</title>
+      <title>[Fireside Notes] The First Step into Embedded Systems: Blinking LED &amp; Speaking UART</title>
       <link>http://localhost:1313/posts/stm32_learning1/</link>
       <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/stm32_learning1/</guid>

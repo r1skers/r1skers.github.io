@@ -1,6 +1,6 @@
 ---
 date: '2025-11-08T10:17:00+09:00'
-draft: false
+draft: true
 title: '[Fireside Notes]UART Communication Analysis in Vivado[To be continued]'
 tags: ["basic","UART", "verilog"]
 categories: ["Fireside Notes"]

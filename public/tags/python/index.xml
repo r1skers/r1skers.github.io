@@ -9,17 +9,18 @@
     <lastBuildDate>Sat, 22 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Fireside Notes]Quantum Mechanics Part 1: From Schrödinger to Wave Functions[To be continued]</title>
+      <title>[Fireside Notes] Quantum Mechanics Part 1: From Schrödinger to Wave Functions</title>
       <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
-      <description>&lt;p&gt;This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.&lt;/p&gt;
-&lt;h1 id=&#34;after-reading&#34;&gt;After Reading&lt;/h1&gt;
-&lt;details&gt;
-    &lt;summary&gt;1.Why do we only focus on the x-axis when deriving the wave function?&lt;/summary&gt;
-&lt;p&gt;&lt;strong&gt;The fundamental reason is the absence of potential confinement (potential wells) in the y and z directions.&lt;/strong&gt;&lt;p&gt;
-• In the x-direction: The electron is trapped by the potential well , creating &amp;ldquo;Standing Waves.&amp;rdquo; This leads to quantized energy levels (discrete states), which is the unique quantum phenomenon we need to solve for.&lt;p&gt;
-• In the y and z directions: There are no potential walls. The electron behaves like a Free Particle, traveling as &amp;ldquo;Traveling Waves.&amp;rdquo; Its energy is continuous and follows classical physics logic, so we don&amp;rsquo;t need to spend effort solving a complex Schrödinger equation for them.&lt;/p&gt;</description>
+      <description>Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib).</description>
+    </item>
+    <item>
+      <title>[Delphic Musings] RLC Circuit Analysis: Differential Equations vs. Laplace Transform</title>
+      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
+      <description>Reflecting on the two distinct mathematical approaches to circuit analysis. Why do we shift from the tangible time domain to the abstract s-domain? A journey through the mathematical machinery of RLC circuits.</description>
     </item>
   </channel>
 </rss>
