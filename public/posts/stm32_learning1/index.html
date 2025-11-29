@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <p>占用内存 (RAM):</p>
 <p>$$Size = \text{RW\_data} + \text{ZI\_data}$$</p>
 <ol>
-<li>上电瞬间：int score = 100; 的那个 100 其实是记在 Flash 里的。</li>
+<li>上电瞬间：int score = 100; 的那个 100 记在 Flash 里。</li>
 <li>启动阶段：在 main() 执行前，CPU 偷偷运行了一段汇编代码。</li>
 <li>搬运：它把 100 从 Flash 复制 到了 RAM 里的 score 变量地址。</li>
 <li>清零：它同时把 RAM 里 ZI-data 的区域（比如未初始化的数组）全部刷成 0。</li>
