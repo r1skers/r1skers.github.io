@@ -4,7 +4,7 @@ draft: false
 title: '[The Crucible] Quantum Mechanics Part 1: From Schrödinger to Wave Functions'
 summary: "Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib)."
 tags: ["Quantum Mechanics", "Physics", "Python", "Matplotlib", "Schrödinger Equation"]
-categories: ["The Crucible", "Physics"]
+categories: ["The Crucible"]
 ---
 
 This article is actually used to prepare for test, but during the review, I realized how imperative quantum mechanics is, So I decided to summarize my notes in detail.

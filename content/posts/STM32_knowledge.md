@@ -5,7 +5,7 @@ draft: false
 title: '[The Crucible] Embedded C Chronicles: Traps, Idioms, and Best Practices'
 summary: "A living collection of engineering wisdom and lessons learned from STM32 development. Covering topics from timer overflows to memory management."
 tags: ["Embedded C", "STM32", "Best Practices", "Debugging"]
-categories: ["The Crucible", "Embedded Systems"]
+categories: ["The Crucible"]
 math: true
 ---
 

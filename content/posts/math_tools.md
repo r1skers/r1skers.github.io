@@ -3,7 +3,7 @@ date: '2025-11-26T09:49:00+09:00'
 draft: true
 title: 'Math Tools[To be continued]'
 tags: ["basic"]
-categories: ["Promethean Fire"]
+categories: ["The Crucible"]
 ---
 
 # Description 

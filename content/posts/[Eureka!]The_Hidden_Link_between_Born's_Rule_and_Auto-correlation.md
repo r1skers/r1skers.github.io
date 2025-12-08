@@ -1,10 +1,10 @@
 ---
 date: '2025-11-26T10:47:00+09:00'
 draft: false
-title: "[Eureka!] Is Probability Just Normalized Energy? The Hidden Link between Born's Rule and Auto-correlation"
+title: "[The Crucible] Is Probability Just Normalized Energy? The Hidden Link between Born's Rule and Auto-correlation"
 summary: "Bridging the gap between Signal Processing and Quantum Mechanics. A mathematical exploration of how Hilbert Space inner products unify the concepts of Energy and Existence."
-tags: ["Born's Rule", "Auto-correlation", "Signal Processing", "Quantum Mechanics", "Hilbert Space" , "Eureka"]
-categories: ["The Crucible" , "Interdisciplinary"]
+tags: ["Born's Rule", "Auto-correlation", "Signal Processing", "Quantum Mechanics", "Hilbert Space" , "Eureka" , "Interdisciplinary"]
+categories: ["The Crucible"]
 ---
 
 # The Question
