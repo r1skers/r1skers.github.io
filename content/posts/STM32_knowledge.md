@@ -2,10 +2,10 @@
 date: '2025-12-04T20:30:00+09:00'
 lastmod: '2025-12-04T20:30:00+09:00' 
 draft: false
-title: '[Fireside Notes] Embedded C Chronicles: Traps, Idioms, and Best Practices'
+title: '[The Crucible] Embedded C Chronicles: Traps, Idioms, and Best Practices'
 summary: "A living collection of engineering wisdom and lessons learned from STM32 development. Covering topics from timer overflows to memory management."
 tags: ["Embedded C", "STM32", "Best Practices", "Debugging"]
-categories: ["Fireside Notes", "Embedded Systems"]
+categories: ["The Crucible", "Embedded Systems"]
 math: true
 ---
 
