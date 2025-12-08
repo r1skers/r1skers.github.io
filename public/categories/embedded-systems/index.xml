@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>STM32 on r1skers&#39; Blog</title>
-    <link>http://localhost:1313/tags/stm32/</link>
-    <description>Recent content in STM32 on r1skers&#39; Blog</description>
+    <title>Embedded Systems on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/categories/embedded-systems/</link>
+    <description>Recent content in Embedded Systems on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 04 Dec 2025 20:30:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/stm32/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/embedded-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Fireside Notes] Embedded C Chronicles: Traps, Idioms, and Best Practices</title>
       <link>http://localhost:1313/posts/stm32_knowledge/</link>
       <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/stm32_knowledge/</guid>
       <description>A living collection of engineering wisdom and lessons learned from STM32 development. Covering topics from timer overflows to memory management.</description>
-    </item>
-    <item>
-      <title>[Fireside Notes] The First Step into Embedded Systems: Blinking LED &amp; Speaking UART</title>
-      <link>http://localhost:1313/posts/stm32_learning1/</link>
-      <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/stm32_learning1/</guid>
-      <description>A journey from toggling GPIOs to mastering serial communication on STM32. Understanding the heartbeat and the voice of a microcontroller.</description>
     </item>
   </channel>
 </rss>
