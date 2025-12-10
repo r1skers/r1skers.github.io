@@ -1,3 +1,30 @@
+---
+date: '2025-12-10T18:57:00+09:00'
+draft: false
+title: '[Automata] Some Useful Scripts in Computer Science Learning'
+summary: "Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning."
+tags: ["Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
+categories: ["Automata"]
+---
+
+
+# Migration
+
+## desription
+1.  Traverse the markdown files in the directory, 
+2.  create folders with the same names, 
+3.  and place the files inside. 
+4.  Read the content of the articles and move the files referenced by relative paths in the articles to the corresponding folders.
+
+## Key 
+
+
+## Code
+
+<details>
+  <summary>python</summary>
+  
+```python
 import os
 import shutil
 import re
@@ -98,7 +125,7 @@ def migrate_images():
             clean_path = rel_path.lstrip("/\\") # 去掉开头的 /
             old_abs_path = IMAGE_SOURCE_DIR / clean_path # 旧图位置
             img_filename = Path(clean_path).name
-            new_abs_path = folder / clean_path           # 新图位置
+            new_abs_path = folder / img_filename           # 新图位置
 
             # 3. 搬运图片
             if safe_move(old_abs_path, new_abs_path):
@@ -132,3 +159,6 @@ if __name__ == "__main__":
 )
     if input("确认运行? (y/n): ").lower() == 'y':
         migrate_to_bundles()
+```
+
+</details>

@@ -243,7 +243,7 @@ $$\mathcal{F}[f(at)] = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
     Proof
   </summary>
   
-  <br> <img src="/img/proof/傅里叶变换的相似性证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="傅里叶变换的相似性证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -296,7 +296,7 @@ $$\mathcal{F}[C ]= 2\pi C \cdot \delta(\omega)$$
     Proof
   </summary>
   
-  <br> <img src="/img/proof/常数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="常数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -310,7 +310,7 @@ $$\mathcal{F}[e^{j\omega_0 t}] = 2\pi \delta(\omega - \omega_0)$$
     Proof
   </summary>
   
-  <br> <img src="/img/proof/复数指数函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="复数指数函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -324,7 +324,7 @@ $$\sum_{n=-\infty}^{\infty} \delta(t - nT) = \frac{2\pi}{T} \sum_{n=-\infty}^{\i
     Proof
   </summary>
   
-  <br> <img src="/img/proof/周期狄拉克函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="周期狄拉克函数的傅里叶变换证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -366,7 +366,7 @@ $$\mathcal{L}\left[ f'(t) \right] = s\mathcal{L}[f(t)] - f(0)$$
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Proof
   </summary>
-  <br> <img src="/img/proof/t时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="t时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
 </details>
 
 ***
@@ -378,7 +378,7 @@ $$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[
     Proof
   </summary>
   
-  <br> <img src="/img/proof/t时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="t时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -391,7 +391,7 @@ $$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$
     Proof
   </summary>
   
-  <br> <img src="/img/proof/s时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="s时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -404,7 +404,7 @@ $$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigm
     Proof
   </summary>
   
-  <br> <img src="/img/proof/s时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="s时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -465,7 +465,7 @@ $$\mathcal{L} [ f(t)* g(t) ] = \mathcal{L}[f(t)] \cdot \mathcal{L}[g(t)]$$
     Proof
   </summary>
   
-  <br> <img src="/img/proof/卷积定理的证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="卷积定理的证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 
@@ -496,7 +496,7 @@ In the frequency domain, if the sampling frequency is less than twice the maximu
     Proof
   </summary>
   
-  <br> <img src="/img/proof/采样定理的证明.jpg" alt="Proof" width="100%" height="auto">
+  <br> <img src="采样定理的证明.jpg" alt="Proof" width="100%" height="auto">
 
 </details>
 

@@ -20,7 +20,7 @@ This process, especially finding the current $i(t) = \frac{dq}{dt}$, often invol
 
 Let's analyze a series RLC circuit with the following components and source, assuming the switch closes at $t=0$:
 
-<br> <img src="/img/schematic/RLC示例图1.png" alt="RLC示例图" width="50%" height="auto">
+<br> <img src="RLC示例图1.png" alt="RLC示例图" width="50%" height="auto">
 <details>
     <summary>Code(python)</summary>
 

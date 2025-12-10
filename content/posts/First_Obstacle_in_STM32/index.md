@@ -313,7 +313,7 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
     photo
   </summary>
   
-  <br> <img src="/img/experiment record/默认低电平点亮LED.jpg" alt="默认低电平点亮LED" width="100%" height="auto">
+  <br> <img src="默认低电平点亮LED.jpg" alt="默认低电平点亮LED" width="100%" height="auto">
 </details>
 
 *No problem , maybe my mistake?*
@@ -326,5 +326,5 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
     Schematic Diagram
   </summary>
   
-  <br> <img src="/img/experiment record/STM32F103C8串口芯片原理图.png" alt="Schematic Diagram" width="100%" height="auto">
+  <br> <img src="STM32F103C8串口芯片原理图.png" alt="Schematic Diagram" width="100%" height="auto">
 </details>

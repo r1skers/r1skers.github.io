@@ -6,20 +6,27 @@
     <description>Recent content in Categories on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Dec 2025 20:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 08 Dec 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Crucible</title>
-      <link>http://localhost:1313/categories/the-crucible/</link>
-      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/the-crucible/</guid>
+      <title>Automata</title>
+      <link>http://localhost:1313/categories/automata/</link>
+      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/automata/</guid>
       <description></description>
     </item>
     <item>
       <title>Tempering</title>
       <link>http://localhost:1313/categories/tempering/</link>
-      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/tempering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The Crucible</title>
+      <link>http://localhost:1313/categories/the-crucible/</link>
+      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/the-crucible/</guid>
       <description></description>
     </item>
   </channel>
