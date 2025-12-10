@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>The Crucible on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/categories/the-crucible/</link>
+    <description>Recent content in The Crucible on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Dec 2025 20:30:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/the-crucible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[The Crucible] Embedded C Chronicles: Traps, Idioms, and Best Practices</title>
+      <link>http://localhost:1313/posts/stm32_knowledge/</link>
+      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/stm32_knowledge/</guid>
+      <description>A living collection of engineering wisdom and lessons learned from STM32 development. Covering topics from timer overflows to memory management.</description>
+    </item>
+    <item>
+      <title>[The Crucible] Is Probability Just Normalized Energy? The Hidden Link between Born&#39;s Rule and Auto-correlation</title>
+      <link>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</link>
+      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</guid>
+      <description>Bridging the gap between Signal Processing and Quantum Mechanics. A mathematical exploration of how Hilbert Space inner products unify the concepts of Energy and Existence.</description>
+    </item>
+    <item>
+      <title>[The Crucible] Quantum Mechanics Part 1: From Schrödinger to Wave Functions</title>
+      <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
+      <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
+      <description>Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib).</description>
+    </item>
+    <item>
+      <title>[The Crucible] Convolution and Sampling in Fourier and Laplace</title>
+      <link>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/convolution_and_sampling_in_fourier_laplace/</guid>
+      <description>Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication.</description>
+    </item>
+    <item>
+      <title>[The Crucible] RLC Circuit Analysis: Differential Equations vs. Laplace Transform</title>
+      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
+      <description>Reflecting on the two distinct mathematical approaches to circuit analysis. Why do we shift from the tangible time domain to the abstract s-domain? A journey through the mathematical machinery of RLC circuits.</description>
+    </item>
+    <item>
+      <title>[The Crucible] Markdown Functionality Test (LaTeX and Mermaid)</title>
+      <link>http://localhost:1313/posts/first/</link>
+      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/first/</guid>
+      <description>A meta-post testing the rendering capabilities of this blog. Including mathematical formulas (KaTeX) and diagrams (Mermaid).</description>
+    </item>
+  </channel>
+</rss>

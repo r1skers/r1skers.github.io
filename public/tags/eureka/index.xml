@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Eureka on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/eureka/</link>
+    <description>Recent content in Eureka on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Nov 2025 10:47:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/eureka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[The Crucible] Is Probability Just Normalized Energy? The Hidden Link between Born&#39;s Rule and Auto-correlation</title>
+      <link>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</link>
+      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</guid>
+      <description>Bridging the gap between Signal Processing and Quantum Mechanics. A mathematical exploration of how Hilbert Space inner products unify the concepts of Energy and Existence.</description>
+    </item>
+    <item>
+      <title>[The Crucible] RLC Circuit Analysis: Differential Equations vs. Laplace Transform</title>
+      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
+      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
+      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
+      <description>Reflecting on the two distinct mathematical approaches to circuit analysis. Why do we shift from the tangible time domain to the abstract s-domain? A journey through the mathematical machinery of RLC circuits.</description>
+    </item>
+  </channel>
+</rss>

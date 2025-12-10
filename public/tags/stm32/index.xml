@@ -9,18 +9,11 @@
     <lastBuildDate>Thu, 04 Dec 2025 20:30:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/stm32/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Fireside Notes] Embedded C Chronicles: Traps, Idioms, and Best Practices</title>
+      <title>[The Crucible] Embedded C Chronicles: Traps, Idioms, and Best Practices</title>
       <link>http://localhost:1313/posts/stm32_knowledge/</link>
       <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/stm32_knowledge/</guid>
       <description>A living collection of engineering wisdom and lessons learned from STM32 development. Covering topics from timer overflows to memory management.</description>
-    </item>
-    <item>
-      <title>[Fireside Notes] The First Step into Embedded Systems: Blinking LED &amp; Speaking UART</title>
-      <link>http://localhost:1313/posts/stm32_learning1/</link>
-      <pubDate>Thu, 27 Nov 2025 17:04:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/stm32_learning1/</guid>
-      <description>A journey from toggling GPIOs to mastering serial communication on STM32. Understanding the heartbeat and the voice of a microcontroller.</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tempering on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/categories/tempering/</link>
+    <description>Recent content in Tempering on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/tempering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Tempering] The first obstacle in STM32 learning</title>
+      <link>http://localhost:1313/posts/first_obstacle_in_stm32/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/first_obstacle_in_stm32/</guid>
+      <description>Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication.</description>
+    </item>
+  </channel>
+</rss>
