@@ -4,9 +4,8 @@ import re;
 from pathlib import Path;
 
 # Define the target directory (change 'your_directory_path' to the actual path you want to use)
-TARGET_DIR = Path("D:\Hephaestus_Foundry\content\posts")
+TARGET_DIR = Path(r"D:\Hephaestus_Foundry\content\posts")
 POSTS_DIR = Path(".")
-IMG_PATTERN = re.compile(r'!\[(.*?)\]\((.*?)(?:\s+"(.*?)")?\)')
 
 def migrate_to_bundles():
     print(f"Searching :{TARGET_DIR.resolve()} ")
@@ -56,6 +55,14 @@ def migrate_to_bundles():
     print(f"🎉 Struction adjustment finished, moved {count} articles.")
     print("👉 Next, move pictures")
 
+
+
+if __name__ == "__main__":
+    print("此脚本将把 Markdown 转为 Page Bundle，并支持 <img src> 格式的图片迁移。")
+    if input("确认配置无误 (y/n): ").lower() == 'y':
+        migrate_to_bundles()
+    else:
+        print("已取消")
 
             
             
