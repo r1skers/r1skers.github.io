@@ -6,56 +6,14 @@
     <description>Recent content in Posts on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Dec 2025 18:57:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[Automata] Some Useful Scripts in Computer Science Learning</title>
-      <link>http://localhost:1313/posts/some-useful-scripts/some_useful_scripts/</link>
-      <pubDate>Wed, 10 Dec 2025 18:57:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/some-useful-scripts/some_useful_scripts/</guid>
-      <description>Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning.</description>
-    </item>
-    <item>
-      <title>[Tempering] The First Challenge in STM32 Learning</title>
-      <link>http://localhost:1313/posts/first_obstacle_in_stm32/</link>
-      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/first_obstacle_in_stm32/</guid>
-      <description>Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication.</description>
-    </item>
-    <item>
-      <title>[The Crucible] Embedded C Chronicles: Traps, Idioms, and Best Practices</title>
-      <link>http://localhost:1313/posts/stm32_knowledge/</link>
-      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/stm32_knowledge/</guid>
-      <description>A living collection of engineering wisdom and lessons learned from STM32 development. Covering topics from timer overflows to memory management.</description>
-    </item>
-    <item>
-      <title>[The Crucible] Is Probability Just Normalized Energy? The Hidden Link between Born&#39;s Rule and Auto-correlation</title>
-      <link>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</link>
-      <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/eurekathe_hidden_link_between_borns_rule_and_auto-correlation/</guid>
-      <description>Bridging the gap between Signal Processing and Quantum Mechanics. A mathematical exploration of how Hilbert Space inner products unify the concepts of Energy and Existence.</description>
-    </item>
-    <item>
-      <title>[The Crucible] Quantum Mechanics Part 1: From Schrödinger to Wave Functions</title>
-      <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
-      <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
-      <description>Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib).</description>
-    </item>
     <item>
       <title>[The Crucible] Convolution and Sampling in Fourier and Laplace</title>
       <link>http://localhost:1313/posts/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A21/</link>
       <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A21/</guid>
       <description>Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication.</description>
-    </item>
-    <item>
-      <title>[The Crucible] RLC Circuit Analysis: Differential Equations vs. Laplace Transform</title>
-      <link>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</link>
-      <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/posts/rlc_circuit_analysis_de_vs_laplace/</guid>
-      <description>Reflecting on the two distinct mathematical approaches to circuit analysis. Why do we shift from the tangible time domain to the abstract s-domain? A journey through the mathematical machinery of RLC circuits.</description>
     </item>
     <item>
       <title>[The Crucible] Markdown Functionality Test (LaTeX and Mermaid)</title>
