@@ -251,9 +251,9 @@ $$\mathcal{F}[f(at)] = \frac{1}{|a|} F\left(\frac{\omega}{a}\right)$$
 
 ###### Time/Frequency-Shifting Property<br>
 
-$$f(t - t_0) = e^{-j\omega t_0} F(\omega)$$
+$$\mathcal{F}[f(t - t_0)] = e^{-j\omega t_0} F(\omega)$$
 
-$$e^{j\omega_0 t} f(t) = F(\omega - \omega_0)$$
+$$\mathcal{F}[e^{j\omega_0 t} f(t)] = F(\omega - \omega_0)$$
 
 ***
 

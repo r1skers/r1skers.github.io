@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
 <title>[Automata] Some Useful Scripts in Computer Science Learning | r1skers&#39; Blog</title>
-<meta name="keywords" content="Fourier Transform, Laplace Transform, Convolution, Sampling, Signal &amp; Systems">
+<meta name="keywords" content="Python, Re, Shutil, Os">
 <meta name="description" content="Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/some-useful-scripts/some_useful_scripts/">
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       [Automata] Some Useful Scripts in Computer Science Learning
     </h1>
-    <div class="post-meta"><span title='2025-12-10 18:57:00 +0900 JST'>December 10, 2025</span>&nbsp;·&nbsp;<span>1 min</span>
+    <div class="post-meta"><span title='2025-12-10 18:57:00 +0900 JST'>December 10, 2025</span>&nbsp;·&nbsp;<span>3 min</span>
 
 </div>
   </header> <div class="toc">
@@ -162,43 +162,161 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#migration" aria-label="Migration">Migration</a><ul>
-                        
-                <li>
-                    <a href="#desription" aria-label="desription">desription</a>
+                    <a href="#migration" aria-label="Migration">Migration</a>
                 </li>
-            </ul>
-            </li>
             </ul>
         </div>
     </details>
 </div>
 
   <div class="post-content"><h1 id="migration">Migration<a hidden class="anchor" aria-hidden="true" href="#migration">#</a></h1>
-<h2 id="desription">desription<a hidden class="anchor" aria-hidden="true" href="#desription">#</a></h2>
+<p>Description<p></p>
 <ol>
 <li>Traverse the markdown files in the directory,</li>
 <li>create folders with the same names,</li>
 <li>and place the files inside.</li>
 <li>Read the content of the articles and move the files referenced by relative paths in the articles to the corresponding folders.</li>
 </ol>
-
+<details>
+  <summary>python code</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> shutil
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pathlib <span style="color:#f92672">import</span> Path
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TARGET_DIR <span style="color:#f92672">=</span> Path(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;D:\Hephaestus_Foundry\content\posts&#34;</span>)
+</span></span><span style="display:flex;"><span>IMAGE_SOURCE_DIR <span style="color:#f92672">=</span> Path(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;D:\Hephaestus_Foundry\public&#34;</span>)
+</span></span><span style="display:flex;"><span>REGEX_MD <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(!\[.*?\]\()(.*?)((\s+&#34;.*?&#34;)?\))&#39;</span>)
+</span></span><span style="display:flex;"><span>REGEX_HTML <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;(&lt;img\s+[^&gt;]*src=[&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">])(.*?)([&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">])&#39;</span>, re<span style="color:#f92672">.</span>IGNORECASE)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">migrate_to_bundles</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Step 1:Scan all scattered .md files, create directory for the, and move them into the directory within a new name &#34;index.md&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;🚀 [First] Organizing the structure of the article: </span><span style="color:#e6db74">{</span>TARGET_DIR<span style="color:#f92672">.</span>resolve()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Traverse all files with the .md suffix in the specified directory</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> md_file <span style="color:#f92672">in</span> TARGET_DIR<span style="color:#f92672">.</span>glob(<span style="color:#e6db74">&#34;*.md&#34;</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Excluding those that are already index.md</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> md_file<span style="color:#f92672">.</span>name<span style="color:#f92672">.</span>lower() <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;index.md&#39;</span>, <span style="color:#e6db74">&#39;_index.md&#39;</span>]:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;📄 Find article: </span><span style="color:#e6db74">{</span>md_file<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 1. Create a folder with the same name</span>
+</span></span><span style="display:flex;"><span>        bundle_dir <span style="color:#f92672">=</span> TARGET_DIR <span style="color:#f92672">/</span> md_file<span style="color:#f92672">.</span>stem
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> bundle_dir<span style="color:#f92672">.</span>exists():
+</span></span><span style="display:flex;"><span>            bundle_dir<span style="color:#f92672">.</span>mkdir()
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;    📂 create folder </span><span style="color:#e6db74">{</span>bundle_dir<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 2. move and rename (file.md -&gt; folder/index.md)</span>
+</span></span><span style="display:flex;"><span>        target_file <span style="color:#f92672">=</span> bundle_dir <span style="color:#f92672">/</span> <span style="color:#e6db74">&#34;index.md&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> target_file<span style="color:#f92672">.</span>exists():
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;    ⚠️ [Skip] target index.md exists &#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            shutil<span style="color:#f92672">.</span>move(str(md_file), str(target_file))
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;    ✅ Move successful&#34;</span>)
+</span></span><span style="display:flex;"><span>            count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;    ❌ Move failed </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;🎉 Structure organizing finished, Processed </span><span style="color:#e6db74">{</span>count<span style="color:#e6db74">}</span><span style="color:#e6db74"> articles.&#34;</span>)
+</span></span><span style="display:flex;"><span>    migrate_images()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">migrate_images</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Step 2: Traverse all the .md files in directories, read the articles and move the referenced images
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">🚀 [Second] Scanning and moving&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Helper function: If the source file exists, move it to a new location (and automatically create the parent directory)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">safe_move</span>(src, dst):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> src<span style="color:#f92672">.</span>exists(): <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># If the target folder (such as img/physics/) does not exist, create it first.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> dst<span style="color:#f92672">.</span>parent<span style="color:#f92672">.</span>exists(): 
+</span></span><span style="display:flex;"><span>            dst<span style="color:#f92672">.</span>parent<span style="color:#f92672">.</span>mkdir(parents<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, exist_ok<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            shutil<span style="color:#f92672">.</span>move(str(src), str(dst))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Iterate through each subfolder under the Target directory</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> folder <span style="color:#f92672">in</span> TARGET_DIR<span style="color:#f92672">.</span>iterdir():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> folder<span style="color:#f92672">.</span>is_dir(): <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        index_file <span style="color:#f92672">=</span> folder <span style="color:#f92672">/</span> <span style="color:#e6db74">&#34;index.md&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> index_file<span style="color:#f92672">.</span>exists(): <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># --- Callback function: process each found image link ---</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_image</span>(<span style="color:#66d9ef">match</span>):
+</span></span><span style="display:flex;"><span>            prefix <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span><span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)   <span style="color:#75715e"># Prefix (for example &lt;img src=&#34;)</span>
+</span></span><span style="display:flex;"><span>            rel_path <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span><span style="color:#f92672">.</span>group(<span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Path (for example /img/a.png)</span>
+</span></span><span style="display:flex;"><span>            suffix <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span><span style="color:#f92672">.</span>group(<span style="color:#ae81ff">3</span>)   <span style="color:#75715e"># Suffix (for example &#34;)</span>
+</span></span><span style="display:flex;"><span>            tag_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HTML&#34;</span> <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;img&#34;</span> <span style="color:#f92672">in</span> prefix<span style="color:#f92672">.</span>lower() <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;Markdown&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 1. Skip web images</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> rel_path<span style="color:#f92672">.</span>startswith((<span style="color:#e6db74">&#39;http:&#39;</span>, <span style="color:#e6db74">&#39;https:&#39;</span>)):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">match</span><span style="color:#f92672">.</span>group(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 2. Concatenate paths</span>
+</span></span><span style="display:flex;"><span>            clean_path <span style="color:#f92672">=</span> rel_path<span style="color:#f92672">.</span>lstrip(<span style="color:#e6db74">&#34;/</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#34;</span>) <span style="color:#75715e"># Remove the leading /</span>
+</span></span><span style="display:flex;"><span>            old_abs_path <span style="color:#f92672">=</span> IMAGE_SOURCE_DIR <span style="color:#f92672">/</span> clean_path <span style="color:#75715e"># Old address</span>
+</span></span><span style="display:flex;"><span>            img_filename <span style="color:#f92672">=</span> Path(clean_path)<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>            new_abs_path <span style="color:#f92672">=</span> folder <span style="color:#f92672">/</span> img_filename           <span style="color:#75715e"># New address</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 3. Moving</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> safe_move(old_abs_path, new_abs_path):
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;    [</span><span style="color:#e6db74">{</span>tag_type<span style="color:#e6db74">}</span><span style="color:#e6db74">] 🚚 Migration successful: </span><span style="color:#e6db74">{</span>img_filename<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 4. Modify the link (remove the leading / to make it a relative path)</span>
+</span></span><span style="display:flex;"><span>            new_rel_path <span style="color:#f92672">=</span> img_filename            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>prefix<span style="color:#e6db74">}{</span>new_rel_path<span style="color:#e6db74">}{</span>suffix<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># --- Read and Edit the articles ---</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">with</span> open(index_file, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>                content <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            new_content <span style="color:#f92672">=</span> REGEX_MD<span style="color:#f92672">.</span>sub(process_image, content)       
+</span></span><span style="display:flex;"><span>            new_content <span style="color:#f92672">=</span> REGEX_HTML<span style="color:#f92672">.</span>sub(process_image, new_content) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> new_content <span style="color:#f92672">!=</span> content:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">with</span> open(index_file, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>                    f<span style="color:#f92672">.</span>write(new_content)
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;  💾The link has been updated: </span><span style="color:#e6db74">{</span>folder<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;  ❌ Reading and writing errors </span><span style="color:#e6db74">{</span>folder<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;This mode will directly move the images to the same directory as index.md (without creating subfolders).&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> input(<span style="color:#e6db74">&#34;Confirm running? (y/n): &#34;</span>)<span style="color:#f92672">.</span>lower() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;y&#39;</span>:
+</span></span><span style="display:flex;"><span>        migrate_to_bundles()
+</span></span></code></pre></div></details>
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/fourier-transform/">Fourier Transform</a></li>
-      <li><a href="http://localhost:1313/tags/laplace-transform/">Laplace Transform</a></li>
-      <li><a href="http://localhost:1313/tags/convolution/">Convolution</a></li>
-      <li><a href="http://localhost:1313/tags/sampling/">Sampling</a></li>
-      <li><a href="http://localhost:1313/tags/signal--systems/">Signal &amp; Systems</a></li>
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+      <li><a href="http://localhost:1313/tags/re/">Re</a></li>
+      <li><a href="http://localhost:1313/tags/shutil/">Shutil</a></li>
+      <li><a href="http://localhost:1313/tags/os/">Os</a></li>
     </ul>
 
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share [Automata] Some Useful Scripts in Computer Science Learning on x"
-            href="https://x.com/intent/tweet/?text=%5bAutomata%5d%20Some%20Useful%20Scripts%20in%20Computer%20Science%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsome-useful-scripts%2fsome_useful_scripts%2f&amp;hashtags=FourierTransform%2cLaplaceTransform%2cConvolution%2cSampling%2cSignal%26Systems">
+            href="https://x.com/intent/tweet/?text=%5bAutomata%5d%20Some%20Useful%20Scripts%20in%20Computer%20Science%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsome-useful-scripts%2fsome_useful_scripts%2f&amp;hashtags=Python%2cRe%2cShutil%2cOs">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />

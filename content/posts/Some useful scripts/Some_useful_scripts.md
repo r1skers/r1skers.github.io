@@ -3,26 +3,21 @@ date: '2025-12-10T18:57:00+09:00'
 draft: false
 title: '[Automata] Some Useful Scripts in Computer Science Learning'
 summary: "Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning."
-tags: ["Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
+tags: ["Python", "Re", "Shutil", "Os"]
 categories: ["Automata"]
 ---
 
 
 # Migration
 
-## desription
+Description<p>
 1.  Traverse the markdown files in the directory, 
 2.  create folders with the same names, 
 3.  and place the files inside. 
 4.  Read the content of the articles and move the files referenced by relative paths in the articles to the corresponding folders.
 
-## Key 
-
-
-## Code
-
 <details>
-  <summary>python</summary>
+  <summary>python code</summary>
   
 ```python
 import os
@@ -30,69 +25,62 @@ import shutil
 import re
 from pathlib import Path
 
-# ================= 1. 配置区域 =================
-# 请确保路径前加了 r
+
 TARGET_DIR = Path(r"D:\Hephaestus_Foundry\content\posts")
 IMAGE_SOURCE_DIR = Path(r"D:\Hephaestus_Foundry\public")
-
-# ================= 2. 正则表达式 =================
 REGEX_MD = re.compile(r'(!\[.*?\]\()(.*?)((\s+".*?")?\))')
 REGEX_HTML = re.compile(r'(<img\s+[^>]*src=["\'])(.*?)(["\'])', re.IGNORECASE)
 
-# ================= 3. 核心功能 =================
-
 def migrate_to_bundles():
     """
-    第一步：扫描所有散乱的 .md 文件，为它们创建文件夹，并移动进去改名为 index.md
+    Step 1:Scan all scattered .md files, create directory for the, and move them into the directory within a new name "index.md"
     """
-    print(f"🚀 [第一步] 正在整理文章结构: {TARGET_DIR.resolve()}")
+    print(f"🚀 [First] Organizing the structure of the article: {TARGET_DIR.resolve()}")
     print("-" * 30)
 
     count = 0 
-    # 扫描目录下所有的 .md 文件
+    # Traverse all files with the .md suffix in the specified directory
     for md_file in TARGET_DIR.glob("*.md"):
-        # 排除已经是入口文件的
+        # Excluding those that are already index.md
         if md_file.name.lower() in ['index.md', '_index.md']:
             continue
         
-        print(f"📄 发现文章: {md_file.name}")
+        print(f"📄 Find article: {md_file.name}")
 
-        # 1. 创建同名文件夹
+        # 1. Create a folder with the same name
         bundle_dir = TARGET_DIR / md_file.stem
         if not bundle_dir.exists():
             bundle_dir.mkdir()
-            print(f"    📂 创建文件夹: {bundle_dir.name}")
+            print(f"    📂 create folder {bundle_dir.name}")
         
-        # 2. 移动并重命名 (file.md -> folder/index.md)
+        # 2. move and rename (file.md -> folder/index.md)
         target_file = bundle_dir / "index.md"
         
         if target_file.exists():
-            print(f"    ⚠️ [跳过] 目标已存在 index.md")
+            print(f"    ⚠️ [Skip] target index.md exists ")
             continue
 
         try:
             shutil.move(str(md_file), str(target_file))
-            print(f"    ✅ 迁移成功")
+            print(f"    ✅ Move successful")
             count += 1
         except Exception as e:
-            print(f"    ❌ 迁移失败: {e}")
+            print(f"    ❌ Move failed {e}")
 
     print("-" * 30)
-    print(f"🎉 结构整理完毕，处理了 {count} 篇文章。")
-    
-    # === 关键：第一步做完后，自动触发第二步 ===
+    print(f"🎉 Structure organizing finished, Processed {count} articles.")
     migrate_images()
 
 def migrate_images():
     """
-    第二步：遍历刚才生成的那些文件夹，读取 index.md，把图片搬进去
+    Step 2: Traverse all the .md files in directories, read the articles and move the referenced images
     """
-    print("\n🚀 [第二步] 开始扫描并移动图片...")
+    print("\n🚀 [Second] Scanning and moving")
     
-    # 辅助函数：如果源文件存在，就移动到新位置（并自动创建父目录）
+    # Helper function: If the source file exists, move it to a new location (and automatically create the parent directory)
     def safe_move(src, dst):
         if not src.exists(): return False
-        # 如果目标文件夹(比如 img/physics/)不存在，先创建
+        # If the target folder (such as img/physics/) does not exist, create it first.
         if not dst.parent.exists(): 
             dst.parent.mkdir(parents=True, exist_ok=True)
         try:
@@ -101,63 +89,58 @@ def migrate_images():
         except Exception:
             return False
 
-    # 遍历 Target 目录下的每一个子文件夹
+    # Iterate through each subfolder under the Target directory
     for folder in TARGET_DIR.iterdir():
         if not folder.is_dir(): continue
         
         index_file = folder / "index.md"
         if not index_file.exists(): continue
 
-        # --- 回调函数：处理每一个找到的图片链接 ---
+        # --- Callback function: process each found image link ---
         def process_image(match):
-            prefix = match.group(1)   # 前缀 (比如 <img src=")
-            rel_path = match.group(2) # 路径 (比如 /img/a.png)
-            suffix = match.group(3)   # 后缀 (比如 ")
-
-            # 调试日志
+            prefix = match.group(1)   # Prefix (for example <img src=")
+            rel_path = match.group(2) # Path (for example /img/a.png)
+            suffix = match.group(3)   # Suffix (for example ")
             tag_type = "HTML" if "img" in prefix.lower() else "Markdown"
 
-            # 1. 跳过网络图片
+            # 1. Skip web images
             if rel_path.startswith(('http:', 'https:')):
                 return match.group(0)
 
-            # 2. 拼接路径
-            clean_path = rel_path.lstrip("/\\") # 去掉开头的 /
-            old_abs_path = IMAGE_SOURCE_DIR / clean_path # 旧图位置
+            # 2. Concatenate paths
+            clean_path = rel_path.lstrip("/\\") # Remove the leading /
+            old_abs_path = IMAGE_SOURCE_DIR / clean_path # Old address
             img_filename = Path(clean_path).name
-            new_abs_path = folder / img_filename           # 新图位置
+            new_abs_path = folder / img_filename           # New address
 
-            # 3. 搬运图片
+            # 3. Moving
             if safe_move(old_abs_path, new_abs_path):
-                print(f"    [{tag_type}] 🚚 搬运成功: {img_filename}")
+                print(f"    [{tag_type}] 🚚 Migration successful: {img_filename}")
             
-            # 4. 修改链接 (去掉开头的 /，变成相对路径)
+            # 4. Modify the link (remove the leading / to make it a relative path)
             new_rel_path = img_filename            
             return f"{prefix}{new_rel_path}{suffix}"
 
-        # --- 读取并修改文件 ---
+        # --- Read and Edit the articles ---
         try:
             with open(index_file, 'r', encoding='utf-8') as f:
                 content = f.read()
-            
-            # 这里的 sub 会自动调用上面的 process_image 函数
-            new_content = REGEX_MD.sub(process_image, content)       # 处理 Markdown 格式
-            new_content = REGEX_HTML.sub(process_image, new_content) # 处理 HTML 格式
+
+            new_content = REGEX_MD.sub(process_image, content)       
+            new_content = REGEX_HTML.sub(process_image, new_content) 
 
             if new_content != content:
                 with open(index_file, 'w', encoding='utf-8') as f:
                     f.write(new_content)
-                print(f"  💾 链接已更新: {folder.name}")
+                print(f"  💾The link has been updated: {folder.name}")
                 
         except Exception as e:
-            print(f"  ❌ 读写出错 {folder.name}: {e}")
+            print(f"  ❌ Reading and writing errors {folder.name}: {e}")
 
-# ================= 4. 程序入口 =================
+
 if __name__ == "__main__":
-    print(
-"此模式会将图片直接移动到 index.md 同级目录下 (不创建子文件夹)。"
-)
-    if input("确认运行? (y/n): ").lower() == 'y':
+    print("This mode will directly move the images to the same directory as index.md (without creating subfolders).")
+    if input("Confirm running? (y/n): ").lower() == 'y':
         migrate_to_bundles()
 ```
 

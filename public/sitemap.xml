@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/first_obstacle_in_stm32/</loc>
-    <lastmod>2025-12-08T10:17:00+09:00</lastmod>
+    <loc>http://localhost:1313/posts/some-useful-scripts/some_useful_scripts/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/automata/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/os/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/re/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/shutil/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-12-10T18:57:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/first_obstacle_in_stm32/</loc>
     <lastmod>2025-12-08T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/convolution/</loc>
@@ -17,19 +44,10 @@
     <loc>http://localhost:1313/tags/laplace-transform/</loc>
     <lastmod>2025-12-08T10:17:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-12-08T10:17:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-12-08T10:17:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/sampling/</loc>
     <lastmod>2025-12-08T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/signal--systems/</loc>
-    <lastmod>2025-12-08T10:17:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-12-08T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/tempering/</loc>
@@ -84,9 +102,6 @@
     <lastmod>2025-11-22T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/physics/</loc>
-    <lastmod>2025-11-22T10:17:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2025-11-22T10:17:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/schr%C3%B6dinger-equation/</loc>
