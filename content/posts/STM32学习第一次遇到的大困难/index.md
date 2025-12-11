@@ -2,26 +2,23 @@
 date: '2025-12-08T10:17:00+09:00'
 draft: false
 title: '[Tempering] The First Challenge in STM32 Learning'
-summary: "Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication."
+summary: "A debugging log of a 'Ghost Port' issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion."
 tags: ["Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
 categories: ["Tempering"]
 ---
 
 # Background 
 
-Having spent a long time learning STM32 development with Keil MDK (Keil5), I began to encounter significant workflow inefficiencies. A prime example is the *printf* redirection: in Keil, we typically rely on rewriting the *fputc* function. However, this often requires repetitive boilerplate code for every new project. seeking a more modern workflow, I migrated to CLion. Although setting up the toolchain (STM32CubeMX + CLion + MinGW/OpenOCD) took me a whole day and was incredibly demanding, the result was worth the effort.
+Having spent a long time learning STM32 development with Keil MDK (Keil5), I began to encounter significant workflow inefficiencies. A prime example is the *printf* redirection: in Keil, we typically rely on rewriting the *fputc* function. However, this often requires repetitive boilerplate code for every new project. Seeking a more modern workflow, I migrated to CLion. Although setting up the toolchain (STM32CubeMX + CLion + MinGW/OpenOCD) took me a whole day and was incredibly demanding, the result was worth the effort.
 
-# Describe
+# Problem Description
 
 The issue arose while I was experimenting with *multiple USART channels* for data transmission. I was following a tutorial based on Keil and attempted to port the code to my CLion environment. This involved adapting the low-level I/O retargeting from Keil's *fputc* to the GCC-compatible *_write function*. After compiling and flashing the firmware to my STM32 board, the system appeared to run, but *communication failed completely*.
 
-# Root Cause
-
-*A Physical Layer Wiring Error.* (Surprisingly, the issue was not in the software porting or the toolchain, but in a simple hardware misconnection.)(>_<)🔨
 
 # Troubleshooting 
 
-## 1. try to understand how the code works
+## Step 1: Code Review
 
 <details>
   <summary>main.c</summary>
@@ -122,7 +119,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_UARTEx_ReceiveToIdle_IT(&huart1, Rxbuff1, LENGTH);
   HAL_UARTEx_ReceiveToIdle_IT(&huart2, Rxbuff2, LENGTH);
-  printf("准备出发咯");
+  printf("Ready to go!!");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -248,7 +245,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 
 
-# STEP 1 c0m check
+# Step 2: Port Detection (The Python script)
 <details>
   <summary>c0mlist.py</summary>
   
@@ -275,10 +272,10 @@ Port number:COM5 - Description:USB-SERIAL CH340 (COM5)
 Port number:COM1 - Description:通信端口 (COM1)
 ```
 
-*No Problem , maybe printf function?*
+*No Problem, maybe printf function?*
 
 
-# STEP 2 Switch into Keil5
+# Step 3: Cross-Verification with Keil (The fputc part)
 
 Main change:
 
@@ -299,10 +296,10 @@ int fputc(int ch , FILE *f)
 }
 ```
 
-*Still can't work , maybe the circuit?*
+*Still can't work, maybe the circuit?*
 
 
-# STEP 3 Internal circuit check(LEDs)
+# Step 4: Hardware Sanity Check (LEDs)
  
 ```c
 HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
@@ -316,15 +313,58 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
   <br> <img src="默认低电平点亮LED.jpg" alt="默认低电平点亮LED" width="100%" height="auto">
 </details>
 
-*No problem , maybe my mistake?*
+*No problem, maybe my mistake?*
 
 
-# STEP 4 Check the Schematic Diagram
+# Step 5: Schematic & Wiring Check
 
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     Schematic Diagram
   </summary>
   
-  <br> <img src="STM32F103C8串口芯片原理图.png" alt="Schematic Diagram" width="100%" height="auto">
+  <br> <img src="STM32F103C8串口芯片背面图.png" alt="Schematic Diagram" width="100%" height="auto">
 </details>
+
+
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    photo
+  </summary>
+  
+  <br> <img src="按照原理图接线.jpg" alt="Schematic Diagram" width="100%" height="auto">
+</details>
+
+*hmm...PA2(TX)-->RXD   PA3(RX)-->TXD...Correct...So what is the problem*
+
+
+# Step 6: The Solution
+
+Suddenly, it hit me: The computer recognizes the USB-to-TTL adapter as a valid COM port as long as it's plugged into the USB slot, even if the other end is not connected to anything.
+
+This meant I was monitoring a "Ghost Port"—the computer saw the adapter, but the adapter wasn't actually physically connected to the MCU's PA2/PA3 pins. I re-connected the wires using a dedicated USB-to-TTL cable connecting PA2 (TX) and PA3 (RX). As expected, it worked immediately.
+
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    photo
+  </summary>
+  
+  <br> <img src="端口监测.png" alt="Schematic Diagram" width="100%" height="auto">
+</details>
+
+# Conclusion
+
+Personally, this was a nerve-wracking but valuable experience. When the error first occurred, I was lost in the complexity of the new toolchain.
+My troubleshooting process was:
+1.  Verified the hardware basics using a simple LED blink program.
+
+2.  Reverted to the original Keil code to rule out software porting errors.
+
+3.  Since both software and basic hardware logic were correct, I was forced to look at the physical layer.
+
+4.  It turned out to be a simple physical connection issue rather than a complex register configuration error. Sometimes, the problem really is just a loose wire!
+
+
+# Root Cause
+
+*A Physical Layer Wiring Error.* (Surprisingly, the issue was not in the software porting or the toolchain, but in a simple hardware misconnection.)(>_<)🔨

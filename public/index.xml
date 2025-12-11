@@ -6,8 +6,22 @@
     <description>Recent content on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Nov 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 18:57:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Automata] Some Useful Scripts in Computer Science Learning</title>
+      <link>http://localhost:1313/posts/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Wed, 10 Dec 2025 18:57:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
+      <description>Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning.</description>
+    </item>
+    <item>
+      <title>[Tempering] The First Challenge in STM32 Learning</title>
+      <link>http://localhost:1313/posts/stm32%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%81%87%E5%88%B0%E7%9A%84%E5%A4%A7%E5%9B%B0%E9%9A%BE/</link>
+      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/stm32%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%81%87%E5%88%B0%E7%9A%84%E5%A4%A7%E5%9B%B0%E9%9A%BE/</guid>
+      <description>A debugging log of a &amp;lsquo;Ghost Port&amp;rsquo; issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion.</description>
+    </item>
     <item>
       <title>[The Crucible] Convolution and Sampling in Fourier and Laplace</title>
       <link>http://localhost:1313/posts/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A21/</link>
