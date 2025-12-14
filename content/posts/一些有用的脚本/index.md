@@ -145,3 +145,30 @@ if __name__ == "__main__":
 ```
 
 </details>
+
+# Port search
+
+Description<p>
+check connected port
+
+
+<details>
+  <summary>python code</summary>
+  
+```python
+import serial.tools.list_ports
+
+# Get the list of all serial port devices
+ports_list = list(serial.tools.list_ports.comports())
+
+if len(ports_list) <= 0:
+    print("No serial port device found. Check if the USB is plugged in tightly!")
+else:
+    print("The following serial port devices are found:")
+    for port in ports_list:
+        # port.device is the COM port number (e.g., COM3)
+        # port.description is the detailed description of the device (e.g., USB-SERIAL CH340)
+        print(f"COM port number:{port.device} - descriotion:{port.description}")
+```
+
+</details>
