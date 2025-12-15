@@ -3,7 +3,7 @@ date: '2025-12-08T10:17:00+09:00'
 draft: false
 title: '[Tempering] The First Challenge in STM32 Learning'
 summary: "A debugging log of a 'Ghost Port' issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion."
-tags: ["Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
+tags: ["STM32","Hardware Debugging","Environment Setup","UART"]
 categories: ["Tempering"]
 ---
 
@@ -252,7 +252,6 @@ void assert_failed(uint8_t *file, uint32_t line)
 ```python
 import serial.tools.list_ports
 
-# 获取所有串口设备列表
 ports_list = list(serial.tools.list_ports.comports())
 
 if len(ports_list) <= 0:
