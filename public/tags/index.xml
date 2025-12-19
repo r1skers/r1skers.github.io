@@ -6,8 +6,36 @@
     <description>Recent content in Tags on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Dec 2025 18:57:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 14 Dec 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ADC</title>
+      <link>http://localhost:1313/tags/adc/</link>
+      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/adc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embedded C</title>
+      <link>http://localhost:1313/tags/embedded-c/</link>
+      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/embedded-c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>STM32</title>
+      <link>http://localhost:1313/tags/stm32/</link>
+      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/stm32/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Weak Symbols</title>
+      <link>http://localhost:1313/tags/weak-symbols/</link>
+      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/weak-symbols/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Os</title>
       <link>http://localhost:1313/tags/os/</link>
@@ -37,38 +65,24 @@
       <description></description>
     </item>
     <item>
-      <title>Convolution</title>
-      <link>http://localhost:1313/tags/convolution/</link>
+      <title>Environment Setup</title>
+      <link>http://localhost:1313/tags/environment-setup/</link>
       <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/convolution/</guid>
+      <guid>http://localhost:1313/tags/environment-setup/</guid>
       <description></description>
     </item>
     <item>
-      <title>Fourier Transform</title>
-      <link>http://localhost:1313/tags/fourier-transform/</link>
+      <title>Hardware Debugging</title>
+      <link>http://localhost:1313/tags/hardware-debugging/</link>
       <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/fourier-transform/</guid>
+      <guid>http://localhost:1313/tags/hardware-debugging/</guid>
       <description></description>
     </item>
     <item>
-      <title>Laplace Transform</title>
-      <link>http://localhost:1313/tags/laplace-transform/</link>
+      <title>UART</title>
+      <link>http://localhost:1313/tags/uart/</link>
       <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/laplace-transform/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sampling</title>
-      <link>http://localhost:1313/tags/sampling/</link>
-      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/sampling/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Signal &amp; Systems</title>
-      <link>http://localhost:1313/tags/signal--systems/</link>
-      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/signal--systems/</guid>
+      <guid>http://localhost:1313/tags/uart/</guid>
       <description></description>
     </item>
     <item>
@@ -83,20 +97,6 @@
       <link>http://localhost:1313/tags/debugging/</link>
       <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/debugging/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Embedded C</title>
-      <link>http://localhost:1313/tags/embedded-c/</link>
-      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/embedded-c/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>STM32</title>
-      <link>http://localhost:1313/tags/stm32/</link>
-      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/stm32/</guid>
       <description></description>
     </item>
     <item>
@@ -167,6 +167,41 @@
       <link>http://localhost:1313/tags/schr%C3%B6dinger-equation/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/schr%C3%B6dinger-equation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Convolution</title>
+      <link>http://localhost:1313/tags/convolution/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/convolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fourier Transform</title>
+      <link>http://localhost:1313/tags/fourier-transform/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/fourier-transform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Laplace Transform</title>
+      <link>http://localhost:1313/tags/laplace-transform/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/laplace-transform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sampling</title>
+      <link>http://localhost:1313/tags/sampling/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/sampling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Signal &amp; Systems</title>
+      <link>http://localhost:1313/tags/signal--systems/</link>
+      <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/signal--systems/</guid>
       <description></description>
     </item>
     <item>

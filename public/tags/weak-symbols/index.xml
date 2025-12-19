@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Weak Symbols on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/weak-symbols/</link>
+    <description>Recent content in Weak Symbols on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Dec 2025 10:17:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/weak-symbols/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Tempering] The Case of the Missing Callback: Debugging STM32 ADC Injected Groups</title>
+      <link>http://localhost:1313/posts/stm32%E6%8B%BC%E5%86%99%E9%94%99%E8%AF%AF%E8%80%8C%E4%B8%8D%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/stm32%E6%8B%BC%E5%86%99%E9%94%99%E8%AF%AF%E8%80%8C%E4%B8%8D%E6%8A%A5%E9%94%99/</guid>
+      <description>A debugging log of a &amp;lsquo;Ghost Port&amp;rsquo; issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion.</description>
+    </item>
+  </channel>
+</rss>

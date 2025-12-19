@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[The Crucible] Quantum Mechanics Part 1: From Schrödinger to Wave Functions</title>
-      <link>http://localhost:1313/posts/quantum_mechanics_part1/</link>
+      <link>http://localhost:1313/posts/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A61/</link>
       <pubDate>Sat, 22 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/quantum_mechanics_part1/</guid>
+      <guid>http://localhost:1313/posts/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A61/</guid>
       <description>Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib).</description>
     </item>
   </channel>

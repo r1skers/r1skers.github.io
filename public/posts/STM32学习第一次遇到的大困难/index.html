@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
 <title>[Tempering] The First Challenge in STM32 Learning | r1skers&#39; Blog</title>
-<meta name="keywords" content="Fourier Transform, Laplace Transform, Convolution, Sampling, Signal &amp; Systems">
+<meta name="keywords" content="STM32, Hardware Debugging, Environment Setup, UART">
 <meta name="description" content="A debugging log of a &lsquo;Ghost Port&rsquo; issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/stm32%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%81%87%E5%88%B0%E7%9A%84%E5%A4%A7%E5%9B%B0%E9%9A%BE/">
@@ -418,7 +418,6 @@ document.addEventListener("DOMContentLoaded", function() {
   <summary>c0mlist.py</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> serial.tools.list_ports
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取所有串口设备列表</span>
 </span></span><span style="display:flex;"><span>ports_list <span style="color:#f92672">=</span> list(serial<span style="color:#f92672">.</span>tools<span style="color:#f92672">.</span>list_ports<span style="color:#f92672">.</span>comports())
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(ports_list) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
@@ -504,17 +503,16 @@ My troubleshooting process was:</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/fourier-transform/">Fourier Transform</a></li>
-      <li><a href="http://localhost:1313/tags/laplace-transform/">Laplace Transform</a></li>
-      <li><a href="http://localhost:1313/tags/convolution/">Convolution</a></li>
-      <li><a href="http://localhost:1313/tags/sampling/">Sampling</a></li>
-      <li><a href="http://localhost:1313/tags/signal--systems/">Signal &amp; Systems</a></li>
+      <li><a href="http://localhost:1313/tags/stm32/">STM32</a></li>
+      <li><a href="http://localhost:1313/tags/hardware-debugging/">Hardware Debugging</a></li>
+      <li><a href="http://localhost:1313/tags/environment-setup/">Environment Setup</a></li>
+      <li><a href="http://localhost:1313/tags/uart/">UART</a></li>
     </ul>
 
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share [Tempering] The First Challenge in STM32 Learning on x"
-            href="https://x.com/intent/tweet/?text=%5bTempering%5d%20The%20First%20Challenge%20in%20STM32%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fstm32%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%25AC%25E4%25B8%2580%25E6%25AC%25A1%25E9%2581%2587%25E5%2588%25B0%25E7%259A%2584%25E5%25A4%25A7%25E5%259B%25B0%25E9%259A%25BE%2f&amp;hashtags=FourierTransform%2cLaplaceTransform%2cConvolution%2cSampling%2cSignal%26Systems">
+            href="https://x.com/intent/tweet/?text=%5bTempering%5d%20The%20First%20Challenge%20in%20STM32%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fstm32%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%25AC%25E4%25B8%2580%25E6%25AC%25A1%25E9%2581%2587%25E5%2588%25B0%25E7%259A%2584%25E5%25A4%25A7%25E5%259B%25B0%25E9%259A%25BE%2f&amp;hashtags=STM32%2cHardwareDebugging%2cEnvironmentSetup%2cUART">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />

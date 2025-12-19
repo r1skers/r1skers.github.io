@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hardware Debugging on r1skers&#39; Blog</title>
+    <link>http://localhost:1313/tags/hardware-debugging/</link>
+    <description>Recent content in Hardware Debugging on r1skers&#39; Blog</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Dec 2025 10:17:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hardware-debugging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Tempering] The First Challenge in STM32 Learning</title>
+      <link>http://localhost:1313/posts/stm32%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%81%87%E5%88%B0%E7%9A%84%E5%A4%A7%E5%9B%B0%E9%9A%BE/</link>
+      <pubDate>Mon, 08 Dec 2025 10:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/stm32%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%81%87%E5%88%B0%E7%9A%84%E5%A4%A7%E5%9B%B0%E9%9A%BE/</guid>
+      <description>A debugging log of a &amp;lsquo;Ghost Port&amp;rsquo; issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion.</description>
+    </item>
+  </channel>
+</rss>

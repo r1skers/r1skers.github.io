@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/shutil/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Automata] Some Useful Scripts in Computer Science Learning</title>
-      <link>http://localhost:1313/posts/some-useful-scripts/some_useful_scripts/</link>
+      <link>http://localhost:1313/posts/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Wed, 10 Dec 2025 18:57:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/some-useful-scripts/some_useful_scripts/</guid>
+      <guid>http://localhost:1313/posts/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E8%84%9A%E6%9C%AC/</guid>
       <description>Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning.</description>
     </item>
   </channel>
