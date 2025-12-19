@@ -71,7 +71,7 @@ I recorded my immediate **"Instinct"** (how I thought about it) versus the **"St
 ## Round 1: Engineering Intuition (System vs. Physics)
 *Testing if I think about the signal's behavior or the electron's movement.*
 
-| Scenario | My Instinct (System View) | The Standard Answer (Low-level View) | Verdict |
+| Scenario | My Instinct (Middle-layer View) | The Standard Answer (Bottom-layer Reality) | Verdict |
 | :--- | :--- | :--- | :--- |
 | **1. The Shaking Ghost**<br>(ADC readings fluctuate, LED flickers) | "The data is dirty. I should send it to the PC to analyze the noise pattern, or add a logic filter." | **Moving Average Filter.** Calculate the average of N samples to smooth out hardware noise. | **Pass.** I intuitively understood signal processing, even if I didn't name the specific filter. |
 | **2. The Cost of Precision**<br>(High PWM frequency = Jerky dimming) | "It feels like the counter implies a trade-off. Fast speed means fewer steps available." | **Resolution vs. Frequency.** Higher frequency reduces the period count (ARR), lowering the resolution. | **Pass.** I grasped the physical trade-off: you can't have both speed and smoothness without infinite clock. |
@@ -80,7 +80,7 @@ I recorded my immediate **"Instinct"** (how I thought about it) versus the **"St
 ## Round 2: The "Killer Moves" (Coding & Data)
 *Testing if I can solve problems that sit on the boundary of software and hardware.*
 
-| Scenario | My Instinct (System/Data View) | The Standard Answer (Textbook View) | Verdict |
+| Scenario | My Instinct (Middle-layer View) | The Standard Answer (Bottom-layer Reality) | Verdict |
 | :--- | :--- | :--- | :--- |
 | **4. The Disappearing Flag**<br>(`while(flag)` loop never exits despite ISR) | "I guess it's similar to `volatile`? The variable isn't updating in the loop's view." | **Compiler Optimization.** The compiler caches the variable. You must use `volatile` to force RAM reads. | **Pass.** I didn't just memorize the keyword; I understood the *mechanism* of the bug. |
 | **5. Disordered Bytes**<br>(STM32 sends 2000, Python sees 53255) | "I forgot the term, but in Python code, I always use `<H` in `struct` to fix it." | **Endianness (Little-Endian).** Low byte is sent first. The `<` symbol explicitly handles this order. | **High Pass.** My muscle memory (coding habit) proved more useful than rote memorization. |
@@ -88,7 +88,7 @@ I recorded my immediate **"Instinct"** (how I thought about it) versus the **"St
 ## Round 3: The Boundaries (The "Survival Kit")
 *Testing knowledge of low-level hardware constraints. I failed these, but learned where my limits are.*
 
-| Scenario | My Instinct (The Gap) | The Standard Answer (The Pitfall) | Verdict |
+| Scenario | My Instinct (Middle-layer View) | The Standard Answer (Bottom-layer Reality) | Verdict |
 | :--- | :--- | :--- | :--- |
 | **6. Stuck Delay**<br>(System freezes when `HAL_Delay` is in ISR) | "Is it a conflict between receiving data and lighting the LED?" | **Priority Deadlock.** `HAL_Delay` depends on SysTick. If ISR priority > SysTick, the timer never ticks. | **Gap Identified.** I need to be careful with Interrupt Priorities. |
 | **7. Misplaced Address**<br>(I2C Address 0x68 fails) | "Is it related to the binary sign bit?" | **Bit Shifting.** In many STM32 HAL call patterns, the 7-bit datasheet address is shifted left (<< 1) to make room for the R/W bit—always check what the specific API expects. | **Gap Identified.** Datasheet addresses are not always Code addresses. |
