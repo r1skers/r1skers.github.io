@@ -1,5 +1,5 @@
 ---
-date: '2025-12-15T22:17:00+09:00'
+date: '2025-12-19T15:17:00+09:00'
 draft: false
 title: '[Tempering] Self-Debugging My Place in the Embedded Stack'
 summary: "This is a self-debugging learning record: Starting from the anxiety of wanting to control every line of underlying details, I used the engineering-oriented stress test questions provided by Gemini to verify my embedded intuition and preferences. I confirmed that I am more suited to take the middle-layer path of data flow/algorithms/system integration and clarified the underlying survival skills that need to be supplemented next."
