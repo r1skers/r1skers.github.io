@@ -6,14 +6,21 @@
     <description>Recent content in STM32 on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Dec 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2025 14:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/stm32/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Tempering] The Case of the Missing Callback: Debugging STM32 ADC Injected Groups</title>
-      <link>http://localhost:1313/posts/stm32%E6%8B%BC%E5%86%99%E9%94%99%E8%AF%AF%E8%80%8C%E4%B8%8D%E6%8A%A5%E9%94%99/</link>
-      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/stm32%E6%8B%BC%E5%86%99%E9%94%99%E8%AF%AF%E8%80%8C%E4%B8%8D%E6%8A%A5%E9%94%99/</guid>
-      <description>A debugging log of a &amp;lsquo;Ghost Port&amp;rsquo; issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion.</description>
+      <title>[Tempering] Self-Debugging My Place in the Embedded Stack</title>
+      <link>http://localhost:1313/posts/%E6%98%AF%E5%90%A6%E7%83%AD%E7%88%B1%E4%BB%A5%E5%8F%8A%E5%BD%93%E4%B8%8B%E7%8E%B0%E7%8A%B6/</link>
+      <pubDate>Fri, 19 Dec 2025 14:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/%E6%98%AF%E5%90%A6%E7%83%AD%E7%88%B1%E4%BB%A5%E5%8F%8A%E5%BD%93%E4%B8%8B%E7%8E%B0%E7%8A%B6/</guid>
+      <description>A self-debugging record: I used engineering stress tests to resolve my confusion about where I fit in the embedded stack. I confirmed that instead of obsessing over bottom-layer registers, I’m strongest in the middle layer—where data flow, validation, and embedded algorithms live.</description>
+    </item>
+    <item>
+      <title>[Artifact] Project Sonic Implant: Development Log</title>
+      <link>http://localhost:1313/posts/project-sonic-implant/</link>
+      <pubDate>Mon, 15 Dec 2025 22:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/project-sonic-implant/</guid>
+      <description>A cumulative engineering journal for the heterogeneous acoustic anomaly detection system. This log is updated chronologically, documenting implementation milestones, troubleshooting notes , and system integration details across STM32, FPGA, and Python.</description>
     </item>
     <item>
       <title>[Tempering] The First Challenge in STM32 Learning</title>

@@ -6,34 +6,62 @@
     <description>Recent content in Tags on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Dec 2025 10:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2025 14:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ADC</title>
-      <link>http://localhost:1313/tags/adc/</link>
-      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/adc/</guid>
+      <title>Embedded Systems</title>
+      <link>http://localhost:1313/tags/embedded-systems/</link>
+      <pubDate>Fri, 19 Dec 2025 14:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/embedded-systems/</guid>
       <description></description>
     </item>
     <item>
-      <title>Embedded C</title>
-      <link>http://localhost:1313/tags/embedded-c/</link>
-      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/embedded-c/</guid>
+      <title>Learning Notes</title>
+      <link>http://localhost:1313/tags/learning-notes/</link>
+      <pubDate>Fri, 19 Dec 2025 14:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/learning-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>STM32</title>
       <link>http://localhost:1313/tags/stm32/</link>
-      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
+      <pubDate>Fri, 19 Dec 2025 14:17:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/stm32/</guid>
       <description></description>
     </item>
     <item>
-      <title>Weak Symbols</title>
-      <link>http://localhost:1313/tags/weak-symbols/</link>
-      <pubDate>Sun, 14 Dec 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/weak-symbols/</guid>
+      <title>System Integration</title>
+      <link>http://localhost:1313/tags/system-integration/</link>
+      <pubDate>Fri, 19 Dec 2025 14:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/system-integration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DevLog</title>
+      <link>http://localhost:1313/tags/devlog/</link>
+      <pubDate>Mon, 15 Dec 2025 22:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/devlog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embedded C</title>
+      <link>http://localhost:1313/tags/embedded-c/</link>
+      <pubDate>Mon, 15 Dec 2025 22:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/embedded-c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FPGA</title>
+      <link>http://localhost:1313/tags/fpga/</link>
+      <pubDate>Mon, 15 Dec 2025 22:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/fpga/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Mon, 15 Dec 2025 22:17:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +69,6 @@
       <link>http://localhost:1313/tags/os/</link>
       <pubDate>Wed, 10 Dec 2025 18:57:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/os/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Wed, 10 Dec 2025 18:57:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     <item>
