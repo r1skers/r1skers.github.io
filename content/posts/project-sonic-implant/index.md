@@ -8,7 +8,7 @@ categories: ["Artifact"]
 ---
 
 # 12.15
-Tested python--USART-->STM32
+STM32 USART DMA callback test with Python-side waveform sender.
 <details>
   <summary>Log</summary>
   
@@ -43,7 +43,7 @@ int _write(int file, char *data, int len)
 </details>
 
 ## hil.sender1.py
-This script is used to transmit simulated signals to STM32 and check if the callback function successfully work.
+Python utility to synthesize a sine wave and push it over UART for callback validation.
 
 <details>
   <summary>hil.sender1.py</summary>
@@ -154,10 +154,12 @@ Serial port closed.
 
 
 # 12.19
+USART DMA loopback using simulated MAX4466 data plus end-to-end integrity checks.
 <details>
   <summary>Log</summary>
 
 ## main.c
+USART1 DMA receives 2048 bytes and echoes them back for loopback verification.
 
 <details>
   <summary>main.c</summary>
@@ -183,6 +185,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 
 ## mock_max4466_wave.py
+Generates a 16 kHz, 10 s synthetic MAX4466-like signal and saves it as uint16 binary.
 
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -191,7 +194,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   
   <br> <img src="12.19_MAX4466_signal_simulation.png" alt="模拟MAX4466信号" width="100%" height="auto">
 </details>
-
 
 <details>
   <summary>mock_max4466_wave.py</summary>
@@ -246,6 +248,7 @@ print(f"Number of sampling points: {N}, file saved as sim_max4466_16k_10s.bin")
 </details>
 
 ## try.py
+Streams the generated binary to STM32 in 1024-sample frames and captures the echo.
 
 <details>
   <summary>try.py</summary>
@@ -316,6 +319,7 @@ if __name__ == "__main__":
 </details>
 
 ## plot_stm32_adc_wave.py
+Loads the echoed data, converts to volts, and plots the first 0.25 seconds.
 
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -371,7 +375,58 @@ print(f"Voltage range: {voltages.min():.3f} ~ {voltages.max():.3f} V")
 
 ## check.py
 
+Compares size and MD5 of original and loopback binaries to confirm lossless transfer.
+
+<details>
+  <summary>check.py</summary>
+
+```python
+import hashlib
+import os
+
+def file_md5(filename):
+    """Compute the MD5 checksum of a file."""
+    hash_md5 = hashlib.md5()
+    with open(filename, "rb") as f:
+        # Read and update hash string value in blocks of 4K
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+def main():
+    files = [    "D:\\Github_Repos\\Project-Sonic-Implant\\python-scripts\\sim_max4466_16k_10s.bin",
+    "D:\\Github_Repos\\Project-Sonic-Implant\\python-scripts\\loopback_data.bin"]
+
+    for file in files:
+        if not os.path.exists(file):
+            print(f"Error: {file} not found.")
+            return
+
+    # Compare sizes
+    size1 = os.path.getsize(files[0])
+    size2 = os.path.getsize(files[1])
+
+    print(f"path: {files[0]}\nsize: {size1}\nmd5 : {file_md5(files[0])}\n---")
+    print(f"path: {files[1]}\nsize: {size2}\nmd5 : {file_md5(files[1])}\n")
+
+    if size1 == size2:
+        print("File size: OK")
+    else:
+        print("File size: MISMATCH")
+
+    if file_md5(files[0]) == file_md5(files[1]):
+        print("MD5: OK")
+    else:
+        print("MD5: MISMATCH")
+
+if __name__ == "__main__":
+    main()
+```
+
+</details>
+
 ## Terminal
+Run logs showing generation, loopback transfer, plotting, and checksum match.
 
 ```terminal
 
@@ -397,5 +452,7 @@ path: D:\Github_Repos\Project-Sonic-Implant\python-scripts\loopback_data.bin
 size: 319488
 md5 : 352c4e63873228067e670a493f649ae4
 
+File size: OK
+MD5: OK
 ```
 </details>
