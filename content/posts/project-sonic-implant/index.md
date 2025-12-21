@@ -844,4 +844,14 @@ if __name__ == "__main__":
 
 </details>
 
+## Output
+
+<details>
+  <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
+    Matplotlib
+  </summary>
+  
+  <br> <img src="12.20_signal_analog.png" alt="声音信号分析图" width="100%" height="auto">
+</details>
+
 </details>
