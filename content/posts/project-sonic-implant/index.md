@@ -460,6 +460,10 @@ MD5: OK
 
 # 12.20
 
+
+<details>
+  <summary>Log</summary>
+  
 ## main.c
 
 <details>
@@ -552,5 +556,292 @@ static void fill_payload_dualtone(uint16_t *dst, uint32_t n) {
   }
   /* USER CODE END 3 */
 ```
+
+  </details>
+
+## analyze.py
+
+<details>
+  <summary>analyze.py</summary>
+  
+```python
+import serial
+import struct
+import time
+import threading
+import numpy as np
+import matplotlib.pyplot as plt
+import psutil
+
+
+# =======================
+# Config
+# =======================
+PORT = "COM5"
+BAUD = 460800
+
+FS = 16000
+SECONDS_TO_SHOW = 5.0
+
+SAMPLES_PER_FRAME = 1024
+PAYLOAD_BYTES = SAMPLES_PER_FRAME * 2
+FRAME_BYTES = 4 + 4 + PAYLOAD_BYTES
+
+MAGIC_U32 = 0xAABBCCDD
+MAGIC_BYTES = struct.pack("<I", MAGIC_U32)  # little-endian
+
+# Plot throttling
+UPDATE_SEC = 0.15        # UI 最小刷新间隔 (秒)
+PLOT_EVERY_N_FRAMES = 1  # UI 刷新需累积的最小帧数
+LAG_SEC = 0.0            # 显示滞后占位（当前未使用）
+MAX_SERIAL_READ = 8192
+
+# 绘图耗时 EMA
+DRAW_TIME_ALPHA = 0.2    # 0.0~1.0，越大越敏感
+
+# STFT parameters
+NFFT = 512
+HOP = 160                 # 10ms @ 16k
+WIN = 400                 # 25ms @ 16k
+FMAX = FS // 2
+
+
+def pop_frame_from_buffer(buf: bytearray):
+    idx = buf.find(MAGIC_BYTES)
+    if idx < 0:
+        if len(buf) > 3:
+            del buf[:-3]
+        return None
+
+    if idx > 0:
+        del buf[:idx]
+
+    if len(buf) < FRAME_BYTES:
+        return None
+
+    seq = struct.unpack_from("<I", buf, 4)[0]
+    payload = bytes(buf[8:8 + PAYLOAD_BYTES])
+    del buf[:FRAME_BYTES]
+    return seq, payload
+
+
+def stft_db(sig: np.ndarray, fs: int, window: np.ndarray):
+    sig = sig.astype(np.float32)
+    n_frames = 1 + (len(sig) - len(window)) // HOP
+    if n_frames <= 0:
+        return None, None, None
+
+    n_freq = NFFT // 2 + 1
+    S = np.empty((n_freq, n_frames), dtype=np.float32)
+
+    for i in range(n_frames):
+        start = i * HOP
+        frame = sig[start:start + len(window)] * window
+        fft = np.fft.rfft(frame, n=NFFT)
+        mag = np.abs(fft)
+        S[:, i] = mag
+
+    S_db = 20.0 * np.log10(S + 1e-6)
+    freqs = np.fft.rfftfreq(NFFT, d=1.0 / fs)
+    times = (np.arange(n_frames) * HOP) / fs
+    return S_db, freqs, times
+
+
+class RingBuffer:
+    def __init__(self, size):
+        self.buf = np.zeros(size, dtype=np.float32)
+        self.size = size
+        self.wptr = 0
+        self.filled = False
+        self.lock = threading.Lock()
+
+    def write(self, x: np.ndarray):
+        with self.lock:
+            n = len(x)
+            if self.wptr + n <= self.size:
+                self.buf[self.wptr:self.wptr + n] = x
+                self.wptr += n
+                if self.wptr == self.size:
+                    self.wptr = 0
+                    self.filled = True
+            else:
+                k = self.size - self.wptr
+                self.buf[self.wptr:] = x[:k]
+                self.buf[:n - k] = x[k:]
+                self.wptr = n - k
+                self.filled = True
+
+    def snapshot(self):
+        with self.lock:
+            if not self.filled:
+                return None
+            w = self.wptr
+            return np.concatenate([self.buf[w:], self.buf[:w]])
+
+
+def rx_thread_fn(stop_evt: threading.Event, ring: RingBuffer, stats: dict):
+    ser = serial.Serial(PORT, BAUD, timeout=0.05)
+    ser.reset_input_buffer()
+
+    rx_buf = bytearray()
+    last_seq = None
+
+    while not stop_evt.is_set():
+        chunk = ser.read(MAX_SERIAL_READ)
+        if chunk:
+            rx_buf.extend(chunk)
+
+        while True:
+            res = pop_frame_from_buffer(rx_buf)
+            if res is None:
+                break
+            seq, payload = res
+
+            # seq check
+            if last_seq is not None:
+                expected = (last_seq + 1) & 0xFFFFFFFF
+                if seq != expected:
+                    gap = (seq - expected) & 0xFFFFFFFF
+                    stats["dropped"] += gap
+            last_seq = seq
+            stats["frames_ok"] += 1
+            stats["last_seq"] = seq
+
+            u16 = np.frombuffer(payload, dtype=np.uint16)
+            x = u16.astype(np.float32)
+            x = x - x.mean()
+
+            ring.write(x)
+
+    ser.close()
+
+
+def get_mem_usage_mb():
+    """Return (label, value_mb)."""
+    
+    p = psutil.Process()
+    rss = p.memory_info().rss
+    return "RSS", rss / (1024 * 1024)
+
+
+
+def main():
+
+
+    ring = RingBuffer(int(FS * SECONDS_TO_SHOW))
+    stats = {"frames_ok": 0, "dropped": 0, "last_seq": None, "t0": time.time()}
+    stop_evt = threading.Event()
+
+    rx_thr = threading.Thread(target=rx_thread_fn, args=(stop_evt, ring, stats), daemon=True)
+    rx_thr.start()
+
+    # 预存 Hann 窗口
+    window = np.hanning(WIN).astype(np.float32)
+
+    plt.ion()
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 7))
+
+    # Waveform plot (持久化 line)
+    line, = ax1.plot(np.zeros(ring.size), lw=0.8)
+    ax1.set_title("Waveform (last 5s, DC removed)")
+    ax1.set_ylim(-2500, 2500)
+    ax1.set_xlim(0, ring.size)
+    ax1.grid(True, alpha=0.3)
+    info = ax1.text(
+        0.02, 0.95, "",
+        transform=ax1.transAxes,
+        va="top", ha="left",
+        bbox=dict(boxstyle="round", facecolor="black", alpha=0.5),
+        color="white"
+    )
+
+    # Spectrogram image (持久化 imshow + colorbar)
+    img = None
+
+    last_plot_time = time.time()
+    last_frame_seen = -1
+    draw_time_ms = 0.0  # EMA
+
+    try:
+        while True:
+            now = time.time()
+            if now - last_plot_time < UPDATE_SEC:
+                plt.pause(0.001)
+                continue
+            if stats["frames_ok"] - last_frame_seen < PLOT_EVERY_N_FRAMES:
+                plt.pause(0.001)
+                continue
+
+            snap = ring.snapshot()
+            if snap is None:
+                plt.pause(0.001)
+                continue
+
+            last_plot_time = now
+            last_frame_seen = stats["frames_ok"]
+
+            t_draw_start = time.time()
+
+            # Stats
+            dt = now - stats["t0"]
+            fps = stats["frames_ok"] / dt if dt > 0 else 0.0
+
+            # Waveform update
+            line.set_ydata(snap)
+
+            # Spectrogram update
+            S_db, freqs, times_arr = stft_db(snap, FS, window)
+            if S_db is not None:
+                if img is None:
+                    img = ax2.imshow(
+                        S_db,
+                        origin="lower",
+                        aspect="auto",
+                        extent=[times_arr[0], times_arr[-1], freqs[0], freqs[-1]],
+                        cmap="magma",
+                        vmin=S_db.max() - 80,
+                        vmax=S_db.max()
+                    )
+                    fig.colorbar(img, ax=ax2, format="%.0f dB")
+                    ax2.set_ylim(0, FMAX)
+                    ax2.set_title("Spectrogram (dB) - expect lines near 500 Hz and 4000 Hz")
+                    ax2.set_xlabel("Time (s)")
+                    ax2.set_ylabel("Frequency (Hz)")
+                else:
+                    img.set_data(S_db)
+                    img.set_extent([times_arr[0], times_arr[-1], freqs[0], freqs[-1]])
+                    img.set_clim(vmin=S_db.max() - 80, vmax=S_db.max())
+
+            # 绘图耗时统计
+            t_draw_end = time.time()
+            last_draw_ms = (t_draw_end - t_draw_start) * 1000.0
+            draw_time_ms = (1 - DRAW_TIME_ALPHA) * draw_time_ms + DRAW_TIME_ALPHA * last_draw_ms
+
+            # 内存占用统计
+            mem_label, mem_mb = get_mem_usage_mb()
+
+            info.set_text(
+                f"Frames: {stats['frames_ok']}   Dropped(est): {stats['dropped']}\n"
+                f"Frame rate: {fps:.2f} fps (target ~ {FS / SAMPLES_PER_FRAME:.2f})\n"
+                f"Last seq: {stats['last_seq']}\n"
+                f"Plot every {PLOT_EVERY_N_FRAMES} frames, interval {UPDATE_SEC*1000:.0f} ms\n"
+                f"Draw: last {last_draw_ms:.2f} ms, EMA {draw_time_ms:.2f} ms\n"
+                f"Mem[{mem_label}]: {mem_mb:.2f} MB"
+            )
+
+            plt.pause(0.001)
+
+    except KeyboardInterrupt:
+        pass
+    finally:
+        stop_evt.set()
+        rx_thr.join(timeout=1.0)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+</details>
 
 </details>
