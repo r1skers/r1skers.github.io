@@ -456,3 +456,101 @@ File size: OK
 MD5: OK
 ```
 </details>
+
+
+# 12.20
+
+## main.c
+
+<details>
+  <summary>main.c</summary>
+  
+```c
+/* USER CODE BEGIN PV */
+#define FS                 16000u
+#define SAMPLES_PER_FRAME  1024u
+#define PAYLOAD_BYTES      (SAMPLES_PER_FRAME * 2u)
+#define FRAME_BYTES        (4u + 4u + PAYLOAD_BYTES)
+
+static const uint32_t MAGIC = 0xAABBCCDD;
+static uint32_t g_seq = 0;
+
+static uint8_t  tx_frame[FRAME_BYTES];
+static uint16_t tx_payload[SAMPLES_PER_FRAME];
+
+static uint32_t phase500 = 0;
+static uint32_t phase4k  = 0;
+static const uint32_t STEP500 = (uint32_t)((500.0  * 4294967296.0) / FS);
+static const uint32_t STEP4K  = (uint32_t)((4000.0 * 4294967296.0) / FS);
+/* USER CODE END PV */
+
+/* USER CODE BEGIN 0 */
+// 256-point sine LUT, Q15 (-32767..32767)
+static int16_t sin_lut[256];
+static uint8_t lut_inited = 0;
+
+static void init_sin_lut(void) {
+  if (lut_inited) return;
+  lut_inited = 1;
+  for (int i = 0; i < 256; i++) {
+    float a = 2.0f * 3.1415926f * (float)i / 256.0f;
+    sin_lut[i] = (int16_t)(32767.0f * sinf(a));
+  }
+}
+static inline uint16_t clamp12(int32_t v) {
+  if (v < 0) return 0;
+  if (v > 4095) return 4095;
+  return (uint16_t)v;
+}
+
+static inline int16_t sin_q15_from_phase(uint32_t phase) {
+  // use top 8 bits as index
+  uint8_t idx = (uint8_t)(phase >> 24);
+  return sin_lut[idx];
+}
+
+static void fill_payload_dualtone(uint16_t *dst, uint32_t n) {
+  // amplitudes in ADC codes
+  const int32_t A1 = 600;
+  const int32_t A2 = 400;
+
+  for (uint32_t i = 0; i < n; i++) {
+    int16_t s1 = sin_q15_from_phase(phase500);
+    int16_t s2 = sin_q15_from_phase(phase4k);
+
+    // Q15 -> scale to amplitude: (A * s) / 32768
+    int32_t v = 2048
+      + (A1 * (int32_t)s1) / 32768
+      + (A2 * (int32_t)s2) / 32768;
+
+    dst[i] = clamp12(v);
+
+    phase500 += STEP500;
+    phase4k  += STEP4K;
+  }
+}
+/* USER CODE END 0 */
+/* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    uint32_t t0 = HAL_GetTick();
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+    uint32_t seq = g_seq++;
+    memcpy(tx_frame + 4, &seq, 4);
+    fill_payload_dualtone(tx_payload, SAMPLES_PER_FRAME);
+    memcpy(tx_frame + 8, tx_payload, PAYLOAD_BYTES);
+
+    HAL_UART_Transmit(&huart1, tx_frame, FRAME_BYTES, 1000);
+    uint32_t elapsed = HAL_GetTick() - t0;
+    if (elapsed < 64)
+    {
+      HAL_Delay(64 - elapsed);           
+    }
+  }
+  /* USER CODE END 3 */
+```
+
+</details>
