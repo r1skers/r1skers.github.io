@@ -20,6 +20,7 @@ This article is actually used to prepare for test, but during the review, I real
 <details>
     <summary>2.Why is only the imaginary part taken when deriving the wavefunction?</summary>
 
+<a id="free-electron-dispersion"></a>
 First, our objective in this section is to derive$E = \frac{p^2}{2m}$，According to the de Broglie wave relations, we obtain:
 
 $$E=\hbar \omega = \frac{(\hbar k)^2}{2m}$$
@@ -208,6 +209,7 @@ $$\frac{\hat{H}\psi(x)}{\psi(x)}=\frac{i\hbar}{f(t)}\frac{df(t)}{dt}$$
 
 The meaning here is that the left side of the equal sign is only related to the space x, the right side is only related to the time t, and both are equal to the constant $E$.
 
+<a id="time-independent-schrodinger-equation"></a>
 ## Time-Independent Schrödinger Equation
 
 This follows the time-dependent Schrödinger equation:

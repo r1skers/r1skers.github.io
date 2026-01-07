@@ -460,7 +460,7 @@ MD5: OK
 
 # 12.20
 
-
+实现了500Hz和4000Hz的稳定频率的读取，以及用matplotlib绘画出了声波信息。
 <details>
   <summary>Log</summary>
   
