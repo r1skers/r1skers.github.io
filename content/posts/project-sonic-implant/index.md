@@ -7,12 +7,7 @@ tags: ["STM32", "Embedded C", "Python", "DevLog"]
 categories: ["Artifact"]
 ---
 
-<details>
-  <summary>01.09</summary>
 
-Week1-2 PC-only loop walkthrough: CSV as contract vs current mini_scenes, run_scene.py main flow, and scene.py synthesis order (seeded RNG, time axis, background tones, whistle mask, impact noise envelope). Clarified argparse/DictReader and row bounds handling.
-
-</details>
 <details>
   <summary>01.09</summary>
 
