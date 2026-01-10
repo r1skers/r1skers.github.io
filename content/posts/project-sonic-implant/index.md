@@ -7,17 +7,16 @@ tags: ["STM32", "Embedded C", "Python", "DevLog"]
 categories: ["Artifact"]
 ---
 
-
 <details>
-  <summary><span style="font-size:1.1em">01.09</span></summary>
+  <summary>01.09</summary>
 
-Week1-2 PC-only loop walkthrough: CSV as contract vs current mini_scenes, run_scene.py main flow, and scene.py synthesis order (seeded RNG, time axis, background tones, whistle mask, impact noise envelope). Clarified argparse/DictReader and row bounds handling.
+Week1-2 PC-only loop refinement: aligned analysis windows to event times, added mismatch export tool, and switched whistle feature to a band-vs-background ratio for stability.
 
 ## python-scripts/project
-- csv_io.py: DictReader -> list[dict] -> SceneConfig casting
-- mini_scenes.csv: current contract subset (seed/fs/total_sec + event params)
-- run_scene.py main flow: argparse -> CSV load -> row clamp -> generate -> plot
-- scene.py synthesis: seeded RNG -> time axis -> tones -> whistle mask -> impact envelope
+- CSV contract walkthrough and parsing (mini_scenes + csv_io)
+- scene synthesis order clarified (bg + whistle + impact)
+- mini sweep now aligns window to event time and separates whistle/impact checks
+- whistle ratio uses band vs background power
 
 <details>
   <summary>world/csv_io.py</summary>
@@ -68,30 +67,7 @@ def load_scene_rows(path: str) -> list[dict]:
 </details>
 
 <details>
-  <summary>world/run_scene.py (main flow)</summary>
-
-```python
-def main() -> None:
-    # CLI args for CSV + row selection.
-    parser = argparse.ArgumentParser(description="Generate and plot a synthetic scene from CSV.")
-    parser.add_argument("--csv", default="world/mini_scenes.csv")
-    parser.add_argument("--row", type=int, default=0, help="Row index in CSV.")
-    args = parser.parse_args()
-
-    rows = load_scene_rows(args.csv)
-    if not rows:
-        raise SystemExit("No rows found in CSV.")
-    # Clamp row index to valid range.
-    row_idx = max(0, min(args.row, len(rows) - 1))
-    cfg = scene_config_from_row(rows[row_idx])
-    samples = generate_scene(cfg)
-    plot_scene(samples, cfg.fs)
-```
-
-</details>
-
-<details>
-  <summary>world/scene.py (synthesis)</summary>
+  <summary>world/scene.py</summary>
 
 ```python
 def generate_scene(cfg: SceneConfig) -> np.ndarray:
@@ -102,7 +78,6 @@ def generate_scene(cfg: SceneConfig) -> np.ndarray:
     bg = np.zeros_like(t)
     for freq in cfg.bg_freqs_hz:
         bg += _tone(t, freq)
-    # Normalize by tone count, then apply gain.
     bg *= cfg.bg_gain / max(len(cfg.bg_freqs_hz), 1)
 
     whistle = np.zeros_like(t)
@@ -115,7 +90,6 @@ def generate_scene(cfg: SceneConfig) -> np.ndarray:
     impact_mask = (t >= cfg.impact_start_sec) & (t < impact_end)
     if np.any(impact_mask) and cfg.impact_gain != 0.0:
         win_t = (t[impact_mask] - cfg.impact_start_sec) / max(cfg.impact_dur_sec, 1e-6)
-        # Triangle envelope: fade in then fade out.
         env = np.where(win_t < 0.5, win_t * 2.0, (1.0 - win_t) * 2.0)
         noise = rng.standard_normal(impact_mask.sum()).astype(np.float32)
         impact[impact_mask] = cfg.impact_gain * env * noise
@@ -126,9 +100,117 @@ def generate_scene(cfg: SceneConfig) -> np.ndarray:
 
 </details>
 
-</details>
 <details>
-  <summary><span style="font-size:1.1em">01.08</span></summary>
+  <summary>world/mini_sweep.py</summary>
+
+```python
+def window_slice(center_sec: float, window_sec: float, fs: int, total_samples: int) -> tuple[int, int]:
+    win_len = int(window_sec * fs)
+    if win_len <= 0 or win_len > total_samples:
+        win_len = total_samples
+    center_idx = int(center_sec * fs)
+    start = center_idx - (win_len // 2)
+    start = max(0, min(start, total_samples - win_len))
+    end = start + win_len
+    return start, end
+
+
+def window_features(samples: np.ndarray, start: int, end: int, cfg: StateMachineConfig) -> dict | None:
+    window = np.hanning(cfg.win).astype(np.float32)
+    return compute_features(
+        samples=samples[start:end],
+        fs=cfg.fs,
+        window=window,
+        nfft=cfg.nfft,
+        hop=cfg.hop,
+        band_low=cfg.whistle_band_low,
+        band_high=cfg.whistle_band_high,
+    )
+
+
+pred_state = "normal"
+whistle_ratio = None
+rms = None
+
+if cfg.whistle_gain > 0.0:
+    wh_center = 0.5 * (cfg.whistle_start_sec + cfg.whistle_end_sec)
+    wh_start, wh_end = window_slice(wh_center, args.window_sec, cfg.fs, len(samples))
+    wh_features = window_features(samples, wh_start, wh_end, sm_cfg)
+    if wh_features is not None:
+        whistle_ratio = wh_features.get("whistle_ratio")
+        rms = wh_features.get("rms")
+        if whistle_ratio is not None and whistle_ratio >= args.whistle_ratio:
+            pred_state = "whistle"
+
+if pred_state != "whistle" and cfg.impact_gain > 0.0:
+    im_center = cfg.impact_start_sec + 0.5 * cfg.impact_dur_sec
+    im_start, im_end = window_slice(im_center, args.window_sec, cfg.fs, len(samples))
+    im_features = window_features(samples, im_start, im_end, sm_cfg)
+    if im_features is not None:
+        rms = im_features.get("rms")
+        if rms is not None and rms >= args.rms_thresh:
+            pred_state = "impact"
+```
+
+</details>
+
+<details>
+  <summary>processing/features.py</summary>
+
+```python
+    total_power = float(np.sum(power_avg)) + 1e-12
+    band_power = float(np.sum(power_avg[band_mask]))
+    background_power = max(total_power - band_power, 1e-12)
+    whistle_ratio = band_power / background_power
+```
+
+</details>
+
+<details>
+  <summary>world/mismatch_report.py</summary>
+
+```python
+def _reason_from_features(rms: float | None, ratio: float | None, rms_thresh: float, ratio_thresh: float) -> str:
+    if rms is None or ratio is None:
+        return "missing_features"
+    if rms < rms_thresh:
+        return "rms_below_thresh"
+    if ratio >= ratio_thresh:
+        return "whistle_ratio_above_thresh"
+    return "whistle_ratio_below_thresh"
+```
+
+</details>
+
+<details>
+  <summary>Makefile</summary>
+
+```make
+PY = python
+PORT = COM5
+BAUD = 460800
+SCENES = world/mini_scenes.csv
+MINI_OUT = world/mini_results.csv
+RMS_THRESH = 0.1
+WHISTLE_RATIO = 0.055
+WHISTLE_BAND_LOW = 3800
+WHISTLE_BAND_HIGH = 4500
+
+.PHONY: run run-plot mini-sweep mismatch-report help
+
+mini-sweep:
+	PYTHONPATH=. $(PY) world/mini_sweep.py --csv $(SCENES) --out $(MINI_OUT) --rms-thresh $(RMS_THRESH) --whistle-ratio $(WHISTLE_RATIO) --whistle-band-low $(WHISTLE_BAND_LOW) --whistle-band-high $(WHISTLE_BAND_HIGH)
+
+mismatch-report:
+	PYTHONPATH=. $(PY) world/mismatch_report.py --in $(MINI_OUT) --out world/mini_mismatches.csv --rms-thresh $(RMS_THRESH) --whistle-ratio $(WHISTLE_RATIO)
+```
+
+</details>
+
+</details>
+
+<details>
+  <summary>01.08</summary>
 
 Clean log restart. Current focus is the end-to-end pipeline: serial RX -> framing -> decode -> ring -> state machine -> plotting. Makefile is the entry point. MCU side provides the scenario generator and OLED state display.
 
