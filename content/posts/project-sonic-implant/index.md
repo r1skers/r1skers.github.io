@@ -9,9 +9,63 @@ categories: ["Artifact"]
 
 
 <details>
-  <summary>01.09</summary>
+  <summary><span style="font-size:1.1em">01.09</span></summary>
 
 Week1-2 PC-only loop walkthrough: CSV as contract vs current mini_scenes, run_scene.py main flow, and scene.py synthesis order (seeded RNG, time axis, background tones, whistle mask, impact noise envelope). Clarified argparse/DictReader and row bounds handling.
+
+## python-scripts/project
+- csv_io.py: DictReader -> list[dict] -> SceneConfig casting
+- mini_scenes.csv: current contract subset (seed/fs/total_sec + event params)
+- run_scene.py main flow: argparse -> CSV load -> row clamp -> generate -> plot
+- scene.py synthesis: seeded RNG -> time axis -> tones -> whistle mask -> impact envelope
+
+<details>
+  <summary>world/csv_io.py</summary>
+
+```python
+import csv
+
+from world.scene import SceneConfig
+
+
+def _get_float(row: dict, key: str, default: float) -> float:
+    value = row.get(key, "")
+    if value == "":
+        return default
+    return float(value)
+
+
+def _get_int(row: dict, key: str, default: int) -> int:
+    value = row.get(key, "")
+    if value == "":
+        return default
+    return int(value)
+
+
+def scene_config_from_row(row: dict) -> SceneConfig:
+    cfg = SceneConfig()
+    return SceneConfig(
+        fs=_get_int(row, "fs", cfg.fs),
+        total_sec=_get_float(row, "total_sec", cfg.total_sec),
+        seed=_get_int(row, "seed", cfg.seed),
+        bg_gain=_get_float(row, "bg_gain", cfg.bg_gain),
+        whistle_freq_hz=_get_float(row, "whistle_freq_hz", cfg.whistle_freq_hz),
+        whistle_gain=_get_float(row, "whistle_gain", cfg.whistle_gain),
+        whistle_start_sec=_get_float(row, "whistle_start_sec", cfg.whistle_start_sec),
+        whistle_end_sec=_get_float(row, "whistle_end_sec", cfg.whistle_end_sec),
+        impact_gain=_get_float(row, "impact_gain", cfg.impact_gain),
+        impact_start_sec=_get_float(row, "impact_start_sec", cfg.impact_start_sec),
+        impact_dur_sec=_get_float(row, "impact_dur_sec", cfg.impact_dur_sec),
+    )
+
+
+def load_scene_rows(path: str) -> list[dict]:
+    with open(path, newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        return list(reader)
+```
+
+</details>
 
 <details>
   <summary>world/run_scene.py (main flow)</summary>
@@ -74,7 +128,7 @@ def generate_scene(cfg: SceneConfig) -> np.ndarray:
 
 </details>
 <details>
-  <summary>01.08</summary>
+  <summary><span style="font-size:1.1em">01.08</span></summary>
 
 Clean log restart. Current focus is the end-to-end pipeline: serial RX -> framing -> decode -> ring -> state machine -> plotting. Makefile is the entry point. MCU side provides the scenario generator and OLED state display.
 
