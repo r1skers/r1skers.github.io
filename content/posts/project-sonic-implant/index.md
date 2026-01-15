@@ -1,11 +1,287 @@
----
-date: '2026-01-08T00:00:00+09:00'
+—
+date: ’2026-01-08T00:00:00+09:00‘
 draft: false
-title: '[Artifact] Project Sonic Implant: Development Log'
-summary: "Fresh start log for the heterogeneous acoustic anomaly detection system."
-tags: ["STM32", "Embedded C", "Python", "DevLog"]
-categories: ["Artifact"]
----
+title: ’[Artifact] Sonic Lab Demo: Development Log‘
+summary: ”Fresh start log for the heterogeneous acoustic anomaly detection system.“
+tags: [”STM32“, ”Embedded C“, ”Python“, ”DevLog“]
+categories: [”Artifact“]
+—
+
+<details>
+  <summary>01.11</summary>
+
+PC-only sweep milestone: ran large randomized scenes, generated heatmaps, and recorded metrics/logs. Conclusion: RMS + whistle_ratio works in clean regimes but degrades in low SNR regions (weak event + strong background). This is a solid learning checkpoint even if the pipeline is not yet production-grade.
+
+## python-scripts/project
+- metrics_report.py: unified all/impact/whistle summaries
+- heatmap_report.py: 2D accuracy maps for failure boundary inspection
+- mini_sweep_log.csv / metrics_log.csv: run history for reproducibility
+
+</details>
+
+<details>
+  <summary>01.10</summary>
+
+Switched mini sweep from fixed event-aligned windows to sliding window scanning. Use max whistle_ratio / max RMS across the entire sample to handle overlaps and unknown event timing.
+
+## python-scripts/project
+- mini_sweep.py: scan whole signal with hop window; classify by max_ratio then max_rms
+- Makefile: added WINDOW_SEC + HOP_SEC and wired into mini-sweep target
+
+<details>
+  <summary>world/mini_sweep.py (sliding)</summary>
+
+```python
+parser.add_argument(”—window-sec“, type=float, default=0.5)
+parser.add_argument(”—hop-sec“, type=float, default=0.1)
+
+win_len = int(args.window_sec * cfg.fs)
+hop_len = int(args.hop_sec * cfg.fs)
+if win_len <= 0 or win_len > len(samples):
+    win_len = len(samples)
+if hop_len <= 0:
+    hop_len = win_len
+
+max_ratio = None
+max_rms = None
+for start in range(0, len(samples) - win_len + 1, hop_len):
+    end = start + win_len
+    features = window_features(samples, start, end, sm_cfg)
+    if features is None:
+        continue
+    ratio = features.get(”whistle_ratio“)
+    rms = features.get(”rms“)
+    if ratio is not None:
+        max_ratio = ratio if max_ratio is None else max(max_ratio, ratio)
+    if rms is not None:
+        max_rms = rms if max_rms is None else max(max_rms, rms)
+
+pred_state = ”normal“
+if max_ratio is not None and max_ratio >= args.whistle_ratio:
+    pred_state = ”whistle“
+elif max_rms is not None and max_rms >= args.rms_thresh:
+    pred_state = ”impact“
+```
+
+</details>
+
+<details>
+  <summary>Makefile (mini sweep params)</summary>
+
+```make
+WINDOW_SEC = 0.5
+HOP_SEC = 0.1
+
+mini-sweep:
+	PYTHONPATH=. $(PY) world/mini_sweep.py —csv $(SCENES) —out $(MINI_OUT) —window-sec $(WINDOW_SEC) —hop-sec $(HOP_SEC) —rms-thresh $(RMS_THRESH) —whistle-ratio $(WHISTLE_RATIO) —whistle-band-low $(WHISTLE_BAND_LOW) —whistle-band-high $(WHISTLE_BAND_HIGH)
+```
+
+</details>
+
+</details>
+
+<details>
+  <summary>01.09</summary>
+
+Week1-2 PC-only loop refinement: aligned analysis windows to event times, added mismatch export tool, and switched whistle feature to a band-vs-background ratio for stability.
+
+## python-scripts/project
+- CSV contract walkthrough and parsing (mini_scenes + csv_io)
+- scene synthesis order clarified (bg + whistle + impact)
+- mini sweep now aligns window to event time and separates whistle/impact checks
+- whistle ratio uses band vs background power
+
+<details>
+  <summary>world/csv_io.py</summary>
+
+```python
+import csv
+
+from world.scene import SceneConfig
+
+
+def _get_float(row: dict, key: str, default: float) -> float:
+    value = row.get(key, ”“)
+    if value == ”“:
+        return default
+    return float(value)
+
+
+def _get_int(row: dict, key: str, default: int) -> int:
+    value = row.get(key, ”“)
+    if value == ”“:
+        return default
+    return int(value)
+
+
+def scene_config_from_row(row: dict) -> SceneConfig:
+    cfg = SceneConfig()
+    return SceneConfig(
+        fs=_get_int(row, ”fs“, cfg.fs),
+        total_sec=_get_float(row, ”total_sec“, cfg.total_sec),
+        seed=_get_int(row, ”seed“, cfg.seed),
+        bg_gain=_get_float(row, ”bg_gain“, cfg.bg_gain),
+        whistle_freq_hz=_get_float(row, ”whistle_freq_hz“, cfg.whistle_freq_hz),
+        whistle_gain=_get_float(row, ”whistle_gain“, cfg.whistle_gain),
+        whistle_start_sec=_get_float(row, ”whistle_start_sec“, cfg.whistle_start_sec),
+        whistle_end_sec=_get_float(row, ”whistle_end_sec“, cfg.whistle_end_sec),
+        impact_gain=_get_float(row, ”impact_gain“, cfg.impact_gain),
+        impact_start_sec=_get_float(row, ”impact_start_sec“, cfg.impact_start_sec),
+        impact_dur_sec=_get_float(row, ”impact_dur_sec“, cfg.impact_dur_sec),
+    )
+
+
+def load_scene_rows(path: str) -> list[dict]:
+    with open(path, newline=”“, encoding=”utf-8“) as handle:
+        reader = csv.DictReader(handle)
+        return list(reader)
+```
+
+</details>
+
+<details>
+  <summary>world/scene.py</summary>
+
+```python
+def generate_scene(cfg: SceneConfig) -> np.ndarray:
+    rng = np.random.default_rng(cfg.seed)
+    n = int(cfg.fs * cfg.total_sec)
+    t = np.arange(n, dtype=np.float32) / float(cfg.fs)
+
+    bg = np.zeros_like(t)
+    for freq in cfg.bg_freqs_hz:
+        bg += _tone(t, freq)
+    bg *= cfg.bg_gain / max(len(cfg.bg_freqs_hz), 1)
+
+    whistle = np.zeros_like(t)
+    wh_mask = (t >= cfg.whistle_start_sec) & (t < cfg.whistle_end_sec)
+    if np.any(wh_mask) and cfg.whistle_gain != 0.0:
+        whistle[wh_mask] = cfg.whistle_gain * _tone(t[wh_mask], cfg.whistle_freq_hz)
+
+    impact = np.zeros_like(t)
+    impact_end = cfg.impact_start_sec + cfg.impact_dur_sec
+    impact_mask = (t >= cfg.impact_start_sec) & (t < impact_end)
+    if np.any(impact_mask) and cfg.impact_gain != 0.0:
+        win_t = (t[impact_mask] - cfg.impact_start_sec) / max(cfg.impact_dur_sec, 1e-6)
+        env = np.where(win_t < 0.5, win_t * 2.0, (1.0 - win_t) * 2.0)
+        noise = rng.standard_normal(impact_mask.sum()).astype(np.float32)
+        impact[impact_mask] = cfg.impact_gain * env * noise
+
+    x = bg + whistle + impact
+    return x.astype(np.float32)
+```
+
+</details>
+
+<details>
+  <summary>world/mini_sweep.py</summary>
+
+```python
+def window_slice(center_sec: float, window_sec: float, fs: int, total_samples: int) -> tuple[int, int]:
+    win_len = int(window_sec * fs)
+    if win_len <= 0 or win_len > total_samples:
+        win_len = total_samples
+    center_idx = int(center_sec * fs)
+    start = center_idx - (win_len // 2)
+    start = max(0, min(start, total_samples - win_len))
+    end = start + win_len
+    return start, end
+
+
+def window_features(samples: np.ndarray, start: int, end: int, cfg: StateMachineConfig) -> dict | None:
+    window = np.hanning(cfg.win).astype(np.float32)
+    return compute_features(
+        samples=samples[start:end],
+        fs=cfg.fs,
+        window=window,
+        nfft=cfg.nfft,
+        hop=cfg.hop,
+        band_low=cfg.whistle_band_low,
+        band_high=cfg.whistle_band_high,
+    )
+
+
+pred_state = ”normal“
+whistle_ratio = None
+rms = None
+
+if cfg.whistle_gain > 0.0:
+    wh_center = 0.5 * (cfg.whistle_start_sec + cfg.whistle_end_sec)
+    wh_start, wh_end = window_slice(wh_center, args.window_sec, cfg.fs, len(samples))
+    wh_features = window_features(samples, wh_start, wh_end, sm_cfg)
+    if wh_features is not None:
+        whistle_ratio = wh_features.get(”whistle_ratio“)
+        rms = wh_features.get(”rms“)
+        if whistle_ratio is not None and whistle_ratio >= args.whistle_ratio:
+            pred_state = ”whistle“
+
+if pred_state != ”whistle“ and cfg.impact_gain > 0.0:
+    im_center = cfg.impact_start_sec + 0.5 * cfg.impact_dur_sec
+    im_start, im_end = window_slice(im_center, args.window_sec, cfg.fs, len(samples))
+    im_features = window_features(samples, im_start, im_end, sm_cfg)
+    if im_features is not None:
+        rms = im_features.get(”rms“)
+        if rms is not None and rms >= args.rms_thresh:
+            pred_state = ”impact“
+```
+
+</details>
+
+<details>
+  <summary>processing/features.py</summary>
+
+```python
+    total_power = float(np.sum(power_avg)) + 1e-12
+    band_power = float(np.sum(power_avg[band_mask]))
+    background_power = max(total_power - band_power, 1e-12)
+    whistle_ratio = band_power / background_power
+```
+
+</details>
+
+<details>
+  <summary>world/mismatch_report.py</summary>
+
+```python
+def _reason_from_features(rms: float | None, ratio: float | None, rms_thresh: float, ratio_thresh: float) -> str:
+    if rms is None or ratio is None:
+        return ”missing_features“
+    if rms < rms_thresh:
+        return ”rms_below_thresh“
+    if ratio >= ratio_thresh:
+        return ”whistle_ratio_above_thresh“
+    return ”whistle_ratio_below_thresh“
+```
+
+</details>
+
+<details>
+  <summary>Makefile</summary>
+
+```make
+PY = python
+PORT = COM5
+BAUD = 460800
+SCENES = world/mini_scenes.csv
+MINI_OUT = world/mini_results.csv
+RMS_THRESH = 0.1
+WHISTLE_RATIO = 0.055
+WHISTLE_BAND_LOW = 3800
+WHISTLE_BAND_HIGH = 4500
+
+.PHONY: run run-plot mini-sweep mismatch-report help
+
+mini-sweep:
+	PYTHONPATH=. $(PY) world/mini_sweep.py —csv $(SCENES) —out $(MINI_OUT) —rms-thresh $(RMS_THRESH) —whistle-ratio $(WHISTLE_RATIO) —whistle-band-low $(WHISTLE_BAND_LOW) —whistle-band-high $(WHISTLE_BAND_HIGH)
+
+mismatch-report:
+	PYTHONPATH=. $(PY) world/mismatch_report.py —in $(MINI_OUT) —out world/mini_mismatches.csv —rms-thresh $(RMS_THRESH) —whistle-ratio $(WHISTLE_RATIO)
+```
+
+</details>
+
+</details>
+
 
 <details>
   <summary>01.09</summary>
@@ -256,20 +532,20 @@ def rx_loop(stop_evt, ring, stats, ser, payload_bytes):
                 expected = (last_seq + 1) & 0xFFFFFFFF
                 if seq != expected:
                     gap = (seq - expected) & 0xFFFFFFFF
-                    stats["dropped"] += gap
+                    stats[”dropped“] += gap
             last_seq = seq
-            stats["frames_ok"] += 1
-            stats["last_seq"] = seq
+            stats[”frames_ok“] += 1
+            stats[”last_seq“] = seq
 
             x = decode_payload_u16(payload)
             if x.size:
                 ring.write(x)
 
-    stats["stopped"] = True
+    stats[”stopped“] = True
 
 
 def state_loop(stop_evt, ring, stats, sm, ser, tx_lock, window_sec: float = 0.5, interval_sec: float = 0.2):
-    state_codes = {"normal": 0, "whistle": 1, "impact": 2}
+    state_codes = {”normal“: 0, ”whistle“: 1, ”impact“: 2}
     last_state = None
     last_code = None
     while not stop_evt.is_set():
@@ -283,16 +559,16 @@ def state_loop(stop_evt, ring, stats, sm, ser, tx_lock, window_sec: float = 0.5,
             win_len = snap.size
 
         features = sm.update(snap[-win_len:])
-        state = features.get("state")
-        stats["state"] = state
-        stats["state_features"] = features
-        if features and "rms" in features and "whistle_ratio" in features:
-            stats["oled_line"] = (
-                f"{state} rms={features['rms']:.1f} "
-                f"ratio={features['whistle_ratio']:.2f}"
+        state = features.get(”state“)
+        stats[”state“] = state
+        stats[”state_features“] = features
+        if features and ”rms“ in features and ”whistle_ratio“ in features:
+            stats[”oled_line“] = (
+                f”{state} rms={features[’rms‘]:.1f} “
+                f”ratio={features[’whistle_ratio‘]:.2f}“
             )
         if state and state != last_state:
-            print(f"State -> {state}")
+            print(f”State -> {state}“)
             last_state = state
             code = state_codes.get(state)
             if code is not None and code != last_code:
@@ -304,28 +580,28 @@ def state_loop(stop_evt, ring, stats, sm, ser, tx_lock, window_sec: float = 0.5,
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Serial RX -> RingBuffer -> Plot")
-    parser.add_argument("--port", default="COM5")
-    parser.add_argument("--baud", type=int, default=460800)
-    parser.add_argument("--fs", type=int, default=16000)
-    parser.add_argument("--seconds", type=float, default=10.0)
-    parser.add_argument("--payload-bytes", type=int, default=DEFAULT_PAYLOAD_BYTES)
-    parser.add_argument("--plot", action="store_true")
-    parser.add_argument("--state-window", type=float, default=0.5)
-    parser.add_argument("--state-interval", type=float, default=0.2)
-    parser.add_argument("--rms-thresh", type=float, default=100.0)
-    parser.add_argument("--whistle-band-low", type=float, default=3800.0)
-    parser.add_argument("--whistle-band-high", type=float, default=4200.0)
-    parser.add_argument("--whistle-ratio", type=float, default=0.25)
+    parser = argparse.ArgumentParser(description=”Serial RX -> RingBuffer -> Plot“)
+    parser.add_argument(”—port“, default=”COM5“)
+    parser.add_argument(”—baud“, type=int, default=460800)
+    parser.add_argument(”—fs“, type=int, default=16000)
+    parser.add_argument(”—seconds“, type=float, default=10.0)
+    parser.add_argument(”—payload-bytes“, type=int, default=DEFAULT_PAYLOAD_BYTES)
+    parser.add_argument(”—plot“, action=”store_true“)
+    parser.add_argument(”—state-window“, type=float, default=0.5)
+    parser.add_argument(”—state-interval“, type=float, default=0.2)
+    parser.add_argument(”—rms-thresh“, type=float, default=100.0)
+    parser.add_argument(”—whistle-band-low“, type=float, default=3800.0)
+    parser.add_argument(”—whistle-band-high“, type=float, default=4200.0)
+    parser.add_argument(”—whistle-ratio“, type=float, default=0.25)
     args = parser.parse_args()
 
     ring = RingBuffer(int(args.fs * args.seconds))
     stats = {
-        "frames_ok": 0,
-        "dropped": 0,
-        "last_seq": None,
-        "t0": time.time(),
-        "stopped": False,
+        ”frames_ok“: 0,
+        ”dropped“: 0,
+        ”last_seq“: None,
+        ”t0“: time.time(),
+        ”stopped“: False,
     }
     stop_evt = threading.Event()
 
@@ -360,15 +636,15 @@ def main():
         else:
             while True:
                 time.sleep(1.0)
-                dt = time.time() - stats["t0"]
-                fps = stats["frames_ok"] / dt if dt > 0 else 0.0
-                state = stats.get("state", "unknown")
-                oled_line = stats.get("oled_line")
-                oled_suffix = f"  OLED: {oled_line}" if oled_line else ""
+                dt = time.time() - stats[”t0“]
+                fps = stats[”frames_ok“] / dt if dt > 0 else 0.0
+                state = stats.get(”state“, ”unknown“)
+                oled_line = stats.get(”oled_line“)
+                oled_suffix = f”  OLED: {oled_line}“ if oled_line else ”“
                 print(
-                    f"Frames: {stats['frames_ok']}  Dropped: {stats['dropped']}  "
-                    f"Last seq: {stats['last_seq']}  FPS: {fps:.2f}  State: {state}"
-                    f"{oled_suffix}"
+                    f”Frames: {stats[’frames_ok‘]}  Dropped: {stats[’dropped‘]}  “
+                    f”Last seq: {stats[’last_seq‘]}  FPS: {fps:.2f}  State: {state}“
+                    f”{oled_suffix}“
                 )
     except KeyboardInterrupt:
         pass
@@ -380,7 +656,7 @@ def main():
         ser.close()
 
 
-if __name__ == "__main__":
+if __name__ == ”__main__“:
     main()
 ```
 
@@ -397,16 +673,16 @@ BAUD = 460800
 .PHONY: run run-plot help
 
 help:
-	@echo "Targets:"
-	@echo "  make run       - serial RX + stats (no plot)"
-	@echo "  make run-plot  - serial RX + waveform + spectrogram"
-	@echo "  Set PORT and BAUD env vars as needed (default COM5/460800)."
+	@echo ”Targets:“
+	@echo ”  make run       - serial RX + stats (no plot)“
+	@echo ”  make run-plot  - serial RX + waveform + spectrogram“
+	@echo ”  Set PORT and BAUD env vars as needed (default COM5/460800).“
 
 run:
-	$(PY) main.py --port $(PORT) --baud $(BAUD)
+	$(PY) main.py —port $(PORT) —baud $(BAUD)
 
 run-plot:
-	$(PY) main.py --port $(PORT) --baud $(BAUD) --plot
+	$(PY) main.py —port $(PORT) —baud $(BAUD) —plot
 ```
 
 </details>
@@ -448,18 +724,18 @@ def iter_serial_chunks(port: str, baud: int, stop_evt=None) -> Iterator[bytes]:
 import struct
 
 MAGIC_U32 = 0xAABBCCDD
-MAGIC_BYTES = struct.pack("<I", MAGIC_U32)
+MAGIC_BYTES = struct.pack(”<I“, MAGIC_U32)
 HEADER_BYTES = 4 + 4  # magic + seq
 DEFAULT_PAYLOAD_BYTES = 1024 * 2
 
 def pop_frame_from_buffer(buf: bytearray, payload_bytes: int = DEFAULT_PAYLOAD_BYTES):
-    """
+    ”“”
     Frame format (v4 MCU):
       [MAGIC 4B][SEQ 4B][PAYLOAD N bytes]
     Returns:
       (seq: int, payload: bytes) on success, or None if not enough data.
     Mutates buf: consumes bytes for the returned frame, or discards garbage before MAGIC.
-    """
+    “”“
     idx = buf.find(MAGIC_BYTES)
     if idx < 0:
         # Keep the last 3 bytes to allow matching a split magic word.
@@ -474,7 +750,7 @@ def pop_frame_from_buffer(buf: bytearray, payload_bytes: int = DEFAULT_PAYLOAD_B
     if len(buf) < frame_bytes:
         return None
 
-    seq = struct.unpack_from("<I", buf, 4)[0]
+    seq = struct.unpack_from(”<I“, buf, 4)[0]
     payload = bytes(buf[8 : 8 + payload_bytes])
     del buf[:frame_bytes]
     return seq, payload
@@ -490,12 +766,12 @@ def pop_frame_from_buffer(buf: bytearray, payload_bytes: int = DEFAULT_PAYLOAD_B
 import numpy as np
 
 def decode_payload_u16(payload: bytes) -> np.ndarray:
-    """
+    ”“”
     Decode payload bytes to float32 samples.
 
     payload: raw bytes (length must be even)
     returns: 1-D np.float32 array
-    """
+    “”“
     if len(payload) % 2 != 0:
         return np.array([], dtype=np.float32)
 
@@ -560,12 +836,12 @@ def compute_features(
     peak_freq = float(freqs[int(np.argmax(power_avg))])
 
     return {
-        "rms": rms,
-        "energy": energy,
-        "total_power": total_power,
-        "band_power": band_power,
-        "whistle_ratio": whistle_ratio,
-        "peak_freq": peak_freq,
+        ”rms“: rms,
+        ”energy“: energy,
+        ”total_power“: total_power,
+        ”band_power“: band_power,
+        ”whistle_ratio“: whistle_ratio,
+        ”peak_freq“: peak_freq,
     }
 ```
 
@@ -596,9 +872,9 @@ class StateMachineConfig:
 
 
 class StateMachine:
-    NORMAL = "normal"
-    WHISTLE = "whistle"
-    IMPACT = "impact"
+    NORMAL = ”normal“
+    WHISTLE = ”whistle“
+    IMPACT = ”impact“
 
     def __init__(self, config: StateMachineConfig):
         self.cfg = config
@@ -616,10 +892,10 @@ class StateMachine:
             band_high=self.cfg.whistle_band_high,
         )
         if features is None:
-            return {"state": self.state}
+            return {”state“: self.state}
 
-        rms = features["rms"]
-        ratio = features["whistle_ratio"]
+        rms = features[”rms“]
+        ratio = features[”whistle_ratio“]
 
         if rms < self.cfg.rms_threshold:
             self.state = self.NORMAL
@@ -628,7 +904,7 @@ class StateMachine:
         else:
             self.state = self.IMPACT
 
-        features["state"] = self.state
+        features[”state“] = self.state
         return features
 ```
 
@@ -692,7 +968,7 @@ class RingBuffer:
         self.lock = threading.Lock()
 
     def write(self, x: np.ndarray) -> None:
-        """Write 1-D float32 array into ring (overwrites oldest when full)."""
+        ”“”Write 1-D float32 array into ring (overwrites oldest when full).“”“
         x = np.asarray(x, dtype=np.float32)
         n = len(x)
         if n == 0:
@@ -741,26 +1017,26 @@ from processing.stft import default_window, stft_db
 
 
 def run_plot_loop(ring, fs: int, stats=None, stop_evt=None, update_sec: float = 0.15):
-    """
+    ”“”
     ring: RingBuffer
     fs: sample rate
     stop_evt: threading.Event or None
-    """
+    “”“
     plt.ion()
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 7))
 
     # Waveform
     line, = ax1.plot([], [], lw=0.8)
-    ax1.set_title("Waveform (RingBuffer Snapshot)")
-    ax1.set_xlabel("Time (s)")
-    ax1.set_ylabel("Amplitude")
+    ax1.set_title(”Waveform (RingBuffer Snapshot)“)
+    ax1.set_xlabel(”Time (s)“)
+    ax1.set_ylabel(”Amplitude“)
     ax1.grid(True, alpha=0.3)
     info = ax1.text(
-        0.02, 0.95, "",
+        0.02, 0.95, ”“,
         transform=ax1.transAxes,
-        va="top", ha="left",
-        bbox=dict(boxstyle="round", facecolor="black", alpha=0.5),
-        color="white",
+        va=”top“, ha=”left“,
+        bbox=dict(boxstyle=”round“, facecolor=”black“, alpha=0.5),
+        color=”white“,
     )
 
     # Spectrogram
@@ -793,18 +1069,18 @@ def run_plot_loop(ring, fs: int, stats=None, stop_evt=None, update_sec: float = 
         ax1.set_ylim(ymin * 1.1, ymax * 1.1)
 
         if stats is not None:
-            dt = time.time() - stats.get("t0", 0.0)
-            fps = stats.get("frames_ok", 0) / dt if dt > 0 else 0.0
-            dropped = stats.get("dropped", 0)
-            state = stats.get("state", "unknown")
-            features = stats.get("state_features", {})
-            rms = features.get("rms")
-            ratio = features.get("whistle_ratio")
-            extra = ""
+            dt = time.time() - stats.get(”t0“, 0.0)
+            fps = stats.get(”frames_ok“, 0) / dt if dt > 0 else 0.0
+            dropped = stats.get(”dropped“, 0)
+            state = stats.get(”state“, ”unknown“)
+            features = stats.get(”state_features“, {})
+            rms = features.get(”rms“)
+            ratio = features.get(”whistle_ratio“)
+            extra = ”“
             if rms is not None and ratio is not None:
-                extra = f"\nRMS: {rms:.1f}  Ratio: {ratio:.2f}"
+                extra = f”\nRMS: {rms:.1f}  Ratio: {ratio:.2f}“
             info.set_text(
-                f"FPS: {fps:.2f}\nDropped: {dropped}\nState: {state}{extra}"
+                f”FPS: {fps:.2f}\nDropped: {dropped}\nState: {state}{extra}“
             )
 
         S_db, freqs, times_arr = stft_db(snap, fs, window)
@@ -814,17 +1090,17 @@ def run_plot_loop(ring, fs: int, stats=None, stop_evt=None, update_sec: float = 
             if img is None:
                 img = ax2.imshow(
                     S_db,
-                    origin="lower",
-                    aspect="auto",
+                    origin=”lower“,
+                    aspect=”auto“,
                     extent=[times_arr[0], times_arr[-1], freqs[0], freqs[-1]],
-                    cmap="magma",
+                    cmap=”magma“,
                     vmin=vmin,
                     vmax=vmax,
                 )
-                fig.colorbar(img, ax=ax2, format="%.0f dB")
-                ax2.set_title("Spectrogram (dB)")
-                ax2.set_xlabel("Time (s)")
-                ax2.set_ylabel("Frequency (Hz)")
+                fig.colorbar(img, ax=ax2, format=”%.0f dB“)
+                ax2.set_title(”Spectrogram (dB)“)
+                ax2.set_xlabel(”Time (s)“)
+                ax2.set_ylabel(”Frequency (Hz)“)
                 ax2.set_ylim(0, fs / 2)
             else:
                 img.set_data(S_db)
@@ -1060,7 +1336,7 @@ static void oled_update_state(void)
 {
   static uint32_t last_tick = 0;
   static uint8_t last_code = 0xFF;
-  const char *states[] = {"NORMAL", "WHISTLE", "IMPACT"};
+  const char *states[] = {”NORMAL“, ”WHISTLE“, ”IMPACT“};
 
   uint32_t now = HAL_GetTick();
   if (g_state_code == last_code && (now - last_tick) < 200U)
