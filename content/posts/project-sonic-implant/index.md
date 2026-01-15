@@ -1,11 +1,11 @@
-——-
+---
 date: ’2026-01-08T00:00:00+09:00‘
 draft: false
 title: ’[Artifact] Sonic Lab Demo: Development Log‘
 summary: ”Fresh start log for the heterogeneous acoustic anomaly detection system.“
 tags: [”STM32“, ”Embedded C“, ”Python“, ”DevLog“]
 categories: [”Artifact“]
-——-
+---
 
 <details>
   <summary>01.11</summary>
