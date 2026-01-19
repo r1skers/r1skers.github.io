@@ -4,6 +4,12 @@ description: "Course notes, self-study notes."
 disableList: true
 ---
 
+### Quick Jump
+- [Quantum Mechanics](#quantum-mechanics)
+- [Linear Systems](#linear-systems)
+- [Planned](#planned)
+
+
 ## Quantum Mechanics
 - [**Part 1** — From Schrödinger to Wave Functions](/notes/笔记-量子力学1-薛定谔公式/index.md)
 - [**Part 2** — How Electrons Are Distributed](/notes/笔记-量子力学2-费米子/index.md)
