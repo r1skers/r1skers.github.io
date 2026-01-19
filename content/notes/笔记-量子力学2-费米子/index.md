@@ -1,7 +1,7 @@
 ---
 date: '2026-01-03T10:17:00+09:00'
-draft: true
-title: '[The Crucible] Quantum Mechanics Part 2: How Electrons Are Distributed'
+draft: false
+title: 'Quantum Mechanics Part 2: How Electrons Are Distributed'
 summary: "An intuitive exploration of how electrons occupy quantum states. From probability densities and Fermi–Dirac statistics to electron distributions in crystalline systems, this article reframes electrons as probabilistic entities rather than localized particles."
 tags: ["Quantum Mechanics", "Physics", "Electron Distribution", "Probability", "Condensed Matter"]
 categories: ["The Crucible"]

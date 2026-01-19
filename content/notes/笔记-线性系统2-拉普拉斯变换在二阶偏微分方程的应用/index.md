@@ -1,7 +1,7 @@
 ---
 date: '2025-10-29T19:01:21+09:00'
 draft: false
-title: '[The Crucible] RLC Circuit Analysis: Differential Equations vs. Laplace Transform'
+title: 'RLC Circuit Analysis: Differential Equations vs. Laplace Transform'
 summary: "Reflecting on the two distinct mathematical approaches to circuit analysis. Why do we shift from the tangible time domain to the abstract s-domain? A journey through the mathematical machinery of RLC circuits."
 tags: ["RLC Circuit", "Differential Equations", "Laplace Transform", "Python", "Schemdraw","Eureka"]
 categories: ["The Crucible"]

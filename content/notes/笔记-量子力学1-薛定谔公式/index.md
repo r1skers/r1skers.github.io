@@ -1,7 +1,7 @@
 ---
 date: '2025-11-22T10:17:00+09:00'
-draft: true
-title: '[The Crucible] Quantum Mechanics Part 1: From Schrödinger to Wave Functions'
+draft: false
+title: 'Quantum Mechanics Part 1: From Schrödinger to Wave Functions'
 summary: "Exploring the probabilistic nature of the quantum world. A derivation of the Schrödinger equation and visualization of wave functions using Python (Matplotlib)."
 tags: ["Quantum Mechanics", "Physics", "Python", "Matplotlib", "Schrödinger Equation"]
 categories: ["The Crucible"]
