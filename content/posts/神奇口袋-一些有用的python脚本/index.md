@@ -5,6 +5,7 @@ title: '[Automata] Some Useful Scripts in Computer Science Learning'
 summary: "Like the self-moving tripods of Olympus, these scripts are forged to serve. A curation of digital automata designed to banish repetitive tasks and streamline the rugged path of CS learning."
 tags: ["Python", "Re", "Shutil", "Os"]
 categories: ["Automata"]
+weight: 1
 ---
 
 
