@@ -8,49 +8,63 @@ markup:
     renderer:
       unsafe: true
 
-
 params:
+  # ✅ 关键：主页只显示 posts，不显示 notes
+  mainSections:
+    - posts
+
   ShowToc: true
   TocOpen: false
   HomeInfoParams:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
     Content: Welcome to the forge. I'm r1skers, an Electrical Engineering student navigating the worlds of hardware, software, and epic narratives.
+
   socialIcons:
     - name: GitHub
       url: "https://github.com/"
 
-  cover: 
+  cover:
     linkFullImages: true
 
   ShowBreadCrumbs: true
-
   ShowReadingTime: true
-
   ShowShareButtons: true
-
   ShowPostNavLinks: false
 
-  math : true
-  mermaid : true
-
+  math: true
+  mermaid: true
 
 menu:
   main:
-    - identifier: categories
-      name: Categories
-      url: /categories/
-      weight: 20
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 30
-    - identifier: archives
-      name: Archives     
-      url: /archives/
-      weight: 40
     - identifier: about
       name: About
       url: /about/
       weight: 10
-      
+
+    # ✅ 新增：Notes 入口（对应 content/notes/_index.md）
+    - identifier: notes
+      name: Notes
+      url: /notes/
+      weight: 15
+
+    # （可选）你如果想把“Projects/Artifacts”也做成入口，可以加：
+    # - identifier: projects
+    #   name: Projects
+    #   url: /categories/artifact/
+    #   weight: 18
+
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 20
+
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 30
+
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 40
