@@ -35,6 +35,8 @@ params:
   math: true
   mermaid: true
 
+  ShowAllPagesInArchive: true
+
 menu:
   main:
     - identifier: about
