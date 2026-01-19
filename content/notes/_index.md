@@ -1,7 +1,7 @@
 ---
 title: "Notes"
 description: "Course notes, self-study notes."
-disableList: true
+layout: "page"
 ---
 
 ### Quick Jump
