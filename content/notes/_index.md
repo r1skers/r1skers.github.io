@@ -1,6 +1,6 @@
 ---
 title: "Notes"
-description: "Course notes, self-study notes, and Eureka moments."
+description: "Course notes, self-study notes."
 cascade:
   hiddenInHomeList: true
 ---
