@@ -1,7 +1,7 @@
 ---
 date: '2025-11-12T10:17:00+09:00'
 draft: false
-title: 'Convolution and Sampling in Fourier and Laplace'
+title: 'Linear Systems Part 1: Fourier Transform & Laplace Transform'
 summary: "Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication."
 tags: [ "Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
 categories: ["The Crucible"]
