@@ -1,7 +1,6 @@
 ---
 title: "Notes"
 description: "Course notes, self-study notes."
-layout: "page"
 ---
 
 ## Quantum Mechanics
