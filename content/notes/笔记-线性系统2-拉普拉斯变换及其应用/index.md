@@ -20,10 +20,10 @@ categories: ["The Crucible"]
 5. [Exercise](#exercise)
 
 ## Analysis Equation
-$$F(s) =\mathcal{L}\{f(t)\} = \int_{0}^{\infty} e^{-st} f(t)dt$$
+$$F(s) =\mathcal{L}[f(t)] = \int_{0}^{\infty} e^{-st} f(t)dt$$
 
 ## Synthesis Equation
-$$f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s)ds$$
+$$f(t) = \mathcal{L}^{-1}[F(s)] = \frac{1}{2\pi j} \int_{\gamma - j\infty}^{\gamma + j\infty} e^{st} F(s)ds$$
 
 ## Properties of the Laplace Transform
 
