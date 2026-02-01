@@ -8,6 +8,7 @@ description: "Course notes, self-study notes."
 - [**Part 2** — How Electrons Are Distributed](/notes/笔记-量子力学2-费米子)
 
 ## Linear Systems
+- [**Part 2** — Fourier Transform](/notes/笔记-线性系统1-傅里叶变换)
 - [**Part 2** — Laplace Transform](/notes/笔记-线性系统2-拉普拉斯变换及其应用)
 - [**Part 3** — RLC Circuit Analysis: Differential Equations vs. Laplace Transform](/notes/笔记-线性系统3-拉普拉斯变换在二阶偏微分方程的应用)
 
