@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 03 Jan 2026 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/probability/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[The Crucible] Quantum Mechanics Part 2: How Electrons Are Distributed</title>
-      <link>http://localhost:1313/posts/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/</link>
+      <title>Quantum Mechanics Part 2: How Electrons Are Distributed</title>
+      <link>http://localhost:1313/notes/%E7%AC%94%E8%AE%B0-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62-%E8%B4%B9%E7%B1%B3%E5%AD%90/</link>
       <pubDate>Sat, 03 Jan 2026 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/</guid>
+      <guid>http://localhost:1313/notes/%E7%AC%94%E8%AE%B0-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62-%E8%B4%B9%E7%B1%B3%E5%AD%90/</guid>
       <description>An intuitive exploration of how electrons occupy quantum states. From probability densities and Fermi–Dirac statistics to electron distributions in crystalline systems, this article reframes electrons as probabilistic entities rather than localized particles.</description>
     </item>
   </channel>

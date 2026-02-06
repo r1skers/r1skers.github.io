@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="220" viewBox="0 0 520 220">
+  <rect x="0" y="0" width="520" height="220" fill="white"/>
+  <text x="20" y="30" font-family="Arial" font-size="14" fill="#222">Pauli exclusion: max two electrons per state (opposite spin)</text>
+
+  <!-- Energy levels -->
+  <line x1="120" y1="180" x2="420" y2="180" stroke="#222" stroke-width="2"/>
+  <line x1="120" y1="120" x2="420" y2="120" stroke="#222" stroke-width="2"/>
+  <line x1="120" y1="60"  x2="420" y2="60"  stroke="#222" stroke-width="2"/>
+
+  <text x="80" y="185" font-family="Arial" font-size="12" fill="#222">E1</text>
+  <text x="80" y="125" font-family="Arial" font-size="12" fill="#222">E2</text>
+  <text x="80" y="65"  font-family="Arial" font-size="12" fill="#222">E3</text>
+
+  <!-- Up arrow (E1) -->
+  <line x1="220" y1="190" x2="220" y2="160" stroke="#1f77b4" stroke-width="3"/>
+  <polygon points="220,154 214,164 226,164" fill="#1f77b4"/>
+
+  <!-- Down arrow (E1) -->
+  <line x1="260" y1="160" x2="260" y2="190" stroke="#d62728" stroke-width="3"/>
+  <polygon points="260,196 254,186 266,186" fill="#d62728"/>
+
+  <!-- Up arrow (E2) -->
+  <line x1="220" y1="130" x2="220" y2="100" stroke="#1f77b4" stroke-width="3"/>
+  <polygon points="220,94 214,104 226,104" fill="#1f77b4"/>
+
+  <!-- Empty E3 -->
+  <text x="230" y="70" font-family="Arial" font-size="12" fill="#666">empty</text>
+</svg>

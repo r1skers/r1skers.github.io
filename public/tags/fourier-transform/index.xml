@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 12 Nov 2025 10:17:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/fourier-transform/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[The Crucible] Convolution and Sampling in Fourier and Laplace</title>
-      <link>http://localhost:1313/posts/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A21/</link>
+      <title>Linear Systems Part 1: Fourier Transform &amp; Laplace Transform</title>
+      <link>http://localhost:1313/notes/%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F1-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</link>
       <pubDate>Wed, 12 Nov 2025 10:17:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A21/</guid>
+      <guid>http://localhost:1313/notes/%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F1-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/</guid>
       <description>Unveiling the mathematical symmetry between Time and Frequency domains. A deep dive into why multiplication in one domain equals convolution in the other, and the mystery of spectrum replication.</description>
     </item>
   </channel>

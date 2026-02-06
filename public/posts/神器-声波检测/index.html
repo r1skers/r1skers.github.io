@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>[Artifact] Sonic Lab Demo: Development Log | r1skers&#39; Blog</title>
+<meta name="keywords" content="STM32, Embedded C, Python, DevLog">
+<meta name="description" content="Fresh start log for the heterogeneous acoustic anomaly detection system.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/%E7%A5%9E%E5%99%A8-%E5%A3%B0%E6%B3%A2%E6%A3%80%E6%B5%8B/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a29c24210eb31d9ce56f669c66a35c9c51b17376b7764e336a49af7dec914cf0.css" integrity="sha256-opwkIQ6zHZzlb2acZqNcnFGxc3a3dk4zakmvfeyRTPA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/%E7%A5%9E%E5%99%A8-%E5%A3%B0%E6%B3%A2%E6%A3%80%E6%B5%8B/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+        ]
+    });
+});
+</script>
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="r1skers&#39; Blog (Alt + H)">r1skers&#39; Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [Artifact] Sonic Lab Demo: Development Log
+    </h1>
+    <div class="post-meta"><span title='2026-01-08 00:00:00 +0900 JST'>January 8, 2026</span>&nbsp;·&nbsp;<span>17 min</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#python-scriptsproject" aria-label="python-scripts/project">python-scripts/project</a></li>
+                <li>
+                    <a href="#python-scriptsproject-1" aria-label="python-scripts/project">python-scripts/project</a></li>
+                <li>
+                    <a href="#python-scriptsproject-2" aria-label="python-scripts/project">python-scripts/project</a></li>
+                <li>
+                    <a href="#python-scriptsproject-3" aria-label="python-scripts/project">python-scripts/project</a></li>
+                <li>
+                    <a href="#mainc" aria-label="main.c">main.c</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><details>
+  <summary>01.11</summary>
+<p>PC-only sweep milestone: ran large randomized scenes, generated heatmaps, and recorded metrics/logs. Conclusion: RMS + whistle_ratio works in clean regimes but degrades in low SNR regions (weak event + strong background). This is a solid learning checkpoint even if the pipeline is not yet production-grade.</p>
+<h2 id="python-scriptsproject">python-scripts/project<a hidden class="anchor" aria-hidden="true" href="#python-scriptsproject">#</a></h2>
+<ul>
+<li>metrics_report.py: unified all/impact/whistle summaries</li>
+<li>heatmap_report.py: 2D accuracy maps for failure boundary inspection</li>
+<li>mini_sweep_log.csv / metrics_log.csv: run history for reproducibility</li>
+</ul>
+</details>
+<details>
+  <summary>01.10</summary>
+<p>Switched mini sweep from fixed event-aligned windows to sliding window scanning. Use max whistle_ratio / max RMS across the entire sample to handle overlaps and unknown event timing.</p>
+<h2 id="python-scriptsproject-1">python-scripts/project<a hidden class="anchor" aria-hidden="true" href="#python-scriptsproject-1">#</a></h2>
+<ul>
+<li>mini_sweep.py: scan whole signal with hop window; classify by max_ratio then max_rms</li>
+<li>Makefile: added WINDOW_SEC + HOP_SEC and wired into mini-sweep target</li>
+</ul>
+<details>
+  <summary>world/mini_sweep.py (sliding)</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>window<span style="color:#f92672">-</span>sec<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>hop<span style="color:#f92672">-</span>sec<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>win_len <span style="color:#f92672">=</span> int(args<span style="color:#f92672">.</span>window_sec <span style="color:#f92672">*</span> cfg<span style="color:#f92672">.</span>fs)
+</span></span><span style="display:flex;"><span>hop_len <span style="color:#f92672">=</span> int(args<span style="color:#f92672">.</span>hop_sec <span style="color:#f92672">*</span> cfg<span style="color:#f92672">.</span>fs)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> win_len <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> win_len <span style="color:#f92672">&gt;</span> len(samples):
+</span></span><span style="display:flex;"><span>    win_len <span style="color:#f92672">=</span> len(samples)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> hop_len <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    hop_len <span style="color:#f92672">=</span> win_len
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>max_ratio <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>max_rms <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> start <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(samples) <span style="color:#f92672">-</span> win_len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, hop_len):
+</span></span><span style="display:flex;"><span>    end <span style="color:#f92672">=</span> start <span style="color:#f92672">+</span> win_len
+</span></span><span style="display:flex;"><span>    features <span style="color:#f92672">=</span> window_features(samples, start, end, sm_cfg)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> features <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>    ratio <span style="color:#f92672">=</span> features<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>whistle_ratio<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    rms <span style="color:#f92672">=</span> features<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>rms<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ratio <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        max_ratio <span style="color:#f92672">=</span> ratio <span style="color:#66d9ef">if</span> max_ratio <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span> <span style="color:#66d9ef">else</span> max(max_ratio, ratio)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> rms <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        max_rms <span style="color:#f92672">=</span> rms <span style="color:#66d9ef">if</span> max_rms <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span> <span style="color:#66d9ef">else</span> max(max_rms, rms)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pred_state <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”</span>normal<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> max_ratio <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> max_ratio <span style="color:#f92672">&gt;=</span> args<span style="color:#f92672">.</span>whistle_ratio:
+</span></span><span style="display:flex;"><span>    pred_state <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”</span>whistle<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> max_rms <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> max_rms <span style="color:#f92672">&gt;=</span> args<span style="color:#f92672">.</span>rms_thresh:
+</span></span><span style="display:flex;"><span>    pred_state <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”</span>impact<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span></code></pre></div></details>
+<details>
+  <summary>Makefile (mini sweep params)</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-make" data-lang="make"><span style="display:flex;"><span>WINDOW_SEC <span style="color:#f92672">=</span> 0.5
+</span></span><span style="display:flex;"><span>HOP_SEC <span style="color:#f92672">=</span> 0.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mini-sweep</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	PYTHONPATH<span style="color:#f92672">=</span>. <span style="color:#66d9ef">$(</span>PY<span style="color:#66d9ef">)</span> world/mini_sweep.py —csv <span style="color:#66d9ef">$(</span>SCENES<span style="color:#66d9ef">)</span> —out <span style="color:#66d9ef">$(</span>MINI_OUT<span style="color:#66d9ef">)</span> —window-sec <span style="color:#66d9ef">$(</span>WINDOW_SEC<span style="color:#66d9ef">)</span> —hop-sec <span style="color:#66d9ef">$(</span>HOP_SEC<span style="color:#66d9ef">)</span> —rms-thresh <span style="color:#66d9ef">$(</span>RMS_THRESH<span style="color:#66d9ef">)</span> —whistle-ratio <span style="color:#66d9ef">$(</span>WHISTLE_RATIO<span style="color:#66d9ef">)</span> —whistle-band-low <span style="color:#66d9ef">$(</span>WHISTLE_BAND_LOW<span style="color:#66d9ef">)</span> —whistle-band-high <span style="color:#66d9ef">$(</span>WHISTLE_BAND_HIGH<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div></details>
+</details>
+<details>
+  <summary>01.09</summary>
+<p>Week1-2 PC-only loop refinement: aligned analysis windows to event times, added mismatch export tool, and switched whistle feature to a band-vs-background ratio for stability.</p>
+<h2 id="python-scriptsproject-2">python-scripts/project<a hidden class="anchor" aria-hidden="true" href="#python-scriptsproject-2">#</a></h2>
+<ul>
+<li>CSV contract walkthrough and parsing (mini_scenes + csv_io)</li>
+<li>scene synthesis order clarified (bg + whistle + impact)</li>
+<li>mini sweep now aligns window to event time and separates whistle/impact checks</li>
+<li>whistle ratio uses band vs background power</li>
+</ul>
+<details>
+  <summary>world/csv_io.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> csv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> world.scene <span style="color:#f92672">import</span> SceneConfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_get_float</span>(row: dict, key: str, default: float) <span style="color:#f92672">-&gt;</span> float:
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> row<span style="color:#f92672">.</span>get(key, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> value <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> default
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> float(value)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_get_int</span>(row: dict, key: str, default: int) <span style="color:#f92672">-&gt;</span> int:
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> row<span style="color:#f92672">.</span>get(key, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> value <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> default
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> int(value)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">scene_config_from_row</span>(row: dict) <span style="color:#f92672">-&gt;</span> SceneConfig:
+</span></span><span style="display:flex;"><span>    cfg <span style="color:#f92672">=</span> SceneConfig()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> SceneConfig(
+</span></span><span style="display:flex;"><span>        fs<span style="color:#f92672">=</span>_get_int(row, <span style="color:#e6db74">&#34;fs&#34;</span>, cfg<span style="color:#f92672">.</span>fs),
+</span></span><span style="display:flex;"><span>        total_sec<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;total_sec&#34;</span>, cfg<span style="color:#f92672">.</span>total_sec),
+</span></span><span style="display:flex;"><span>        seed<span style="color:#f92672">=</span>_get_int(row, <span style="color:#e6db74">&#34;seed&#34;</span>, cfg<span style="color:#f92672">.</span>seed),
+</span></span><span style="display:flex;"><span>        bg_gain<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;bg_gain&#34;</span>, cfg<span style="color:#f92672">.</span>bg_gain),
+</span></span><span style="display:flex;"><span>        whistle_freq_hz<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;whistle_freq_hz&#34;</span>, cfg<span style="color:#f92672">.</span>whistle_freq_hz),
+</span></span><span style="display:flex;"><span>        whistle_gain<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;whistle_gain&#34;</span>, cfg<span style="color:#f92672">.</span>whistle_gain),
+</span></span><span style="display:flex;"><span>        whistle_start_sec<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;whistle_start_sec&#34;</span>, cfg<span style="color:#f92672">.</span>whistle_start_sec),
+</span></span><span style="display:flex;"><span>        whistle_end_sec<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;whistle_end_sec&#34;</span>, cfg<span style="color:#f92672">.</span>whistle_end_sec),
+</span></span><span style="display:flex;"><span>        impact_gain<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;impact_gain&#34;</span>, cfg<span style="color:#f92672">.</span>impact_gain),
+</span></span><span style="display:flex;"><span>        impact_start_sec<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;impact_start_sec&#34;</span>, cfg<span style="color:#f92672">.</span>impact_start_sec),
+</span></span><span style="display:flex;"><span>        impact_dur_sec<span style="color:#f92672">=</span>_get_float(row, <span style="color:#e6db74">&#34;impact_dur_sec&#34;</span>, cfg<span style="color:#f92672">.</span>impact_dur_sec),
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load_scene_rows</span>(path: str) <span style="color:#f92672">-&gt;</span> list[dict]:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(path, newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>) <span style="color:#66d9ef">as</span> handle:
+</span></span><span style="display:flex;"><span>        reader <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>DictReader(handle)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list(reader)
+</span></span></code></pre></div></details>
+<details>
+  <summary>world/scene.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_scene</span>(cfg: SceneConfig) <span style="color:#f92672">-&gt;</span> np<span style="color:#f92672">.</span>ndarray:
+</span></span><span style="display:flex;"><span>    rng <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>default_rng(cfg<span style="color:#f92672">.</span>seed)
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> int(cfg<span style="color:#f92672">.</span>fs <span style="color:#f92672">*</span> cfg<span style="color:#f92672">.</span>total_sec)
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(n, dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32) <span style="color:#f92672">/</span> float(cfg<span style="color:#f92672">.</span>fs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    bg <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros_like(t)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> freq <span style="color:#f92672">in</span> cfg<span style="color:#f92672">.</span>bg_freqs_hz:
+</span></span><span style="display:flex;"><span>        bg <span style="color:#f92672">+=</span> _tone(t, freq)
+</span></span><span style="display:flex;"><span>    bg <span style="color:#f92672">*=</span> cfg<span style="color:#f92672">.</span>bg_gain <span style="color:#f92672">/</span> max(len(cfg<span style="color:#f92672">.</span>bg_freqs_hz), <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    whistle <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros_like(t)
+</span></span><span style="display:flex;"><span>    wh_mask <span style="color:#f92672">=</span> (t <span style="color:#f92672">&gt;=</span> cfg<span style="color:#f92672">.</span>whistle_start_sec) <span style="color:#f92672">&amp;</span> (t <span style="color:#f92672">&lt;</span> cfg<span style="color:#f92672">.</span>whistle_end_sec)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>any(wh_mask) <span style="color:#f92672">and</span> cfg<span style="color:#f92672">.</span>whistle_gain <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0.0</span>:
+</span></span><span style="display:flex;"><span>        whistle[wh_mask] <span style="color:#f92672">=</span> cfg<span style="color:#f92672">.</span>whistle_gain <span style="color:#f92672">*</span> _tone(t[wh_mask], cfg<span style="color:#f92672">.</span>whistle_freq_hz)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    impact <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros_like(t)
+</span></span><span style="display:flex;"><span>    impact_end <span style="color:#f92672">=</span> cfg<span style="color:#f92672">.</span>impact_start_sec <span style="color:#f92672">+</span> cfg<span style="color:#f92672">.</span>impact_dur_sec
+</span></span><span style="display:flex;"><span>    impact_mask <span style="color:#f92672">=</span> (t <span style="color:#f92672">&gt;=</span> cfg<span style="color:#f92672">.</span>impact_start_sec) <span style="color:#f92672">&amp;</span> (t <span style="color:#f92672">&lt;</span> impact_end)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>any(impact_mask) <span style="color:#f92672">and</span> cfg<span style="color:#f92672">.</span>impact_gain <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0.0</span>:
+</span></span><span style="display:flex;"><span>        win_t <span style="color:#f92672">=</span> (t[impact_mask] <span style="color:#f92672">-</span> cfg<span style="color:#f92672">.</span>impact_start_sec) <span style="color:#f92672">/</span> max(cfg<span style="color:#f92672">.</span>impact_dur_sec, <span style="color:#ae81ff">1e-6</span>)
+</span></span><span style="display:flex;"><span>        env <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(win_t <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5</span>, win_t <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.0</span>, (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> win_t) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.0</span>)
+</span></span><span style="display:flex;"><span>        noise <span style="color:#f92672">=</span> rng<span style="color:#f92672">.</span>standard_normal(impact_mask<span style="color:#f92672">.</span>sum())<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>        impact[impact_mask] <span style="color:#f92672">=</span> cfg<span style="color:#f92672">.</span>impact_gain <span style="color:#f92672">*</span> env <span style="color:#f92672">*</span> noise
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> bg <span style="color:#f92672">+</span> whistle <span style="color:#f92672">+</span> impact
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32)
+</span></span></code></pre></div></details>
+<details>
+  <summary>world/mini_sweep.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">window_slice</span>(center_sec: float, window_sec: float, fs: int, total_samples: int) <span style="color:#f92672">-&gt;</span> tuple[int, int]:
+</span></span><span style="display:flex;"><span>    win_len <span style="color:#f92672">=</span> int(window_sec <span style="color:#f92672">*</span> fs)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> win_len <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> win_len <span style="color:#f92672">&gt;</span> total_samples:
+</span></span><span style="display:flex;"><span>        win_len <span style="color:#f92672">=</span> total_samples
+</span></span><span style="display:flex;"><span>    center_idx <span style="color:#f92672">=</span> int(center_sec <span style="color:#f92672">*</span> fs)
+</span></span><span style="display:flex;"><span>    start <span style="color:#f92672">=</span> center_idx <span style="color:#f92672">-</span> (win_len <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    start <span style="color:#f92672">=</span> max(<span style="color:#ae81ff">0</span>, min(start, total_samples <span style="color:#f92672">-</span> win_len))
+</span></span><span style="display:flex;"><span>    end <span style="color:#f92672">=</span> start <span style="color:#f92672">+</span> win_len
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> start, end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">window_features</span>(samples: np<span style="color:#f92672">.</span>ndarray, start: int, end: int, cfg: StateMachineConfig) <span style="color:#f92672">-&gt;</span> dict <span style="color:#f92672">|</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>    window <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>hanning(cfg<span style="color:#f92672">.</span>win)<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> compute_features(
+</span></span><span style="display:flex;"><span>        samples<span style="color:#f92672">=</span>samples[start:end],
+</span></span><span style="display:flex;"><span>        fs<span style="color:#f92672">=</span>cfg<span style="color:#f92672">.</span>fs,
+</span></span><span style="display:flex;"><span>        window<span style="color:#f92672">=</span>window,
+</span></span><span style="display:flex;"><span>        nfft<span style="color:#f92672">=</span>cfg<span style="color:#f92672">.</span>nfft,
+</span></span><span style="display:flex;"><span>        hop<span style="color:#f92672">=</span>cfg<span style="color:#f92672">.</span>hop,
+</span></span><span style="display:flex;"><span>        band_low<span style="color:#f92672">=</span>cfg<span style="color:#f92672">.</span>whistle_band_low,
+</span></span><span style="display:flex;"><span>        band_high<span style="color:#f92672">=</span>cfg<span style="color:#f92672">.</span>whistle_band_high,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pred_state <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;normal&#34;</span>
+</span></span><span style="display:flex;"><span>whistle_ratio <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>rms <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> cfg<span style="color:#f92672">.</span>whistle_gain <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.0</span>:
+</span></span><span style="display:flex;"><span>    wh_center <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> (cfg<span style="color:#f92672">.</span>whistle_start_sec <span style="color:#f92672">+</span> cfg<span style="color:#f92672">.</span>whistle_end_sec)
+</span></span><span style="display:flex;"><span>    wh_start, wh_end <span style="color:#f92672">=</span> window_slice(wh_center, args<span style="color:#f92672">.</span>window_sec, cfg<span style="color:#f92672">.</span>fs, len(samples))
+</span></span><span style="display:flex;"><span>    wh_features <span style="color:#f92672">=</span> window_features(samples, wh_start, wh_end, sm_cfg)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> wh_features <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        whistle_ratio <span style="color:#f92672">=</span> wh_features<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;whistle_ratio&#34;</span>)
+</span></span><span style="display:flex;"><span>        rms <span style="color:#f92672">=</span> wh_features<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;rms&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> whistle_ratio <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> whistle_ratio <span style="color:#f92672">&gt;=</span> args<span style="color:#f92672">.</span>whistle_ratio:
+</span></span><span style="display:flex;"><span>            pred_state <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;whistle&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> pred_state <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;whistle&#34;</span> <span style="color:#f92672">and</span> cfg<span style="color:#f92672">.</span>impact_gain <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.0</span>:
+</span></span><span style="display:flex;"><span>    im_center <span style="color:#f92672">=</span> cfg<span style="color:#f92672">.</span>impact_start_sec <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> cfg<span style="color:#f92672">.</span>impact_dur_sec
+</span></span><span style="display:flex;"><span>    im_start, im_end <span style="color:#f92672">=</span> window_slice(im_center, args<span style="color:#f92672">.</span>window_sec, cfg<span style="color:#f92672">.</span>fs, len(samples))
+</span></span><span style="display:flex;"><span>    im_features <span style="color:#f92672">=</span> window_features(samples, im_start, im_end, sm_cfg)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> im_features <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        rms <span style="color:#f92672">=</span> im_features<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;rms&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> rms <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> rms <span style="color:#f92672">&gt;=</span> args<span style="color:#f92672">.</span>rms_thresh:
+</span></span><span style="display:flex;"><span>            pred_state <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;impact&#34;</span>
+</span></span></code></pre></div></details>
+<details>
+  <summary>processing/features.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    total_power <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>sum(power_avg)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1e-12</span>
+</span></span><span style="display:flex;"><span>    band_power <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>sum(power_avg[band_mask]))
+</span></span><span style="display:flex;"><span>    background_power <span style="color:#f92672">=</span> max(total_power <span style="color:#f92672">-</span> band_power, <span style="color:#ae81ff">1e-12</span>)
+</span></span><span style="display:flex;"><span>    whistle_ratio <span style="color:#f92672">=</span> band_power <span style="color:#f92672">/</span> background_power
+</span></span></code></pre></div></details>
+<details>
+  <summary>world/mismatch_report.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_reason_from_features</span>(rms: float <span style="color:#f92672">|</span> <span style="color:#66d9ef">None</span>, ratio: float <span style="color:#f92672">|</span> <span style="color:#66d9ef">None</span>, rms_thresh: float, ratio_thresh: float) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> rms <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> ratio <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;missing_features&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> rms <span style="color:#f92672">&lt;</span> rms_thresh:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;rms_below_thresh&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ratio <span style="color:#f92672">&gt;=</span> ratio_thresh:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;whistle_ratio_above_thresh&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;whistle_ratio_below_thresh&#34;</span>
+</span></span></code></pre></div></details>
+<details>
+  <summary>Makefile</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-make" data-lang="make"><span style="display:flex;"><span>PY <span style="color:#f92672">=</span> python
+</span></span><span style="display:flex;"><span>PORT <span style="color:#f92672">=</span> COM5
+</span></span><span style="display:flex;"><span>BAUD <span style="color:#f92672">=</span> <span style="color:#ae81ff">460800</span>
+</span></span><span style="display:flex;"><span>SCENES <span style="color:#f92672">=</span> world/mini_scenes.csv
+</span></span><span style="display:flex;"><span>MINI_OUT <span style="color:#f92672">=</span> world/mini_results.csv
+</span></span><span style="display:flex;"><span>RMS_THRESH <span style="color:#f92672">=</span> 0.1
+</span></span><span style="display:flex;"><span>WHISTLE_RATIO <span style="color:#f92672">=</span> 0.055
+</span></span><span style="display:flex;"><span>WHISTLE_BAND_LOW <span style="color:#f92672">=</span> <span style="color:#ae81ff">3800</span>
+</span></span><span style="display:flex;"><span>WHISTLE_BAND_HIGH <span style="color:#f92672">=</span> <span style="color:#ae81ff">4500</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">.PHONY</span><span style="color:#f92672">:</span> run run-plot mini-sweep mismatch-report help
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mini-sweep</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	PYTHONPATH<span style="color:#f92672">=</span>. <span style="color:#66d9ef">$(</span>PY<span style="color:#66d9ef">)</span> world/mini_sweep.py --csv <span style="color:#66d9ef">$(</span>SCENES<span style="color:#66d9ef">)</span> --out <span style="color:#66d9ef">$(</span>MINI_OUT<span style="color:#66d9ef">)</span> --rms-thresh <span style="color:#66d9ef">$(</span>RMS_THRESH<span style="color:#66d9ef">)</span> --whistle-ratio <span style="color:#66d9ef">$(</span>WHISTLE_RATIO<span style="color:#66d9ef">)</span> --whistle-band-low <span style="color:#66d9ef">$(</span>WHISTLE_BAND_LOW<span style="color:#66d9ef">)</span> --whistle-band-high <span style="color:#66d9ef">$(</span>WHISTLE_BAND_HIGH<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mismatch-report</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	PYTHONPATH<span style="color:#f92672">=</span>. <span style="color:#66d9ef">$(</span>PY<span style="color:#66d9ef">)</span> world/mismatch_report.py --in <span style="color:#66d9ef">$(</span>MINI_OUT<span style="color:#66d9ef">)</span> --out world/mini_mismatches.csv --rms-thresh <span style="color:#66d9ef">$(</span>RMS_THRESH<span style="color:#66d9ef">)</span> --whistle-ratio <span style="color:#66d9ef">$(</span>WHISTLE_RATIO<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div></details>
+</details>
+<details>
+  <summary>01.08</summary>
+<p>Clean log restart. Current focus is the end-to-end pipeline: serial RX -&gt; framing -&gt; decode -&gt; ring -&gt; state machine -&gt; plotting. Makefile is the entry point. MCU side provides the scenario generator and OLED state display.</p>
+<h2 id="python-scriptsproject-3">python-scripts/project<a hidden class="anchor" aria-hidden="true" href="#python-scriptsproject-3">#</a></h2>
+<ul>
+<li>Modular pipeline: transport -&gt; protocol -&gt; processing -&gt; buffer -&gt; ui</li>
+<li>main.py is the single entry, with RX + state classification + optional plot</li>
+<li>Makefile wraps runtime parameters for quick use</li>
+</ul>
+<details>
+  <summary>main.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> serial
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> transport.serial_rx <span style="color:#f92672">import</span> iter_serial_chunks_from_serial
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> protocol.framing <span style="color:#f92672">import</span> pop_frame_from_buffer, DEFAULT_PAYLOAD_BYTES
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> processing.analysis <span style="color:#f92672">import</span> decode_payload_u16
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> processing.state_machine <span style="color:#f92672">import</span> StateMachine, StateMachineConfig
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> buffer.ring <span style="color:#f92672">import</span> RingBuffer
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ui.plot <span style="color:#f92672">import</span> run_plot_loop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rx_loop</span>(stop_evt, ring, stats, ser, payload_bytes):
+</span></span><span style="display:flex;"><span>    rx_buf <span style="color:#f92672">=</span> bytearray()
+</span></span><span style="display:flex;"><span>    last_seq <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> chunk <span style="color:#f92672">in</span> iter_serial_chunks_from_serial(ser, stop_evt<span style="color:#f92672">=</span>stop_evt):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> chunk:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        rx_buf<span style="color:#f92672">.</span>extend(chunk)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> pop_frame_from_buffer(rx_buf, payload_bytes<span style="color:#f92672">=</span>payload_bytes)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> res <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            seq, payload <span style="color:#f92672">=</span> res
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> last_seq <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>                expected <span style="color:#f92672">=</span> (last_seq <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFFFFFFFF</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> seq <span style="color:#f92672">!=</span> expected:
+</span></span><span style="display:flex;"><span>                    gap <span style="color:#f92672">=</span> (seq <span style="color:#f92672">-</span> expected) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFFFFFFFF</span>
+</span></span><span style="display:flex;"><span>                    stats[<span style="color:#960050;background-color:#1e0010">”</span>dropped<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">+=</span> gap
+</span></span><span style="display:flex;"><span>            last_seq <span style="color:#f92672">=</span> seq
+</span></span><span style="display:flex;"><span>            stats[<span style="color:#960050;background-color:#1e0010">”</span>frames_ok<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            stats[<span style="color:#960050;background-color:#1e0010">”</span>last_seq<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">=</span> seq
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            x <span style="color:#f92672">=</span> decode_payload_u16(payload)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>size:
+</span></span><span style="display:flex;"><span>                ring<span style="color:#f92672">.</span>write(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    stats[<span style="color:#960050;background-color:#1e0010">”</span>stopped<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">state_loop</span>(stop_evt, ring, stats, sm, ser, tx_lock, window_sec: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>, interval_sec: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>):
+</span></span><span style="display:flex;"><span>    state_codes <span style="color:#f92672">=</span> {<span style="color:#960050;background-color:#1e0010">”</span>normal<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#ae81ff">0</span>, <span style="color:#960050;background-color:#1e0010">”</span>whistle<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#ae81ff">1</span>, <span style="color:#960050;background-color:#1e0010">”</span>impact<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#ae81ff">2</span>}
+</span></span><span style="display:flex;"><span>    last_state <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    last_code <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> stop_evt<span style="color:#f92672">.</span>is_set():
+</span></span><span style="display:flex;"><span>        snap <span style="color:#f92672">=</span> ring<span style="color:#f92672">.</span>snapshot()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> snap <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            time<span style="color:#f92672">.</span>sleep(interval_sec)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        win_len <span style="color:#f92672">=</span> int(window_sec <span style="color:#f92672">*</span> sm<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>fs)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> win_len <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> win_len <span style="color:#f92672">&gt;</span> snap<span style="color:#f92672">.</span>size:
+</span></span><span style="display:flex;"><span>            win_len <span style="color:#f92672">=</span> snap<span style="color:#f92672">.</span>size
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        features <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>update(snap[<span style="color:#f92672">-</span>win_len:])
+</span></span><span style="display:flex;"><span>        state <span style="color:#f92672">=</span> features<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>state<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>        stats[<span style="color:#960050;background-color:#1e0010">”</span>state<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">=</span> state
+</span></span><span style="display:flex;"><span>        stats[<span style="color:#960050;background-color:#1e0010">”</span>state_features<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">=</span> features
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> features <span style="color:#f92672">and</span> <span style="color:#960050;background-color:#1e0010">”</span>rms<span style="color:#960050;background-color:#1e0010">“</span> <span style="color:#f92672">in</span> features <span style="color:#f92672">and</span> <span style="color:#960050;background-color:#1e0010">”</span>whistle_ratio<span style="color:#960050;background-color:#1e0010">“</span> <span style="color:#f92672">in</span> features:
+</span></span><span style="display:flex;"><span>            stats[<span style="color:#960050;background-color:#1e0010">”</span>oled_line<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>                f<span style="color:#960050;background-color:#1e0010">”</span>{state} rms<span style="color:#f92672">=</span>{features[<span style="color:#960050;background-color:#1e0010">’</span>rms<span style="color:#960050;background-color:#1e0010">‘</span>]:<span style="color:#ae81ff">.1</span>f} <span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>                f<span style="color:#960050;background-color:#1e0010">”</span>ratio<span style="color:#f92672">=</span>{features[<span style="color:#960050;background-color:#1e0010">’</span>whistle_ratio<span style="color:#960050;background-color:#1e0010">‘</span>]:<span style="color:#ae81ff">.2</span>f}<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> state <span style="color:#f92672">and</span> state <span style="color:#f92672">!=</span> last_state:
+</span></span><span style="display:flex;"><span>            print(f<span style="color:#960050;background-color:#1e0010">”</span>State <span style="color:#f92672">-&gt;</span> {state}<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>            last_state <span style="color:#f92672">=</span> state
+</span></span><span style="display:flex;"><span>            code <span style="color:#f92672">=</span> state_codes<span style="color:#f92672">.</span>get(state)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> code <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> code <span style="color:#f92672">!=</span> last_code:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">with</span> tx_lock:
+</span></span><span style="display:flex;"><span>                    ser<span style="color:#f92672">.</span>write(bytes([code]))
+</span></span><span style="display:flex;"><span>                last_code <span style="color:#f92672">=</span> code
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(interval_sec)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>Serial RX <span style="color:#f92672">-&gt;</span> RingBuffer <span style="color:#f92672">-&gt;</span> Plot<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>port<span style="color:#960050;background-color:#1e0010">“</span>, default<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>COM5<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>baud<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>int, default<span style="color:#f92672">=</span><span style="color:#ae81ff">460800</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>fs<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>int, default<span style="color:#f92672">=</span><span style="color:#ae81ff">16000</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>seconds<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">10.0</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>payload<span style="color:#f92672">-</span>bytes<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>int, default<span style="color:#f92672">=</span>DEFAULT_PAYLOAD_BYTES)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>plot<span style="color:#960050;background-color:#1e0010">“</span>, action<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>store_true<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>state<span style="color:#f92672">-</span>window<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>state<span style="color:#f92672">-</span>interval<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>rms<span style="color:#f92672">-</span>thresh<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">100.0</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>whistle<span style="color:#f92672">-</span>band<span style="color:#f92672">-</span>low<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">3800.0</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>whistle<span style="color:#f92672">-</span>band<span style="color:#f92672">-</span>high<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">4200.0</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#960050;background-color:#1e0010">”—</span>whistle<span style="color:#f92672">-</span>ratio<span style="color:#960050;background-color:#1e0010">“</span>, type<span style="color:#f92672">=</span>float, default<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>)
+</span></span><span style="display:flex;"><span>    args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ring <span style="color:#f92672">=</span> RingBuffer(int(args<span style="color:#f92672">.</span>fs <span style="color:#f92672">*</span> args<span style="color:#f92672">.</span>seconds))
+</span></span><span style="display:flex;"><span>    stats <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>frames_ok<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>dropped<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>last_seq<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#66d9ef">None</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>t0<span style="color:#960050;background-color:#1e0010">“</span>: time<span style="color:#f92672">.</span>time(),
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>stopped<span style="color:#960050;background-color:#1e0010">“</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    stop_evt <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Event()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ser <span style="color:#f92672">=</span> serial<span style="color:#f92672">.</span>Serial(args<span style="color:#f92672">.</span>port, args<span style="color:#f92672">.</span>baud, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>    tx_lock <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Lock()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rx_thr <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(
+</span></span><span style="display:flex;"><span>        target<span style="color:#f92672">=</span>rx_loop,
+</span></span><span style="display:flex;"><span>        args<span style="color:#f92672">=</span>(stop_evt, ring, stats, ser, args<span style="color:#f92672">.</span>payload_bytes),
+</span></span><span style="display:flex;"><span>        daemon<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    rx_thr<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>    sm_cfg <span style="color:#f92672">=</span> StateMachineConfig(
+</span></span><span style="display:flex;"><span>        fs<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>fs,
+</span></span><span style="display:flex;"><span>        window_sec<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>state_window,
+</span></span><span style="display:flex;"><span>        rms_threshold<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>rms_thresh,
+</span></span><span style="display:flex;"><span>        whistle_band_low<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>whistle_band_low,
+</span></span><span style="display:flex;"><span>        whistle_band_high<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>whistle_band_high,
+</span></span><span style="display:flex;"><span>        whistle_ratio_threshold<span style="color:#f92672">=</span>args<span style="color:#f92672">.</span>whistle_ratio,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    sm <span style="color:#f92672">=</span> StateMachine(sm_cfg)
+</span></span><span style="display:flex;"><span>    sm_thr <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(
+</span></span><span style="display:flex;"><span>        target<span style="color:#f92672">=</span>state_loop,
+</span></span><span style="display:flex;"><span>        args<span style="color:#f92672">=</span>(stop_evt, ring, stats, sm, ser, tx_lock, args<span style="color:#f92672">.</span>state_window, args<span style="color:#f92672">.</span>state_interval),
+</span></span><span style="display:flex;"><span>        daemon<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    sm_thr<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>plot:
+</span></span><span style="display:flex;"><span>            run_plot_loop(ring, args<span style="color:#f92672">.</span>fs, stats<span style="color:#f92672">=</span>stats, stop_evt<span style="color:#f92672">=</span>stop_evt)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>                time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>                dt <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> stats[<span style="color:#960050;background-color:#1e0010">”</span>t0<span style="color:#960050;background-color:#1e0010">“</span>]
+</span></span><span style="display:flex;"><span>                fps <span style="color:#f92672">=</span> stats[<span style="color:#960050;background-color:#1e0010">”</span>frames_ok<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">/</span> dt <span style="color:#66d9ef">if</span> dt <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>                state <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>state<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#960050;background-color:#1e0010">”</span>unknown<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>                oled_line <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>oled_line<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>                oled_suffix <span style="color:#f92672">=</span> f<span style="color:#960050;background-color:#1e0010">”</span>  OLED: {oled_line}<span style="color:#960050;background-color:#1e0010">“</span> <span style="color:#66d9ef">if</span> oled_line <span style="color:#66d9ef">else</span> <span style="color:#960050;background-color:#1e0010">”“</span>
+</span></span><span style="display:flex;"><span>                print(
+</span></span><span style="display:flex;"><span>                    f<span style="color:#960050;background-color:#1e0010">”</span>Frames: {stats[<span style="color:#960050;background-color:#1e0010">’</span>frames_ok<span style="color:#960050;background-color:#1e0010">‘</span>]}  Dropped: {stats[<span style="color:#960050;background-color:#1e0010">’</span>dropped<span style="color:#960050;background-color:#1e0010">‘</span>]}  <span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>                    f<span style="color:#960050;background-color:#1e0010">”</span>Last seq: {stats[<span style="color:#960050;background-color:#1e0010">’</span>last_seq<span style="color:#960050;background-color:#1e0010">‘</span>]}  FPS: {fps:<span style="color:#ae81ff">.2</span>f}  State: {state}<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>                    f<span style="color:#960050;background-color:#1e0010">”</span>{oled_suffix}<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">KeyboardInterrupt</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">finally</span>:
+</span></span><span style="display:flex;"><span>        stop_evt<span style="color:#f92672">.</span>set()
+</span></span><span style="display:flex;"><span>        rx_thr<span style="color:#f92672">.</span>join(timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> sm_thr <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            sm_thr<span style="color:#f92672">.</span>join(timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        ser<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">”</span>__main__<span style="color:#960050;background-color:#1e0010">“</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div></details>
+<details>
+  <summary>Makefile</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-make" data-lang="make"><span style="display:flex;"><span>PY <span style="color:#f92672">=</span> python
+</span></span><span style="display:flex;"><span>PORT <span style="color:#f92672">=</span> COM5
+</span></span><span style="display:flex;"><span>BAUD <span style="color:#f92672">=</span> <span style="color:#ae81ff">460800</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">.PHONY</span><span style="color:#f92672">:</span> run run-plot help
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">help</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	@echo ”Targets:“
+</span></span><span style="display:flex;"><span>	@echo ”  make run       - serial RX + stats <span style="color:#f92672">(</span>no plot<span style="color:#f92672">)</span>“
+</span></span><span style="display:flex;"><span>	@echo ”  make run-plot  - serial RX + waveform + spectrogram“
+</span></span><span style="display:flex;"><span>	@echo ”  Set PORT and BAUD env vars as needed <span style="color:#f92672">(</span>default COM5/460800<span style="color:#f92672">)</span>.“
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">run</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">$(</span>PY<span style="color:#66d9ef">)</span> main.py —port <span style="color:#66d9ef">$(</span>PORT<span style="color:#66d9ef">)</span> —baud <span style="color:#66d9ef">$(</span>BAUD<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">run-plot</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">$(</span>PY<span style="color:#66d9ef">)</span> main.py —port <span style="color:#66d9ef">$(</span>PORT<span style="color:#66d9ef">)</span> —baud <span style="color:#66d9ef">$(</span>BAUD<span style="color:#66d9ef">)</span> —plot
+</span></span></code></pre></div></details>
+<details>
+  <summary>transport/serial_rx.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> serial
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> typing <span style="color:#f92672">import</span> Iterator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iter_serial_chunks_from_serial</span>(ser: serial<span style="color:#f92672">.</span>Serial, stop_evt<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>) <span style="color:#f92672">-&gt;</span> Iterator[bytes]:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> stop_evt <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> stop_evt<span style="color:#f92672">.</span>is_set():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> ser<span style="color:#f92672">.</span>in_waiting <span style="color:#f92672">or</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> ser<span style="color:#f92672">.</span>read(n)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> data:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">yield</span> data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># IO: serial byte stream input</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iter_serial_chunks</span>(port: str, baud: int, stop_evt<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>) <span style="color:#f92672">-&gt;</span> Iterator[bytes]:
+</span></span><span style="display:flex;"><span>    ser <span style="color:#f92672">=</span> serial<span style="color:#f92672">.</span>Serial(port, baud, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield from</span> iter_serial_chunks_from_serial(ser, stop_evt<span style="color:#f92672">=</span>stop_evt)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">finally</span>:
+</span></span><span style="display:flex;"><span>        ser<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div></details>
+<details>
+  <summary>protocol/framing.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># protocol/framing.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> struct
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MAGIC_U32 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xAABBCCDD</span>
+</span></span><span style="display:flex;"><span>MAGIC_BYTES <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">&lt;</span>I<span style="color:#960050;background-color:#1e0010">“</span>, MAGIC_U32)
+</span></span><span style="display:flex;"><span>HEADER_BYTES <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>  <span style="color:#75715e"># magic + seq</span>
+</span></span><span style="display:flex;"><span>DEFAULT_PAYLOAD_BYTES <span style="color:#f92672">=</span> <span style="color:#ae81ff">1024</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pop_frame_from_buffer</span>(buf: bytearray, payload_bytes: int <span style="color:#f92672">=</span> DEFAULT_PAYLOAD_BYTES):
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">”“”</span>
+</span></span><span style="display:flex;"><span>    Frame format (v4 MCU):
+</span></span><span style="display:flex;"><span>      [MAGIC <span style="color:#ae81ff">4</span>B][SEQ <span style="color:#ae81ff">4</span>B][PAYLOAD N bytes]
+</span></span><span style="display:flex;"><span>    Returns:
+</span></span><span style="display:flex;"><span>      (seq: int, payload: bytes) on success, <span style="color:#f92672">or</span> <span style="color:#66d9ef">None</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> enough data<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>    Mutates buf: consumes bytes <span style="color:#66d9ef">for</span> the returned frame, <span style="color:#f92672">or</span> discards garbage before MAGIC<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">“”“</span>
+</span></span><span style="display:flex;"><span>    idx <span style="color:#f92672">=</span> buf<span style="color:#f92672">.</span>find(MAGIC_BYTES)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> idx <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Keep the last 3 bytes to allow matching a split magic word.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len(buf) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">del</span> buf[:<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> idx <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">del</span> buf[:idx]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    frame_bytes <span style="color:#f92672">=</span> HEADER_BYTES <span style="color:#f92672">+</span> payload_bytes
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(buf) <span style="color:#f92672">&lt;</span> frame_bytes:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    seq <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>unpack_from(<span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">&lt;</span>I<span style="color:#960050;background-color:#1e0010">“</span>, buf, <span style="color:#ae81ff">4</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    payload <span style="color:#f92672">=</span> bytes(buf[<span style="color:#ae81ff">8</span> : <span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> payload_bytes])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">del</span> buf[:frame_bytes]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> seq, payload
+</span></span></code></pre></div></details>
+<details>
+  <summary>processing/analysis.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># processing/analysis.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decode_payload_u16</span>(payload: bytes) <span style="color:#f92672">-&gt;</span> np<span style="color:#f92672">.</span>ndarray:
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">”“”</span>
+</span></span><span style="display:flex;"><span>    Decode payload bytes to float32 samples<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    payload: raw bytes (length must be even)
+</span></span><span style="display:flex;"><span>    returns: <span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>D np<span style="color:#f92672">.</span>float32 array
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">“”“</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(payload) <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([], dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># bytes -&gt; uint16</span>
+</span></span><span style="display:flex;"><span>    u16 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>frombuffer(payload, dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>uint16)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> x <span style="color:#f92672">-</span> x<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x
+</span></span></code></pre></div></details>
+<details>
+  <summary>processing/features.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_features</span>(
+</span></span><span style="display:flex;"><span>    samples: np<span style="color:#f92672">.</span>ndarray,
+</span></span><span style="display:flex;"><span>    fs: int,
+</span></span><span style="display:flex;"><span>    window: np<span style="color:#f92672">.</span>ndarray,
+</span></span><span style="display:flex;"><span>    nfft: int,
+</span></span><span style="display:flex;"><span>    hop: int,
+</span></span><span style="display:flex;"><span>    band_low: float,
+</span></span><span style="display:flex;"><span>    band_high: float,
+</span></span><span style="display:flex;"><span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> samples <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> samples<span style="color:#f92672">.</span>size <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    win_len <span style="color:#f92672">=</span> len(window)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> samples<span style="color:#f92672">.</span>size <span style="color:#f92672">&lt;</span> win_len:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> samples<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32, copy<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> x <span style="color:#f92672">-</span> x<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    energy <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>mean(x <span style="color:#f92672">*</span> x))
+</span></span><span style="display:flex;"><span>    rms <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>sqrt(energy))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    n_frames <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (len(x) <span style="color:#f92672">-</span> win_len) <span style="color:#f92672">//</span> hop
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n_frames <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    freqs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>fft<span style="color:#f92672">.</span>rfftfreq(nfft, d<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> fs)
+</span></span><span style="display:flex;"><span>    band_mask <span style="color:#f92672">=</span> (freqs <span style="color:#f92672">&gt;=</span> band_low) <span style="color:#f92672">&amp;</span> (freqs <span style="color:#f92672">&lt;=</span> band_high)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    power_sum <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(freqs<span style="color:#f92672">.</span>shape, dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n_frames):
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> hop
+</span></span><span style="display:flex;"><span>        frame <span style="color:#f92672">=</span> x[start:start <span style="color:#f92672">+</span> win_len] <span style="color:#f92672">*</span> window
+</span></span><span style="display:flex;"><span>        fft <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>fft<span style="color:#f92672">.</span>rfft(frame, n<span style="color:#f92672">=</span>nfft)
+</span></span><span style="display:flex;"><span>        power_sum <span style="color:#f92672">+=</span> (np<span style="color:#f92672">.</span>abs(fft) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    power_avg <span style="color:#f92672">=</span> power_sum <span style="color:#f92672">/</span> n_frames
+</span></span><span style="display:flex;"><span>    total_power <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>sum(power_avg)) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1e-12</span>
+</span></span><span style="display:flex;"><span>    band_power <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>sum(power_avg[band_mask]))
+</span></span><span style="display:flex;"><span>    whistle_ratio <span style="color:#f92672">=</span> band_power <span style="color:#f92672">/</span> total_power
+</span></span><span style="display:flex;"><span>    peak_freq <span style="color:#f92672">=</span> float(freqs[int(np<span style="color:#f92672">.</span>argmax(power_avg))])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>rms<span style="color:#960050;background-color:#1e0010">“</span>: rms,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>energy<span style="color:#960050;background-color:#1e0010">“</span>: energy,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>total_power<span style="color:#960050;background-color:#1e0010">“</span>: total_power,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>band_power<span style="color:#960050;background-color:#1e0010">“</span>: band_power,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>whistle_ratio<span style="color:#960050;background-color:#1e0010">“</span>: whistle_ratio,
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”</span>peak_freq<span style="color:#960050;background-color:#1e0010">“</span>: peak_freq,
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div></details>
+<details>
+  <summary>processing/state_machine.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> dataclasses <span style="color:#f92672">import</span> dataclass
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> processing.features <span style="color:#f92672">import</span> compute_features
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> processing.stft <span style="color:#f92672">import</span> DEFAULT_HOP, DEFAULT_NFFT, DEFAULT_WIN
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StateMachineConfig</span>:
+</span></span><span style="display:flex;"><span>    fs: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">16000</span>
+</span></span><span style="display:flex;"><span>    window_sec: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>    rms_threshold: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">100.0</span>
+</span></span><span style="display:flex;"><span>    whistle_band_low: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">3800.0</span>
+</span></span><span style="display:flex;"><span>    whistle_band_high: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">4200.0</span>
+</span></span><span style="display:flex;"><span>    whistle_ratio_threshold: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span>
+</span></span><span style="display:flex;"><span>    nfft: int <span style="color:#f92672">=</span> DEFAULT_NFFT
+</span></span><span style="display:flex;"><span>    hop: int <span style="color:#f92672">=</span> DEFAULT_HOP
+</span></span><span style="display:flex;"><span>    win: int <span style="color:#f92672">=</span> DEFAULT_WIN
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StateMachine</span>:
+</span></span><span style="display:flex;"><span>    NORMAL <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”</span>normal<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>    WHISTLE <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”</span>whistle<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>    IMPACT <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”</span>impact<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, config: StateMachineConfig):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cfg <span style="color:#f92672">=</span> config
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_window <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>hanning(self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>win)<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>NORMAL
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(self, samples: np<span style="color:#f92672">.</span>ndarray) <span style="color:#f92672">-&gt;</span> dict:
+</span></span><span style="display:flex;"><span>        features <span style="color:#f92672">=</span> compute_features(
+</span></span><span style="display:flex;"><span>            samples<span style="color:#f92672">=</span>samples,
+</span></span><span style="display:flex;"><span>            fs<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>fs,
+</span></span><span style="display:flex;"><span>            window<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>_window,
+</span></span><span style="display:flex;"><span>            nfft<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>nfft,
+</span></span><span style="display:flex;"><span>            hop<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>hop,
+</span></span><span style="display:flex;"><span>            band_low<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>whistle_band_low,
+</span></span><span style="display:flex;"><span>            band_high<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>whistle_band_high,
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> features <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {<span style="color:#960050;background-color:#1e0010">”</span>state<span style="color:#960050;background-color:#1e0010">“</span>: self<span style="color:#f92672">.</span>state}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rms <span style="color:#f92672">=</span> features[<span style="color:#960050;background-color:#1e0010">”</span>rms<span style="color:#960050;background-color:#1e0010">“</span>]
+</span></span><span style="display:flex;"><span>        ratio <span style="color:#f92672">=</span> features[<span style="color:#960050;background-color:#1e0010">”</span>whistle_ratio<span style="color:#960050;background-color:#1e0010">“</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> rms <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>rms_threshold:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>NORMAL
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> ratio <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>cfg<span style="color:#f92672">.</span>whistle_ratio_threshold:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>WHISTLE
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>state <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>IMPACT
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        features[<span style="color:#960050;background-color:#1e0010">”</span>state<span style="color:#960050;background-color:#1e0010">“</span>] <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>state
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> features
+</span></span></code></pre></div></details>
+<details>
+  <summary>processing/stft.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># processing/stft.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DEFAULT_NFFT <span style="color:#f92672">=</span> <span style="color:#ae81ff">512</span>
+</span></span><span style="display:flex;"><span>DEFAULT_HOP <span style="color:#f92672">=</span> <span style="color:#ae81ff">160</span>
+</span></span><span style="display:flex;"><span>DEFAULT_WIN <span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">default_window</span>(win_len: int <span style="color:#f92672">=</span> DEFAULT_WIN) <span style="color:#f92672">-&gt;</span> np<span style="color:#f92672">.</span>ndarray:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>hanning(win_len)<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stft_db</span>(sig: np<span style="color:#f92672">.</span>ndarray, fs: int, window: np<span style="color:#f92672">.</span>ndarray,
+</span></span><span style="display:flex;"><span>            nfft: int <span style="color:#f92672">=</span> DEFAULT_NFFT, hop: int <span style="color:#f92672">=</span> DEFAULT_HOP,
+</span></span><span style="display:flex;"><span>            eps: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e-6</span>):
+</span></span><span style="display:flex;"><span>    sig <span style="color:#f92672">=</span> sig<span style="color:#f92672">.</span>astype(np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>    n_frames <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (len(sig) <span style="color:#f92672">-</span> len(window)) <span style="color:#f92672">//</span> hop
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> n_frames <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    n_freq <span style="color:#f92672">=</span> nfft <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    S <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>empty((n_freq, n_frames), dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n_frames):
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> hop
+</span></span><span style="display:flex;"><span>        frame <span style="color:#f92672">=</span> sig[start:start <span style="color:#f92672">+</span> len(window)] <span style="color:#f92672">*</span> window
+</span></span><span style="display:flex;"><span>        fft <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>fft<span style="color:#f92672">.</span>rfft(frame, n<span style="color:#f92672">=</span>nfft)
+</span></span><span style="display:flex;"><span>        S[:, i] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(fft)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    S_db <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span> <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>log10(S <span style="color:#f92672">+</span> eps)
+</span></span><span style="display:flex;"><span>    freqs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>fft<span style="color:#f92672">.</span>rfftfreq(nfft, d<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> fs)
+</span></span><span style="display:flex;"><span>    times <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>arange(n_frames) <span style="color:#f92672">*</span> hop) <span style="color:#f92672">/</span> fs
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> S_db, freqs, times
+</span></span></code></pre></div></details>
+<details>
+  <summary>buffer/ring.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># buffer/ring.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RingBuffer</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, size: int):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>buf <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(size, dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>size <span style="color:#f92672">=</span> size
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>wptr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>filled <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>lock <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Lock()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">write</span>(self, x: np<span style="color:#f92672">.</span>ndarray) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">”“”</span>Write <span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>D float32 array into ring (overwrites oldest when full)<span style="color:#f92672">.</span><span style="color:#960050;background-color:#1e0010">“”“</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>asarray(x, dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">=</span> len(x)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>size:
+</span></span><span style="display:flex;"><span>            x <span style="color:#f92672">=</span> x[<span style="color:#f92672">-</span>self<span style="color:#f92672">.</span>size:]
+</span></span><span style="display:flex;"><span>            n <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>size
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> self<span style="color:#f92672">.</span>lock:
+</span></span><span style="display:flex;"><span>            end <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>wptr <span style="color:#f92672">+</span> n
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> end <span style="color:#f92672">&lt;=</span> self<span style="color:#f92672">.</span>size:
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>buf[self<span style="color:#f92672">.</span>wptr:end] <span style="color:#f92672">=</span> x
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>wptr <span style="color:#f92672">=</span> end
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>wptr <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>size:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>wptr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>filled <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                k <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>size <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>wptr
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>buf[self<span style="color:#f92672">.</span>wptr:] <span style="color:#f92672">=</span> x[:k]
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>buf[:n <span style="color:#f92672">-</span> k] <span style="color:#f92672">=</span> x[k:]
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>wptr <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> k
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>filled <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">snapshot</span>(self) <span style="color:#f92672">-&gt;</span> np<span style="color:#f92672">.</span>ndarray <span style="color:#f92672">|</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> self<span style="color:#f92672">.</span>lock:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>filled:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>            w <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>wptr
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># oldest is at wptr when filled=True</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>concatenate((self<span style="color:#f92672">.</span>buf[w:], self<span style="color:#f92672">.</span>buf[:w]))<span style="color:#f92672">.</span>copy()
+</span></span></code></pre></div></details>
+<details>
+  <summary>ui/plot.py</summary>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># ui/plot.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> processing.stft <span style="color:#f92672">import</span> default_window, stft_db
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run_plot_loop</span>(ring, fs: int, stats<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, stop_evt<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, update_sec: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.15</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">”“”</span>
+</span></span><span style="display:flex;"><span>    ring: RingBuffer
+</span></span><span style="display:flex;"><span>    fs: sample rate
+</span></span><span style="display:flex;"><span>    stop_evt: threading<span style="color:#f92672">.</span>Event <span style="color:#f92672">or</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">“”“</span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ion()
+</span></span><span style="display:flex;"><span>    fig, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">7</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Waveform</span>
+</span></span><span style="display:flex;"><span>    line, <span style="color:#f92672">=</span> ax1<span style="color:#f92672">.</span>plot([], [], lw<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#f92672">.</span>set_title(<span style="color:#960050;background-color:#1e0010">”</span>Waveform (RingBuffer Snapshot)<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#f92672">.</span>set_xlabel(<span style="color:#960050;background-color:#1e0010">”</span>Time (s)<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#960050;background-color:#1e0010">”</span>Amplitude<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>    ax1<span style="color:#f92672">.</span>grid(<span style="color:#66d9ef">True</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
+</span></span><span style="display:flex;"><span>    info <span style="color:#f92672">=</span> ax1<span style="color:#f92672">.</span>text(
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">0.02</span>, <span style="color:#ae81ff">0.95</span>, <span style="color:#960050;background-color:#1e0010">”“</span>,
+</span></span><span style="display:flex;"><span>        transform<span style="color:#f92672">=</span>ax1<span style="color:#f92672">.</span>transAxes,
+</span></span><span style="display:flex;"><span>        va<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>top<span style="color:#960050;background-color:#1e0010">“</span>, ha<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>left<span style="color:#960050;background-color:#1e0010">“</span>,
+</span></span><span style="display:flex;"><span>        bbox<span style="color:#f92672">=</span>dict(boxstyle<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>round<span style="color:#960050;background-color:#1e0010">“</span>, facecolor<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>black<span style="color:#960050;background-color:#1e0010">“</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>        color<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>white<span style="color:#960050;background-color:#1e0010">“</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Spectrogram</span>
+</span></span><span style="display:flex;"><span>    img <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    window <span style="color:#f92672">=</span> default_window()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    last_draw <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> stop_evt <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> stop_evt<span style="color:#f92672">.</span>is_set():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        snap <span style="color:#f92672">=</span> ring<span style="color:#f92672">.</span>snapshot()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> snap <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>pause(<span style="color:#ae81ff">0.01</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> last_draw <span style="color:#f92672">&lt;</span> update_sec:
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>pause(<span style="color:#ae81ff">0.01</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>        last_draw <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(len(snap)) <span style="color:#f92672">/</span> fs
+</span></span><span style="display:flex;"><span>        line<span style="color:#f92672">.</span>set_data(t, snap)
+</span></span><span style="display:flex;"><span>        ax1<span style="color:#f92672">.</span>set_xlim(t[<span style="color:#ae81ff">0</span>], t[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>        ymin, ymax <span style="color:#f92672">=</span> float(np<span style="color:#f92672">.</span>min(snap)), float(np<span style="color:#f92672">.</span>max(snap))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ymin <span style="color:#f92672">==</span> ymax:
+</span></span><span style="display:flex;"><span>            ymin <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>            ymax <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>        ax1<span style="color:#f92672">.</span>set_ylim(ymin <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.1</span>, ymax <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> stats <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            dt <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>t0<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#ae81ff">0.0</span>)
+</span></span><span style="display:flex;"><span>            fps <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>frames_ok<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">/</span> dt <span style="color:#66d9ef">if</span> dt <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>            dropped <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>dropped<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            state <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>state<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#960050;background-color:#1e0010">”</span>unknown<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>            features <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>state_features<span style="color:#960050;background-color:#1e0010">“</span>, {})
+</span></span><span style="display:flex;"><span>            rms <span style="color:#f92672">=</span> features<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>rms<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>            ratio <span style="color:#f92672">=</span> features<span style="color:#f92672">.</span>get(<span style="color:#960050;background-color:#1e0010">”</span>whistle_ratio<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>            extra <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">”“</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> rms <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> ratio <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>                extra <span style="color:#f92672">=</span> f<span style="color:#960050;background-color:#1e0010">”</span>\nRMS: {rms:<span style="color:#ae81ff">.1</span>f}  Ratio: {ratio:<span style="color:#ae81ff">.2</span>f}<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>            info<span style="color:#f92672">.</span>set_text(
+</span></span><span style="display:flex;"><span>                f<span style="color:#960050;background-color:#1e0010">”</span>FPS: {fps:<span style="color:#ae81ff">.2</span>f}\nDropped: {dropped}\nState: {state}{extra}<span style="color:#960050;background-color:#1e0010">“</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        S_db, freqs, times_arr <span style="color:#f92672">=</span> stft_db(snap, fs, window)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> S_db <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            vmin <span style="color:#f92672">=</span> float(S_db<span style="color:#f92672">.</span>max() <span style="color:#f92672">-</span> <span style="color:#ae81ff">80.0</span>)
+</span></span><span style="display:flex;"><span>            vmax <span style="color:#f92672">=</span> float(S_db<span style="color:#f92672">.</span>max())
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> img <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>                img <span style="color:#f92672">=</span> ax2<span style="color:#f92672">.</span>imshow(
+</span></span><span style="display:flex;"><span>                    S_db,
+</span></span><span style="display:flex;"><span>                    origin<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>lower<span style="color:#960050;background-color:#1e0010">“</span>,
+</span></span><span style="display:flex;"><span>                    aspect<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>auto<span style="color:#960050;background-color:#1e0010">“</span>,
+</span></span><span style="display:flex;"><span>                    extent<span style="color:#f92672">=</span>[times_arr[<span style="color:#ae81ff">0</span>], times_arr[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], freqs[<span style="color:#ae81ff">0</span>], freqs[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]],
+</span></span><span style="display:flex;"><span>                    cmap<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span>magma<span style="color:#960050;background-color:#1e0010">“</span>,
+</span></span><span style="display:flex;"><span>                    vmin<span style="color:#f92672">=</span>vmin,
+</span></span><span style="display:flex;"><span>                    vmax<span style="color:#f92672">=</span>vmax,
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>                fig<span style="color:#f92672">.</span>colorbar(img, ax<span style="color:#f92672">=</span>ax2, format<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#f92672">%</span><span style="color:#ae81ff">.0</span>f dB<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>                ax2<span style="color:#f92672">.</span>set_title(<span style="color:#960050;background-color:#1e0010">”</span>Spectrogram (dB)<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>                ax2<span style="color:#f92672">.</span>set_xlabel(<span style="color:#960050;background-color:#1e0010">”</span>Time (s)<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>                ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#960050;background-color:#1e0010">”</span>Frequency (Hz)<span style="color:#960050;background-color:#1e0010">“</span>)
+</span></span><span style="display:flex;"><span>                ax2<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, fs <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                img<span style="color:#f92672">.</span>set_data(S_db)
+</span></span><span style="display:flex;"><span>                img<span style="color:#f92672">.</span>set_extent([times_arr[<span style="color:#ae81ff">0</span>], times_arr[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], freqs[<span style="color:#ae81ff">0</span>], freqs[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]])
+</span></span><span style="display:flex;"><span>                img<span style="color:#f92672">.</span>set_clim(vmin<span style="color:#f92672">=</span>vmin, vmax<span style="color:#f92672">=</span>vmax)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>pause(<span style="color:#ae81ff">0.001</span>)
+</span></span></code></pre></div></details>
+<h2 id="mainc">main.c<a hidden class="anchor" aria-hidden="true" href="#mainc">#</a></h2>
+<ul>
+<li>v4 frame format preserved: MAGIC(4B) + SEQ(4B) + PAYLOAD(2048B)</li>
+<li>Scenario synthesis: multi-tone background + 4 kHz whistle + noise-burst fall event</li>
+<li>10 s loop with randomized event window (xorshift + envelope)</li>
+<li>OLED status display via SSD1306 (I2C), UART 1-byte state updates</li>
+</ul>
+<details>
+  <summary>main.c (scenario generation)</summary>
+<p>This block builds the synthetic signal: background mix + whistle + fall event,
+then maps the mixed Q15 signal into 12-bit ADC codes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define FS                 16000u
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define SAMPLES_PER_FRAME  1024u
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define PAYLOAD_BYTES      (SAMPLES_PER_FRAME * 2u)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define FRAME_BYTES        (4u + 4u + PAYLOAD_BYTES)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">uint32_t</span> MAGIC <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xAABBCCDD</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> g_seq <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint8_t</span>  tx_frame[FRAME_BYTES];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint16_t</span> tx_payload[SAMPLES_PER_FRAME];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">uint8_t</span> g_state_code <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint8_t</span> rx_state_byte <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Scenario parameters */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define TOTAL_SEC          10u
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define TOTAL_SAMPLES      (FS * TOTAL_SEC)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Background: multi-tone mix */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> phase_bg1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> phase_bg2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> phase_bg3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Whistle */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> phase_wh  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Fall event */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> g_global_sample_idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;  <span style="color:#75715e">// 0..TOTAL_SAMPLES-1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> fall_start_sample <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;    <span style="color:#75715e">// event start (global sample index)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> fall_len_samples  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;    <span style="color:#75715e">// event length (samples)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 256-point sine LUT, Q15 (-32767..32767)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int16_t</span> sin_lut[<span style="color:#ae81ff">256</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint8_t</span> lut_inited <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init_sin_lut</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (lut_inited) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  lut_inited <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">256</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0f</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3.1415926f</span> <span style="color:#f92672">*</span> (<span style="color:#66d9ef">float</span>)i <span style="color:#f92672">/</span> <span style="color:#ae81ff">256.0f</span>;
+</span></span><span style="display:flex;"><span>    sin_lut[i] <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int16_t</span>)(<span style="color:#ae81ff">32767.0f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">sinf</span>(a));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">uint16_t</span> <span style="color:#a6e22e">clamp12</span>(<span style="color:#66d9ef">int32_t</span> v) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (v <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (v <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">4095</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">4095</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">uint16_t</span>)v;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int16_t</span> <span style="color:#a6e22e">sin_q15_from_phase</span>(<span style="color:#66d9ef">uint32_t</span> phase) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> idx <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint8_t</span>)(phase <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">24</span>);  <span style="color:#75715e">// top 8 bits
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> sin_lut[idx];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Simple xorshift RNG for event timing/noise
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> rng_state <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x12345678u</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xorshift32</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> x <span style="color:#f92672">=</span> rng_state;
+</span></span><span style="display:flex;"><span>  x <span style="color:#f92672">^=</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">13</span>;
+</span></span><span style="display:flex;"><span>  x <span style="color:#f92672">^=</span> x <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">17</span>;
+</span></span><span style="display:flex;"><span>  x <span style="color:#f92672">^=</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> rng_state <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">float</span> <span style="color:#a6e22e">rand01</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">xorshift32</span>() <span style="color:#f92672">/</span> <span style="color:#ae81ff">4294967296.0f</span>); <span style="color:#75715e">// 0..1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reset_fall_event_window</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span> t0_sec <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0f</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.2f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">rand01</span>();   <span style="color:#75715e">// 5.0~5.2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">float</span> dur_sec <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2f</span>;                    <span style="color:#75715e">// 0.2s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  fall_start_sample <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint32_t</span>)(t0_sec <span style="color:#f92672">*</span> FS);
+</span></span><span style="display:flex;"><span>  fall_len_samples  <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint32_t</span>)(dur_sec <span style="color:#f92672">*</span> FS);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define PHASE_STEP_FROM_FREQ(f)  ((uint32_t)(((double)(f) * 4294967296.0) / (double)FS))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">scenario_init</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">init_sin_lut</span>();
+</span></span><span style="display:flex;"><span>  rng_state <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x12345678u</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  phase_bg1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  phase_bg2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  phase_bg3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  phase_wh  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  g_global_sample_idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reset_fall_event_window</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int16_t</span> <span style="color:#a6e22e">gen_bg_q15</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int32_t</span> A_bg1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int32_t</span> A_bg2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">300</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int32_t</span> A_bg3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">uint32_t</span> STEP_BG1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">PHASE_STEP_FROM_FREQ</span>(<span style="color:#ae81ff">200.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">uint32_t</span> STEP_BG2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">PHASE_STEP_FROM_FREQ</span>(<span style="color:#ae81ff">500.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">uint32_t</span> STEP_BG3 <span style="color:#f92672">=</span> <span style="color:#a6e22e">PHASE_STEP_FROM_FREQ</span>(<span style="color:#ae81ff">800.0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int16_t</span> s1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin_q15_from_phase</span>(phase_bg1);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int16_t</span> s2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin_q15_from_phase</span>(phase_bg2);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int16_t</span> s3 <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin_q15_from_phase</span>(phase_bg3);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> acc <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      (A_bg1 <span style="color:#f92672">*</span> s1) <span style="color:#f92672">/</span> <span style="color:#ae81ff">32768</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      (A_bg2 <span style="color:#f92672">*</span> s2) <span style="color:#f92672">/</span> <span style="color:#ae81ff">32768</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      (A_bg3 <span style="color:#f92672">*</span> s3) <span style="color:#f92672">/</span> <span style="color:#ae81ff">32768</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  phase_bg1 <span style="color:#f92672">+=</span> STEP_BG1;
+</span></span><span style="display:flex;"><span>  phase_bg2 <span style="color:#f92672">+=</span> STEP_BG2;
+</span></span><span style="display:flex;"><span>  phase_bg3 <span style="color:#f92672">+=</span> STEP_BG3;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (acc <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">32767</span>) acc <span style="color:#f92672">=</span> <span style="color:#ae81ff">32767</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (acc <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">32767</span>) acc <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">32767</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int16_t</span>)acc;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int16_t</span> <span style="color:#a6e22e">gen_whistle_q15</span>(<span style="color:#66d9ef">uint32_t</span> global_n) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> start <span style="color:#f92672">=</span> <span style="color:#ae81ff">3u</span> <span style="color:#f92672">*</span> FS;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> end   <span style="color:#f92672">=</span> <span style="color:#ae81ff">4u</span> <span style="color:#f92672">*</span> FS;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (global_n <span style="color:#f92672">&lt;</span> start <span style="color:#f92672">||</span> global_n <span style="color:#f92672">&gt;=</span> end) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">uint32_t</span> STEP_WH <span style="color:#f92672">=</span> <span style="color:#a6e22e">PHASE_STEP_FROM_FREQ</span>(<span style="color:#ae81ff">4000.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int32_t</span> A_wh <span style="color:#f92672">=</span> <span style="color:#ae81ff">8000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int16_t</span> s <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin_q15_from_phase</span>(phase_wh);
+</span></span><span style="display:flex;"><span>  phase_wh <span style="color:#f92672">+=</span> STEP_WH;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> v <span style="color:#f92672">=</span> (A_wh <span style="color:#f92672">*</span> s) <span style="color:#f92672">/</span> <span style="color:#ae81ff">32768</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (v <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">32767</span>) v <span style="color:#f92672">=</span> <span style="color:#ae81ff">32767</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (v <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">32767</span>) v <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">32767</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int16_t</span>)v;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int16_t</span> <span style="color:#a6e22e">gen_fall_q15</span>(<span style="color:#66d9ef">uint32_t</span> global_n) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (fall_len_samples <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> start <span style="color:#f92672">=</span> fall_start_sample;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> end   <span style="color:#f92672">=</span> fall_start_sample <span style="color:#f92672">+</span> fall_len_samples;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (global_n <span style="color:#f92672">&lt;</span> start <span style="color:#f92672">||</span> global_n <span style="color:#f92672">&gt;=</span> end) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> k <span style="color:#f92672">=</span> global_n <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span> pos <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)k <span style="color:#f92672">/</span> (<span style="color:#66d9ef">float</span>)fall_len_samples; <span style="color:#75715e">// 0..1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span> env <span style="color:#f92672">=</span> (pos <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5f</span>) <span style="color:#f92672">?</span> (pos <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.0f</span>) <span style="color:#f92672">:</span> ((<span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">-</span> pos) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.0f</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> A_fall <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> noise <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int32_t</span>)((<span style="color:#66d9ef">int32_t</span>)<span style="color:#a6e22e">xorshift32</span>() <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFFFF</span>);
+</span></span><span style="display:flex;"><span>  noise <span style="color:#f92672">=</span> (noise <span style="color:#f92672">-</span> <span style="color:#ae81ff">32768</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFFFF</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span> nf <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)noise <span style="color:#f92672">/</span> <span style="color:#ae81ff">32768.0f</span>; <span style="color:#75715e">// -1..1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span> vf <span style="color:#f92672">=</span> nf <span style="color:#f92672">*</span> env <span style="color:#f92672">*</span> A_fall;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (vf <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.999f</span>) vf <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.999f</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (vf <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.999f</span>) vf <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.999f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int32_t</span> q15 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int32_t</span>)(vf <span style="color:#f92672">*</span> <span style="color:#ae81ff">32767.0f</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int16_t</span>)q15;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fill_payload_scenario</span>(<span style="color:#66d9ef">uint16_t</span> <span style="color:#f92672">*</span>dst, <span style="color:#66d9ef">uint32_t</span> n) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint32_t</span> global_n <span style="color:#f92672">=</span> g_global_sample_idx;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int16_t</span> bg_q15 <span style="color:#f92672">=</span> <span style="color:#a6e22e">gen_bg_q15</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int16_t</span> wh_q15 <span style="color:#f92672">=</span> <span style="color:#a6e22e">gen_whistle_q15</span>(global_n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int16_t</span> fall_q15 <span style="color:#f92672">=</span> <span style="color:#a6e22e">gen_fall_q15</span>(global_n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> acc_q15 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int32_t</span>)bg_q15 <span style="color:#f92672">+</span> wh_q15 <span style="color:#f92672">+</span> fall_q15;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (acc_q15 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">32767</span>) acc_q15 <span style="color:#f92672">=</span> <span style="color:#ae81ff">32767</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (acc_q15 <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">32767</span>) acc_q15 <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">32767</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int32_t</span> Amax <span style="color:#f92672">=</span> <span style="color:#ae81ff">1500</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int32_t</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">2048</span> <span style="color:#f92672">+</span> (Amax <span style="color:#f92672">*</span> acc_q15) <span style="color:#f92672">/</span> <span style="color:#ae81ff">32768</span>;
+</span></span><span style="display:flex;"><span>    dst[i] <span style="color:#f92672">=</span> <span style="color:#a6e22e">clamp12</span>(v);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    g_global_sample_idx<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (g_global_sample_idx <span style="color:#f92672">&gt;=</span> TOTAL_SAMPLES) {
+</span></span><span style="display:flex;"><span>      g_global_sample_idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">reset_fall_event_window</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></details>
+<details>
+  <summary>main.c (OLED + UART RX)</summary>
+<p>This block updates the OLED display and listens for 1-byte state updates over UART.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">oled_show_state_centered</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>state)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> width <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint8_t</span>)(<span style="color:#ae81ff">8</span> <span style="color:#f92672">+</span> (<span style="color:#66d9ef">uint8_t</span>)(<span style="color:#a6e22e">strlen</span>(state) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1U</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">9U</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> x <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint8_t</span>)((<span style="color:#ae81ff">128U</span> <span style="color:#f92672">-</span> width) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2U</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SSD1306_Clear</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_UART_Receive_IT</span>(<span style="color:#f92672">&amp;</span>huart1, <span style="color:#f92672">&amp;</span>rx_state_byte, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SSD1306_DrawString</span>(x, <span style="color:#ae81ff">3</span>, state);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">oled_update_state</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint32_t</span> last_tick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">uint8_t</span> last_code <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xFF</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>states[] <span style="color:#f92672">=</span> {<span style="color:#960050;background-color:#1e0010">”</span>NORMAL<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#960050;background-color:#1e0010">”</span>WHISTLE<span style="color:#960050;background-color:#1e0010">“</span>, <span style="color:#960050;background-color:#1e0010">”</span>IMPACT<span style="color:#960050;background-color:#1e0010">“</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint32_t</span> now <span style="color:#f92672">=</span> <span style="color:#a6e22e">HAL_GetTick</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (g_state_code <span style="color:#f92672">==</span> last_code <span style="color:#f92672">&amp;&amp;</span> (now <span style="color:#f92672">-</span> last_tick) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">200U</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  last_tick <span style="color:#f92672">=</span> now;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (g_state_code <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">oled_show_state_centered</span>(states[g_state_code]);
+</span></span><span style="display:flex;"><span>    last_code <span style="color:#f92672">=</span> g_state_code;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">HAL_UART_RxCpltCallback</span>(UART_HandleTypeDef <span style="color:#f92672">*</span>huart)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (huart<span style="color:#f92672">-&gt;</span>Instance <span style="color:#f92672">==</span> USART1)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (rx_state_byte <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>      g_state_code <span style="color:#f92672">=</span> rx_state_byte;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HAL_UART_Receive_IT</span>(<span style="color:#f92672">&amp;</span>huart1, <span style="color:#f92672">&amp;</span>rx_state_byte, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></details>
+<details>
+  <summary>main.c (init + main loop)</summary>
+<p>This block initializes peripherals, sends framed payloads over UART, and keeps a 64 ms cadence.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>  <span style="color:#a6e22e">MX_GPIO_Init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MX_DMA_Init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MX_USART1_UART_Init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MX_ADC1_Init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MX_I2C1_Init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* USER CODE BEGIN 2 */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">memcpy</span>(tx_frame <span style="color:#f92672">+</span> <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>MAGIC, <span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">init_sin_lut</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scenario_init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SSD1306_Init</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SSD1306_Clear</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* USER CODE END 2 */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint32_t</span> t0 <span style="color:#f92672">=</span> <span style="color:#a6e22e">HAL_GetTick</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint32_t</span> seq <span style="color:#f92672">=</span> g_seq<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">memcpy</span>(tx_frame <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>, <span style="color:#f92672">&amp;</span>seq, <span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fill_payload_scenario</span>(tx_payload, SAMPLES_PER_FRAME);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">memcpy</span>(tx_frame <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>, tx_payload, PAYLOAD_BYTES);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HAL_UART_Transmit</span>(<span style="color:#f92672">&amp;</span>huart1, tx_frame, FRAME_BYTES, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">oled_update_state</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint32_t</span> elapsed <span style="color:#f92672">=</span> <span style="color:#a6e22e">HAL_GetTick</span>() <span style="color:#f92672">-</span> t0;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (elapsed <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">64</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">HAL_Delay</span>(<span style="color:#ae81ff">64</span> <span style="color:#f92672">-</span> elapsed);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div></details>
+</details>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/stm32/">STM32</a></li>
+      <li><a href="http://localhost:1313/tags/embedded-c/">Embedded C</a></li>
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+      <li><a href="http://localhost:1313/tags/devlog/">DevLog</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on x"
+            href="https://x.com/intent/tweet/?text=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f&amp;hashtags=STM32%2cEmbeddedC%2cPython%2cDevLog">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f&amp;title=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log&amp;summary=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f&title=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on whatsapp"
+            href="https://api.whatsapp.com/send?text=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on telegram"
+            href="https://telegram.me/share/url?text=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share [Artifact] Sonic Lab Demo: Development Log on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=%5bArtifact%5d%20Sonic%20Lab%20Demo%3a%20Development%20Log&u=http%3a%2f%2flocalhost%3a1313%2fposts%2f%25E7%25A5%259E%25E5%2599%25A8-%25E5%25A3%25B0%25E6%25B3%25A2%25E6%25A3%2580%25E6%25B5%258B%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">r1skers&#39; Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+
+const config = {
+    startOnLoad:true,
+    theme: 'forest',
+    themeVariables: {
+        lineColor: "#fafafa"    
+    },
+    flowchart: {
+        useMaxWidth:false,
+        htmlLabels:true
+        }
+};
+mermaid.initialize(config);
+
+
+window.onload = () => {
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+}
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

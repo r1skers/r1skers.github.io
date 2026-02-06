@@ -1,4 +1,4 @@
----
+﻿---
 date: '2026-02-06T22:00:00+09:00'
 draft: false
 title: 'Mathematics Part 1: Complex Analysis'
@@ -15,7 +15,7 @@ One of the cleanest answers is that it turns difficult real-variable integrals i
 Consider the real integral:
 
 $$
-\int_{0}^{\infty} \frac{1}{1+x^6}\,dx
+\int_{0}^{\infty} \frac{1}{1+x^6}dx
 $$
 
 On the real line this can be done, but it is messy.  
@@ -65,7 +65,7 @@ This is the geometric meaning of complex multiplication: **scale, then rotate**.
 Let
 
 $$
-z = 1+i = \sqrt{2}\,e^{i\pi/4}
+z = 1+i = \sqrt{2}e^{i\pi/4}
 $$
 
 Then
@@ -76,6 +76,37 @@ $$
 
 Interpretation: scale by $\sqrt{2}$ twice (so by $2$), and rotate by $45^\circ$ twice (so by $90^\circ$).
 
+<details>
+  <summary>Rectangular Form (x+iy)</summary>
+
+  Express $\dfrac{\sqrt{2}+i}{\sqrt{2}-i}$ in $x+iy$ form.
+
+  Multiply by the conjugate:
+  $$
+  \frac{\sqrt{2}+i}{\sqrt{2}-i}\cdot\frac{\sqrt{2}+i}{\sqrt{2}+i}
+  =\frac{(\sqrt{2}+i)^2}{2+1}
+  =\frac{1+2\sqrt{2}\,i}{3}
+  $$
+
+  So $x=\dfrac{1}{3}$ and $y=\dfrac{2\sqrt{2}}{3}$.
+</details>
+
+<details>
+  <summary>Polar Form</summary>
+
+  Express $\sqrt{3}+3i$ in polar form.
+
+  $$
+  r=\sqrt{(\sqrt{3})^2+3^2}=\sqrt{12}=2\sqrt{3},\quad
+  \theta=\arctan\frac{3}{\sqrt{3}}=\arctan(\sqrt{3})=\frac{\pi}{3}
+  $$
+
+  So
+  $$
+  \sqrt{3}+3i = 2\sqrt{3}\,e^{i\pi/3}.
+  $$
+</details>
+
 ---
 
 ## 2. Analyticity and the Cauchy-Riemann Equations
@@ -83,7 +114,7 @@ Interpretation: scale by $\sqrt{2}$ twice (so by $2$), and rotate by $45^\circ$ 
 Let
 
 $$
-f(z) = u(x,y) + i\,v(x,y), \quad z = x + iy
+f(z) = u(x,y) + iv(x,y), \quad z = x + iy
 $$
 
 We say $f$ is complex differentiable at $z_0$ if the limit
@@ -130,6 +161,74 @@ $$
 
 Thus $u_x=v_y$ and $u_y=-v_x$, so $f$ is analytic everywhere.
 
+<details>
+  <summary>u(x,y) + i v(x,y) Form</summary>
+
+  Express $f(z)=\dfrac{1}{z-1}$ as $u(x,y)+iv(x,y)$ with $z=x+iy$.
+
+  $$
+  f(z)=\frac{1}{(x-1)+iy}\cdot\frac{(x-1)-iy}{(x-1)-iy}
+  =\frac{(x-1)-iy}{(x-1)^2+y^2}
+  $$
+
+  So
+  $$
+  u(x,y)=\frac{x-1}{(x-1)^2+y^2},\quad
+  v(x,y)=-\frac{y}{(x-1)^2+y^2}.
+  $$
+</details>
+
+<details>
+  <summary>CR Check + Derivative</summary>
+
+  Let $f(z)=e^{2z}$. With $z=x+iy$,
+  $$
+  f(z)=e^{2x}(\cos 2y + i\sin 2y)
+  $$
+  so
+  $$
+  u=e^{2x}\cos 2y,\quad v=e^{2x}\sin 2y.
+  $$
+
+  $$
+  u_x=2e^{2x}\cos 2y,\quad v_y=2e^{2x}\cos 2y
+  $$
+  $$
+  u_y=-2e^{2x}\sin 2y,\quad v_x=2e^{2x}\sin 2y
+  $$
+
+  Hence CR holds, and
+  $$
+  f'(z)=2e^{2z}.
+  $$
+</details>
+
+<details>
+  <summary>Entire Function Check</summary>
+
+  Let
+  $$
+  f(z)=\cosh x \cos y + i\sinh x \sin y,\quad z=x+iy.
+  $$
+
+  Recall
+  $$
+  \cosh(x+iy)=\cosh x\cos y + i\sinh x\sin y.
+  $$
+
+  So $f(z)=\cosh z$, which is analytic on all of $\mathbb{C}$.
+</details>
+
+<details>
+  <summary>Analytic Region</summary>
+
+  For
+  $$
+  f(z)=\frac{1}{1-z},
+  $$
+  the only singularity is at $z=1$, so $f$ is analytic on $\mathbb{C}\setminus\{1\}$.
+</details>
+
 ---
 
 ## 3. Contours and Complex Integrals (Definition Only)
@@ -144,7 +243,7 @@ $$
 The complex line integral is defined by
 
 $$
-\int_C f(z)\,dz = \int_a^b f(z(t))\,z'(t)\,dt
+\int_C f(z)dz = \int_a^b f(z(t))z'(t)dt
 $$
 
 This reduces the complex integral to an ordinary real integral after substitution.
@@ -163,7 +262,7 @@ That is the gateway to computing real integrals and series quickly.
 If $f$ is analytic on and inside a closed contour $C$, then
 
 $$
-\oint_C f(z)\,dz = 0
+\oint_C f(z)dz = 0
 $$
 
 **Meaning**: for analytic functions, closed-path integrals vanish.  
@@ -176,7 +275,7 @@ This is the key structural reason complex analysis is so powerful.
 If $f$ is analytic on and inside $C$, and $z_0$ is inside $C$, then
 
 $$
-f(z_0) = \frac{1}{2\pi i}\oint_C \frac{f(z)}{z-z_0}\,dz
+f(z_0) = \frac{1}{2\pi i}\oint_C \frac{f(z)}{z-z_0}dz
 $$
 
 **Meaning**: values inside a region are determined completely by values on the boundary.  
@@ -187,10 +286,24 @@ This is the bridge from “integral equals 0” to “integral gives a value.”
 For any integer $n\ge 0$,
 
 $$
-f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}\,dz
+f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C \frac{f(z)}{(z-z_0)^{n+1}}dz
 $$
 
 So dividing by higher powers of $(z-z_0)$ makes the integral “pick out” higher derivatives at $z_0$.
+
+<details>
+  <summary>CIF (Derivative) Example</summary>
+
+  Compute
+  $$
+  \oint_{|z|=2}\frac{e^z}{(z-1)^2}dz.
+  $$
+
+  Let $f(z)=e^z$ and $z_0=1$. By the $n=1$ case,
+  $$
+  \oint_{|z|=2}\frac{e^z}{(z-1)^2}dz = 2\pi i\,f'(1)=2\pi ie.
+  $$
+</details>
 
 ### Sketch of derivation (hole argument)
 
@@ -199,13 +312,13 @@ $g$ is analytic everywhere inside $C$ **except** at $z_0$.
 Remove a tiny circle $C_\varepsilon$ around $z_0$; on the annulus, $g$ is analytic, so
 
 $$
-\oint_C g(z)\,dz=\oint_{C_\varepsilon} g(z)\,dz
+\oint_C g(z)dz=\oint_{C_\varepsilon} g(z)dz
 $$
 
 On the small circle, $f(z)\approx f(z_0)$, so
 
 $$
-\oint_{C_\varepsilon}\frac{f(z)}{z-z_0}\,dz \to f(z_0)\oint_{C_\varepsilon}\frac{1}{z-z_0}\,dz = 2\pi i\,f(z_0)
+\oint_{C_\varepsilon}\frac{f(z)}{z-z_0}dz \to f(z_0)\oint_{C_\varepsilon}\frac{1}{z-z_0}dz = 2\pi if(z_0)
 $$
 
 Rearranging gives the formula.
@@ -254,6 +367,31 @@ It converges on an annulus: $r<|z-z_0|<R$, bounded by the nearest singularities.
 
 The principal part is exactly what encodes the type of singularity.
 
+<details>
+  <summary>Laurent Expansion</summary>
+
+  Expand around $z_0=1$ (with $0<|z-1|<1$):
+  $$
+  \frac{1}{(z-1)(z-2)}.
+  $$
+
+  Partial fractions:
+  $$
+  \frac{1}{(z-1)(z-2)}=\frac{1}{z-2}-\frac{1}{z-1}.
+  $$
+
+  For $|z-1|<1$, write
+  $$
+  \frac{1}{z-2}=\frac{1}{(z-1)-1}=-\frac{1}{1-(z-1)}
+  =-\sum_{n=0}^{\infty}(z-1)^n.
+  $$
+
+  So the Laurent series is
+  $$
+  -\sum_{n=0}^{\infty}(z-1)^n-\frac{1}{z-1}.
+  $$
+</details>
+
 ---
 
 ## 8. Isolated Singularities (Classification)
@@ -271,6 +409,22 @@ Assume $f$ has a Laurent series around $z_0$.
 
 This classification is purely determined by the principal part of the Laurent series.
 
+<details>
+  <summary>Singularity Type</summary>
+
+  Classify the singularity of
+  $$
+  f(z)=\frac{z}{e^z-1}\quad \text{at } z=0.
+  $$
+
+  Using $e^z-1=z+\frac{z^2}{2}+\cdots$, we get
+  $$
+  \frac{z}{e^z-1}=\frac{1}{1+\frac{z}{2}+\cdots}=1-\frac{z}{2}+\cdots
+  $$
+
+  So the principal part is zero. The singularity at $z=0$ is **removable**.
+</details>
+
 ---
 
 ## 9. Residues and Residue Theorem
@@ -284,7 +438,7 @@ $$
 So
 
 $$
-\operatorname{Res}(f;z_0)=a_{-1}
+\operatorname{Res}(f,z_0)=a_{-1}
 $$
 
 ### Residue Theorem
@@ -292,7 +446,7 @@ $$
 If $f$ is analytic on and inside $C$ except for isolated singularities $z_1,\dots,z_n$ inside $C$, then
 
 $$
-\oint_C f(z)\,dz = 2\pi i \sum_{k=1}^n \operatorname{Res}(f;z_k)
+\oint_C f(z)\,dz = 2\pi i \sum_{k=1}^n \operatorname{Res}(f,z_k)
 $$
 
 This is the main computational engine for contour integrals.
@@ -301,15 +455,64 @@ This is the main computational engine for contour integrals.
 
 - Simple pole:
   $$
-  \operatorname{Res}(f;z_0)=\lim_{z\to z_0}(z-z_0)f(z)
+  \operatorname{Res}(f,z_0)=\lim_{z\to z_0}(z-z_0)f(z)
   $$
 
 - If $f(z)=\dfrac{g(z)}{h(z)}$, $h(z_0)=0$, $h'(z_0)\neq 0$:
   $$
-  \operatorname{Res}(f;z_0)=\frac{g(z_0)}{h'(z_0)}
+  \operatorname{Res}(f,z_0)=\frac{g(z_0)}{h'(z_0)}
   $$
 
 - Pole of order $m$:
   $$
-  \operatorname{Res}(f;z_0)=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}\big[(z-z_0)^m f(z)\big]
+  \operatorname{Res}(f,z_0)=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{d^{m-1}}{dz^{m-1}}\big[(z-z_0)^m f(z)\big]
   $$
+
+<details>
+  <summary>Contour Integral (Residue)</summary>
+
+  Compute
+  $$
+  \oint_{|z|=1}\frac{z^2+4}{z^3}\,dz.
+  $$
+
+  Expand:
+  $$
+  \frac{z^2+4}{z^3}=\frac{1}{z}+\frac{4}{z^3}.
+  $$
+
+  The residue at $z=0$ is the coefficient of $1/z$, so $\operatorname{Res}(f,0)=1$.  
+  Hence
+  $$
+  \oint_{|z|=1}\frac{z^2+4}{z^3}\,dz = 2\pi i.
+  $$
+</details>
+
+<details>
+  <summary>Real Integral (Residue)</summary>
+
+  Evaluate (with $a>0$):
+  $$
+  \int_{-\infty}^{\infty}\frac{1}{(x^2+a^2)^2}\,dx.
+  $$
+
+  Use the upper half-plane contour for
+  $$
+  f(z)=\frac{1}{(z^2+a^2)^2}=\frac{1}{(z-ia)^2(z+ia)^2}.
+  $$
+
+  There is a double pole at $z=ia$. The residue is
+  $$
+  \operatorname{Res}(f,ia)
+  =\left.\frac{d}{dz}\frac{1}{(z+ia)^2}\right|_{z=ia}
+  =\frac{1}{4 i a^3}.
+  $$
+
+  Therefore
+  $$
+  \int_{-\infty}^{\infty}\frac{1}{(x^2+a^2)^2}\dx
+  =2\pi i\cdot \frac{1}{4 i a^3}
+  =\frac{\pi}{2a^3}.
+  $$
+</details>
+

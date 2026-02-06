@@ -6,8 +6,36 @@
     <description>Recent content in Tags on r1skers&#39; Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 22:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complex Analysis</title>
+      <link>http://localhost:1313/tags/complex-analysis/</link>
+      <pubDate>Fri, 06 Feb 2026 22:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/complex-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Contour Integrals</title>
+      <link>http://localhost:1313/tags/contour-integrals/</link>
+      <pubDate>Fri, 06 Feb 2026 22:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/contour-integrals/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Real Integrals</title>
+      <link>http://localhost:1313/tags/real-integrals/</link>
+      <pubDate>Fri, 06 Feb 2026 22:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/real-integrals/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Residues</title>
+      <link>http://localhost:1313/tags/residues/</link>
+      <pubDate>Fri, 06 Feb 2026 22:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/residues/</guid>
+      <description></description>
+    </item>
     <item>
       <title>DevLog</title>
       <link>http://localhost:1313/tags/devlog/</link>
@@ -135,20 +163,6 @@
       <description></description>
     </item>
     <item>
-      <title>Best Practices</title>
-      <link>http://localhost:1313/tags/best-practices/</link>
-      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/best-practices/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Debugging</title>
-      <link>http://localhost:1313/tags/debugging/</link>
-      <pubDate>Thu, 04 Dec 2025 20:30:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/debugging/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Auto-Correlation</title>
       <link>http://localhost:1313/tags/auto-correlation/</link>
       <pubDate>Wed, 26 Nov 2025 10:47:00 +0900</pubDate>
@@ -258,34 +272,6 @@
       <link>http://localhost:1313/tags/schemdraw/</link>
       <pubDate>Wed, 29 Oct 2025 19:01:21 +0900</pubDate>
       <guid>http://localhost:1313/tags/schemdraw/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LaTeX</title>
-      <link>http://localhost:1313/tags/latex/</link>
-      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/tags/latex/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Markdown</title>
-      <link>http://localhost:1313/tags/markdown/</link>
-      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/tags/markdown/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Mermaid</title>
-      <link>http://localhost:1313/tags/mermaid/</link>
-      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/tags/mermaid/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Meta</title>
-      <link>http://localhost:1313/tags/meta/</link>
-      <pubDate>Wed, 29 Oct 2025 17:01:21 +0900</pubDate>
-      <guid>http://localhost:1313/tags/meta/</guid>
       <description></description>
     </item>
   </channel>
