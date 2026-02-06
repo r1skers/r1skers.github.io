@@ -12,6 +12,9 @@ description: "Course notes, self-study notes."
 - [**Part 2** — Laplace Transform](/notes/笔记-线性系统2-拉普拉斯变换及其应用)
 - [**Part 3** — RLC Circuit Analysis: Differential Equations vs. Laplace Transform](/notes/笔记-线性系统3-拉普拉斯变换在二阶偏微分方程的应用)
 
+## Mathematics
+- [**Part 1** — Complex Analysis](/notes/笔记-数学1-复变函数)
+
 ## (Planned)
 - Electromagnetism
 - Electric Circuits
