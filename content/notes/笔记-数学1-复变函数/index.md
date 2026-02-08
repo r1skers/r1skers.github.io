@@ -429,8 +429,8 @@ The value of this example is not the number itself, but the full demonstration o
 
 ---
 
-## 7. 实用技巧：两类定积分速查
-## 7. Practical Shortcut: Two High-Frequency Integral Templates
+## 7. 实用技巧：三类定积分速查
+## 7. Practical Shortcut: Three High-Frequency Integral Templates
 
 考场上先做“类型识别”，再套模板，通常比从头推导快很多。  
 In exam settings, first identify the type, then apply the template; this is usually much faster than deriving from scratch.
