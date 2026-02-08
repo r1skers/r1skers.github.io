@@ -25,7 +25,7 @@ Complex geometry -> analyticity (CR) -> contour integration -> CIT/CIF -> Lauren
 Consider this real integral:
 
 $$
-\int_{0}^{\infty} \frac{1}{1+x^6}\,dx
+\int_{0}^{\infty} \frac{1}{1+x^6}\mathrm{d}x
 $$
 
 在实变量方法里可以算，但过程往往偏重技巧。  
@@ -173,7 +173,7 @@ $$
 Then
 
 $$
-\int_C f(z)\,dz=\int_a^b f(z(t))z'(t)\,dt
+\int_C f(z)\mathrm{d}z=\int_a^b f(z(t))z'(t)\mathrm{d}t
 $$
 
 本质上就是把复积分改写成实积分。  
@@ -186,7 +186,7 @@ Essentially, it rewrites a complex integral as a real integral.
 If $f$ is analytic on and inside a closed contour, then
 
 $$
-\oint_C f(z)\,dz=0
+\oint_C f(z)\mathrm{d}z=0
 $$
 
 这告诉我们：解析函数有强路径约束。  
@@ -199,7 +199,7 @@ This tells us analytic functions obey strong path constraints.
 If $z_0$ lies inside $C$, then
 
 $$
-f(z_0)=\frac{1}{2\pi i}\oint_C\frac{f(z)}{z-z_0}\,dz
+f(z_0)=\frac{1}{2\pi i}\oint_C\frac{f(z)}{z-z_0}\mathrm{d}z
 $$
 
 这意味着区域内部的值由边界完全决定。  
@@ -209,7 +209,7 @@ This means interior values are fully determined by boundary values.
 The derivative version is
 
 $$
-f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C\frac{f(z)}{(z-z_0)^{n+1}}\,dz
+f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_C\frac{f(z)}{(z-z_0)^{n+1}}\mathrm{d}z
 $$
 
 即：分母幂次越高，提取的导数阶数越高。  
@@ -221,15 +221,15 @@ Higher powers in the denominator extract higher derivatives.
   计算
   Compute
   $$
-  \oint_{|z|=2}\frac{e^z}{(z-1)^2}\,dz
+  \oint_{|z|=2}\frac{e^z}{(z-1)^2}\mathrm{d}z
   $$
 
   取 $f(z)=e^z,\ z_0=1$，用 $n=1$ 的导数版 CIF：  
   Let $f(z)=e^z,\ z_0=1$, use the $n=1$ derivative form of CIF:
 
   $$
-  \oint_{|z|=2}\frac{e^z}{(z-1)^2}\,dz
-  =2\pi i\,f'(1)
+  \oint_{|z|=2}\frac{e^z}{(z-1)^2}\mathrm{d}z
+  =2\pi if'(1)
   =2\pi i e
   $$
 </details>
@@ -319,7 +319,7 @@ $$
 If $f$ has only isolated singularities inside the contour, then
 
 $$
-\oint_C f(z)\,dz=2\pi i\sum_k \operatorname{Res}(f,z_k)
+\oint_C f(z)\mathrm{d}z=2\pi i\sum_k \operatorname{Res}(f,z_k)
 $$
 
 这就是整条链条的计算出口。  
@@ -352,7 +352,7 @@ This is the computational output of the whole chain.
   <summary>例题 A：围道积分 / Example A: Contour Integral</summary>
 
   $$
-  \oint_{|z|=1}\frac{z^2+4}{z^3}\,dz
+  \oint_{|z|=1}\frac{z^2+4}{z^3}\mathrm{d}z
   =\oint_{|z|=1}\left(\frac1z+\frac4{z^3}\right)dz
   $$
 
@@ -368,7 +368,7 @@ This is the computational output of the whole chain.
   <summary>例题 B：实积分 / Example B: Real Integral</summary>
 
   $$
-  \int_{-\infty}^{\infty}\frac{1}{(x^2+a^2)^2}\,dx\quad(a>0)
+  \int_{-\infty}^{\infty}\frac{1}{(x^2+a^2)^2}\mathrm{d}x\quad(a>0)
   $$
 
   取
@@ -387,7 +387,7 @@ This is the computational output of the whole chain.
   所以
   Therefore
   $$
-  \int_{-\infty}^{\infty}\frac{1}{(x^2+a^2)^2}\,dx
+  \int_{-\infty}^{\infty}\frac{1}{(x^2+a^2)^2}\mathrm{d}x
   =2\pi i\cdot\frac1{4ia^3}
   =\frac\pi{2a^3}
   $$
@@ -402,7 +402,7 @@ This is the computational output of the whole chain.
 Back to
 
 $$
-\int_{0}^{\infty}\frac1{1+x^6}\,dx
+\int_{0}^{\infty}\frac1{1+x^6}\mathrm{d}x
 $$
 
 标准流程是：
@@ -421,7 +421,7 @@ The standard workflow is:
 Final value:
 
 $$
-\int_{0}^{\infty}\frac1{1+x^6}\,dx=\frac\pi3
+\int_{0}^{\infty}\frac1{1+x^6}\mathrm{d}x=\frac\pi3
 $$
 
 这一题的价值不在数字本身，而在它完整展示了“定义 -> 定理 -> 计算”的链条。  
@@ -440,8 +440,8 @@ In exam settings, first identify the type, then apply the template; this is usua
 
 - 对称区间时，先判断被积函数奇偶性。  
 - On symmetric intervals, always check parity first.
-- 若为偶函数：$\int_{-\infty}^{\infty}f(x)\,dx=2\int_0^\infty f(x)\,dx$。  
-- If even: $\int_{-\infty}^{\infty}f(x)\,dx=2\int_0^\infty f(x)\,dx$.
+- 若为偶函数：$\int_{-\infty}^{\infty}f(x)\mathrm{d}x=2\int_0^\infty f(x)\mathrm{d}x$。  
+- If even: $\int_{-\infty}^{\infty}f(x)\mathrm{d}x=2\int_0^\infty f(x)\mathrm{d}x$.
 - 若为奇函数：对称区间积分为 0。  
 - If odd: the integral over a symmetric interval is 0.
 
@@ -449,8 +449,8 @@ In exam settings, first identify the type, then apply the template; this is usua
 ### Template A: Denominator $1+x^k$
 
 $$
-\int_0^\infty \frac{x^m}{1+x^k}\,dx
-=\frac{\pi}{k}\csc\!\left(\frac{(m+1)\pi}{k}\right)\quad -1<m<k-1
+\int_0^\infty \frac{x^m}{1+x^k}\mathrm{d}x
+=\frac{\pi}{k}\csc\left(\frac{(m+1)\pi}{k}\right)\quad -1<m<k-1
 $$
 
 用于识别形如 $\frac{x^m}{1+x^k}$ 的积分；若区间是 $(-\infty,\infty)$，先配合奇偶性处理。  
@@ -460,17 +460,17 @@ Use this for integrals of the form $\frac{x^m}{1+x^k}$; if the interval is $(-\i
 ### Template B: Denominator $(x^2+a^2)^n$
 
 $$
-\int_0^\infty \frac{x^{2m}}{(x^2+a^2)^n}\,dx
-=\frac{a^{2m-2n+1}}{2}\,
-B\!\left(m+\frac12,\;n-m-\frac12\right)\quad n>m+\frac12
+\int_0^\infty \frac{x^{2m}}{(x^2+a^2)^n}\mathrm{d}x
+=\frac{a^{2m-2n+1}}{2}
+B\left(m+\frac12, n-m-\frac12\right)\quad n>m+\frac12
 $$
 
 常用特例（最常考）：
 Most-used special case (high-frequency):
 
 $$
-\int_0^\infty \frac{1}{(x^2+a^2)^n}\,dx
-=\frac{\sqrt\pi\,\Gamma\!\left(n-\frac12\right)}{2\,\Gamma(n)\,a^{2n-1}}
+\int_0^\infty \frac{1}{(x^2+a^2)^n}\mathrm{d}x
+=\frac{\sqrt\pi\Gamma\left(n-\frac12\right)}{2\Gamma(n)a^{2n-1}}
 $$
 
 若分母是多个二次因子的乘积，先做部分分式，再拆回模板 A/B。  
@@ -499,3 +499,5 @@ $$
 \int_0^{2\pi}\frac{d\theta}{a+b\sin^2\theta}
 =\frac{2\pi}{\sqrt{a(a+b)}}\quad a>0\ \text{and}\ a+b>0
 $$
+
+
