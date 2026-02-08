@@ -440,24 +440,24 @@ In exam settings, first identify the type, then apply the template; this is usua
 
 - 对称区间时，先判断被积函数奇偶性。  
 - On symmetric intervals, always check parity first.
-- 若为偶函数：\(\int_{-\infty}^{\infty}f(x)\,dx=2\int_0^\infty f(x)\,dx\)。  
-- If even: \(\int_{-\infty}^{\infty}f(x)\,dx=2\int_0^\infty f(x)\,dx\).
+- 若为偶函数：$\int_{-\infty}^{\infty}f(x)\,dx=2\int_0^\infty f(x)\,dx$。  
+- If even: $\int_{-\infty}^{\infty}f(x)\,dx=2\int_0^\infty f(x)\,dx$.
 - 若为奇函数：对称区间积分为 0。  
 - If odd: the integral over a symmetric interval is 0.
 
-### 模板 A：分母 \(1+x^k\)
-### Template A: Denominator \(1+x^k\)
+### 模板 A：分母 $1+x^k$
+### Template A: Denominator $1+x^k$
 
 $$
 \int_0^\infty \frac{x^m}{1+x^k}\,dx
 =\frac{\pi}{k}\csc\!\left(\frac{(m+1)\pi}{k}\right),\quad -1<m<k-1
 $$
 
-用于识别形如 \(\frac{x^m}{1+x^k}\) 的积分；若区间是 \((-\infty,\infty)\)，先配合奇偶性处理。  
-Use this for integrals of the form \(\frac{x^m}{1+x^k}\); if the interval is \((-\infty,\infty)\), combine with parity first.
+用于识别形如 $\frac{x^m}{1+x^k}$ 的积分；若区间是 $(-\infty,\infty)$，先配合奇偶性处理。  
+Use this for integrals of the form $\frac{x^m}{1+x^k}$; if the interval is $(-\infty,\infty)$, combine with parity first.
 
-### 模板 B：分母 \((x^2+a^2)^n\)
-### Template B: Denominator \((x^2+a^2)^n\)
+### 模板 B：分母 $(x^2+a^2)^n$
+### Template B: Denominator $(x^2+a^2)^n$
 
 $$
 \int_0^\infty \frac{x^{2m}}{(x^2+a^2)^n}\,dx
@@ -476,11 +476,11 @@ $$
 若分母是多个二次因子的乘积，先做部分分式，再拆回模板 A/B。  
 If the denominator is a product of quadratic factors, do partial fractions first, then reduce to Template A/B.
 
-### 模板 C：圆周三角积分（\(\theta\)-型）
-### Template C: Circular Trigonometric Integrals (\(\theta\)-Type)
+### 模板 C：圆周三角积分（$\theta$-型）
+### Template C: Circular Trigonometric Integrals ($\theta$-Type)
 
-这类题常见于 \(0\to2\pi\) 的周期积分，通常用 \(z=e^{i\theta}\) 或直接套标准结果。  
-These problems are common on \(0\to2\pi\) periodic integrals, usually solved by \(z=e^{i\theta}\) or by standard closed forms.
+这类题常见于 $0\to2\pi$ 的周期积分，通常用 $z=e^{i\theta}$ 或直接套标准结果。  
+These problems are common on $0\to2\pi$ periodic integrals, usually solved by $z=e^{i\theta}$ or by standard closed forms.
 
 常用母公式：
 Core formulas:
@@ -499,5 +499,4 @@ $$
 \int_0^{2\pi}\frac{d\theta}{a+b\sin^2\theta}
 =\frac{2\pi}{\sqrt{a(a+b)}},\quad a>0,\ a+b>0
 $$
-
 
