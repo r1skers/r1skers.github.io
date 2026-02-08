@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="620" viewBox="0 0 1080 620">
+  <defs>
+    <style>
+      .title { font: 700 30px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #1e293b; }
+      .label { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #334155; }
+      .small { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .axis { stroke: #0f172a; stroke-width: 2.4; }
+      .guide { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 6 5; }
+      .dosLine { fill: none; stroke: #2563eb; stroke-width: 3.2; }
+      .dosFill { fill: #dbeafe; stroke: none; }
+      .gap { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.8; stroke-dasharray: 6 5; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1080" height="620" fill="#ffffff"/>
+  <text x="540" y="46" text-anchor="middle" class="title">Density of States vs Energy (schematic)</text>
+  <text x="540" y="74" text-anchor="middle" class="small">3D 近似: 导带与价带边缘附近呈 sqrt 形态</text>
+
+  <!-- chart area -->
+  <rect x="100" y="110" width="640" height="460" class="box"/>
+  <line x1="170" y1="520" x2="690" y2="520" class="axis"/>
+  <line x1="170" y1="520" x2="170" y2="150" class="axis"/>
+  <text x="700" y="527" class="label">D(E)</text>
+  <text x="156" y="150" class="label">E</text>
+
+  <!-- band edges -->
+  <line x1="170" y1="300" x2="690" y2="300" class="guide"/>
+  <line x1="170" y1="390" x2="690" y2="390" class="guide"/>
+  <text x="706" y="304" class="label">E_c</text>
+  <text x="706" y="394" class="label">E_v</text>
+
+  <!-- gap zone -->
+  <rect x="170" y="300" width="520" height="90" class="gap"/>
+  <text x="430" y="352" text-anchor="middle" class="subtitle">Band Gap (DOS = 0)</text>
+
+  <!-- conduction DOS -->
+  <path class="dosFill" d="M170 300 L170 160 Q250 210 330 240 Q420 260 510 275 Q600 288 690 296 L690 300 Z"/>
+  <path class="dosLine" d="M170 300 Q250 210 330 240 Q420 260 510 275 Q600 288 690 296"/>
+  <text x="430" y="190" class="label" fill="#2563eb">Conduction DOS</text>
+
+  <!-- valence DOS -->
+  <path class="dosFill" d="M170 390 L690 394 Q600 402 510 416 Q420 434 330 456 Q250 478 170 520 Z"/>
+  <path class="dosLine" d="M170 390 Q250 478 330 456 Q420 434 510 416 Q600 402 690 394"/>
+  <text x="430" y="500" class="label" fill="#2563eb">Valence DOS</text>
+
+  <!-- right notes -->
+  <rect x="780" y="130" width="250" height="420" class="box"/>
+  <text x="805" y="170" class="subtitle">How to read</text>
+  <text x="805" y="204" class="small">1) E &gt; E_c: conduction states exist</text>
+  <text x="805" y="228" class="small">2) E_v &lt; E &lt; E_c: no states</text>
+  <text x="805" y="252" class="small">3) E &lt; E_v: valence states exist</text>
+  <text x="805" y="292" class="small">1) 导带边以上可占据态增加</text>
+  <text x="805" y="316" class="small">2) 带隙内无态可占据</text>
+  <text x="805" y="340" class="small">3) 价带边以下有态</text>
+
+  <text x="805" y="392" class="label">3D near edge</text>
+  <text x="805" y="418" class="small">g(E) ∝ √(E-E_c), E &gt; E_c</text>
+  <text x="805" y="442" class="small">g(E) ∝ √(E_v-E), E &lt; E_v</text>
+</svg>

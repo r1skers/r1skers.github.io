@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640">
+  <defs>
+    <style>
+      .title { font: 700 30px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #1e293b; }
+      .label { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #334155; }
+      .small { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #475569; }
+      .axis { stroke: #0f172a; stroke-width: 2.2; }
+      .lattice { stroke: #cbd5e1; stroke-width: 1.3; stroke-dasharray: 4 4; }
+      .potential { fill: none; stroke: #6b7280; stroke-width: 3; }
+      .envelope { fill: none; stroke: #ef4444; stroke-width: 2.6; stroke-dasharray: 8 6; }
+      .bloch { fill: none; stroke: #2563eb; stroke-width: 3; }
+      .formulaBox { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 14; }
+      .arrow { stroke: #0ea5e9; stroke-width: 2.8; marker-end: url(#arr); fill: none; }
+      .phase { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #0ea5e9; }
+    </style>
+    <marker id="arr" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0,0 12,5 0,10" fill="#0ea5e9"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="640" fill="#ffffff"/>
+  <text x="600" y="46" text-anchor="middle" class="title">Bloch Theorem Sketch</text>
+  <text x="600" y="76" text-anchor="middle" class="small">周期势 + 周期包络 + 平面波相位 | periodic potential + periodic envelope + phase factor</text>
+
+  <!-- lattice guides -->
+  <line x1="120" y1="95" x2="120" y2="560" class="lattice"/>
+  <line x1="260" y1="95" x2="260" y2="560" class="lattice"/>
+  <line x1="400" y1="95" x2="400" y2="560" class="lattice"/>
+  <line x1="540" y1="95" x2="540" y2="560" class="lattice"/>
+  <line x1="680" y1="95" x2="680" y2="560" class="lattice"/>
+  <line x1="820" y1="95" x2="820" y2="560" class="lattice"/>
+  <line x1="960" y1="95" x2="960" y2="560" class="lattice"/>
+  <line x1="1100" y1="95" x2="1100" y2="560" class="lattice"/>
+
+  <!-- strip 1: periodic potential -->
+  <line x1="90" y1="170" x2="1120" y2="170" class="axis"/>
+  <path class="potential" d="M120 170 Q190 118 260 170 T400 170 T540 170 T680 170 T820 170 T960 170 T1100 170"/>
+  <text x="120" y="130" class="subtitle">1) 周期势能 V(x) / Periodic potential</text>
+  <text x="1125" y="176" class="label">x</text>
+
+  <!-- strip 2: periodic envelope -->
+  <line x1="90" y1="320" x2="1120" y2="320" class="axis"/>
+  <path class="envelope" d="M120 302 Q190 275 260 302 T400 302 T540 302 T680 302 T820 302 T960 302 T1100 302"/>
+  <path class="envelope" d="M120 338 Q190 365 260 338 T400 338 T540 338 T680 338 T820 338 T960 338 T1100 338"/>
+  <text x="120" y="272" class="subtitle">2) 周期包络 u_k(x) / Lattice-periodic envelope</text>
+
+  <!-- strip 3: bloch wave -->
+  <line x1="90" y1="455" x2="1120" y2="455" class="axis"/>
+  <path class="envelope" d="M120 408 Q190 378 260 408 T400 408 T540 408 T680 408 T820 408 T960 408 T1100 408"/>
+  <path class="envelope" d="M120 502 Q190 532 260 502 T400 502 T540 502 T680 502 T820 502 T960 502 T1100 502"/>
+  <path class="bloch" d="M120 455 Q155 430 190 455 Q225 480 260 455 Q295 410 330 455 Q365 500 400 455 Q435 420 470 455 Q505 490 540 455 Q575 412 610 455 Q645 498 680 455 Q715 425 750 455 Q785 488 820 455 Q855 430 890 455 Q925 482 960 455 Q995 438 1030 455 Q1065 472 1100 455"/>
+  <text x="120" y="372" class="subtitle">3) Bloch wave: ψ_k(x) = u_k(x)e^{ikx}</text>
+
+  <!-- translation / phase -->
+  <path class="arrow" d="M260 560 C320 560, 340 560, 400 560"/>
+  <text x="286" y="586" class="small">x → x + a</text>
+  <text x="420" y="566" class="phase">phase: e^{ika}</text>
+
+  <!-- formula box -->
+  <rect x="760" y="96" width="390" height="128" class="formulaBox"/>
+  <text x="780" y="132" class="label">Bloch condition</text>
+  <text x="780" y="164" class="subtitle">ψ(x + a) = e^{ika} ψ(x)</text>
+  <text x="780" y="194" class="small">平移一个晶格常数, 概率密度不变, 只变相位</text>
+  <text x="780" y="214" class="small">Translate by one lattice constant: phase changes, |ψ|² unchanged.</text>
+
+  <!-- lattice spacing mark -->
+  <line x1="120" y1="112" x2="260" y2="112" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="120" y1="106" x2="120" y2="118" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="260" y1="106" x2="260" y2="118" stroke="#64748b" stroke-width="1.8"/>
+  <text x="186" y="102" text-anchor="middle" class="small">a</text>
+</svg>

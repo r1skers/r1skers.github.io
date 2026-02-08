@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="640" viewBox="0 0 1240 640">
+  <defs>
+    <style>
+      .title { font: 700 30px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #1e293b; }
+      .label { font: 500 17px "Segoe UI", Arial, sans-serif; fill: #334155; }
+      .small { font: 500 14px "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .panel { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 14; }
+      .axis { stroke: #0f172a; stroke-width: 2.2; }
+      .sBand { fill: #dbeafe; stroke: #60a5fa; stroke-width: 2; }
+      .pBand { fill: #fee2e2; stroke: #f87171; stroke-width: 2; }
+      .gap { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.8; stroke-dasharray: 6 5; }
+      .levelS { stroke: #2563eb; stroke-width: 3; }
+      .levelP { stroke: #dc2626; stroke-width: 3; }
+      .arrow { stroke: #0ea5e9; stroke-width: 2.6; marker-end: url(#arr); fill: none; }
+    </style>
+    <marker id="arr" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0,0 12,5 0,10" fill="#0ea5e9"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1240" height="640" fill="#ffffff"/>
+  <text x="620" y="46" text-anchor="middle" class="title">From Atomic Levels to Energy Bands</text>
+  <text x="620" y="74" text-anchor="middle" class="small">2s / 2p 离散能级在原子靠近时分裂并展宽成能带</text>
+
+  <!-- panels -->
+  <rect x="70" y="110" width="330" height="470" class="panel"/>
+  <rect x="455" y="110" width="330" height="470" class="panel"/>
+  <rect x="840" y="110" width="330" height="470" class="panel"/>
+
+  <!-- panel titles -->
+  <text x="235" y="146" text-anchor="middle" class="subtitle">Isolated Atoms</text>
+  <text x="235" y="170" text-anchor="middle" class="small">R large</text>
+  <text x="620" y="146" text-anchor="middle" class="subtitle">Coupled Atoms</text>
+  <text x="620" y="170" text-anchor="middle" class="small">R decreases</text>
+  <text x="1005" y="146" text-anchor="middle" class="subtitle">Crystal</text>
+  <text x="1005" y="170" text-anchor="middle" class="small">R small, periodic lattice</text>
+
+  <!-- energy axes -->
+  <line x1="110" y1="540" x2="110" y2="210" class="axis"/>
+  <line x1="495" y1="540" x2="495" y2="210" class="axis"/>
+  <line x1="880" y1="540" x2="880" y2="210" class="axis"/>
+  <text x="96" y="208" class="small">E</text>
+  <text x="481" y="208" class="small">E</text>
+  <text x="866" y="208" class="small">E</text>
+
+  <!-- left: discrete levels -->
+  <line x1="150" y1="470" x2="335" y2="470" class="levelS"/>
+  <line x1="150" y1="310" x2="335" y2="310" class="levelP"/>
+  <text x="342" y="474" class="label" fill="#2563eb">2s</text>
+  <text x="342" y="314" class="label" fill="#dc2626">2p</text>
+  <text x="145" y="545" class="small">discrete levels</text>
+
+  <!-- middle: split levels -->
+  <line x1="540" y1="500" x2="710" y2="500" class="levelS"/>
+  <line x1="540" y1="476" x2="710" y2="476" class="levelS"/>
+  <line x1="540" y1="452" x2="710" y2="452" class="levelS"/>
+  <line x1="540" y1="428" x2="710" y2="428" class="levelS"/>
+
+  <line x1="540" y1="354" x2="710" y2="354" class="levelP"/>
+  <line x1="540" y1="330" x2="710" y2="330" class="levelP"/>
+  <line x1="540" y1="306" x2="710" y2="306" class="levelP"/>
+  <line x1="540" y1="282" x2="710" y2="282" class="levelP"/>
+  <text x="540" y="545" class="small">level splitting begins</text>
+
+  <!-- right: bands + gap -->
+  <rect x="930" y="410" width="200" height="120" class="sBand"/>
+  <rect x="930" y="240" width="200" height="120" class="pBand"/>
+  <rect x="930" y="360" width="200" height="50" class="gap"/>
+  <text x="1030" y="478" text-anchor="middle" class="label" fill="#2563eb">2s-derived band</text>
+  <text x="1030" y="308" text-anchor="middle" class="label" fill="#dc2626">2p-derived band</text>
+  <text x="1030" y="392" text-anchor="middle" class="label">Forbidden gap</text>
+  <text x="930" y="545" class="small">quasi-continuous bands</text>
+
+  <!-- arrows -->
+  <path d="M405 340 C430 340 430 340 445 340" class="arrow"/>
+  <path d="M790 340 C815 340 815 340 830 340" class="arrow"/>
+  <text x="418" y="320" class="small">orbital overlap</text>
+  <text x="805" y="320" class="small">band broadening</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="620" viewBox="0 0 1180 620">
+  <defs>
+    <style>
+      .title { font: 700 30px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #1e293b; }
+      .label { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #334155; }
+      .small { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .axis { stroke: #0f172a; stroke-width: 2.4; }
+      .cb { fill: #dbeafe; stroke: #60a5fa; stroke-width: 2; }
+      .vb { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .gap { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.8; stroke-dasharray: 6 5; }
+      .carrierE { fill: #2563eb; stroke: #1d4ed8; stroke-width: 2; }
+      .carrierH { fill: #ffffff; stroke: #f97316; stroke-width: 3; }
+      .fermi { stroke: #64748b; stroke-width: 2; stroke-dasharray: 8 6; }
+      .arrow { stroke: #ef4444; stroke-width: 2.8; marker-end: url(#arr); fill: none; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    </style>
+    <marker id="arr" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0,0 12,5 0,10" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1180" height="620" fill="#ffffff"/>
+  <text x="590" y="46" text-anchor="middle" class="title">Semiconductor Band Diagram (Ec, Ev, Eg)</text>
+  <text x="590" y="74" text-anchor="middle" class="small">把“能级占据”与“电子/空穴载流子”放到同一张图</text>
+
+  <!-- main frame -->
+  <rect x="120" y="110" width="620" height="440" class="box"/>
+  <line x1="170" y1="520" x2="170" y2="140" class="axis"/>
+  <text x="156" y="142" class="label">E</text>
+
+  <!-- bands -->
+  <rect x="220" y="165" width="470" height="120" class="cb"/>
+  <rect x="220" y="285" width="470" height="120" class="gap"/>
+  <rect x="220" y="405" width="470" height="120" class="vb"/>
+
+  <text x="455" y="235" text-anchor="middle" class="subtitle" fill="#2563eb">Conduction Band (CB)</text>
+  <text x="455" y="475" text-anchor="middle" class="subtitle" fill="#b45309">Valence Band (VB)</text>
+  <text x="455" y="350" text-anchor="middle" class="subtitle">Band Gap</text>
+
+  <!-- Ec Ev labels -->
+  <line x1="220" y1="285" x2="690" y2="285" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="220" y1="405" x2="690" y2="405" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="700" y="290" class="label">E_c</text>
+  <text x="700" y="410" class="label">E_v</text>
+
+  <!-- Eg bracket -->
+  <line x1="760" y1="291" x2="760" y2="399" stroke="#14b8a6" stroke-width="3"/>
+  <line x1="752" y1="291" x2="768" y2="291" stroke="#14b8a6" stroke-width="3"/>
+  <line x1="752" y1="399" x2="768" y2="399" stroke="#14b8a6" stroke-width="3"/>
+  <text x="778" y="352" class="subtitle" fill="#14b8a6">E_g</text>
+
+  <!-- intrinsic Fermi level -->
+  <line x1="220" y1="345" x2="690" y2="345" class="fermi"/>
+  <text x="700" y="350" class="small">E_F (intrinsic)</text>
+
+  <!-- electron-hole pair -->
+  <circle cx="340" cy="220" r="11" class="carrierE"/>
+  <circle cx="340" cy="445" r="13" class="carrierH"/>
+  <text x="340" y="451" text-anchor="middle" class="small" fill="#f97316">+</text>
+  <path d="M340 430 L340 235" class="arrow"/>
+  <text x="356" y="332" class="small">optical / thermal excitation</text>
+  <text x="358" y="224" class="small">electron</text>
+  <text x="358" y="449" class="small">hole</text>
+
+  <!-- right explanation -->
+  <rect x="790" y="130" width="320" height="400" class="box"/>
+  <text x="815" y="168" class="subtitle">Reading Guide</text>
+  <text x="815" y="202" class="small">1) E &lt; E_v: 价带态主要被占据</text>
+  <text x="815" y="226" class="small">2) E_v ~ E_c: 带隙内无允许态</text>
+  <text x="815" y="250" class="small">3) E &gt; E_c: 导带态可导电</text>
+  <text x="815" y="286" class="small">1) Below E_v: mostly occupied VB states</text>
+  <text x="815" y="310" class="small">2) In gap: no allowed states</text>
+  <text x="815" y="334" class="small">3) Above E_c: mobile CB carriers</text>
+
+  <text x="815" y="382" class="label">Carrier picture</text>
+  <text x="815" y="410" class="small">Electron in CB + hole in VB</text>
+  <text x="815" y="432" class="small">→ transport and optical transitions</text>
+</svg>

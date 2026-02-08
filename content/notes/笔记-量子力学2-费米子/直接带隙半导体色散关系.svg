@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">
+  <defs>
+    <style>
+      .title { font: 700 30px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #1e293b; }
+      .label { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #334155; }
+      .small { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #475569; }
+      .axis { stroke: #0f172a; stroke-width: 2.4; }
+      .cb { fill: none; stroke: #2563eb; stroke-width: 4; }
+      .vb { fill: none; stroke: #dc2626; stroke-width: 4; }
+      .guide { stroke: #94a3b8; stroke-width: 1.6; stroke-dasharray: 6 5; }
+      .gapArrow { stroke: #14b8a6; stroke-width: 3; marker-start: url(#arrow); marker-end: url(#arrow); }
+      .dot { fill: #111827; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0,5 10,0 10,10" fill="#14b8a6"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="620" fill="#ffffff"/>
+  <text x="490" y="46" text-anchor="middle" class="title">Direct-Gap Semiconductor (E-k)</text>
+  <text x="490" y="74" text-anchor="middle" class="small">导带底与价带顶位于同一 k 点 / CB minimum and VB maximum at the same k</text>
+
+  <!-- axes -->
+  <line x1="130" y1="550" x2="880" y2="550" class="axis"/>
+  <line x1="130" y1="550" x2="130" y2="110" class="axis"/>
+  <text x="888" y="557" class="label">k</text>
+  <text x="112" y="110" class="label">E</text>
+
+  <!-- k=0 -->
+  <line x1="505" y1="120" x2="505" y2="550" class="guide"/>
+  <text x="497" y="574" class="small">k = 0</text>
+
+  <!-- bands -->
+  <path class="cb" d="M200 350 Q505 190 810 350"/>
+  <path class="vb" d="M200 420 Q505 545 810 420"/>
+  <text x="690" y="235" class="label" fill="#2563eb">Conduction band</text>
+  <text x="700" y="500" class="label" fill="#dc2626">Valence band</text>
+
+  <!-- Ec / Ev and Eg -->
+  <circle cx="505" cy="190" r="6" class="dot"/>
+  <circle cx="505" cy="545" r="6" class="dot"/>
+  <line x1="505" y1="205" x2="505" y2="530" class="gapArrow"/>
+  <text x="522" y="374" class="subtitle" fill="#14b8a6">E_g</text>
+  <text x="522" y="198" class="small">E_c (minimum)</text>
+  <text x="522" y="548" class="small">E_v (maximum)</text>
+
+  <!-- explanation box -->
+  <rect x="150" y="110" width="300" height="125" class="box"/>
+  <text x="170" y="145" class="label">Direct gap feature</text>
+  <text x="170" y="175" class="small">1) 最小跃迁在同一 k 完成</text>
+  <text x="170" y="196" class="small">2) 辐射复合效率通常更高</text>
+  <text x="170" y="219" class="small">1) Minimum transition keeps k unchanged</text>
+  <text x="170" y="240" class="small">2) Radiative recombination is often stronger</text>
+</svg>

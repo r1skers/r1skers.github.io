@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="640" viewBox="0 0 1080 640">
+  <defs>
+    <style>
+      .title { font: 700 30px "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px "Segoe UI", Arial, sans-serif; fill: #1e293b; }
+      .label { font: 500 18px "Segoe UI", Arial, sans-serif; fill: #334155; }
+      .small { font: 500 15px "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .axis { stroke: #0f172a; stroke-width: 2.4; }
+      .guide { stroke: #94a3b8; stroke-width: 1.4; stroke-dasharray: 6 5; }
+      .window { fill: #fde68a; opacity: 0.4; }
+      .dos { fill: none; stroke: #2563eb; stroke-width: 3.4; }
+      .fd { fill: none; stroke: #dc2626; stroke-width: 3.4; }
+      .occ { fill: none; stroke: #16a34a; stroke-width: 3.6; }
+      .ef { stroke: #111827; stroke-width: 2.2; stroke-dasharray: 7 6; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1080" height="640" fill="#ffffff"/>
+  <text x="540" y="46" text-anchor="middle" class="title">D(E), f(E), and n(E)=D(E)f(E)</text>
+  <text x="540" y="74" text-anchor="middle" class="small">T &gt; 0 K: 占据主要由 E_F 附近热窗口控制</text>
+
+  <!-- chart frame -->
+  <rect x="90" y="110" width="680" height="470" class="box"/>
+  <line x1="160" y1="540" x2="730" y2="540" class="axis"/>
+  <line x1="160" y1="540" x2="160" y2="150" class="axis"/>
+  <text x="742" y="547" class="label">normalized value</text>
+  <text x="144" y="150" class="label">E</text>
+
+  <!-- EF and thermal window -->
+  <line x1="160" y1="335" x2="730" y2="335" class="ef"/>
+  <rect x="160" y="285" width="570" height="100" class="window"/>
+  <text x="172" y="328" class="small">E_F</text>
+  <text x="172" y="276" class="small">thermal window (~ few k_B T)</text>
+
+  <!-- D(E): increases with energy -->
+  <path class="dos" d="M160 520 Q250 500 340 460 Q430 410 520 345 Q620 270 730 180"/>
+
+  <!-- f(E): decreases with energy -->
+  <path class="fd" d="M730 520 C620 520, 560 510, 500 470 C460 440, 420 395, 390 340 C360 286, 325 235, 280 200 C240 172, 205 160, 160 160"/>
+
+  <!-- n(E)=D*f: bell-like contribution near EF -->
+  <path class="occ" d="M160 520 Q240 505 320 460 Q390 415 450 360 Q510 306 560 288 Q615 272 670 300 Q700 320 730 355"/>
+
+  <!-- band edge indicator -->
+  <line x1="160" y1="470" x2="730" y2="470" class="guide"/>
+  <text x="172" y="464" class="small">E_c (example edge)</text>
+
+  <!-- legend -->
+  <line x1="200" y1="190" x2="280" y2="190" class="dos"/>
+  <text x="290" y="196" class="label" fill="#2563eb">D(E)</text>
+  <line x1="200" y1="220" x2="280" y2="220" class="fd"/>
+  <text x="290" y="226" class="label" fill="#dc2626">f(E)</text>
+  <line x1="200" y1="250" x2="280" y2="250" class="occ"/>
+  <text x="290" y="256" class="label" fill="#16a34a">n(E)=D(E)f(E)</text>
+
+  <!-- right notes -->
+  <rect x="800" y="130" width="240" height="430" class="box"/>
+  <text x="824" y="168" class="subtitle">Takeaway</text>
+  <text x="824" y="204" class="small">D(E): states available</text>
+  <text x="824" y="228" class="small">f(E): occupation probability</text>
+  <text x="824" y="252" class="small">Product n(E): actual contribution</text>
+  <text x="824" y="292" class="small">多数贡献来自 E_F 附近</text>
+  <text x="824" y="316" class="small">Main contribution is near E_F</text>
+  <text x="824" y="352" class="small">n = ∫ D(E)f(E) dE</text>
+</svg>
