@@ -49,7 +49,7 @@ then choose a contour, locate poles, and compute residues in a unified, stable w
 If we write complex numbers in polar form
 
 $$
-z_1=r_1e^{i\theta_1},\quad z_2=r_2e^{i\theta_2}
+z_1=r_1e^{i\theta_1}\quad z_2=r_2e^{i\theta_2}
 $$
 
 则乘法变为
@@ -68,7 +68,7 @@ This is key because later intuition (“analytic maps locally look like multipli
 ### Quick Example
 
 $$
-z=1+i=\sqrt{2}e^{i\pi/4},\quad z^2=2e^{i\pi/2}=2i
+z=1+i=\sqrt{2}e^{i\pi/4}\quad z^2=2e^{i\pi/2}=2i
 $$
 
 即：缩放两次 $\sqrt{2}$（总共 2 倍），旋转两次 $45^\circ$（总共 $90^\circ$）。  
@@ -93,7 +93,7 @@ That is: scale by $\sqrt{2}$ twice (total factor 2), rotate by $45^\circ$ twice 
   Express $\sqrt{3}+3i$ in polar form.
 
   $$
-  r=2\sqrt{3},\quad \theta=\frac\pi3,\quad
+  r=2\sqrt{3}\quad \theta=\frac\pi3\quad
   \sqrt{3}+3i=2\sqrt{3}e^{i\pi/3}
   $$
 </details>
@@ -110,7 +110,7 @@ Now we move from single-number operations to behavior of complex functions.
 Let
 
 $$
-f(z)=u(x,y)+iv(x,y),\quad z=x+iy
+f(z)=u(x,y)+iv(x,y)\quad z=x+iy
 $$
 
 复可导要求差商
@@ -127,7 +127,7 @@ to approach the same value from every direction.
 This condition is strong enough to force the CR equations:
 
 $$
-u_x=v_y,\quad u_y=-v_x
+u_x=v_y\quad u_y=-v_x
 $$
 
 一句直觉：解析函数在局部必须像“乘以一个复数”，所以局部线性形状必须是旋转+缩放，而 CR 就是它的坐标表达。  
@@ -145,7 +145,7 @@ u=x^2-y^2,\ v=2xy
 $$
 
 $$
-u_x=2x,\ v_y=2x,\quad u_y=-2y,\ -v_x=-2y
+u_x=2x\quad v_y=2x\quad u_y=-2y\quad -v_x=-2y
 $$
 
 CR 成立，所以它处处解析。  
@@ -166,7 +166,7 @@ This is the most important continuous sequence in the chapter.
 Parameterize a contour
 
 $$
-z(t)=x(t)+iy(t),\quad t\in[a,b]
+z(t)=x(t)+iy(t)\quad t\in[a,b]
 $$
 
 则
@@ -243,7 +243,7 @@ Higher powers in the denominator extract higher derivatives.
 If a function is analytic at $z_0$, use Taylor:
 
 $$
-f(z)=\sum_{n=0}^{\infty}a_n(z-z_0)^n,\quad a_n=\frac{f^{(n)}(z_0)}{n!}
+f(z)=\sum_{n=0}^{\infty}a_n(z-z_0)^n\quad a_n=\frac{f^{(n)}(z_0)}{n!}
 $$
 
 但一旦附近有奇点，Taylor 不够用了。  
@@ -279,7 +279,7 @@ The key part is the principal part (negative powers), because it directly determ
   $$
 
   $$
-  \frac{1}{(z-1)(z-2)}=\frac1{z-2}-\frac1{z-1},\quad
+  \frac{1}{(z-1)(z-2)}=\frac1{z-2}-\frac1{z-1}\quad
   \frac1{z-2}=-\sum_{n=0}^{\infty}(z-1)^n\ (|z-1|<1)
   $$
 
@@ -450,7 +450,7 @@ In exam settings, first identify the type, then apply the template; this is usua
 
 $$
 \int_0^\infty \frac{x^m}{1+x^k}\,dx
-=\frac{\pi}{k}\csc\!\left(\frac{(m+1)\pi}{k}\right),\quad -1<m<k-1
+=\frac{\pi}{k}\csc\!\left(\frac{(m+1)\pi}{k}\right)\quad -1<m<k-1
 $$
 
 用于识别形如 $\frac{x^m}{1+x^k}$ 的积分；若区间是 $(-\infty,\infty)$，先配合奇偶性处理。  
@@ -462,7 +462,7 @@ Use this for integrals of the form $\frac{x^m}{1+x^k}$; if the interval is $(-\i
 $$
 \int_0^\infty \frac{x^{2m}}{(x^2+a^2)^n}\,dx
 =\frac{a^{2m-2n+1}}{2}\,
-B\!\left(m+\frac12,\;n-m-\frac12\right),\quad n>m+\frac12
+B\!\left(m+\frac12,\;n-m-\frac12\right)\quad n>m+\frac12
 $$
 
 常用特例（最常考）：
@@ -487,16 +487,15 @@ Core formulas:
 
 $$
 \int_0^{2\pi}\frac{d\theta}{A+B\cos\theta+C\sin\theta}
-=\frac{2\pi}{\sqrt{A^2-B^2-C^2}},\quad A>\sqrt{B^2+C^2}
+=\frac{2\pi}{\sqrt{A^2-B^2-C^2}}\quad A>\sqrt{B^2+C^2}
 $$
 
 $$
 \int_0^{2\pi}\frac{d\theta}{(A+B\cos\theta)^2}
-=\frac{2\pi A}{(A^2-B^2)^{3/2}},\quad A>|B|
+=\frac{2\pi A}{(A^2-B^2)^{3/2}}\quad A>|B|
 $$
 
 $$
 \int_0^{2\pi}\frac{d\theta}{a+b\sin^2\theta}
-=\frac{2\pi}{\sqrt{a(a+b)}},\quad a>0,\ a+b>0
+=\frac{2\pi}{\sqrt{a(a+b)}}\quad a>0\ \text{and}\ a+b>0
 $$
-
