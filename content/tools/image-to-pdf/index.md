@@ -12,3 +12,9 @@ aliases:
 ---
 
 {{< img2pdf >}}
+
+
+
+## Acknowledgement
+
+This page was created with assistance from OpenAI Codex.
