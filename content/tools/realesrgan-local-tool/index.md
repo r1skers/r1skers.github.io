@@ -41,3 +41,7 @@ python .\realesrgan_cli.py `
 - Upstream repositories:
   - [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
   - [Real-ESRGAN-ncnn-vulkan](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan)
+
+## Acknowledgement
+
+This page was created with assistance from OpenAI Codex.
