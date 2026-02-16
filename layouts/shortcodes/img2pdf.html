@@ -1,0 +1,87 @@
+<div id="img2pdf-app" class="img2pdf-app">
+  <header class="img2pdf-top">
+    <h2>Image to PDF</h2>
+    <p>Mobile-friendly. Merge images, reorder pages, and export one PDF.</p>
+  </header>
+
+  <section class="img2pdf-panel">
+    <div class="img2pdf-action-row">
+      <label class="img2pdf-btn img2pdf-btn-primary" for="img2pdf-input">
+        Select Images
+        <input id="img2pdf-input" type="file" accept="image/*" multiple>
+      </label>
+
+      <label class="img2pdf-btn" for="img2pdf-camera">
+        Add from Camera
+        <input id="img2pdf-camera" type="file" accept="image/*" capture="environment">
+      </label>
+
+      <button id="img2pdf-clear" class="img2pdf-btn img2pdf-btn-ghost" type="button">Clear List</button>
+    </div>
+
+    <div class="img2pdf-grid">
+      <label class="img2pdf-field" for="img2pdf-page-size">
+        Page Size
+        <select id="img2pdf-page-size">
+          <option value="a4">A4</option>
+          <option value="letter">Letter</option>
+        </select>
+      </label>
+
+      <label class="img2pdf-field" for="img2pdf-orientation">
+        Orientation
+        <select id="img2pdf-orientation">
+          <option value="auto">Auto</option>
+          <option value="portrait">Portrait</option>
+          <option value="landscape">Landscape</option>
+        </select>
+      </label>
+
+      <label class="img2pdf-field" for="img2pdf-margin">
+        Margin (mm)
+        <input id="img2pdf-margin" type="number" min="0" max="40" step="1" value="8">
+      </label>
+
+      <label class="img2pdf-field" for="img2pdf-quality">
+        Compression Quality
+        <div class="img2pdf-inline">
+          <input id="img2pdf-quality" type="range" min="0.5" max="1" step="0.05" value="0.82">
+          <output id="img2pdf-quality-value" for="img2pdf-quality">0.82</output>
+        </div>
+      </label>
+
+      <label class="img2pdf-field" for="img2pdf-max-edge">
+        Max Edge (px)
+        <input id="img2pdf-max-edge" type="number" min="1000" max="5000" step="100" value="2500">
+      </label>
+
+      <label class="img2pdf-field" for="img2pdf-filename">
+        Output Filename
+        <input id="img2pdf-filename" type="text" value="images-to-pdf.pdf" maxlength="80">
+      </label>
+    </div>
+  </section>
+
+  <section class="img2pdf-queue">
+    <div class="img2pdf-queue-head">
+      <h3>Image Queue</h3>
+      <p>Desktop: drag to reorder. Mobile: use Move Up / Move Down buttons.</p>
+    </div>
+    <ul id="img2pdf-list" class="img2pdf-list"></ul>
+  </section>
+
+  <footer class="img2pdf-footer">
+    <button id="img2pdf-export" class="img2pdf-btn img2pdf-btn-primary img2pdf-export" type="button">
+      Export PDF
+    </button>
+    <p id="img2pdf-status" class="img2pdf-status" role="status" aria-live="polite">Waiting for images.</p>
+  </footer>
+</div>
+
+<noscript>
+  <p>This page requires JavaScript to convert images.</p>
+</noscript>
+
+<link rel="stylesheet" href="/tools/img2pdf.css">
+<script defer src="/vendor/jspdf.umd.min.js"></script>
+<script defer src="/tools/img2pdf.js"></script>

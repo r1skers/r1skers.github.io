@@ -1,0 +1,331 @@
+.img2pdf-app {
+  --img2pdf-bg: linear-gradient(145deg, #f4efe4 0%, #f7f3ea 45%, #fffaf2 100%);
+  --img2pdf-panel-bg: rgba(255, 250, 240, 0.92);
+  --img2pdf-border: #d8c2a0;
+  --img2pdf-text: #2f2417;
+  --img2pdf-muted: #5f523f;
+  --img2pdf-accent: #8f4519;
+  --img2pdf-accent-soft: #b96b34;
+  --img2pdf-danger: #8c1e1e;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--img2pdf-border);
+  border-radius: 20px;
+  padding: clamp(14px, 2.5vw, 24px);
+  background: var(--img2pdf-bg);
+  color: var(--img2pdf-text);
+  font-family: "Alegreya Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+  box-shadow: 0 16px 42px rgba(61, 36, 11, 0.14);
+  animation: img2pdf-fade-in 0.45s ease-out both;
+}
+
+.img2pdf-app::before {
+  content: "";
+  position: absolute;
+  inset: -80px auto auto -100px;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(197, 112, 53, 0.2) 0%, rgba(197, 112, 53, 0) 70%);
+  pointer-events: none;
+}
+
+.img2pdf-top h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+  letter-spacing: 0.02em;
+}
+
+.img2pdf-top p {
+  margin: 8px 0 0;
+  color: var(--img2pdf-muted);
+}
+
+.img2pdf-panel,
+.img2pdf-queue {
+  margin-top: 18px;
+  border: 1px solid rgba(173, 133, 90, 0.28);
+  border-radius: 14px;
+  background: var(--img2pdf-panel-bg);
+  padding: 14px;
+}
+
+.img2pdf-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.img2pdf-btn {
+  appearance: none;
+  border: 1px solid #b18f66;
+  border-radius: 10px;
+  background: #fff7eb;
+  color: #3d2b17;
+  font-weight: 700;
+  font-size: 0.94rem;
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.img2pdf-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(51, 31, 11, 0.12);
+}
+
+.img2pdf-btn:active {
+  transform: translateY(0);
+}
+
+.img2pdf-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.img2pdf-btn input[type="file"] {
+  display: none;
+}
+
+.img2pdf-btn-primary {
+  border-color: var(--img2pdf-accent);
+  background: linear-gradient(135deg, var(--img2pdf-accent) 0%, var(--img2pdf-accent-soft) 100%);
+  color: #fffaf5;
+}
+
+.img2pdf-btn-ghost {
+  border-color: #c3a888;
+  background: #f7ecde;
+}
+
+.img2pdf-grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.img2pdf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: var(--img2pdf-muted);
+}
+
+.img2pdf-field input,
+.img2pdf-field select {
+  border: 1px solid #ceb795;
+  border-radius: 9px;
+  padding: 8px 10px;
+  background: #fffdf8;
+  color: #2f2417;
+  font-size: 0.93rem;
+}
+
+.img2pdf-field input:focus,
+.img2pdf-field select:focus {
+  outline: 2px solid rgba(143, 69, 25, 0.2);
+  border-color: var(--img2pdf-accent);
+}
+
+.img2pdf-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#img2pdf-quality {
+  flex: 1;
+}
+
+#img2pdf-quality-value {
+  min-width: 44px;
+  text-align: right;
+  color: #3d2b17;
+  font-weight: 700;
+}
+
+.img2pdf-queue-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.img2pdf-queue-head h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.img2pdf-queue-head p {
+  margin: 0;
+  color: var(--img2pdf-muted);
+  font-size: 0.86rem;
+}
+
+.img2pdf-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.img2pdf-empty {
+  padding: 14px;
+  border: 1px dashed #c4ad8a;
+  border-radius: 10px;
+  color: #735f46;
+  text-align: center;
+  background: #fffaf1;
+}
+
+.img2pdf-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dac5a4;
+  border-radius: 12px;
+  padding: 8px;
+  background: #fffdf9;
+  animation: img2pdf-lift-in 0.2s ease both;
+}
+
+.img2pdf-item.is-drop-target {
+  border-color: #aa6937;
+  box-shadow: 0 0 0 2px rgba(170, 105, 55, 0.18);
+}
+
+.img2pdf-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #d8c4a8;
+  background: #f3e7d6;
+  flex: 0 0 auto;
+}
+
+.img2pdf-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.img2pdf-name {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.img2pdf-sub {
+  margin: 4px 0 0;
+  color: #6a583f;
+  font-size: 0.82rem;
+}
+
+.img2pdf-controls {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.img2pdf-mini {
+  padding: 6px 8px;
+  border: 1px solid #c7ab88;
+  border-radius: 8px;
+  background: #fff4e3;
+  color: #3a2b1a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.img2pdf-mini[data-action="delete"] {
+  color: var(--img2pdf-danger);
+}
+
+.img2pdf-footer {
+  margin-top: 16px;
+}
+
+.img2pdf-export {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.img2pdf-status {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #624f38;
+}
+
+.img2pdf-status[data-tone="error"] {
+  color: #8c1e1e;
+}
+
+.img2pdf-status[data-tone="success"] {
+  color: #1f6d33;
+}
+
+.img2pdf-app.is-busy .img2pdf-btn-primary,
+.img2pdf-app.is-busy .img2pdf-mini {
+  opacity: 0.65;
+}
+
+@media (max-width: 700px) {
+  .img2pdf-item {
+    align-items: flex-start;
+  }
+
+  .img2pdf-controls {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .img2pdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .img2pdf-thumb {
+    width: 62px;
+    height: 62px;
+  }
+
+  .img2pdf-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@keyframes img2pdf-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes img2pdf-lift-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
