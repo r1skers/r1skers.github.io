@@ -3,8 +3,8 @@
     --home-surface-radius: 10px;
     --home-surface-border: 1.5px;
     --home-surface-shadow: 0 8px 22px rgba(192, 106, 47, 0.16);
-    --home-menu-surface: rgba(255, 255, 255, 0.18);
-    --home-menu-surface-hover: rgba(255, 255, 255, 0.28);
+    --home-menu-surface: rgba(255, 255, 255, 0.38);
+    --home-menu-surface-hover: rgba(255, 255, 255, 0.48);
 }
 
 [data-theme="dark"] {
@@ -87,8 +87,15 @@
 
 .home-menu-desc {
     font-size: 0.9rem;
-    color: var(--secondary);
+    font-weight: 600;
+    color: rgba(16, 16, 20, 0.94);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
     line-height: 1.35;
+}
+
+[data-theme="dark"] .home-menu-desc {
+    color: rgba(245, 245, 245, 0.88);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .home-menu-meta {
