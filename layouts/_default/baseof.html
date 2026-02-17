@@ -46,7 +46,7 @@
 {{- end -}}
 
 {{- $bodyStyleParts := slice -}}
-{{- if and $bgEnabled (eq $bgScope "page") (ne $bgURL "") -}}
+{{- if and $bgEnabled (eq $bgScope "page") (ne $bgURL "") (ne .Layout "about") -}}
 {{- $bodyClasses = $bodyClasses | append "page-bg" -}}
 {{- $bodyClasses = $bodyClasses | append (printf "page-bg-%s" $bgKey) -}}
 {{- $bodyStyleParts = $bodyStyleParts | append (printf "--page-bg-image: url('%s')" $bgURL) -}}
