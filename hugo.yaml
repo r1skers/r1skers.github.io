@@ -22,12 +22,12 @@ params:
   HomeInfoParams:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
-    Content: "Welcome to the forge. I'm r1skers, an Electrical Engineering student navigating the worlds of hardware, software, and epic narratives."
+    Content: "An engineering notebook for Notes, Tools, Artifacts, and Thinking. I turn experiments into reproducible records and long-term growth."
   homeRecent:
     enabled: true
     title: "Recent Updates"
     limit: 3
-    sections: ["notes", "tools", "posts"]
+    sections: ["notes", "tools", "posts", "artifacts"]
 
   socialIcons:
     - name: GitHub
@@ -79,6 +79,13 @@ menu:
       params:
         description: "Practical utilities and local workflow tools."
       weight: 30
+
+    - identifier: artifacts
+      name: Artifacts
+      url: /artifacts/
+      params:
+        description: "Project build logs, prototypes, and validation notes."
+      weight: 35
 
     - identifier: thinking
       name: Thinking
