@@ -23,7 +23,13 @@
 {{- $bgKey = "home" -}}
 {{- else if eq .Layout "about" -}}
 {{- $bgKey = "about" -}}
-{{- else if and (ne .Section "") (isset $bgDefs .Section) -}}
+{{- else if and (eq .Layout "archives") (isset $bgDefs "archives") -}}
+{{- $bgKey = "archives" -}}
+{{- else if and (or (eq .Kind "taxonomy") (eq .Kind "term")) .Data .Data.Plural (isset $bgDefs (lower .Data.Plural)) -}}
+{{- $bgKey = lower .Data.Plural -}}
+{{- else if and (eq .Kind "page") (isset $bgDefs "article") -}}
+{{- $bgKey = "article" -}}
+{{- else if and (ne .Section "") (isset $bgDefs (lower .Section)) -}}
 {{- $bgKey = lower .Section -}}
 {{- end -}}
 

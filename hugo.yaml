@@ -40,6 +40,62 @@ params:
       webDir: "/img/backgrounds/about"
       position: "center 38%"
       size: "cover"
+    notes:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/notes"
+      webDir: "/img/backgrounds/notes"
+      position: "center center"
+      size: "cover"
+    tools:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/tools"
+      webDir: "/img/backgrounds/tools"
+      position: "center center"
+      size: "cover"
+    artifacts:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/artifacts"
+      webDir: "/img/backgrounds/artifacts"
+      position: "center center"
+      size: "cover"
+    thinking:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/thinking"
+      webDir: "/img/backgrounds/thinking"
+      position: "center center"
+      size: "cover"
+    categories:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/categories"
+      webDir: "/img/backgrounds/categories"
+      position: "center center"
+      size: "cover"
+    archives:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/archives"
+      webDir: "/img/backgrounds/archives"
+      position: "center center"
+      size: "cover"
+    article:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/article"
+      webDir: "/img/backgrounds/article"
+      position: "center center"
+      size: "cover"
   homeRecent:
     enabled: true
     title: "Recent Updates"
