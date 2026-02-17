@@ -1,73 +1,54 @@
 {{- define "main" }}
-{{- $aboutBG := partial "background_resolve.html" (dict "key" "about") | transform.Unmarshal -}}
-{{- $heroImage := .Params.heroImage | default (.Params.hero_image | default (index $aboutBG "url" | default "")) -}}
-{{- $heroPosition := .Params.heroPosition | default (.Params.hero_position | default (index $aboutBG "position" | default "center top")) -}}
-{{- $heroSize := .Params.heroSize | default (.Params.hero_size | default (index $aboutBG "size" | default "cover")) -}}
-{{- if and (ne $heroImage "") (not (or (hasPrefix $heroImage "http://") (hasPrefix $heroImage "https://") (hasPrefix $heroImage "//"))) -}}
-{{- $heroImage = $heroImage | relURL -}}
-{{- end -}}
-{{- $heroStyleParts := slice -}}
-{{- if ne $heroImage "" -}}
-{{- $heroStyleParts = $heroStyleParts | append (printf "--about-hero-image: url('%s')" $heroImage) -}}
-{{- end -}}
-{{- $heroStyleParts = $heroStyleParts | append (printf "--about-hero-position: %s" $heroPosition) -}}
-{{- $heroStyleParts = $heroStyleParts | append (printf "--about-hero-size: %s" $heroSize) -}}
-{{- $heroInlineStyle := printf "%s;" (delimit $heroStyleParts "; ") | safeCSS -}}
-{{- $hasAvatar := ne (.Params.avatar | default "") "" -}}
+<header class="page-header about-page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
 
-<article class="about-split">
-    <section class="about-split-top{{ if eq $heroImage "" }} about-split-top--noimage{{ end }}" style="{{ $heroInlineStyle }}"></section>
+<section class="about-hero">
+    {{- with .Params.avatar }}
+    <div class="about-avatar-wrap">
+        <img class="about-avatar" src="{{ . | absURL }}" alt="{{ $.Params.name | default "Profile avatar" }}">
+    </div>
+    {{- end }}
 
-    <section class="about-split-bottom">
-        <header class="about-page-header">
-            <h1>{{ .Title }}</h1>
-            {{- with .Description }}
-            <p class="about-page-desc">{{ . }}</p>
+    <div class="about-hero-info">
+        <h2>{{ .Params.name | default site.Title }}</h2>
+        {{- with .Params.role }}
+        <p class="about-role">{{ . }}</p>
+        {{- end }}
+
+        {{- with .Params.location }}
+        <p class="about-location">{{ . }}</p>
+        {{- end }}
+
+        {{- with .Params.focus }}
+        <div class="about-focus">
+            {{- range . }}
+            <span class="about-focus-chip">{{ . }}</span>
             {{- end }}
-        </header>
+        </div>
+        {{- end }}
 
-        <section class="about-profile{{ if $hasAvatar }} has-avatar{{ end }}">
-            {{- with .Params.avatar }}
-            <div class="about-avatar-wrap">
-                <img class="about-avatar" src="{{ . | absURL }}" alt="{{ $.Params.name | default "Profile avatar" }}">
-            </div>
+        <div class="about-links">
+            {{- with .Params.github }}
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub</a>
             {{- end }}
+            {{- with .Params.email }}
+            <a href="{{ printf "mailto:%s" . }}">Email</a>
+            {{- end }}
+        </div>
+    </div>
+</section>
 
-            <div class="about-profile-main{{ if $hasAvatar }} has-avatar{{ end }}">
-                <h2 class="about-name">{{ .Params.name | default site.Title }}</h2>
-                {{- with .Params.role }}
-                <p class="about-role">{{ . }}</p>
-                {{- end }}
-                {{- with .Params.location }}
-                <p class="about-location">{{ . }}</p>
-                {{- end }}
-
-                {{- with .Params.focus }}
-                <div class="about-focus">
-                    {{- range . }}
-                    <span class="about-focus-chip">{{ . }}</span>
-                    {{- end }}
-                </div>
-                {{- end }}
-
-                <div class="about-links">
-                    {{- with .Params.github }}
-                    <a href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    {{- end }}
-                    {{- with .Params.email }}
-                    <a href="{{ printf "mailto:%s" . }}">Email</a>
-                    {{- end }}
-                </div>
-            </div>
-        </section>
-
-        <section class="about-content-card post-content">
-            {{- if not (.Param "disableAnchoredHeadings") -}}
-            {{- partial "anchored_headings.html" .Content -}}
-            {{- else -}}
-            {{- .Content -}}
-            {{- end -}}
-        </section>
-    </section>
-</article>
+<section class="about-content post-content">
+    {{- if not (.Param "disableAnchoredHeadings") -}}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else -}}
+    {{- .Content -}}
+    {{- end -}}
+</section>
 {{- end }}{{/* end main */}}

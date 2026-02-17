@@ -38,7 +38,7 @@ params:
       image: ""
       dir: "static/img/backgrounds/about"
       webDir: "/img/backgrounds/about"
-      position: "center top"
+      position: "center 38%"
       size: "cover"
   homeRecent:
     enabled: true

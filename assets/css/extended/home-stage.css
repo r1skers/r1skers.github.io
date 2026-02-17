@@ -30,16 +30,6 @@ body.page-bg::before {
     background-repeat: no-repeat;
 }
 
-body.page-bg-about::before {
-    background:
-        linear-gradient(180deg, rgba(255, 250, 245, 0.76) 0%, rgba(255, 250, 245, 0.34) 55%, rgba(255, 250, 245, 0.12) 100%),
-        radial-gradient(92% 68% at 18% 6%, rgba(247, 186, 134, 0.2) 0%, rgba(247, 186, 134, 0) 66%),
-        var(--page-bg-image);
-    background-position: center center, center center, var(--page-bg-position, center center);
-    background-size: auto, auto, var(--page-bg-size, cover);
-    background-repeat: no-repeat;
-}
-
 body.page-bg::after {
     content: "";
     position: fixed;
@@ -110,16 +100,6 @@ body.page-bg .footer {
     background:
         linear-gradient(180deg, rgba(22, 18, 16, 0.68) 0%, rgba(22, 18, 16, 0.34) 56%, rgba(22, 18, 16, 0.14) 100%),
         radial-gradient(92% 68% at 14% 8%, rgba(255, 178, 122, 0.2) 0%, rgba(255, 178, 122, 0) 64%),
-        var(--page-bg-image);
-    background-position: center center, center center, var(--page-bg-position, center center);
-    background-size: auto, auto, var(--page-bg-size, cover);
-    background-repeat: no-repeat;
-}
-
-[data-theme="dark"] body.page-bg-about::before {
-    background:
-        linear-gradient(180deg, rgba(16, 13, 12, 0.74) 0%, rgba(16, 13, 12, 0.42) 58%, rgba(16, 13, 12, 0.2) 100%),
-        radial-gradient(92% 68% at 18% 6%, rgba(255, 178, 122, 0.16) 0%, rgba(255, 178, 122, 0) 66%),
         var(--page-bg-image);
     background-position: center center, center center, var(--page-bg-position, center center);
     background-size: auto, auto, var(--page-bg-size, cover);
