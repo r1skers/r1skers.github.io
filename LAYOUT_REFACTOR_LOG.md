@@ -35,7 +35,8 @@ This file tracks every layout-related change so the refactor can stay controlled
 | L-005 | Done | Restore homepage intro block (`Hephaestus' Forge` section) above the simplified 3-item menu hub | `layouts/partials/home_info.html`, `LAYOUT_REFACTOR_LOG.md` | `hugo -D` passed on 2026-02-17 | Remove intro block in `layouts/partials/home_info.html` to return to menu-only homepage |
 | L-006 | Done | Replace right-side index numbers with content counts for `notes` and `tools` only (`N articles`) | `layouts/partials/home_info.html`, `assets/css/extended/home-quick-nav.css`, `LAYOUT_REFACTOR_LOG.md` | `hugo -D` passed on 2026-02-17 | Restore `home-menu-index` rendering/styles to revert back to numeric labels |
 | L-007 | Done | Split top header and homepage menu responsibilities: header keeps `categories` + `archives`, homepage uses dedicated `home` menu (`about`/`notes`/`tools`) | `hugo.yaml`, `layouts/partials/home_info.html`, `LAYOUT_REFACTOR_LOG.md` | `hugo -D` passed on 2026-02-17 | Merge `menu.home` back into `menu.main` and restore previous homepage fallback-only logic |
+| L-008 | Done | Add homepage `Eureka` entry and wire posts into a dedicated `series/eureka` aggregation page | `hugo.yaml`, `content/posts/尤里卡-函数的平方的积分到底是什么/index.md`, `LAYOUT_REFACTOR_LOG.md` | `hugo -D` passed on 2026-02-17 | Remove `menu.home.eureka`, remove `series: [\"Eureka\"]` from post front matter, and remove `series` from taxonomies if unused |
 
 ## Next Queue
 
-- L-008: Decide whether to replace `Categories` with `Series` in the top header once series taxonomy is introduced.
+- L-009: Decide when to promote `Series` into top header (replace or supplement `Categories`) after more Eureka posts are published.

@@ -3,6 +3,11 @@ baseURL: "https://r1skers.github.io/"
 languageCode: en-us
 title: r1skers' Blog
 
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
 markup:
   goldmark:
     renderer:
@@ -69,3 +74,10 @@ menu:
       params:
         description: "Practical utilities and local workflow tools."
       weight: 30
+
+    - identifier: eureka
+      name: Eureka
+      url: /series/eureka/
+      params:
+        description: "Breakthrough ideas and cross-domain deep dives."
+      weight: 40
