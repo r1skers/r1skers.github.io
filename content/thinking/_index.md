@@ -8,6 +8,6 @@ description: "A parent space for Eureka, life reflections, and philosophy."
 
 This is the parent hub for idea-driven writing tracks.
 
-- [Eureka](/thinking/eureka/): Breakthrough ideas and cross-domain deep dives.
-- [Life Reflections](/thinking/life-reflections/): Personal lessons from study and work.
+- [Eureka](/thinking/eureka/): Breakthrough ideas and cross-domain deep dives. ([Series](/series/eureka/))
+- [Life Reflections](/thinking/life-reflections/): Personal lessons from study and work. ([Series](/series/life-reflections/))
 - [Philosophy](/thinking/philosophy/): Questions, frameworks, and long-form reasoning.

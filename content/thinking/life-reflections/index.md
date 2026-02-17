@@ -7,3 +7,5 @@ description: "Personal lessons from study and engineering practice."
 ---
 
 This track is for personal reflections, growth records, and practical lessons.
+
+- Browse current entries: [Life Reflections Series](/series/life-reflections/)

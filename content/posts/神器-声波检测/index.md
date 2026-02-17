@@ -4,7 +4,8 @@ draft: false
 title: '[Artifact] Sonic Lab Demo: Development Log'
 summary: "Fresh start log for the heterogeneous acoustic anomaly detection system."
 tags: ["STM32", "Embedded C", "Python", "DevLog"]
-categories: ["Artifact"]
+categories: ["Projects"]
+series: ["Sonic Lab"]
 ---
 
 <details>

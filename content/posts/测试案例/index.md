@@ -8,7 +8,8 @@ cover:
     alt: 'This is maodie'
     caption: 'this is the caption'  
 tags: ["Meta", "Markdown", "LaTeX", "Mermaid"]
-categories: ["The Crucible"]
+categories: ["Meta"]
+series: ["Site Lab"]
 ---
 
 

@@ -4,7 +4,8 @@ draft: false
 title: '[Tempering] The First Challenge in STM32 Learning'
 summary: "A debugging log of a 'Ghost Port' issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion."
 tags: ["STM32","Hardware Debugging","Environment Setup","UART"]
-categories: ["Tempering"]
+categories: ["Thinking"]
+series: ["Life Reflections"]
 ---
 
 # Background 

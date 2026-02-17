@@ -2,8 +2,9 @@
 date: '2025-11-26T09:49:00+09:00'
 draft: true
 title: 'Math Tools[To be continued]'
-tags: ["basic"]
-categories: ["The Crucible"]
+tags: ["Math", "Reference", "Draft"]
+categories: ["Thinking"]
+series: ["Math Scratchpad"]
 ---
 
 # Description 
