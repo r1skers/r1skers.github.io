@@ -38,32 +38,34 @@ params:
 
 menu:
   main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 20
+
+  home:
     - identifier: about
       name: About
       url: /about/
+      params:
+        description: "Who I am and what this blog is about."
       weight: 10
 
     - identifier: notes
       name: Notes
       url: /notes/
-      weight: 15
+      params:
+        description: "Study notes, field logs, and technical drafts."
+      weight: 20
 
     - identifier: tools
       name: Tools
       url: /tools/
-      weight: 18
-
-    - identifier: categories
-      name: Categories
-      url: /categories/
-      weight: 20
-
-    - identifier: tags
-      name: Tags
-      url: /tags/
+      params:
+        description: "Practical utilities and local workflow tools."
       weight: 30
-
-    - identifier: archives
-      name: Archives
-      url: /archives/
-      weight: 40

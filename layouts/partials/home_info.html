@@ -1,0 +1,42 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+    </footer>
+</article>
+{{- end -}}
+
+{{- $homeMenu := site.Menus.home }}
+{{- if eq (len $homeMenu) 0 }}
+{{- $homeIdentifiers := site.Params.homeMenuIdentifiers | default (slice "about" "notes" "tools") }}
+{{- $homeMenu = where site.Menus.main "Identifier" "in" $homeIdentifiers }}
+{{- end }}
+{{- if gt (len $homeMenu) 0 }}
+<section class="home-menu-hub" aria-label="Homepage menu">
+    <ul class="home-menu-list">
+        {{- range $index, $item := $homeMenu }}
+        <li class="home-menu-list-item">
+            <a class="home-menu-item" href="{{ $item.URL | absLangURL }}" title="{{ $item.Title | default $item.Name }}">
+                <span class="home-menu-main">
+                    <span class="home-menu-name">{{ $item.Name }}</span>
+                    <span class="home-menu-desc">{{ $item.Params.description | default $item.URL }}</span>
+                </span>
+                {{- $id := lower $item.Identifier }}
+                {{- if in (slice "notes" "tools") $id }}
+                {{- $sectionPages := where site.RegularPages "Section" $id }}
+                {{- $publishedPages := where $sectionPages "Draft" "!=" true }}
+                {{- $count := len $publishedPages }}
+                <span class="home-menu-meta">{{ $count }} {{ cond (eq $count 1) "article" "articles" }}</span>
+                {{- end }}
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+{{- end }}
