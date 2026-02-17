@@ -1,16 +1,54 @@
 {{- define "main" }}
- 
-<header class="page-header">
+<header class="page-header about-page-header">
     <h1>{{ .Title }}</h1>
     {{- if .Description }}
     <div class="post-description">
-      {{ .Description }}
+        {{ .Description }}
     </div>
     {{- end }}
-  </header>
- 
-<section>
-  {{ .Content }}
+</header>
+
+<section class="about-hero">
+    {{- with .Params.avatar }}
+    <div class="about-avatar-wrap">
+        <img class="about-avatar" src="{{ . | absURL }}" alt="{{ $.Params.name | default "Profile avatar" }}">
+    </div>
+    {{- end }}
+
+    <div class="about-hero-info">
+        <h2>{{ .Params.name | default site.Title }}</h2>
+        {{- with .Params.role }}
+        <p class="about-role">{{ . }}</p>
+        {{- end }}
+
+        {{- with .Params.location }}
+        <p class="about-location">{{ . }}</p>
+        {{- end }}
+
+        {{- with .Params.focus }}
+        <div class="about-focus">
+            {{- range . }}
+            <span class="about-focus-chip">{{ . }}</span>
+            {{- end }}
+        </div>
+        {{- end }}
+
+        <div class="about-links">
+            {{- with .Params.github }}
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+            {{- end }}
+            {{- with .Params.email }}
+            <a href="{{ printf "mailto:%s" . }}">Email</a>
+            {{- end }}
+        </div>
+    </div>
 </section>
- 
+
+<section class="about-content post-content">
+    {{- if not (.Param "disableAnchoredHeadings") -}}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else -}}
+    {{- .Content -}}
+    {{- end -}}
+</section>
 {{- end }}{{/* end main */}}
