@@ -4,5 +4,9 @@ date: '{{ .Date }}'
 draft: true
 summary: ""
 description: ""
-tags: []
+tags:
+  - "Thinking"
+categories:
+  - "Thinking"
+series: []
 ---

@@ -4,6 +4,9 @@ date: "2026-02-17T00:00:00+09:00"
 draft: false
 summary: "A parent space for Eureka, life reflections, and philosophy."
 description: "A parent space for Eureka, life reflections, and philosophy."
+aliases:
+  - /thoughts/
+  - /insights/
 ---
 
 This is the parent hub for idea-driven writing tracks.

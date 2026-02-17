@@ -1,6 +1,9 @@
 ---
 title: "Notes"
 description: "Course notes, self-study notes."
+aliases:
+  - /study-notes/
+  - /notebook/
 ---
 
 ## Quantum Mechanics

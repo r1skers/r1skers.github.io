@@ -1,7 +1,9 @@
 {{- define "main" -}}
+<section class="home-stage" aria-label="Homepage">
 {{- if (and site.Params.profileMode.enabled .IsHome) -}}
 {{- partial "index_profile.html" . -}}
 {{- else -}}
 {{- partial "home_info.html" . -}}
 {{- end -}}
+</section>
 {{- end -}}

@@ -5,4 +5,6 @@ draft: true
 summary: ""
 description: ""
 tags: []
+categories: []
+series: []
 ---

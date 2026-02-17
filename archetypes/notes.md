@@ -4,5 +4,8 @@ date: '{{ .Date }}'
 draft: true
 summary: ""
 description: ""
-tags: []
+tags:
+  - "Study Notes"
+categories:
+  - "Notes"
 ---

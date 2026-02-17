@@ -4,5 +4,10 @@ date: '{{ .Date }}'
 draft: true
 summary: ""
 description: ""
-tags: []
+tags:
+  - "Tool"
+categories:
+  - "Automata"
+weight: 10
+layout: "tool"
 ---

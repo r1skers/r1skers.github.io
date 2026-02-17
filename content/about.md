@@ -2,6 +2,9 @@
 title: "About"
 layout: "about"
 url: "/about/"
+aliases:
+  - /about-me/
+  - /profile/
 summary: "Who I am, what I am building, and where this blog is heading."
 description: "A concise profile page for r1skers."
 name: "r1skers"
