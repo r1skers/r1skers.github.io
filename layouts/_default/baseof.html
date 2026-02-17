@@ -16,11 +16,49 @@
     {{- partial "head.html" . }}
 </head>
 
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`) (eq .Layout `about`)) -}}
-<body class="list" id="top">
-{{- else }}
-<body id="top">
-{{- end }}
+{{- $isListLayout := (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`) (eq .Layout `about`)) -}}
+{{- $bgDefs := site.Params.backgrounds | default dict -}}
+{{- $bgKey := "" -}}
+{{- if .IsHome -}}
+{{- $bgKey = "home" -}}
+{{- else if eq .Layout "about" -}}
+{{- $bgKey = "about" -}}
+{{- else if and (ne .Section "") (isset $bgDefs .Section) -}}
+{{- $bgKey = lower .Section -}}
+{{- end -}}
+
+{{- $bg := dict -}}
+{{- if ne $bgKey "" -}}
+{{- $bg = partial "background_resolve.html" (dict "key" $bgKey) | transform.Unmarshal -}}
+{{- end -}}
+{{- $bgEnabled := index $bg "enabled" | default false -}}
+{{- $bgScope := lower (index $bg "scope" | default "page") -}}
+{{- $bgURL := index $bg "url" | default "" -}}
+{{- $bgPosition := index $bg "position" | default "center center" -}}
+{{- $bgSize := index $bg "size" | default "cover" -}}
+
+{{- $bodyClasses := slice -}}
+{{- if $isListLayout -}}
+{{- $bodyClasses = $bodyClasses | append "list" -}}
+{{- end -}}
+{{- if .IsHome -}}
+{{- $bodyClasses = $bodyClasses | append "is-home" -}}
+{{- end -}}
+
+{{- $bodyStyleParts := slice -}}
+{{- if and $bgEnabled (eq $bgScope "page") (ne $bgURL "") -}}
+{{- $bodyClasses = $bodyClasses | append "page-bg" -}}
+{{- $bodyClasses = $bodyClasses | append (printf "page-bg-%s" $bgKey) -}}
+{{- $bodyStyleParts = $bodyStyleParts | append (printf "--page-bg-image: url('%s')" $bgURL) -}}
+{{- $bodyStyleParts = $bodyStyleParts | append (printf "--page-bg-position: %s" $bgPosition) -}}
+{{- $bodyStyleParts = $bodyStyleParts | append (printf "--page-bg-size: %s" $bgSize) -}}
+{{- end -}}
+{{- $bodyInlineStyle := "" -}}
+{{- if gt (len $bodyStyleParts) 0 -}}
+{{- $bodyInlineStyle = printf "%s;" (delimit $bodyStyleParts "; ") | safeCSS -}}
+{{- end -}}
+
+<body{{ if gt (len $bodyClasses) 0 }} class="{{ delimit $bodyClasses " " }}"{{ end }} id="top"{{ if ne $bodyInlineStyle "" }} style="{{ $bodyInlineStyle }}"{{ end }}>
     {{ partialCached "header.html" . .Page -}}
     <main class="main">
         {{- block "main" . }}{{ end }}

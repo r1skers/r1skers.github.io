@@ -1,5 +1,25 @@
 {{- define "main" -}}
-<section class="home-stage" aria-label="Homepage">
+{{- $homeBg := partial "background_resolve.html" (dict "key" "home") | transform.Unmarshal -}}
+{{- $bgEnabled := index $homeBg "enabled" | default false -}}
+{{- $bgScope := lower (index $homeBg "scope" | default "page") -}}
+{{- $bgURL := index $homeBg "url" | default "" -}}
+{{- $bgPosition := index $homeBg "position" | default "center center" -}}
+{{- $bgSize := index $homeBg "size" | default "cover" -}}
+
+{{- $homeStageClass := "home-stage" -}}
+{{- $styleParts := slice -}}
+{{- if and $bgEnabled (eq $bgScope "stage") (ne $bgURL "") -}}
+{{- $homeStageClass = printf "%s has-home-bg" $homeStageClass -}}
+{{- $styleParts = $styleParts | append (printf "--home-bg-image: url('%s')" $bgURL) -}}
+{{- $styleParts = $styleParts | append (printf "--home-bg-position: %s" $bgPosition) -}}
+{{- $styleParts = $styleParts | append (printf "--home-bg-size: %s" $bgSize) -}}
+{{- end -}}
+{{- $inlineStyle := "" -}}
+{{- if gt (len $styleParts) 0 -}}
+{{- $inlineStyle = printf "%s;" (delimit $styleParts "; ") | safeCSS -}}
+{{- end -}}
+
+<section class="{{ $homeStageClass }}" aria-label="Homepage"{{ if ne $inlineStyle "" }} style="{{ $inlineStyle }}"{{ end }}>
 {{- if (and site.Params.profileMode.enabled .IsHome) -}}
 {{- partial "index_profile.html" . -}}
 {{- else -}}

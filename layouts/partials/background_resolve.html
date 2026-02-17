@@ -1,0 +1,110 @@
+{{- $key := lower (.key | default "") -}}
+{{- $empty := dict
+    "key" $key
+    "enabled" false
+    "scope" "page"
+    "position" "center center"
+    "size" "cover"
+    "path" ""
+    "url" ""
+    "version" ""
+-}}
+{{- if eq $key "" -}}
+{{- $empty | jsonify -}}
+{{- else -}}
+
+{{- $cfg := dict -}}
+{{- with site.Params.backgrounds -}}
+{{- with index . $key -}}
+{{- $cfg = . -}}
+{{- end -}}
+{{- end -}}
+
+{{- if and (eq $key "home") (eq (len $cfg) 0) -}}
+{{- with site.Params.homeBackground -}}
+{{- $cfg = . -}}
+{{- end -}}
+{{- end -}}
+
+{{- $enabled := true -}}
+{{- with index $cfg "enabled" -}}
+{{- $enabled = . -}}
+{{- end -}}
+
+{{- $scope := lower (index $cfg "scope" | default "page") -}}
+{{- $image := index $cfg "image" | default "" -}}
+{{- $position := index $cfg "position" | default "center center" -}}
+{{- $size := index $cfg "size" | default "cover" -}}
+
+{{- $dir := index $cfg "dir" | default (printf "static/img/backgrounds/%s" $key) -}}
+{{- $webDir := index $cfg "webDir" | default (printf "/img/backgrounds/%s" $key) -}}
+{{- $webDir = strings.TrimSuffix "/" $webDir -}}
+
+{{- $scanDir := $dir -}}
+{{- $scanWebDir := $webDir -}}
+{{- if and (not (fileExists $scanDir)) (eq $key "home") -}}
+{{- $legacyDir := "static/img/home-background" -}}
+{{- if fileExists $legacyDir -}}
+{{- $scanDir = $legacyDir -}}
+{{- $scanWebDir = "/img/home-background" -}}
+{{- end -}}
+{{- end -}}
+
+{{- $path := "" -}}
+{{- $version := "" -}}
+{{- if $enabled -}}
+{{- with $image -}}
+{{- $path = . -}}
+{{- else -}}
+{{- if fileExists $scanDir -}}
+{{- range sort (readDir $scanDir) "Name" -}}
+{{- $name := lower .Name -}}
+{{- if and (eq $path "") (not .IsDir) (or (hasSuffix $name ".jpg") (hasSuffix $name ".jpeg") (hasSuffix $name ".png") (hasSuffix $name ".webp") (hasSuffix $name ".avif")) -}}
+{{- $path = printf "%s/%s" $scanWebDir .Name -}}
+{{- $version = printf "%d" .ModTime.Unix -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- if and $enabled (eq $image "") (eq $path "") (eq $key "home") -}}
+{{- $legacyDir := "static/img/home-background" -}}
+{{- if fileExists $legacyDir -}}
+{{- range sort (readDir $legacyDir) "Name" -}}
+{{- $name := lower .Name -}}
+{{- if and (eq $path "") (not .IsDir) (or (hasSuffix $name ".jpg") (hasSuffix $name ".jpeg") (hasSuffix $name ".png") (hasSuffix $name ".webp") (hasSuffix $name ".avif")) -}}
+{{- $path = printf "/img/home-background/%s" .Name -}}
+{{- $version = printf "%d" .ModTime.Unix -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- $url := "" -}}
+{{- if ne $path "" -}}
+{{- if or (hasPrefix $path "http://") (hasPrefix $path "https://") (hasPrefix $path "//") -}}
+{{- $url = $path -}}
+{{- else -}}
+{{- $url = $path | relURL -}}
+{{- end -}}
+{{- if and (eq $image "") (ne $version "") -}}
+{{- if in $url "?" -}}
+{{- $url = printf "%s&v=%s" $url $version -}}
+{{- else -}}
+{{- $url = printf "%s?v=%s" $url $version -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- (dict
+    "key" $key
+    "enabled" $enabled
+    "scope" $scope
+    "position" $position
+    "size" $size
+    "path" $path
+    "url" $url
+    "version" $version
+) | jsonify -}}
+{{- end -}}

@@ -23,6 +23,23 @@ params:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
     Content: "An engineering notebook for Notes, Tools, Artifacts, and Thinking. I turn experiments into reproducible records and long-term growth."
+  backgrounds:
+    home:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/home"
+      webDir: "/img/backgrounds/home"
+      position: "center center"
+      size: "cover"
+    about:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/about"
+      webDir: "/img/backgrounds/about"
+      position: "center top"
+      size: "cover"
   homeRecent:
     enabled: true
     title: "Recent Updates"
