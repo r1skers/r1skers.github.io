@@ -1,11 +1,14 @@
 ---
 date: '2026-01-08T00:00:00+09:00'
 draft: false
-title: '[Artifact] Sonic Lab Demo: Development Log'
-summary: "Fresh start log for the heterogeneous acoustic anomaly detection system."
+title: "[Artifact-1] Sonic Lab 开发日志 / Sonic Lab Development Log"
+summary: "异构声学异常检测项目的长期开发记录。 / Long-term development log for the heterogeneous acoustic anomaly detection project."
+description: "Artifact 1 focuses on SonicLab: embedded data path, PC analysis loop, and iterative validation notes."
 tags: ["STM32", "Embedded C", "Python", "DevLog"]
 categories: ["Projects"]
-series: ["Sonic Lab"]
+weight: 10
+aliases:
+  - /posts/神器-声波检测/
 ---
 
 <details>

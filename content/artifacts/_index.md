@@ -10,6 +10,8 @@ aliases:
   - /labs/
 ---
 
-This section is for project-oriented work: builds, experiments, validation runs, and engineering retrospectives.
+This section is organized by numbered artifact tracks.
+本分区按编号组织长期项目线。
 
-- Ongoing track: [Sonic Lab](/series/sonic-lab/)
+- `Artifact 1`: [Sonic Lab 开发日志 / Sonic Lab Development Log](/artifacts/01-sonic-lab/)
+- `Artifact 2`: [ForgeFlow 框架迭代 / ForgeFlow Framework Track](/artifacts/02-forgeflow/)
