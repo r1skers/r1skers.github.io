@@ -1,0 +1,100 @@
+.home-info.first-entry {
+    min-height: 0;
+    margin: 14px auto 20px;
+}
+
+.home-recent {
+    margin: 0 auto 20px;
+    width: 100%;
+    max-width: 760px;
+    padding: 12px 14px;
+    border: var(--home-surface-border, 1.5px) solid var(--border);
+    border-radius: var(--home-surface-radius, var(--radius));
+    background: var(--entry);
+}
+
+.home-recent-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.home-recent-head h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--home-accent, var(--primary));
+}
+
+.home-recent-more {
+    font-size: 0.82rem;
+    color: var(--home-accent, var(--secondary));
+}
+
+.home-recent-more:hover {
+    text-decoration: underline;
+}
+
+.home-recent-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.home-recent-item {
+    display: block;
+    padding: 7px 8px;
+    border-radius: calc(var(--radius) - 2px);
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.home-recent-item:hover {
+    background: var(--theme);
+    border-color: var(--home-accent, var(--border));
+}
+
+.home-recent-meta {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--home-accent, var(--secondary));
+    margin-bottom: 2px;
+}
+
+.home-recent-title {
+    display: block;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    color: var(--primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+    .home-info.first-entry {
+        margin: 10px auto 16px;
+    }
+
+    .home-recent {
+        margin-bottom: 18px;
+        padding: 10px;
+    }
+
+    .home-recent-head h2 {
+        font-size: 0.95rem;
+    }
+
+    .home-recent-meta {
+        font-size: 0.72rem;
+    }
+
+    .home-recent-title {
+        font-size: 0.86rem;
+    }
+}

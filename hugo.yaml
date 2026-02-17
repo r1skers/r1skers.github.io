@@ -23,6 +23,11 @@ params:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
     Content: "Welcome to the forge. I'm r1skers, an Electrical Engineering student navigating the worlds of hardware, software, and epic narratives."
+  homeRecent:
+    enabled: true
+    title: "Recent Updates"
+    limit: 3
+    sections: ["notes", "tools", "posts"]
 
   socialIcons:
     - name: GitHub
@@ -75,9 +80,9 @@ menu:
         description: "Practical utilities and local workflow tools."
       weight: 30
 
-    - identifier: eureka
-      name: Eureka
-      url: /series/eureka/
+    - identifier: thinking
+      name: Thinking
+      url: /thinking/
       params:
-        description: "Breakthrough ideas and cross-domain deep dives."
+        description: "Eureka, life reflections, and philosophy in one place."
       weight: 40

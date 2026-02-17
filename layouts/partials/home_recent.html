@@ -1,0 +1,42 @@
+{{- $cfg := site.Params.homeRecent }}
+{{- $enabled := true }}
+{{- with $cfg.enabled }}
+{{- $enabled = . }}
+{{- end }}
+{{- if $enabled }}
+{{- $limit := 3 }}
+{{- with $cfg.limit }}
+{{- $limit = . }}
+{{- end }}
+{{- $sections := slice "notes" "tools" "posts" }}
+{{- with $cfg.sections }}
+{{- $sections = . }}
+{{- end }}
+{{- $title := "Recent Updates" }}
+{{- with $cfg.title }}
+{{- $title = . }}
+{{- end }}
+
+{{- $pages := where site.RegularPages "Draft" "!=" true }}
+{{- $pages = where $pages "Section" "in" $sections }}
+{{- if gt (len $pages) 0 }}
+{{- $sortedPages := $pages.ByLastmod.Reverse }}
+{{- $recentPages := first $limit $sortedPages }}
+<section class="home-recent" aria-labelledby="home-recent-title">
+    <div class="home-recent-head">
+        <h2 id="home-recent-title">{{ $title }}</h2>
+        <a class="home-recent-more" href="{{ "/archives/" | absLangURL }}">View all</a>
+    </div>
+    <ul class="home-recent-list">
+        {{- range $recentPages }}
+        <li class="home-recent-list-item">
+            <a class="home-recent-item" href="{{ .RelPermalink }}">
+                <span class="home-recent-meta">[{{ .Section | title }}] · {{ .Lastmod.Format "Jan 2, 2006" }}</span>
+                <span class="home-recent-title">{{ .Title }}</span>
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+{{- end }}
+{{- end }}
