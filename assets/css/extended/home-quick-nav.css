@@ -3,11 +3,15 @@
     --home-surface-radius: 10px;
     --home-surface-border: 1.5px;
     --home-surface-shadow: 0 8px 22px rgba(192, 106, 47, 0.16);
+    --home-menu-surface: rgba(255, 255, 255, 0.18);
+    --home-menu-surface-hover: rgba(255, 255, 255, 0.28);
 }
 
 [data-theme="dark"] {
     --home-accent: #ffb27a;
     --home-surface-shadow: 0 8px 22px rgba(255, 178, 122, 0.2);
+    --home-menu-surface: rgba(28, 24, 22, 0.2);
+    --home-menu-surface-hover: rgba(28, 24, 22, 0.3);
 }
 
 .home-menu-hub {
@@ -33,13 +37,15 @@
     padding: 14px 22px;
     border: var(--home-surface-border) solid var(--border);
     border-radius: var(--home-surface-radius);
-    background: var(--entry);
+    background: var(--home-menu-surface);
+    backdrop-filter: blur(2px);
     transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .home-menu-item:hover {
     transform: translateY(-2px);
     border-color: var(--home-accent);
+    background: var(--home-menu-surface-hover);
     box-shadow: var(--home-surface-shadow);
 }
 
