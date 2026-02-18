@@ -1,15 +1,14 @@
-﻿---
+---
 date: '2026-01-03T10:17:00+09:00'
 draft: false
 title: '量子力学第2部分：电子如何分布 / Quantum Mechanics Part 2: How Electrons Are Distributed'
 summary: "从直觉上理解电子如何占据量子态：从概率密度、费米-狄拉克统计到晶体中的电子分布，把电子重新看作概率性的量子对象而非局域粒子。 / An intuitive exploration of how electrons occupy quantum states. From probability densities and Fermi-Dirac statistics to electron distributions in crystalline systems, this article reframes electrons as probabilistic entities rather than localized particles."
 tags: ["Quantum Mechanics", "Physics", "Electron Distribution", "Probability", "Condensed Matter"]
-categories: ["The Crucible"]
+categories: ["Crucible"]
 ---
 
 
-# 电子并非“位于某处”，而是“分布于态中”
-# Electrons Are Not Located, They Are Distributed
+# 电子并非“位于某处”，而是“分布于态中” <p> Electrons Are Not Located, They Are Distributed
 
 > **核心前提**  
 > 电子并不是以*局域粒子*的形式分布在*空间*里。  
@@ -40,8 +39,7 @@ The electron is neither hidden at an unknown position nor spread out like a clas
 量子力学给出的不是轨迹地图，而是支配测量结果的概率结构。  
 Quantum mechanics provides not a map of trajectories, but a probabilistic structure governing measurement outcomes.
 
-## 从概率密度到量子态
-## From Probability Density to States
+## 从概率密度到量子态 <p> From Probability Density to States
 
 在 [Part 1（定态薛定谔方程）](../笔记-量子力学1-薛定谔公式/#time-independent-schrodinger-equation) 中我们得到  
 In [Part 1 (time-independent Schrodinger equation)](../笔记-量子力学1-薛定谔公式/#time-independent-schrodinger-equation), we derived
@@ -59,8 +57,7 @@ So a state is not an abstract label but a physically selected mathematical solut
 所以“电子分布”本质上是在问：哪些本征态被占据。$\rho(\mathbf r)=|\psi(\mathbf r)|^2$ 只是这些态在位置表象下的投影。  
 So "electron distribution" means which eigenstates are occupied. $\rho(\mathbf r)=|\psi(\mathbf r)|^2$ is the position-space projection of those states.
 
-### 泡利不相容示意图
-### Pauli Exclusion Sketch
+### 泡利不相容示意图 <p> Pauli Exclusion Sketch
 
 ![泡利占据示意图 / Pauli occupancy sketch](pauli-occupancy.svg)
 
@@ -70,8 +67,7 @@ Each horizontal line is an allowed energy eigenstate. One arrow means single occ
 到这里我们已经知道“哪些态能被占据”以及“每个态最多能放多少电子”。下一步自然要问：在晶体这种周期环境里，允许态本身长什么样？  
 At this point we know which states can be occupied and the occupancy limit per state. The next natural question is: what do allowed states look like in a periodic crystal?
 
-## 布洛赫定理
-## Bloch's Theorem
+## 布洛赫定理 <p> Bloch's Theorem
 
 在晶体中，势能是周期性的，因此允许态不再是自由空间平面波。布洛赫定理给出本征态形式  
 In crystals, the potential is periodic, so allowed states are not free-space plane waves. Bloch's theorem gives
@@ -97,8 +93,7 @@ where $u_{\mathbf k}(\mathbf r+\mathbf R)=u_{\mathbf k}(\mathbf r)$. This bridge
   </p>
 </details>
 
-### 晶格平移下的相位变化
-### Phase Shift Under Lattice Translation
+### 晶格平移下的相位变化 <p> Phase Shift Under Lattice Translation
 
 从布洛赫形式出发  
 Start from the Bloch form
@@ -121,8 +116,7 @@ Lattice translation changes only phase, not probability density. That is why $k$
 既然 $k$ 可以稳定地标记晶体态，就可以进一步追问：当原子靠近并形成晶格时，这些态会如何组织成能带？  
 Since $k$ can robustly label crystal states, the next step is to ask how these states reorganize into bands as atoms come together into a lattice.
 
-## 能带形成机制
-## Band Structure Construction
+## 能带形成机制 <p> Band Structure Construction
 
 孤立原子有离散轨道与离散能级。大量原子进入周期晶格后，轨道重叠与耦合使原子能级分裂成大量近邻子能级，最终形成近似连续的能带，并由带隙分隔。  
 Isolated atoms have discrete orbitals and energy levels. In a periodic lattice, overlap and coupling split each atomic level into many nearby levels, forming nearly continuous bands separated by gaps.
@@ -156,8 +150,7 @@ At Brillouin-zone boundaries, the periodic potential mixes states differing by a
   </p>
 </details>
 
-## 半导体（能带图）
-## Semiconductors (Band Diagram)
+## 半导体（能带图） <p> Semiconductors (Band Diagram)
 
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -170,8 +163,7 @@ At Brillouin-zone boundaries, the periodic potential mixes states differing by a
 有了能带图之后，下一步不只是“看形状”，而是要量化带边附近载流子的动态响应，这就引出有效质量。  
 Once we have the band picture, the next step is not just to inspect shapes but to quantify carrier dynamics near band edges, which leads to effective mass.
 
-## 有效质量
-## Effective Mass
+## 有效质量 <p> Effective Mass
 
 在带边附近，色散关系可近似为抛物线  
 Near a band edge, the dispersion is approximately parabolic:
@@ -186,8 +178,7 @@ $$
 曲率越小，$m^\ast$ 越大，响应越慢。价带曲率可为负，因此常用空穴作为正电载流子描述。  
 Smaller curvature means larger $m^\ast$ and slower response. Valence-band curvature can be negative, so holes are treated as positive carriers.
 
-### DOS 中的有效质量
-### Effective Mass in DOS
+### DOS 中的有效质量 <p> Effective Mass in DOS
 
 在带边近似下，可把自由电子质量替换为有效质量  
 Near the band edge, replace free-electron mass by effective mass:
@@ -195,14 +186,12 @@ $$
 g(E)=\frac{1}{2\pi^2}\left(\frac{2m^\ast}{\hbar^2}\right)^{3/2}\sqrt{E}.
 $$
 
-### 色散关系（带边附近）
-### Dispersion Relation (Near Band Edge)
+### 色散关系（带边附近） <p> Dispersion Relation (Near Band Edge)
 
 色散关系就是能量-动量关系 $E(k)$。带边附近近似抛物线，远离带边后偏离抛物线，有效质量随能量变化。  
 The dispersion relation is the energy-momentum relation $E(k)$. It is near-parabolic at the band edge and deviates farther away, making effective mass energy-dependent.
 
-### 迁移率（半导体）
-### Mobility (Semiconductors)
+### 迁移率（半导体） <p> Mobility (Semiconductors)
 
 迁移率
 Mobility
@@ -215,8 +204,7 @@ So smaller $m^\ast$ generally implies higher mobility.
 不过只知道单个载流子的“轻重快慢”还不够，我们还需要知道每个能量附近有多少可用态，这就是态密度 DOS。  
 Knowing how heavy or fast one carrier is still not enough; we also need the number of available states near each energy, i.e., the density of states (DOS).
 
-## 态密度（DOS）
-## Density of States (DOS)
+## 态密度（DOS） <p> Density of States (DOS)
 
 为推导 DOS，考虑边长 $L$ 的有限晶体并施加周期边界条件  
 To derive DOS, consider a finite crystal of size $L$ with periodic boundary conditions:
@@ -279,11 +267,9 @@ $$
 到这里我们只数清了“有多少可用态（座位）”，还没回答“哪些态被占据（谁坐上去）”。这个占据问题由费米-狄拉克分布给出。  
 So far we have counted available states ("how many seats"), but not occupancy ("who sits where"). Occupancy is provided by the Fermi-Dirac distribution.
 
-## 费米-狄拉克分布
-## Fermi-Dirac Distribution
+## 费米-狄拉克分布 <p> Fermi-Dirac Distribution
 
-### T = 0 K（阶跃函数）
-### T = 0 K (Step Function)
+### T = 0 K（阶跃函数） <p> T = 0 K (Step Function)
 
 绝对零度时，$E_F$ 以下全占据，以上全空：  
 At absolute zero, states below $E_F$ are fully occupied and states above are empty:
@@ -309,8 +295,7 @@ This is the ideal step defining the Fermi surface.
   </p>
 </details>
 
-### T > 0 K（热展宽）
-### T > 0 K (Thermal Smearing)
+### T > 0 K（热展宽） <p> T > 0 K (Thermal Smearing)
 
 有限温度下，阶跃被热展宽：  
 At finite temperature, the step is thermally smeared:
@@ -335,8 +320,7 @@ For $E\gg E_F$, $f\to0$; for $E\ll E_F$, $f\to1$; and $f(E_F)=1/2$.
 现在我们已经有了两把钥匙：$g(E)$ 给出态的数量，$f(E)$ 给出占据概率。下一步自然就是把它们相乘并积分，得到总电子密度。  
 Now we have both keys: $g(E)$ for state availability and $f(E)$ for occupation probability. The natural next step is to multiply and integrate them to obtain total electron density.
 
-## 电子密度
-## Electron Density
+## 电子密度 <p> Electron Density
 
 电子密度由 DOS 与占据概率加权积分得到  
 Electron density is obtained by DOS-weighted occupation:
@@ -344,8 +328,7 @@ $$
 n=\int_0^{\infty} g(E)f(E)\mathrm{d}E
 $$
 
-### T = 0 K（绝对零度）
-### T = 0 K
+### T = 0 K（绝对零度） <p> T = 0 K
 
 此时只有 $E_F$ 以下态贡献：  
 Only states below $E_F$ contribute:
@@ -363,8 +346,7 @@ $$
 E_F=\frac{\hbar^2}{2m}(3\pi^2n)^{2/3}.
 $$
 
-### T > 0 K（有限温度）
-### T > 0 K
+### T > 0 K（有限温度） <p> T > 0 K
 
 有限温下化学势变为 $\mu(T)$：  
 At finite temperature, the chemical potential becomes $\mu(T)$:
@@ -403,8 +385,7 @@ This explicitly shows the strong temperature dependence of carrier density.
   <br> <img src="T大于0K下的电子密度.svg" alt="T>0K 电子密度示意 / Electron density at T>0K" width="100%" height="auto">
 </details>
 
-### 掺杂与电中性条件（半导体）
-### Doping and Charge Neutrality (Semiconductors)
+### 掺杂与电中性条件（半导体） <p> Doping and Charge Neutrality (Semiconductors)
 
 在掺杂半导体中，施主与受主把“态的占据”转化为可控的载流子浓度。  
 In doped semiconductors, donors and acceptors turn state occupancy into a controllable carrier density.
@@ -428,8 +409,7 @@ $$
 所以在仅施主掺杂且 $N_D\gg n_i$ 的 n 型 Si 中，常直接用 $n\approx N_D$。  
 So for donor-only n-type Si with $N_D\gg n_i$, we often use $n\approx N_D$ directly.
 
-### 从掺杂浓度到原子替位比例
-### From Doping Concentration to Atomic Substitution Fraction
+### 从掺杂浓度到原子替位比例 <p> From Doping Concentration to Atomic Substitution Fraction
 
 若晶格常数为 $a$、单位胞含 $N_{\mathrm{uc}}$ 个原子，则原子密度为  
 If the lattice constant is $a$ and each unit cell contains $N_{\mathrm{uc}}$ atoms, the atomic density is
@@ -462,8 +442,7 @@ That is roughly one P atom per $10^4$ Si atoms.
 现在我们已经知道了载流子“有多少”（$n,p$）、“怎样占据”（$f$）以及“如何由掺杂定量设定”。下一步自然是把这些平衡态信息过渡到“有电场时如何产生电流”的非平衡输运图景。  
 Now we know how many carriers there are ($n,p$), how states are occupied ($f$), and how doping quantitatively sets carrier density. The natural next step is to move from this equilibrium picture to nonequilibrium transport under an electric field.
 
-## 从平衡占据到非平衡输运（含空穴）
-## From Equilibrium Occupation to Nonequilibrium Transport (Including Holes)
+## 从平衡占据到非平衡输运（含空穴） <p> From Equilibrium Occupation to Nonequilibrium Transport (Including Holes)
 
 在热平衡时，分布函数 $f_0(E)$ 在动量空间各向同性，速度贡献彼此抵消，净电流为零。  
 At thermal equilibrium, the distribution $f_0(E)$ is isotropic in momentum space, so velocity contributions cancel and net current is zero.
@@ -497,8 +476,7 @@ The explicit steady-state drift-current expression (including both electrons and
 有了这个“平衡占据 -> 受场偏移 -> 漂移电流”的桥接，下面的 $\rho,\sigma,\tau,\mu,v_d$ 就不再是孤立定义，而是同一条输运链上的参数。  
 With this bridge — equilibrium occupation -> field-induced shift -> drift current — the quantities $\rho,\sigma,\tau,\mu,v_d$ are no longer isolated definitions but linked parameters on one transport chain.
 
-## 定常状态下的电子运动
-## Electron Motion in Steady State
+## 定常状态下的电子运动 <p> Electron Motion in Steady State
 
 在 Drude 近似下，电子一方面受电场加速，另一方面被散射“拉回”平衡，可写成平均运动方程  
 Under the Drude approximation, electrons are accelerated by the electric field and relaxed by scattering, giving the average equation of motion
@@ -551,8 +529,7 @@ $$
 这样，$\tau,\mu,v_d,\sigma,\rho$ 就不再是割裂定义，而是同一条“受场驱动 + 散射平衡”的定常输运链。  
 This unifies $\tau,\mu,v_d,\sigma,\rho$ as one steady-transport chain governed by field driving plus scattering balance.
 
-## 导电图景总结
-## Conduction Picture Summary
+## 导电图景总结 <p> Conduction Picture Summary
 
 > **核心观点：** 导电不是电子“在原地移动”，而是电子“跃迁到可用态”。金属在 $E_F$ 附近天然有空态，所以容易导电；半导体与绝缘体需要热激发或光激发来产生导带电子和价带空穴。  
 > **Key idea:** conduction is not electrons "moving in place" but electrons transitioning into available states. Metals conduct easily because empty states already exist near $E_F$; semiconductors and insulators need thermal or optical excitation to create carriers.
@@ -560,11 +537,9 @@ This unifies $\tau,\mu,v_d,\sigma,\rho$ as one steady-transport chain governed b
 既然热激发与电场都能改变占据，最后一步自然是光场：光子既可以把电子从价带激发到导带（吸收），也可以在复合时带走能量（发光），并在受激条件下产生光放大。  
 Since thermal excitation and electric fields can modify occupation, the natural final step is optical fields: photons can excite electrons across the band gap (absorption), carry away recombination energy (emission), and under stimulated conditions produce optical gain.
 
-## 从输运到光学跃迁
-## From Transport to Optical Transitions
+## 从输运到光学跃迁 <p> From Transport to Optical Transitions
 
-### 受激辐射与激光基本条件
-### Stimulated Emission and Laser Conditions
+### 受激辐射与激光基本条件 <p> Stimulated Emission and Laser Conditions
 
 受激辐射是指入射光子诱导激发态载流子辐射出一个“同频率、同相位、同方向”的光子，这是激光放大的微观来源。  
 Stimulated emission means an incident photon induces an excited carrier to emit another photon with the same frequency, phase, and propagation direction, which is the microscopic origin of laser amplification.
@@ -581,8 +556,7 @@ $$
 g_{\mathrm{net}}=g-\alpha_{\mathrm{loss}}>0.
 $$
 
-### 带隙与发光波长
-### Band Gap and Emission Wavelength
+### 带隙与发光波长 <p> Band Gap and Emission Wavelength
 
 带边复合发光时，光子能量近似等于带隙  
 For near-band-edge radiative recombination, photon energy is approximately the band gap:
@@ -599,8 +573,7 @@ $$
 位于紫外波段。  
 which lies in the ultraviolet range.
 
-### 吸收系数与光强衰减
-### Absorption Coefficient and Intensity Decay
+### 吸收系数与光强衰减 <p> Absorption Coefficient and Intensity Decay
 
 若忽略界面反射与散射，只考虑体吸收，Lambert-Beer 定律可写成  
 If interface reflection and scattering are neglected and only bulk absorption is considered, the Lambert-Beer law is

@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Artifact-2] ForgeFlow 框架迭代 / ForgeFlow Framework Track"
 date: '2026-02-17T18:00:10+09:00'
 draft: false
@@ -9,7 +9,7 @@ tags:
   - "ForgeFlow"
   - "Framework"
 categories:
-  - "Projects"
+  - "Artifacts"
 weight: 20
 aliases:
   - /artifacts/forgeflow/

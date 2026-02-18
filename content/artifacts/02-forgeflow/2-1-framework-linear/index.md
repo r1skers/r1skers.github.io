@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Artifact-2.1] ForgeFlow 框架与 Linear 跑通 / Framework and Linear Baseline Run"
 date: '2026-02-17T18:00:10+09:00'
 draft: false
@@ -10,7 +10,7 @@ tags:
   - "Framework"
   - "Baseline"
 categories:
-  - "Projects"
+  - "Artifacts"
 weight: 21
 aliases:
   - /artifacts/forgeflow-framework/

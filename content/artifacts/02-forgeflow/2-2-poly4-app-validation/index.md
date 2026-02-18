@@ -1,4 +1,4 @@
----
+﻿---
 title: "[Artifact-2.2] Poly4 App 跑通流程与逻辑顺序 / Poly4 App Pipeline Validation"
 date: '2026-02-18T00:30:23+09:00'
 draft: false
@@ -10,7 +10,7 @@ tags:
   - "Poly4"
   - "Validation"
 categories:
-  - "Projects"
+  - "Artifacts"
 weight: 22
 aliases:
   - /artifacts/forgeflow-01-poly4-first-app-validation/

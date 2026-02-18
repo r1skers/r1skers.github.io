@@ -6,7 +6,6 @@ title: r1skers' Blog
 taxonomies:
   category: categories
   tag: tags
-  series: series
 
 markup:
   goldmark:
@@ -22,7 +21,7 @@ params:
   HomeInfoParams:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
-    Content: "An engineering notebook for Notes, Tools, Artifacts, and Thinking. I turn experiments into reproducible records and long-term growth."
+    Content: "An engineering notebook for Notes, Tools, Artifacts, and Sparks. I turn experiments into reproducible records and long-term growth."
   backgrounds:
     home:
       enabled: true
@@ -161,7 +160,7 @@ menu:
       weight: 35
 
     - identifier: thinking
-      name: Thinking
+      name: Sparks
       url: /thinking/
       params:
         description: "Eureka, life reflections, and philosophy in one place."

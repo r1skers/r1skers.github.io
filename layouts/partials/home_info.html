@@ -75,8 +75,8 @@
                 {{- else if eq $id "artifacts" }}
                 {{- $artifactPages := where site.RegularPages "Section" "artifacts" }}
                 {{- $postPages := where site.RegularPages "Section" "posts" }}
-                {{- $projectPosts := where $postPages "Params.categories" "intersect" (slice "Projects") }}
-                {{- $count := len ($artifactPages | union $projectPosts) }}
+                {{- $artifactCategoryPosts := where $postPages "Params.categories" "intersect" (slice "Artifacts") }}
+                {{- $count := len ($artifactPages | union $artifactCategoryPosts) }}
                 <span class="home-menu-meta">{{ $count }} {{ cond (eq $count 1) "article" "articles" }}</span>
                 {{- end }}
             </a>

@@ -11,4 +11,4 @@ aliases:
 
 This track collects breakthrough ideas and interdisciplinary links.
 
-- Browse current entries: [Eureka Series](/series/eureka/)
+- Browse current entries in this track below.

@@ -35,7 +35,7 @@ It helps me turn scattered ideas into structured records, and turn records into 
 - [Notes](/notes/): course notes, concept breakdowns, and technical derivations.
 - [Tools](/tools/): practical utilities and local workflow tools.
 - [Artifacts](/artifacts/): project build logs, prototypes, and validation notes.
-- [Thinking](/thinking/): Eureka, life reflections, and philosophy.
+- [Sparks](/thinking/): Eureka, life reflections, and philosophy.
 
 ## Roadmap
 

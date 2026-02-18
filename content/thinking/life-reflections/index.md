@@ -11,4 +11,4 @@ aliases:
 
 This track is for personal reflections, growth records, and practical lessons.
 
-- Browse current entries: [Life Reflections Series](/series/life-reflections/)
+- Browse current entries in this track below.

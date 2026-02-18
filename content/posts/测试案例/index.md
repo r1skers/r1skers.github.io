@@ -1,15 +1,14 @@
 ---
 date: '2025-10-29T17:01:21+09:00'
 draft: true
-title: '[The Crucible] Markdown Functionality Test (LaTeX and Mermaid)'
+title: '[Crucible] Markdown Functionality Test (LaTeX and Mermaid)'
 summary: "A meta-post testing the rendering capabilities of this blog. Including mathematical formulas (KaTeX) and diagrams (Mermaid)."
 cover:
     image: img/avatar.jpg
     alt: 'This is maodie'
     caption: 'this is the caption'  
-tags: ["Meta", "Markdown", "LaTeX", "Mermaid"]
-categories: ["Meta"]
-series: ["Site Lab"]
+tags: ["Forge Ops", "Markdown", "LaTeX", "Mermaid"]
+categories: ["Forge Ops"]
 ---
 
 

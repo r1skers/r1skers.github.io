@@ -1,10 +1,10 @@
----
+﻿---
 title: "RealESRGAN Local Tool (Download)"
 date: "2026-02-16T00:00:00+08:00"
 draft: false
 summary: "Download, unzip, and run RealESRGAN locally."
 tags: ["Tool", "Image", "AI", "Download"]
-categories: ["Automata"]
+categories: ["Workshop"]
 weight: 3
 ---
 

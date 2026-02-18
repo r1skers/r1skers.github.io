@@ -18,8 +18,8 @@
 
 {{- $artifactPages := where site.RegularPages "Section" "artifacts" -}}
 {{- $postPages := where site.RegularPages "Section" "posts" -}}
-{{- $projectPosts := where $postPages "Params.categories" "intersect" (slice "Projects") -}}
-{{- $pages := $artifactPages | union $projectPosts -}}
+{{- $artifactCategoryPosts := where $postPages "Params.categories" "intersect" (slice "Artifacts") -}}
+{{- $pages := $artifactPages | union $artifactCategoryPosts -}}
 {{- $pages = $pages.ByDate.Reverse -}}
 
 {{- if gt (len $pages) 0 }}
