@@ -1,0 +1,43 @@
+<svg viewBox="0 0 980 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Continuous curvature versus piecewise local approximation">
+<defs>
+<linearGradient id="leftGlow" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#63a4ff" stop-opacity="0.32"/>
+<stop offset="100%" stop-color="#6be7c8" stop-opacity="0.22"/>
+</linearGradient>
+<linearGradient id="rightGlow" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fca17d" stop-opacity="0.28"/>
+<stop offset="100%" stop-color="#f9dd94" stop-opacity="0.20"/>
+</linearGradient>
+</defs>
+
+<rect x="1" y="1" width="978" height="358" rx="14" ry="14" fill="rgba(255,255,255,0.30)" stroke="rgba(255,255,255,0.55)" stroke-width="2"/>
+<line x1="490" y1="22" x2="490" y2="338" stroke="rgba(60,60,60,0.28)" stroke-width="1.4"/>
+
+<text x="38" y="48" font-size="22" font-weight="700" fill="rgba(35,35,35,0.92)">Continuous local curvature</text>
+<text x="38" y="76" font-size="15" fill="rgba(35,35,35,0.82)">Real surface bends smoothly in each neighborhood.</text>
+<path d="M36 254 C120 156, 212 150, 300 202 C358 235, 420 226, 462 186 L462 312 L36 312 Z" fill="url(#leftGlow)"/>
+<path d="M36 254 C120 156, 212 150, 300 202 C358 235, 420 226, 462 186" fill="none" stroke="#1f6feb" stroke-width="4"/>
+<circle cx="112" cy="188" r="5.8" fill="#1f6feb"/>
+<circle cx="208" cy="170" r="5.8" fill="#1f6feb"/>
+<circle cx="308" cy="206" r="5.8" fill="#1f6feb"/>
+<circle cx="402" cy="225" r="5.8" fill="#1f6feb"/>
+<line x1="112" y1="188" x2="208" y2="170" stroke="rgba(31,111,235,0.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="208" y1="170" x2="308" y2="206" stroke="rgba(31,111,235,0.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="308" y1="206" x2="402" y2="225" stroke="rgba(31,111,235,0.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+<text x="528" y="48" font-size="22" font-weight="700" fill="rgba(35,35,35,0.92)">Piecewise local approximation</text>
+<text x="528" y="76" font-size="15" fill="rgba(35,35,35,0.82)">Coarse nodes + local patches hide part of curvature.</text>
+<path d="M528 258 C612 162, 702 156, 790 206 C846 236, 902 228, 944 188" fill="none" stroke="rgba(60,60,60,0.35)" stroke-width="3" stroke-dasharray="7 5"/>
+<path d="M528 258 L620 194 L714 188 L808 220 L902 228 L944 188 L944 312 L528 312 Z" fill="url(#rightGlow)"/>
+<polyline points="528,258 620,194 714,188 808,220 902,228 944,188" fill="none" stroke="#ce5c2a" stroke-width="4"/>
+<circle cx="620" cy="194" r="5.8" fill="#ce5c2a"/>
+<circle cx="714" cy="188" r="5.8" fill="#ce5c2a"/>
+<circle cx="808" cy="220" r="5.8" fill="#ce5c2a"/>
+<circle cx="902" cy="228" r="5.8" fill="#ce5c2a"/>
+
+<rect x="690" y="232" width="86" height="62" fill="rgba(255,255,255,0.52)" stroke="rgba(55,55,55,0.45)" stroke-width="1.2"/>
+<line x1="690" y1="252" x2="776" y2="252" stroke="rgba(55,55,55,0.35)" stroke-width="1"/>
+<line x1="718.7" y1="232" x2="718.7" y2="294" stroke="rgba(55,55,55,0.35)" stroke-width="1"/>
+<line x1="747.3" y1="232" x2="747.3" y2="294" stroke="rgba(55,55,55,0.35)" stroke-width="1"/>
+<text x="693" y="310" font-size="13" fill="rgba(35,35,35,0.82)">locally flat cell</text>
+</svg>

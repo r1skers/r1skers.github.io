@@ -93,5 +93,7 @@ python main.py --config ForgeFlowApps/poly4_cubic/config/run.json --log-level IN
 
 ## 9. 关联页面 / Linked Pages
 
+- 框架本体 / Framework core: [Artifact-2.0](/artifacts/02-forgeflow/2-0-framework-core/)
 - 上一项 / Previous: [Artifact-2.1](/artifacts/02-forgeflow/2-1-framework-linear/)
+- 下一项 / Next: [Artifact-2.3](/artifacts/02-forgeflow/2-3-ink-diffusion-dual-track/)
 - 父索引 / Parent: [Artifact-2](/artifacts/02-forgeflow/)

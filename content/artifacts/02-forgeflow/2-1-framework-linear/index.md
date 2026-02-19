@@ -1,51 +1,51 @@
-﻿---
-title: "[Artifact-2.1] ForgeFlow 框架与 Linear 跑通 / Framework and Linear Baseline Run"
+---
+title: "[Artifact-2.1] Linear Baseline 跑通 / Linear Baseline Validation"
 date: '2026-02-17T18:00:10+09:00'
 draft: false
-summary: "定义 ForgeFlow 框架边界，并固化 linear_xy baseline 的标准跑通流程。 / Define framework boundaries and standardize the linear_xy baseline runbook."
-description: "This page focuses on framework scope and linear baseline verification."
+summary: "聚焦 linear_xy 的 App 隔离 baseline：从配置、执行到验收口径的完整记录。 / Focus on app-isolated linear_xy baseline: config, execution, and acceptance."
+description: "Linear baseline page for Artifact-2, aligned to ForgeFlowApps mainline path."
 tags:
   - "Artifact"
   - "ForgeFlow"
-  - "Framework"
   - "Baseline"
+  - "Linear"
 categories:
   - "Artifacts"
 weight: 21
 aliases:
   - /artifacts/forgeflow-framework/
+  - /artifacts/forgeflow-linear-baseline/
 ---
 
 ## 1. 页面定位 / Purpose
 
-本页只做两件事：
-This page does only two things:
+本页只做 `linear_xy` 一件事，不再承担框架总览。  
+This page is only about `linear_xy`, not framework overview.
 
-1. 说明 ForgeFlow 框架边界和目录职责。
-1. Define framework boundaries and directory responsibilities.
-2. 固化 `linear_xy` 的 baseline 跑通流程（sanity check）。
-2. Freeze the baseline runbook for `linear_xy` (sanity check).
+定位：`linear_xy` 是 ForgeFlow 的最小可复现实验，用于验证 supervised 主流程是否稳定可用。  
+Positioning: `linear_xy` is the minimal reproducible check for supervised pipeline stability.
 
-`linear_xy` 的角色是“框架自检”，不是首个真实 App 任务验证。
-`linear_xy` is a framework sanity check, not the first real app-level validation.
+它不是复杂任务 benchmark，而是回归测试基准样例。  
+It is not a complex-task benchmark; it is a regression baseline sample.
 
-## 2. 框架边界与目录职责 / Scope and Ownership
+## 2. 当前主路径 / Mainline Path
 
-- 入口 / Entry: `main.py`
-- 核心流程 / Core flow: `forgeflow/core/`（config, split, evaluation, runner）
-- 协议层 / Interface contracts: `forgeflow/interfaces/`
-- 内置插件 / Built-in plugins: `forgeflow/plugins/`
-- baseline 实验 / Baseline experiment: `experiments/linear_xy/`
-- App 级任务 / App-level tasks: `ForgeFlowApps/`（例如 `poly4_cubic`）
+- 配置文件 / Config file: `ForgeFlowApps/linear_xy/config/run.json`
+- 训练数据 / Train CSV: `ForgeFlowApps/linear_xy/data/processed/train.csv`
+- 推理数据 / Infer CSV: `ForgeFlowApps/linear_xy/data/infer/infer.csv`
+- 输出目录 / Output dir: `ForgeFlowApps/linear_xy/output/`
 
-## 3. Linear Baseline 配置 / Config
+说明：`experiments/linear_xy/` 仍可运行，但属于兼容层路径，不是主叙事。  
+Note: `experiments/linear_xy/` still works for compatibility, but it is not the mainline path.
 
-配置文件 / Config file: `experiments/linear_xy/config.json`
+## 3. 关键配置 / Key Config
 
-关键参数 / Key parameters:
+配置文件 / Config file: `ForgeFlowApps/linear_xy/config/run.json`
 
-- `adapter = linear_xy`
-- `model = linear_dynamics`
+- `mode = supervised`
+- `task = linear_xy`
+- `adapter_ref = ForgeFlowApps.linear_xy.adapters.linear_xy_adapter:LinearXYAdapter`
+- `model_ref = ForgeFlowApps.linear_xy.models.linear_regression:LinearDynamicsRegressor`
 - `split.train_ratio = 0.8`
 - `split.shuffle = false`
 - `split.seed = 42`
@@ -56,7 +56,7 @@ This page does only two things:
 1. 执行命令 / Run
 
 ```bash
-python main.py --config experiments/linear_xy/config.json --log-level INFO
+python main.py --config ForgeFlowApps/linear_xy/config/run.json --log-level INFO
 ```
 
 2. 检查日志关键行 / Check critical log lines
@@ -69,8 +69,8 @@ python main.py --config experiments/linear_xy/config.json --log-level INFO
 
 3. 检查输出文件 / Check output files
 
-- `experiments/linear_xy/output/eval_report.csv`
-- `experiments/linear_xy/output/predictions.csv`
+- `ForgeFlowApps/linear_xy/output/eval_report.csv`
+- `ForgeFlowApps/linear_xy/output/predictions.csv`
 
 ## 5. 本次记录结果（2026-02-18） / Recorded Result
 
@@ -81,6 +81,8 @@ python main.py --config experiments/linear_xy/config.json --log-level INFO
 | val_mae | 0.000000 |
 | val_rmse | 0.000000 |
 | val_maxae | 0.000000 |
+| infer_rows | 5 |
+| infer_anomaly_rows | 2 |
 | status | PASS |
 
 ## 6. 验收标准 / Acceptance Criteria
@@ -89,6 +91,8 @@ python main.py --config experiments/linear_xy/config.json --log-level INFO
 - `eval_report.csv` 存在且 `status=PASS` / `eval_report.csv` exists and status is PASS.
 - `predictions.csv` 正常生成 / `predictions.csv` is generated correctly.
 
-## 7. 下一项 / Next Item
+## 7. 关联页面 / Linked Pages
 
-- [Artifact-2.2：Poly4 App 跑通流程与逻辑顺序](/artifacts/02-forgeflow/2-2-poly4-app-validation/)
+- 上一项 / Previous: [Artifact-2.0：ForgeFlow 框架本体](/artifacts/02-forgeflow/2-0-framework-core/)
+- 下一项 / Next: [Artifact-2.2：Poly4 App 跑通流程与逻辑顺序](/artifacts/02-forgeflow/2-2-poly4-app-validation/)
+- 父索引 / Parent: [Artifact-2](/artifacts/02-forgeflow/)

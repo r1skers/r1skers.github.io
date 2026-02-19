@@ -269,7 +269,7 @@ So far we have counted available states ("how many seats"), but not occupancy ("
 
 ## 费米-狄拉克分布 <p> Fermi-Dirac Distribution
 
-### T = 0 K（阶跃函数） <p> T = 0 K (Step Function)
+### T = 0 K（阶跃函数） <p> Step Function
 
 绝对零度时，$E_F$ 以下全占据，以上全空：  
 At absolute zero, states below $E_F$ are fully occupied and states above are empty:
@@ -295,7 +295,7 @@ This is the ideal step defining the Fermi surface.
   </p>
 </details>
 
-### T > 0 K（热展宽） <p> T > 0 K (Thermal Smearing)
+### T > 0 K（热展宽） <p> Thermal Smearing
 
 有限温度下，阶跃被热展宽：  
 At finite temperature, the step is thermally smeared:
@@ -328,7 +328,7 @@ $$
 n=\int_0^{\infty} g(E)f(E)\mathrm{d}E
 $$
 
-### T = 0 K（绝对零度） <p> T = 0 K
+### T = 0 K（绝对零度） <p> Absolute Zero
 
 此时只有 $E_F$ 以下态贡献：  
 Only states below $E_F$ contribute:
@@ -346,7 +346,7 @@ $$
 E_F=\frac{\hbar^2}{2m}(3\pi^2n)^{2/3}.
 $$
 
-### T > 0 K（有限温度） <p> T > 0 K
+### T > 0 K（有限温度） <p> Finite Temperature
 
 有限温下化学势变为 $\mu(T)$：  
 At finite temperature, the chemical potential becomes $\mu(T)$:
