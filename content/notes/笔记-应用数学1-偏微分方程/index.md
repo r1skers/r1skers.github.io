@@ -158,6 +158,28 @@ $$
 物理上，它限制了“每一步扩散能走多远”：时间步太大，就会超过网格分辨率能承受的传播尺度。  
 Physically, it limits how far diffusion can move in one step; if $\Delta t$ is too large, propagation exceeds grid-resolvable scales.
 
+### 3.1 网格加密与 16 倍算力差距
+### 3.1 Grid Refinement and the 16x Compute Gap
+
+显式二维扩散里有一个常见结论：网格间距减半（$\Delta x\to\Delta x/2$）后，计算成本通常接近 16 倍。  
+In explicit 2D diffusion, a common result is: halving grid spacing ($\Delta x\to\Delta x/2$) often drives compute cost close to 16x.
+
+原因是“空间 4 倍 + 时间 4 倍”：  
+The reason is “4x in space + 4x in time”:
+
+1. 网格点数约增加 4 倍（2D 下 $(2N_x)(2N_y)\approx4N_xN_y$）/ Grid points increase by about 4x in 2D ($(2N_x)(2N_y)\approx4N_xN_y$).
+2. 由 CFL 约束 $\Delta t\le\frac{\Delta x^2}{4\kappa}$，当 $\Delta x$ 减半时，稳定步长上限变成原来的 $1/4$，同样物理时长下时间步数再增 4 倍 / From CFL $\Delta t\le\frac{\Delta x^2}{4\kappa}$, halving $\Delta x$ cuts stable $\Delta t$ to $1/4$, so step count for the same physical horizon grows by another 4x.
+
+因此总工作量近似：  
+So total work is approximately:
+
+$$
+\text{Cost}\sim \underbrace{4}_{\text{more grid points}}\times\underbrace{4}_{\text{more time steps}}=16
+$$
+
+这也是显式法里“精度提升很快变贵”的直观来源。  
+This is the intuition behind why accuracy upgrades become expensive quickly in explicit schemes.
+
 ---
 
 ## 4. 边界条件：第一类、第二类、第三类
