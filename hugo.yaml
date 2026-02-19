@@ -23,6 +23,9 @@ markup:
       unsafe: true
 
 params:
+  author:
+    name: "r1skers"
+
   mainSections:
     - posts
 
