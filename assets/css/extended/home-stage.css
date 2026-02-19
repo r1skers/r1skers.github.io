@@ -1,3 +1,7 @@
+:root {
+    --main-width: 860px;
+}
+
 .home-stage {
     --home-bg-image: none;
     --home-bg-position: center center;
@@ -153,6 +157,12 @@ body.page-bg.page-bg-article .post-content {
 
 [data-theme="dark"] .home-stage::after {
     opacity: 0.22;
+}
+
+@media (max-width: 980px) {
+    :root {
+        --main-width: 760px;
+    }
 }
 
 @media (max-width: 680px) {
