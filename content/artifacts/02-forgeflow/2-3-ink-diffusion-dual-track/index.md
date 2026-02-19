@@ -188,6 +188,16 @@ python ForgeFlowApps/ink_diffusion/scripts/plot_report.py
 - `ForgeFlowApps/ink_diffusion/output/report/simulation_report.png`
 - `ForgeFlowApps/ink_diffusion/output/report/surrogate_report.png`
 
+页面内嵌展示（本页快照）/ Embedded snapshots on this page:
+
+![Ink Diffusion Simulation Report](simulation_report.png)
+
+_Simulation report: mass/peak diagnostics and field snapshots._
+
+![Ink Diffusion Surrogate Report](surrogate_report.png)
+
+_Surrogate report: y_true vs y_pred, residual histogram, and metric summary._
+
 ## 6. 验收逻辑（门禁顺序） / Acceptance Logic (Gate Order)
 
 验收不是“看一个 PASS 字段”就结束，而是按顺序通过以下门禁：  
