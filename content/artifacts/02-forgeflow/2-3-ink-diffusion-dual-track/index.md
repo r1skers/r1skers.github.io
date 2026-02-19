@@ -190,11 +190,11 @@ python ForgeFlowApps/ink_diffusion/scripts/plot_report.py
 
 页面内嵌展示（本页快照）/ Embedded snapshots on this page:
 
-![Ink Diffusion Simulation Report](simulation_report.png)
+[![Ink Diffusion Simulation Report](simulation_report.png)](simulation_report.png)
 
 _Simulation report: mass/peak diagnostics and field snapshots._
 
-![Ink Diffusion Surrogate Report](surrogate_report.png)
+[![Ink Diffusion Surrogate Report](surrogate_report.png)](surrogate_report.png)
 
 _Surrogate report: y_true vs y_pred, residual histogram, and metric summary._
 
