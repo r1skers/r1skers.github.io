@@ -190,13 +190,69 @@ python ForgeFlowApps/ink_diffusion/scripts/plot_report.py
 
 页面内嵌展示（本页快照）/ Embedded snapshots on this page:
 
-[![Ink Diffusion Simulation Report](simulation_report.png)](simulation_report.png)
+<style>
+.artifact-lightbox-row {
+  display: grid;
+  gap: 1rem;
+}
+.artifact-lightbox-thumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  cursor: zoom-in;
+}
+.artifact-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.82);
+  padding: 2rem;
+}
+.artifact-lightbox:target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.artifact-lightbox img {
+  max-width: min(92vw, 1600px);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+}
+.artifact-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 1;
+}
+</style>
 
-_Simulation report: mass/peak diagnostics and field snapshots._
+<div class="artifact-lightbox-row">
+  <a class="artifact-lightbox-thumb" href="#sim-report-lightbox">
+    <img src="simulation_report.png" alt="Ink Diffusion Simulation Report">
+  </a>
+  <p><em>Simulation report: mass/peak diagnostics and field snapshots.</em></p>
 
-[![Ink Diffusion Surrogate Report](surrogate_report.png)](surrogate_report.png)
+  <a class="artifact-lightbox-thumb" href="#sur-report-lightbox">
+    <img src="surrogate_report.png" alt="Ink Diffusion Surrogate Report">
+  </a>
+  <p><em>Surrogate report: y_true vs y_pred, residual histogram, and metric summary.</em></p>
+</div>
 
-_Surrogate report: y_true vs y_pred, residual histogram, and metric summary._
+<div id="sim-report-lightbox" class="artifact-lightbox" aria-label="Simulation report lightbox">
+  <a class="artifact-lightbox-close" href="#">×</a>
+  <img src="simulation_report.png" alt="Ink Diffusion Simulation Report">
+</div>
+
+<div id="sur-report-lightbox" class="artifact-lightbox" aria-label="Surrogate report lightbox">
+  <a class="artifact-lightbox-close" href="#">×</a>
+  <img src="surrogate_report.png" alt="Ink Diffusion Surrogate Report">
+</div>
 
 ## 6. 验收逻辑（门禁顺序） / Acceptance Logic (Gate Order)
 
