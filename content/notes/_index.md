@@ -19,7 +19,7 @@ aliases:
 - [**Part 1** — Complex Analysis](/notes/笔记-数学1-复变函数)
 
 ## 应用数学 / Applied Mathematics
-- [**PDE Note 1** — Five-Point Stencil, CFL Constraint, Gauss Formula](/notes/应用数学-pde-五点差分-cfl-高斯公式)
+- [**PDE Note 1** — Five-Point Stencil, CFL Constraint, Gauss Formula](/notes/笔记-应用数学1-偏微分方程)
 
 ## 计划中 / Planned
 - 电磁学 / Electromagnetism
