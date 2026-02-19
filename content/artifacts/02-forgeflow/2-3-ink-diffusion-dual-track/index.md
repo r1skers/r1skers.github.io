@@ -247,6 +247,31 @@ Acceptance is not a single PASS flag check; gates are evaluated in order:
 - 当前版本可作为后续参数扫描和多步预测的可靠起点。  
 - Current version is a reliable baseline for parameter sweeps and multi-step prediction.
 
+### 6.4 收敛性补充 / Convergence Addendum
+
+本补充基于以下两份报告：  
+This addendum is based on:
+
+- `ForgeFlowApps/ink_diffusion/output/convergence_report.csv`
+- `ForgeFlowApps/ink_diffusion/output/spatial_convergence_report.csv`
+
+时间收敛（固定 `100x100` 网格，`T=8.0`）观测到 `p≈1.58`（`L2=1.5856`, `L∞=1.5842`）。  
+Temporal convergence (fixed `100x100` grid, `T=8.0`) shows `p≈1.58` (`L2=1.5856`, `L∞=1.5842`).
+
+说明：这个数值当前说服力有限，主要因为参考解使用 `dt_ref=0.01`，精度还不够细，参考误差未被充分压低。  
+Note: this value currently has limited confidence, mainly because the reference case uses `dt_ref=0.01`, which is not yet fine enough to suppress reference error sufficiently.
+
+空间收敛（`stride=4/2/1`）观测到 `L2≈2.20`, `L∞≈1.99`，与五点差分空间二阶预期一致。  
+Spatial convergence (`stride=4/2/1`) shows `L2≈2.20`, `L∞≈1.99`, consistent with expected second-order spatial accuracy of the five-point stencil.
+
+后续改进方向：  
+Next improvement direction:
+
+1. 使用更细时间参考解（如 `dt_ref=0.005/0.0025`）。  
+1. Use finer temporal reference cases (e.g., `dt_ref=0.005/0.0025`).
+2. 引入理查德森外推，构造更接近真解的参考值并提升阶数估计可信度。  
+2. Apply Richardson extrapolation to build a closer-to-truth reference and improve confidence of temporal order estimation.
+
 ## 7. 当前边界 / Current Limits
 
 - 当前 surrogate 任务是“一步预测”口径，尚未评估长时 rollout 误差累积。  

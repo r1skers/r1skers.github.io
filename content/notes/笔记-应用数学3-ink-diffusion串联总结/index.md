@@ -196,8 +196,11 @@ Setup: fix `nx=ny=100`, total physical time `T=8.0`, compare `dt=0.04/0.02/0.01`
 | dt_0.02 | 0.02 | 400 | 1.9245e-05 | 1.7328e-04 | 1.5856 | 1.5842 | PASS |
 | dt_0.01 | 0.01 | 800 | 0 | 0 | - | - | PASS |
 
-结论：时间收敛阶约为 `p≈1.58`，与前向欧拉“一阶时间精度”预期一致（在当前时空耦合设置下略高于 1）。  
-Conclusion: observed temporal order is `p≈1.58`, consistent with first-order-in-time forward Euler behavior (slightly above 1 under the current coupled setup).
+结论：当前观测到的时间收敛阶是 `p≈1.58`，但说服力仍有限。主要原因是参考解 `dt_ref=0.01` 还不够细，参考误差尚未充分压低，导致阶数估计偏离理想一阶。  
+Conclusion: the current observed temporal order is `p≈1.58`, but its confidence is still limited. The main reason is that the reference case `dt_ref=0.01` is not yet fine enough, so reference error is not negligible and the estimated order deviates from the ideal first order.
+
+后续改进方向：使用更细 `dt_ref`（如 `0.005/0.0025`）并引入理查德森外推，构造更接近真解的参考值。  
+Next improvement: use finer `dt_ref` (e.g., `0.005/0.0025`) and apply Richardson extrapolation to build a closer-to-truth reference.
 
 ### 6.2 空间收敛（嵌套网格）
 ### 6.2 Spatial Convergence (Nested Grids)
