@@ -21,6 +21,7 @@ aliases:
 - `2.1` [Linear Baseline 跑通 / Linear Baseline Validation](/artifacts/02-forgeflow/2-1-framework-linear/)
 - `2.2` [Poly4 App 跑通流程与逻辑顺序 / Poly4 App Pipeline Validation](/artifacts/02-forgeflow/2-2-poly4-app-validation/)
 - `2.3` [Ink Diffusion 双轨验证 / Ink Diffusion Dual-Track Validation](/artifacts/02-forgeflow/2-3-ink-diffusion-dual-track/)
+- `2.4` [Heat Periodic 基准验证 / Heat Periodic Benchmark Validation](/artifacts/02-forgeflow/2-4-heat-periodic-benchmark/)
 
 ## Note
 
@@ -36,3 +37,4 @@ Mainline path is now app-isolated under `ForgeFlowApps/*`.
 `linear_xy` 定位为最小 supervised baseline。
 `poly4_cubic` 定位为首个真实 App 级验证样例。
 `ink_diffusion` 定位为仿真主线 + surrogate 支线的双轨验证样例。
+`heat_periodic` 定位为“解析解可对照”的周期热方程基准样例。

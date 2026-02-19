@@ -283,4 +283,5 @@ Next improvement direction:
 
 - 框架本体 / Framework core: [Artifact-2.0](/artifacts/02-forgeflow/2-0-framework-core/)
 - 上一项 / Previous: [Artifact-2.2](/artifacts/02-forgeflow/2-2-poly4-app-validation/)
+- 下一项 / Next: [Artifact-2.4](/artifacts/02-forgeflow/2-4-heat-periodic-benchmark/)
 - 父索引 / Parent: [Artifact-2](/artifacts/02-forgeflow/)
