@@ -256,4 +256,5 @@ _Rollout report: long-step prediction stability._
 
 - 框架本体 / Framework core: [Artifact-2.0](/artifacts/02-forgeflow/2-0-framework-core/)
 - 上一项 / Previous: [Artifact-2.3](/artifacts/02-forgeflow/2-3-ink-diffusion-dual-track/)
+- 下一项 / Next: [Artifact-2.5](/artifacts/02-forgeflow/2-5-heat-kappa-inverse/)
 - 父索引 / Parent: [Artifact-2](/artifacts/02-forgeflow/)

@@ -22,6 +22,7 @@ aliases:
 - [**PDE Part 1** — PDE (Five-Point Stencil and CFL Constraint)](/notes/笔记-应用数学1-偏微分方程)
 - [**PDE Part 2** — Error Analysis and Richardson Extrapolation](/notes/笔记-应用数学2-误差分析与理查德森外推)
 - [**PDE Part 3** — Ink Diffusion: Bridging PDE and Error-Control Workflow](/notes/笔记-应用数学3-ink-diffusion串联总结)
+- [**PDE Part 4** — Parameter Inversion, ID Reliability, and OOD Alerting](/notes/笔记-应用数学4-参数反演与OOD告警)
 
 ## 计划中 / Planned
 - 电磁学 / Electromagnetism
