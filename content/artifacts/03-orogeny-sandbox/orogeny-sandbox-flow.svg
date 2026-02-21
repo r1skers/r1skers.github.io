@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1540" role="img" aria-labelledby="title desc">
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 2230" role="img" aria-labelledby="title desc">
   <title id="title">Orogeny Sandbox End-to-End Flow</title>
-  <desc id="desc">Narrow SVG flowchart for terrain generation, PDE diffusion, stencil dataset build, torch stencil training, and rollout validation, plus optional baseline branch.</desc>
+  <desc id="desc">Narrow SVG flowchart for terrain generation, PDE diffusion, dataset building, stencil learning, frozen best rerun, CNN POC, and OOD runtime gate.</desc>
   <defs>
     <style>
       .bg { fill: rgba(255, 255, 255, 0.72); }
@@ -8,7 +8,6 @@
       .script { fill: #f9f2f4; stroke: #c7254e; stroke-width: 2; }
       .data { fill: #d9edf7; stroke: #31708f; stroke-width: 2; }
       .metric { fill: #dff0d8; stroke: #3c763d; stroke-width: 2; }
-      .optional { fill: #fff6dc; stroke: #a47e1b; stroke-width: 2; }
       .line { stroke: #6b7280; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
       .dash { stroke-dasharray: 7 6; }
       .call { stroke: #94a3b8; stroke-width: 1.8; fill: none; }
@@ -16,7 +15,6 @@
       .t-main { font: 700 22px "Segoe UI", "Noto Sans", sans-serif; fill: #111827; text-anchor: middle; }
       .t-sub { font: 500 14px "Segoe UI", "Noto Sans", sans-serif; fill: #374151; text-anchor: middle; }
       .t-node { font: 600 18px "Segoe UI", "Noto Sans", sans-serif; fill: #111827; text-anchor: middle; dominant-baseline: middle; }
-      .t-small { font: 600 15px "Segoe UI", "Noto Sans", sans-serif; fill: #1f2937; }
       .t-code { font: 600 15px "Consolas", "Courier New", monospace; fill: #1f2937; text-anchor: middle; dominant-baseline: middle; }
       .t-note-strong { font: 700 12px "Segoe UI", "Noto Sans", sans-serif; fill: #1f2937; text-anchor: start; }
       .t-note { font: 600 12px "Segoe UI", "Noto Sans", sans-serif; fill: #334155; text-anchor: start; }
@@ -26,10 +24,10 @@
     </marker>
   </defs>
 
-  <rect class="bg" x="18" y="14" width="724" height="1512" rx="16"/>
+  <rect class="bg" x="18" y="14" width="724" height="2202" rx="16"/>
 
   <text class="t-main" x="380" y="50">Artifact-3: Orogeny Sandbox Flow</text>
-  <text class="t-sub" x="380" y="75">Narrow SVG layout (mainline + optional baseline)</text>
+  <text class="t-sub" x="380" y="75">Narrow SVG layout (Phase 1 to Phase 6)</text>
 
   <rect class="phase" x="80" y="100" width="360" height="56" rx="12"/>
   <text class="t-node" x="260" y="128">Phase 1: Terrain + PDE</text>
@@ -76,6 +74,30 @@
   <rect class="metric" x="80" y="1396" width="360" height="62" rx="12"/>
   <text class="t-code" x="260" y="1427">rollout_metrics.csv + summary.json</text>
 
+  <rect class="phase" x="80" y="1492" width="360" height="56" rx="12"/>
+  <text class="t-node" x="260" y="1520">Phase 5: Frozen Best</text>
+
+  <rect class="script" x="80" y="1582" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="1613">scripts/run_frozen_best_multistep.py</text>
+
+  <rect class="data" x="80" y="1678" width="360" height="56" rx="28"/>
+  <text class="t-code" x="260" y="1706">configs/stencil_multistep_best_*.json</text>
+
+  <rect class="metric" x="80" y="1774" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="1805">60/120-step summary refresh</text>
+
+  <rect class="phase" x="80" y="1866" width="360" height="56" rx="12"/>
+  <text class="t-node" x="260" y="1894">Phase 6: CNN + OOD Gate</text>
+
+  <rect class="script" x="80" y="1956" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="1987">scripts/run_cnn_poc_standard.py</text>
+
+  <rect class="script" x="80" y="2052" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="2083">scripts/build_ood_sigma_profile.py</text>
+
+  <rect class="metric" x="80" y="2148" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="2179">ood_smoke_*/summary.json</text>
+
   <line class="line" x1="260" y1="156" x2="260" y2="190"/>
   <line class="line" x1="260" y1="252" x2="260" y2="286"/>
   <line class="line" x1="260" y1="342" x2="260" y2="376"/>
@@ -90,6 +112,14 @@
   <line class="line" x1="260" y1="1176" x2="260" y2="1210"/>
   <line class="line" x1="260" y1="1266" x2="260" y2="1300"/>
   <line class="line" x1="260" y1="1362" x2="260" y2="1396"/>
+  <line class="line" x1="260" y1="1458" x2="260" y2="1492"/>
+  <line class="line" x1="260" y1="1548" x2="260" y2="1582"/>
+  <line class="line" x1="260" y1="1644" x2="260" y2="1678"/>
+  <line class="line" x1="260" y1="1734" x2="260" y2="1774"/>
+  <line class="line" x1="260" y1="1836" x2="260" y2="1866"/>
+  <line class="line" x1="260" y1="1922" x2="260" y2="1956"/>
+  <line class="line" x1="260" y1="2018" x2="260" y2="2052"/>
+  <line class="line" x1="260" y1="2114" x2="260" y2="2148"/>
 
   <line class="call" x1="440" y1="221" x2="470" y2="221"/>
   <text class="t-note-strong" x="478" y="214">A. Gaussian terrain init</text>
@@ -130,4 +160,24 @@
   <line class="call" x1="440" y1="1427" x2="470" y2="1427"/>
   <text class="t-note-strong" x="478" y="1420">I. Acceptance metrics</text>
   <text class="t-note" x="478" y="1436">MAE drift + summary.json output.</text>
+
+  <line class="call" x1="440" y1="1613" x2="470" y2="1613"/>
+  <text class="t-note-strong" x="478" y="1606">J. Frozen best rerun</text>
+  <text class="t-note" x="478" y="1622">Replays fixed h5/m1e4 config.</text>
+
+  <line class="call" x1="440" y1="1706" x2="470" y2="1706"/>
+  <text class="t-note-strong" x="478" y="1699">K. Config lock</text>
+  <text class="t-note" x="478" y="1715">Single JSON defines train+eval.</text>
+
+  <line class="call" x1="440" y1="1987" x2="470" y2="1987"/>
+  <text class="t-note-strong" x="478" y="1980">L. CNN POC runner</text>
+  <text class="t-note" x="478" y="1996">Produces cnn rollout summaries.</text>
+
+  <line class="call" x1="440" y1="2083" x2="470" y2="2083"/>
+  <text class="t-note-strong" x="478" y="2076">M. OOD profile build</text>
+  <text class="t-note" x="478" y="2092">Neumann profile for runtime gate.</text>
+
+  <line class="call" x1="440" y1="2179" x2="470" y2="2179"/>
+  <text class="t-note-strong" x="478" y="2172">N. OOD smoke result</text>
+  <text class="t-note" x="478" y="2188">ID stays clean; periodic is flagged.</text>
 </svg>
