@@ -15,3 +15,4 @@ This section is organized by numbered artifact tracks.
 
 - `Artifact 1`: [Sonic Lab 开发日志 / Sonic Lab Development Log](/artifacts/01-sonic-lab/)
 - `Artifact 2`: [ForgeFlow 框架迭代 / ForgeFlow Framework Track](/artifacts/02-forgeflow/)
+- `Artifact 3`: [Orogeny Sandbox 全链路验证 / Orogeny Sandbox End-to-End Validation](/artifacts/03-orogeny-sandbox/)

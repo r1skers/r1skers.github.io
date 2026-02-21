@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1540" role="img" aria-labelledby="title desc">
+  <title id="title">Orogeny Sandbox End-to-End Flow</title>
+  <desc id="desc">Narrow SVG flowchart for terrain generation, PDE diffusion, stencil dataset build, torch stencil training, and rollout validation, plus optional baseline branch.</desc>
+  <defs>
+    <style>
+      .bg { fill: rgba(255, 255, 255, 0.72); }
+      .phase { fill: #eef5ff; stroke: #345f8c; stroke-width: 2; }
+      .script { fill: #f9f2f4; stroke: #c7254e; stroke-width: 2; }
+      .data { fill: #d9edf7; stroke: #31708f; stroke-width: 2; }
+      .metric { fill: #dff0d8; stroke: #3c763d; stroke-width: 2; }
+      .optional { fill: #fff6dc; stroke: #a47e1b; stroke-width: 2; }
+      .line { stroke: #6b7280; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 7 6; }
+      .call { stroke: #94a3b8; stroke-width: 1.8; fill: none; }
+      .call-dash { stroke-dasharray: 5 4; }
+      .t-main { font: 700 22px "Segoe UI", "Noto Sans", sans-serif; fill: #111827; text-anchor: middle; }
+      .t-sub { font: 500 14px "Segoe UI", "Noto Sans", sans-serif; fill: #374151; text-anchor: middle; }
+      .t-node { font: 600 18px "Segoe UI", "Noto Sans", sans-serif; fill: #111827; text-anchor: middle; dominant-baseline: middle; }
+      .t-small { font: 600 15px "Segoe UI", "Noto Sans", sans-serif; fill: #1f2937; }
+      .t-code { font: 600 15px "Consolas", "Courier New", monospace; fill: #1f2937; text-anchor: middle; dominant-baseline: middle; }
+      .t-note-strong { font: 700 12px "Segoe UI", "Noto Sans", sans-serif; fill: #1f2937; text-anchor: start; }
+      .t-note { font: 600 12px "Segoe UI", "Noto Sans", sans-serif; fill: #334155; text-anchor: start; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="18" y="14" width="724" height="1512" rx="16"/>
+
+  <text class="t-main" x="380" y="50">Artifact-3: Orogeny Sandbox Flow</text>
+  <text class="t-sub" x="380" y="75">Narrow SVG layout (mainline + optional baseline)</text>
+
+  <rect class="phase" x="80" y="100" width="360" height="56" rx="12"/>
+  <text class="t-node" x="260" y="128">Phase 1: Terrain + PDE</text>
+
+  <rect class="script" x="80" y="190" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="221">scripts/sandbox_diffusion.py</text>
+
+  <rect class="data" x="80" y="286" width="360" height="56" rx="28"/>
+  <text class="t-code" x="260" y="314">data/terrain/peak50.npz</text>
+
+  <rect class="script" x="80" y="376" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="407">scripts/simulate_diffusion.py</text>
+
+  <rect class="data" x="80" y="472" width="360" height="56" rx="28"/>
+  <text class="t-code" x="260" y="500">data/trajectory/step_*.npz</text>
+
+  <rect class="script" x="80" y="562" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="590">scripts/sweep_dt.py + sweep_dxdy.py</text>
+
+  <rect class="phase" x="80" y="658" width="360" height="56" rx="12"/>
+  <text class="t-node" x="260" y="686">Phase 2: Stencil Data</text>
+
+  <rect class="script" x="80" y="748" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="779">scripts/build_stencil_dataset.py</text>
+
+  <rect class="data" x="80" y="844" width="360" height="56" rx="28"/>
+  <text class="t-code" x="260" y="872">outputs/datasets/stencil_dataset_v1.csv</text>
+
+  <rect class="phase" x="80" y="934" width="360" height="56" rx="12"/>
+  <text class="t-node" x="260" y="962">Phase 3: Stencil Train</text>
+
+  <rect class="script" x="80" y="1024" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="1055">scripts/train_stencil_torch.py</text>
+
+  <rect class="data" x="80" y="1120" width="360" height="56" rx="28"/>
+  <text class="t-code" x="260" y="1148">outputs/models/stencil_torch_v1_next.pt</text>
+
+  <rect class="phase" x="80" y="1210" width="360" height="56" rx="12"/>
+  <text class="t-node" x="260" y="1238">Phase 4: Rollout</text>
+
+  <rect class="script" x="80" y="1300" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="1331">scripts/rollout_stencil_torch.py</text>
+
+  <rect class="metric" x="80" y="1396" width="360" height="62" rx="12"/>
+  <text class="t-code" x="260" y="1427">rollout_metrics.csv + summary.json</text>
+
+  <line class="line" x1="260" y1="156" x2="260" y2="190"/>
+  <line class="line" x1="260" y1="252" x2="260" y2="286"/>
+  <line class="line" x1="260" y1="342" x2="260" y2="376"/>
+  <line class="line" x1="260" y1="438" x2="260" y2="472"/>
+  <line class="line" x1="260" y1="528" x2="260" y2="562"/>
+  <line class="line" x1="260" y1="624" x2="260" y2="658"/>
+  <line class="line" x1="260" y1="714" x2="260" y2="748"/>
+  <line class="line" x1="260" y1="810" x2="260" y2="844"/>
+  <line class="line" x1="260" y1="900" x2="260" y2="934"/>
+  <line class="line" x1="260" y1="990" x2="260" y2="1024"/>
+  <line class="line" x1="260" y1="1086" x2="260" y2="1120"/>
+  <line class="line" x1="260" y1="1176" x2="260" y2="1210"/>
+  <line class="line" x1="260" y1="1266" x2="260" y2="1300"/>
+  <line class="line" x1="260" y1="1362" x2="260" y2="1396"/>
+
+  <line class="call" x1="440" y1="221" x2="470" y2="221"/>
+  <text class="t-note-strong" x="478" y="214">A. Gaussian terrain init</text>
+  <text class="t-note" x="478" y="230">Creates peak50.npz start field.</text>
+
+  <line class="call" x1="440" y1="407" x2="470" y2="407"/>
+  <text class="t-note-strong" x="478" y="400">B. PDE time stepping</text>
+  <text class="t-note" x="478" y="416">Explicit update with CFL-safe run.</text>
+
+  <line class="call" x1="440" y1="500" x2="470" y2="500"/>
+  <text class="t-note-strong" x="478" y="493">C. Trajectory snapshots</text>
+  <text class="t-note" x="478" y="509">Stores step_*.npz for replay.</text>
+
+  <line class="call" x1="440" y1="590" x2="470" y2="590"/>
+  <text class="t-note-strong" x="478" y="583">D. Stability sweeps</text>
+  <text class="t-note" x="478" y="599">Scans dt/dxdy boundaries.</text>
+
+  <line class="call" x1="440" y1="779" x2="470" y2="779"/>
+  <text class="t-note-strong" x="478" y="772">E. Stencil dataset build</text>
+  <text class="t-note" x="478" y="788">Exports stencil_dataset_v1.csv.</text>
+
+  <line class="call" x1="440" y1="872" x2="470" y2="872"/>
+  <text class="t-note-strong" x="478" y="865">F. Stable-domain filter</text>
+  <text class="t-note" x="478" y="881">Keeps cfl_ratio &lt;= 0.95 rows.</text>
+
+  <line class="call" x1="440" y1="1055" x2="470" y2="1055"/>
+  <text class="t-note-strong" x="478" y="1048">G. Torch stencil train</text>
+  <text class="t-note" x="478" y="1064">Fits next-step local mapping.</text>
+
+  <line class="call call-dash" x1="440" y1="1094" x2="470" y2="1134"/>
+  <text class="t-note-strong" x="478" y="1126">Optional baseline branch</text>
+  <text class="t-note" x="478" y="1142">Linear branch for side-by-side.</text>
+
+  <line class="call" x1="440" y1="1331" x2="470" y2="1331"/>
+  <text class="t-note-strong" x="478" y="1324">H. Full-grid rollout</text>
+  <text class="t-note" x="478" y="1340">Runs learned stencil sequentially.</text>
+
+  <line class="call" x1="440" y1="1427" x2="470" y2="1427"/>
+  <text class="t-note-strong" x="478" y="1420">I. Acceptance metrics</text>
+  <text class="t-note" x="478" y="1436">MAE drift + summary.json output.</text>
+</svg>
