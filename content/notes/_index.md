@@ -23,7 +23,7 @@ aliases:
 - [**Part 1** — Physics Modeling & Numerics: PDE, Five-Point Stencil, and CFL Constraint](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)
 - [**Part 2** — Reliability & UQ: Error Analysis and Richardson Extrapolation](/notes/笔记-计算科学与高可靠系统设计2-系统可靠性与误差控制)
 - [**Part 3** — Inverse Problems & Data-Driven: Ink Diffusion Workflow Integration](/notes/笔记-计算科学与高可靠系统设计3-反问题与数据驱动-ink-diffusion)
-- [**Part 4** — Parameter Inversion, Sigma Rule, and ID/OOD Reliability Gates](/notes/笔记-计算科学与高可靠系统设计4-参数反演与OOD告警)
+- [**Part 4** — Parameter Inversion, Sigma Rule, and ID/OOD Reliability Gates](/notes/笔记-计算科学与高可靠系统设计4-参数反演与ood告警)
 
 ## 计划中 / Planned
 - 电磁学 / Electromagnetism
