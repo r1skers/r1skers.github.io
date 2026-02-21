@@ -1,11 +1,13 @@
 ---
 date: '2026-02-20T22:10:00+09:00'
 draft: false
-title: '应用数学第4部分：参数反演、ID可信度与OOD告警 / Applied Mathematics Part 4: Parameter Inversion, ID Reliability, and OOD Alerting'
+title: '计算科学与高可靠系统设计第4部分：参数反演、OOD告警与可靠性门禁 / Computational Science & High-Reliability Systems Design Part 4: Parameter Inversion, OOD Alerting, and Reliability Gates'
 summary: "按“kappa变化 -> 特征提取 -> 反演估计 -> ID可信度 -> OOD告警 -> 噪声鲁棒性”主线，整理参数反演问题在工程中的最小闭环。 / This note organizes a minimal engineering loop for parameter inversion: kappa variation -> feature extraction -> inverse estimation -> ID reliability -> OOD alerting -> noise robustness."
-description: "Applied Math Part 4 note on inverse parameter estimation and reliability/OOD checks."
-tags: ["PDE", "Inverse Problem", "Parameter Estimation", "ID/OOD", "Robustness", "Numerical Methods"]
+description: "Part 4 note on inverse parameter estimation, OOD alerting, and reliability gates."
+tags: ["PDE", "Inverse Problem", "Parameter Estimation", "ID/OOD", "Robustness", "Numerical Methods", "Reliability", "UQ"]
 categories: ["Crucible"]
+aliases:
+  - /notes/笔记-应用数学4-参数反演与OOD告警/
 ---
 
 # 参数反演：从正问题到可靠告警

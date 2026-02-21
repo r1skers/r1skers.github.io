@@ -18,11 +18,12 @@ aliases:
 ## 数学 / Mathematics
 - [**Part 1** — Complex Analysis](/notes/笔记-数学1-复变函数)
 
-## 应用数学 / Applied Mathematics
-- [**PDE Part 1** — PDE (Five-Point Stencil and CFL Constraint)](/notes/笔记-应用数学1-偏微分方程)
-- [**PDE Part 2** — Error Analysis and Richardson Extrapolation](/notes/笔记-应用数学2-误差分析与理查德森外推)
-- [**PDE Part 3** — Ink Diffusion: Bridging PDE and Error-Control Workflow](/notes/笔记-应用数学3-ink-diffusion串联总结)
-- [**PDE Part 4** — Parameter Inversion, ID Reliability, and OOD Alerting](/notes/笔记-应用数学4-参数反演与OOD告警)
+## 计算科学与高可靠系统设计 / Computational Science and High-Reliability Systems Design
+
+- [**Part 1** — Physics Modeling & Numerics: PDE, Five-Point Stencil, and CFL Constraint](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)
+- [**Part 2** — Reliability & UQ: Error Analysis and Richardson Extrapolation](/notes/笔记-计算科学与高可靠系统设计2-系统可靠性与误差控制)
+- [**Part 3** — Inverse Problems & Data-Driven: Ink Diffusion Workflow Integration](/notes/笔记-计算科学与高可靠系统设计3-反问题与数据驱动-ink-diffusion)
+- [**Part 4** — Parameter Inversion, Sigma Rule, and ID/OOD Reliability Gates](/notes/笔记-计算科学与高可靠系统设计4-参数反演与OOD告警)
 
 ## 计划中 / Planned
 - 电磁学 / Electromagnetism

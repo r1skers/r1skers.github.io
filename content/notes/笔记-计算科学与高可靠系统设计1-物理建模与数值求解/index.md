@@ -1,11 +1,13 @@
 ---
 date: '2026-02-18T00:00:00+09:00'
 draft: false
-title: '应用数学第1部分：偏微分方程（五点差分与CFL约束） / Applied Mathematics Part 1: PDE (Five-Point Stencil and CFL Constraint)'
+title: '计算科学与高可靠系统设计第1部分：物理建模与数值求解（PDE、五点差分与CFL） / Computational Science & High-Reliability Systems Design Part 1: Physics Modeling & Numerics (PDE, Five-Point Stencil, and CFL)'
 summary: "从扩散型偏微分方程通式出发，建立“连续曲率 -> 离散加权平均 -> 显式更新稳定性”的一条计算链，并推导二维五点格式下的 CFL 约束。 / Starting from a generic diffusion-type PDE, this note builds one computational chain: continuous curvature -> discrete weighted average -> explicit-step stability, and derives the CFL constraint for the 2D five-point scheme."
 description: "A compact PDE note on the five-point stencil and explicit CFL condition."
-tags: ["PDE", "Diffusion Equation", "Five-Point Stencil", "CFL", "Numerical Methods"]
+tags: ["PDE", "Diffusion Equation", "Five-Point Stencil", "CFL", "Numerical Methods", "Physics Modeling", "Numerics"]
 categories: ["Crucible"]
+aliases:
+  - /notes/笔记-应用数学1-偏微分方程/
 ---
 
 # 偏微分方程：从连续曲率到离散稳定性

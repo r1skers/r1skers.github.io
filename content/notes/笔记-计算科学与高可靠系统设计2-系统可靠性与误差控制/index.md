@@ -1,18 +1,20 @@
 ---
 date: '2026-02-19T00:00:00+09:00'
 draft: false
-title: '应用数学第2部分：误差分析（一致性、收敛阶与理查德森外推） / Applied Mathematics Part 2: Error Analysis (Consistency, Convergence Order, and Richardson Extrapolation)'
+title: '计算科学与高可靠系统设计第2部分：系统可靠性与误差控制（一致性、收敛阶与理查德森外推） / Computational Science & High-Reliability Systems Design Part 2: Reliability and Error Control (Consistency, Convergence Order, and Richardson Extrapolation)'
 summary: "整理数值误差分析主线：一致性、离散化误差、收敛阶估计与理查德森外推。 / Organize the numerical-error analysis pipeline: consistency, discretization error, convergence-order estimation, and Richardson extrapolation."
-description: "Applied Math Part 2 note on error analysis and Richardson extrapolation."
-tags: ["PDE", "Error Analysis", "Consistency", "Order of Accuracy", "Richardson Extrapolation", "Numerical Methods"]
+description: "Part 2 note on reliability-oriented error analysis and Richardson extrapolation."
+tags: ["PDE", "Error Analysis", "Consistency", "Order of Accuracy", "Richardson Extrapolation", "Numerical Methods", "Reliability", "UQ"]
 categories: ["Crucible"]
+aliases:
+  - /notes/笔记-应用数学2-误差分析与理查德森外推/
 ---
 
 # 误差分析：从一致性到理查德森外推
 # Error Analysis: From Consistency to Richardson Extrapolation
 
-这篇是应用数学 Part 2，聚焦三件事：离散误差从哪里来、收敛阶怎么测、如何用 Richardson 在不大幅加算力的前提下提升结果质量。  
-This is Applied Mathematics Part 2, focused on three questions: where discretization error comes from, how to measure convergence order, and how Richardson extrapolation improves accuracy without brute-force refinement.
+这篇是“计算科学与高可靠系统设计”Part 2，聚焦三件事：离散误差从哪里来、收敛阶怎么测、如何用 Richardson 在不大幅加算力的前提下提升结果质量。  
+This is Part 2 of “Computational Science & High-Reliability Systems Design,” focused on three questions: where discretization error comes from, how to measure convergence order, and how Richardson extrapolation improves accuracy without brute-force refinement.
 
 ---
 
@@ -172,5 +174,3 @@ The logic chain is: halve mesh size -> leading error shrinks by $2^p$ -> combine
 - Second-order methods typically follow “halve mesh, quarter error”.
 - Richardson 通过组合两层网格结果，抵消主导误差项并提高精度。  
 - Richardson improves accuracy by canceling the leading error term with two-grid combinations.
-
-

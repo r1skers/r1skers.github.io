@@ -1,9 +1,9 @@
 ---
-title: '应用数学第3部分：以 Ink Diffusion 串联 PDE 与误差控制 / Applied Mathematics Part 3: Integrating PDE and Error Control via Ink Diffusion'
+title: '计算科学与高可靠系统设计第3部分：反问题与数据驱动（Ink Diffusion 串联验证） / Computational Science & High-Reliability Systems Design Part 3: Inverse Problems & Data-Driven Workflow (Ink Diffusion)'
 date: '2026-02-19T23:20:01+09:00'
 draft: false
 summary: "用 ForgeFlow Artifact-2.3（ink_diffusion）把前两篇主线合并：从高斯初值、PDE 五点差分仿真到监督回归，并附上时间/空间收敛实测结果。 / Use ForgeFlow Artifact-2.3 (ink_diffusion) to connect Part 1 and Part 2: from Gaussian initialization and five-point PDE simulation to supervised regression, with measured temporal/spatial convergence results."
-description: "Applied Math Part 3 bridge note with measured ink_diffusion convergence reports."
+description: "Part 3 bridge note on inverse/data-driven workflow with measured ink_diffusion reports."
 tags:
   - "PDE"
   - "Ink Diffusion"
@@ -11,12 +11,17 @@ tags:
   - "CFL"
   - "Convergence Order"
   - "Richardson Extrapolation"
+  - "Inverse Problems"
+  - "Data-Driven"
+  - "Scientific Workflow"
 categories:
   - "Crucible"
+aliases:
+  - /notes/笔记-应用数学3-ink-diffusion串联总结/
 ---
 
-# 应用数学 Part 3：用 Ink Diffusion 把前两篇连成一条工程链
-# Applied Math Part 3: Connecting the First Two Notes Through an Ink Diffusion Workflow
+# 计算科学与高可靠系统设计 Part 3：用 Ink Diffusion 把前两篇连成一条工程链
+# Computational Science & High-Reliability Systems Design Part 3: Connecting the First Two Notes Through an Ink Diffusion Workflow
 
 这篇不按公式块拆解，而是按真实研发顺序展开：问题定义 -> 初值构建 -> PDE 仿真 -> 监督回归 -> 误差验收。  
 This note follows the actual engineering order instead of isolated formula blocks: problem framing -> initialization -> PDE simulation -> supervised regression -> error acceptance.
@@ -71,7 +76,7 @@ $$
 这里对应 Part 1 里的高斯初值语义：  
 This directly corresponds to the Gaussian initialization concept in Part 1:
 
-[应用数学 Part 1：偏微分方程（高斯初值） / Applied Mathematics Part 1: PDE (Gaussian Initial Condition)](/notes/笔记-应用数学1-偏微分方程/)
+[计算科学与高可靠系统设计 Part 1：偏微分方程（高斯初值） / CS&HRSD Part 1: PDE (Gaussian Initial Condition)](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解/)
 
 ---
 
@@ -88,7 +93,7 @@ python main.py --config ForgeFlowApps/ink_diffusion/config/run.json
 理论背景对应 Part 1 的 PDE 主线：  
 The theory link is the Part 1 PDE pipeline:
 
-[应用数学 Part 1：PDE 主线（扩散方程、五点差分、CFL） / Applied Mathematics Part 1: PDE Pipeline](/notes/笔记-应用数学1-偏微分方程/)
+[计算科学与高可靠系统设计 Part 1：PDE 主线（扩散方程、五点差分、CFL） / CS&HRSD Part 1: PDE Pipeline](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解/)
 
 连续模型：
 Continuous model:
@@ -235,7 +240,7 @@ python ForgeFlowApps/ink_diffusion/scripts/run_spatial_convergence_study.py
 Part 2 参考入口：  
 Part 2 reference:
 
-[应用数学 Part 2：误差分析与理查德森外推 / Applied Mathematics Part 2: Error Analysis and Richardson Extrapolation](/notes/笔记-应用数学2-误差分析与理查德森外推/)
+[计算科学与高可靠系统设计 Part 2：误差分析与理查德森外推 / CS&HRSD Part 2: Error Analysis and Richardson Extrapolation](/notes/笔记-计算科学与高可靠系统设计2-系统可靠性与误差控制/)
 
 ---
 
@@ -245,5 +250,5 @@ Part 2 reference:
 `高斯 CSV 基底 -> PDE 五点差分仿真 -> 监督回归 -> 误差验收`。  
 `Gaussian CSV baseline -> PDE five-point simulation -> supervised regression -> error acceptance`.
 
-这就是应用数学 Part 1 与 Part 2 在 `ink_diffusion` 实例中的工程化落地顺序。  
-This is the engineering execution order that unifies Applied Mathematics Part 1 and Part 2 in the `ink_diffusion` case.
+这就是“计算科学与高可靠系统设计”Part 1 与 Part 2 在 `ink_diffusion` 实例中的工程化落地顺序。  
+This is the engineering execution order that unifies CS&HRSD Part 1 and Part 2 in the `ink_diffusion` case.
