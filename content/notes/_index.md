@@ -20,10 +20,10 @@ aliases:
 
 ## 计算科学与高可靠系统设计 / Computational Science and High-Reliability Systems Design
 
-- [**Part 1** — Physics Modeling & Numerics: PDE, Five-Point Stencil, and CFL Constraint](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)
-- [**Part 2** — Reliability & UQ: Error Analysis and Richardson Extrapolation](/notes/笔记-计算科学与高可靠系统设计2-系统可靠性与误差控制)
-- [**Part 3** — Inverse Problems & Data-Driven: Ink Diffusion Workflow Integration](/notes/笔记-计算科学与高可靠系统设计3-反问题与数据驱动-ink-diffusion)
-- [**Part 4** — Parameter Inversion, Sigma Rule, and ID/OOD Reliability Gates](/notes/笔记-计算科学与高可靠系统设计4-参数反演与ood告警)
+- [**Part 1** — Continuous-to-Discrete Modeling: Discrete Laplacian and Matrix Form](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)
+- [**Part 2** — Time Marching & CFL Stability: Step-Size Design and Multi-Step Trajectories](/notes/笔记-计算科学与高可靠系统设计2-时间推进与CFL稳定性)
+- [**Part 3** — Step-Size Trajectory Learning Model: From CFL-Compliant Runs to Learnable Samples](/notes/笔记-计算科学与高可靠系统设计3-步长轨迹学习模型)
+- [**Part 4** — One-Step & Multi-Step Error Analysis: Reliability Acceptance and Cross-Step Validation](/notes/笔记-计算科学与高可靠系统设计4-单步与多步误差分析)
 
 ## 计划中 / Planned
 - 电磁学 / Electromagnetism
