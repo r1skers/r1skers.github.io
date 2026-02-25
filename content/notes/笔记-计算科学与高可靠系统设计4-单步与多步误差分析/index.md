@@ -8,7 +8,6 @@ tags: ["PDE", "Trajectory Learning", "One-Step Error", "Rollout Error", "Cross-S
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-应用数学4-参数反演与OOD告警/
-  - /notes/笔记-计算科学与高可靠系统设计4-参数反演与OOD告警/
   - /notes/笔记-计算科学与高可靠系统设计4-参数反演与ood告警/
 ---
 
