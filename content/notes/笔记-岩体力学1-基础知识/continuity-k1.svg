@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+  <rect width="960" height="520" fill="#f7f7f7"/>
+  <text x="40" y="52" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#222">Continuity Coefficient k1 (scanline schematic)</text>
+
+  <!-- Base scanline -->
+  <line x1="80" y1="260" x2="880" y2="260" stroke="#444" stroke-width="4"/>
+  <text x="82" y="290" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#444">Scanline</text>
+
+  <!-- connected segments a -->
+  <line x1="120" y1="260" x2="250" y2="260" stroke="#0d6efd" stroke-width="12"/>
+  <line x1="320" y1="260" x2="460" y2="260" stroke="#0d6efd" stroke-width="12"/>
+  <line x1="560" y1="260" x2="770" y2="260" stroke="#0d6efd" stroke-width="12"/>
+  <text x="140" y="235" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#0d6efd">a1</text>
+  <text x="370" y="235" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#0d6efd">a2</text>
+  <text x="650" y="235" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#0d6efd">a3</text>
+
+  <!-- interrupted segments b -->
+  <line x1="250" y1="260" x2="320" y2="260" stroke="#dc3545" stroke-width="6" stroke-dasharray="10 8"/>
+  <line x1="460" y1="260" x2="560" y2="260" stroke="#dc3545" stroke-width="6" stroke-dasharray="10 8"/>
+  <line x1="770" y1="260" x2="820" y2="260" stroke="#dc3545" stroke-width="6" stroke-dasharray="10 8"/>
+  <text x="274" y="290" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#dc3545">b1</text>
+  <text x="500" y="290" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#dc3545">b2</text>
+  <text x="788" y="290" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#dc3545">b3</text>
+
+  <rect x="90" y="340" width="780" height="120" rx="10" ry="10" fill="#ffffff" stroke="#d0d0d0"/>
+  <text x="130" y="392" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#111">
+    k1 = (Σa) / (Σa + Σb)
+  </text>
+  <text x="130" y="432" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#555">
+    Larger k1 means stronger continuity of discontinuities along the scanline.
+  </text>
+</svg>
