@@ -26,6 +26,9 @@ aliases:
 - [**Part 4** — One-Step & Multi-Step Error Analysis: Reliability Acceptance and Cross-Step Validation](/notes/笔记-计算科学与高可靠系统设计4-单步与多步误差分析)
 - [**Part 5** — Parameter Inversion I: Finite-Difference Gradient and Gradient Descent](/notes/笔记-计算科学与高可靠系统设计5-参数反演1-有限差分与梯度下降)
 
+## 岩体力学 / Rock Mechanics
+- [**Part 1** — Mineral Composition, Structural Features, and Discontinuity Basics](/notes/笔记-岩体力学1-基础知识)
+
 ## 计划中 / Planned
 - 电磁学 / Electromagnetism
 - 电路 / Electric Circuits
