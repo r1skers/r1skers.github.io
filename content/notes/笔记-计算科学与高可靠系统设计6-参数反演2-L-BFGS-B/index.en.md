@@ -1,6 +1,6 @@
 ---
 date: '2026-03-01T00:10:00+09:00'
-draft: false
+draft: true
 title: 'Computational Science & High-Reliability Systems Design Part 6: Parameter Inversion II (Finite-Difference Gradient and Quasi-Newton L-BFGS-B)'
 summary: "Build on Part 5 baseline using L-BFGS-B for faster and more stable inversion with finite-difference gradients and bound constraints."
 description: "Part 6 on finite-difference gradient inversion with L-BFGS-B."

@@ -1,6 +1,6 @@
 ---
 date: '2026-03-01T00:10:00+09:00'
-draft: false
+draft: true
 title: '计算科学与高可靠系统设计第6部分：参数反演2（有限差分梯度与准牛顿法 L-BFGS-B） / Computational Science & High-Reliability Systems Design Part 6: Parameter Inversion II (Finite-Difference Gradient and Quasi-Newton L-BFGS-B)'
 summary: "在 Part 5 基线之上，用 L-BFGS-B 加速与稳健化反演：保留有限差分梯度，使用近似 Hessian 与边界约束优化。 / Build on Part 5 baseline using L-BFGS-B for faster and more stable inversion with finite-difference gradients and bound constraints."
 description: "Part 6 on finite-difference gradient inversion with L-BFGS-B."
