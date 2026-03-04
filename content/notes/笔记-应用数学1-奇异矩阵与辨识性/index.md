@@ -231,9 +231,7 @@ $$
 在当前参数点附近，常用归一化灵敏度系数：
 
 $$
-S_{ij}
-=
-\frac{\partial y_i}{\partial \theta_j}\cdot\frac{\theta_j}{y_i}
+S_{ij}=\frac{\partial y_i}{\partial \theta_j}\cdot\frac{\theta_j}{y_i}
 $$
 
 $|S_{ij}|$ 越大，说明输出对该参数越敏感；  

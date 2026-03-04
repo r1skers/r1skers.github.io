@@ -212,9 +212,7 @@ If Hessian/FIM and profile likelihood answer “can we identify,” sensitivity 
 #### 3.5.1 Local Sensitivity
 
 $$
-S_{ij}
-=
-\frac{\partial y_i}{\partial \theta_j}\cdot\frac{\theta_j}{y_i}
+S_{ij}=\frac{\partial y_i}{\partial \theta_j}\cdot\frac{\theta_j}{y_i}
 $$
 
 Larger $|S_{ij}|$ means stronger output response; persistently small $|S_{ij}|$ usually implies harder reliable identification.
