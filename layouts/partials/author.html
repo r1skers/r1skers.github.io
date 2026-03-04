@@ -1,0 +1,15 @@
+{{- if or .Params.author site.Params.author -}}
+  {{- $author := (.Params.author | default site.Params.author) -}}
+  {{- $authorType := printf "%T" $author -}}
+  {{- if or (eq $authorType "[]string") (eq $authorType "[]interface {}") -}}
+    {{- delimit $author ", " -}}
+  {{- else if or (eq $authorType "map[string]interface {}") (eq $authorType "maps.Params") -}}
+    {{- with index $author "name" -}}
+      {{- . -}}
+    {{- else -}}
+      {{- $author -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $author -}}
+  {{- end -}}
+{{- end -}}
