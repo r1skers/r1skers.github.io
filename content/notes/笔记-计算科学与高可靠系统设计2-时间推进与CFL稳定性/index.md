@@ -2,7 +2,7 @@
 date: '2026-02-19T00:00:00+09:00'
 draft: false
 title: '计算科学与高可靠系统设计第2部分：时间推进与CFL稳定性（步长设计与多步长轨迹）'
-summary: "从 Part 1 的空间离散算子出发，建立时间推进框架，给出 CFL ratio 约束与工程步长设计方法（固定 dt / 固定 dx / 固定 ratio）。"
+summary: "从 Part 1 的空间离散算子出发，建立时间推进框架，给出 CFL ratio 约束与工程步长设计方法（固定 dt"
 description: "Part 2 note on explicit time stepping, CFL constraints, and trajectory sampling strategy."
 tags: ["PDE", "Time Marching", "CFL", "Explicit Euler", "Numerical Stability", "Step Size", "Numerical Methods"]
 categories: ["Crucible"]

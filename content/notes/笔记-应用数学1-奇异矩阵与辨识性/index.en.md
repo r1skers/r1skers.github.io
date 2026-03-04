@@ -1,4 +1,4 @@
----
+﻿---
 date: '2026-03-04T21:00:00+09:00'
 draft: false
 title: 'Applied Mathematics Part 1: Singular Matrices and Identifiability'

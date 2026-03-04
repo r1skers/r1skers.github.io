@@ -2,7 +2,7 @@
 date: '2026-02-19T00:00:00+09:00'
 draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 2: Time Marching and CFL Stability (Step-Size Design and Multi-Step Trajectories)'
-summary: "Starting from Part 1 spatial discretization, this note builds the time-marching framework and provides CFL-ratio constraints with practical step-size design (fixed dt / fixed dx / fixed ratio)."
+summary: "fixed dx / fixed ratio)."
 description: "Part 2 note on explicit time stepping, CFL constraints, and trajectory sampling strategy."
 tags: ["PDE", "Time Marching", "CFL", "Explicit Euler", "Numerical Stability", "Step Size", "Numerical Methods"]
 categories: ["Crucible"]
