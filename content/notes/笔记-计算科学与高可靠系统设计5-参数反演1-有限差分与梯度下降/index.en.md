@@ -6,9 +6,6 @@ summary: "本篇聚焦有限差分梯度与梯度下降，并用 1D 热方程反
 description: "Part 5 note focused on finite-difference gradient derivation and gradient descent for PDE parameter inversion."
 tags: ["PDE", "Inverse Problem", "Finite Difference", "Gradient Descent", "Parameter Inversion", "Reliability"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-应用数学5-参数反演/
-  - /notes/笔记-计算科学与高可靠系统设计5-参数反演基础/
 ---
 
 # 计算科学与高可靠系统设计 Part 5：参数反演1（有限差分梯度与梯度下降）
