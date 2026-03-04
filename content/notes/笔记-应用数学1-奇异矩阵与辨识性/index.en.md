@@ -88,11 +88,11 @@ This directly prepares the Hessian view in 3.1.
 Given likelihood, first locate the summit (optimal point):
 
 $$
+\begin{aligned}
 \hat{\theta}_{\mathrm{MLE}}
-=
-\arg\max_\theta \mathcal{L}(\theta)
-=
-\arg\min_\theta \big(-\log\mathcal{L}(\theta)\big)
+&= \arg\max_\theta \mathcal{L}(\theta) \\
+&= \arg\min_\theta \big(-\log\mathcal{L}(\theta)\big)
+\end{aligned}
 $$
 
 First-order optimality:

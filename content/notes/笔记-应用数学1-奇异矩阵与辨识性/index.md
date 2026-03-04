@@ -93,11 +93,11 @@ $$
 有了似然函数后，第一步是先找“山顶位置”，即最大似然估计：
 
 $$
+\begin{aligned}
 \hat{\theta}_{\mathrm{MLE}}
-=
-\arg\max_\theta \mathcal{L}(\theta)
-=
-\arg\min_\theta \big(-\log\mathcal{L}(\theta)\big)
+&= \arg\max_\theta \mathcal{L}(\theta) \\
+&= \arg\min_\theta \big(-\log\mathcal{L}(\theta)\big)
+\end{aligned}
 $$
 
 一阶最优条件给出：
