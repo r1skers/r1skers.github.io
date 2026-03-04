@@ -18,6 +18,9 @@ aliases:
 ## 数学 / Mathematics
 - [**Part 1** — Complex Analysis](/notes/笔记-数学1-复变函数)
 
+## 应用数学 / Applied Mathematics
+- [**Part 1** — Singular Matrices and Identifiability](/notes/笔记-应用数学1-奇异矩阵与辨识性)
+
 ## 计算科学与高可靠系统设计 / Computational Science and High-Reliability Systems Design
 
 - [**Part 1** — Continuous-to-Discrete Modeling: Discrete Laplacian and Matrix Form](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)

@@ -1,7 +1,25 @@
 theme: ["PaperMod"]
 baseURL: "https://r1skers.github.io/"
-languageCode: en-us
+languageCode: zh-cn
+defaultContentLanguage: zh
+defaultContentLanguageInSubdir: false
 title: r1skers' Blog
+
+languages:
+  zh:
+    languageName: "中文"
+    languageCode: "zh-cn"
+    weight: 1
+    title: "r1skers' Blog"
+    params:
+      languageAltTitle: "Chinese"
+  en:
+    languageName: "English"
+    languageCode: "en-us"
+    weight: 2
+    title: "r1skers' Blog"
+    params:
+      languageAltTitle: "English"
 
 taxonomies:
   category: categories
@@ -130,6 +148,7 @@ params:
   mermaid: true
 
   ShowAllPagesInArchive: true
+  displayFullLangName: true
 
 menu:
   main:
