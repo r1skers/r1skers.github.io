@@ -40,7 +40,15 @@ Geometrically, at least one direction is flattened, so information dimension is 
 
 ---
 
-## 2. Hessian Matrix: Essence, Definition, and Directional Curvature
+## 2. Identifiability Assessment
+
+The core identifiability question is: can parameter changes produce distinguishable responses in observations?
+
+Two common types are:
+1. Structural unidentifiability: impossible even with perfect data (model structure issue).  
+2. Practical unidentifiability: theoretically identifiable, but unstable under realistic data/noise/excitation limits.
+
+### 2.1 Hessian Matrix: Local Curvature View
 
 Essence: the Hessian is the second-order coefficient matrix controlling local curvature geometry.
 
@@ -81,14 +89,7 @@ Eigenvalues can be interpreted as principal curvatures (along eigenvector direct
 2. Small eigenvalue: weak curvature and flatter local geometry.  
 3. Zero (or near-zero) eigenvalue: flat direction exists, implying singular (or near-singular) Hessian and weak identifiability.
 
-## 3. Unidentifiability: Structural vs Practical
-
-1. Structural unidentifiability: impossible even with perfect data (model structure issue).  
-2. Practical unidentifiability: theoretically identifiable, but unstable under realistic data/noise/experiment limits.
-
----
-
-## 4. FIM: Local Information Geometry
+### 2.2 FIM (Fisher Information Matrix): Information-Geometric View
 
 $$
 F(\theta)=J(\theta)^\top \Sigma^{-1}J(\theta)
@@ -106,9 +107,7 @@ In least-squares settings, the Hessian is often approximated by Gauss-Newton, so
 2. $F^{-1}$ (if it exists) approximates parameter covariance; large diagonal values imply high uncertainty.  
 3. Small eigenvalues indicate low-information directions.
 
----
-
-## 5. Profile Likelihood: Parameter-Level Diagnosis
+### 2.3 Profile Likelihood: Parameter-Level Diagnosis
 
 $$
 \mathrm{PL}(\theta_i)=\min_{\theta_{-i}}\ \mathcal{L}(\theta_i,\theta_{-i})
@@ -118,11 +117,9 @@ If the profile is flat over a wide interval, that parameter is weakly identifiab
 
 FIM gives local quadratic approximation near optimum; profile likelihood shows nonlinear/global behavior around that parameter.
 
----
+### 2.4 Sensitivity Analysis: Who Drives the Output
 
-## 6. Sensitivity Analysis: Who Drives the Output
-
-### 6.1 Local Sensitivity
+#### 2.4.1 Local Sensitivity
 
 $$
 S_{ij}=\frac{\partial y_i}{\partial\theta_j}\cdot\frac{\theta_j}{y_i}
@@ -130,27 +127,8 @@ $$
 
 Small $|S_{ij}|$ means weak output response to that parameter, often implying harder identification.
 
-### 6.2 Global Sensitivity
+#### 2.4.2 Global Sensitivity
 
 Morris/Sobol-type methods assess parameter contribution across global uncertainty space.
 
 If a parameter has persistently low global contribution, high-cost precise estimation is usually unnecessary.
-
----
-
-## 7. Practical Workflow (Suggested)
-
-1. Start with sensitivity: remove nearly inactive parameters.  
-2. Then inspect FIM: detect rank deficiency, ill-conditioning, and correlated directions.  
-3. Use profile likelihood on key parameters: confirm identifiable ranges and uncertainty.  
-4. If still unidentifiable: redesign experiment, enrich excitation, add observables, or reparameterize.
-
----
-
-## 8. Summary
-
-The true meaning of singularity in identification is information-dimension collapse.
-
-FIM gives local geometric diagnosis, profile likelihood gives parameter-level nonlinear evidence, and sensitivity analysis sets experiment/modeling priorities.
-
-Only by combining all three can we clearly separate "estimable" from "worth estimating precisely."
