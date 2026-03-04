@@ -1,4 +1,4 @@
-{{- $scratch := newScratch }}
+﻿{{- $scratch := newScratch }}
 
 {{- if not .Date.IsZero -}}
 {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default ":date_long" site.Params.DateFormat)))) }}
@@ -18,18 +18,6 @@
 {{- end }}
 {{- end }}
 
-{{- if .IsTranslated -}}
-{{- $label := cond (eq .Lang "zh") "语言" "Language" -}}
-{{- $langLinks := slice -}}
-{{- range .Translations -}}
-  {{- $langName := .Language.LanguageName | default (.Lang | upper) -}}
-  {{- $langLinks = $langLinks | append (printf "<a href=\"%s\">%s</a>" .RelPermalink $langName) -}}
-{{- end -}}
-{{- if gt (len $langLinks) 0 -}}
-{{- $scratch.Add "meta" (slice (printf "<span>%s: %s</span>" $label (delimit $langLinks ", "))) }}
-{{- end -}}
-{{- end -}}
-
 {{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+{{- delimit . "&nbsp;|&nbsp;" | safeHTML -}}
 {{- end -}}
