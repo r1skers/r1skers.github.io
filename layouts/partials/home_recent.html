@@ -25,7 +25,7 @@
 <section class="home-recent" aria-labelledby="home-recent-title">
     <div class="home-recent-head">
         <h2 id="home-recent-title">{{ $title }}</h2>
-        <a class="home-recent-more" href="{{ "/archives/" | absLangURL }}">View all</a>
+        <a class="home-recent-more" href="{{ "/archives/" | relLangURL }}">View all</a>
     </div>
     <ul class="home-recent-list">
         {{- range $recentPages }}

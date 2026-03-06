@@ -25,7 +25,7 @@
         {{- range $index, $item := $homeMenu }}
         <li class="home-menu-list-item">
             {{- $id := lower $item.Identifier }}
-            <a class="home-menu-item" href="{{ $item.URL | absLangURL }}" title="{{ $item.Title | default $item.Name }}">
+            <a class="home-menu-item" href="{{ $item.URL | relLangURL }}" title="{{ $item.Title | default $item.Name }}">
                 <span class="home-menu-main">
                     <span class="home-menu-heading">
                         <span class="home-menu-icon" aria-hidden="true">

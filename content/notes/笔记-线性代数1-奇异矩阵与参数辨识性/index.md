@@ -1,16 +1,17 @@
 ﻿---
 date: '2026-03-04T21:00:00+09:00'
 draft: false
-title: '应用数学 Part 1：奇异矩阵与参数辨识性'
+title: '线性代数 Part 1：奇异矩阵与参数辨识性'
 summary: "从奇异矩阵出发，先建立似然函数与 MLE，再用海森矩阵解释参数空间中的曲率、可靠性与可辨识性。"
 description: "A practical note linking singular matrices, information loss, identifiability, FIM, profile likelihood, and sensitivity analysis."
-tags: ["Applied Mathematics", "Singular Matrix", "Identifiability", "FIM", "Profile Likelihood", "Sensitivity Analysis", "Inverse Problem"]
+tags: ["Linear Algebra", "Singular Matrix", "Identifiability", "FIM", "Profile Likelihood", "Sensitivity Analysis", "Inverse Problem"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-数学-奇异矩阵与辨识性/
+  - /notes/笔记-应用数学1-奇异矩阵与辨识性/
 ---
 
-# 应用数学 Part 1：奇异矩阵与参数辨识性
+# 线性代数 Part 1：奇异矩阵与参数辨识性
 
 这篇主线是：  
 奇异矩阵并不只是“算不出逆”，它在参数估计里对应的是“信息有缺口”，最终表现为参数不可辨识。  

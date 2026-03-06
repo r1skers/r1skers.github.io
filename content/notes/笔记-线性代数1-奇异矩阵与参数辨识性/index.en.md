@@ -1,14 +1,14 @@
 ﻿---
 date: '2026-03-04T21:00:00+09:00'
 draft: false
-title: 'Applied Mathematics Part 1: Singular Matrices and Parameter Identifiability'
+title: 'Linear Algebra Part 1: Singular Matrices and Parameter Identifiability'
 summary: "Starting from singular matrices, this note builds the chain from likelihood and MLE to Hessian/FIM diagnostics, profile likelihood verification, and sensitivity-based inversion workflow."
 description: "A practical note linking singular matrices, likelihood geometry, identifiability diagnostics, and inversion workflow."
-tags: ["Applied Mathematics", "Singular Matrix", "Identifiability", "FIM", "Profile Likelihood", "Sensitivity Analysis", "Inverse Problem"]
+tags: ["Linear Algebra", "Singular Matrix", "Identifiability", "FIM", "Profile Likelihood", "Sensitivity Analysis", "Inverse Problem"]
 categories: ["Crucible"]
 ---
 
-# Applied Mathematics Part 1: Singular Matrices and Parameter Identifiability
+# Linear Algebra Part 1: Singular Matrices and Parameter Identifiability
 
 Main idea: a singular matrix is not just “non-invertible.” In parameter estimation, it means information gaps, and eventually unidentifiability.
 

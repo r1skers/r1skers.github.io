@@ -1,14 +1,16 @@
 ﻿---
 date: '2026-03-05T00:00:00+09:00'
 draft: false
-title: '应用数学 Part 2：正则化与稳定反演'
+title: '线性代数 Part 2：正则化与稳定反演'
 summary: "从奇异/病态问题出发，给出正则化的几何直觉、似然视角与 Hessian 变化公式，解释为什么它能把不可辨识方向重新变得可控。"
 description: "A practical note on regularization, stability, and inverse problems."
-tags: ["Applied Mathematics", "Regularization", "Inverse Problem", "Tikhonov", "Ridge", "Hessian", "Stability"]
+tags: ["Linear Algebra", "Regularization", "Inverse Problem", "Tikhonov", "Ridge", "Hessian", "Stability"]
+aliases:
+  - /notes/笔记-应用数学2-正则化与稳定反演/
 categories: ["Crucible"]
 ---
 
-# 应用数学 Part 2：正则化与稳定反演
+# 线性代数 Part 2：正则化与稳定反演
 
 这一篇先回答一个核心问题：
 当参数反演出现奇异/病态时，正则化到底在“几何上”和“公式上”做了什么？

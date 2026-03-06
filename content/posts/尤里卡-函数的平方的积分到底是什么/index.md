@@ -42,7 +42,7 @@ $$\langle f, f \rangle = \int f \cdot f^*$$
 
 This represents **the square of the length** (norm) of a vector (whether it is a signal or a wave function).
 
-[Some readers might find this concept difficult.](https://r1skers.github.io/posts/eurekadft_and_fftdive_into_fourier_transform/)
+[Some readers might find this concept difficult.](/posts/eurekadft_and_fftdive_into_fourier_transform/)
 
 ## 2. Physical Essence: From "Amplitude" to "Intensity"
 
@@ -69,7 +69,7 @@ In fact, the Born probability density is essentially the "power density" (or int
 **Treat "wave function" as a "vector"**
 A continuous function is essentially a "super long" vector with infinitely many components.
 The value $f(t)$ at each moment $t$ is the **"coordinate value"** of this vector in this dimension.<p>
-[Maybe someone has found something interesting... (Hint: Sampling)](https://r1skers.github.io/posts/convolution_and_sampling_in_fourier_laplace/#sampling)
+[Maybe someone has found something interesting... (Hint: Sampling)](/posts/convolution_and_sampling_in_fourier_laplace/#sampling)
 
 **Squaring: Take each "coordinate value" and square it ($|f(t)|^2$)**
 This is to calculate the squared modulus of the component.
