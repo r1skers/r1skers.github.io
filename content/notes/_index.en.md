@@ -21,7 +21,7 @@ description: "Course notes and self-study records."
 - [**Part 2** — Regularization and Stable Inversion](/notes/笔记-线性代数2-正则化与稳定反演)
 
 ## Computational Science and High-Reliability Systems Design
-- [**Part 1** — Continuous-to-Discrete Modeling: Discrete Laplacian and Matrix Form](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)
+- [**Part 1** — Problem Setup and Spatial Field Construction](/notes/笔记-计算科学与高可靠系统设计1-物理建模与数值求解)
 - [**Part 2** — Time Marching and CFL Stability: Step-Size Design and Multi-Step Trajectories](/notes/笔记-计算科学与高可靠系统设计2-时间推进与CFL稳定性)
 - [**Part 3** — Step-Size Trajectory Learning Model: From CFL-Compliant Runs to Learnable Samples](/notes/笔记-计算科学与高可靠系统设计3-步长轨迹学习模型)
 - [**Part 4** — One-Step and Multi-Step Error Analysis: Acceptance and Cross-Step Validation](/notes/笔记-计算科学与高可靠系统设计4-单步与多步误差分析)
