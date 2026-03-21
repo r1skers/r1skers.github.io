@@ -1,174 +1,65 @@
-﻿---
+---
 date: '2026-02-18T00:00:00+09:00'
 draft: false
-title: '计算科学与高可靠系统设计第1部分：连续到离散的建模基础（离散拉普拉斯与矩阵表示）'
-summary: "聚焦把连续扩散模型转成机器可计算形式：网格化、五点差分与矩阵化。"
-description: "Part 1 note on spatial discretization and discrete Laplacian matrix form."
-tags: ["PDE", "Spatial Discretization", "Discrete Laplacian", "Matrix Form", "Numerical Methods", "Physics Modeling"]
+title: '计算科学与高可靠系统设计第1部分：问题背景与空间场构造'
+summary: "以 orogeny-inversion-validation-lab 为实例，先讲问题背景、初始地形构造，以及 irregular grid 和 control volume 的几何直觉。"
+description: "Part 1 on problem setup, initial terrain construction, and irregular-grid geometry."
+tags: ["PDE", "Spatial Discretization", "Irregular Grid", "Control Volume", "Numerical Methods", "Physics Modeling"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-应用数学1-偏微分方程/
 ---
 
-# Part 1：连续模型到离散算子
+# Part 1：问题背景与空间场构造
 
-这篇只做一件事：把连续扩散方程中的空间项写成机器可计算的离散算子。  
+这一组“计算科学与高可靠系统设计”笔记，会以项目 `orogeny-inversion-validation-lab` 为主实例，
+顺着它的实际 pipeline，把一个计算问题从
 
-主线是：连续 PDE -> 空间网格化 -> 五点离散拉普拉斯 -> 矩阵表示。  
+**初始场构造 -> 网格几何 -> forward 求解 -> 观测生成 -> 参数反演 -> 验证评估**
 
-为避免混淆，以下内容不在本篇展开：  
+这条链完整走一遍。
 
-- 显式时间推进与 CFL 稳定性（放在 Part 2）；  
-- 收敛阶与理查德森外推（放在后续误差与可靠性章节）。  
 
-从扩散型 PDE 出发：
+## 1. 背景问题设计
 
-$$
-\frac{\partial h}{\partial t}=\kappa\nabla^2 h
-$$
+这里先不急着写离散公式，而是先把问题对象定下来：  
+我们希望构建一个二维地形图，并让它随时间演化，用来模拟一个简化的地形扩散过程。
 
-其中 $h$ 是场变量，$\kappa$ 是扩散系数。Part 1 关注的是空间算子 $\nabla^2$ 的离散化。  
+## 2.场构造
 
----
+接下来先把最基本的空间对象构造出来。
 
-## 1. 连续视角与计算机视角
+### 2.1.最普通的二维地形
 
-连续数学里，$\nabla^2 h$ 表示局部曲率；曲率大，扩散驱动力就大。  
+最自然的起点，是先构建一个类似直角坐标系的规则网格。  
+这时每个位置都可以写成 $(x,y)$，再给它配一个高度值 $h$，就得到 $(x,y,h)$。  
 
-但计算机里没有“无限小邻域”，只有网格点和有限邻居。  
+直观上，这表示的是：某个空间位置，以及这个位置对应的地形高度。  
+在项目里，`build_base_terrain.py` 做的就是这一步，先生成一张规则网格上的初始地形图。
 
-对应的可计算直觉是：
+### 2.2.复杂变化：不规则坐标
 
-- 如果某点高于邻居平均，它会向周围扩散；  
-- 如果某点低于邻居平均，它会被周围抬升。  
+如果一直停留在规则网格上，那么每个格点之间的距离都默认相同。  
+但真实地形对应的空间几何往往不会这么整齐，所以项目里又补了一步：  
+在保留同一个 $h$ 的前提下，重新生成一套非均匀坐标。  
 
-这就是“连续曲率”到“离散局部偏差”的映射。  
+也就是说，变化的不是地形值本身，而是这些地形值落在空间中的位置。  
+这一步可以理解成：同一个 $h$，从原来的规则坐标，重新映射到一套非均匀物理坐标上。  
 
-![Rough slope in reality vs smooth slope in coarse grid](continuous-vs-grid.svg)
-![Continuous curvature vs piecewise local approximation](curvature-vs-piecewise-flat.svg)
+这样一来，相邻点之间的距离就不再统一，后面计算梯度、通量时，几何就会真正参与进来。
 
----
+### 2.3.观念变化：时间加入导致的静态量变为变化量
 
-## 2. 一维二阶差分到二维五点拉普拉斯
+如果只把 $(x,y,h)$ 看成一张静态地形图，那么我们关注的只是“某一点有多高”。  
+但一旦目标变成“地形随时间如何变化”，问题就变了。  
 
-先看 1D 二阶导数中心差分：
+这时我们不能再只把某个离散点看成一个孤立的值，而要把它看成一个会和周围交换的局部区域。  
+也正因为如此，后面真正进入 forward solver 时，必须开始关注：
 
-$$
-\frac{\partial^2 h}{\partial x^2}
-\approx
-\frac{h(x+\Delta x)-2h(x)+h(x-\Delta x)}{\Delta x^2}
-$$
+- 梯度：因为距离变了以后，同样的高度差会对应不同的坡度；
+- 通量：因为上下左右会通过边界交换“量”；
+- control volume：因为这些交换量最终要落到一个具体的小区域上；
+- 边界条件：因为系统与外界是否交换，也会影响整体演化。
 
-在 2D 下，若允许 $\Delta x\neq\Delta y$，离散拉普拉斯可写为：
-
-$$
-\nabla_h^2 h_{i,j}=\frac{h_{i+1,j}-2h_{i,j}+h_{i-1,j}}{\Delta x^2}+\frac{h_{i,j+1}-2h_{i,j}+h_{i,j-1}}{\Delta y^2}
-$$
-
-当 $\Delta x=\Delta y$ 时，退化为经典五点格式：
-
-$$
-\nabla_h^2 h_{i,j}
-\approx
-\frac{h_{i+1,j}+h_{i-1,j}+h_{i,j+1}+h_{i,j-1}-4h_{i,j}}{\Delta x^2}
-$$
-
-它的结构可以读成“邻点和减中心加权”，本质是局部离散曲率。  
-
----
-
-## 3. 离散拉普拉斯的矩阵表示
-
-把二维网格按列或按行拉直为向量 $u\in\mathbb{R}^{N_xN_y}$，可写成：
-
-$$
-\frac{d u}{d t}=\kappa L_h u
-$$
-
-其中 $L_h$ 是离散拉普拉斯矩阵。对规则网格可写为 Kronecker 和：
-
-$$
-L_h = I_{y}\otimes T_x + T_y\otimes I_x
-$$
-
-$$
-T_x=\frac{1}{\Delta x^2}\operatorname{tridiag}(1,-2,1),\qquad
-T_y=\frac{1}{\Delta y^2}\operatorname{tridiag}(1,-2,1)
-$$
-
-### 3.1 一个可直接用的具体例子（3x3）
-
-如果先看 1D 且只有 3 个内点（Dirichlet 边界），离散拉普拉斯就是一个 $3\times3$ 三对角矩阵：  
-
-$$
-L_{1D}=\frac{1}{h^2}
-\begin{bmatrix}
--2 & 1 & 0\\
-1 & -2 & 1\\
-0 & 1 & -2
-\end{bmatrix}
-$$
-
-若看 2D 的 $3\times3$ 内点网格（共 9 个未知量），按“先 x 后 y”拉直：
-
-$$
-u=\big[u_{1,1},u_{2,1},u_{3,1},u_{1,2},u_{2,2},u_{3,2},u_{1,3},u_{2,3},u_{3,3}\big]^\top
-$$
-
-对应索引关系可写成 $k=i+(j-1)N_x$（这里 $N_x=3$）。  
-
-在 $\Delta x=\Delta y=h$ 下，对应矩阵为：
-
-$$
-L_{2D}=\frac{1}{h^2}
-\begin{bmatrix}
--4 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
-1 & -4 & 1 & 0 & 1 & 0 & 0 & 0 & 0\\
-0 & 1 & -4 & 0 & 0 & 1 & 0 & 0 & 0\\
-1 & 0 & 0 & -4 & 1 & 0 & 1 & 0 & 0\\
-0 & 1 & 0 & 1 & -4 & 1 & 0 & 1 & 0\\
-0 & 0 & 1 & 0 & 1 & -4 & 0 & 0 & 1\\
-0 & 0 & 0 & 1 & 0 & 0 & -4 & 1 & 0\\
-0 & 0 & 0 & 0 & 1 & 0 & 1 & -4 & 1\\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & -4
-\end{bmatrix}
-$$
-
-读这个矩阵只记一条：对角线是中心系数，非零的 1 表示上下左右邻接。  
-
-边界条件会改变矩阵首尾行（或对应块）的系数结构。  
-
-### 3.2 边界条件的实际意义：沙地模型中的三类边界
-
-把 $h(x,y,t)$ 看作沙层厚度，可以用一个沙地输运场景来区分三类常见边界：  
-
-- Dirichlet（固定值边界）：例如左侧给料器维持固定沙层高度。  
-
-$$
-h|_{\Gamma_{\text{in}}}=h_{\text{feed}}(t)
-$$
-
-- Neumann（固定通量边界）：例如右侧按指定速率出沙，或墙面零通量。  
-
-$$
-\frac{\partial h}{\partial n}\Big|_{\Gamma_{\text{out}}}=q_{\text{out}}(t),\qquad
-\frac{\partial h}{\partial n}\Big|_{\Gamma_{\text{wall}}}=0
-$$
-
-- Periodic（周期边界）：例如把左右边界接成“环形沙带”，左端流出的沙从右端回到系统。  
-
-$$
-h(0,y,t)=h(L_x,y,t),\qquad
-\frac{\partial h}{\partial x}(0,y,t)=\frac{\partial h}{\partial x}(L_x,y,t)
-$$
-
-本质上，边界条件就是“系统与外界交换规则”的数学表达。  
-
----
-
-## 4. 小结
-
-- Part 1 的核心是空间离散：连续曲率 -> 五点拉普拉斯 -> 矩阵算子。  
-- 本篇先停在“矩阵表示”这一层，特征值与模态放到你后续学习时再补。  
-- 边界条件在工程上对应“与外界交换规则”，常见是 Dirichlet（固定值）、Neumann（固定通量）和 Periodic（周期拼接）。  
-- 本篇不处理 CFL 与收敛阶：前者放到 Part 2，后者放到后续误差与可靠性章节。  
+所以 Part 1 到这里真正完成的是一件事：  
+先把后面整个计算过程真正依赖的空间对象和几何直觉立住。  
