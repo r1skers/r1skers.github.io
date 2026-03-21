@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf7"/>
+      <stop offset="100%" stop-color="#f6f2e8"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a4f2a"/>
+    </marker>
+    <style>
+      .title { font: 700 26px "Segoe UI", "PingFang SC", sans-serif; fill: #2f241d; }
+      .label { font: 600 18px "Segoe UI", "PingFang SC", sans-serif; fill: #3b3028; }
+      .small { font: 15px "Segoe UI", "PingFang SC", sans-serif; fill: #5b4e44; }
+      .grid { stroke: #9f978c; stroke-width: 1.15; fill: none; opacity: 0.95; }
+      .edge { stroke: #3e3129; stroke-width: 2.6; fill: none; }
+      .hidden { stroke: #8f857b; stroke-width: 1.6; stroke-dasharray: 5 5; fill: none; }
+      .ridge { stroke: #b3483d; stroke-width: 2.4; fill: none; }
+      .axis { stroke: #8a4f2a; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .note { font: 600 16px "Segoe UI", "PingFang SC", sans-serif; fill: #7c352d; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="560" fill="url(#bg)"/>
+
+  <text x="600" y="46" text-anchor="middle" class="title">同一个高度场，底面几何改变后，局部梯度也会改变</text>
+
+  <!-- Left panel -->
+  <g transform="translate(90,90)">
+    <text x="210" y="0" text-anchor="middle" class="label">规则坐标：正方形底面</text>
+
+    <!-- base grid -->
+    <g transform="translate(0,38)">
+      <!-- horizontal -->
+      <path class="grid" d="M 0 180 L 180 180 L 360 180"/>
+      <path class="grid" d="M 20 156 L 200 156 L 380 156"/>
+      <path class="grid" d="M 40 132 L 220 132 L 400 132"/>
+      <path class="grid" d="M 60 108 L 240 108 L 420 108"/>
+      <path class="grid" d="M 80 84 L 260 84 L 440 84"/>
+
+      <!-- vertical family 1 -->
+      <path class="grid" d="M 0 180 L 80 84"/>
+      <path class="grid" d="M 45 180 L 125 84"/>
+      <path class="grid" d="M 90 180 L 170 84"/>
+      <path class="grid" d="M 135 180 L 215 84"/>
+      <path class="grid" d="M 180 180 L 260 84"/>
+
+      <!-- vertical family 2 -->
+      <path class="grid" d="M 180 180 L 260 84"/>
+      <path class="grid" d="M 225 180 L 305 84"/>
+      <path class="grid" d="M 270 180 L 350 84"/>
+      <path class="grid" d="M 315 180 L 395 84"/>
+      <path class="grid" d="M 360 180 L 440 84"/>
+
+      <!-- base outline -->
+      <path class="edge" d="M 0 180 L 180 180 L 360 180 L 180 180 Z" opacity="0"/>
+      <path class="edge" d="M 0 180 L 180 180 L 360 180"/>
+      <path class="edge" d="M 0 180 L 80 84 L 260 84 L 440 84"/>
+      <path class="edge" d="M 0 180 L 80 84"/>
+      <path class="edge" d="M 180 180 L 260 84"/>
+      <path class="edge" d="M 360 180 L 440 84"/>
+
+      <!-- pyramid -->
+      <circle cx="220" cy="42" r="4.5" fill="#b3483d"/>
+      <path class="ridge" d="M 220 42 L 0 180"/>
+      <path class="ridge" d="M 220 42 L 180 180"/>
+      <path class="ridge" d="M 220 42 L 360 180"/>
+      <path class="ridge" d="M 220 42 L 260 84"/>
+      <path class="hidden" d="M 220 42 L 80 84"/>
+      <path class="hidden" d="M 220 42 L 440 84"/>
+    </g>
+
+    <text x="210" y="340" text-anchor="middle" class="small">x / y 尺度一致，锥体四周的坡度更接近对称</text>
+  </g>
+
+  <!-- middle arrow -->
+  <g transform="translate(505,215)">
+    <path class="axis" d="M 0 0 C 42 -26, 92 -26, 140 0"/>
+    <text x="70" y="-34" text-anchor="middle" class="label" fill="#8a4f2a">沿 x 方向拉伸</text>
+    <text x="70" y="38" text-anchor="middle" class="small">同一个 h，不同的底面几何</text>
+  </g>
+
+  <!-- Right panel -->
+  <g transform="translate(650,90)">
+    <text x="230" y="0" text-anchor="middle" class="label">拉伸后：长方形底面</text>
+
+    <g transform="translate(0,38)">
+      <!-- horizontal -->
+      <path class="grid" d="M 0 180 L 220 180 L 500 180"/>
+      <path class="grid" d="M 20 156 L 240 156 L 520 156"/>
+      <path class="grid" d="M 40 132 L 260 132 L 540 132"/>
+      <path class="grid" d="M 60 108 L 280 108 L 560 108"/>
+      <path class="grid" d="M 80 84 L 300 84 L 580 84"/>
+
+      <!-- vertical family 1 -->
+      <path class="grid" d="M 0 180 L 80 84"/>
+      <path class="grid" d="M 55 180 L 135 84"/>
+      <path class="grid" d="M 110 180 L 190 84"/>
+      <path class="grid" d="M 165 180 L 245 84"/>
+      <path class="grid" d="M 220 180 L 300 84"/>
+
+      <!-- vertical family 2 -->
+      <path class="grid" d="M 220 180 L 300 84"/>
+      <path class="grid" d="M 290 180 L 370 84"/>
+      <path class="grid" d="M 360 180 L 440 84"/>
+      <path class="grid" d="M 430 180 L 510 84"/>
+      <path class="grid" d="M 500 180 L 580 84"/>
+
+      <!-- base outline -->
+      <path class="edge" d="M 0 180 L 220 180 L 500 180"/>
+      <path class="edge" d="M 0 180 L 80 84"/>
+      <path class="edge" d="M 220 180 L 300 84"/>
+      <path class="edge" d="M 500 180 L 580 84"/>
+      <path class="edge" d="M 80 84 L 300 84 L 580 84"/>
+
+      <!-- stretched pyramid -->
+      <circle cx="300" cy="42" r="4.5" fill="#b3483d"/>
+      <path class="ridge" d="M 300 42 L 0 180"/>
+      <path class="ridge" d="M 300 42 L 220 180"/>
+      <path class="ridge" d="M 300 42 L 500 180"/>
+      <path class="ridge" d="M 300 42 L 300 84"/>
+      <path class="hidden" d="M 300 42 L 80 84"/>
+      <path class="hidden" d="M 300 42 L 580 84"/>
+
+      <!-- annotations -->
+      <path class="axis" d="M 360 120 L 475 92"/>
+      <text x="484" y="91" class="note">同样高度差，x 方向距离更长</text>
+      <text x="487" y="112" class="small">-> 梯度更小</text>
+
+      <path class="axis" d="M 255 126 L 175 78"/>
+      <text x="40" y="68" class="note">几何一变，坡度不再对称</text>
+    </g>
+
+    <text x="230" y="340" text-anchor="middle" class="small">底面被拉成长方形后，同样的高度变化会落在不同距离上</text>
+  </g>
+</svg>
