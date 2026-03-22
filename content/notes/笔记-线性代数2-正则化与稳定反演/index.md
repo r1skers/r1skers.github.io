@@ -1,6 +1,6 @@
 ﻿---
 date: '2026-03-05T00:00:00+09:00'
-draft: false
+draft: true
 title: '线性代数 Part 2：正则化与稳定反演'
 summary: "从奇异/病态问题出发，给出正则化的几何直觉、似然视角与 Hessian 变化公式，解释为什么它能把不可辨识方向重新变得可控。"
 description: "A practical note on regularization, stability, and inverse problems."

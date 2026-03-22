@@ -22,7 +22,7 @@ description: "Course notes and self-study records."
 
 ## Computational Science and High-Reliability Systems Design
 - [**Part 1** — Problem Setup and Spatial Field Construction](/notes/笔记-计算科学与高可靠系统设计1-问题背景与空间场构造)
-- [**Part 2** — Time Marching and CFL Stability: Step-Size Design and Multi-Step Trajectories](/notes/笔记-计算科学与高可靠系统设计2-时间推进与CFL稳定性)
+- [**Part 2** — From Terrain to Temporal Evolution](/notes/笔记-计算科学与高可靠系统设计2-从地形到时间演化)
 - [**Part 3** — Step-Size Trajectory Learning Model: From CFL-Compliant Runs to Learnable Samples](/notes/笔记-计算科学与高可靠系统设计3-步长轨迹学习模型)
 - [**Part 4** — One-Step and Multi-Step Error Analysis: Acceptance and Cross-Step Validation](/notes/笔记-计算科学与高可靠系统设计4-单步与多步误差分析)
 - [**Part 5** — Parameter Inversion I: Finite-Difference Gradient and Gradient Descent](/notes/笔记-计算科学与高可靠系统设计5-参数反演1-有限差分与梯度下降)

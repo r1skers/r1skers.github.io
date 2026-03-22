@@ -1,6 +1,6 @@
 ﻿---
 date: '2026-03-04T21:00:00+09:00'
-draft: false
+draft: true
 title: '线性代数 Part 1：奇异矩阵与参数辨识性'
 summary: "从奇异矩阵出发，先建立似然函数与 MLE，再用海森矩阵解释参数空间中的曲率、可靠性与可辨识性。"
 description: "A practical note linking singular matrices, information loss, identifiability, FIM, profile likelihood, and sensitivity analysis."

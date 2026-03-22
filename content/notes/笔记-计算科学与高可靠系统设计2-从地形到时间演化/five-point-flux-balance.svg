@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500">
+  <defs>
+    <style>
+      .title { font: 700 28px "Noto Sans", "Segoe UI", sans-serif; fill: #3f3128; }
+      .label { font: 600 20px "Noto Sans", "Segoe UI", sans-serif; fill: #4b3a2f; }
+      .small { font: 500 17px "Noto Sans", "Segoe UI", sans-serif; fill: #6a5547; }
+      .math { font: italic 600 22px "Times New Roman", serif; fill: #3b2f28; }
+      .arrow { stroke: #a55e2e; stroke-width: 3.2; fill: none; marker-end: url(#arrowhead); }
+      .sand-center { fill: #d7a365; stroke: #8e5929; stroke-width: 2.4; }
+      .sand-neighbor { fill: #e8cc9c; stroke: #a97a45; stroke-width: 2; }
+      .sand-shadow { fill: #c89155; opacity: 0.22; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#a55e2e"/>
+    </marker>
+    <radialGradient id="centerHill" cx="50%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#f4cf97"/>
+      <stop offset="70%" stop-color="#d7a365"/>
+      <stop offset="100%" stop-color="#b97a3f"/>
+    </radialGradient>
+    <radialGradient id="smallHill" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#f5e3be"/>
+      <stop offset="75%" stop-color="#e3c18b"/>
+      <stop offset="100%" stop-color="#c79a5e"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="980" height="500" fill="#faf5ec"/>
+
+  <text x="490" y="44" text-anchor="middle" class="title">Local Sand Exchange in a Five-Point Stencil</text>
+
+  <!-- top dune -->
+  <g transform="translate(430,112)">
+    <ellipse class="sand-shadow" cx="60" cy="62" rx="58" ry="20"/>
+    <path class="sand-neighbor" d="M10,62
+      C18,28 42,8 60,8
+      C78,8 102,28 110,62
+      C104,84 88,98 60,100
+      C32,98 16,84 10,62 Z" fill="url(#smallHill)"/>
+    <text x="60" y="-10" text-anchor="middle" class="math">h_{i-1,j}</text>
+  </g>
+
+  <!-- left dune -->
+  <g transform="translate(250,210)">
+    <ellipse class="sand-shadow" cx="60" cy="62" rx="58" ry="20"/>
+    <path class="sand-neighbor" d="M10,62
+      C18,28 42,8 60,8
+      C78,8 102,28 110,62
+      C104,84 88,98 60,100
+      C32,98 16,84 10,62 Z" fill="url(#smallHill)"/>
+    <text x="60" y="-10" text-anchor="middle" class="math">h_{i,j-1}</text>
+  </g>
+
+  <!-- center dune -->
+  <g transform="translate(430,210)">
+    <ellipse class="sand-shadow" cx="60" cy="74" rx="76" ry="26"/>
+    <path class="sand-center" d="M0,74
+      C10,26 38,0 60,0
+      C82,0 110,26 120,74
+      C112,108 92,128 60,132
+      C28,128 8,108 0,74 Z" fill="url(#centerHill)"/>
+    <text x="60" y="-14" text-anchor="middle" class="math">h_{i,j}</text>
+  </g>
+
+  <!-- right dune -->
+  <g transform="translate(610,210)">
+    <ellipse class="sand-shadow" cx="60" cy="62" rx="58" ry="20"/>
+    <path class="sand-neighbor" d="M10,62
+      C18,28 42,8 60,8
+      C78,8 102,28 110,62
+      C104,84 88,98 60,100
+      C32,98 16,84 10,62 Z" fill="url(#smallHill)"/>
+    <text x="60" y="-10" text-anchor="middle" class="math">h_{i,j+1}</text>
+  </g>
+
+  <!-- bottom dune -->
+  <g transform="translate(430,308)">
+    <ellipse class="sand-shadow" cx="60" cy="62" rx="58" ry="20"/>
+    <path class="sand-neighbor" d="M10,62
+      C18,28 42,8 60,8
+      C78,8 102,28 110,62
+      C104,84 88,98 60,100
+      C32,98 16,84 10,62 Z" fill="url(#smallHill)"/>
+    <text x="60" y="-10" text-anchor="middle" class="math">h_{i+1,j}</text>
+  </g>
+
+  <!-- arrows flowing outward -->
+  <path class="arrow" d="M490,212 C490,192 490,172 490,156"/>
+  <path class="arrow" d="M432,275 C408,275 387,275 367,275"/>
+  <path class="arrow" d="M548,275 C572,275 593,275 613,275"/>
+  <path class="arrow" d="M490,345 C490,365 490,382 490,396"/>
+
+  <!-- labels -->
+  <text x="520" y="186" class="small">exchange</text>
+  <text x="308" y="260" class="small">exchange</text>
+  <text x="620" y="260" class="small">exchange</text>
+  <text x="520" y="408" class="small">exchange</text>
+
+  <!-- bottom explanation -->
+  <text x="490" y="452" text-anchor="middle" class="label">The center changes through net exchange with its four neighbors</text>
+  <text x="490" y="480" text-anchor="middle" class="small">A minimal discrete picture of local balance, rather than isolated height values</text>
+</svg>
