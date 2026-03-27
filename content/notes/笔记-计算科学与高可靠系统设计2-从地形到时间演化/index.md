@@ -50,6 +50,10 @@ $$
 如果先不管公式细节，只看直觉，这里描述的其实就是一个局部扩散过程：  
 高的地方会向低的地方摊开，而不同区域摊开的快慢，又会受到 $\kappa$ 的影响。
 
+在项目里，这里的 $\kappa$ 场不是抽象设定，而是由  
+`00_forward_variable_kappa/scripts/simulate_forward_variable_kappa.py`  
+里的 `_build_kappa_field(...)` 构造出来的。
+
 ## 3. 观念变化：时间演化本质上是局部收支平衡
 
 前面我们已经把视角从静态量高度 `h(x,y)`，转向了变化量 `h(x,y,t)`。  
@@ -64,6 +68,10 @@ $$
 时间演化之所以能写成更新公式，本质上就是因为我们在做局部收支平衡。
 
 ![五点差分下的局部收支平衡示意](five-point-flux-balance.svg)
+
+在项目代码里，真正把这种“局部收支平衡”落实成一步更新的，是  
+`00_forward_variable_kappa/scripts/simulate_forward_variable_kappa.py`  
+里的 `_step_flux_conservative_variable(...)`。
 
 ## 4. 梯度、$\kappa$ 和通量
 
@@ -114,3 +122,6 @@ $$
 
 原因也很直观：最危险的地方，总是扩散最快、网格又最密的区域。  
 只有先确认这套 $h0 + \kappa + geometry$ 的组合可以被稳定推进，后面的 forward trajectory 才有意义。
+
+这一部分在项目里对应的是同一个脚本里的 `_conservative_cfl_limit_variable(...)`，  
+它会根据 `\kappa_{\max}`、`dx_{\min}` 和 `dy_{\min}` 先给出一个保守的 CFL 上限。
