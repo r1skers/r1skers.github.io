@@ -8,7 +8,7 @@ tags: ["PDE", "Inverse Problem", "Finite Difference", "Gradient Descent", "Param
 categories: ["Crucible"]
 ---
 
-# Computational Science & High-Reliability Systems Design Part 5: Parameter Inversion I: Finite-Difference Gradients and Gradient Descent
+# Computational Science & High-Reliability Systems Design Part 5:  Finite-Difference Gradients and Gradient Descent
 
 This is where inversion really starts to move.  
 We first use finite differences to approximate the gradient of the objective with respect to the parameters, and then use gradient descent to update $\kappa$ step by step.
