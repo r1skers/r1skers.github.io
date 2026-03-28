@@ -1,7 +1,7 @@
 ﻿---
 date: '2026-03-01T00:00:00+09:00'
 draft: false
-title: '计算科学与高可靠系统设计第5部分：参数反演 I：有限差分梯度与梯度下降'
+title: '计算科学与高可靠系统设计第5部分：有限差分梯度与梯度下降'
 summary: "从 observation 出发，把 blockwise κ 写成参数向量，利用有限差分估计梯度，并通过梯度下降逐步降低目标函数。"
 description: "Part 5 on finite-difference gradients and gradient descent for blockwise parameter inversion."
 tags: ["PDE", "Inverse Problem", "Finite Difference", "Gradient Descent", "Parameter Inversion", "Reliability"]

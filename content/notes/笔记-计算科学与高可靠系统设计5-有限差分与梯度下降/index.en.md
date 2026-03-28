@@ -1,7 +1,7 @@
 ---
 date: '2026-03-01T00:00:00+09:00'
 draft: false
-title: 'Computational Science & High-Reliability Systems Design Part 5: Parameter Inversion I: Finite-Difference Gradients and Gradient Descent'
+title: 'Computational Science & High-Reliability Systems Design Part 5:  Finite-Difference Gradients and Gradient Descent'
 summary: "Starting from observations, this part turns blockwise κ into a parameter vector, estimates gradients with finite differences, and uses gradient descent to reduce the objective step by step."
 description: "Part 5 on finite-difference gradients and gradient descent for blockwise parameter inversion."
 tags: ["PDE", "Inverse Problem", "Finite Difference", "Gradient Descent", "Parameter Inversion", "Reliability"]
