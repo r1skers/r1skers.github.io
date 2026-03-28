@@ -1,6 +1,6 @@
 ---
 date: '2026-03-01T00:10:00+09:00'
-draft: true
+draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 6: Inversion Result Analysis and Parameter Credibility'
 summary: "Part 5 gives us a parameter set that can explain the observations reasonably well, but that does not automatically make it the true parameter field. This part separates observation fit, validation ability, and truth-level comparison."
 description: "Part 6 on inversion-result analysis, validation, and parameter credibility."
