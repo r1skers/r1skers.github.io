@@ -1,9 +1,9 @@
 ﻿---
 date: '2026-03-01T00:00:00+09:00'
 draft: false
-title: '计算科学与高可靠系统设计第5部分：参数反演1（有限差分梯度与梯度下降）'
-summary: "本篇聚焦有限差分梯度与梯度下降，并用 1D 热方程反演扩散系数 κ 作为主例子，讲清推导、意义和可执行流程。"
-description: "Part 5 note focused on finite-difference gradient derivation and gradient descent for PDE parameter inversion."
+title: '计算科学与高可靠系统设计第5部分：参数反演 I：有限差分梯度与梯度下降'
+summary: "从 observation 出发，把 blockwise κ 写成参数向量，利用有限差分估计梯度，并通过梯度下降逐步降低目标函数。"
+description: "Part 5 on finite-difference gradients and gradient descent for blockwise parameter inversion."
 tags: ["PDE", "Inverse Problem", "Finite Difference", "Gradient Descent", "Parameter Inversion", "Reliability"]
 categories: ["Crucible"]
 aliases:
@@ -13,165 +13,145 @@ aliases:
 
 # 计算科学与高可靠系统设计 Part 5：参数反演1（有限差分梯度与梯度下降）
 
-这一篇只讲一件事：用有限差分近似梯度，再用梯度下降反推出 PDE 参数 $\kappa$。  
+这一篇开始让反演真正动起来：先用有限差分近似目标函数对参数的梯度，再用梯度下降一步步更新参数 $\kappa$。  
 
-主线是：PDE 正问题设定 -> 失配目标函数 -> 有限差分梯度 -> 梯度下降更新 -> 参数约束与收敛判据。  
-
----
-
-## 1. PDE 问题定义（以 1D 热方程为例）
-
-考虑一维热方程：  
-
-$$
-\frac{\partial u}{\partial t}=\kappa\frac{\partial^2 u}{\partial x^2},
-\quad x\in[0,1],\ t\in[0,T]
-$$
-
-其中 $\kappa$ 是待识别的扩散系数。给定初值、边界条件和观测快照 $u^{\text{obs}}$，目标是反演 $\kappa$。  
-
-用显式差分离散（连接 Part 1 与 Part 2）：  
-
-$$
-u_i^{n+1}=u_i^n+r(\kappa)\left(u_{i+1}^n-2u_i^n+u_{i-1}^n\right),
-\quad r(\kappa)=\frac{\kappa\Delta t}{\Delta x^2}
-$$
-
-稳定性要求（1D 显式热方程）：  
-
-$$
-0 \lt r(\kappa)\le \frac{1}{2}
-$$
-
-以终点时刻 $t=T$ 为例，采用“失配 + 正则”目标函数：  
-
-$$
-J(\kappa)=
-\underbrace{\frac12\sum_i\left(u_i^{N}(\kappa)-u_{i,\text{obs}}^{N}\right)^2}_{\text{Mismatch}}
-\;+\;
-\lambda\underbrace{R(\kappa)}_{\text{Regularization}}
-$$
-
-其中 $\lambda\ge 0$ 为正则权重；基础版本可先取 $\lambda=0$。  
-
-参数反演即：  
-
-$$
-\kappa^\star=\arg\min_\kappa J(\kappa)
-$$
+主线是：observation 已知 -> 定义目标函数 -> 有限差分估计梯度 -> 梯度下降更新参数。  
 
 ---
 
-## 2. 有限差分梯度推导（核心）
+## 1. 问题再确定
 
-若没有解析梯度 $\frac{dJ}{d\kappa}$，用中心差分：  
+到了这一篇，我们手上已经不再是完整 truth，而是一组有限、稀疏、带噪的 observation。  
+现在真正的问题变成：怎样从这些 observation 出发，反推出控制地形演化的参数 $\kappa$。
 
-$$
-\frac{dJ}{d\kappa}\approx
-\frac{J(\kappa+\delta)-J(\kappa-\delta)}{2\delta}
-$$
-
-来源于泰勒展开：  
+由于参数复杂，这里我们并不是直接去反演 full-resolution 的 $\kappa(x,y)$，而是把整个区域切成 $4\times4$ 个 block。  
+这样一来，原本的参数场就被压成了一个 16 维参数向量：
 
 $$
-J(\kappa+\delta)=J(\kappa)+\delta J'(\kappa)+\frac{\delta^2}{2}J''(\kappa)+\frac{\delta^3}{6}J'''(\kappa)+\cdots
+p=(p_1,p_2,\dots,p_{16})
 $$
 
-$$
-J(\kappa-\delta)=J(\kappa)-\delta J'(\kappa)+\frac{\delta^2}{2}J''(\kappa)-\frac{\delta^3}{6}J'''(\kappa)+\cdots
-$$
+其中每个 $p_i$ 都对应一个 block 的 $\kappa$ 值。  
+这样做的目的并不是说问题变简单了，而是先把它从“一个过于自由的未知场”变成“一个可以真正优化的参数向量”。
 
-两式相减得：  
+由于参数求解之后还要继续讨论可信度、误差和辨识性，所以这一篇先只集中于第一步：  
+**如何利用有限差分和梯度下降，得到一组让目标函数尽量小的参数组合。**
 
-$$
-J'(\kappa)=\frac{J(\kappa+\delta)-J(\kappa-\delta)}{2\delta}+O(\delta^2)
-$$
+## 2. 为什么这里要看梯度
 
-所以中心差分是二阶精度（误差 $O(\delta^2)$）。  
+这里讨论的梯度，已经不再是 Part 2 里地形场的空间梯度，而是目标函数对参数的梯度。  
+也就是说，我们现在关心的不是“地形哪里更陡”，而是：
 
----
+**当参数稍微变动时，目标函数会朝哪个方向变化。**
 
-## 3. 梯度下降更新式与意义
-
-第 $m$ 轮更新：  
+如果把目标函数写成
 
 $$
-\kappa^{m+1}=\kappa^m-\eta g^m,
-\quad
-g^m\approx\frac{J(\kappa^m+\delta)-J(\kappa^m-\delta)}{2\delta}
+J(p)
 $$
 
-其中：  
+那么它表示的就是：当参数取成当前这组 $p$ 时，prediction 和 observation 之间的总体误差有多大。  
+我们希望这个误差越小越好，因为这意味着 forward model 生成的结果更接近 observation。
 
-中文：
-1. $\delta$：有限差分扰动量，控制梯度近似精度与数值噪声敏感性。  
-2. $\eta$：学习率，控制每步更新幅度。  
-3. $g^m$ 的符号给方向，大小给强度。
+因此，反演的思路并不是直接“读出”参数，而是不断调整参数，让目标函数逐步下降。  
+从这个角度看，梯度的意义就是：
 
+- 哪一维参数更敏感；
+- 某一维参数往上调时，目标函数会变大还是变小；
+- 当前这组参数附近，往哪个方向走更可能让误差下降。
 
-若有参数物理范围，可加投影：  
+所以这一篇里的梯度，本质上是参数空间里的局部斜率。  
+而我们真正想做的，就是沿着让 $J(p)$ 下降的方向，一步一步更新这 16 个参数。
 
-$$
-\kappa^{m+1}=\Pi_{[\kappa_{\min},\kappa_{\max}]}\left(\kappa^m-\eta g^m\right)
-$$
+## 3. 参数调整
 
----
+既然现在优化对象已经变成了一个 16 维参数向量，那么所谓“调整参数”，其实就是去看这 16 个 block 的 $\kappa$ 应该往哪个方向改。
 
-## 4. PDE 数值例子：反演热扩散系数 $\kappa$
-
-设定：  
-
-中文：
-1. 网格步长 $\Delta x=0.1$，时间步长 $\Delta t=0.002$。  
-2. 当前参数 $\kappa^m=0.80$，扰动 $\delta=0.02$。  
-3. 对 $\kappa^m+\delta=0.82$ 和 $\kappa^m-\delta=0.78$ 各做一次完整前向求解，并计算损失。
-
+最直接的想法，就是先只动一维，其他维固定。  
+比如说现在只看第 1 个参数 $p_1$，那我们就先保持
 
 $$
-J(0.82)=1.20\times10^{-3},\qquad
-J(0.78)=1.68\times10^{-3}
+p=(p_1,p_2,\dots,p_{16})
 $$
 
-梯度近似：  
+里的其他 15 个参数不变，只把 $p_1$ 稍微扰动一下：
 
 $$
-g^m\approx\frac{1.20\times10^{-3}-1.68\times10^{-3}}{2\times0.02}
-=-1.2\times10^{-2}
+p_1 \rightarrow p_1 + \varepsilon
 $$
 
-若学习率 $\eta=0.5$，则  
+然后重新跑一次 forward model，再重新计算一次目标函数。  
+如果新的目标函数变大了，说明这一个方向往上调并不好；如果新的目标函数变小了，说明这个方向往上调反而有利。
+
+于是，对第 $i$ 个参数来说，我们就可以用有限差分去近似它对应的偏导数：
 
 $$
-\kappa^{m+1}=0.80-0.5(-1.2\times10^{-2})=0.806
+\frac{\partial J}{\partial p_i}
+\approx
+\frac{J(p+\varepsilon e_i)-J(p)}{\varepsilon}
 $$
 
-解释：梯度为负，表示增大 $\kappa$ 会降低失配，所以更新后 $\kappa$ 变大。  
+这里的 $e_i$ 表示第 $i$ 个方向的单位向量，也就是“只动第 $i$ 个参数，别的都不动”。
 
----
-
-## 5. 参数选择建议
-
-中文：
-1. $\delta$ 过大，差分偏差大；$\delta$ 过小，易被数值误差淹没。  
-2. 可用比例扰动：$\delta=\max(10^{-4},10^{-2}|\kappa|)$。  
-3. $\eta$ 过大会震荡，过小会收敛慢；建议先小后大试探。  
-4. 记录 $J_m, |g_m|, \kappa_m$ 三条曲线做稳定性判断。  
-5. 常见停止条件：$|g_m|<\varepsilon_g$ 或 $|J_{m+1}-J_m|/J_m<\varepsilon_J$。
-
-
-## 6. 小结
-
-Part 5 的核心三步：  
+如果把 16 个参数都这样做一遍，就会得到 16 个偏导数。  
+再把它们拼起来，就得到当前参数点附近的梯度向量：
 
 $$
-J(\kappa)\rightarrow
-g(\kappa)\approx\frac{J(\kappa+\delta)-J(\kappa-\delta)}{2\delta}
-\rightarrow
-\kappa\leftarrow\kappa-\eta g
+\nabla J(p)=
+\left(
+\frac{\partial J}{\partial p_1},
+\frac{\partial J}{\partial p_2},
+\dots,
+\frac{\partial J}{\partial p_{16}}
+\right)
 $$
 
-从初值 $\kappa^0$ 出发，每轮先用有限差分估计当前斜率，再沿下降方向更新 $\kappa$。  
+这一步得到的并不是最终答案，而是一张“局部导航图”。  
+它告诉我们：
 
-优化器最小化的是失配目标 $J(\kappa)$，而不是 $|\kappa-\kappa_{\text{true}}|$；后者只在有真值的合成实验中用于评估。  
+- 哪些 block 的参数更敏感；
+- 某一维往上调时，目标函数会变大还是变小；
+- 当前这组参数附近，整体该往哪个方向走更可能让误差下降。
 
-它给出最直接、最可解释的 PDE 参数反演起点；后续可升级到 L-BFGS-B 提升效率与稳健性。  
+在项目实现里，这一步主要对应 `01_inversion_kappa_field/scripts/invert_kappa_block_fd.py` 里的有限差分求梯度过程。
+
+## 4. 梯度下降
+
+有了梯度之后，接下来的问题就不再是“哪个方向敏感”，而是“下一步到底怎么改参数”。
+
+最基础的写法就是梯度下降：
+
+$$
+p^{(k+1)} = p^{(k)} - \eta \nabla J\bigl(p^{(k)}\bigr)
+$$
+
+这条式子可以直接理解成：
+
+- $p^{(k)}$ 是当前这一轮的参数；
+- $\nabla J\bigl(p^{(k)}\bigr)$ 是当前参数点的梯度；
+- $\eta$ 是学习率；
+- $p^{(k+1)}$ 是更新后的下一轮参数。
+
+这里的关键在于，梯度指向的是目标函数上升最快的方向，而我们想做的是让目标函数下降，所以要沿着负梯度方向走。  
+学习率 $\eta$ 决定的则是：这一步到底迈多大。
+
+如果学习率太小，那么每次都只改一点点，目标函数虽然可能会下降，但会很慢；  
+如果学习率太大，那么参数一下改得过猛，反而可能越过当前较好的区域，导致目标函数震荡甚至变差。
+
+所以在这一篇里，梯度下降的含义其实很朴素：  
+**先用有限差分测出当前参数点附近的局部斜率，再沿着负梯度方向整体走一小步。**
+
+接下来，把“计算目标函数 -> 估计梯度 -> 更新参数”这一套不断重复，就会形成一个最基础的反演迭代过程：
+
+$$
+p^{(0)} \rightarrow p^{(1)} \rightarrow p^{(2)} \rightarrow \cdots
+$$
+
+我们希望最终得到的是一组让目标函数尽量小的参数组合。  
+也就是说，在当前 observation 和当前 objective 的定义下，这组参数最能解释我们手上的观测数据。
+
+不过这里注意：  
+**目标函数变小，并不自动意味着真参数已经被完全恢复。**
+
+在 observation 稀疏、参数耦合或者问题病态时，很多不同的参数组合也可能给出接近的目标函数值。  
+所以这一篇先停在“反演如何真正开始迭代”，而更深的可信度、辨识性和稳定性问题，留到后面继续讨论。

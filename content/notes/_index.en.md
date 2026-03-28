@@ -26,6 +26,7 @@ description: "Course notes and self-study records."
 - [**Part 3** — From Full Trajectories to Observations](/notes/笔记-计算科学与高可靠系统设计3-从完整轨迹到观测数据)
 - [**Part 4** — From Observations to Parameter Inversion](/notes/笔记-计算科学与高可靠系统设计4-从观测数据到参数反演)
 - [**Part 5** — Parameter Inversion I: Finite-Difference Gradient and Gradient Descent](/notes/笔记-计算科学与高可靠系统设计5-参数反演1-有限差分与梯度下降)
+- [**Part 6** — Inversion Result Analysis and Parameter Credibility](/notes/笔记-计算科学与高可靠系统设计6-反演结果分析与参数可信度)
 
 ## Rock Mechanics
 - [**Part 1** — Mineral Composition, Structural Features, and Discontinuity Basics](/notes/笔记-岩体力学1-基础知识)
