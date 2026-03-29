@@ -25,8 +25,12 @@ description: "Course notes and self-study records."
 - [**Part 2** — From Terrain to Temporal Evolution](/notes/笔记-计算科学与高可靠系统设计2-从地形到时间演化)
 - [**Part 3** — From Full Trajectories to Observations](/notes/笔记-计算科学与高可靠系统设计3-从完整轨迹到观测数据)
 - [**Part 4** — From Observations to Parameter Inversion](/notes/笔记-计算科学与高可靠系统设计4-从观测数据到参数反演)
-- [**Part 5** — Parameter Inversion I: Finite-Difference Gradient and Gradient Descent](/notes/笔记-计算科学与高可靠系统设计5-参数反演1-有限差分与梯度下降)
+- [**Part 5** — Parameter Inversion I: Finite-Difference Gradient and Gradient Descent](/notes/笔记-计算科学与高可靠系统设计5-有限差分与梯度下降)
 - [**Part 6** — Inversion Result Analysis and Parameter Credibility](/notes/笔记-计算科学与高可靠系统设计6-反演结果分析与参数可信度)
+- [**Part 7** — From Finite-Difference Gradient Descent to L-BFGS and Log-Parameterization](/notes/笔记-计算科学与高可靠系统设计7-从有限差分梯度下降到L-BFGS与对数参数化)
+- [**Part 8** — Regularization, Priors, and Stable Inversion](/notes/笔记-计算科学与高可靠系统设计8-正则化、先验与稳定反演)
+- [**Part 9** — Smoothness Terms, Prior Terms, and Regularization Strength](/notes/笔记-计算科学与高可靠系统设计9-平滑项、先验项与正则化强度)
+- [**Part 10** — A Full-Chain Summary from Spatial Fields to Stable Inversion](/notes/笔记-计算科学与高可靠系统设计10-从空间场到稳定反演的完整链条总结)
 
 ## Rock Mechanics
 - [**Part 1** — Mineral Composition, Structural Features, and Discontinuity Basics](/notes/笔记-岩体力学1-基础知识)
