@@ -3,7 +3,7 @@ date: '2026-03-01T18:25:00+09:00'
 draft: false
 title: '岩体力学 Part 1：矿物组成、结构特征与结构面基础'
 summary: "基于课堂速记，系统梳理岩石矿物组成、颗粒与胶结特征、风化指标、结构面特征量和岩体结构类型，作为后续强度与稳定性分析的基础底板。"
-description: "Rock mechanics fundamentals: minerals, microstructure, weathering, discontinuity descriptors, and rock-mass structure types."
+description: "岩体力学基础：矿物组成、微观结构、风化指标、结构面特征量与岩体结构类型。"
 tags: ["Rock Mechanics", "Petrophysics", "Engineering Geology", "Mineralogy", "Discontinuity", "Weathering"]
 categories: ["Crucible"]
 ---
@@ -33,7 +33,6 @@ categories: ["Crucible"]
 ### 1.3 碳酸盐类
 
 典型化学组分可写作：$Ca^{2+}$、$Mg^{2+}$、$CO_3^{2-}$。  
-Typical chemical components can be represented as $Ca^{2+}$, $Mg^{2+}$, and $CO_3^{2-}$.
 
 常见类型：方解石、白云石、文石（霰石）。  
 
@@ -103,7 +102,6 @@ k_1=\frac{\sum a}{\sum a+\sum b}
 $$
 
 其中 $a$ 可理解为连续段长度，$b$ 为中断段长度；$k_1$ 越大，结构面连续性越强。  
-Here, $a$ represents connected trace length and $b$ interrupted length; larger $k_1$ indicates stronger continuity.
 
 ![Continuity coefficient k1](continuity-k1.svg)
 *图：沿测线的连续段与中断段示意

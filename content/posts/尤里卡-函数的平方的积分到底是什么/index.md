@@ -1,118 +1,135 @@
 ---
 date: '2025-11-26T10:47:00+09:00'
 draft: false
-title: "[Crucible] Is Probability Just Normalized Energy? The Hidden Link between Born's Rule and Auto-correlation"
-summary: "Bridging the gap between Signal Processing and Quantum Mechanics. A mathematical exploration of how Hilbert Space inner products unify the concepts of Energy and Existence."
+title: "[坩埚] 概率只是归一化后的能量吗？Born 规则与自相关之间的隐秘联系"
+summary: "把信号处理和量子力学放到同一个希尔伯特空间视角下，重新理解能量、概率和内积之间为什么会长得如此相似。"
+description: "从自相关和 Born 规则的形式相似出发，理解能量、概率与希尔伯特空间内积之间的统一结构。"
 tags: ["Born's Rule", "Auto-correlation", "Signal Processing", "Quantum Mechanics", "Hilbert Space" , "Eureka" , "Interdisciplinary"]
 categories: ["Sparks"]
 ---
 
-# The Question
-When I checked my notes, I found that the formulas for auto-correlation and Born's rule look identical. Why? In this article, we are going to explore this connection.
+# 问题
 
-# Formula
-First, let's have a look at these two formulas:
+我在翻笔记的时候发现，自相关和 Born 规则的公式几乎长得一模一样。为什么会这样？这篇文章就是想把这个联系拆开看看。
 
-**Auto-Correlation ($\tau =0$):**
+# 公式
+
+先把两组公式并排摆出来：
+
+**自相关（$\tau = 0$）：**
 
 $$ E = R_{xx}(0) = \int_{-\infty}^{\infty} f(t) f^*(t) dt = \int_{-\infty}^{\infty} |f(t)|^2dt $$
 
-**Born's Rule:**
+**Born 规则：**
 
 $$P=\langle \psi | \psi \rangle = \int_{-\infty}^{\infty} \psi^*(x) \psi(x) \ dx = 1$$
 
-So, what does a function multiplied by its conjugate actually describe?
+那么，一个函数乘上自己的共轭，到底在描述什么？
 
-# Explanation
+# 解释
 
-## 1. "Collision" in Mathematical Form
+## 1. 数学形式上的“自我碰撞”
 
-**Signal Processing (Instantaneous power/energy density at time $t$):**
+**信号处理（时刻 $t$ 的瞬时功率或能量密度）：**
 
 $$E(t) = f(t) f^*(t) = |f(t)|^2$$
 
-**Quantum Mechanics (The probability density at position $x$):**
+**量子力学（位置 $x$ 上的概率密度）：**
 
 $$P(x) = \psi(x) \psi^*(x) = |\psi(x)|^2$$
 
-**Why is it the same?**
-In mathematical functional analysis, they both belong to the concept of the **Inner Product** in a **Hilbert Space**.
+为什么它们长得一样？因为在泛函分析的语境里，它们都属于同一个结构：**希尔伯特空间中的内积**。
 
 $$\langle f, f \rangle = \int f \cdot f^*$$
 
-This represents **the square of the length** (norm) of a vector (whether it is a signal or a wave function).
+这表示的是一个向量长度的平方。这个向量可以是信号，也可以是波函数。
 
-[Some readers might find this concept difficult.](/posts/eurekadft_and_fftdive_into_fourier_transform/)
+[如果这里还比较抽象，可以先看这一篇。](/posts/eurekadft_and_fftdive_into_fourier_transform/)
 
-## 2. Physical Essence: From "Amplitude" to "Intensity"
+## 2. 物理本质：从“振幅”到“强度”
 
-**Common Ground**
-Both are **Waves**.
-* A signal is a wave of voltage/current.
-* A quantum state is a wave of probability amplitude.
+它们的共同点是：本质上都是波。
 
-**The Common Problem**
-**Complex numbers cannot be directly measured.** Waves usually contain phase information ($e^{j\theta}$), so they are essentially complex numbers. However, in the real world, electricity meters cannot read complex numbers, and particle detectors cannot read complex numbers either. We can only measure **"Intensity"** (Real numbers).
+- 信号是电压或电流随时间变化形成的波。
+- 量子态是概率振幅在空间中的波。
 
-**The Solution**
-How do we convert a complex number containing a phase into a real intensity? The answer is: **multiply it by its own conjugate.**
+但共同的问题也很明显：复数不能直接被测量。
+
+波通常带着相位信息，比如 $e^{j\theta}$。现实中的仪器并不能直接读取一个复数。电表不会给你一个带虚部的电压，粒子探测器也不会给你一个带虚部的概率。
+
+我们真正能测到的是一种**强度**，也就是实数。
+
+怎么把带相位的复振幅变成可测量的实数强度？答案就是：**乘上它自己的共轭。**
 
 $$(A e^{j\theta}) \cdot (A e^{-j\theta}) = A^2$$
 
-The phase is eliminated, leaving only the square of the amplitude (intensity).
-* In signals: This is called power (the square of voltage).
-* In quantum mechanics: This is called probability (the square of the wave amplitude).
+相位被抵消，只留下振幅平方。
 
-In fact, the Born probability density is essentially the "power density" (or intensity) of the quantum wave function.
+- 对信号来说，这就是功率。
+- 对量子力学来说，这就是概率。
 
-## 3. A Perspective in Hilbert Space
-**Treat "wave function" as a "vector"**
-A continuous function is essentially a "super long" vector with infinitely many components.
-The value $f(t)$ at each moment $t$ is the **"coordinate value"** of this vector in this dimension.<p>
-[Maybe someone has found something interesting... (Hint: Sampling)](/posts/convolution_and_sampling_in_fourier_laplace/#sampling)
+换句话说，Born 概率密度在形式上确实很像波函数的“功率密度”。
 
-**Squaring: Take each "coordinate value" and square it ($|f(t)|^2$)**
-This is to calculate the squared modulus of the component.
+## 3. 希尔伯特空间视角
 
-**Summing**
-Add up (integrate) all these infinitely many "squared values". This gives the square of the total length (that is, the total energy).
+把“波函数”看成一个向量后，很多事情会变得自然。
 
-## 4. Insight from Gemini
-Why is there such an astonishing coincidence? It's actually not a coincidence, but a historical legacy.
+一个连续函数其实可以被理解成一个“无限长”的向量。它在每个时刻或每个位置上的值，都像是这个向量在对应维度上的坐标。
 
-1.  **Schrödinger's inspiration:** When Schrödinger wrote the wave equation, he regarded particles as a kind of **"classical wave"** (like sound waves or water waves).
-2.  **Energy of classical waves:** In classical physics, the energy of a wave is always proportional to the square of its amplitude.
-3.  **Born's interpretation:** Later, Max Born said, "Hey, this wave is not a physical material wave, but a probability wave." However, the mathematical rules for calculating "intensity" were retained.
+[如果你已经在想“采样”这件事，那方向是对的。](/posts/convolution_and_sampling_in_fourier_laplace/#sampling)
 
-Therefore, the "sameness" you see exists because quantum mechanics directly borrowed the mathematical framework of classical wave theory (which is now the foundation of signal processing), only replacing the term "energy" with "probability".
+接下来做两步：
 
-# Deep Dive
-We just discussed *why* their formulas look the same, but it might still be hard to understand *how* we can use this formula to describe energy/probability. Here is the thought process regarding quantum mechanics:
+1. 对每个坐标取模平方，也就是 $|f(t)|^2$。
+2. 再把这些值加起来。对连续函数来说，这一步就是积分。
 
-1.  **First Stop: Starting Point — "Where exactly is it?"**
-    * **Task:** I want to describe the position probability of a quantum particle (such as an electron) at a certain moment.
-    * **Dilemma:** Classical physics states that a particle is like a ball with a definite position. However, experiments have found that microscopic particles can undergo interference (canceling each other out like water waves).
-    * **Conclusion 1:** A particle is not a point; it is essentially a kind of "wave."
+最后得到的，就是这个向量总长度的平方。
 
-2.  **Second Stop: Describing Waves — "I need a function"**
-    * **Task:** I need a mathematical tool to describe the undulations of this wave.
-    * **Tool:** We define a function $\psi(x)$, calling it the wave function.
-    * **Requirement:** This wave must be able to describe "interference". That is, when a wave crest meets a wave trough, they should be able to become 0 (canceling each other out).
-    * **Conclusion 2:** $\psi(x)$ must have both positive and negative values, and it implies using complex numbers (because the complex number $e^{i\theta}$ perfectly describes rotation and phase).
+在信号处理中，它表现成总能量；在量子力学里，它表现成归一化后的总概率。
 
-3.  **Third Stop: The Gap in Reality — "Complex Numbers Do Not Exist"**
-    * **Task:** I need to measure the probability of this particle appearing.
-    * **Dilemma:** My wave function $\psi$ is a complex number (e.g., $1 + i$). However, "probability" must be a real number (there can't be a probability of $30\% + 20i$). Moreover, probability must be non-negative.
-    * **Conclusion 3:** $\psi$ itself cannot directly represent probability. We need to perform a **modification** on $\psi$ to turn it into a positive real number.
+## 4. Gemini 给出的历史视角
 
-4.  **Fourth Stop: Inspiration from Classics — "Energy and Amplitude"**
-    * **Task:** Seeking inspiration for transformation. Review classical physics (signal processing):
-        * **Light waves:** Brightness (intensity) is not field $E$, but $E^2$.
-        * **Sound waves:** Loudness is not amplitude $A$, but $A^2$.
-        * **Voltage:** Signal energy is not $V$, but proportional to $V^2$.
-    * **Physical intuition:** In the classical world, "the intensity of a wave" is always proportional to "the square of its amplitude".
+为什么会有这种看起来近乎巧合的对应？
 
-5.  **Fifth Stop: The Destination — "The Born Rule"**
-    * **Reasoning:** Since particles are waves, the "likelihood" (probability density) of a particle appearing somewhere should be equivalent to the **intensity** of the wave there.
-    * **Operation:** Treat the complex wave function $\psi$ as the "amplitude". Following the example of classical physics, calculate its "intensity". Because it is a complex number, calculate the square of its modulus (multiply it by its conjugate): $|\psi|^2 = \psi \cdot \psi^*$.
-    * **Final Conclusion:** Probability density = Intensity of the wave = Square of the modulus of the wave function $|\psi|^2$.
+其实它不是巧合，而是历史延续。
+
+1. **薛定谔最初的直觉：** 他写波动方程的时候，本来就是把粒子想成一种类似经典波的对象。
+2. **经典波的能量规律：** 在经典物理里，波的能量通常都和振幅平方成正比。
+3. **Born 的解释：** 后来 Born 说，这个波不是物质波，而是概率波；但计算“强度”的数学规则没有变。
+
+所以你看到的“同形”并不是偶然。量子力学直接继承了经典波理论的数学框架，只是把“能量”替换成了“概率”。
+
+# 再深入一点
+
+上面解释了为什么公式长得一样，但如果继续追问“为什么偏偏是这个公式能描述概率”，可以沿着下面这条思路再走一遍。
+
+1. **第一站：它到底在哪里？**
+   - 目标：描述一个量子粒子在某个位置出现的概率。
+   - 困境：经典物理里的粒子像小球，有确定位置；但实验告诉我们微观粒子会像波一样干涉。
+   - 结论：粒子不能只被看成一个点，它必须带有波的性质。
+
+2. **第二站：那就需要一个函数来描述波**
+   - 工具：定义一个波函数 $\psi(x)$。
+   - 要求：这个函数必须能表达相消和相长，所以它不能只是普通实数函数。
+   - 结论：$\psi(x)$ 很自然会走向带相位的复数形式。
+
+3. **第三站：现实里不能直接测复数**
+   - 目标：把波函数和“出现概率”联系起来。
+   - 困境：概率必须是非负实数，而 $\psi$ 可以是复数。
+   - 结论：$\psi$ 本身不能直接当概率用，必须经过某种变换。
+
+4. **第四站：向经典波借直觉**
+   - 光波的亮度和振幅平方有关。
+   - 声波的强弱和振幅平方有关。
+   - 电信号的能量也通常和振幅平方有关。
+   - 于是自然会想到：波的“可观测强度”往往来自振幅平方。
+
+5. **第五站：Born 规则**
+   - 既然粒子以波的形式被描述，那么某处出现的概率密度就应该对应那里的波强度。
+   - 对复波函数来说，强度最自然的写法就是模平方：
+
+$$|\psi|^2 = \psi \cdot \psi^*$$
+
+于是就得到：
+
+**概率密度 = 波的强度 = 波函数模平方。**

@@ -39,28 +39,28 @@ $$\mathcal{L}[{f(a \cdot t)}] = \frac{1}{|a|} \cdot F\left(\frac{s}{a}\right)$$
 #### 时域微分（t）
 
 $$\mathcal{L}\left[ f'(t) \right] = s\mathcal{L}[f(t)] - f(0)$$
-  <br> <img src="t时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+<br> <img src="t时域微分的拉普拉斯变换证明.jpg" alt="证明图" width="100%" height="auto">
 
 ***
 
 #### 时域积分（t）
 
 $$\mathcal{L}\left[ \int_{0}^{t} f(\tau) d\tau \right] = \frac{1}{s}\mathcal{L}[f(t)]$$
-  <br> <img src="t时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+<br> <img src="t时域积分的拉普拉斯变换证明.jpg" alt="证明图" width="100%" height="auto">
 
 ***
 
 #### 频域微分（s）
 
 $$\frac{d}{ds} \mathcal{L}[f(t)] = \mathcal{L}\left[ -tf(t) \right] $$
-  <br> <img src="s时域微分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+<br> <img src="s时域微分的拉普拉斯变换证明.jpg" alt="证明图" width="100%" height="auto">
 
 ***
 
 #### 频域积分（s）
 
 $$\mathcal{L}\left[ \frac{1}{t}f(t) \right] = \int_{s}^{\infty} F(\sigma) d\sigma$$
-  <br> <img src="s时域积分的拉普拉斯变换证明.jpg" alt="Proof" width="100%" height="auto">
+<br> <img src="s时域积分的拉普拉斯变换证明.jpg" alt="证明图" width="100%" height="auto">
 
 ***
 

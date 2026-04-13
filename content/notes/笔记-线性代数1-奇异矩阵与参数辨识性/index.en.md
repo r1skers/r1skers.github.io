@@ -62,7 +62,7 @@ Geometrically, at least one direction is flattened, i.e., information-dimension 
 
 ## 2. Likelihood Function
 
-One-line distinction:
+Distinction:
 
 - Probability: parameters $\theta$ are fixed, data $y$ are random.
 - Likelihood: data $y$ are fixed (already observed), parameters $\theta$ are variable.

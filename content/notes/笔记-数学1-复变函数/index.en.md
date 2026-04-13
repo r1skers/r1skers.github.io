@@ -354,7 +354,8 @@ In exam settings, first identify the type, then apply the template; this is usua
 
 $$
 \int_0^\infty \frac{x^m}{1+x^k}\mathrm{d}x
-=\frac{\pi}{k}\csc\left(\frac{(m+1)\pi}{k}\right)\quad -1<m<k-1
+=\frac{\pi}{k}\csc\!\left(\frac{(m+1)\pi}{k}\right),
+\qquad -1\lt m\lt k-1
 $$
 
 Use this for integrals of the form $\frac{x^m}{1+x^k}$; if the interval is $(-\infty,\infty)$, combine with parity first.

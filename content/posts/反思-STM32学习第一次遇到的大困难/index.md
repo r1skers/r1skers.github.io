@@ -1,178 +1,72 @@
-﻿---
+---
 date: '2025-12-08T10:17:00+09:00'
 draft: false
-title: '[Tempering] The First Challenge in STM32 Learning'
-summary: "A debugging log of a 'Ghost Port' issue during STM32 development. How a simple physical wiring mistake disguised itself as a complex toolchain failure when migrating from Keil to CLion."
-tags: ["STM32","Hardware Debugging","Environment Setup","UART"]
+title: '[淬火] STM32 学习中第一次遇到的大困难'
+summary: "一篇关于 STM32 开发中“幽灵串口”问题的排障记录：一次看起来像工具链迁移失败的问题，最后却被证明只是物理接线错误。"
+description: "从 Keil 迁移到 CLion 之后，一次 USART 调试失败如何一步步被定位为物理层接线问题。"
+tags: ["STM32","硬件调试","环境搭建","UART"]
 categories: ["Sparks"]
 ---
 
-# Background 
+# 背景
 
-Having spent a long time learning STM32 development with Keil MDK (Keil5), I began to encounter significant workflow inefficiencies. A prime example is the *printf* redirection: in Keil, we typically rely on rewriting the *fputc* function. However, this often requires repetitive boilerplate code for every new project. Seeking a more modern workflow, I migrated to CLion. Although setting up the toolchain (STM32CubeMX + CLion + MinGW/OpenOCD) took me a whole day and was incredibly demanding, the result was worth the effort.
+之前我一直用 Keil MDK（Keil5）学习 STM32 开发，但慢慢开始感觉工作流很低效。一个很典型的例子就是 `printf` 重定向：在 Keil 里通常要重写 `fputc`，而且几乎每个新项目都要再写一遍样板代码。
 
-# Problem Description
+为了换一个更现代的开发体验，我开始尝试迁移到 CLion。虽然把 STM32CubeMX、CLion、MinGW 和 OpenOCD 这一整套链路接起来几乎花了我一整天，但最后搭好的环境确实值得。
 
-The issue arose while I was experimenting with *multiple USART channels* for data transmission. I was following a tutorial based on Keil and attempted to port the code to my CLion environment. This involved adapting the low-level I/O retargeting from Keil's *fputc* to the GCC-compatible *_write function*. After compiling and flashing the firmware to my STM32 board, the system appeared to run, but *communication failed completely*.
+# 问题描述
 
+真正的问题出现在我尝试做多路 USART 通信的时候。我参考的是一套基于 Keil 的教程，并试着把它移植到 CLion 环境中。这个过程涉及把底层 I/O 重定向从 Keil 风格的 `fputc` 改成 GCC 兼容的 `_write`。
 
-# Troubleshooting 
+代码编译、烧录都没有报错，单片机看起来也在运行，但串口通信完全没有成功。
 
-## Step 1: Code Review
+# 排查过程
+
+## 第一步：先看代码
+
+最开始我以为问题出在代码移植本身，所以首先回看了 `main.c`，确认初始化、串口中断和 `_write` 路径本身有没有明显错误。
 
 <details>
   <summary>main.c</summary>
   
-```C
+```c
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
   ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
   */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include <stdio.h>
-/* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
 #define LENGTH 64
-/* USER CODE END PTD */
 
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
 uint8_t Rxbuff1[LENGTH];
 uint8_t Rxbuff2[LENGTH];
-/* USER CODE END PV */
 
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
 void USART_SendString(UART_HandleTypeDef *huart, char *str);
-/* USER CODE END PFP */
 
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
 int main(void)
 {
-
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
+
   HAL_UARTEx_ReceiveToIdle_IT(&huart1, Rxbuff1, LENGTH);
   HAL_UARTEx_ReceiveToIdle_IT(&huart2, Rxbuff2, LENGTH);
   printf("Ready to go!!");
-  /* USER CODE END 2 */
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
-}
-
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-{
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
-    Error_Handler();
   }
 }
 
-/* USER CODE BEGIN 4 */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
   if(huart->Instance == USART1)
@@ -205,47 +99,14 @@ int _write(int file, char *ptr, int len)
   HAL_UART_Transmit(&huart1, (uint8_t *)ptr, len, HAL_MAX_DELAY);
   return len;
 }
-/* USER CODE END 4 */
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
-#ifdef USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
-}
-#endif /* USE_FULL_ASSERT */
-
 ```
 
 </details>
 
+## 第二步：检查串口识别
 
+接着我写了一个简单的 Python 脚本去枚举串口：
 
-
-# Step 2: Port Detection (The Python script)
 <details>
   <summary>c0mlist.py</summary>
   
@@ -264,19 +125,20 @@ else:
 
 </details>
 
-```
+返回结果是：
+
+```text
 The following serial port devices are found:
 Port number:COM3 - Description:USB-SERIAL CH340 (COM3)
 Port number:COM5 - Description:USB-SERIAL CH340 (COM5)
 Port number:COM1 - Description:通信端口 (COM1)
 ```
 
-*No Problem, maybe printf function?*
+从系统视角看，一切似乎都正常。所以我开始怀疑是不是 `printf` 的重定向路径还不对。
 
+## 第三步：回到 Keil 版本交叉验证
 
-# Step 3: Cross-Verification with Keil (The fputc part)
-
-Main change:
+我把关键实现从：
 
 ```c
 int _write(int file, char *ptr, int len)
@@ -285,21 +147,23 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 ```
-to
+
+改回了更接近 Keil 教程的形式：
 
 ```c
 int fputc(int ch , FILE *f)
 {
-	HAL_UART_Transmit(&huart1 , (uint8_t *)&ch , 1 , HAL_MAX_DELAY);
-	return ch;
+    HAL_UART_Transmit(&huart1 , (uint8_t *)&ch , 1 , HAL_MAX_DELAY);
+    return ch;
 }
 ```
 
-*Still can't work, maybe the circuit?*
+结果仍然不通。到这里我就开始意识到，问题未必是工具链迁移。
 
+## 第四步：先做一个最基础的硬件自检
 
-# Step 4: Hardware Sanity Check (LEDs)
- 
+我先用 LED 验证板子最基本的行为：
+
 ```c
 HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
 ```
@@ -312,10 +176,9 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
   <br> <img src="默认低电平点亮LED.jpg" alt="默认低电平点亮LED" width="100%" height="auto">
 </details>
 
-*No problem, maybe my mistake?*
+LED 能正常亮，说明最基础的板级逻辑没有大问题。
 
-
-# Step 5: Schematic & Wiring Check
+## 第五步：回到原理图和接线本身
 
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
@@ -325,7 +188,6 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
   <br> <img src="STM32F103C8串口芯片背面图.png" alt="Schematic Diagram" width="100%" height="auto">
 </details>
 
-
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     photo
@@ -334,36 +196,41 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
   <br> <img src="按照原理图接线.jpg" alt="Schematic Diagram" width="100%" height="auto">
 </details>
 
-*hmm...PA2(TX)-->RXD   PA3(RX)-->TXD...Correct...So what is the problem*
+我当时的判断还是：
 
+*PA2 (TX) -> RXD，PA3 (RX) -> TXD，看起来没错。那到底哪里出了问题？*
 
-# Step 6: The Solution
+## 第六步：真正的答案
 
-Suddenly, it hit me: The computer recognizes the USB-to-TTL adapter as a valid COM port as long as it's plugged into the USB slot, even if the other end is not connected to anything.
+后来我突然意识到一个关键事实：
 
-This meant I was monitoring a "Ghost Port"—the computer saw the adapter, but the adapter wasn't actually physically connected to the MCU's PA2/PA3 pins. I re-connected the wires using a dedicated USB-to-TTL cable connecting PA2 (TX) and PA3 (RX). As expected, it worked immediately.
+只要 USB 转 TTL 模块插在电脑上，系统就会把它识别成一个合法的 COM 口，即使模块另一端根本没有真正接到 MCU 上。
+
+这意味着我其实一直在盯着一个“幽灵串口”。电脑能看到串口，并不代表这个串口已经物理连接到 STM32 的 PA2 和 PA3。
+
+我重新换了一根专门的 USB 转 TTL 线，把 PA2（TX）和 PA3（RX）重新接好之后，通信立刻就恢复正常了。
 
 <details>
   <summary style="cursor: pointer; color: #007bff; text-decoration: underline;">
     photo
   </summary>
   
-  <br> <img src="端口监测.png" alt="Schematic Diagram" width="100%" height="auto">
+  <br> <img src="端口监测.png" alt="端口监测" width="100%" height="auto">
 </details>
 
-# Conclusion
+# 结论
 
-Personally, this was a nerve-wracking but valuable experience. When the error first occurred, I was lost in the complexity of the new toolchain.
-My troubleshooting process was:
-1.  Verified the hardware basics using a simple LED blink program.
+这次经历虽然当时非常折磨人，但也很有价值。我的排查顺序最后可以总结成这样：
 
-2.  Reverted to the original Keil code to rule out software porting errors.
+1. 先用最简单的 LED 程序确认最基础的硬件逻辑。
+2. 再回退到原始 Keil 代码，排除软件移植错误。
+3. 当软件和基础硬件都没有明显问题时，就必须回头检查物理层。
+4. 最终发现它并不是什么复杂的寄存器问题，而只是一个非常朴素的接线错误。
 
-3.  Since both software and basic hardware logic were correct, I was forced to look at the physical layer.
+有时候，问题真的就只是一根线没插对。
 
-4.  It turned out to be a simple physical connection issue rather than a complex register configuration error. Sometimes, the problem really is just a loose wire!
+# 根因
 
+**一次物理层接线错误。**
 
-# Root Cause
-
-*A Physical Layer Wiring Error.* (Surprisingly, the issue was not in the software porting or the toolchain, but in a simple hardware misconnection.)(>_<)🔨
+真正的故障不在软件移植，也不在工具链，而是在串口模块和 MCU 之间没有形成正确的实际连接。

@@ -7,23 +7,22 @@ tags: [ "Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Si
 categories: ["Crucible"]
 ---
 
-# 从正交性到傅里叶变换 <p> From Orthogonality to the Fourier Transform
+# 从正交性到傅里叶变换
 
 顺序：为什么能分解 -> 如何求系数 -> 连续极限（傅里叶变换）。
 
 ---
 
-## 1. 正交性：互不干扰的基函数 <p>  Orthogonality: Non-Interfering Basis Functions
+## 1. 正交性：互不干扰的基函数
 
 正交性意味着在内积下，不同基函数不会互相混叠。  
 
 对周期信号来说，在一个周期内，除非频率一致，$\sin$ 与 $\cos$ 的交叉项会积分为 0。  
-For periodic signals, over one period, $\sin$ and $\cos$ cross terms integrate to zero unless frequencies match.
 
 **关键点：**  
 正交性让分解成为可能，因为不同频率分量不会互相干扰。  
 
-### 推导 <p> Derivation
+### 推导
 
 用复指数来检验余弦正交性：  
 
@@ -37,10 +36,8 @@ $$
 $$
 
 积分会拆成多项指数函数。除 $m=n$ 外，其余项在一个周期上平均为 0。  
-The integral becomes a sum of exponentials. All terms average to 0 over one period unless $m=n$.
 
 当 $m=n$ 时，得到：  
-When $m=n$, we get:
 
 $$
 \int_{t_0}^{t_0+T}\cos^2(n\omega_0 t)dt = \frac{T}{2}
@@ -72,16 +69,15 @@ $$
 
 ---
 
-## 2. 投影（滤波）思想：只读出一个频率<p> Filtering (Projection): Read One Frequency Only
+## 2. 投影（滤波）思想：只读出一个频率
 
 基函数正交后，就可以用投影读取指定频率分量。  
 
 若你想知道信号里有多少 $\cos(n\omega_0 t)$，就把信号与它相乘并积分。  
-If you want to know how much $\cos(n\omega_0 t)$ is in the signal, multiply by it and integrate.
 
 直觉上：目标频率被保留，其他频率在积分后平均掉。  
 
-### 复指数系数的“滤波视角” <p> “Filter” View for Complex Coefficients
+### 复指数系数的“滤波视角”
 
 若
 
@@ -90,7 +86,6 @@ f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}
 $$
 
 两边乘 $e^{-jk\omega_0 t}$ 并在一个周期内积分：  
-multiply both sides by $e^{-jk\omega_0 t}$ and integrate over one period:
 
 $$
 \int_{t_0}^{t_0+T} f(t)e^{-jk\omega_0 t}dt
@@ -98,7 +93,6 @@ $$
 $$
 
 只有 $n=k$ 项不为零，因此  
-Only the $n=k$ term survives, so
 
 $$
 \int_{t_0}^{t_0+T} f(t)e^{-jk\omega_0 t}dt = Tc_k
@@ -112,10 +106,9 @@ $$
 
 ---
 
-## 3. 傅里叶系数：周期信号的频率坐标 <p> Fourier Coefficients: Frequency Coordinates of a Periodic Signal
+## 3. 傅里叶系数：周期信号的频率坐标
 
 若信号周期为 $T$，基频为 $\omega_0=\frac{2\pi}{T}$，可写成  
-If a signal has period $T$, with fundamental frequency $\omega_0=\frac{2\pi}{T}$, it can be written as
 
 $$
 f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(n\omega_0 t) + b_n \sin(n\omega_0 t) \right)
@@ -140,7 +133,7 @@ $$
 
 ---
 
-## 4. 从傅里叶级数到傅里叶变换 <p> From Fourier Series to the Fourier Transform
+## 4. 从傅里叶级数到傅里叶变换
 
 傅里叶级数适用于**周期信号**，因为频率是离散的。  
 
@@ -165,7 +158,7 @@ $$
 
 ---
 
-## 5. 小结 <p> Summary
+## 5. 小结
 
 - 正交性：保证分解可行，分量互不干扰。  
 - 投影：通过乘积积分读取指定频率。  

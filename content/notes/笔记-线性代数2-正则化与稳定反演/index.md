@@ -1,6 +1,6 @@
 ﻿---
 date: '2026-03-05T00:00:00+09:00'
-draft: true
+draft: false
 title: '线性代数 Part 2：正则化与稳定反演'
 summary: "从奇异/病态问题出发，给出正则化的几何直觉、似然视角与 Hessian 变化公式，解释为什么它能把不可辨识方向重新变得可控。"
 description: "A practical note on regularization, stability, and inverse problems."
@@ -201,7 +201,7 @@ $$
 2. $\lambda$ 太大：方差小、偏差大，易欠拟合。  
 3. 目标是在验证集上找到折中最优点。
 
-<img src="bias-variance-u-curve.svg" alt="Bias-Variance U-curve" width="680" loading="lazy">
+<img src="bias-variance-u-curve.svg" alt="偏差-方差 U 型曲线" width="680" loading="lazy">
 *图：经典偏差-方差权衡的 U 型测试误差曲线*
 
 #### 2.4.2 双降现象（Double Descent）
@@ -215,7 +215,7 @@ $$
 
 这就是“双降”：它不是否定偏差-方差分解，而是说明误差曲线在高复杂度区会出现第二阶段。  
 
-<img src="double-descent-curve.svg" alt="Double Descent Curve" width="680" loading="lazy">
+<img src="double-descent-curve.svg" alt="双下降曲线" width="680" loading="lazy">
 *图：双降现象示意。测试误差随复杂度通常表现为“先降-再升-再降”。*
 
 ---

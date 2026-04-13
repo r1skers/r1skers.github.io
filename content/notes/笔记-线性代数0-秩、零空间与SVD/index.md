@@ -1,6 +1,6 @@
 ---
 date: '2026-03-18T00:00:00+09:00'
-draft: true
+draft: false
 title: '线性代数 Part 0：秩、零空间与 SVD 的直觉'
 summary: "从参数到观测的线性映射出发，建立秩、列空间、零空间、SVD、伪逆与条件数的统一直觉，先把病态与稳定性的线代骨架搭起来。"
 description: "An intuition-first note on rank, column space, null space, SVD, pseudoinverse, and conditioning."
@@ -103,7 +103,7 @@ $$
 
 **无论怎么动，数据端都看不见。**
 
-所以零空间最值得记住的一句话是：
+所以零空间：
 
 **只要参数变化落在零空间里，输出就看不见这部分变化。**
 

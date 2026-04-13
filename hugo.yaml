@@ -52,7 +52,7 @@ params:
   HomeInfoParams:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
-    Content: "An engineering notebook for Notes, Tools, Artifacts, and Sparks. I turn experiments into reproducible records and long-term growth."
+    Content: "An engineering notebook for Notes, Posts, Tools, and Artifacts. I turn experiments into reproducible records and long-term growth."
   backgrounds:
     home:
       enabled: true
@@ -76,6 +76,14 @@ params:
       image: ""
       dir: "static/img/backgrounds/notes"
       webDir: "/img/backgrounds/notes"
+      position: "center center"
+      size: "cover"
+    posts:
+      enabled: true
+      scope: "page"
+      image: ""
+      dir: "static/img/backgrounds/posts"
+      webDir: "/img/backgrounds/posts"
       position: "center center"
       size: "cover"
     tools:
@@ -191,9 +199,9 @@ menu:
         description: "Project build logs, prototypes, and validation notes."
       weight: 35
 
-    - identifier: thinking
-      name: Sparks
-      url: /thinking/
+    - identifier: posts
+      name: Posts
+      url: /posts/
       params:
-        description: "Eureka, life reflections, and philosophy in one place."
+        description: "Long-form articles, reflections, and method notes beyond the study notebook."
       weight: 40

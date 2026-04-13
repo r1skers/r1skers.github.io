@@ -1,49 +1,49 @@
 ---
-title: "About"
+title: "关于"
 layout: "about"
 url: "/about/"
 aliases:
   - /about-me/
   - /profile/
-summary: "Who I am, what I am building, and where this blog is heading."
-description: "A concise profile page for r1skers."
+summary: "我是谁、我在构建什么，以及这个博客准备走向哪里。"
+description: "r1skers 的简要自我介绍与站点说明。"
 name: "r1skers"
-role: "Electrical Engineering Undergraduate · Embedded Systems Learner"
-location: "Yamagata, Japan"
+role: "电气工程本科生 · 嵌入式系统学习者"
+location: "日本山形"
 avatar: "/img/avatar.jpg"
 focus:
-  - "Embedded systems and signal-driven workflows"
-  - "From experiment to reproducible engineering notes"
-  - "Research-oriented long-term growth"
+  - "嵌入式系统与信号驱动工作流"
+  - "把实验转成可复现的工程笔记"
+  - "面向研究的长期成长"
 github: "https://github.com/r1skers"
 email: "t243057@st.yamagata-u.ac.jp"
 ---
 
-## Why This Site Exists
+## 为什么要做这个站
 
-I use this blog as a public engineering notebook.  
-It helps me turn scattered ideas into structured records, and turn records into progress.
+我把这个博客当作一个公开的工程笔记本。  
+它帮我把零散的想法整理成结构化记录，再把记录慢慢累积成真正的进步。
 
-## Current Focus
+## 目前在做什么
 
-1. Build stronger foundations in embedded systems and applied math.
-2. Ship small but real tools and experiments.
-3. Write clearly enough that future-me (and others) can reuse the work.
+1. 继续补强嵌入式系统和应用数学的基础。
+2. 做一些小而真实的工具和实验。
+3. 尽量把过程写清楚，让未来的自己和其他人都能复用这些内容。
 
-## Site Tracks
+## 站点里的主要内容
 
-- [Notes](/notes/): course notes, concept breakdowns, and technical derivations.
-- [Tools](/tools/): practical utilities and local workflow tools.
-- [Artifacts](/artifacts/): project build logs, prototypes, and validation notes.
-- [Sparks](/thinking/): Eureka, life reflections, and philosophy.
+- [Notes](/notes/)：课程笔记、概念拆解和技术推导。
+- [Posts](/posts/)：不放进 notes 的长文、反思和方法综述。
+- [Tools](/tools/)：实用工具与本地工作流脚本。
+- [Artifacts](/artifacts/)：项目构建记录、原型与验证笔记。
 
-## Roadmap
+## 接下来的方向
 
-1. Deepen technical depth in embedded + data-flow systems.
-2. Build a more coherent project portfolio from prototype to validation.
-3. Prepare for graduate-level research with stronger original outputs.
+1. 在嵌入式与数据流系统上继续加深技术深度。
+2. 把原型、验证和总结逐步整理成更完整的项目作品。
+3. 为后续的研究型学习和更原创的输出打基础。
 
-## Contact
+## 联系方式
 
 - GitHub: [r1skers](https://github.com/r1skers)
 - Email: <t243057@st.yamagata-u.ac.jp>

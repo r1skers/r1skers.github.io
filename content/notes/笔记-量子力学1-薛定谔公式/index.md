@@ -8,41 +8,36 @@ categories: ["Crucible"]
 ---
 
 这篇文章最初是为了备考整理，但在复习过程中我越来越意识到量子力学在工程中的基础地位，因此决定把完整思路系统写下来。  
-# 阅读后小结 <p> After Reading
-    <summary>1. 推导波函数时为什么只重点看 x 方向？
+# 阅读后小结
+
+### 1. 推导波函数时为什么只重点看 x 方向？
 
 **根本原因是：在 y、z 方向没有势阱约束，只有 x 方向存在受限边界。**<p>
 • x 方向：电子被势阱束缚，形成“驻波”，因此出现离散能级，这是需要量子求解的核心。<p>
 • y、z 方向：没有势垒，电子近似自由粒子，表现为“行波”，能量连续，用经典图像即可近似处理。<p>
 
-    <summary>2. 为什么推导中常使用复指数形式（含虚数项）？
+### 2. 为什么推导中常使用复指数形式（含虚数项）？
 
 本节目标是得到自由电子色散关系 $E=\frac{p^2}{2m}$。由德布罗意关系可写为：  
-First, our objective in this section is to derive $E = \frac{p^2}{2m}$. According to the de Broglie wave relations, we obtain:
 
 $$E=\hbar \omega = \frac{(\hbar k)^2}{2m}$$
 
 这意味着方程必须体现 $\omega$（频率）与 $k^2$（波数平方）成正比。<p>
-This means that the equation must reflect that $\omega$ (frequency) is proportional to $k^2$ (the square of the wavenumber).<p>
 若使用纯实函数形式：  
 
 $$\Psi = \cos(kx - \omega t)$$
 
 对应能量项（时间导数）：
-Corresponding to energy E: We need to take the derivative with respect to time $t$:
  
 $$\frac{\partial \Psi}{\partial t} = \omega \sin(kx - \omega t)$$
 
-对应动量平方项（空间二阶导）：
-Corresponding to kinetic energy ($p^2$):  
+对应动量平方项（空间二阶导）：  
 对应到空间变量 $x$，需要做二阶导数：
-We need to take the second derivative with respect to space $x$:
 
 $$\frac{\partial^2 \Psi}{\partial x^2} = -k^2 \cos(kx - \omega t)$$
 
 可以看到左右两侧出现 $\sin$ 与 $\cos$ 的相位不一致，难以形成稳定的本征方程匹配；因此采用复指数 $e^{i(kx-\omega t)}$ 更自然、也更便于算符求解。  
-Regarding the de Broglie wave formula, the $sin$ on the left side is not always equal to the $cos$ on the right side. There is a phase difference, so the equation does not match cleanly. Therefore, the complex exponential form is used.
-    <summary>3. 为什么经典波动方程不能直接用于电子？
+### 3. 为什么经典波动方程不能直接用于电子？
 
 本质原因：电子与光子遵循不同的能量-动量关系（色散关系）。<p>
 
@@ -55,39 +50,36 @@ $$\frac{\partial^2 \Psi}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2 \Psi}{\p
 $$p^2 \propto E^2 \quad \text{or} \quad E \propto p$$
 
 对光子：$E=cp$，能量与动量线性相关，因此与经典波动方程相容。  
-For photons (Light): $E = cp$. Energy and momentum have a linear relationship. Therefore, photons perfectly fit the classical equation. ($E^2 = c^2 p^2$)
 
 对非相对论电子（有质量 $m$）：满足牛顿动能关系  
-For non-relativistic electrons, which have mass $m$, they follow Newton's kinetic energy formula:
 
 $$E = \frac{p^2}{2m}$$
 
 这意味着 $E\propto p^2$。映射到算符后是“时间一阶导”对应“空间二阶导”，与经典方程结构不一致。<p>
-This means that energy ($E$) is proportional to the square of momentum ($p^2$). When converted to derivatives, it becomes: the first-order time derivative ($\partial_t$) $\propto$ the second-order spatial derivative ($\partial_{xx}$), which is a contradiction.<p>
 结论：电子波是有质量且有色散的，需要使用薛定谔方程而不是经典波动方程。  
 
-# 引言 <p> Introduce
+# 引言
 
 在工程研究中必须引入量子力学，一个最直接的原因是摩尔定律正在逼近尺度极限。晶体管从微米级缩小到今天手机与 FPGA 常见的 3nm、2nm，甚至向 1nm 靠近后，量子效应已经不能忽略。  
 
-# 经典理论的失效与二象性 <p> The Failure of Classical Physics & Duality
-## 经典力学的适用边界 <p> The Limitations of Classical Physics
+# 经典理论的失效与二象性
+## 经典力学的适用边界
 经典力学在高速、微观尺度和极端条件下会失效。速度接近光速时经典动量与速度叠加不再准确；在原子与粒子尺度上，波粒二象性与不确定性原理等现象也超出经典框架。  
-## 波粒二象性 <p> Wave-Particle Duality
+## 波粒二象性
 
-### 光的波动性 <p> Wave Nature of Light
+### 光的波动性
 
 光的波动性来自大量实验事实，不仅有杨氏双缝干涉，还有衍射、偏振等结果。基于这些实验可得到下列关系：<p>
 
-#### 光波关系（Maxwell 框架） <p> Maxwell's Equations for Light:
+#### 光波关系（Maxwell 框架）
 $$c=f\lambda$$
 $c$：光速
 $f$：频率
 $\lambda$：波长
 
-### 光的粒子性 <p> The particle nature of light
+### 光的粒子性
 光的粒子性同样由实验确认（如康普顿效应），并体现在离散能量与动量表达式中：<p>
-#### 光子的能量 <p> The energy level of a photon:
+#### 光子的能量
 
 $$E=hf=h\frac{c}{\lambda}=h\frac{\omega}{2\pi}=\hbar\omega$$
 
@@ -95,29 +87,28 @@ $h$：普朗克常数
 
 $\hbar$：约化普朗克常数，$\hbar=\frac{h}{2\pi}$
 
-#### 光子的动量 <p> The kinetic energy of a photon:
+#### 光子的动量
 $$p=\frac{h}{\lambda}=h\frac{k}{2\pi}=\hbar k$$
 
 $k$：波数（单位空间相位变化率）
 
-### 电子的波粒二象性 <p> Wave-Particle Duality of Electrons
-#### 德布罗意波 <p> De Broglie Waves
+### 电子的波粒二象性
+#### 德布罗意波
 由光子的动量关系 $p=\frac{h}{\lambda}$ 类比可得电子的德布罗意关系：  
-Refer to the momentum equation of light $p=\frac{h}{\lambda}$
 
 $$\lambda=\frac{h}{p}=\frac{h}{mv}$$
 
 $m$：质量
 $v$：速度
 
-### 哥本哈根诠释 <p> Copenhagen Interpretation
+### 哥本哈根诠释
 1. 量子系统状态可由波函数完整描述；波函数编码了观测者可获得的信息。<p>
 2. 量子描述是概率性的，事件概率由波函数模平方给出。<p>
 3. 不确定性原理指出位置与动量不能同时精确确定。  
 
-# 波函数 <p> The Wave Function
+# 波函数
 
-## 一维波函数推导 <p> Derivation of the one-dimensional wave function
+## 一维波函数推导
 
 根据欧拉公式：  
 
@@ -136,29 +127,26 @@ $$v=f\lambda=\frac{\omega}{2\pi} \cdot \frac{2\pi}{k}=\frac{\omega}{k}$$
 $$\Psi(x,t)=Acos(kx-\omega t+\theta_0)=\mathrm{Re}[Ae^{i(kx-\omega t+\theta_0)}]$$
 
 将 $Ae^{i\theta_0}$ 记为复振幅 $\widetilde{A}$，可把波函数简写为：  
-Omitting the real part operation, here $Ae^{i\theta_0}$ is the complex amplitude. After replacing it with $\widetilde{A}$, the wave function is obtained.
 
 $$ \Psi(x,t)=\widetilde{A}e^{i(kx-\omega t)}$$
 
 ## Born 统计解释与归一化
-### Born 统计解释 <p> Born's Statistical Interpretation
+### Born 统计解释
 这里要回答“波函数究竟表示什么”。Born 在 1926 年提出统计解释：波函数本身不可直接观测，但其模平方对应概率密度。<p>
 核心思想是：波函数本身不能直接测量，但其模平方给出粒子在某处出现的概率密度。  
 $$P(x, t) = |\Psi(x, t)|^2 = \Psi^*(x, t) \cdot \Psi(x, t)$$
 
 
-### 归一化条件 <p> Normalization Condition
+### 归一化条件
 既然 $|\Psi|^2$ 是概率密度，则全空间概率和必须为 1（粒子一定在某处）。  
-Since $|\Psi|^2$ represents the probability density, this leads to a logical necessity: **the electron must exist somewhere in the universe.**
 如果沿整个 x 轴寻找该电子，总概率必须是 100%（即 1）。  
 
 $$\int_{-\infty}^{+\infty} |\Psi(x, t)|^2 \ dx = 1$$
 
 
 归一化的核心作用是确定振幅常数 $\widetilde{A}$；否则方程只能给比例而非可计算预测。  
-Normalization is the only tool used to calculate $\widetilde{A}$. Without normalization, our equation would only be a proportion, not an accurate prediction.
 
-## 经典波动方程（达朗贝尔方程） <p> Classical Wave Equation(d'Alembert Equation)
+## 经典波动方程（达朗贝尔方程）
 
 从波函数出发，分别对 $x,t$ 做二阶求导：
 
@@ -172,8 +160,8 @@ $$\left(\frac{\partial^2}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2}{\parti
 
 该方程描述真空中的经典电磁波传播规律，但并不适用于电子。<p>
 
-# 薛定谔方程 <p> The Schrödinger Equation
-## 推导 <p> Derivation
+# 薛定谔方程
+## 推导
 从总能量守恒（动能 + 势能）出发：  
 
 $$E=K(t)+V(t)=\frac{p^2}{2m}+V(t)$$
@@ -185,16 +173,14 @@ $$\hat{p} = -i\hbar \frac{\partial}{\partial x}$$
 $$\hat{E} = i\hbar \frac{\partial}{\partial t}$$
 
 两侧同时作用于 $\Psi(x,t)$：
-Both sides process $\Psi(x,t)$ simultaneously:
 
 $$[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(t)]\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t)$$
 
 将括号项记为哈密顿算符 $\hat H$：
-Substitute the Hamiltonian operator $\hat{H}$:
 
 $$\hat{H}\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t)$$
 
-## 含时薛定谔方程 <p> Time-Dependent Schrödinger Equation
+## 含时薛定谔方程
 从下式开始：
 
 $$\hat{H}\Psi(x,t)=i\hbar\frac{\partial}{\partial t}\Psi(x,t)$$
@@ -208,21 +194,18 @@ $$\Psi(x,t)=\psi(x)f(t)$$
 $$\frac{1}{\psi(x)} \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} \right] + V(x) = \frac{i\hbar}{f(t)} \frac{df(t)}{dt}=E$$
 
 也可写成哈密顿算符形式：
-Or using the Hamiltonian operator $\hat{H}$:
 
 $$\frac{\hat{H}\psi(x)}{\psi(x)}=\frac{i\hbar}{f(t)}\frac{df(t)}{dt}$$
 
 等号左侧仅与空间有关，右侧仅与时间有关，因此它们都必须等于常数 $E$。  
-The meaning here is that the left side of the equal sign is only related to the space x, the right side is only related to the time t, and both are equal to the constant $E$.
 
-## 定态薛定谔方程 <p> Time-Independent Schrödinger Equation
+## 定态薛定谔方程
 
 由含时薛定谔方程可得：
 
 $$\frac{1}{\psi(x)} \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} \right] + V(x) = \frac{i\hbar}{f(t)} \frac{df(t)}{dt}=E$$
 
 两边同乘 $\psi(x)$：
-Multiply both sides by $\psi(x)$:
 
 $$-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x)=E\psi(x)$$
 
@@ -231,28 +214,23 @@ $$-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x)=E\psi(x)$$
 $$\psi(x) \left[ -\frac{\hbar^2}{2m} \frac{d^2}{dx^2}+V(x) \right]=E\psi(x)$$
 
 写成哈密顿算符形式：
-Substitute into the Hamiltonian operator $\hat{H}$:
 
 $$\hat{H}\psi=E\psi$$
 
-# 量子势阱（薛定谔方程的直接应用） <p> Quantum Well (Practical Application of Schrödinger Equation)
+# 量子势阱（薛定谔方程的直接应用）
 
-## 无限深势阱 <p> Infinite Barrier
+## 无限深势阱
     无限深方势阱示意图
   
   <br> <img src="无限深势阱示意图.png" alt="一维无限深势阱示意图" width="100%" height="auto">
 
 先看最简单模型：宽度为 $L$ 的一维无限深势阱。阱内势能为 0，阱外势能无穷大，电子被完全束缚在阱内。<p>
-First, let's establish the simplest model. Imagine an electron trapped in a box with a width of $L$, where the walls are infinitely high, and the electron can never escape.<p>
 阱内（$0 < x < L$）满足 $V(x)=0$，电子可在阱内传播。<p>
-Inside the well ($0 < x < L$): $V(x) = 0$ (the electron flies freely).<p>
 阱外（其余区域）满足 $V(x)=\infty$，电子到达该处的概率为 0。  
-Outside the well (other regions): $V(x) = \infty$ (the electron can never reach there, with a probability of 0).
 
 推导步骤如下：<p>
 势能与时间无关，因此使用定态薛定谔方程 $\hat{H}\psi=E\psi$，在阱内 $V(x)=0$ 得到：  
 首先，由于势能不显含时间，采用定态薛定谔方程 $\hat{H}\psi=E\psi$；再结合阱内 $V(x)=0$，可得：  
-First, since the potential energy does not change with time, we use the time-independent Schrödinger equation: $\hat{H}\psi=E\psi$. Also, because $V(x)=0$ in the L region, we obtain the following equation:
 $$-\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} = E \psi$$
 
 整理为：
@@ -260,7 +238,6 @@ $$-\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} = E \psi$$
 $$\frac{d^2 \psi}{dx^2} + \frac{2mE}{\hbar^2} \psi = 0$$
 
 结合之前的 $E=\frac{p^2}{2m}$ 可化为 Helmholtz 形式：
-Reviewing the previous derivation $E=\frac{p^2}{2m}$, substituting $p=i\hbar$ gives the Helmholtz Equation
 
 $$\frac{d^2 \psi}{dx^2} + k^2 \psi = 0$$
 
@@ -275,14 +252,12 @@ $$\psi(0)=B=0$$
 $$\psi(L)=A\sin(kL)=0$$
 
 因此量子化条件为 $kL=n\pi \ (n=1,2,3,\dots)$。  
-This means that $kL = n\pi \quad (n = 1, 2, 3, \dots)$
 
 归一化时，由于阱外波函数为 0，可写为：
 
 $$\int_{0}^{L} |\psi(x)|^2 \ dx = 1$$
 
 代入 $\psi(x)=A\sin\left(\frac{n\pi x}{L}\right)$：
-Substitute $\psi(x) = A\sin\left(\frac{nx\pi}{L}\right)$
 
 $$A^2 \int_{0}^{L} \sin^2\left( \frac{n\pi x}{L} \right) \ dx = 1$$
 
@@ -296,8 +271,9 @@ $$\psi_n(x) = \sqrt{\frac{2}{L}} \sin\left( \frac{n\pi x}{L} \right)$$
 
 $$E_n = \frac{\hbar^2 k^2}{2m} = \frac{n^2 \pi^2 \hbar^2}{2m L^2}$$
 
-### Python 仿真 <p> python simulation
-  <summary>代码
+### Python 仿真
+
+#### 代码
 
 ```python
 import numpy as np
@@ -360,17 +336,17 @@ plt.xlim(-0.2, 1.2) # 留一点边距
 # 导出建议: plt.savefig('quantum_well.png')
 plt.show()
 ```
-  <summary>图像输出
+#### 图像输出
   
     无限深势阱的能量图
   
-  <br> <img src="无限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
+  <br> <img src="无限深势阱的能量图.png" alt="无限深势阱的能量图" width="100%" height="auto">
 
 要点：<p>
 1. 阴影面积代表概率分布。<p>
 2. 波函数过零点处概率为 0；波函数正负号体现相位信息。  
 
-## 有限深势阱 <p> finite-depth potential well
+## 有限深势阱
     有限深方势阱示意图
   
   <br> <img src="有限深势阱示意图.png" alt="一维有限方势阱（含波函数隧穿效应）" width="100%" height="auto">
@@ -386,9 +362,7 @@ V(x) =
 $$
 
 解题需要分三区：区 I（左侧阱外）、区 II（阱内）、区 III（右侧阱外）。区 II 与无限深势阱形式相同：<p>
-We need to divide into three domains: domain 1 ($x<-\frac{L}{2}$), domain 2 ($-\frac{L}{2}<x<\frac{L}{2}$), and domain 3 ($x>\frac{L}{2}$).<p>
 先看区 II（$-\frac{L}{2}<x<\frac{L}{2}$），其形式与无限深势阱相同：  
-First, let's analyze domain 2 ($-\frac{L}{2}<x<\frac{L}{2}$), which is similar to an infinite potential well:
 
 $$\psi'' + k^2\psi = 0$$
 
@@ -397,7 +371,6 @@ $$\psi'' + k^2\psi = 0$$
 $$\psi_{II}(x) = A_2\cos(kx) +B_2\sin(kx)$$
 
 区 I（$x<-\frac{L}{2}$）：
-Domain 1 ($x < -\frac{L}{2}$):
 
 $$\psi'' - \kappa^2\psi = 0$$
 
@@ -407,13 +380,11 @@ $$\psi_I(x) = A_1e^{\kappa x} + B_1e^{-\kappa x}$$
 
 物理约束：$x\to-\infty$ 时发散项必须去掉。<p>
 最终保留：
-Physical Constraints: When $x \to -\infty$, $e^{-\kappa x}$ becomes infinite (physically not allowed).<p>
 因此最终解可写为：  
 
 $$\psi_I(x) = A_1e^{\kappa x}$$
 
 区 III（$x>\frac{L}{2}$）：
-Domain 3 ($x>\frac{L}{2}$):
 
 $$\psi'' - \kappa^2\psi = 0$$
 
@@ -422,7 +393,6 @@ $$\psi'' - \kappa^2\psi = 0$$
 $$\psi_{III}(x) = A_3e^{\kappa x} + B_3e^{-\kappa x}$$
 
 同理，$x\to+\infty$ 时发散项去掉，得到：
-Physical screening: As $x \to +\infty$, $e^{\kappa x}$ becomes infinite. The final solution is:
 
 $$\psi_{III}(x) = B_3e^{-\kappa x}$$
 
@@ -430,8 +400,9 @@ $$\psi_{III}(x) = B_3e^{-\kappa x}$$
 
 $$k \tan(kL/2) = \kappa$$
 
-### Python 仿真 <p> python simulation
-  <summary>代码
+### Python 仿真
+
+#### 代码
 
 ```python
 import numpy as np
@@ -543,22 +514,21 @@ plt.tight_layout()
 plt.show()
 # plt.savefig('finite_well_schematic.png')
 ```
-  <summary>图像输出
+#### 图像输出
   
     有限深势阱的能量图
   
-  <br> <img src="有限深势阱的能量图.png" alt="Diagram" width="100%" height="auto">
+  <br> <img src="有限深势阱的能量图.png" alt="有限深势阱的能量图" width="100%" height="auto">
 
 要点：<p>
 1. 比较低能态（红）与高能态（蓝）：高能态在势垒中的尾部衰减更慢、渗透更深。<p>
 2. 阱外阴影表示“经典禁区中的非零概率”，这正是隧穿效应的根源。  
 
-# 总结与不确定性原理 <p> Conclusion & Uncertainty Principle
-## 海森堡不确定性原理 <p> Heisenberg Uncertainty Principle
+# 总结与不确定性原理
+## 海森堡不确定性原理
 在这篇结尾，必须面对量子力学最核心也最反直觉的结论：海森堡不确定性原理。<p>
 为什么无限深势阱中 $n$ 不能取 0？若 $n=0$ 则 $E=0,p=0$，电子“静止不动”。这在经典力学可接受，但在量子体系中不允许，因为位置与动量不能同时精确确定。  
 在无限深势阱里，若设量子数 $n=0$，会得到 $E=0$ 与 $p=0$，看似合理却与量子约束冲突；根本原因是位置与动量不能同时被精确确定。  
-When we calculated the infinite potential well, why can the quantum number $n$ not be equal to 0? If $n = 0$, then $E = 0$ and momentum $p = 0$, which means the electron is stationary. In classical mechanics, it is perfectly reasonable to place a ball at the bottom of a box without moving it. But in quantum mechanics, this is forbidden. This is because the uncertainty principle states: we cannot precisely know both the position ($x$) and momentum ($p$) of a particle simultaneously.
 
 $$\sigma_x \sigma_p \geq \frac{\hbar}{2}$$
 
@@ -566,7 +536,5 @@ $\sigma_x$：位置的不确定度
 $\sigma_p$：动量的不确定度
 
 从傅里叶观点看：空间分布越窄（位置越确定），动量谱就越宽（动量越不确定）。因此当势阱很窄时，电子动量涨落增大，零点能不可避免。<p>
-It can also be understood from the perspective of Fourier transform, which tells us that the narrower a signal is in the time domain (the more certain the position), the wider it must be in the frequency domain (the more uncertain the momentum). If you tightly confine an electron in an extremely small potential well $L$ (with a very small $\sigma_x$), the range of its momentum distribution $\sigma_p$ will increase dramatically, resulting in extremely high kinetic energy. This is why zero-point energy must exist—electrons are forced to fluctuate to satisfy the uncertainty principle.<p>
 
 这给工程带来可控性：通过调节势阱宽度 $L$（例如材料厚度），可以精确改变能级 $E_n$，进而调控发光波长，这正是量子阱激光器的重要物理基础。  
-So what does this mean for us? It means we have a means of control: by adjusting the width $L$ of the potential well (changing the material thickness), we can precisely control the energy levels $E_n$ of electrons (changing the color of the emitted light). This is the principle behind quantum well lasers.
