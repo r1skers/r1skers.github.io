@@ -1,9 +1,6 @@
 ---
 title: "Posts"
 description: "An article index for long-form writing beyond the study notes."
-aliases:
-  - /writing/
-  - /articles/
 ---
 
 This is the site-wide article index for writing that does not belong in `notes`.
