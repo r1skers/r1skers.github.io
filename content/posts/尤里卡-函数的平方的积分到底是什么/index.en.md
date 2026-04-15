@@ -1,11 +1,11 @@
 ---
 date: '2025-11-26T10:47:00+09:00'
 draft: false
-title: "[Crucible] Is Probability Just Normalized Energy? The Hidden Link between Born's Rule and Auto-correlation"
+title: "Is Probability Just Normalized Energy? The Hidden Link between Born's Rule and Auto-correlation"
 summary: "Bridging signal processing and quantum mechanics through a Hilbert-space view of energy, probability, and inner products."
 description: "Starting from the formal similarity between auto-correlation and Born's rule, this post explores the shared structure behind energy, probability, and inner products."
 tags: ["Born's Rule", "Auto-correlation", "Signal Processing", "Quantum Mechanics", "Hilbert Space" , "Eureka" , "Interdisciplinary"]
-categories: ["Sparks"]
+categories: ["Posts"]
 ---
 
 # The Question

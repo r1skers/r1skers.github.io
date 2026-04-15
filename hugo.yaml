@@ -73,42 +73,42 @@ params:
     notes:
       enabled: true
       scope: "page"
-      image: ""
+      image: "/img/backgrounds/shared/akali_splash_uncentered_61_enhanced.jpg"
       dir: "static/img/backgrounds/notes"
       webDir: "/img/backgrounds/notes"
-      position: "center center"
+      position: "center 38%"
       size: "cover"
     posts:
       enabled: true
       scope: "page"
-      image: ""
+      image: "/img/backgrounds/shared/akali_splash_uncentered_61_enhanced.jpg"
       dir: "static/img/backgrounds/posts"
       webDir: "/img/backgrounds/posts"
-      position: "center center"
+      position: "center 38%"
       size: "cover"
     tools:
       enabled: true
       scope: "page"
-      image: ""
+      image: "/img/backgrounds/shared/akali_splash_uncentered_61_enhanced.jpg"
       dir: "static/img/backgrounds/tools"
       webDir: "/img/backgrounds/tools"
-      position: "center center"
+      position: "center 38%"
       size: "cover"
     artifacts:
       enabled: true
       scope: "page"
-      image: ""
+      image: "/img/backgrounds/shared/akali_splash_uncentered_61_enhanced.jpg"
       dir: "static/img/backgrounds/artifacts"
       webDir: "/img/backgrounds/artifacts"
-      position: "center center"
+      position: "center 38%"
       size: "cover"
     thinking:
       enabled: true
       scope: "page"
-      image: ""
+      image: "/img/backgrounds/shared/akali_splash_uncentered_61_enhanced.jpg"
       dir: "static/img/backgrounds/thinking"
       webDir: "/img/backgrounds/thinking"
-      position: "center center"
+      position: "center 38%"
       size: "cover"
     categories:
       enabled: true

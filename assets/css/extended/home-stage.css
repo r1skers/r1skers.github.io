@@ -57,6 +57,27 @@ body.page-bg .footer {
     z-index: 1;
 }
 
+body.page-bg.list:not(.is-home)::before {
+    background:
+        linear-gradient(180deg, rgba(255, 248, 239, 0.62) 0%, rgba(255, 248, 239, 0.46) 52%, rgba(255, 248, 239, 0.34) 100%),
+        radial-gradient(92% 68% at 14% 8%, rgba(247, 186, 134, 0.09) 0%, rgba(247, 186, 134, 0) 64%),
+        var(--page-bg-image);
+    background-position: center center, center center, var(--page-bg-position, center center);
+    background-size: auto, auto, var(--page-bg-size, cover);
+    background-repeat: no-repeat;
+}
+
+body.page-bg.list:not(.is-home) .main {
+    margin-top: 14px;
+    margin-bottom: 14px;
+    padding: clamp(18px, 2vw, 26px);
+    border: 1.5px solid rgba(186, 148, 112, 0.12);
+    border-radius: calc(var(--radius) + 4px);
+    background: linear-gradient(180deg, rgba(252, 248, 243, 0.28), rgba(250, 245, 239, 0.34));
+    backdrop-filter: blur(1.5px);
+    box-shadow: 0 8px 20px rgba(18, 16, 18, 0.04);
+}
+
 body.page-bg.page-bg-article .post-single {
     margin: 24px auto;
     padding: clamp(16px, 1.7vw, 22px) clamp(16px, 1.9vw, 26px);
@@ -130,6 +151,22 @@ body.page-bg.page-bg-article .post-content {
 
 [data-theme="dark"] body.page-bg::after {
     opacity: 0.12;
+}
+
+[data-theme="dark"] body.page-bg.list:not(.is-home)::before {
+    background:
+        linear-gradient(180deg, rgba(22, 18, 16, 0.62) 0%, rgba(22, 18, 16, 0.52) 56%, rgba(22, 18, 16, 0.44) 100%),
+        radial-gradient(92% 68% at 14% 8%, rgba(255, 178, 122, 0.09) 0%, rgba(255, 178, 122, 0) 64%),
+        var(--page-bg-image);
+    background-position: center center, center center, var(--page-bg-position, center center);
+    background-size: auto, auto, var(--page-bg-size, cover);
+    background-repeat: no-repeat;
+}
+
+[data-theme="dark"] body.page-bg.list:not(.is-home) .main {
+    border-color: rgba(255, 178, 122, 0.12);
+    background: linear-gradient(180deg, rgba(34, 30, 28, 0.3), rgba(26, 23, 21, 0.38));
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
 }
 
 [data-theme="dark"] body.page-bg.page-bg-article .post-single {

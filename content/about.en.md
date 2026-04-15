@@ -8,40 +8,35 @@ aliases:
 summary: "Who I am, what I am building, and where this blog is heading."
 description: "A concise profile page for r1skers."
 name: "r1skers"
-role: "Electrical Engineering Undergraduate · Embedded Systems Learner"
+role: "Electrical Engineering Undergraduate · A systems learner focused on data flow, validation, and computational modeling"
 location: "Yamagata, Japan"
 avatar: "/img/avatar.jpg"
 focus:
-  - "Embedded systems and signal-driven workflows"
-  - "From experiment to reproducible engineering notes"
-  - "Research-oriented long-term growth"
+  - "Data flow, validation, and algorithm layers in embedded systems"
+  - "Computational science, inverse problems, and method building"
+  - "Turning experiments, notes, and tools into reusable records"
 github: "https://github.com/r1skers"
 email: "t243057@st.yamagata-u.ac.jp"
 ---
 
 ## Why This Site Exists
 
-I use this blog as a public engineering notebook.  
-It helps me turn scattered ideas into structured records, and turn records into progress.
+Mostly to learn things and keep some records.
 
-## Current Focus
+## What I Focus On Now
 
-1. Build stronger foundations in embedded systems and applied math.
-2. Ship small but real tools and experiments.
-3. Write clearly enough that future-me, and others, can reuse the work.
+Roughly these areas:
 
-## Site Tracks
+1. Keep strengthening my foundations in embedded systems, applied math, and computational science.
+2. Pay attention to middle-layer problems: data flow, validation, parameter estimation, algorithms, and system connection.
+3. Turn experiments, prototypes, derivations, and method summaries into materials that can actually be reused.
 
-- [Notes](/notes/): course notes, concept breakdowns, and technical derivations.
-- [Posts](/posts/): long-form articles, reflections, and method overviews beyond the study notebook.
-- [Tools](/tools/): practical utilities and local workflow tools.
-- [Artifacts](/artifacts/): project build logs, prototypes, and validation notes.
+## Main Content on This Site
 
-## Roadmap
-
-1. Deepen technical depth in embedded and data-flow systems.
-2. Build a more coherent project portfolio from prototype to validation.
-3. Prepare for graduate-level research with stronger original outputs.
+- [Notes](/notes/): course notes, concept breakdowns, technical derivations, and the long-term computational-science track.
+- [Posts](/posts/): longer pieces that do not fit into notes, including method comparisons, reflections, and interdisciplinary writing.
+- [Tools](/tools/): local tools, small practical programs, and workflow scripts I actually use.
+- [Artifacts](/artifacts/): project build records, experiment traces, prototypes, and validation processes.
 
 ## Contact
 
