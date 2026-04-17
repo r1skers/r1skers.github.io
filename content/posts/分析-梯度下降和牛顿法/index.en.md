@@ -162,3 +162,7 @@ Gradient descent has a very direct advantage: as long as we can compute a gradie
 Newton's method is the opposite. It also uses local second-order curvature, so in ideal situations it can approach an optimum much faster, especially near the solution. But that extra intelligence is not free: computing, storing, and inverting the Hessian is expensive, and the Hessian itself may fail to be positive definite, which means the computed direction is not always a descent direction.
 
 Gauss-Newton sits in between. It does not only look at slope, like gradient descent, and it does not fully consume the Hessian, like Newton's method. Instead, it uses the least-squares structure to approximate local curvature through $J^T J$. That is why it can often move more intelligently than gradient descent in residual-based problems while still being cheaper than full Newton.
+
+If you want to see a more concrete Python experiment that compares their trajectories, convergence speed, and final results on the same nonlinear least-squares problem, continue with:
+
+- [A Small Nonlinear Least-Squares Experiment: Comparing the Trajectories of Three Optimization Methods](/en/posts/实验-三种优化方法轨迹对比/)
