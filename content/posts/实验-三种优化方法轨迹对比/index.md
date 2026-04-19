@@ -10,7 +10,7 @@ categories: ["Posts"]
 
 # 引言
 
-本篇用Python ，把梯度下降法，牛顿法，高斯-牛顿法三种方法放到同一个非线性最小二乘问题上跑一遍，看看它们到底是怎么走的。
+本篇用 Python，把梯度下降法、牛顿法、高斯牛顿法三种方法放到同一个非线性最小二乘问题上跑一遍，看看它们到底是怎么走的。
 
 概念分析，见上一篇：
 
@@ -155,38 +155,108 @@ def gradient(theta: np.ndarray) -> np.ndarray:
 上面这一段定义了整个实验共用的 least-squares 结构：残差、Jacobian、目标函数和梯度。
 
 ```python
-def gradient_descent_step(x: np.ndarray) -> np.ndarray:
-    grad = gradient(x)
-    step_size = 1.0
-    while step_size > 1e-8:
-        trial = x - step_size * grad
-        if objective(trial) <= objective(x) - 1e-4 * step_size * float(grad @ grad):
+def gradient_descent(x0: np.ndarray, max_iter: int = 30, tol: float = 1e-8):
+    x = x0.astype(float).copy()
+
+    for _ in range(max_iter):
+        grad = gradient(x)
+        obj = objective(x)
+
+        if float(np.linalg.norm(grad)) < tol:
             break
-        step_size *= 0.5
-    return x - step_size * grad
+
+        step_size = 1.0
+        while step_size > 1e-8:
+            trial = x - step_size * grad
+            if objective(trial) <= obj - 1e-4 * step_size * float(grad @ grad):
+                break
+            step_size *= 0.5
+
+        x = x - step_size * grad
+
+    return x
 ```
 
 梯度下降最直接：拿负梯度当方向，然后用 backtracking line search 控制步长。
 
 ```python
-def newton_step(x: np.ndarray) -> np.ndarray:
-    grad = gradient(x)
-    hessian = full_hessian(x)
-    direction = np.linalg.solve(hessian, -grad)
-    return x + direction
+def newton_method(x0: np.ndarray, max_iter: int = 30, tol: float = 1e-8):
+    x = x0.astype(float).copy()
+
+    for _ in range(max_iter):
+        grad = gradient(x)
+        obj = objective(x)
+
+        if float(np.linalg.norm(grad)) < tol:
+            break
+
+        hessian = full_hessian(x)
+        try:
+            direction = np.linalg.solve(hessian, -grad)
+        except np.linalg.LinAlgError:
+            direction = -grad
+
+        if float(grad @ direction) >= 0.0:
+            direction = -grad
+
+        step_size = 1.0
+        while step_size > 1e-8:
+            trial = x + step_size * direction
+            if objective(trial) <= obj + 1e-4 * step_size * float(grad @ direction):
+                break
+            step_size *= 0.5
+
+        x = x + step_size * direction
+
+    return x
 ```
 
-牛顿法的核心是解一个由完整 Hessian 给出的线性系统。
+牛顿法的核心仍然是解一个由完整 Hessian 给出的线性系统，只是这里额外加了 fallback 和 line search，让实验版更稳一些。
 
 ```python
-def gauss_newton_step(x: np.ndarray) -> np.ndarray:
-    grad = gradient(x)
-    normal_matrix = gauss_newton_matrix(x)  # J^T J
-    direction = np.linalg.solve(normal_matrix, -grad)
-    return x + direction
+def gauss_newton(x0: np.ndarray, max_iter: int = 30, tol: float = 1e-8) -> dict[str, object]:
+    x = x0.astype(float).copy()
+    params = [x.copy()]
+    objectives = [objective(x)]
+    gradient_norms = [float(np.linalg.norm(gradient(x)))]
+    step_sizes = []
+
+    for _ in range(max_iter):
+        grad = gradient(x)
+        grad_norm = float(np.linalg.norm(grad))
+        obj = objective(x)
+
+        if grad_norm < tol:
+            break
+
+        normal_matrix = gauss_newton_matrix(x)
+
+        try:
+            direction = np.linalg.solve(normal_matrix, -grad)
+        except np.linalg.LinAlgError:
+            direction = -grad
+
+        if float(grad @ direction) >= 0.0:
+            direction = -grad
+
+        step_size = 1.0
+        armijo = 1e-4
+        directional_derivative = float(grad @ direction)
+
+        while step_size > 1e-8:
+            trial = x + step_size * direction
+            obj_trial = objective(trial)
+            if obj_trial <= obj + armijo * step_size * directional_derivative:
+                break
+            step_size *= 0.5
+
+        x = x + step_size * direction
+
+    return x
+
 ```
 
-高斯牛顿和牛顿法长得很像，只是把完整 Hessian 换成了 $J^T J$ 这个近似矩阵。
+高斯牛顿和牛顿法长得很像，只是把完整 Hessian 换成了 $J^T J$ 这个近似矩阵；在这份实现里，它也同样配了 fallback 和 line search。
 </details>
 
 # 最终结果图
@@ -242,7 +312,7 @@ def gauss_newton_step(x: np.ndarray) -> np.ndarray:
 - 梯度下降只知道局部最陡下降方向
 - 牛顿法和高斯牛顿都在某种意义上“看到了局部曲率”
 
-所以它们会更会“走路“，而不只是更快地迈腿。
+所以它们会更会“走路”，而不只是更快地迈腿。
 
 ## 3. 参数轨迹
 

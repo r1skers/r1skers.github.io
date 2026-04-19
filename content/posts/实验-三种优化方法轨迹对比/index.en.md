@@ -155,38 +155,97 @@ def gradient(theta: np.ndarray) -> np.ndarray:
 This part defines the shared least-squares structure of the whole experiment: residual, Jacobian, objective function, and gradient.
 
 ```python
-def gradient_descent_step(x: np.ndarray) -> np.ndarray:
-    grad = gradient(x)
-    step_size = 1.0
-    while step_size > 1e-8:
-        trial = x - step_size * grad
-        if objective(trial) <= objective(x) - 1e-4 * step_size * float(grad @ grad):
+def gradient_descent(x0: np.ndarray, max_iter: int = 30, tol: float = 1e-8):
+    x = x0.astype(float).copy()
+
+    for _ in range(max_iter):
+        grad = gradient(x)
+        obj = objective(x)
+
+        if float(np.linalg.norm(grad)) < tol:
             break
-        step_size *= 0.5
-    return x - step_size * grad
+
+        step_size = 1.0
+        while step_size > 1e-8:
+            trial = x - step_size * grad
+            if objective(trial) <= obj - 1e-4 * step_size * float(grad @ grad):
+                break
+            step_size *= 0.5
+
+        x = x - step_size * grad
+
+    return x
 ```
 
 Gradient descent is the most direct: use the negative gradient as the direction, then control the step size with backtracking line search.
 
 ```python
-def newton_step(x: np.ndarray) -> np.ndarray:
-    grad = gradient(x)
-    hessian = full_hessian(x)
-    direction = np.linalg.solve(hessian, -grad)
-    return x + direction
+def newton_method(x0: np.ndarray, max_iter: int = 30, tol: float = 1e-8):
+    x = x0.astype(float).copy()
+
+    for _ in range(max_iter):
+        grad = gradient(x)
+        obj = objective(x)
+
+        if float(np.linalg.norm(grad)) < tol:
+            break
+
+        hessian = full_hessian(x)
+        try:
+            direction = np.linalg.solve(hessian, -grad)
+        except np.linalg.LinAlgError:
+            direction = -grad
+
+        if float(grad @ direction) >= 0.0:
+            direction = -grad
+
+        step_size = 1.0
+        while step_size > 1e-8:
+            trial = x + step_size * direction
+            if objective(trial) <= obj + 1e-4 * step_size * float(grad @ direction):
+                break
+            step_size *= 0.5
+
+        x = x + step_size * direction
+
+    return x
 ```
 
-The core of Newton's method is solving a linear system defined by the full Hessian.
+The core of Newton's method is still solving a linear system defined by the full Hessian, but this experiment version also adds fallback and line search so that the demo behaves more robustly.
 
 ```python
-def gauss_newton_step(x: np.ndarray) -> np.ndarray:
-    grad = gradient(x)
-    normal_matrix = gauss_newton_matrix(x)  # J^T J
-    direction = np.linalg.solve(normal_matrix, -grad)
-    return x + direction
+def gauss_newton(x0: np.ndarray, max_iter: int = 30, tol: float = 1e-8):
+    x = x0.astype(float).copy()
+
+    for _ in range(max_iter):
+        grad = gradient(x)
+        obj = objective(x)
+
+        if float(np.linalg.norm(grad)) < tol:
+            break
+
+        normal_matrix = gauss_newton_matrix(x)
+        try:
+            direction = np.linalg.solve(normal_matrix, -grad)
+        except np.linalg.LinAlgError:
+            direction = -grad
+
+        if float(grad @ direction) >= 0.0:
+            direction = -grad
+
+        step_size = 1.0
+        while step_size > 1e-8:
+            trial = x + step_size * direction
+            if objective(trial) <= obj + 1e-4 * step_size * float(grad @ direction):
+                break
+            step_size *= 0.5
+
+        x = x + step_size * direction
+
+    return x
 ```
 
-Gauss-Newton looks very similar to Newton's method, except that it replaces the full Hessian with the approximation $J^T J$.
+Gauss-Newton looks very similar to Newton's method, except that it replaces the full Hessian with the approximation $J^T J$; in this implementation, it also uses the same fallback and line-search logic.
 </details>
 
 # Final Result Figure
