@@ -1,3 +1,12 @@
+---
+title: "Heat Kappa Inverse Summary"
+summary: "Compact summary of the `heat_kappa_inverse` inversion case, including ID/OOD and noisy-slice behavior."
+description: "A compact summary note for the heat_kappa_inverse inversion artifact, mainly used as a sidecar reference for metrics and interpretation."
+build:
+  render: never
+  list: never
+---
+
 # Heat Kappa Inverse Summary
 
 ## Scope
