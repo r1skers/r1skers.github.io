@@ -18,6 +18,9 @@ aliases:
 ## 数学
 - [**第 1 篇** — 复变函数](/notes/笔记-数学1-复变函数)
 
+## 生成模型
+- [**第 1 篇** — Variational Autoencoder 的基本思想与 ELBO 推导](/notes/笔记-生成模型1-VariationalAutoencoder的基本思想与ELBO推导)
+
 
 ## 计算科学与高可靠系统设计
 - [**第 1 篇** — 问题背景与空间场构造](/notes/笔记-计算科学与高可靠系统设计1-问题背景与空间场构造)
