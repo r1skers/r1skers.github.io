@@ -44,8 +44,8 @@ $$\begin{aligned} q_{\phi}(z \mid x)=\mathcal{N}\left(\mu_{\phi}(x), \mathrm{dia
 在实现里，encoder 输出的是 `mu` 和 `logvar`：
 
 ```python
-mu = self.fc_mu(h)
-logvar = self.fc_logvar(h)
+mu = self.mu(h)
+logvar = self.logvar(h)
 ```
 
 这里用 `logvar` 而不是直接输出 $\sigma$，是因为方差需要为正，输出 log variance 会更稳定。
