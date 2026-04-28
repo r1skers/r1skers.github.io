@@ -1,7 +1,7 @@
 ﻿---
 date: '2026-04-27T7:00:00+09:00'
 draft: false
-title: '生成模型 Part 1：Variational Autoencoder 的基本思想与 ELBO 推导'
+title: '生成模型 Part 1-1：Variational Autoencoder 的基本思想与 ELBO 推导'
 summary: "围绕 VAE 论文中的核心问题，整理 Variational Autoencoder 的基本直觉、模型结构、ELBO 的来历，以及 reparameterization trick 为什么必要。"
 description: "A study note on the basic idea of Variational Autoencoder and the intuition behind ELBO."
 tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameterization"]
@@ -10,11 +10,13 @@ aliases:
   - /notes/笔记-生成模型1-vae基本思想与elbo推导/
 ---
 
-# 生成模型 Part 1：Variational Autoencoder 的基本思想与 ELBO 推导
+# 生成模型 Part 1-1：Variational Autoencoder 的基本思想与 ELBO 推导
 
 **VAE 学习~**
 
 论文链接：[Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
+
+这一篇是 VAE 学习笔记的上篇，主要处理论文直觉和 ELBO 推导。下篇会把这些公式落到一个最小 PyTorch 复现里：[生成模型 Part 1-2：Variational Autoencoder 的最小复现](/notes/笔记-生成模型1-2-vae最小复现/)。
 
 # Abstract
 
@@ -185,6 +187,28 @@ $$\begin{aligned} \mathcal{L}(\theta, \phi; x^{(i)}) = - D_{\mathrm{KL}} \left( 
 
 因此，最大化 ELBO 等价于同时做两件事：一方面让 $z$ 能有效解释 $x$，另一方面让 $z$ 的分布保持在先验附近。若先验取标准正态分布 $p(z)=\mathcal{N}(0,I)$，这一项就会推动隐空间变得更规整，方便后续从先验中采样并生成新数据。
 
+如果把这一形式落到后面的 MNIST 复现里，训练时通常不是直接最大化 ELBO，而是最小化负 ELBO：
+
+$$\begin{aligned} \mathrm{loss} = \mathrm{reconstruction\ loss} + \mathrm{KL\ loss} \end{aligned}$$
+
+其中 reconstruction loss 对应 $-\log p_{\theta}(x \mid z)$。在 MNIST 这种像素值被归一化到 $[0,1]$ 的场景里，可以把 decoder 的输出看成每个像素为 1 的 Bernoulli 概率，因此重构项可以用 binary cross entropy 实现：
+
+$$\begin{aligned} -\log p_{\theta}(x \mid z) = -\sum_{j=1}^{784}\left[x_j\log \pi_{\theta,j}(z) + (1-x_j)\log(1-\pi_{\theta,j}(z))\right] \end{aligned}$$
+
+KL loss 则对应近似后验和先验之间的距离。如果令：
+
+$$\begin{aligned} q_{\phi}(z \mid x)=\mathcal{N}\left(\mu,\mathrm{diag}(\sigma^2)\right), \qquad p(z)=\mathcal{N}(0,I) \end{aligned}$$
+
+那么 KL 项有闭式解：
+
+$$\begin{aligned} D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right) = -\frac{1}{2}\sum_j\left(1+\log\sigma_j^2-\mu_j^2-\sigma_j^2\right) \end{aligned}$$
+
+所以在代码里，VAE 的损失函数就可以理解成：
+
+$$\begin{aligned} \text{BCE}(x,\hat{x}) + D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right) \end{aligned}$$
+
+这也是为什么后面的复现会把 loss 拆成 `recon` 和 `kl` 两部分来观察。
+
 {{< details summary="推导：从联合分布形式到重构项 - KL 项" >}}
 
 从 ELBO 的联合分布形式出发：
@@ -304,3 +328,5 @@ Algorithm 1 可以理解成下面的训练循环：
 ## The Reparameterization Trick
 
 论文中 2.4 进一步讨论了重参数化技巧的适用范围。高斯分布只是最常见的例子；对于 inverse CDF 可求的分布、location-scale family，以及可以由其他随机变量组合得到的分布，也可以构造类似的 $g_{\phi}(\epsilon,x)$。因此，reparameterization trick 的核心是能否把采样过程改写成固定噪声经过可微变换。
+
+下一篇：[生成模型 Part 1-2：Variational Autoencoder 的最小复现](/notes/笔记-生成模型1-2-vae最小复现/)。

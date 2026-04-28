@@ -1,18 +1,20 @@
 ---
 date: '2026-04-27T7:00:00+09:00'
 draft: false
-title: 'Generative Models Part 1: The Basic Idea of Variational Autoencoder and the ELBO'
+title: 'Generative Models Part 1-1: The Basic Idea of Variational Autoencoder and the ELBO'
 summary: "A study note around the core problem in the VAE paper: the intuition of Variational Autoencoder, the model structure, where ELBO comes from, and why the reparameterization trick is necessary."
 description: "A study note on the basic idea of Variational Autoencoder and the intuition behind ELBO."
 tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameterization"]
 categories: ["Crucible"]
 ---
 
-# Generative Models Part 1: The Basic Idea of Variational Autoencoder and the ELBO
+# Generative Models Part 1-1: The Basic Idea of Variational Autoencoder and the ELBO
 
 **VAE study note**
 
 Paper: [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
+
+This is the first note in the VAE study series. It focuses on the paper intuition and the ELBO derivation. The next note turns these formulas into a minimal PyTorch reproduction: [Generative Models Part 1-2: A Minimal Variational Autoencoder Reproduction](/en/notes/笔记-生成模型1-2-variationalautoencoder的最小复现/).
 
 # Abstract
 
@@ -298,3 +300,5 @@ After training, we obtain:
 ## The Reparameterization Trick
 
 Section 2.4 further discusses the scope of the reparameterization trick. Gaussian distributions are only the most common example. Similar transformations can be constructed for distributions with tractable inverse CDFs, location-scale families, and distributions that can be composed from other random variables. Therefore, the core of the reparameterization trick is not that the latent variable must be Gaussian, but whether the sampling process can be rewritten as fixed noise passed through a differentiable transformation.
+
+Next note: [Generative Models Part 1-2: A Minimal Variational Autoencoder Reproduction](/en/notes/笔记-生成模型1-2-variationalautoencoder的最小复现/).

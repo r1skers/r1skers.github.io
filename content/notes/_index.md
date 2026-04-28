@@ -19,7 +19,8 @@ aliases:
 - [**第 1 篇** — 复变函数](/notes/笔记-数学1-复变函数)
 
 ## 生成模型
-- [**第 1 篇** — Variational Autoencoder 的基本思想与 ELBO 推导](/notes/笔记-生成模型1-VariationalAutoencoder的基本思想与ELBO推导)
+- [**第 1-1 篇** — Variational Autoencoder 的基本思想与 ELBO 推导](/notes/笔记-生成模型1-vae基本思想与elbo推导/)
+- [**第 1-2 篇** — Variational Autoencoder 的最小复现](/notes/笔记-生成模型1-2-vae最小复现/)
 
 
 ## 计算科学与高可靠系统设计
