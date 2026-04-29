@@ -299,6 +299,22 @@ The KL term can be read as a rough information budget: the more the model relies
 
 By metrics, `latent_dim=50` has the best reconstruction term, but its prior samples are not necessarily much more stable than those of `latent_dim=20`. This matches the MLP-VAE observation from the previous note: increasing latent dimension often improves reconstruction, but prior sampling quality does not necessarily improve linearly.
 
+## 2D Latent Space
+
+Although `latent_dim=2` has weak reconstruction metrics, it has one important advantage: the latent space can be plotted directly.
+
+Latent scatter:
+
+![CNN-VAE latent_dim=2 latent scatter](cnn_vae_latent2_scatter.png)
+
+This plot feeds the test set into the encoder and uses $\mu_{\phi}(x)$ as each image's position in the 2D latent space. Different digits show some clustering, but there is still substantial overlap between classes. This confirms that two dimensions are a strong bottleneck: they can capture the main structure, but not all writing variations.
+
+Latent manifold:
+
+![CNN-VAE latent_dim=2 latent manifold](cnn_vae_latent2_manifold.png)
+
+This plot takes a regular grid in the 2D plane and decodes each grid point as a latent vector $z$. Moving through the latent space produces continuous changes in digit shape. This is one of the key features of VAE: the model does not merely memorize training images, but learns a generative space that supports continuous sampling and interpolation.
+
 # How to Interpret the Result
 
 MLP treats the image as 784 independently indexed input dimensions. CNN adds inductive biases that fit images better:

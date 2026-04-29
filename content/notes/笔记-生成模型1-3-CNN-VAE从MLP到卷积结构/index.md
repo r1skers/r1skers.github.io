@@ -301,6 +301,22 @@ python -m src.train --config configs/mnist_cnn.yaml
 
 从指标上看，`latent_dim=50` 的 reconstruction 最好，但它的 prior samples 不一定会比 `latent_dim=20` 稳定很多。这和上一篇 MLP-VAE 的现象一致：更大的 latent dimension 往往改善重构，但 prior sampling 的视觉质量不一定线性提高。
 
+## 二维隐空间观察
+
+`latent_dim=2` 虽然重构指标较差，但它有一个重要优点：可以直接把隐空间画出来。
+
+Latent scatter：
+
+![CNN-VAE latent_dim=2 latent scatter](cnn_vae_latent2_scatter.png)
+
+这个图把测试集输入 encoder 后，取 $\mu_{\phi}(x)$ 作为每张图片在二维隐空间中的位置。可以看到，不同数字出现了一定聚类，但类别之间仍然有明显重叠。这说明二维空间确实是一个很强的瓶颈：它能表达主要结构，但不够把所有书写差异完全分开。
+
+Latent manifold：
+
+![CNN-VAE latent_dim=2 latent manifold](cnn_vae_latent2_manifold.png)
+
+这个图是在二维平面上取规则网格，把每个网格点当作 $z$ 输入 decoder。可以看到，隐空间中的移动会带来连续的数字形状变化。这正是 VAE 的一个关键特征：学习一个可以连续采样和插值的生成空间。
+
 # 如何理解结果
 
 MLP 把图像看成 784 个彼此独立编号的输入维度。CNN 则加入了几个更适合图像的 inductive bias：
