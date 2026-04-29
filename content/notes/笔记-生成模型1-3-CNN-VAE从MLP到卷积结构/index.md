@@ -46,11 +46,11 @@ CNN 首先在二维图像上寻找局部模式，再把卷积特征送入 VAE �
 
 卷积层可以理解成一个可学习的局部滤波器。给定输入图像 $X$ 和卷积核 $K$，单通道情况下，输出位置 $(i,j)$ 可以写成：
 
-$$\begin{aligned} Y[i,j] = \sum_a\sum_b K[a,b]X[i+a,j+b] + b \end{aligned}$$
+$$\begin{aligned} Y_{i,j} = \sum_a\sum_b K_{a,b}X_{i+a,j+b} + b \end{aligned}$$
 
 在 PyTorch 的 `Conv2d` 中，更准确地说是 cross-correlation，也就是 kernel 不翻转：
 
-$$\begin{aligned} Y[i,j] = \sum_a\sum_b K[a,b]X[i\cdot s+a-p,j\cdot s+b-p] + b \end{aligned}$$
+$$\begin{aligned} Y_{i,j} = \sum_a\sum_b K_{a,b}X_{i\cdot s+a-p,j\cdot s+b-p} + b \end{aligned}$$
 
 其中：
 
@@ -81,11 +81,7 @@ nn.Conv2d(1, 32, kernel_size=4, stride=2, padding=1)
 
 数学上，多通道卷积可以写成：
 
-$$\begin{aligned}
-Y[o,i,j]
-=
-b[o] + \sum_c\sum_a\sum_b W[o,c,a,b]X[c,i\cdot s+a-p,j\cdot s+b-p]
-\end{aligned}$$
+$$\begin{aligned} Y_{o,i,j}=b_o+\sum_c\sum_a\sum_b W_{o,c,a,b}X_{c,i\cdot s+a-p,j\cdot s+b-p} \end{aligned}$$
 
 这里：
 
@@ -100,9 +96,7 @@ b[o] + \sum_c\sum_a\sum_b W[o,c,a,b]X[c,i\cdot s+a-p,j\cdot s+b-p]
 
 卷积输出尺寸公式是：
 
-$$\begin{aligned}
-H_{\mathrm{out}} = \left\lfloor \frac{H_{\mathrm{in}} + 2p - k}{s} \right\rfloor + 1
-\end{aligned}$$
+$$\begin{aligned} H_{\mathrm{out}} = \left\lfloor \frac{H_{\mathrm{in}} + 2p - k}{s} \right\rfloor + 1 \end{aligned}$$
 
 第一层：
 
@@ -141,11 +135,7 @@ nn.Conv2d(32, 64, kernel_size=4, stride=2, padding=1)
 
 CNN encoder 最后仍然输出近似后验分布的参数：
 
-$$\begin{aligned}
-q_{\phi}(z \mid x)
-=
-\mathcal{N}\left(\mu_{\phi}(x), \mathrm{diag}(\sigma_{\phi}^{2}(x))\right)
-\end{aligned}$$
+$$\begin{aligned} q_{\phi}(z \mid x)=\mathcal{N}\left(\mu_{\phi}(x), \mathrm{diag}(\sigma_{\phi}^{2}(x))\right) \end{aligned}$$
 
 代码结构是：
 
@@ -160,10 +150,7 @@ logvar = W_logvar h + b_logvar
 
 而 VAE 的 reparameterization trick 不变：
 
-$$\begin{aligned}
-\epsilon \sim \mathcal{N}(0,I), \qquad
-z=\mu+\exp(0.5\cdot \mathrm{logvar})\odot\epsilon
-\end{aligned}$$
+$$\begin{aligned} \epsilon \sim \mathcal{N}(0,I), \qquad z=\mu+\exp(0.5\cdot \mathrm{logvar})\odot\epsilon \end{aligned}$$
 
 # CNN Decoder 与转置卷积
 
@@ -201,30 +188,18 @@ $$\begin{aligned} y = Ax \end{aligned}$$
 
 转置卷积更接近：
 
-$$\begin{aligned} \hat{x}=A^{T}y \end{aligned}$$
+$$\begin{aligned} \hat{x}=A^{\top}y \end{aligned}$$
 
 # Loss 为什么不用改
 注意：CNN-VAE 并没有改变 VAE 的概率模型。
 
 仍然是：
 
-$$\begin{aligned}
-\mathcal{L}(\theta,\phi;x)
-=
-\mathbb{E}_{q_{\phi}(z \mid x)}[\log p_{\theta}(x \mid z)]
--
-D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right)
-\end{aligned}$$
+$$\begin{aligned} \mathcal{L}(\theta,\phi;x)=\mathbb{E}_{q_{\phi}(z \mid x)}[\log p_{\theta}(x \mid z)]-D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right) \end{aligned}$$
 
 训练时仍然最小化负 ELBO：
 
-$$\begin{aligned}
-\mathrm{loss}
-=
-\mathrm{BCE}(x,\hat{x})
-+
-D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right)
-\end{aligned}$$
+$$\begin{aligned} \mathrm{loss}=\mathrm{BCE}(x,\hat{x})+D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right) \end{aligned}$$
 
 所以：
 
@@ -341,9 +316,6 @@ decoder 用转置卷积把 latent vector 还原成图像。
 
 对应到公式上：
 
-$$\begin{aligned}
-x \rightarrow q_{\phi}(z \mid x), \qquad
-z \rightarrow p_{\theta}(x \mid z)
-\end{aligned}$$
+$$\begin{aligned} x \rightarrow q_{\phi}(z \mid x), \qquad z \rightarrow p_{\theta}(x \mid z) \end{aligned}$$
 
 只是 $q_{\phi}$ 和 $p_{\theta}$ 的参数化方式从 MLP 换成了 CNN。

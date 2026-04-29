@@ -44,11 +44,11 @@ The CNN first extracts local patterns on the 2D image, then sends the convolutio
 
 A convolutional layer can be understood as a learnable local filter. Given an input image $X$ and a kernel $K$, in the single-channel case the output at position $(i,j)$ can be written as:
 
-$$\begin{aligned} Y[i,j] = \sum_a\sum_b K[a,b]X[i+a,j+b] + b \end{aligned}$$
+$$\begin{aligned} Y_{i,j} = \sum_a\sum_b K_{a,b}X_{i+a,j+b} + b \end{aligned}$$
 
 In PyTorch `Conv2d`, the operation is more precisely cross-correlation, meaning the kernel is not flipped:
 
-$$\begin{aligned} Y[i,j] = \sum_a\sum_b K[a,b]X[i\cdot s+a-p,j\cdot s+b-p] + b \end{aligned}$$
+$$\begin{aligned} Y_{i,j} = \sum_a\sum_b K_{a,b}X_{i\cdot s+a-p,j\cdot s+b-p} + b \end{aligned}$$
 
 Here:
 
@@ -78,11 +78,7 @@ Its output is:
 
 Mathematically, multi-channel convolution can be written as:
 
-$$\begin{aligned}
-Y[o,i,j]
-=
-b[o] + \sum_c\sum_a\sum_b W[o,c,a,b]X[c,i\cdot s+a-p,j\cdot s+b-p]
-\end{aligned}$$
+$$\begin{aligned} Y_{o,i,j}=b_o+\sum_c\sum_a\sum_b W_{o,c,a,b}X_{c,i\cdot s+a-p,j\cdot s+b-p} \end{aligned}$$
 
 Here:
 
@@ -97,9 +93,7 @@ Here:
 
 The output size of a convolutional layer is:
 
-$$\begin{aligned}
-H_{\mathrm{out}} = \left\lfloor \frac{H_{\mathrm{in}} + 2p - k}{s} \right\rfloor + 1
-\end{aligned}$$
+$$\begin{aligned} H_{\mathrm{out}} = \left\lfloor \frac{H_{\mathrm{in}} + 2p - k}{s} \right\rfloor + 1 \end{aligned}$$
 
 For the first layer:
 
@@ -138,11 +132,7 @@ So the encoder shape flow is:
 
 The CNN encoder still outputs the parameters of the approximate posterior:
 
-$$\begin{aligned}
-q_{\phi}(z \mid x)
-=
-\mathcal{N}\left(\mu_{\phi}(x), \mathrm{diag}(\sigma_{\phi}^{2}(x))\right)
-\end{aligned}$$
+$$\begin{aligned} q_{\phi}(z \mid x)=\mathcal{N}\left(\mu_{\phi}(x), \mathrm{diag}(\sigma_{\phi}^{2}(x))\right) \end{aligned}$$
 
 The code structure is:
 
@@ -157,10 +147,7 @@ In other words, CNNs only change how the functions $\mu_{\phi}(x)$ and $\log\sig
 
 The VAE reparameterization trick is unchanged:
 
-$$\begin{aligned}
-\epsilon \sim \mathcal{N}(0,I), \qquad
-z=\mu+\exp(0.5\cdot \mathrm{logvar})\odot\epsilon
-\end{aligned}$$
+$$\begin{aligned} \epsilon \sim \mathcal{N}(0,I), \qquad z=\mu+\exp(0.5\cdot \mathrm{logvar})\odot\epsilon \end{aligned}$$
 
 # CNN Decoder and Transposed Convolution
 
@@ -198,7 +185,7 @@ $$\begin{aligned} y = Ax \end{aligned}$$
 
 then transposed convolution is closer to:
 
-$$\begin{aligned} \hat{x}=A^{T}y \end{aligned}$$
+$$\begin{aligned} \hat{x}=A^{\top}y \end{aligned}$$
 
 # Why the Loss Does Not Change
 
@@ -206,23 +193,11 @@ The key point is that CNN-VAE does not change the VAE probabilistic model.
 
 The ELBO is still:
 
-$$\begin{aligned}
-\mathcal{L}(\theta,\phi;x)
-=
-\mathbb{E}_{q_{\phi}(z \mid x)}[\log p_{\theta}(x \mid z)]
--
-D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right)
-\end{aligned}$$
+$$\begin{aligned} \mathcal{L}(\theta,\phi;x)=\mathbb{E}_{q_{\phi}(z \mid x)}[\log p_{\theta}(x \mid z)]-D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right) \end{aligned}$$
 
 Training still minimizes the negative ELBO:
 
-$$\begin{aligned}
-\mathrm{loss}
-=
-\mathrm{BCE}(x,\hat{x})
-+
-D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right)
-\end{aligned}$$
+$$\begin{aligned} \mathrm{loss}=\mathrm{BCE}(x,\hat{x})+D_{\mathrm{KL}}\left(q_{\phi}(z \mid x)\middle\|p(z)\right) \end{aligned}$$
 
 So:
 
@@ -339,9 +314,6 @@ The decoder uses transposed convolution to reconstruct images from latent vector
 
 In formula form:
 
-$$\begin{aligned}
-x \rightarrow q_{\phi}(z \mid x), \qquad
-z \rightarrow p_{\theta}(x \mid z)
-\end{aligned}$$
+$$\begin{aligned} x \rightarrow q_{\phi}(z \mid x), \qquad z \rightarrow p_{\theta}(x \mid z) \end{aligned}$$
 
 Only the parameterization of $q_{\phi}$ and $p_{\theta}$ changes from MLP to CNN.
