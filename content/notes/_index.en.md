@@ -19,6 +19,7 @@ description: "Course notes and self-study records."
 - [**Part 1-1** — The Basic Idea of Variational Autoencoder and the ELBO](/notes/笔记-生成模型1-1-VariationalAutoencoder的基本思想与ELBO推导/)
 - [**Part 1-2** — A Minimal Variational Autoencoder Reproduction](/notes/笔记-生成模型1-2-VariationalAutoencoder的最小复现/)
 - [**Part 1-3** — CNN-VAE, from MLPs to Convolutional Structure](/notes/笔记-生成模型1-3-CNN-VAE从MLP到卷积结构/)
+- [**Part 2** — From LeNet-5 to Modern CNN](/notes/笔记-生成模型2-从LENET5到Modern-CNN/)
 
 ## Linear Algebra
 - [**Part 0** — Intuition for Rank, Null Space, and SVD](/notes/笔记-线性代数0-秩、零空间与SVD)

@@ -22,6 +22,7 @@ aliases:
 - [**第 1-1 篇** — Variational Autoencoder 的基本思想与 ELBO 推导](/notes/笔记-生成模型1-vae基本思想与elbo推导/)
 - [**第 1-2 篇** — Variational Autoencoder 的最小复现](/notes/笔记-生成模型1-2-vae最小复现/)
 - [**第 1-3 篇** — CNN-VAE，从 MLP 到卷积结构](/notes/笔记-生成模型1-3-cnn-vae从mlp到卷积结构/)
+- [**第 2 篇** — 从 LeNet-5 到 Modern CNN](/notes/笔记-生成模型2-从lenet5到modern-cnn/)
 
 
 ## 计算科学与高可靠系统设计
