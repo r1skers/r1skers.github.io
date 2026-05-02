@@ -210,7 +210,7 @@ Modern CNN: max/avg pooling
 
 ## 总结
 
-这次复现之后，我感觉 LeNet-5 值得学的不是 MNIST 本身，而是 CNN 的几个基本思想：
+几个基本思想：
 
 1. 卷积核不是手工设计的模板，而是随机初始化后通过梯度下降学出来的 detector。
 2. 一层卷积可以同时学习多个 detector，所以输出会有多个 feature maps。
@@ -218,4 +218,3 @@ Modern CNN: max/avg pooling
 4. 池化会牺牲精确位置，换来更小的尺寸和更强的位置鲁棒性。
 5. 现代 CNN 把论文里的很多组件替换成了更直接、更稳定的训练习惯，比如 ReLU、MaxPool、Linear classifier 和 CrossEntropyLoss。
 
-也就是说，这篇从生成模型短暂拐进了 CV，但它仍然是在补深度学习的基础结构。CNN-VAE、后面的生成模型、甚至更复杂的视觉模型，本质上都会反复遇到这些问题：特征怎么提取，空间结构怎么压缩，表示怎么进入最终目标。
