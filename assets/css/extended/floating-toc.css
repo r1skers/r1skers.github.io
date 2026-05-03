@@ -1,0 +1,98 @@
+.toc a.is-active,
+.floating-toc-dock a.is-active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.floating-toc-dock {
+    display: none;
+}
+
+@media (min-width: 1360px) {
+    .post-single > .toc {
+        display: none;
+    }
+
+    .floating-toc-dock {
+        display: block;
+        position: fixed;
+        top: calc(var(--header-height) + 24px);
+        left: max(24px, calc((100vw - var(--main-width)) / 2 - 288px));
+        z-index: 5;
+        width: 238px;
+        max-height: calc(100vh - var(--header-height) - 48px);
+        margin: 0;
+        padding: 12px 10px 14px;
+        overflow-y: auto;
+        border-color: rgba(186, 148, 112, 0.28);
+        border-radius: var(--radius);
+        background: color-mix(in srgb, var(--entry) 90%, transparent);
+        box-shadow: 0 10px 24px rgba(18, 16, 18, 0.08);
+        backdrop-filter: blur(6px);
+    }
+
+    .floating-toc-dock details {
+        display: block;
+    }
+
+    .floating-toc-dock details:not([open]) .inner {
+        display: none;
+    }
+
+    .floating-toc-dock details summary {
+        margin-inline-start: 0;
+        padding: 0 4px 8px;
+        cursor: pointer;
+        font-size: 0.92rem;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .floating-toc-dock .details {
+        font-weight: 700;
+    }
+
+    .floating-toc-dock .inner {
+        margin: 10px 0 0;
+        padding: 0 4px 0 0;
+        font-size: 0.86rem;
+        line-height: 1.45;
+        opacity: 1;
+    }
+
+    .floating-toc-dock ul {
+        padding-inline-start: 0;
+    }
+
+    .floating-toc-dock li {
+        margin: 0;
+        list-style: none;
+    }
+
+    .floating-toc-dock li ul {
+        margin-inline-start: 12px;
+    }
+
+    .floating-toc-dock a {
+        display: block;
+        padding: 5px 6px;
+        color: var(--secondary);
+        border-radius: 6px;
+        box-shadow: none;
+        text-decoration: none;
+    }
+
+    .floating-toc-dock a:hover,
+    .floating-toc-dock a.is-active {
+        color: var(--primary);
+        background: color-mix(in srgb, var(--tertiary) 38%, transparent);
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 1360px) {
+    [data-theme="dark"] .floating-toc-dock {
+        border-color: rgba(255, 178, 122, 0.2);
+        background: color-mix(in srgb, var(--entry) 86%, transparent);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+    }
+}

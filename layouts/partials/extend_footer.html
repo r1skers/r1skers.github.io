@@ -20,3 +20,102 @@ window.onload = () => {
     window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
 }
 </script>
+
+<script>
+(() => {
+const initFloatingToc = () => {
+    const toc = document.querySelector(".post-single > .toc");
+    const content = document.querySelector(".post-content");
+    if (!toc || !content) {
+        return;
+    }
+
+    const dock = document.createElement("nav");
+    dock.className = "floating-toc-dock";
+    dock.setAttribute("aria-label", "Table of contents");
+    dock.innerHTML = toc.innerHTML;
+    document.body.appendChild(dock);
+
+    const dockDetails = dock.querySelector("details");
+    if (dockDetails) {
+        dockDetails.open = true;
+    }
+
+    dock.addEventListener("click", (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) {
+            return;
+        }
+
+        const href = link.getAttribute("href");
+        const target = document.getElementById(decodeURIComponent(href.slice(1)));
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+    });
+
+    const links = Array.from(document.querySelectorAll('.toc a[href^="#"], .floating-toc-dock a[href^="#"]'));
+    if (links.length === 0) {
+        return;
+    }
+
+    const linkGroups = links.reduce((groups, link) => {
+        const href = link.getAttribute("href");
+        if (!groups.has(href)) {
+            groups.set(href, []);
+        }
+        groups.get(href).push(link);
+        return groups;
+    }, new Map());
+
+    const headings = Array.from(linkGroups.keys())
+        .map((href) => {
+            const id = decodeURIComponent(href.slice(1));
+            return {
+                href,
+                heading: document.getElementById(id)
+            };
+        })
+        .filter((item) => item.heading);
+
+    if (headings.length === 0) {
+        return;
+    }
+
+    const setActive = (activeHref) => {
+        links.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === activeHref));
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length === 0) {
+            return;
+        }
+
+        const active = headings.find((item) => item.heading === visible[0].target);
+        if (active) {
+            setActive(active.href);
+        }
+    }, {
+        rootMargin: "-18% 0px -70% 0px",
+        threshold: 0
+    });
+
+    headings.forEach((item) => observer.observe(item.heading));
+    setActive(headings[0].href);
+};
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFloatingToc);
+} else {
+    initFloatingToc();
+}
+})();
+</script>
