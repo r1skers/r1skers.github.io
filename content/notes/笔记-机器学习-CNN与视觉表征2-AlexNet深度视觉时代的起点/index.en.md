@@ -10,6 +10,10 @@ categories: ["Crucible"]
 
 # Machine Learning / CNN and Visual Representation: AlexNet, the Starting Point of Deep Visual Learning
 
+Paper: [ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
+
+Code repository: `paper-reforge/AlexNet`
+
 ## Before Starting
 
 The first thing to keep straight is that AlexNet is still a CNN. It is not something outside CNNs. It is the point where CNNs moved from "working on clean small datasets" to "beating traditional vision methods on large-scale real-world image classification."

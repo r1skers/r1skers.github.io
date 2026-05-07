@@ -13,6 +13,10 @@ aliases:
 
 # 机器学习 / CNN 与视觉表征：AlexNet，深度视觉时代的起点
 
+论文链接：[ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
+
+代码仓库：`paper-reforge/AlexNet`
+
 ## 写在前面
 
 首先要明确的是，AlexNet 本质上仍然是 CNN。它不是 CNN 之外的新东西，而是把 CNN 从“能在干净小数据集上工作”推进到“能在大规模真实图像分类任务上压过传统视觉方法”的转折点。
