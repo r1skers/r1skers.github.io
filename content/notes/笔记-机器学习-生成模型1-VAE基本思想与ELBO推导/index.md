@@ -1,22 +1,23 @@
 ﻿---
 date: '2026-04-27T7:00:00+09:00'
 draft: false
-title: '生成模型 Part 1-1：Variational Autoencoder 的基本思想与 ELBO 推导'
+title: '机器学习 / 生成模型：VAE 的基本思想与 ELBO 推导'
 summary: "围绕 VAE 论文中的核心问题，整理 Variational Autoencoder 的基本直觉、模型结构、ELBO 的来历，以及 reparameterization trick 为什么必要。"
 description: "A study note on the basic idea of Variational Autoencoder and the intuition behind ELBO."
 tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameterization"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-生成模型1-vae基本思想与elbo推导/
+  - /notes/笔记-生成模型1-1-VariationalAutoencoder的基本思想与ELBO推导/
 ---
 
-# 生成模型 Part 1-1：Variational Autoencoder 的基本思想与 ELBO 推导
+# 机器学习 / 生成模型：VAE 的基本思想与 ELBO 推导
 
 **VAE 学习~**
 
 论文链接：[Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
 
-这一篇是 VAE 学习笔记的上篇，主要处理论文直觉和 ELBO 推导。下篇会把这些公式落到一个最小 PyTorch 复现里：[生成模型 Part 1-2：Variational Autoencoder 的最小复现](/notes/笔记-生成模型1-2-vae最小复现/)。
+这一篇是 VAE 学习笔记的上篇，主要处理论文直觉和 ELBO 推导。下篇会把这些公式落到一个最小 PyTorch 复现里：[VAE：最小复现](/notes/笔记-机器学习-生成模型-vae最小复现/)。
 
 # Abstract
 

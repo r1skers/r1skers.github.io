@@ -1,16 +1,18 @@
 ---
 date: '2026-05-02T17:30:00+09:00'
 draft: false
-title: '生成模型 Part 2：从 LeNet-5 到 Modern CNN'
+title: '机器学习 / CNN 与视觉表征：从 LeNet-5 到 Modern CNN'
 summary: "从 LeNet-5 论文出发，复现一版尽量贴近原文的 CNN，再改写为现代训练习惯下的 CNN，并观察激活函数、通道数、池化方式和特征图。"
 description: "A study note on LeNet-5 and modern CNN variants on MNIST."
-tags: ["Generative Models", "CNN", "LeNet-5", "PyTorch", "MNIST"]
+tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-生成模型2-从lenet5到modern-cnn/
+  - /notes/笔记-生成模型2-从LENET5到Modern-CNN/
+  - /notes/笔记-CNN与视觉表征1-从LeNet5到ModernCNN/
 ---
 
-# 生成模型 Part 2：从 LeNet-5 到 Modern CNN
+# 机器学习 / CNN 与视觉表征：从 LeNet-5 到 Modern CNN
 
 上一篇里我已经把 VAE 从 MLP 改成了 CNN-VAE，这一篇我们来拆一下 CNN，从最经典的 LeNet-5 开始。
 
@@ -217,4 +219,3 @@ Modern CNN: max/avg pooling
 3. 浅层更像在找边缘、笔画、局部结构，深层更像在组合这些结构。
 4. 池化会牺牲精确位置，换来更小的尺寸和更强的位置鲁棒性。
 5. 现代 CNN 把论文里的很多组件替换成了更直接、更稳定的训练习惯，比如 ReLU、MaxPool、Linear classifier 和 CrossEntropyLoss。
-

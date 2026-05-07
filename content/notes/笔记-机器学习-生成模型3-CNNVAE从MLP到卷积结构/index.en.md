@@ -1,16 +1,19 @@
 ---
 date: '2026-04-29T09:30:00+09:00'
 draft: false
-title: 'Generative Models Part 1-3: CNN-VAE, from MLPs to Convolutional Structure'
+title: 'Machine Learning / Generative Models: CNN-VAE, from MLPs to Convolutional Structure'
 summary: "Starting from the MLP-VAE baseline, this note replaces the encoder and decoder with CNNs and studies why convolutional structure is better suited to images."
 description: "A study note on replacing an MLP VAE with a convolutional VAE on MNIST."
 tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
 categories: ["Crucible"]
+aliases:
+  - /notes/笔记-生成模型1-3-CNN-VAE从MLP到卷积结构/
+  - /notes/笔记-生成模型1-3-cnn-vae从mlp到卷积结构/
 ---
 
-# Generative Models Part 1-3: CNN-VAE, from MLPs to Convolutional Structure
+# Machine Learning / Generative Models: CNN-VAE, from MLPs to Convolutional Structure
 
-Previous note: [Generative Models Part 1-2: A Minimal Variational Autoencoder Reproduction](/en/notes/笔记-生成模型1-2-variationalautoencoder的最小复现/)
+Previous note: [A Minimal VAE Reproduction](/en/notes/笔记-机器学习-生成模型-vae最小复现/)
 
 Paper: [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
 

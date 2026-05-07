@@ -1,16 +1,19 @@
 ---
 date: '2026-04-28T10:00:00+09:00'
 draft: false
-title: 'Generative Models Part 1-2: A Minimal Variational Autoencoder Reproduction'
+title: 'Machine Learning / Generative Models: A Minimal VAE Reproduction'
 summary: "A minimal PyTorch reproduction of an MLP-VAE on MNIST, connecting the encoder, reparameterization, decoder, ELBO loss, and experimental observations."
 description: "A minimal PyTorch reproduction of Variational Autoencoder on MNIST."
 tags: ["Generative Models", "VAE", "PyTorch", "MNIST", "Reproduction"]
 categories: ["Crucible"]
+aliases:
+  - /notes/笔记-生成模型1-2-VariationalAutoencoder的最小复现/
+  - /notes/笔记-生成模型1-2-vae最小复现/
 ---
 
-# Generative Models Part 1-2: A Minimal Variational Autoencoder Reproduction
+# Machine Learning / Generative Models: A Minimal VAE Reproduction
 
-Previous note: [Generative Models Part 1-1: The Basic Idea of Variational Autoencoder and the ELBO](/en/notes/笔记-生成模型1-1-variationalautoencoder的基本思想与elbo推导/)
+Previous note: [The Basic Idea of VAE and the ELBO](/en/notes/笔记-机器学习-生成模型-vae基本思想与elbo推导/)
 
 Paper: [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
 

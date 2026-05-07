@@ -1,14 +1,18 @@
 ---
 date: '2026-05-02T17:30:00+09:00'
 draft: false
-title: 'Generative Models Part 2: From LeNet-5 to Modern CNN'
+title: 'Machine Learning / CNN and Visual Representation: From LeNet-5 to Modern CNN'
 summary: "Starting from the LeNet-5 paper, this note reproduces a paper-like CNN, rewrites it as a modern CNN, and studies activations, channel width, pooling, and feature maps."
 description: "A study note on LeNet-5 and modern CNN variants on MNIST."
-tags: ["Generative Models", "CNN", "LeNet-5", "PyTorch", "MNIST"]
+tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
 categories: ["Crucible"]
+aliases:
+  - /notes/笔记-生成模型2-从LENET5到Modern-CNN/
+  - /notes/笔记-生成模型2-从lenet5到modern-cnn/
+  - /notes/笔记-CNN与视觉表征1-从LeNet5到ModernCNN/
 ---
 
-# Generative Models Part 2: From LeNet-5 to Modern CNN
+# Machine Learning / CNN and Visual Representation: From LeNet-5 to Modern CNN
 
 In the previous note, I replaced the MLP in a VAE with a CNN-VAE. This note steps back and looks directly at CNNs, starting from the classic LeNet-5 architecture.
 

@@ -1,18 +1,19 @@
 ---
 date: '2026-04-28T10:00:00+09:00'
 draft: false
-title: '生成模型 Part 1-2：Variational Autoencoder 的最小复现'
+title: '机器学习 / 生成模型：VAE 的最小复现'
 summary: "用 PyTorch 在 MNIST 上复现一个最小 MLP-VAE，把 encoder、reparameterization、decoder、ELBO loss 和实验现象对应起来。"
 description: "A minimal PyTorch reproduction of Variational Autoencoder on MNIST."
 tags: ["Generative Models", "VAE", "PyTorch", "MNIST", "Reproduction"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-生成模型1-2-vae最小复现/
+  - /notes/笔记-生成模型1-2-VariationalAutoencoder的最小复现/
 ---
 
-# 生成模型 Part 1-2：Variational Autoencoder 的最小复现
+# 机器学习 / 生成模型：VAE 的最小复现
 
-上一篇：[生成模型 Part 1-1：Variational Autoencoder 的基本思想与 ELBO 推导](/notes/笔记-生成模型1-vae基本思想与elbo推导/)
+上一篇：[VAE：基本思想与 ELBO 推导](/notes/笔记-机器学习-生成模型-vae基本思想与elbo推导/)
 
 论文链接：[Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
 

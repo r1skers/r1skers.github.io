@@ -1,18 +1,19 @@
 ---
 date: '2026-04-29T09:30:00+09:00'
 draft: false
-title: '生成模型 Part 1-3：CNN-VAE，从 MLP 到卷积结构'
+title: '机器学习 / 生成模型：CNN-VAE，从 MLP 到卷积结构'
 summary: "在已经跑通 MLP-VAE 的基础上，把 encoder 和 decoder 换成 CNN，理解卷积结构为什么更适合图像，以及 CNN-VAE 在 MNIST 上带来的实验变化。"
 description: "A study note on replacing an MLP VAE with a convolutional VAE on MNIST."
 tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-生成模型1-3-cnn-vae从mlp到卷积结构/
+  - /notes/笔记-生成模型1-3-CNN-VAE从MLP到卷积结构/
 ---
 
-# 生成模型 Part 1-3：CNN-VAE，从 MLP 到卷积结构
+# 机器学习 / 生成模型：CNN-VAE，从 MLP 到卷积结构
 
-上一篇：[生成模型 Part 1-2：Variational Autoencoder 的最小复现](/notes/笔记-生成模型1-2-vae最小复现/)
+上一篇：[VAE：最小复现](/notes/笔记-机器学习-生成模型-vae最小复现/)
 
 论文链接：[Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
 
