@@ -1,6 +1,6 @@
 ---
 date: '2026-05-07T09:45:00+09:00'
-draft: true
+draft: false
 title: '机器学习 / CNN 与视觉表征：AlexNet，深度视觉时代的起点'
 summary: "从论文和轻量复现出发，理解 AlexNet 如何用大规模 CNN、ReLU、GPU、dropout 和数据增强推动 ImageNet 分类突破。"
 description: "A study note on AlexNet, its architecture, ImageNet classification setup, and lightweight PyTorch reproduction."

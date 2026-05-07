@@ -1,6 +1,6 @@
 ---
 date: '2026-05-07T09:45:00+09:00'
-draft: true
+draft: false
 title: 'Machine Learning / CNN and Visual Representation: AlexNet, the Starting Point of Deep Visual Learning'
 summary: "A study note on how AlexNet combined large CNNs, ReLU, GPU training, dropout, and data augmentation to break through ImageNet classification."
 description: "A study note on AlexNet, its architecture, ImageNet classification setup, and lightweight PyTorch reproduction."
