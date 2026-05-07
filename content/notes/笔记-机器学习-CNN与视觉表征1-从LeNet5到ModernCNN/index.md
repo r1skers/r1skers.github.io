@@ -8,7 +8,6 @@ tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-生成模型2-从lenet5到modern-cnn/
-  - /notes/笔记-生成模型2-从LENET5到Modern-CNN/
   - /notes/笔记-CNN与视觉表征1-从LeNet5到ModernCNN/
 ---
 

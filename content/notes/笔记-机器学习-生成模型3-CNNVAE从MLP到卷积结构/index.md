@@ -8,7 +8,6 @@ tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-生成模型1-3-cnn-vae从mlp到卷积结构/
-  - /notes/笔记-生成模型1-3-CNN-VAE从MLP到卷积结构/
 ---
 
 # 机器学习 / 生成模型：CNN-VAE，从 MLP 到卷积结构

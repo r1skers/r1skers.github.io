@@ -6,9 +6,6 @@ summary: "A study note around the core problem in the VAE paper: the intuition o
 description: "A study note on the basic idea of Variational Autoencoder and the intuition behind ELBO."
 tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameterization"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-生成模型1-1-VariationalAutoencoder的基本思想与ELBO推导/
-  - /notes/笔记-生成模型1-vae基本思想与elbo推导/
 ---
 
 # Machine Learning / Generative Models: The Basic Idea of VAE and the ELBO
