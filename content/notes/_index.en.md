@@ -13,6 +13,8 @@ summary: "An index of course notes and self-study records."
 - [**3. CNN-VAE** — From MLPs to Convolutional Structure](/notes/笔记-机器学习-生成模型3-CNNVAE从MLP到卷积结构/)
 
 ### CNN and Visual Representation
+This series follows CNNs from early handwritten digit recognition to large-scale ImageNet classification and then to deep visual backbones.
+
 - [**1. LeNet-5** — From LeNet-5 to Modern CNN](/notes/笔记-机器学习-CNN与视觉表征1-从LeNet5到ModernCNN/)
 - [**2. AlexNet** — The Starting Point of Deep Visual Learning](/notes/笔记-机器学习-CNN与视觉表征2-AlexNet深度视觉时代的起点/)
 - [**3. VGG** — Depth and Small Convolution Filters](/notes/笔记-机器学习-CNN与视觉表征3-VGG深度与小卷积核/)

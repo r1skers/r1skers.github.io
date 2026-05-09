@@ -16,6 +16,8 @@ aliases:
 - [**3. CNN-VAE** — 从 MLP 到卷积结构](/notes/笔记-机器学习-生成模型3-cnnvae从mlp到卷积结构/)
 
 ### CNN 与视觉表征
+从 LeNet-5 到 ResNet，这一组笔记记录 CNN 从早期手写数字识别，到 ImageNet 大规模分类，再到深层视觉 backbone 的演化。
+
 - [**1. LeNet-5** — 从 LeNet-5 到 Modern CNN](/notes/笔记-机器学习-cnn与视觉表征1-从lenet5到moderncnn/)
 - [**2. AlexNet** — 深度视觉时代的起点](/notes/笔记-机器学习-cnn与视觉表征2-alexnet深度视觉时代的起点/)
 - [**3. VGG** — 深度与小卷积核](/notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/)
