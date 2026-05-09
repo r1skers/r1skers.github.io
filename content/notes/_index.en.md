@@ -15,6 +15,7 @@ summary: "An index of course notes and self-study records."
 ### CNN and Visual Representation
 - [**1. LeNet-5** — From LeNet-5 to Modern CNN](/notes/笔记-机器学习-CNN与视觉表征1-从LeNet5到ModernCNN/)
 - [**2. AlexNet** — The Starting Point of Deep Visual Learning](/notes/笔记-机器学习-CNN与视觉表征2-AlexNet深度视觉时代的起点/)
+- [**3. VGG** — Depth and Small Convolution Filters](/notes/笔记-机器学习-CNN与视觉表征3-VGG深度与小卷积核/)
 
 </details>
 
@@ -78,7 +79,6 @@ summary: "An index of course notes and self-study records."
 <details>
 <summary><strong>Planned</strong></summary>
 
-- VGG
 - ResNet
 - Transformer
 - ViT

@@ -18,6 +18,7 @@ aliases:
 ### CNN 与视觉表征
 - [**1. LeNet-5** — 从 LeNet-5 到 Modern CNN](/notes/笔记-机器学习-cnn与视觉表征1-从lenet5到moderncnn/)
 - [**2. AlexNet** — 深度视觉时代的起点](/notes/笔记-机器学习-cnn与视觉表征2-alexnet深度视觉时代的起点/)
+- [**3. VGG** — 深度与小卷积核](/notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/)
 
 </details>
 
@@ -81,7 +82,6 @@ aliases:
 <details>
 <summary><strong>计划中</strong></summary>
 
-- VGG
 - ResNet
 - Transformer
 - ViT
