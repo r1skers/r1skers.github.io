@@ -23,6 +23,11 @@ aliases:
 - [**3. VGG** — 深度与小卷积核](/notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/)
 - [**4. ResNet** — 残差学习与退化问题](/notes/笔记-机器学习-cnn与视觉表征4-resnet残差学习与退化问题/)
 
+### Transformer 与序列建模
+从 self-attention 出发，复现一个最小 encoder-only Transformer，并用合成任务验证 positional encoding 的必要性。
+
+- [**1. Transformer** — 从注意力到编码器](/notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/)
+
 </details>
 
 <details>
@@ -85,7 +90,6 @@ aliases:
 <details>
 <summary><strong>计划中</strong></summary>
 
-- Transformer
 - ViT
 - CLIP
 - GAN

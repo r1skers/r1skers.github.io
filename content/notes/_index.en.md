@@ -20,6 +20,11 @@ This series follows CNNs from early handwritten digit recognition to large-scale
 - [**3. VGG** — Depth and Small Convolution Filters](/notes/笔记-机器学习-CNN与视觉表征3-VGG深度与小卷积核/)
 - [**4. ResNet** — Residual Learning and the Degradation Problem](/notes/笔记-机器学习-CNN与视觉表征4-ResNet残差学习与退化问题/)
 
+### Transformer and Sequence Modeling
+Starting from self-attention, this series reproduces a minimal encoder-only Transformer and validates the necessity of positional encoding on synthetic tasks.
+
+- [**1. Transformer** — From Attention to the Encoder](/notes/笔记-机器学习-Transformer与序列建模1-从注意力到编码器/)
+
 </details>
 
 <details>
@@ -82,7 +87,6 @@ This series follows CNNs from early handwritten digit recognition to large-scale
 <details>
 <summary><strong>Planned</strong></summary>
 
-- Transformer
 - ViT
 - CLIP
 - GAN
