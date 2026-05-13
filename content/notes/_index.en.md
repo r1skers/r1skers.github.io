@@ -32,6 +32,7 @@ Starting from self-attention, this series reproduces a minimal encoder-only Tran
 
 - [**Complex Analysis 1** — Complex Analysis](/notes/笔记-数学1-复变函数)
 - [**Real Analysis 1** — Convergence, Uniqueness, Boundedness, and Cauchy Sequences](/notes/笔记-实分析1-收敛、唯一性、有界性与柯西列)
+- [**Real Analysis 2** — The Supremum Axiom, Monotone Convergence, and the Equivalence Chain of Completeness](/notes/笔记-实分析2-确界公理、单调收敛与完备性等价链)
 
 </details>
 
