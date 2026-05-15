@@ -20,15 +20,11 @@ This series follows CNNs from early handwritten digit recognition to large-scale
 - [**3. VGG** — Depth and Small Convolution Filters](/notes/笔记-机器学习-CNN与视觉表征3-VGG深度与小卷积核/)
 - [**4. ResNet** — Residual Learning and the Degradation Problem](/notes/笔记-机器学习-CNN与视觉表征4-ResNet残差学习与退化问题/)
 
-### Transformer and Sequence Modeling
-Starting from self-attention, this series reproduces a minimal encoder-only Transformer and validates the necessity of positional encoding on synthetic tasks.
+### Transformer and Vision Transformer
+Reproduce a minimal encoder-only Transformer from self-attention and validate PE necessity, then carry the same encoder over to vision tasks as ViT.
 
 - [**1. Transformer** — From Attention to the Encoder](/notes/笔记-机器学习-Transformer与序列建模1-从注意力到编码器/)
-
-### ViT and Visual Transformers
-Moving the NLP Transformer onto vision tasks: image patches → token sequence → reused encoder → CLS readout → classification.
-
-- [**1. ViT** — From Patches to Attention-Based Classification](/notes/笔记-机器学习-ViT与视觉Transformer1-从图像分块到注意力分类/)
+- [**2. ViT** — From Patches to Attention-Based Classification](/notes/笔记-机器学习-ViT与视觉Transformer1-从图像分块到注意力分类/)
 
 </details>
 

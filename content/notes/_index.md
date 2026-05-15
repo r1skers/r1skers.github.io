@@ -23,15 +23,11 @@ aliases:
 - [**3. VGG** — 深度与小卷积核](/notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/)
 - [**4. ResNet** — 残差学习与退化问题](/notes/笔记-机器学习-cnn与视觉表征4-resnet残差学习与退化问题/)
 
-### Transformer 与序列建模
-从 self-attention 出发，复现一个最小 encoder-only Transformer，并用合成任务验证 positional encoding 的必要性。
+### Transformer 与视觉 Transformer
+从 self-attention 出发复现一个最小 encoder-only Transformer 并验证 PE 必要性，再把同一套 encoder 搬到视觉任务上做 ViT。
 
 - [**1. Transformer** — 从注意力到编码器](/notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/)
-
-### ViT 与视觉 Transformer
-把 NLP Transformer 搬到视觉任务上：图像分块 → token 序列 → 复用 encoder → CLS 读出 → 分类。
-
-- [**1. ViT** — 从图像分块到注意力分类](/notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/)
+- [**2. ViT** — 从图像分块到注意力分类](/notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/)
 
 </details>
 
