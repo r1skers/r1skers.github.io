@@ -25,6 +25,11 @@ Starting from self-attention, this series reproduces a minimal encoder-only Tran
 
 - [**1. Transformer** — From Attention to the Encoder](/notes/笔记-机器学习-Transformer与序列建模1-从注意力到编码器/)
 
+### ViT and Visual Transformers
+Moving the NLP Transformer onto vision tasks: image patches → token sequence → reused encoder → CLS readout → classification.
+
+- [**1. ViT** — From Patches to Attention-Based Classification](/notes/笔记-机器学习-ViT与视觉Transformer1-从图像分块到注意力分类/)
+
 </details>
 
 <details>
@@ -88,7 +93,6 @@ Starting from self-attention, this series reproduces a minimal encoder-only Tran
 <details>
 <summary><strong>Planned</strong></summary>
 
-- ViT
 - CLIP
 - GAN
 - Diffusion

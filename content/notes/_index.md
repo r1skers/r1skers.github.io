@@ -28,6 +28,11 @@ aliases:
 
 - [**1. Transformer** — 从注意力到编码器](/notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/)
 
+### ViT 与视觉 Transformer
+把 NLP Transformer 搬到视觉任务上：图像分块 → token 序列 → 复用 encoder → CLS 读出 → 分类。
+
+- [**1. ViT** — 从图像分块到注意力分类](/notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/)
+
 </details>
 
 <details>
@@ -36,6 +41,7 @@ aliases:
 - [**复变 1** — 复变函数](/notes/笔记-数学1-复变函数)
 - [**实分析 1** — 收敛、唯一性、有界性与柯西列](/notes/笔记-实分析1-收敛、唯一性、有界性与柯西列)
 - [**实分析 2** — 确界公理、单调收敛与完备性等价链](/notes/笔记-实分析2-确界公理、单调收敛与完备性等价链)
+- [**实分析 3** — 度量空间、赋范空间、Hilbert 空间与傅里叶基础](/notes/笔记-实分析3-度量赋范hilbert与傅里叶)
 
 </details>
 
@@ -91,7 +97,6 @@ aliases:
 <details>
 <summary><strong>计划中</strong></summary>
 
-- ViT
 - CLIP
 - GAN
 - Diffusion
