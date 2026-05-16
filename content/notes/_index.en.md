@@ -20,11 +20,12 @@ This series follows CNNs from early handwritten digit recognition to large-scale
 - [**3. VGG** — Depth and Small Convolution Filters](/notes/笔记-机器学习-CNN与视觉表征3-VGG深度与小卷积核/)
 - [**4. ResNet** — Residual Learning and the Degradation Problem](/notes/笔记-机器学习-CNN与视觉表征4-ResNet残差学习与退化问题/)
 
-### Transformer and Vision Transformer
-Reproduce a minimal encoder-only Transformer from self-attention and validate PE necessity, then carry the same encoder over to vision tasks as ViT.
+### Transformer, ViT, and CLIP
+Reproduce a minimal encoder-only Transformer from self-attention and validate PE necessity, carry the same encoder over to vision tasks as ViT, then stitch the two towers into a shared space for CLIP — completing the path from unimodal to multimodal alignment.
 
 - [**1. Transformer** — From Attention to the Encoder](/notes/笔记-机器学习-Transformer与序列建模1-从注意力到编码器/)
 - [**2. ViT** — From Patches to Attention-Based Classification](/notes/笔记-机器学习-ViT与视觉Transformer1-从图像分块到注意力分类/)
+- [**3. CLIP** — From Contrastive Learning to a Shared Image-Text Space](/notes/笔记-机器学习-CLIP与多模态对齐1-从对比学习到图文共享空间/)
 
 </details>
 
@@ -89,7 +90,6 @@ Reproduce a minimal encoder-only Transformer from self-attention and validate PE
 <details>
 <summary><strong>Planned</strong></summary>
 
-- CLIP
 - GAN
 - Diffusion
 - Electromagnetism

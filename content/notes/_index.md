@@ -23,11 +23,12 @@ aliases:
 - [**3. VGG** — 深度与小卷积核](/notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/)
 - [**4. ResNet** — 残差学习与退化问题](/notes/笔记-机器学习-cnn与视觉表征4-resnet残差学习与退化问题/)
 
-### Transformer 与视觉 Transformer
-从 self-attention 出发复现一个最小 encoder-only Transformer 并验证 PE 必要性，再把同一套 encoder 搬到视觉任务上做 ViT。
+### Transformer、ViT 与 CLIP
+从 self-attention 出发复现一个最小 encoder-only Transformer 并验证 PE 必要性，把同一套 encoder 搬到视觉任务上做 ViT，再把两塔拼到同一个共享空间里做 CLIP，完成从单模态到多模态对齐的过渡。
 
 - [**1. Transformer** — 从注意力到编码器](/notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/)
 - [**2. ViT** — 从图像分块到注意力分类](/notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/)
+- [**3. CLIP** — 从对比学习到图文共享空间](/notes/笔记-机器学习-clip与多模态对齐1-从对比学习到图文共享空间/)
 
 </details>
 
@@ -93,7 +94,6 @@ aliases:
 <details>
 <summary><strong>计划中</strong></summary>
 
-- CLIP
 - GAN
 - Diffusion
 - 周易
