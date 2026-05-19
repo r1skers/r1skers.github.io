@@ -30,6 +30,15 @@ Reproduce a minimal encoder-only Transformer from self-attention and validate PE
 </details>
 
 <details>
+<summary><strong>AI Infrastructure</strong></summary>
+
+Starting from GPU memory hierarchy, IO-aware algorithms, and inference systems, this section tracks the low-level mechanisms that actually shape throughput, latency, and memory usage in AI infrastructure.
+
+- [**1. FlashAttention v1** — IO-Aware Attention and Tiling Softmax](/notes/笔记-底层架构-io感知注意力1-flashattention-v1与tiling-softmax/)
+
+</details>
+
+<details>
 <summary><strong>Mathematics</strong></summary>
 
 - [**Complex Analysis 1** — Complex Analysis](/notes/笔记-数学1-复变函数)

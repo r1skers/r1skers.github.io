@@ -33,6 +33,15 @@ aliases:
 </details>
 
 <details>
+<summary><strong>底层架构 / AI Infra</strong></summary>
+
+从 GPU 内存层次、IO-aware 算法和推理系统出发，记录 AI infra 里那些真正卡住吞吐、延迟和显存的底层机制。
+
+- [**1. FlashAttention v1** — IO 感知注意力与 tiling-softmax](/notes/笔记-底层架构-io感知注意力1-flashattention-v1与tiling-softmax/)
+
+</details>
+
+<details>
 <summary><strong>数学</strong></summary>
 
 - [**复变 1** — 复变函数](/notes/笔记-数学1-复变函数)
