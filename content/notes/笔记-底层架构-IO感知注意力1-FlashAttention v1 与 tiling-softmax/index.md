@@ -338,7 +338,7 @@ $$
 
 论文实测在 A100 上 BERT-large 取得约 7.6× 的 wall-clock 提速——和理论上界 ~12–23× 中间隔着一些工程常数（SRAM 利用率、调度开销、K/V 搬运的次要项）。**量级上能解释为什么会有多倍加速，但实际 wall-clock 还受 occupancy、调度、Tensor Core 利用率、kernel 实现等影响。**
 
-两个值得带走的直觉：
+两个思想：
 
 - **$d^2$ 在分母**——$d$ 越大，加速比越小。从 $d=64$ 到 $d=128$ 加速比缩 4 倍。多头 attention 习惯把每头的 $d$ 切小（$d_\text{model}/h \approx 64$）恰好让 FA1 受益最大化。这不是巧合，而是 hardware-algorithm co-design 的一种潜在共振。
 - **$M$ 在分子**——SRAM 越大，加速比越大。这就是为什么 H100 上 FA 比 A100 上更猛。
