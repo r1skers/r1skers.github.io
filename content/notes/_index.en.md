@@ -45,6 +45,8 @@ Starting from GPU memory hierarchy, IO-aware algorithms, and inference systems, 
 - [**Complex Analysis 1** — Complex Analysis](/notes/笔记-数学1-复变函数)
 - [**Real Analysis 1** — Convergence, Uniqueness, Boundedness, and Cauchy Sequences](/notes/笔记-实分析1-收敛、唯一性、有界性与柯西列)
 - [**Real Analysis 2** — The Supremum Axiom, Monotone Convergence, and the Equivalence Chain of Completeness](/notes/笔记-实分析2-确界公理、单调收敛与完备性等价链)
+- [**Real Analysis 3** — Metric Spaces, Normed Spaces, Hilbert Spaces, and the Foundations of Fourier](/notes/笔记-实分析3-度量赋范hilbert与傅里叶)
+- [**Real Analysis 4** — Bounded Linear Operators, Dual Space, Spectral Theory, and Compact Operators](/notes/笔记-实分析4-有界算子对偶谱与紧算子)
 
 </details>
 
