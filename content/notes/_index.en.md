@@ -7,6 +7,12 @@ summary: "An index of course notes and self-study records."
 <details open>
 <summary><strong>Machine Learning</strong></summary>
 
+### Unsupervised Learning and Representation Geometry
+Starting from PCA and whitening, this series builds a toolkit for analyzing embedding spaces through direction, scale, neighborhood graphs, clustering assumptions, and stability.
+
+- [**1. PCA / Whitening** — Principal Directions, Scale Correction, and Neighborhood Visualization](/en/notes/笔记-机器学习-无监督学习1-pcawhitening与邻域可视化/)
+- [**2. Spectral Methods** — Graph Laplacians, Structural Embeddings, and Spectral Clustering](/en/notes/笔记-机器学习-无监督学习2-spectralembedding与spectralclustering/)
+
 ### Generative Models
 - [**1. VAE** — The Basic Idea and the ELBO](/notes/笔记-机器学习-生成模型1-VAE基本思想与ELBO推导/)
 - [**2. VAE** — A Minimal Reproduction](/notes/笔记-机器学习-生成模型2-VAE最小复现/)

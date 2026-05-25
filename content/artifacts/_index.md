@@ -18,4 +18,5 @@ aliases:
 - `Artifact 2`：[ForgeFlow 框架迭代](/artifacts/02-forgeflow/)
 - `Artifact 3`：[Orogeny Sandbox 全链路验证](/artifacts/03-orogeny-sandbox/)
 - `Artifact 4`：[DEM 地貌稳定性 Demo 复盘](/artifacts/04-dem-landform-stability-lab/)
+- `Artifact 5`：[BERT 聚类几何探针 Pilot Note](/artifacts/05-bert-cluster-stability/)
 

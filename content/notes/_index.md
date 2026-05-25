@@ -10,6 +10,12 @@ aliases:
 <details open>
 <summary><strong>机器学习</strong></summary>
 
+### 无监督学习与表征几何
+从 PCA 与 whitening 开始，沿着方向、尺度、邻域图和聚类评估建立分析 embedding 空间的工具箱。
+
+- [**1. PCA / Whitening** — 主方向、尺度校正与邻域可视化](/notes/笔记-机器学习-无监督学习1-pcawhitening与邻域可视化/)
+- [**2. Spectral 方法** — 图拉普拉斯、结构表示与谱聚类](/notes/笔记-机器学习-无监督学习2-spectralembedding与spectralclustering/)
+
 ### 生成模型
 - [**1. VAE** — 基本思想与 ELBO 推导](/notes/笔记-机器学习-生成模型1-vae基本思想与elbo推导/)
 - [**2. VAE** — 最小复现](/notes/笔记-机器学习-生成模型2-vae最小复现/)

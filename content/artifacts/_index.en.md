@@ -14,4 +14,5 @@ This section is organized as numbered project tracks. It is where I keep materia
 - `Artifact 2`: [ForgeFlow Framework Track](/en/artifacts/02-forgeflow/)
 - `Artifact 3`: [Orogeny Sandbox End-to-End Validation](/en/artifacts/03-orogeny-sandbox/)
 - `Artifact 4`: [DEM Landform Stability Demo Review](/en/artifacts/04-dem-landform-stability-lab/)
+- `Artifact 5`: [BERT Cluster Geometry Probe — Pilot Note](/en/artifacts/05-bert-cluster-stability/)
 
