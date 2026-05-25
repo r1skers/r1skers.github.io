@@ -12,6 +12,8 @@ Starting from PCA and whitening, this series builds a toolkit for analyzing embe
 
 - [**1. PCA / Whitening** — Principal Directions, Scale Correction, and Neighborhood Visualization](/en/notes/笔记-机器学习-无监督学习1-pcawhitening与邻域可视化/)
 - [**2. Spectral Methods** — Graph Laplacians, Structural Embeddings, and Spectral Clustering](/en/notes/笔记-机器学习-无监督学习2-spectralembedding与spectralclustering/)
+- [**3. Clustering Algorithms** — KMeans, GMM, Hierarchical Clustering, and DBSCAN](/en/notes/笔记-机器学习-无监督学习3-kmeansgmm层次聚类与dbscan/)
+- [**4. Clustering Evaluation** — Internal Metrics, External Metrics, and Stability](/en/notes/笔记-机器学习-无监督学习4-聚类评估内部指标外部指标与稳定性/)
 
 ### Generative Models
 - [**1. VAE** — The Basic Idea and the ELBO](/notes/笔记-机器学习-生成模型1-VAE基本思想与ELBO推导/)
