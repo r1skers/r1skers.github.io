@@ -38,6 +38,9 @@ email: "t243057@st.yamagata-u.ac.jp"
 - [Tools](/tools/)：我自己会用到的本地工具、小型实用程序和工作流脚本。
 - [Artifacts](/artifacts/)：项目构建记录、实验轨迹、原型和验证过程。
 
+## CV
+
+- [研究向 CV 草稿](/cv/)
 
 ## 联系方式
 

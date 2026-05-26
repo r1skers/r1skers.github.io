@@ -1,6 +1,6 @@
 ---
 date: '2026-05-24T00:00:00+09:00'
-draft: true
+draft: false
 title: "[Artifact-5] BERT 聚类几何探针 Pilot Note"
 summary: "一个关于 BERT 文档片段表征的聚类探针实验：比较层间话题对齐、PCA 白化、球面 KMeans、不同聚类器与 K 粒度，观察 20 Newsgroups 语义结构如何在高层表示中浮现。"
 description: "Artifact-5 记录 bert-cluster-stability 的 W1 pilot：从 BERT 层间表示抽取、随机初始化对照、白化维度扫描、聚类器对照到簇—话题热力图解释，形成一个可复现的阶段性研究产物。"

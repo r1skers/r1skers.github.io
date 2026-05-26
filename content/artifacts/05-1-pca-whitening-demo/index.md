@@ -1,6 +1,6 @@
 ---
 date: '2026-05-26T10:30:00+09:00'
-draft: true
+draft: false
 title: "[Artifact-5.1] PCA Whitening 如何修复各向异性导致的聚类失败"
 summary: "一个最小合成实验：当无关的大方差方向支配向量空间时，KMeans 会稳定地抓错结构；PCA whitening 重新标定方向尺度后，低能量的真实簇结构重新变得可读。"
 description: "Artifact-5.1 是连接无监督学习笔记和 BERT 聚类几何探针的 micro-artifact：用一个可控的 synthetic dataset 展示 anisotropy、false stability、PCA whitening 与 clustering recovery 之间的关系。"

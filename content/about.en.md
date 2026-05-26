@@ -38,6 +38,10 @@ Roughly these areas:
 - [Tools](/tools/): local tools, small practical programs, and workflow scripts I actually use.
 - [Artifacts](/artifacts/): project build records, experiment traces, prototypes, and validation processes.
 
+## CV
+
+- [Research-oriented CV draft](/en/cv/)
+
 ## Contact
 
 - GitHub: [r1skers](https://github.com/r1skers)
