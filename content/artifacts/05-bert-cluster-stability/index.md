@@ -1,6 +1,6 @@
 ---
 date: '2026-05-24T00:00:00+09:00'
-draft: false
+draft: true
 title: "[Artifact-5] BERT 聚类几何探针 Pilot Note"
 summary: "一个关于 BERT 文档片段表征的聚类探针实验：比较层间话题对齐、PCA 白化、球面 KMeans、不同聚类器与 K 粒度，观察 20 Newsgroups 语义结构如何在高层表示中浮现。"
 description: "Artifact-5 记录 bert-cluster-stability 的 W1 pilot：从 BERT 层间表示抽取、随机初始化对照、白化维度扫描、聚类器对照到簇—话题热力图解释，形成一个可复现的阶段性研究产物。"
@@ -322,7 +322,7 @@ K = 5, 10, 20, 50
 
 ## 11. 当前结论
 
-当前 pilot 可以收束成六条：
+当前 pilot 可以收束成七条：
 
 1. 预训练 BERT 中存在可聚类读出的、与话题对齐的结构；同架构随机初始化模型中基本没有。
 2. 这个结构在高层更强，尤其 L10-L12。
@@ -330,10 +330,43 @@ K = 5, 10, 20, 50
 4. 白化维度存在 sweet spot：当前约 `d=100` 最好。
 5. 球面 KMeans 在当前设置下最能读出这个结构，但 Lloyd / GMM 也能读到，说明信号不是单一算法的副产物。
 6. `K≈20` 最贴近 20NG 的话题粒度；更小的 K 合并粗类，更大的 K 过度切碎。
+7. Stability ARI 暴露了一个"假稳定"陷阱：随机初始化模型在 baseline 配方下最稳定，但几乎没有话题对齐。
 
 短版结论：
 
 > BERT L12 document-segment embeddings contain topic-aligned organization that is most clearly recovered in a mid-dimensional whitened PCA subspace using spherical KMeans.
+
+### 11.1 Stability 不是 alignment 的替代品
+
+最初的问题里有一个很自然的直觉：如果一个聚类结构是真的，它应该对采样扰动更稳定。因此我补了一个 subset-resampling stability 实验：
+
+```text
+80% subset × B=50
+fit recipe on subset
+predict all documents
+pairwise ARI across all partitions
+```
+
+![stability alignment](stability_alignment.png)
+
+结果比"best recipe 更稳定"更有意思：
+
+| model | recipe | stability ARI | resampled NMI |
+|---|---:|---:|---:|
+| pretrained | baseline | ~0.464 | ~0.367 |
+| pretrained | best | ~0.450 | ~0.431 |
+| random-init | baseline | ~0.640 | ~0.052 |
+| random-init | best | ~0.225 | ~0.058 |
+
+这张表说明三件事：
+
+1. 在预训练 BERT 上，best recipe 主要提升 topic alignment，而不是单纯提升 stability。
+2. 随机初始化模型的 baseline stability 最高，但 NMI 接近地板。这是一个稳定但无意义的 partition。
+3. 白化之后，随机初始化模型的 stability 从约 0.64 暴跌到约 0.22，而预训练模型仍维持在约 0.45。
+
+因此，**resampling stability alone is not a reliable indicator of clustering quality**。它必须和 NMI / purity 这类 alignment 指标一起看。一个 partition 可以非常稳定，却只是各向异性几何反复给出的同一种 trivial cut。
+
+这也反过来支持 §15 的几何解释：如果 random-init 的高 stability 来自窄锥各向异性，那么 whitening 消掉主方向后，这种伪稳定就应该坍塌；实验结果正是如此。
 
 ---
 
@@ -367,6 +400,19 @@ silhouette / DB / CH 在这个设置下不区分两个模型。这看起来像"�
 
 如果先画图、后发现结论靠某个特定 seed 才成立，整条故事会很脆。**Sanity check 是图的地基**。
 
+### 12.4 稳定不等于有意义
+
+stability ARI 是必要的 robustness probe，但它不是语义质量本身。random-init baseline 的结果是一个很好的提醒：算法每次都重复同一种切法，不代表这套切法对应真实语义。
+
+更可靠的判断方式是把两个问题分开：
+
+```text
+alignment: 这个 partition 是否接近 topic labels？
+stability: 这个 partition 是否对采样扰动可重复？
+```
+
+当前结果显示，best recipe 在 pretrained BERT 上给出更高的 alignment，同时维持与 baseline 接近的 stability；而 random-init 的高 stability 只是一个 anisotropy artifact。
+
 ---
 
 ## 13. 当前边界
@@ -379,7 +425,7 @@ silhouette / DB / CH 在这个设置下不区分两个模型。这看起来像"�
 - 当前主样本是 `n=2000`，还未全量扩展到 ~18k
 - 文档片段使用的是 mean pooling，尚未系统比较 CLS / no-special-token / IDF 加权 pooling
 - `d≈100` 是经验上的 sweet spot，机制解释仍然有限
-- best recipe 下的 stability ARI 尚未补完
+- stability ARI 目前只在 `n=2000` pilot 规模下补完，尚未做全量稳定性实验
 - 20NG 标签本身不是唯一合理的语义层级，K=10 的粗语义合并也有解释价值
 
 ---
@@ -388,9 +434,9 @@ silhouette / DB / CH 在这个设置下不区分两个模型。这看起来像"�
 
 下一步不是继续无限试算法，而是补强主故事：
 
-1. 在最佳配方下补 stability ARI（subset-resample 验证 partition 鲁棒性）
-2. scale 到全量 20NG（n ≈ 18k，预估 CPU ~2 小时）
-3. 如果时间允许，再做 Wiki / Reddit / arXiv 的跨语料 domain separability 扩展
+1. scale 到全量 20NG（n ≈ 18k，窄 scope 验证主效应）
+2. 如果时间允许，再做 Wiki / Reddit / arXiv 的跨语料 domain separability 扩展
+3. polish artifact 和 SOP-ready paragraph
 
 更完整的 Stage 3 follow-up 框架目前仍放在本地 planning notes 中；本 artifact 只固定 W1 pilot 的实验链和阶段性发现。
 
@@ -497,6 +543,33 @@ $$
 - 准确的说法是"对话题聚类有用的维度"，承认它和**任务 / 度量选择绑定**
 
 承认这条边界本身也是表征分析的一个 lesson：好用的经验数值不需要被硬包装成理论数值。
+
+### 15.5 一个 synthetic sanity check
+
+为了确认上面的几何解释不是纯文字游戏，我做了一个最小合成实验。
+
+这个 demo 已经整理成独立 micro-artifact：[Artifact-5.1：PCA Whitening 如何修复各向异性导致的聚类失败](/artifacts/05-1-pca-whitening-demo/)。
+
+构造方式：
+
+- 三个真实簇藏在两个低能量 signal 方向里
+- 额外加入一个和标签无关的高方差 nuisance 方向
+- 对比 `L2 + Lloyd` 和 `PCA whitening + L2 + Lloyd`
+
+![synthetic whitening demo](whitening_demo.png)
+
+结果：
+
+| space | ARI | NMI | anisotropy | participation ratio |
+|---|---:|---:|---:|---:|
+| `L2` | ~0.001 | ~0.043 | ~0.893 | ~2.6 |
+| `whiten + L2` | ~0.983 | ~0.969 | ~-0.002 | ~9.9 |
+
+这个 toy 不是 BERT 的证明；它只是说明一种可能机制：
+
+> 当一个无关的大方差方向支配距离 / 角度几何时，KMeans 可以稳定地抓错结构。白化把各方向重新标定后，低能量的真实簇结构才重新变得可读。
+
+这和前面的 random-init stability 结果互相呼应：random-init baseline 的高 stability 可能来自各向异性制造的 trivial cut；whitening 消掉这类主方向后，如果没有真实结构，stability 会坍塌；如果有真实结构，topic alignment 会浮出来。
 
 ---
 
