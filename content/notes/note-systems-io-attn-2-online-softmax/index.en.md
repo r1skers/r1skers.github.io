@@ -6,8 +6,6 @@ summary: "Milakov & Gimelshein's 2018 NVIDIA tech report starts from the memory-
 description: "A study note on Milakov & Gimelshein 2018 (arXiv 1805.02867). It compares naive, safe, and online softmax, derives the online normalizer recurrence, explains why it is mathematically equivalent to safe softmax, and follows the paper's fused softmax + top-K extension."
 tags: ["Online Softmax", "Softmax", "Memory Bandwidth", "Numerical Stability", "Top-K", "NMT", "AI Infra", "IO-aware"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-底层架构-io感知注意力2-online-softmax-原始推导/
 ---
 
 # Systems / IO-Aware Attention Part 2: The Original Online Softmax Derivation

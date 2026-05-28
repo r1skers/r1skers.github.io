@@ -6,8 +6,6 @@ summary: "Starting from the 'image as a token sequence' idea, this note derives 
 description: "A study note on Vision Transformer (ViT) — patch embedding as Conv2d(stride=kernel), CLS token, learnable position embedding, reused encoder block, the inductive-bias trade-off, and attention rollout visualization. Built on top of the Transformer module from the previous note."
 tags: ["ViT", "Vision Transformer", "Patch Embedding", "Self-Attention", "Attention Rollout", "PyTorch"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/
 ---
 
 # Machine Learning / ViT and Visual Transformers: From Patches to Attention-Based Classification

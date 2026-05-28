@@ -9,7 +9,6 @@ categories: ["Crucible"]
 aliases:
   - /notes/笔记-transformer1-从注意力到编码器/
   - /notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/
-  - /notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/
 ---
 
 # 机器学习 / Transformer 与序列建模：从注意力到编码器

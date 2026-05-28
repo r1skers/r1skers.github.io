@@ -7,8 +7,6 @@ description: "The fourth note in the unsupervised learning series: clustering ev
 tags: ["Unsupervised Learning", "Clustering Evaluation", "Silhouette", "Davies-Bouldin", "Calinski-Harabasz", "NMI", "ARI", "Purity", "Stability", "Resampling"]
 categories: ["Crucible"]
 math: true
-aliases:
-  - /notes/笔记-机器学习-无监督学习4-聚类评估内部指标外部指标与稳定性/
 ---
 
 # Machine Learning / Unsupervised Learning Part 4: Clustering Evaluation, External Metrics, and Stability

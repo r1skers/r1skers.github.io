@@ -6,8 +6,6 @@ summary: "This part no longer introduces a new solver component. Instead, it com
 description: "Part 10 as a full-chain summary from spatial fields to stable inversion."
 tags: ["PDE", "Inverse Problem", "Regularization", "Optimization", "Observation", "Reliability", "Summary"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计10-从空间场到稳定反演的完整链条总结/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 10: A Full-Chain Summary from Spatial Fields to Stable Inversion

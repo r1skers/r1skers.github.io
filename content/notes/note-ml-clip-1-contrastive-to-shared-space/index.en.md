@@ -6,8 +6,6 @@ summary: "Starting from the paradigm shift of 'replacing labels with natural lan
 description: "A study note on CLIP — reframing image-text alignment as B-way classification, deriving symmetric InfoNCE loss, understanding learnable temperature and the batch-size coupling, L2 normalize as spherical geometry, causal text encoder with EOS feature extraction, and CIFAR-10 sanity training that visualizes emergent semantic structure on the unit sphere."
 tags: ["CLIP", "Contrastive Learning", "InfoNCE", "Multimodal", "Vision-Language", "Symmetric Loss", "Causal Self-Attention", "Temperature", "PyTorch"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-clip与多模态对齐1-从对比学习到图文共享空间/
 ---
 
 # Machine Learning / CLIP and Multimodal Alignment: From Contrastive Learning to a Shared Image-Text Space

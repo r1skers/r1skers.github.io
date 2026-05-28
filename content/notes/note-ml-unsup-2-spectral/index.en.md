@@ -7,8 +7,6 @@ description: "The second note in the unsupervised learning series: spectral embe
 tags: ["Unsupervised Learning", "Spectral Embedding", "Spectral Clustering", "Graph Laplacian", "Graph Learning", "KMeans", "Representation Geometry"]
 categories: ["Crucible"]
 math: true
-aliases:
-  - /notes/笔记-机器学习-无监督学习2-spectralembedding与spectralclustering/
 ---
 
 # Machine Learning / Unsupervised Learning Part 2: Spectral Embedding and Spectral Clustering

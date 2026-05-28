@@ -8,7 +8,6 @@ tags: ["Real Analysis", "Epsilon-N", "Sequence", "Convergence", "Cauchy Sequence
 categories: ["Crucible"]
 aliases:
   - /notes/real-analysis-1-epsilon-n-and-cauchy-sequences/
-  - /notes/笔记-实分析1-收敛、唯一性、有界性与柯西列/
 ---
 
 # Real Analysis Part 1: Convergence, Uniqueness, Boundedness, and Cauchy Sequences

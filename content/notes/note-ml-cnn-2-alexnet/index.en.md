@@ -6,8 +6,6 @@ summary: "A study note on how AlexNet combined large CNNs, ReLU, GPU training, d
 description: "A study note on AlexNet, its architecture, ImageNet classification setup, and lightweight PyTorch reproduction."
 tags: ["CNN", "Visual Representation", "AlexNet", "Image Classification", "ImageNet", "PyTorch", "Deep Learning"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-cnn与视觉表征2-alexnet深度视觉时代的起点/
 ---
 
 # Machine Learning / CNN and Visual Representation: AlexNet, the Starting Point of Deep Visual Learning

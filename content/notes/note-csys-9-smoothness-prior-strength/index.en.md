@@ -6,8 +6,6 @@ summary: "Part 8 explained why regularization is necessary. This part continues 
 description: "Part 9 on smoothness terms, prior terms, and regularization strength in blockwise inversion."
 tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Smoothness", "Stability", "Kappa"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计9-平滑项、先验项与正则化强度/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 9: Smoothness Terms, Prior Terms, and Regularization Strength

@@ -6,8 +6,6 @@ summary: "Part 5 gives us a parameter set that can explain the observations reas
 description: "Part 6 on inversion-result analysis, validation, and parameter credibility."
 tags: ["PDE", "Inverse Problem", "Observation", "Validation", "Parameter Inversion", "Reliability", "Identifiability"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计6-反演结果分析与参数可信度/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 6: Inversion Result Analysis and Parameter Credibility

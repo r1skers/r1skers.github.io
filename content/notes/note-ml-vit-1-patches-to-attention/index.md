@@ -9,7 +9,6 @@ categories: ["Crucible"]
 aliases:
   - /notes/笔记-vit1-从图像分块到注意力分类/
   - /notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/
-  - /notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/
 ---
 
 # 机器学习 / ViT 与视觉 Transformer：从图像分块到注意力分类

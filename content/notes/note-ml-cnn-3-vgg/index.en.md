@@ -6,8 +6,6 @@ summary: "A study note on why VGG uses repeated 3x3 convolutions, regular deep s
 description: "A study note on VGG, repeated 3x3 convolutions, VGG-16 architecture, parameter count, and the bridge from AlexNet to ResNet."
 tags: ["CNN", "Visual Representation", "VGG", "ImageNet", "Deep Learning", "Computer Vision"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/
 ---
 
 # Machine Learning / CNN and Visual Representation: VGG, Depth and Small Convolution Filters

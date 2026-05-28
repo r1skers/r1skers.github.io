@@ -6,8 +6,6 @@ summary: "A study note on how residual connections address the degradation probl
 description: "A study note on ResNet, residual learning, degradation problem, CIFAR-10 reproduction, and visual backbone transfer."
 tags: ["CNN", "Visual Representation", "ResNet", "Residual Learning", "CIFAR-10", "PyTorch", "Deep Learning"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-cnn与视觉表征4-resnet残差学习与退化问题/
 ---
 
 # Machine Learning / CNN and Visual Representation: ResNet, Residual Learning and the Degradation Problem

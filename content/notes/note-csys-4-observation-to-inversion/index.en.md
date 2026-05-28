@@ -6,8 +6,6 @@ summary: "With observations known and the kappa field unknown, this part defines
 description: "Part 4 on defining the inversion problem from observations."
 tags: ["PDE", "Observation", "Inverse Problem", "Parameter Inversion", "Forward Model", "Kappa"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计4-从观测数据到参数反演/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 4: From Observations to Parameter Inversion

@@ -6,8 +6,6 @@ summary: "With log-parameterization and L-BFGS-B, we can already obtain a more n
 description: "Part 8 on regularization, priors, and stable inversion for blockwise kappa recovery."
 tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Stability", "Kappa", "Reliability"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计8-正则化、先验与稳定反演/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 8: Regularization, Priors, and Stable Inversion

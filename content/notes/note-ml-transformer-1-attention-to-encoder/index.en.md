@@ -6,8 +6,6 @@ summary: "Starting from the motivation behind self-attention, this note derives 
 description: "A study note on Transformer fundamentals — self-attention, multi-head, positional encoding, pre-norm encoder block — with a minimal encoder-only reforge on two synthetic argmax-style tasks."
 tags: ["Transformer", "Self-Attention", "Positional Encoding", "PyTorch", "Encoder"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/
 ---
 
 # Machine Learning / Transformer and Sequence Modeling: From Attention to the Encoder

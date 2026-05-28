@@ -8,7 +8,6 @@ tags: ["Functional Analysis", "Bounded Operator", "Operator Norm", "Dual Space",
 categories: ["Crucible"]
 aliases:
   - /notes/real-analysis-4-operators-dual-spectrum-compact/
-  - /notes/笔记-实分析4-有界算子对偶谱与紧算子/
   - /notes/functional-analysis-2-operators-dual-spectrum/
 ---
 

@@ -6,8 +6,6 @@ summary: "Using orogeny-inversion-validation-lab as the running example, this no
 description: "Part 2 on attaching the terrain to a PDE and evolving it into a forward trajectory."
 tags: ["PDE", "Time Marching", "CFL", "Flux", "Irregular Grid", "Numerical Methods"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计2-从地形到时间演化/
 ---
 
 # Part 2: From Terrain to Temporal Evolution

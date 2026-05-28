@@ -7,8 +7,6 @@ description: "The first note in the unsupervised learning series: PCA, whitening
 tags: ["Unsupervised Learning", "PCA", "Whitening", "t-SNE", "UMAP", "Dimensionality Reduction", "Representation Geometry", "KL Divergence"]
 categories: ["Crucible"]
 math: true
-aliases:
-  - /notes/笔记-机器学习-无监督学习1-pcawhitening与邻域可视化/
 ---
 
 # Machine Learning / Unsupervised Learning Part 1: PCA, Whitening, and Neighborhood Visualization

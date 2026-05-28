@@ -7,8 +7,6 @@ description: "The third note in the unsupervised learning series: KMeans, spheri
 tags: ["Unsupervised Learning", "Clustering", "KMeans", "Spherical KMeans", "GMM", "EM Algorithm", "Hierarchical Clustering", "DBSCAN", "HDBSCAN", "Representation Geometry"]
 categories: ["Crucible"]
 math: true
-aliases:
-  - /notes/笔记-机器学习-无监督学习3-kmeansgmm层次聚类与dbscan/
 ---
 
 # Machine Learning / Unsupervised Learning Part 3: KMeans, GMM, Hierarchical Clustering, and DBSCAN

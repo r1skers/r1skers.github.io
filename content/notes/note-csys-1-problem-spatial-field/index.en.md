@@ -6,8 +6,6 @@ summary: "Using orogeny-inversion-validation-lab as the example, this part intro
 description: "Part 1 on problem setup, initial terrain construction, and irregular-grid geometry."
 tags: ["PDE", "Spatial Discretization", "Irregular Grid", "Control Volume", "Numerical Methods", "Physics Modeling"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计1-问题背景与空间场构造/
 ---
 
 # Part 1: Problem Setup and Spatial Field Construction

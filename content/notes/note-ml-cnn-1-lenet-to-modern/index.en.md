@@ -6,8 +6,6 @@ summary: "Starting from the LeNet-5 paper, this note reproduces a paper-like CNN
 description: "A study note on LeNet-5 and modern CNN variants on MNIST."
 tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-cnn与视觉表征1-从lenet5到moderncnn/
 ---
 
 # Machine Learning / CNN and Visual Representation: From LeNet-5 to Modern CNN

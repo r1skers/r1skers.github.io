@@ -6,8 +6,6 @@ summary: "Part 5 already makes inversion run, but parameter constraints, step-si
 description: "Part 7 on log-parameterization and L-BFGS-B for more stable blockwise kappa inversion."
 tags: ["PDE", "Inverse Problem", "Optimization", "L-BFGS-B", "Log Parameterization", "Kappa", "Reliability"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计7-从有限差分梯度下降到l-bfgs与对数参数化/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 7: From Finite-Difference Gradient Descent to L-BFGS and Log-Parameterization

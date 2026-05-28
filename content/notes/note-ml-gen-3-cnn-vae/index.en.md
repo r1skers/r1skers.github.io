@@ -6,8 +6,6 @@ summary: "Starting from the MLP-VAE baseline, this note replaces the encoder and
 description: "A study note on replacing an MLP VAE with a convolutional VAE on MNIST."
 tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-生成模型3-cnnvae从mlp到卷积结构/
 ---
 
 # Machine Learning / Generative Models: CNN-VAE, from MLPs to Convolutional Structure

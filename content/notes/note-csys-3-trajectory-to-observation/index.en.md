@@ -13,8 +13,6 @@ tags:
   - "Numerical Methods"
 categories:
   - "Crucible"
-aliases:
-  - /notes/笔记-计算科学与高可靠系统设计3-从完整轨迹到观测数据/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 3: From Full Trajectories to Observations

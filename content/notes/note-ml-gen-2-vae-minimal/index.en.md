@@ -6,8 +6,6 @@ summary: "A minimal PyTorch reproduction of an MLP-VAE on MNIST, connecting the 
 description: "A minimal PyTorch reproduction of Variational Autoencoder on MNIST."
 tags: ["Generative Models", "VAE", "PyTorch", "MNIST", "Reproduction"]
 categories: ["Crucible"]
-aliases:
-  - /notes/笔记-机器学习-生成模型2-vae最小复现/
 ---
 
 # Machine Learning / Generative Models: A Minimal VAE Reproduction
