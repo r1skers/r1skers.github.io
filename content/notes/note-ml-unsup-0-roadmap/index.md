@@ -1,6 +1,6 @@
 ---
 date: '2026-05-25T10:00:00+09:00'
-draft: true
+draft: false
 title: '机器学习 / 无监督学习 Part 0：路线图与核心问题'
 summary: "无监督学习专题的入口笔记。从“没有标签并不等于没有目标”出发，整理表征空间、距离尺度、降维、聚类假设、图结构和聚类评估之间的主线。"
 description: "无监督学习路线图：从表征空间和距离几何出发，理解 PCA、whitening、t-SNE/UMAP、spectral embedding、KMeans、GMM、DBSCAN 以及聚类评估的核心位置。"

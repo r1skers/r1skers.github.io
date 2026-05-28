@@ -5,6 +5,17 @@ summary: "An index of course notes and self-study records."
 ---
 
 <details open>
+<summary><strong>Linear Algebra</strong></summary>
+
+> 🗺️ [**Unified Knowledge Map**](/notes/note-la-map/) — Interactive concept map across 8 branches. Search, hover cards, shareable `?node=` URLs. The entry point and navigation for the series.
+
+**Foundation and branch notes**
+
+- [**Part 0** — Matrix, Linear Map, and Coordinate Language](/notes/note-la-0-foundation/) — The series foundation: matrix as the coordinate representation of a linear map
+
+</details>
+
+<details>
 <summary><strong>Machine Learning</strong></summary>
 
 ### Unsupervised Learning and Representation Geometry
@@ -55,16 +66,6 @@ Starting from GPU memory hierarchy, IO-aware algorithms, and inference systems, 
 - [**Real Analysis 2** — The Supremum Axiom, Monotone Convergence, and the Equivalence Chain of Completeness](/notes/note-ra-2-supremum-completeness)
 - [**Real Analysis 3** — Metric Spaces, Normed Spaces, Hilbert Spaces, and the Foundations of Fourier](/notes/note-ra-3-metric-normed-hilbert-fourier)
 - [**Real Analysis 4** — Bounded Linear Operators, Dual Space, Spectral Theory, and Compact Operators](/notes/note-ra-4-operators-dual-spectrum-compact)
-
-</details>
-
-<details>
-<summary><strong>Linear Algebra</strong></summary>
-
-- 🗺️ [**Unified Knowledge Map** — Interactive concept map across 8 branches (search · hover cards · shareable URLs)](/notes/note-la-map/)
-- [**Part 0** — Intuition for Rank, Null Space, and SVD](/notes/note-la-0-rank-nullspace-svd)
-- [**Part 1** — Singular Matrices and Parameter Identifiability](/notes/note-la-1-singular-and-identifiability)
-- [**Part 2** — Regularization and Stable Inversion](/notes/note-la-2-regularization-and-stable-inversion)
 
 </details>
 

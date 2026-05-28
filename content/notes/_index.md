@@ -8,6 +8,17 @@ aliases:
 ---
 
 <details open>
+<summary><strong>线性代数</strong></summary>
+
+> 🗺️ [**大一统知识地图**](/notes/note-la-map/) — 8 支结构的交互式概念地图。支持搜索、悬停看卡片、`?node=` 链接分享。整支系列的入口与导览。
+
+**基础与分支笔记**
+
+- [**Part 0** — 矩阵、线性映射与坐标语言](/notes/note-la-0-foundation/) — 系列地基：矩阵作为线性映射的坐标表示
+
+</details>
+
+<details>
 <summary><strong>机器学习</strong></summary>
 
 ### 无监督学习与表征几何
@@ -58,16 +69,6 @@ aliases:
 - [**实分析 2** — 确界公理、单调收敛与完备性等价链](/notes/note-ra-2-supremum-completeness)
 - [**实分析 3** — 度量空间、赋范空间、Hilbert 空间与傅里叶基础](/notes/note-ra-3-metric-normed-hilbert-fourier)
 - [**实分析 4** — 有界线性算子、对偶空间、谱理论与紧算子](/notes/note-ra-4-operators-dual-spectrum-compact)
-
-</details>
-
-<details>
-<summary><strong>线性代数</strong></summary>
-
-- 🗺️ [**大一统知识地图** — 8 支结构的交互式概念地图（支持搜索、悬停看卡片、分享 URL）](/notes/note-la-map/)
-- [**Part 0** — 秩、零空间与 SVD 的直觉](/notes/note-la-0-rank-nullspace-svd)
-- [**Part 1** — 奇异矩阵与参数辨识性](/notes/note-la-1-singular-and-identifiability)
-- [**Part 2** — 正则化与稳定反演](/notes/note-la-2-regularization-and-stable-inversion)
 
 </details>
 

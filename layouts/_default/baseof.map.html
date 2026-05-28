@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Title }} · {{ site.Title }}</title>
+  <title>{{ .Title }} &middot; {{ site.Title }}</title>
   <meta name="description" content="{{ .Description | default .Summary }}">
+  <link rel="stylesheet" href="{{ "assets/la-map/la-map.css" | relURL }}">
+  <script defer src="{{ "assets/la-map/la-map-data.js" | relURL }}"></script>
+  {{ range sort (readDir "static/assets/la-map/branches") "Name" }}
+  <script defer src="{{ printf "assets/la-map/branches/%s" .Name | relURL }}"></script>
+  {{ end }}
+  <script defer src="{{ "assets/la-map/la-map.js" | relURL }}"></script>
   <script>
     window.MathJax = {
       tex: {
@@ -18,55 +24,9 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #020617;
-      overflow: hidden;
-      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-    }
-    .map-back {
-      position: fixed;
-      top: 16px;
-      left: 16px;
-      z-index: 10;
-      color: #64748b;
-      text-decoration: none;
-      font-size: 13px;
-      padding: 6px 12px;
-      border: 1px solid #1e293b;
-      border-radius: 6px;
-      background: rgba(2, 6, 23, 0.7);
-      backdrop-filter: blur(4px);
-      transition: color .15s, border-color .15s;
-    }
-    .map-back:hover {
-      color: #cbd5e1;
-      border-color: #334155;
-    }
-    /* 覆盖嵌入地图的外框，铺满整屏 */
-    .la-map-wrap { margin: 0 !important; }
-    .la-viewport {
-      height: 100vh !important;
-      min-height: 100vh !important;
-      border-radius: 0 !important;
-      border: none !important;
-    }
-    .la-hint {
-      position: fixed;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      margin: 0 !important;
-    }
-    /* 隐藏 markdown 开头的提示 blockquote（已在 .la-hint 里显示了） */
-    body > blockquote { display: none !important; }
-  </style>
 </head>
 <body>
-  <a class="map-back" href="{{ "/" | relURL }}">← 返回</a>
+  <a class="map-back" href="{{ "/" | relURL }}">&larr; 返回</a>
   {{ block "main" . }}{{ end }}
 </body>
 </html>

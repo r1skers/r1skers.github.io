@@ -1,3 +1,22 @@
 {{ define "main" }}
 {{ .Content }}
+<div class="la-map-wrap">
+  <div class="la-search">
+    <input type="search" id="la-search-input" placeholder="搜索概念，如 PCA、SVD、Kronecker...（按 / 快速聚焦）" autocomplete="off">
+    <div class="la-search-results" id="la-search-results"></div>
+  </div>
+  <div class="la-stage" id="la-stage">
+    <div class="la-canvas" id="la-canvas">
+      <svg class="la-edges" id="la-edges"></svg>
+      <div id="la-nodes"></div>
+    </div>
+  </div>
+  <div class="la-hint">搜索定位 · 拖动平移 · 滚轮缩放 · 双击重置 · 鼠标悬停看卡片</div>
+  <div class="la-popup" id="la-popup">
+    <span class="la-popup-share" id="la-popup-share" title="复制分享链接">链接</span>
+    <span class="la-popup-close" id="la-popup-close">×</span>
+    <div class="la-popup-title" id="la-popup-title"></div>
+    <div class="la-popup-body" id="la-popup-body"></div>
+  </div>
+</div>
 {{ end }}
