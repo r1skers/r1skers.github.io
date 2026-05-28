@@ -1,9 +1,9 @@
 ---
 date: '2026-05-26T10:30:00+09:00'
 draft: false
-title: "[Artifact-5.1] How PCA Whitening Repairs Anisotropy-Driven Clustering Failure"
-summary: "A minimal synthetic experiment: when an unrelated high-variance direction dominates the vector space, KMeans cleanly clusters by the wrong axis. PCA whitening rescales directions and lets the true low-energy cluster structure become readable again."
-description: "Artifact-5.1 is a micro-artifact bridging the unsupervised learning notes and the BERT cluster geometry probe. It uses a controlled synthetic dataset to expose the relationship between anisotropy, false stability, PCA whitening, and clustering recovery."
+title: "[Artifact-5.1.1] How PCA Whitening Repairs Anisotropy-Driven Clustering Failure"
+summary: "A methodological footnote to Artifact-5.1 clustering view. A minimal synthetic experiment: when an unrelated high-variance direction dominates the vector space, KMeans cleanly clusters by the wrong axis. PCA whitening rescales directions and lets the true low-energy cluster structure become readable again."
+description: "Artifact-5.1.1 is a micro-artifact under the Artifact-5.1 clustering view; it also serves as an experimental footnote to the PCA whitening formula in the unsupervised learning notes. It uses a controlled synthetic dataset to expose the relationship between anisotropy, false stability, PCA whitening, and clustering recovery."
 tags:
   - "Artifact"
   - "PCA Whitening"
@@ -13,9 +13,10 @@ tags:
   - "Synthetic Demo"
 categories:
   - "Artifacts"
-weight: 51
+weight: 52
 math: true
 aliases:
+  - /en/artifacts/05-1-pca-whitening-demo/
   - /en/artifacts/pca-whitening-demo/
 ---
 
@@ -33,7 +34,7 @@ This page tries to answer:
 
 > If a vector space is dominated by an unrelated high-variance direction, will KMeans cleanly cluster by the wrong axis? Can PCA whitening surface the true low-energy cluster structure again?
 
-The question comes from [Artifact-5: BERT Cluster Geometry Probe](/en/artifacts/05-bert-cluster-stability/).
+The question comes from [Artifact-5.1: BERT Clustering View](/en/artifacts/05-1-clustering-view/).
 
 In the BERT clustering pilot, `PCA whitening + spherical KMeans` recovered the 20 Newsgroups topic-aligned structure more clearly than the baseline. But that raises an interpretive question:
 
@@ -71,7 +72,7 @@ baseline: L2 normalize + Lloyd KMeans
 whitened: PCA whitening + L2 normalize + Lloyd KMeans
 ```
 
-BERT is deliberately not used here, nor is spherical KMeans. The point is not to replicate the full Artifact-5 pipeline, but to isolate the geometric effect of whitening itself.
+BERT is deliberately not used here, nor is spherical KMeans. The point is not to replicate the full Artifact-5.1 pipeline, but to isolate the geometric effect of whitening itself.
 
 ---
 
@@ -113,14 +114,14 @@ In one line:
 
 ## 6. Relation to the BERT artifact
 
-This toy demo gives a cleaner geometric reading of the Artifact-5 observations:
+This toy demo gives a cleaner geometric reading of the Artifact-5.1 observations:
 
 - Random-init BERT under baseline can produce high stability with NMI near the floor;
 - That kind of stability can come from a trivial partition driven by anisotropy;
 - Once whitening removes the dominant direction, if there is no real structure, stability collapses;
 - If there is real structure, topic alignment becomes more visible.
 
-So the more careful Artifact-5 statement is not:
+So the more careful Artifact-5.1 statement is not:
 
 > Whitening makes all clustering better.
 
@@ -163,7 +164,7 @@ The boundaries of this demo matter as much as the result:
 - On real embeddings, whitening can also amplify noise in small-eigenvalue directions;
 - So the whitening dimension needs to be swept, not maximized.
 
-This is also one reason Artifact-5 sees the `d≈100` sweet spot:
+This is also one reason Artifact-5.1 sees the `d≈100` sweet spot:
 too few dimensions can drop signal; too many can also whiten noise directions back in.
 
 ---

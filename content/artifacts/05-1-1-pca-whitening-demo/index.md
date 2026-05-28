@@ -1,9 +1,9 @@
 ---
 date: '2026-05-26T10:30:00+09:00'
 draft: false
-title: "[Artifact-5.1] PCA Whitening 如何修复各向异性导致的聚类失败"
-summary: "一个最小合成实验：当无关的大方差方向支配向量空间时，KMeans 会稳定地抓错结构；PCA whitening 重新标定方向尺度后，低能量的真实簇结构重新变得可读。"
-description: "Artifact-5.1 是连接无监督学习笔记和 BERT 聚类几何探针的 micro-artifact：用一个可控的 synthetic dataset 展示 anisotropy、false stability、PCA whitening 与 clustering recovery 之间的关系。"
+title: "[Artifact-5.1.1] PCA Whitening 如何修复各向异性导致的聚类失败"
+summary: "Artifact-5.1 聚类视角的方法学边注。最小合成实验：当无关的大方差方向支配向量空间时，KMeans 会稳定地抓错结构；PCA whitening 重新标定方向尺度后，低能量的真实簇结构重新变得可读。"
+description: "Artifact-5.1.1 是 Artifact-5.1 聚类视角下的 micro-artifact，也是无监督学习笔记里 PCA whitening 公式的实验脚注：用可控合成 dataset 展示 anisotropy、false stability、PCA whitening 与 clustering recovery 之间的关系。"
 tags:
   - "Artifact"
   - "PCA Whitening"
@@ -13,9 +13,10 @@ tags:
   - "Synthetic Demo"
 categories:
   - "Artifacts"
-weight: 51
+weight: 52
 math: true
 aliases:
+  - /artifacts/05-1-pca-whitening-demo/
   - /artifacts/pca-whitening-demo/
 ---
 
@@ -33,7 +34,7 @@ aliases:
 
 > 如果一个向量空间被无关的大方差方向支配，KMeans 会不会稳定地抓错结构？PCA whitening 能不能把低能量的真实簇结构重新显露出来？
 
-这个问题来自 [Artifact-5：BERT 聚类几何探针](/artifacts/05-bert-cluster-stability/)。
+这个问题来自 [Artifact-5.1：BERT 聚类视角](/artifacts/05-1-clustering-view/)。
 
 在 BERT clustering pilot 中，`PCA whitening + spherical KMeans` 比 baseline 更容易读出 20 Newsgroups 的 topic-aligned structure。但这会引出一个解释问题：
 
@@ -72,7 +73,7 @@ whitened: PCA whitening + L2 normalize + Lloyd KMeans
 ```
 
 这里故意不用 BERT，也不用 spherical KMeans。  
-目的不是复刻 Artifact-5 的完整 pipeline，而是隔离 whitening 本身的几何作用。
+目的不是复刻 Artifact-5.1 的完整 pipeline，而是隔离 whitening 本身的几何作用。
 
 ---
 
@@ -115,14 +116,14 @@ PCA whitening 做了两件事：
 
 ## 6. 和 BERT artifact 的关系
 
-这个 toy demo 给 Artifact-5 的观察提供了一个更清楚的几何解释：
+这个 toy demo 给 Artifact-5.1 的观察提供了一个更清楚的几何解释：
 
 - random-init BERT 在 baseline 下可能产生高 stability，但 NMI 接近地板；
 - 这类 stability 可能来自各向异性主方向导致的 trivial partition；
 - whitening 消掉主方向后，如果没有真实结构，stability 会坍塌；
 - 如果有真实结构，topic alignment 会更容易浮出来。
 
-所以 Artifact-5 里更成熟的结论不是：
+所以 Artifact-5.1 里更成熟的结论不是：
 
 > whitening 让所有聚类都更好。
 
@@ -165,7 +166,7 @@ whitening 重新标定方向尺度
 - 在真实 embedding 中，whitening 也可能放大小特征值方向的噪声；
 - 因此 whitening 维度需要 sweep，而不是默认越多越好。
 
-这也是 Artifact-5 中 `d≈100` sweet spot 的原因之一：  
+这也是 Artifact-5.1 中 `d≈100` sweet spot 的原因之一：  
 太低维可能丢 signal，太高维可能把噪声方向也白化进来。
 
 ---

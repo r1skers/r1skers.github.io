@@ -28,7 +28,7 @@ Current focus: representation geometry, unsupervised learning, transformer embed
 ### BERT Cluster Geometry Probe
 
 Independent research artifact, 2026  
-Links: [Artifact-5](/artifacts/05-bert-cluster-stability/), [Artifact-5.1](/artifacts/05-1-pca-whitening-demo/)
+Links: [Artifact-5 series](/en/artifacts/05-bert-representation-probes/) · [5.1 clustering view](/en/artifacts/05-1-clustering-view/) · [5.1.1 whitening demo](/en/artifacts/05-1-1-pca-whitening-demo/) · [GitHub](https://github.com/r1skers/bert-cluster-stability)
 
 - Designed an unsupervised probing pipeline to analyze whether BERT document-segment embeddings contain topic-aligned geometric structure across layers.
 - Extracted 13-layer `bert-base-uncased` representations on 20 Newsgroups and compared pretrained BERT against a random-initialized architecture control.

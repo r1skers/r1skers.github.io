@@ -29,7 +29,7 @@ aliases:
 
 ### BERT 表征聚类几何探针 — *独立研究，2026*
 
-链接：[Artifact-5](/artifacts/05-bert-cluster-stability/) · [Artifact-5.1](/artifacts/05-1-pca-whitening-demo/) · [GitHub](https://github.com/r1skers/bert-cluster-stability)
+链接：[Artifact-5 系列](/artifacts/05-bert-representation-probes/) · [5.1 聚类视角](/artifacts/05-1-clustering-view/) · [5.1.1 Whitening demo](/artifacts/05-1-1-pca-whitening-demo/) · [GitHub](https://github.com/r1skers/bert-cluster-stability)
 
 自主设计的无监督探针流水线，分析 BERT 在文档级表征上是否在各层中携带与主题对齐的几何结构，并显式引入 random-init 对照作为几何零模型。
 

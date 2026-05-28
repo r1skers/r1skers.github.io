@@ -18,5 +18,8 @@ aliases:
 - `Artifact 2`：[ForgeFlow 框架迭代](/artifacts/02-forgeflow/)
 - `Artifact 3`：[Orogeny Sandbox 全链路验证](/artifacts/03-orogeny-sandbox/)
 - `Artifact 4`：[DEM 地貌稳定性 Demo 复盘](/artifacts/04-dem-landform-stability-lab/)
-- `Artifact 5`：[BERT 聚类几何探针 Pilot Note](/artifacts/05-bert-cluster-stability/)
-- `Artifact 5.1`：[PCA Whitening 各向异性聚类 Demo](/artifacts/05-1-pca-whitening-demo/)
+- `Artifact 5`：[BERT 表征探针：多视角对照](/artifacts/05-bert-representation-probes/)
+  - `Artifact 5.1`：[BERT 聚类视角](/artifacts/05-1-clustering-view/)
+    - `Artifact 5.1.1`：[PCA Whitening 各向异性聚类 Demo](/artifacts/05-1-1-pca-whitening-demo/)
+  - `Artifact 5.2`：Linear probe 视角（进行中）
+  - `Artifact 5.3`：Fisher 几何视角（进行中）

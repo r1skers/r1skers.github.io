@@ -1,9 +1,9 @@
 ---
 date: '2026-05-24T00:00:00+09:00'
 draft: false
-title: "[Artifact-5] BERT Cluster Geometry Probe — Pilot Note"
-summary: "A clustering-based probe of BERT document-segment representations: compares layerwise topic alignment, PCA whitening, spherical KMeans, alternative clusterers, and cluster granularity, tracking how 20 Newsgroups semantic structure emerges in late-layer representations."
-description: "Artifact-5 documents the W1 pilot of bert-cluster-stability: from BERT layer extraction, random-init control, whitening-dimension sweep, and clusterer comparison to cluster-topic heatmap interpretation, packaged as a reproducible staged artifact."
+title: "[Artifact-5.1] BERT Clustering View — Pilot Note"
+summary: "The clustering view inside the Artifact-5 multi-probe series: compares layerwise topic alignment, PCA whitening, spherical KMeans, alternative clusterers, K granularity, and subset-resampling stability on BERT document-segment representations from 20 Newsgroups."
+description: "Artifact-5.1 is the clustering-view child artifact under the BERT representation probes umbrella. It packages the W1 pilot of bert-cluster-stability: from BERT layer extraction, random-init control, whitening-dimension sweep, clusterer comparison, and stability ARI to cluster-topic heatmap interpretation."
 tags:
   - "Artifact"
   - "BERT"
@@ -13,9 +13,10 @@ tags:
   - "20 Newsgroups"
 categories:
   - "Artifacts"
-weight: 50
+weight: 51
 math: true
 aliases:
+  - /en/artifacts/05-bert-cluster-stability/
   - /en/artifacts/bert-cluster-stability/
 ---
 

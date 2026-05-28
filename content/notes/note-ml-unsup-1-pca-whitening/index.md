@@ -282,7 +282,7 @@ $$
 
 这和 ridge / Tikhonov 正则化的思想很像：不完全相信小特征值方向，给谱缩放加一个地板，避免噪声爆炸。
 
-一个配套的最小实验见：[Artifact-5.1：PCA Whitening 如何修复各向异性导致的聚类失败](/artifacts/05-1-pca-whitening-demo/)。  
+一个配套的最小实验见：[Artifact-5.1.1：PCA Whitening 如何修复各向异性导致的聚类失败](/artifacts/05-1-1-pca-whitening-demo/)。  
 那个 demo 人为加入一个与标签无关的大方差方向，展示普通 KMeans 如何被 nuisance anisotropy 误导，以及 whitening 如何让低能量簇结构重新变得可读。
 
 ---
