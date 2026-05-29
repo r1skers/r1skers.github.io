@@ -10,7 +10,7 @@ aliases:
 <details open>
 <summary><strong>线性代数</strong></summary>
 
-> 🗺️ [**大一统知识地图**](/notes/note-la-map/) — 8 支结构的交互式概念地图。支持搜索、悬停看卡片、`?node=` 链接分享。整支系列的入口与导览。
+> 🗺️ [**大一统知识地图**](https://r1skers.github.io/r1skers-knowledge-map/) — 独立部署的交互式概念地图。支持搜索、悬停看卡片、`?node=` 链接分享。整支系列的入口与导览。
 
 **基础与分支笔记**
 
