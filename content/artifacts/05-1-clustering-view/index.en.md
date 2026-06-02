@@ -3,7 +3,7 @@ date: '2026-05-24T00:00:00+09:00'
 draft: false
 title: "[Artifact-5.1] BERT Clustering View — Pilot Note"
 summary: "The clustering view inside the Artifact-5 multi-probe series: compares layerwise topic alignment, PCA whitening, spherical KMeans, alternative clusterers, K granularity, and subset-resampling stability on BERT document-segment representations from 20 Newsgroups."
-description: "Artifact-5.1 is the clustering-view child artifact under the BERT representation probes umbrella. It packages the W1 pilot of bert-cluster-stability: from BERT layer extraction, random-init control, whitening-dimension sweep, clusterer comparison, and stability ARI to cluster-topic heatmap interpretation."
+description: "Artifact-5.1 is the clustering-view child artifact under the BERT representation probes umbrella. It packages the clustering-view findings of bert-cluster-stability: from BERT layer extraction, random-init control, whitening-dimension sweep, clusterer comparison, and stability ARI to cluster-topic heatmap interpretation."
 tags:
   - "Artifact"
   - "BERT"
@@ -25,7 +25,7 @@ This artifact records the W1 pilot, not a final paper-style result. The goal is 
 
 ## 1. Goal
 
-This page records the W1 pilot of `bert-cluster-stability`:  
+This page records the clustering view of `bert-cluster-stability` (completed 2026-05):  
 use clustering as a probe to see whether BERT's document-segment representations contain readable topic-aligned structure.
 
 Problem setup:

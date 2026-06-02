@@ -3,7 +3,7 @@ date: '2026-05-24T00:00:00+09:00'
 draft: false
 title: "[Artifact-5.1] BERT 聚类视角 Pilot Note"
 summary: "Artifact-5 多视角对照系列的聚类视角：比较 BERT 文档片段表征的层间话题对齐、PCA 白化、球面 KMeans、不同聚类器与 K 粒度，并补 subset-resampling stability 对照，观察 20 Newsgroups 语义结构如何在高层表示中浮现。"
-description: "Artifact-5.1 是 BERT 表征探针系列下的聚类视角 child artifact：从 BERT 层间表示抽取、随机初始化对照、白化维度扫描、聚类器对照、stability ARI 到簇—话题热力图解释，形成可复现的 W1 pilot 阶段产物。"
+description: "Artifact-5.1 是 BERT 表征探针系列下的聚类视角 child artifact：从 BERT 层间表示抽取、随机初始化对照、白化维度扫描、聚类器对照、stability ARI 到簇—话题热力图解释，形成可复现的聚类视角完整记录。"
 tags:
   - "Artifact"
   - "BERT"
@@ -21,11 +21,11 @@ aliases:
 ---
 
 项目地址：本地仓库 `D:\Dev\repos\bert-cluster-stability`（暂未推 GitHub）。  
-这篇 artifact 记录的是 W1 阶段产物，不是最终论文式结论；目的是把目前已经跑通的实验链和阶段性判断先固定下来。
+这篇 artifact 是 5.1 聚类视角的完整记录，不是最终论文式结论；目的是把目前已经跑通的实验链和阶段性判断先固定下来。完成于 2026-05。
 
 ## 1. 目标
 
-本页记录 `bert-cluster-stability` 的 W1 pilot：  
+本页是 5.1 聚类视角的完整记录，对应仓库 `bert-cluster-stability`：  
 用聚类方法作为探针 (probe)，观察 BERT 的文档片段表征中是否存在可被读出的、与话题对齐的结构。
 
 问题设置：
