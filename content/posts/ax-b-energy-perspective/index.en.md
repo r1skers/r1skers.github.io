@@ -334,6 +334,24 @@ $$ \eta(k) = \frac{\sum_{i\le k}\sigma_i^2}{\sum_i\sigma_i^2} $$
 
 The engineering rule-of-thumb "keep 95% of the variance" is really choosing a $k$ such that $\eta(k) \ge 0.95$. This is the most direct, most satisfying payoff of the entire energy view: **you choose precisely how much energy to drop and how much to keep**.
 
+## A Small Application: Separable Convolution Is Also Energy Retention
+
+The retention ratio $\eta(k) = \sum_{i\le k}\sigma_i^2 / \sum_i \sigma_i^2$ above might look like it only lives in the "data dimensionality reduction" context. But the underlying math applies to any matrix. Here is an application that has nothing to do with data: **convolution kernels**.
+
+A $3\times 3$ or $5\times 5$ convolution kernel $K$ is itself a small matrix, so it has its own SVD:
+
+$$ K = \sum_i \sigma_i\, u_i v_i^\top $$
+
+Each $u_i v_i^\top$ is a **rank-1 sub-kernel** (a column vector times a row vector). The energy retention ratio tells us: approximating $K$ with the top $k$ rank-1 sub-kernels loses exactly $\sum_{i>k}\sigma_i^2$ of the kernel's energy.
+
+**The cleanest example**: the Gaussian kernel $G(x, y) = G(x) \cdot G(y)$ is naturally a tensor product — so it has **exactly one non-zero singular value**, rank 1. The retention ratio $\eta(1) = 100\%$, no energy loss. A Gaussian kernel can therefore be split exactly into two 1D convolutions.
+
+The engineering payoff is called **separable convolution**: a $3\times 3$ convolution normally costs 9 multiplications per output point; split into "first vertical 1D, then horizontal 1D", it costs only $3+3=6$. A $k\times k$ kernel's cost drops from $O(k^2)$ to $O(k)$. This is the deepest mathematical source of depthwise separable convolution in MobileNet and its kin.
+
+For non-strictly-rank-1 kernels (e.g., trained CNN weights), the top 1-2 singular values give an **approximately separable** version — keep 95% of the kernel's energy and gain several times the speed-up. The literal engineering form of "$\eta(k) \ge 0.95$".
+
+> One disclaimer: the "kernel SVD" here treats the convolution kernel as a small matrix on its own — the energy basis $u_i, v_i$ depends on the specific $K$. This is different from the SVD of the **convolution operator** (whose energy basis is always the Fourier basis), the subject of a future convolution post.
+
 # Closing
 
 Threading the whole story:
