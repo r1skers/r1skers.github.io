@@ -9,6 +9,7 @@ aliases:
 
 ## 联想
 
+- [**从工程能量视角重新看 Ax=b**](/posts/ax-b-energy-perspective/)
 - [**概率只是归一化后的能量吗？Born 规则与自相关之间的隐秘联系**](/posts/born-rule-autocorrelation-energy/)
 - [**梯度下降、牛顿法与高斯牛顿：三种优化方法到底差在哪**](/posts/gradient-newton-gauss-newton/)
 - [**一个非线性最小二乘小实验：三种优化方法的轨迹对比**](/posts/nonlinear-least-squares-trajectories/)
