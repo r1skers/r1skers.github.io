@@ -149,12 +149,12 @@ params:
         - "Transformer 序列是否可以用收敛视角理解：BERT token 表示在层间是否呈现逐渐增强的聚类稳定性？"
         - "Streaming k-means：边做 assignment，边累计每个簇的 sum/count，避免存储大规模中间矩阵。"
         - "反演中的能量解释：除了 σ 太小导致分母敏感之外，寻找更好的直觉和表述。"
-        - "能量视角元篇综合：L² 谱家族（Born / Ax=b / 卷积）与信息家族（KL / 熵）如何在高斯 / 指数族下会师？（申请之后再研究）"
+        - "能量视角元篇综合：L² 谱家族（Born / Ax=b / 卷积）与信息家族（KL / 熵）如何在高斯 / 指数族下会师？"
       en:
         - "Can Transformer sequences be understood through convergence: do BERT token representations show increasingly stable clusters across layers?"
         - "Streaming k-means: accumulate each cluster's sum/count during assignment to avoid storing large intermediate matrices."
         - "Energy interpretation in inversion: find a clearer explanation beyond small σ making the denominator sensitive."
-        - "Energy-view meta-synthesis: where does the L² spectral family (Born / Ax=b / convolution) meet the information family (KL / entropy) — Gaussian / exponential family as the bridge? (Post-application research.)"
+        - "Energy-view meta-synthesis: where does the L² spectral family (Born / Ax=b / convolution) meet the information family (KL / entropy) — Gaussian / exponential family as the bridge? "
 
   socialIcons:
     - name: GitHub
