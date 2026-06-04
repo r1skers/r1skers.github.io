@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 760" role="img" aria-labelledby="title desc">
+  <title id="title">Four operations on the same two orthogonal energy bases</title>
+  <desc id="desc">A coordinate-style diagram. The horizontal axis is the strong energy basis v1 and the vertical axis is the weak energy basis v2. Forward mapping, inverse solving, ridge, and gradient descent behave differently on the same two axes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#fde7df"/>
+    </linearGradient>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4b2a1c" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#6f5a50"/>
+    </marker>
+    <marker id="red-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="green-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#2f8f74"/>
+    </marker>
+    <style>
+      text {
+        font-family: Inter, "Segoe UI", "Noto Sans SC", Arial, sans-serif;
+        fill: #211814;
+      }
+      .title { font-size: 28px; font-weight: 760; }
+      .sub { font-size: 17px; fill: #6a4b3c; }
+      .panel-title { font-size: 20px; font-weight: 760; }
+      .note { font-size: 15px; fill: #5f4a40; }
+      .tiny { font-size: 13px; fill: #6f5a50; }
+      .panel { fill: rgba(255,255,255,0.7); stroke: rgba(143,92,61,0.42); stroke-width: 1.4; }
+      .axis { stroke: #6f5a50; stroke-width: 1.5; marker-end: url(#arrow); }
+      .grid { stroke: #e6cabc; stroke-width: 1; }
+      .input { fill: none; stroke: #64748b; stroke-width: 2.2; stroke-dasharray: 7 5; }
+      .forward { fill: rgba(194,98,47,0.22); stroke: #c2622f; stroke-width: 3; }
+      .inverse { fill: rgba(220,38,38,0.16); stroke: #dc2626; stroke-width: 3; }
+      .ridge { fill: rgba(47,143,116,0.18); stroke: #2f8f74; stroke-width: 3; }
+      .gd-contour { fill: none; stroke: #7c3aed; stroke-width: 2.4; }
+      .gd-path { fill: none; stroke: #dc2626; stroke-width: 3; marker-end: url(#red-arrow); }
+      .ridge-path { fill: none; stroke: #2f8f74; stroke-width: 3; marker-end: url(#green-arrow); }
+      .strong-label { fill: #c2622f; font-weight: 720; }
+      .weak-label { fill: #475569; font-weight: 720; }
+    </style>
+  </defs>
+
+  <rect x="18" y="18" width="684" height="724" rx="24" fill="url(#bg)" filter="url(#shadow)"/>
+  <text x="44" y="62" class="title">两条正交能量基上的四种命运</text>
+  <text x="44" y="92" class="sub">横轴 v₁：强能量基；纵轴 v₂：弱能量基。σ₁=10，σ₂=0.01。</text>
+
+  <g transform="translate(44 128)">
+    <rect x="0" y="0" width="300" height="260" rx="16" class="panel"/>
+    <text x="18" y="34" class="panel-title">Forward Ax</text>
+    <text x="18" y="58" class="note">单位圆被拉成扁椭圆</text>
+    <g transform="translate(150 154)">
+      <line x1="-100" y1="0" x2="108" y2="0" class="axis"/>
+      <line x1="0" y1="82" x2="0" y2="-90" class="axis"/>
+      <text x="112" y="6" class="tiny strong-label">v₁</text>
+      <text x="7" y="-93" class="tiny weak-label">v₂</text>
+      <circle cx="0" cy="0" r="54" class="input"/>
+      <ellipse cx="0" cy="0" rx="96" ry="8" class="forward"/>
+      <text x="-92" y="72" class="tiny">input unit circle</text>
+      <text x="-94" y="-67" class="tiny">v₁ 放大，v₂ 压扁</text>
+    </g>
+  </g>
+
+  <g transform="translate(376 128)">
+    <rect x="0" y="0" width="300" height="260" rx="16" class="panel"/>
+    <text x="18" y="34" class="panel-title">Inverse A⁺b</text>
+    <text x="18" y="58" class="note">弱方向噪声被竖向拉高</text>
+    <g transform="translate(150 154)">
+      <line x1="-100" y1="0" x2="108" y2="0" class="axis"/>
+      <line x1="0" y1="82" x2="0" y2="-90" class="axis"/>
+      <text x="112" y="6" class="tiny strong-label">v₁</text>
+      <text x="7" y="-93" class="tiny weak-label">v₂</text>
+      <circle cx="0" cy="0" r="25" class="input"/>
+      <ellipse cx="0" cy="0" rx="18" ry="78" class="inverse"/>
+      <text x="-92" y="72" class="tiny">small noise in b</text>
+      <text x="-96" y="-67" class="tiny">v₂: ×100 amplitude</text>
+    </g>
+  </g>
+
+  <g transform="translate(44 420)">
+    <rect x="0" y="0" width="300" height="260" rx="16" class="panel"/>
+    <text x="18" y="34" class="panel-title">Ridge, λ = 0.1</text>
+    <text x="18" y="58" class="note">能量地板封住弱方向</text>
+    <g transform="translate(150 154)">
+      <line x1="-100" y1="0" x2="108" y2="0" class="axis"/>
+      <line x1="0" y1="82" x2="0" y2="-90" class="axis"/>
+      <text x="112" y="6" class="tiny strong-label">v₁</text>
+      <text x="7" y="-93" class="tiny weak-label">v₂</text>
+      <ellipse cx="0" cy="0" rx="18" ry="78" class="input"/>
+      <ellipse cx="0" cy="0" rx="44" ry="44" class="ridge"/>
+      <path d="M0,-66 C18,-42 22,-25 13,-12" class="ridge-path"/>
+      <text x="-94" y="72" class="tiny">inverse explosion</text>
+      <text x="-96" y="-67" class="tiny">ridge clips it back</text>
+    </g>
+  </g>
+
+  <g transform="translate(376 420)">
+    <rect x="0" y="0" width="300" height="260" rx="16" class="panel"/>
+    <text x="18" y="34" class="panel-title">Gradient descent</text>
+    <text x="18" y="58" class="note">窄谷：v₂ 方向慢得多</text>
+    <g transform="translate(150 154)">
+      <line x1="-100" y1="0" x2="108" y2="0" class="axis"/>
+      <line x1="0" y1="82" x2="0" y2="-90" class="axis"/>
+      <text x="112" y="6" class="tiny strong-label">v₁</text>
+      <text x="7" y="-93" class="tiny weak-label">v₂</text>
+      <ellipse cx="0" cy="0" rx="18" ry="78" class="gd-contour"/>
+      <ellipse cx="0" cy="0" rx="13" ry="56" class="gd-contour" opacity="0.75"/>
+      <ellipse cx="0" cy="0" rx="8" ry="32" class="gd-contour" opacity="0.55"/>
+      <path d="M-15,-66 L12,-58 L-8,-50 L6,-42 L-5,-32 L3,-22 L-2,-12 L1,-4 L0,0" class="gd-path"/>
+      <text x="-96" y="72" class="tiny">fast across v₁</text>
+      <text x="-96" y="-67" class="tiny">slow along v₂ valley</text>
+    </g>
+  </g>
+
+  <text x="44" y="718" class="tiny">读法：坐标轴不变，都是同一组能量基。变的是操作对强/弱方向的处理方式。</text>
+</svg>
