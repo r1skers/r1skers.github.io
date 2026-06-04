@@ -349,3 +349,13 @@ Threading the whole story:
 > The **description branch**, by contrast, brings in no $x$ and computes no $b$. It treats $A$ as a data matrix and reads the energy map through variance — this is **PCA**. The same $\sigma_i^2$ has its physical identity shifted from "gain energy" to "variance energy"; and since variance = inner product = squared $L^2$ norm, "keep 95% of the variance" is a literal energy retention ratio.
 >
 > Underneath the matrix toolbox's seemingly scattered operations, all of them are really doing one thing on the energy ruler — **identifying, preserving, and suppressing energy along different directions**.
+
+# Extension: When $A$ Is a Convolution Matrix
+
+Pushing this line one step further: if $A$ is not an arbitrary matrix but a **circular convolution matrix**, its energy coordinates become fixed to the **Fourier basis** — the singular values are the magnitudes of the frequency response $|\hat{h}_k|$, with the phase absorbed into the phase factor between the left and right bases.
+
+At this point, Ridge's filter factor immediately becomes
+
+$$ \frac{\hat{h}_k^*}{|\hat{h}_k|^2 + \lambda} $$
+
+— word for word, the **Wiener filter**. In other words, **the Wiener filter is just Ridge in the Fourier basis**. The same duality, transplanted into the convolution setting, also brings along deconvolution blow-up, slow Landweber convergence, frequency-domain truncation filters, and the rest of that whole family. This line deserves its own post, saved as the main axis of the next blog.
