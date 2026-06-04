@@ -6,6 +6,7 @@ summary: "A compact directory for analysis pieces, reflections, and interdiscipl
 
 ## Interdisciplinary Writing
 
+- [**Convolution under an Energy Lens: The Wiener Filter Is Ridge in the Fourier Basis**](/en/posts/convolution-energy-perspective/)
 - [**Reading Ax=b through an Engineering Energy Lens**](/en/posts/ax-b-energy-perspective/)
 - [**Is Probability Just Normalized Energy? The Hidden Link between Born's Rule and Auto-correlation**](/en/posts/born-rule-autocorrelation-energy/)
 - [**Gradient Descent, Newton's Method, and Gauss-Newton: Where Do They Really Differ?**](/en/posts/gradient-newton-gauss-newton/)
