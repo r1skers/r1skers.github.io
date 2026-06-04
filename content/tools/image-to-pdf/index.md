@@ -7,8 +7,6 @@ tags: ["Tool", "Image", "PDF"]
 categories: ["Workshop"]
 weight: 1
 layout: tool
-aliases:
-  - /posts/神奇口袋-一些有用的python脚本/
 ---
 
 {{< img2pdf >}}

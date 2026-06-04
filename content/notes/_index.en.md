@@ -7,7 +7,7 @@ summary: "An index of course notes and self-study records."
 <details open>
 <summary><strong>Linear Algebra</strong></summary>
 
-> 🗺️ [**Unified Knowledge Map**](https://r1skers.github.io/r1skers-knowledge-map/) — Independently deployed interactive concept map across 8 branches. Search, hover cards, shareable `?node=` URLs. The entry point and navigation for the series.
+> 🗺️ [**Unified Knowledge Map**](https://r1skers.github.io/r1skers-knowledge-map/) — Standalone knowledge map site with search, draggable canvas, node cards, and shareable `?node=` URLs.
 
 **Foundation and branch notes**
 

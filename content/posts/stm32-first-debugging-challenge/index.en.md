@@ -173,7 +173,7 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
     photo
   </summary>
   
-  <br> <img src="默认低电平点亮LED.jpg" alt="LED sanity check" width="100%" height="auto">
+  <br> <img src="active-low-led-default.jpg" alt="LED sanity check" width="100%" height="auto">
 </details>
 
 The LEDs behaved correctly, which meant the board-level basics were still fine.
@@ -185,7 +185,7 @@ The LEDs behaved correctly, which meant the board-level basics were still fine.
     Schematic Diagram
   </summary>
   
-  <br> <img src="STM32F103C8串口芯片背面图.png" alt="Schematic Diagram" width="100%" height="auto">
+  <br> <img src="stm32f103c8-usart-board-back.png" alt="Schematic Diagram" width="100%" height="auto">
 </details>
 
 <details>
@@ -193,7 +193,7 @@ The LEDs behaved correctly, which meant the board-level basics were still fine.
     photo
   </summary>
   
-  <br> <img src="按照原理图接线.jpg" alt="Wiring photo" width="100%" height="auto">
+  <br> <img src="wiring-following-schematic.jpg" alt="Wiring photo" width="100%" height="auto">
 </details>
 
 My reasoning at that moment was still:
@@ -215,7 +215,7 @@ I switched to a dedicated USB-to-TTL cable and rewired PA2 (TX) and PA3 (RX) pro
     photo
   </summary>
   
-  <br> <img src="端口监测.png" alt="Port monitor" width="100%" height="auto">
+  <br> <img src="port-monitor.png" alt="Port monitor" width="100%" height="auto">
 </details>
 
 # Conclusion

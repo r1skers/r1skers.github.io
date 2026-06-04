@@ -165,4 +165,4 @@ Gauss-Newton sits in between. It does not only look at slope, like gradient desc
 
 If you want to see a more concrete Python experiment that compares their trajectories, convergence speed, and final results on the same nonlinear least-squares problem, continue with:
 
-- [A Small Nonlinear Least-Squares Experiment: Comparing the Trajectories of Three Optimization Methods](/en/posts/实验-三种优化方法轨迹对比/)
+- [A Small Nonlinear Least-Squares Experiment: Comparing the Trajectories of Three Optimization Methods](/en/posts/nonlinear-least-squares-trajectories/)

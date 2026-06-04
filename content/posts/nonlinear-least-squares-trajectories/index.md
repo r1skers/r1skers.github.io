@@ -14,7 +14,7 @@ categories: ["Posts"]
 
 概念分析，见上一篇：
 
-- [梯度下降、牛顿法与高斯牛顿：三种优化方法分析](/posts/分析-梯度下降和牛顿法/)
+- [梯度下降、牛顿法与高斯牛顿：三种优化方法分析](/posts/gradient-newton-gauss-newton/)
 
 # 实验对象
 

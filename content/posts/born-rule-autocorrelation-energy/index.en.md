@@ -44,7 +44,6 @@ $$\langle f, f \rangle = \int f \cdot f^*$$
 
 This is the squared length of a vector, whether that vector is a signal or a wave function.
 
-[If that still feels abstract, this earlier post may help.](/posts/eurekadft_and_fftdive_into_fourier_transform/)
 
 ## 2. Physical Meaning: From Amplitude to Intensity
 
@@ -76,7 +75,6 @@ Once we treat the wave function as a vector, many things become more natural.
 
 A continuous function can be understood as an infinitely long vector. Its value at each time or position behaves like the coordinate of that vector along one dimension.
 
-[If you are already thinking about sampling here, that is a good sign.](/posts/convolution_and_sampling_in_fourier_laplace/#sampling)
 
 Then there are only two steps:
 

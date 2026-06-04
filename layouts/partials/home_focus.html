@@ -1,0 +1,33 @@
+{{- $cfg := site.Params.homeFocus }}
+{{- $enabled := true }}
+{{- with $cfg.enabled }}
+{{- $enabled = . }}
+{{- end }}
+{{- if $enabled }}
+{{- $title := "Research Questions" }}
+{{- with $cfg.title }}
+{{- if reflect.IsMap . }}
+{{- $title = index . site.Language.Lang | default (index . "en") | default (index . "zh") | default $title }}
+{{- else }}
+{{- $title = . }}
+{{- end }}
+{{- end }}
+{{- $items := slice }}
+{{- with $cfg.items }}
+{{- if reflect.IsMap . }}
+{{- $items = index . site.Language.Lang | default (index . "en") | default (index . "zh") | default $items }}
+{{- else }}
+{{- $items = . }}
+{{- end }}
+{{- end }}
+{{- if gt (len $items) 0 }}
+<section class="home-focus" aria-labelledby="home-focus-title">
+    <h2 id="home-focus-title">{{ $title }}</h2>
+    <ul class="home-focus-list">
+        {{- range $items }}
+        <li>{{ . | markdownify }}</li>
+        {{- end }}
+    </ul>
+</section>
+{{- end }}
+{{- end }}

@@ -8,7 +8,7 @@ tags: ["STM32", "Embedded C", "Python", "DevLog"]
 categories: ["Artifacts"]
 weight: 10
 aliases:
-  - /posts/神器-声波检测/
+  - /posts/sonic-lab/
 ---
 
 <details>

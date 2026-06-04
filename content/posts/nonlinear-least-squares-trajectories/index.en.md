@@ -14,7 +14,7 @@ This article uses Python to run gradient descent, Newton's method, and Gauss-New
 
 For the conceptual discussion, see the previous article:
 
-- [Gradient Descent, Newton's Method, and Gauss-Newton: A Comparison of Three Optimization Methods](/en/posts/分析-梯度下降和牛顿法/)
+- [Gradient Descent, Newton's Method, and Gauss-Newton: A Comparison of Three Optimization Methods](/en/posts/gradient-newton-gauss-newton/)
 
 # The Problem Setup
 

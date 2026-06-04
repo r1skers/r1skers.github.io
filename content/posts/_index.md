@@ -7,16 +7,13 @@ aliases:
   - /articles/
 ---
 
-## 方法与分析
+## 联想
 
-- [**梯度下降、牛顿法与高斯牛顿：三种优化方法到底差在哪**](/posts/分析-梯度下降和牛顿法/)
-- [**一个非线性最小二乘小实验：三种优化方法的轨迹对比**](/posts/实验-三种优化方法轨迹对比/)
+- [**概率只是归一化后的能量吗？Born 规则与自相关之间的隐秘联系**](/posts/born-rule-autocorrelation-energy/)
+- [**梯度下降、牛顿法与高斯牛顿：三种优化方法到底差在哪**](/posts/gradient-newton-gauss-newton/)
+- [**一个非线性最小二乘小实验：三种优化方法的轨迹对比**](/posts/nonlinear-least-squares-trajectories/)
 
 ## 反思与学习记录
 
-- [**STM32 学习中第一次遇到的大困难**](/posts/反思-STM32学习第一次遇到的大困难/)
-- [**在嵌入式栈里重新定位自己**](/posts/反思-热爱为何以及AI时代的当下/)
-
-## 跨学科联想
-
-- [**概率只是归一化后的能量吗？Born 规则与自相关之间的隐秘联系**](/posts/尤里卡-函数的平方的积分到底是什么/)
+- [**STM32 学习中第一次遇到的大困难**](/posts/stm32-first-debugging-challenge/)
+- [**在嵌入式栈里重新定位自己**](/posts/embedded-stack-self-debugging/)

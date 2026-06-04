@@ -139,6 +139,20 @@ params:
     title: "Recent Updates"
     limit: 3
     sections: ["notes", "tools", "posts", "artifacts"]
+  homeFocus:
+    enabled: true
+    title:
+      zh: "准备研究的问题"
+      en: "Research Questions"
+    items:
+      zh:
+        - "Transformer 序列是否可以用收敛视角理解：BERT token 表示在层间是否呈现逐渐增强的聚类稳定性？"
+        - "Streaming k-means：边做 assignment，边累计每个簇的 sum/count，避免存储大规模中间矩阵。"
+        - "反演中的能量解释：除了 σ 太小导致分母敏感之外，寻找更好的直觉和表述。"
+      en:
+        - "Can Transformer sequences be understood through convergence: do BERT token representations show increasingly stable clusters across layers?"
+        - "Streaming k-means: accumulate each cluster's sum/count during assignment to avoid storing large intermediate matrices."
+        - "Energy interpretation in inversion: find a clearer explanation beyond small σ making the denominator sensitive."
 
   socialIcons:
     - name: GitHub

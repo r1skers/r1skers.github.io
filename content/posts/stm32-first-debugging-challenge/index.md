@@ -173,7 +173,7 @@ HAL_GPIO_WritePin(GPIOA, LED_R_Pin|LED_G_Pin|LED_B_Pin, GPIO_PIN_RESET);
     photo
   </summary>
   
-  <br> <img src="默认低电平点亮LED.jpg" alt="默认低电平点亮LED" width="100%" height="auto">
+  <br> <img src="active-low-led-default.jpg" alt="默认低电平点亮LED" width="100%" height="auto">
 </details>
 
 LED 能正常亮，说明最基础的板级逻辑没有大问题。
@@ -185,7 +185,7 @@ LED 能正常亮，说明最基础的板级逻辑没有大问题。
     Schematic Diagram
   </summary>
   
-  <br> <img src="STM32F103C8串口芯片背面图.png" alt="Schematic Diagram" width="100%" height="auto">
+  <br> <img src="stm32f103c8-usart-board-back.png" alt="Schematic Diagram" width="100%" height="auto">
 </details>
 
 <details>
@@ -193,7 +193,7 @@ LED 能正常亮，说明最基础的板级逻辑没有大问题。
     photo
   </summary>
   
-  <br> <img src="按照原理图接线.jpg" alt="Schematic Diagram" width="100%" height="auto">
+  <br> <img src="wiring-following-schematic.jpg" alt="Schematic Diagram" width="100%" height="auto">
 </details>
 
 我当时的判断还是：
@@ -215,7 +215,7 @@ LED 能正常亮，说明最基础的板级逻辑没有大问题。
     photo
   </summary>
   
-  <br> <img src="端口监测.png" alt="端口监测" width="100%" height="auto">
+  <br> <img src="port-monitor.png" alt="端口监测" width="100%" height="auto">
 </details>
 
 # 结论

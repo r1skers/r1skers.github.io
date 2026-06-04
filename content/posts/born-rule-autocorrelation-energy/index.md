@@ -44,7 +44,6 @@ $$\langle f, f \rangle = \int f \cdot f^*$$
 
 这表示的是一个向量长度的平方。这个向量可以是信号，也可以是波函数。
 
-[如果这里还比较抽象，可以先看这一篇。](/posts/eurekadft_and_fftdive_into_fourier_transform/)
 
 ## 2. 物理本质：从“振幅”到“强度”
 
@@ -76,7 +75,6 @@ $$(A e^{j\theta}) \cdot (A e^{-j\theta}) = A^2$$
 
 一个连续函数其实可以被理解成一个“无限长”的向量。它在每个时刻或每个位置上的值，都像是这个向量在对应维度上的坐标。
 
-[如果你已经在想“采样”这件事，那方向是对的。](/posts/convolution_and_sampling_in_fourier_laplace/#sampling)
 
 接下来做两步：
 
