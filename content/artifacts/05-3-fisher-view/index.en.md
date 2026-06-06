@@ -17,7 +17,7 @@ weight: 53
 math: true
 ---
 
-Source project: local repo `D:\Dev\repos\bert-cluster-stability` (now on GitHub).
+Source project: [bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability).
 This artifact is the complete record of the 5.3 Fisher view, finished 2026-06. It shares the same cached BERT layerwise representations with 5.1 / 5.2 — only the probe changes.
 
 ## 1. Positioning: same representation, third ruler

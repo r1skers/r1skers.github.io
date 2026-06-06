@@ -21,7 +21,7 @@ aliases:
   - /artifacts/bert-fisher/
 ---
 
-项目地址：本地仓库 `D:\Dev\repos\bert-cluster-stability`（暂未推 GitHub）。
+项目地址：[bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability)（本地 `D:\Dev\repos\bert-cluster-stability`）。
 这篇 artifact 是 5.3 Fisher 几何视角的完整记录，完成于 2026-06。它和 5.1 / 5.2 共享同一份缓存的 BERT 层间表征，只换了「探针」。
 
 ## 1. 定位：同一份表征，第三把尺子

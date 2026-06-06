@@ -20,7 +20,7 @@ aliases:
   - /en/artifacts/bert-cluster-stability/
 ---
 
-Project repo: local at `D:\Dev\repos\bert-cluster-stability` (not yet pushed to GitHub).  
+Project repo: [bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability).  
 This artifact records the W1 pilot, not a final paper-style result. The goal is to lock down the experimental chain and staged conclusions that are already working.
 
 ## 1. Goal

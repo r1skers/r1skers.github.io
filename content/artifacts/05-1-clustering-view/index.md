@@ -20,7 +20,7 @@ aliases:
   - /artifacts/bert-cluster-stability/
 ---
 
-项目地址：本地仓库 `D:\Dev\repos\bert-cluster-stability`（暂未推 GitHub）。  
+项目地址：[bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability)（本地 `D:\Dev\repos\bert-cluster-stability`）。  
 这篇 artifact 是 5.1 聚类视角的完整记录，不是最终论文式结论；目的是把目前已经跑通的实验链和阶段性判断先固定下来。完成于 2026-05。
 
 ## 1. 目标
