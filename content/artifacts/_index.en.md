@@ -17,6 +17,6 @@ This section is organized as numbered project tracks. It is where I keep materia
 - `Artifact 5`: [BERT Representation Probes: A Multi-View Comparison](/en/artifacts/05-bert-representation-probes/)
   - `Artifact 5.1`: [BERT Clustering View](/en/artifacts/05-1-clustering-view/)
     - `Artifact 5.1.1`: [PCA Whitening Synthetic Demo](/en/artifacts/05-1-1-pca-whitening-demo/)
-  - `Artifact 5.2`: Linear Probe View (in progress)
-  - `Artifact 5.3`: Fisher Discriminant View (in progress)
+  - `Artifact 5.2`: [Linear Probe View](/en/artifacts/05-2-linear-probe-view/)
+  - `Artifact 5.3`: [Fisher Discriminant View](/en/artifacts/05-3-fisher-view/)
 

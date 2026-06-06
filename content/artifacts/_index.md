@@ -21,5 +21,5 @@ aliases:
 - `Artifact 5`：[BERT 表征探针：多视角对照](/artifacts/05-bert-representation-probes/)
   - `Artifact 5.1`：[BERT 聚类视角](/artifacts/05-1-clustering-view/)
     - `Artifact 5.1.1`：[PCA Whitening 各向异性聚类 Demo](/artifacts/05-1-1-pca-whitening-demo/)
-  - `Artifact 5.2`：Linear probe 视角（进行中）
-  - `Artifact 5.3`：Fisher 几何视角（进行中）
+  - `Artifact 5.2`：[Linear probe 视角](/artifacts/05-2-linear-probe-view/)
+  - `Artifact 5.3`：[Fisher 几何视角](/artifacts/05-3-fisher-view/)
