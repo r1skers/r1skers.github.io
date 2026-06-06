@@ -21,7 +21,7 @@ aliases:
 ---
 
 项目来源：`bert-cluster-stability` 里的 synthetic whitening demo。  
-代码位置：`D:\Dev\repos\bert-cluster-stability\experiments\whitening_demo.py`
+代码位置：`D:\Dev\repos\bert-cluster-stability\experiments\clustering\whitening_demo.py`
 
 这是一篇 micro-artifact。不是一个完整研究项目，而是一个**几何反例 / sanity check**：  
 用合成数据说明，为什么在高维 embedding 分析里，PCA whitening 有时不是装饰性的预处理，而是能改变聚类器实际读到的结构。
@@ -176,7 +176,7 @@ whitening 重新标定方向尺度
 在 `bert-cluster-stability` 仓库根目录运行：
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\whitening_demo.py
+.\.venv\Scripts\python.exe experiments\clustering\whitening_demo.py
 ```
 
 输出：

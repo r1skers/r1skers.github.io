@@ -21,7 +21,7 @@ aliases:
 ---
 
 Source project: synthetic whitening demo inside `bert-cluster-stability`.  
-Code: `D:\Dev\repos\bert-cluster-stability\experiments\whitening_demo.py`
+Code: `D:\Dev\repos\bert-cluster-stability\experiments\clustering\whitening_demo.py`
 
 This is a micro-artifact — not a full research project, but a **geometric counterexample / sanity check**:
 synthetic data used to show why, in high-dimensional embedding analysis, PCA whitening is sometimes not decorative preprocessing but a transformation that changes the structure a clusterer actually sees.
@@ -174,7 +174,7 @@ too few dimensions can drop signal; too many can also whiten noise directions ba
 From the `bert-cluster-stability` repo root:
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\whitening_demo.py
+.\.venv\Scripts\python.exe experiments\clustering\whitening_demo.py
 ```
 
 Outputs:

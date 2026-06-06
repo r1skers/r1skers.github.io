@@ -585,40 +585,40 @@ $$
 ### A.2 基线层间扫描
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\run_pilot_metrics.py --seeds 0 1 2 3 4
-.\.venv\Scripts\python.exe experiments\plot_pilot.py
+.\.venv\Scripts\python.exe experiments\clustering\run_pilot_metrics.py --seeds 0 1 2 3 4
+.\.venv\Scripts\python.exe experiments\clustering\plot_pilot.py
 ```
 
 ### A.3 最佳配方层间扫描
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\sweep_transforms.py --layers 0 1 2 3 4 5 6 7 8 9 10 11 12 --transforms whiten100_l2 --clusterers spherical --models pretrained random --output outputs/tables/layer_sweep_best_recipe.csv
-.\.venv\Scripts\python.exe experiments\plot_best_recipe_layer_sweep.py
+.\.venv\Scripts\python.exe experiments\clustering\sweep_transforms.py --layers 0 1 2 3 4 5 6 7 8 9 10 11 12 --transforms whiten100_l2 --clusterers spherical --models pretrained random --output outputs/tables/clustering/layer_sweep_best_recipe.csv
+.\.venv\Scripts\python.exe experiments\clustering\plot_best_recipe_layer_sweep.py
 ```
 
 ### A.4 白化维度扫描
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\sweep_whitening_dims.py
-.\.venv\Scripts\python.exe experiments\plot_whitening_dim_sweep.py
+.\.venv\Scripts\python.exe experiments\clustering\sweep_whitening_dims.py
+.\.venv\Scripts\python.exe experiments\clustering\plot_whitening_dim_sweep.py
 ```
 
 ### A.5 聚类器扫描
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\sweep_transforms.py --layers 12 --transforms whiten100_l2 --clusterers lloyd spherical agglo_cosine agglo_ward gmm_diag gmm_full --models pretrained --output outputs/tables/clusterer_sweep_gmm.csv
-.\.venv\Scripts\python.exe experiments\plot_clusterer_sweep.py --csv outputs/tables/clusterer_sweep_gmm.csv --filename clusterer_sweep_gmm_alignment.png
+.\.venv\Scripts\python.exe experiments\clustering\sweep_transforms.py --layers 12 --transforms whiten100_l2 --clusterers lloyd spherical agglo_cosine agglo_ward gmm_diag gmm_full --models pretrained --output outputs/tables/clustering/clusterer_sweep_gmm.csv
+.\.venv\Scripts\python.exe experiments\clustering\plot_clusterer_sweep.py --csv outputs/tables/clustering/clusterer_sweep_gmm.csv --filename clusterer_sweep_gmm_alignment.png
 ```
 
 ### A.6 K 扫描
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\sweep_k.py --models pretrained random
-.\.venv\Scripts\python.exe experiments\plot_k_sweep.py
+.\.venv\Scripts\python.exe experiments\clustering\sweep_k.py --models pretrained random
+.\.venv\Scripts\python.exe experiments\clustering\plot_k_sweep.py
 ```
 
 ### A.7 簇内容解释
 
 ```powershell
-.\.venv\Scripts\python.exe experiments\interpret_clusters.py --layers 12 --k 20 --transform whiten100_l2 --clusterer spherical --seed 0
+.\.venv\Scripts\python.exe experiments\clustering\interpret_clusters.py --layers 12 --k 20 --transform whiten100_l2 --clusterer spherical --seed 0
 ```

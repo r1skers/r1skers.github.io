@@ -26,8 +26,16 @@ BERT 学到的文档级 topic 信息，到底是以什么形式编码进表征�
 
 - **5.1 [聚类视角](/artifacts/05-1-clustering-view/)** —— 用 KMeans 等无监督聚类作为探针：topic-aligned 几何结构如何随层、随 preprocessing 变化？发现 stability 单独看会被各向异性误导。
 - **5.1.1 [PCA Whitening 合成 demo](/artifacts/05-1-1-pca-whitening-demo/)** —— 5.1 的方法学边注：用合成 anisotropic mixture 隔离 whitening 的几何机制。
-- **5.2 [Linear probe 视角](/artifacts/05-2-linear-probe/)** —— *进行中*。Topic 信息是否能被每层的线性分类器读出？
-- **5.3 [Fisher 视角](/artifacts/05-3-fisher-discriminant/)** —— *进行中*。同类是否更紧凑、异类是否更远？基于 within / between class distance ratio。
+- **5.2 [Linear probe 视角](/artifacts/05-2-linear-probe/)** —— 用每层逻辑回归测 topic 的线性可解码度。发现：监督线性探针能读出无监督聚类完全读不到的 topic 信息（random-init 上聚类趴地板、探针远超 chance）—— **可线性解码 ≠ 结构自组织**。
+- **5.3 [Fisher 视角](/artifacts/05-3-fisher-view/)** —— LDA 分类器（与 5.2 互证）+ Fisher 迹比 η² 几何。发现几何（η²）与分类器（准确率）在 random-init 上分道扬镳，揭示统一原理：**话题信息藏在低方差方向，重加权的方法（whitening / $S_W^{-1}$ / 学权重）才读得到，尊重原始方差的方法（朴素聚类 / η²）看到地板**。
+
+## 统一发现（across probes）
+
+三个视角拼到一起，可以被一句话统起来：
+
+> **话题信息可以藏在低方差方向里。重加权方向的方法（PCA 白化 / LDA 的 $S_W^{-1}$ / 逻辑回归学的权重）能读到它；尊重原始方差的几何探针（朴素聚类 / Fisher 迹比 η²）会漏掉它。**
+
+最强证据是 random-init BERT 的"分裂人格"：**无监督聚类看它趴地板、Fisher η² 也趴地板，但线性探针远高于 chance**——topic 信号一直在，只是埋在低方差方向、被高方差 nuisance 盖住。决定"读不读得到"的不是监督与否，而是**方法重不重加权方向**。
 
 ## 这个系列想说什么
 
