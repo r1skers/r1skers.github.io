@@ -7,7 +7,6 @@ description: "A study note on Milakov & Gimelshein 2018 (arXiv 1805.02867). It c
 tags: ["Online Softmax", "Softmax", "Memory Bandwidth", "Numerical Stability", "Top-K", "NMT", "AI Infra", "IO-aware"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-systems-io-attn-2-online-softmax/
 ---
 
 # Systems / IO-Aware Attention Part 2: The Original Online Softmax Derivation

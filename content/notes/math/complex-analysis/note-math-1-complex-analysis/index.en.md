@@ -6,7 +6,6 @@ summary: "Starting from a real integral and building intuition through the chain
 tags: ["Complex Analysis", "Contour Integrals", "Residues", "Real Integrals"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-math-1-complex-analysis/
 ---
 
 

@@ -7,7 +7,6 @@ description: "Part 6 on inversion-result analysis, validation, and parameter cre
 tags: ["PDE", "Inverse Problem", "Observation", "Validation", "Parameter Inversion", "Reliability", "Identifiability"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-6-inversion-credibility/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 6: Inversion Result Analysis and Parameter Credibility

@@ -8,7 +8,6 @@ tags: ["Unsupervised Learning", "PCA", "Whitening", "t-SNE", "UMAP", "Dimensiona
 categories: ["Crucible"]
 math: true
 aliases:
-  - /notes/note-ml-unsup-1-pca-whitening/
 ---
 
 # Machine Learning / Unsupervised Learning Part 1: PCA, Whitening, and Neighborhood Visualization

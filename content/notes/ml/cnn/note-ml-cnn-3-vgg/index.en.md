@@ -7,7 +7,6 @@ description: "A study note on VGG, repeated 3x3 convolutions, VGG-16 architectur
 tags: ["CNN", "Visual Representation", "VGG", "ImageNet", "Deep Learning", "Computer Vision"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-cnn-3-vgg/
 ---
 
 # Machine Learning / CNN and Visual Representation: VGG, Depth and Small Convolution Filters

@@ -7,7 +7,6 @@ description: "A study note on replacing an MLP VAE with a convolutional VAE on M
 tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-gen-3-cnn-vae/
 ---
 
 # Machine Learning / Generative Models: CNN-VAE, from MLPs to Convolutional Structure

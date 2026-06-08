@@ -7,7 +7,6 @@ description: "A study note on ResNet, residual learning, degradation problem, CI
 tags: ["CNN", "Visual Representation", "ResNet", "Residual Learning", "CIFAR-10", "PyTorch", "Deep Learning"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-cnn-4-resnet/
 ---
 
 # Machine Learning / CNN and Visual Representation: ResNet, Residual Learning and the Degradation Problem

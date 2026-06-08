@@ -7,7 +7,6 @@ description: "A study note on Vision Transformer (ViT) — patch embedding as Co
 tags: ["ViT", "Vision Transformer", "Patch Embedding", "Self-Attention", "Attention Rollout", "PyTorch"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-vit-1-patches-to-attention/
 ---
 
 # Machine Learning / ViT and Visual Transformers: From Patches to Attention-Based Classification

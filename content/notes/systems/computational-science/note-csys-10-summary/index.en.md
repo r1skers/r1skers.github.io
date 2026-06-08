@@ -7,7 +7,6 @@ description: "Part 10 as a full-chain summary from spatial fields to stable inve
 tags: ["PDE", "Inverse Problem", "Regularization", "Optimization", "Observation", "Reliability", "Summary"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-10-summary/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 10: A Full-Chain Summary from Spatial Fields to Stable Inversion

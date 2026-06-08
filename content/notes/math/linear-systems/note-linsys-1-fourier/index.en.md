@@ -6,7 +6,6 @@ summary: "Starting from orthogonality to connect Fourier series and Fourier tran
 tags: [ "Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-linsys-1-fourier/
 ---
 
 

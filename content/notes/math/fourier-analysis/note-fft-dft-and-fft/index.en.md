@@ -5,7 +5,6 @@ title: 'DFT and FFT (Dive Into Fourier Transform)'
 tags: ["Advanced","Fourier and Laplace","Convolution and Sampling" , "Eureka"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-fft-dft-and-fft/
 ---
 
 Hilbert Functional

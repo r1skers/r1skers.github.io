@@ -7,7 +7,6 @@ description: "Part 7 on log-parameterization and L-BFGS-B for more stable blockw
 tags: ["PDE", "Inverse Problem", "Optimization", "L-BFGS-B", "Log Parameterization", "Kappa", "Reliability"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-7-lbfgs-log-parameterization/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 7: From Finite-Difference Gradient Descent to L-BFGS and Log-Parameterization

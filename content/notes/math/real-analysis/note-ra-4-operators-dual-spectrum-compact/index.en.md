@@ -9,7 +9,6 @@ categories: ["Crucible"]
 aliases:
   - /notes/real-analysis-4-operators-dual-spectrum-compact/
   - /notes/functional-analysis-2-operators-dual-spectrum/
-  - /notes/note-ra-4-operators-dual-spectrum-compact/
 ---
 
 # Real Analysis Part 4: Bounded Linear Operators, Dual Space, Spectral Theory, and Compact Operators

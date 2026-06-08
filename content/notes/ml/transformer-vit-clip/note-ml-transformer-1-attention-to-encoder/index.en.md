@@ -7,7 +7,6 @@ description: "A study note on Transformer fundamentals — self-attention, multi
 tags: ["Transformer", "Self-Attention", "Positional Encoding", "PyTorch", "Encoder"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-transformer-1-attention-to-encoder/
 ---
 
 # Machine Learning / Transformer and Sequence Modeling: From Attention to the Encoder

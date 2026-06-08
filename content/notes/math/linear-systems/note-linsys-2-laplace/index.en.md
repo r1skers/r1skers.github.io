@@ -6,7 +6,6 @@ summary: "A compact reference of Laplace transform analysis, inverse transform, 
 tags: [ "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-linsys-2-laplace/
 ---
 
 Laplace Transform

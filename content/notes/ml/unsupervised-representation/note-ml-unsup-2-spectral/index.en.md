@@ -8,7 +8,6 @@ tags: ["Unsupervised Learning", "Spectral Embedding", "Spectral Clustering", "Gr
 categories: ["Crucible"]
 math: true
 aliases:
-  - /notes/note-ml-unsup-2-spectral/
 ---
 
 # Machine Learning / Unsupervised Learning Part 2: Spectral Embedding and Spectral Clustering

@@ -6,7 +6,6 @@ summary: "Compare two solution paths for second-order linear circuits: the tradi
 tags: ["RLC Circuit", "Differential Equations", "Laplace Transform", "Python", "Schemdraw","Eureka"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-linsys-3-laplace-pde/
 ---
 
 RLC Circuit Analysis: Differential Equation vs. Laplace Method

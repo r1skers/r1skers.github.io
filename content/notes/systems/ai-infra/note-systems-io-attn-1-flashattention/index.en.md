@@ -7,7 +7,6 @@ description: "A study note on FlashAttention v1 — reframing attention as a mem
 tags: ["FlashAttention", "Attention", "Transformer", "GPU", "Memory Hierarchy", "IO-aware", "Online Softmax", "AI Infra"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-systems-io-attn-1-flashattention/
 ---
 
 # Systems / IO-Aware Attention Part 1: FlashAttention v1 and Tiling Softmax

@@ -7,7 +7,6 @@ description: "Rock mechanics fundamentals: minerals, microstructure, weathering,
 tags: ["Rock Mechanics", "Petrophysics", "Engineering Geology", "Mineralogy", "Discontinuity", "Weathering"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-rock-mech-1-basics/
 ---
 
 # Rock Mechanics Part 1: Mineral Composition, Structural Features, and Discontinuity Basics

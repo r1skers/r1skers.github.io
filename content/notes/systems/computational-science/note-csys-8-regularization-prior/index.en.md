@@ -7,7 +7,6 @@ description: "Part 8 on regularization, priors, and stable inversion for blockwi
 tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Stability", "Kappa", "Reliability"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-8-regularization-prior/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 8: Regularization, Priors, and Stable Inversion

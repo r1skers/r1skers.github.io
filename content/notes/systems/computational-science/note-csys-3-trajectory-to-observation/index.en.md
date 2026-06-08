@@ -14,7 +14,6 @@ tags:
 categories:
   - "Crucible"
 aliases:
-  - /notes/note-csys-3-trajectory-to-observation/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 3: From Full Trajectories to Observations

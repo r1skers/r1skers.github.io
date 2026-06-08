@@ -7,7 +7,6 @@ description: "Part 4 on defining the inversion problem from observations."
 tags: ["PDE", "Observation", "Inverse Problem", "Parameter Inversion", "Forward Model", "Kappa"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-4-observation-to-inversion/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 4: From Observations to Parameter Inversion

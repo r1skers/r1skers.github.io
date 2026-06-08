@@ -8,7 +8,6 @@ tags: ["Unsupervised Learning", "Clustering", "KMeans", "Spherical KMeans", "GMM
 categories: ["Crucible"]
 math: true
 aliases:
-  - /notes/note-ml-unsup-3-clustering-algorithms/
 ---
 
 # Machine Learning / Unsupervised Learning Part 3: KMeans, GMM, Hierarchical Clustering, and DBSCAN

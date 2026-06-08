@@ -8,7 +8,6 @@ tags: ["PDE", "Inverse Problem", "Finite Difference", "Gradient Descent", "Param
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-计算科学与高可靠系统设计5-有限差分与梯度下降/
-  - /notes/note-csys-5-finite-diff-gradient-descent/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 5:  Finite-Difference Gradients and Gradient Descent

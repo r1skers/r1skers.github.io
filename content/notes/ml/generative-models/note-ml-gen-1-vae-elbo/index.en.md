@@ -8,7 +8,6 @@ tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameter
 categories: ["Crucible"]
 aliases:
   - /notes/笔记-机器学习-生成模型1-vae基本思想与elbo推导/
-  - /notes/note-ml-gen-1-vae-elbo/
 ---
 
 # Machine Learning / Generative Models: The Basic Idea of VAE and the ELBO

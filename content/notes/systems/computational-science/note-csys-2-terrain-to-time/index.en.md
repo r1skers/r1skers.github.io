@@ -7,7 +7,6 @@ description: "Part 2 on attaching the terrain to a PDE and evolving it into a fo
 tags: ["PDE", "Time Marching", "CFL", "Flux", "Irregular Grid", "Numerical Methods"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-2-terrain-to-time/
 ---
 
 # Part 2: From Terrain to Temporal Evolution

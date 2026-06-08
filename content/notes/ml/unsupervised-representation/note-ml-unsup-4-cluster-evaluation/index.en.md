@@ -8,7 +8,6 @@ tags: ["Unsupervised Learning", "Clustering Evaluation", "Silhouette", "Davies-B
 categories: ["Crucible"]
 math: true
 aliases:
-  - /notes/note-ml-unsup-4-cluster-evaluation/
 ---
 
 # Machine Learning / Unsupervised Learning Part 4: Clustering Evaluation, External Metrics, and Stability

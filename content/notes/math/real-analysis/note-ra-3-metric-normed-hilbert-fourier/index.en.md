@@ -8,7 +8,6 @@ tags: ["Real Analysis", "Metric Space", "Normed Space", "Banach Space", "Hilbert
 categories: ["Crucible"]
 aliases:
   - /notes/real-analysis-3-metric-normed-hilbert-fourier/
-  - /notes/note-ra-3-metric-normed-hilbert-fourier/
 ---
 
 # Real Analysis Part 3: Metric Spaces, Normed Spaces, Hilbert Spaces, and the Foundations of Fourier

@@ -7,7 +7,6 @@ description: "A study note on LeNet-5 and modern CNN variants on MNIST."
 tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-cnn-1-lenet-to-modern/
 ---
 
 # Machine Learning / CNN and Visual Representation: From LeNet-5 to Modern CNN

@@ -7,7 +7,6 @@ description: "A study note on AlexNet, its architecture, ImageNet classification
 tags: ["CNN", "Visual Representation", "AlexNet", "Image Classification", "ImageNet", "PyTorch", "Deep Learning"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-cnn-2-alexnet/
 ---
 
 # Machine Learning / CNN and Visual Representation: AlexNet, the Starting Point of Deep Visual Learning

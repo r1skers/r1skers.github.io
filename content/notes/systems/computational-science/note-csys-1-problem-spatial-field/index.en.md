@@ -7,7 +7,6 @@ description: "Part 1 on problem setup, initial terrain construction, and irregul
 tags: ["PDE", "Spatial Discretization", "Irregular Grid", "Control Volume", "Numerical Methods", "Physics Modeling"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-1-problem-spatial-field/
 ---
 
 # Part 1: Problem Setup and Spatial Field Construction

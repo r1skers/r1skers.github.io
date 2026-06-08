@@ -6,7 +6,6 @@ summary: "An intuitive exploration of how electrons occupy quantum states. From 
 tags: ["Quantum Mechanics", "Physics", "Electron Distribution", "Probability", "Condensed Matter"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-qm-2-fermions/
 ---
 
 

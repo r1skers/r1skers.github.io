@@ -8,7 +8,6 @@ tags: ["Real Analysis", "Completeness", "Supremum", "Monotone Convergence", "Bol
 categories: ["Crucible"]
 aliases:
   - /notes/real-analysis-2-completeness/
-  - /notes/note-ra-2-supremum-completeness/
 ---
 
 # Real Analysis Part 2: The Supremum Axiom, Monotone Convergence, and the Equivalence Chain of Completeness

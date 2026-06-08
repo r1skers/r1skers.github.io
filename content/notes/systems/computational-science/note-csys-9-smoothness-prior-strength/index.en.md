@@ -7,7 +7,6 @@ description: "Part 9 on smoothness terms, prior terms, and regularization streng
 tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Smoothness", "Stability", "Kappa"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-csys-9-smoothness-prior-strength/
 ---
 
 # Computational Science & High-Reliability Systems Design Part 9: Smoothness Terms, Prior Terms, and Regularization Strength

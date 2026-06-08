@@ -7,7 +7,6 @@ description: "A study note on CLIP — reframing image-text alignment as B-way c
 tags: ["CLIP", "Contrastive Learning", "InfoNCE", "Multimodal", "Vision-Language", "Symmetric Loss", "Causal Self-Attention", "Temperature", "PyTorch"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-ml-clip-1-contrastive-to-shared-space/
 ---
 
 # Machine Learning / CLIP and Multimodal Alignment: From Contrastive Learning to a Shared Image-Text Space

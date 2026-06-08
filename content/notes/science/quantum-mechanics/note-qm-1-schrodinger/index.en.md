@@ -6,7 +6,6 @@ summary: "Reviewing quantum mechanics from an engineering perspective: the failu
 tags: ["Quantum Mechanics", "Physics", "Python", "Matplotlib", "Schrödinger Equation"]
 categories: ["Crucible"]
 aliases:
-  - /notes/note-qm-1-schrodinger/
 ---
 
 This article was initially written for exam review, but during that process I realized how fundamental quantum mechanics is for engineering, so I decided to document my notes in a structured way.
