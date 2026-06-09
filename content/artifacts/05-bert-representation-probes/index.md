@@ -26,7 +26,7 @@ BERT 学到的文档级 topic 信息，到底是以什么形式编码进表征�
 
 - **5.1 [聚类视角](/artifacts/05-1-clustering-view/)** —— 用 KMeans 等无监督聚类作为探针：topic-aligned 几何结构如何随层、随 preprocessing 变化？发现 stability 单独看会被各向异性误导。
 - **5.1.1 [PCA Whitening 合成 demo](/artifacts/05-1-1-pca-whitening-demo/)** —— 5.1 的方法学边注：用合成 anisotropic mixture 隔离 whitening 的几何机制。
-- **5.2 [Linear probe 视角](/artifacts/05-2-linear-probe/)** —— 用每层逻辑回归测 topic 的线性可解码度。发现：监督线性探针能读出无监督聚类完全读不到的 topic 信息（random-init 上聚类趴地板、探针远超 chance）—— **可线性解码 ≠ 结构自组织**。
+- **5.2 [Linear probe 视角](/artifacts/05-2-linear-probe-view/)** —— 用每层逻辑回归测 topic 的线性可解码度。发现：监督线性探针能读出无监督聚类完全读不到的 topic 信息（random-init 上聚类趴地板、探针远超 chance）—— **可线性解码 ≠ 结构自组织**。
 - **5.3 [Fisher 视角](/artifacts/05-3-fisher-view/)** —— LDA 分类器（与 5.2 互证）+ Fisher 迹比 η² 几何。发现几何（η²）与分类器（准确率）在 random-init 上分道扬镳，揭示统一原理：**话题信息藏在低方差方向，重加权的方法（whitening / $S_W^{-1}$ / 学权重）才读得到，尊重原始方差的方法（朴素聚类 / η²）看到地板**。
 
 ## 统一发现（across probes）
