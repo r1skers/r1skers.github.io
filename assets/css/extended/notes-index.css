@@ -1,0 +1,282 @@
+.notes-index {
+    --notes-index-surface: rgba(255, 255, 255, 0.08);
+    --notes-index-surface-hover: rgba(255, 255, 255, 0.18);
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto 36px;
+}
+
+[data-theme="dark"] .notes-index {
+    --notes-index-surface: rgba(28, 24, 22, 0.2);
+    --notes-index-surface-hover: rgba(28, 24, 22, 0.3);
+}
+
+.notes-index > details {
+    margin: 0 0 18px;
+    padding: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: var(--notes-index-surface);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 10px 24px rgba(22, 24, 30, 0.08);
+    overflow: hidden;
+}
+
+[data-theme="dark"] .notes-index > details {
+    background: var(--notes-index-surface);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.notes-index > details[open] {
+    border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
+}
+
+.notes-index > details > summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 72px;
+    padding: 18px 58px 18px 28px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.28rem;
+    line-height: 1.25;
+    color: var(--primary);
+    user-select: none;
+}
+
+.notes-index summary::-webkit-details-marker {
+    display: none;
+}
+
+.notes-index > details > summary::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-right: 14px;
+    border-radius: 999px;
+    background: var(--home-accent, #c06a2f);
+    flex: 0 0 auto;
+}
+
+.notes-index > details > summary::after {
+    content: "";
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-right: 2px solid var(--home-accent, var(--secondary));
+    border-bottom: 2px solid var(--home-accent, var(--secondary));
+    transform: translateY(-62%) rotate(45deg);
+    transition: transform 0.18s ease;
+}
+
+.notes-index > details[open] > summary::after {
+    transform: translateY(-34%) rotate(225deg);
+}
+
+.notes-index summary strong {
+    font-weight: 760;
+}
+
+.notes-index > details > :not(summary) {
+    margin-left: 28px;
+    margin-right: 28px;
+}
+
+.notes-index > details > :last-child {
+    margin-bottom: 24px;
+}
+
+.notes-index > details > summary + * {
+    margin-top: 2px;
+}
+
+.notes-index .note-subgroup {
+    margin: 10px 28px 12px;
+    border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+[data-theme="dark"] .notes-index .note-subgroup {
+    background: rgba(28, 24, 22, 0.12);
+}
+
+.notes-index .note-subgroup[open] {
+    border-color: color-mix(in srgb, var(--home-accent, var(--primary)) 32%, var(--border));
+}
+
+.notes-index .note-subgroup > summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 11px 44px 11px 16px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.98rem;
+    line-height: 1.3;
+    color: var(--primary);
+    user-select: none;
+}
+
+.notes-index .note-subgroup > summary::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+    border-radius: 999px;
+    background: var(--home-accent, var(--secondary));
+    flex: 0 0 auto;
+}
+
+.notes-index .note-subgroup > summary::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--home-accent, var(--secondary));
+    border-bottom: 1.5px solid var(--home-accent, var(--secondary));
+    transform: translateY(-62%) rotate(45deg);
+    transition: transform 0.18s ease;
+}
+
+.notes-index .note-subgroup[open] > summary::after {
+    transform: translateY(-34%) rotate(225deg);
+}
+
+.notes-index .note-subgroup > :not(summary) {
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.notes-index .note-subgroup > :last-child {
+    margin-bottom: 16px;
+}
+
+.notes-index .note-subgroup > summary + * {
+    margin-top: 0;
+}
+
+.notes-index h3 {
+    margin: 22px 28px 7px;
+    font-size: 1.02rem;
+    color: var(--home-accent, var(--primary));
+}
+
+.notes-index p {
+    color: var(--secondary);
+}
+
+.notes-index blockquote {
+    margin-top: 2px;
+    padding: 10px 14px;
+    border-inline-start: 3px solid var(--home-accent, var(--border));
+    border-radius: 8px;
+    background: var(--notes-index-surface);
+}
+
+[data-theme="dark"] .notes-index blockquote {
+    background: var(--notes-index-surface);
+}
+
+.notes-index ul {
+    margin-top: 10px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.notes-index li {
+    position: relative;
+    margin: 8px 0;
+    padding: 8px 10px 8px 24px;
+    border-radius: 8px;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.notes-index li::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 1.18em;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--home-accent, var(--secondary));
+}
+
+.notes-index li:hover {
+    background: var(--notes-index-surface-hover);
+    transform: translateX(2px);
+}
+
+[data-theme="dark"] .notes-index li:hover {
+    background: var(--notes-index-surface-hover);
+}
+
+.notes-index a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.notes-index hr {
+    margin: 20px 28px;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 680px) {
+    .notes-index {
+        margin-bottom: 28px;
+    }
+
+    .notes-index > details {
+        margin-bottom: 14px;
+    }
+
+    .notes-index > details > summary {
+        min-height: 64px;
+        padding: 15px 48px 15px 18px;
+        font-size: 1.08rem;
+    }
+
+    .notes-index > details > summary::before {
+        margin-right: 11px;
+    }
+
+    .notes-index > details > summary::after {
+        right: 20px;
+    }
+
+    .notes-index > details > :not(summary) {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .notes-index .note-subgroup {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .notes-index .note-subgroup > summary {
+        min-height: 44px;
+        padding-left: 14px;
+        font-size: 0.92rem;
+    }
+
+    .notes-index h3 {
+        margin-left: 18px;
+        margin-right: 18px;
+        font-size: 0.95rem;
+    }
+
+    .notes-index li {
+        padding-right: 6px;
+        font-size: 0.92rem;
+    }
+}
