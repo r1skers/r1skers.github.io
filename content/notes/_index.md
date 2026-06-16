@@ -27,6 +27,8 @@ aliases:
 - [**实分析 3** — 度量空间、赋范空间、Hilbert 空间与傅里叶基础](/notes/math/real-analysis/note-ra-3-metric-normed-hilbert-fourier)
 - [**实分析 4** — 有界线性算子、对偶空间、谱理论与紧算子](/notes/math/real-analysis/note-ra-4-operators-dual-spectrum-compact)
 - [**实分析 5** — 弱收敛、Hahn-Banach 与 Banach 不动点定理](/notes/math/real-analysis/note-ra-5-weak-convergence-hahn-banach-fixed-point)
+- [**实分析 6** — 测度、可测函数与 Lebesgue 积分](/notes/math/real-analysis/note-ra-6-measure-lebesgue-integral)
+- [**实分析 7** — MCT、Fatou、DCT 与 L^p 空间](/notes/math/real-analysis/note-ra-7-convergence-theorems-lp)
 
 </details>
 

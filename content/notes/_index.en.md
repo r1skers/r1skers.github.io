@@ -24,6 +24,8 @@ summary: "An index of course notes and self-study records."
 - [**Real Analysis 3** — Metric Spaces, Normed Spaces, Hilbert Spaces, and the Foundations of Fourier](/en/notes/math/real-analysis/note-ra-3-metric-normed-hilbert-fourier)
 - [**Real Analysis 4** — Bounded Linear Operators, Dual Space, Spectral Theory, and Compact Operators](/en/notes/math/real-analysis/note-ra-4-operators-dual-spectrum-compact)
 - [**Real Analysis 5** — Weak Convergence, Hahn-Banach, and the Banach Fixed-Point Theorem](/en/notes/math/real-analysis/note-ra-5-weak-convergence-hahn-banach-fixed-point)
+- [**Real Analysis 6** — Measures, Measurable Functions, and the Lebesgue Integral](/en/notes/math/real-analysis/note-ra-6-measure-lebesgue-integral)
+- [**Real Analysis 7** — MCT, Fatou, DCT, and L^p Spaces](/en/notes/math/real-analysis/note-ra-7-convergence-theorems-lp)
 
 </details>
 
