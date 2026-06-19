@@ -153,7 +153,7 @@ $$
 
 The collection of measurable sets is denoted $\mathcal{L}(\mathbb{R})$ — it is a σ-algebra on $\mathbb{R}$; $m^*|_\mathcal{L}$ is the **Lebesgue measure**, written $m$.
 
-> Not every subset of $\mathbb{R}$ is measurable (the classic counterexample is the Vitali set, whose construction uses the axiom of choice), but **all open / closed / Borel / countable unions-intersections** met in practice are measurable, so this rarely matters in daily use.
+> Not every subset of $\mathbb{R}$ is measurable — the classic counterexample is the **Vitali set** (covered separately in §3.4), constructed using the axiom of choice. But **all open / closed / Borel / countable unions-intersections** met in practice are measurable, so this rarely matters in daily use.
 
 ### The Blanket-Cover Proof that m(ℚ) = 0
 
@@ -197,6 +197,173 @@ So $m^*(\mathbb{Q})\le\varepsilon$. Since $\varepsilon$ is arbitrary, $m^*(\math
 **The essence**: countably many intervals, each half the length of the previous — the geometric series has finite sum. This is the **power of countable (not finite) additivity**. Riemann's finite partitions cannot do this.
 
 Direct corollary: **any countable set has Lebesgue measure 0** — so $\chi_\mathbb{Q}$ is "almost everywhere 0" in the Lebesgue sense, and $\int_0^1\chi_\mathbb{Q}\,dm=0$. Riemann's deadlock, Lebesgue cuts through with one stroke.
+
+### The Vitali Set: Non-Measurable Subsets Exist
+
+Here we look at the pathological Vitali set — **not every subset of ℝ can be assigned a weight**. One-sentence conclusion: **the Lebesgue σ-algebra $\mathcal{L}(\mathbb{R})$ is a strict subset of $2^\mathbb{R}$**; there exist subsets $V\subseteq[0,1]$ for which no self-consistent "weight" can be assigned. Expand below for the full "cake-and-knife" argument.
+
+{{< details summary="The cake-and-knife metaphor: good knives vs. bad knives, and why we need a σ-algebra" >}}
+
+**A set as a "knife" cutting the cake**
+
+Think of $[0,1]$ as a cake. A set $A\subseteq[0,1]$ is a knife:
+
+- Every point in $A$ → left plate;
+- Every point outside $A$ → right plate;
+- Weigh the two plates and check whether their sum equals the whole cake's $1$.
+
+**Sums up = $A$ is a good knife (measurable); doesn't sum up = $A$ is a bad knife (non-measurable).**
+
+This is precisely the visual form of §3.2's Carathéodory criterion $m^*(E)=m^*(E\cap A)+m^*(E\setminus A)$ — "$A$ cleanly splits any test cake $E$ in two, and the outer measures add."
+
+**A good knife: the irrationals**
+
+Take $A = I =$ the irrationals in $[0,1]$. Cut the whole cake:
+
+- **Left plate** (points in $I$): all irrational points, weight $m(I) = 1$ ($[0,1]$ minus countable-null $\mathbb{Q}$, by §3.3);
+- **Right plate** (points outside $I$): all rational points, weight $m(\mathbb{Q}\cap[0,1]) = 0$.
+
+Weights add:
+
+$$
+1 + 0 = 1\ \checkmark
+$$
+
+Exactly the whole. Any test cake (say $[0, 0.3]$) gives matching accounts too. **The irrationals are a good knife, measurable.**
+
+**A bad knife: the Vitali set**
+
+Now construct a knife whose accounting fundamentally fails.
+
+**First, color the cake**. For each point $x\in[0,1]$, assign a color by the rule
+
+$$
+x, y \text{ have the same color}\ \iff\ x - y \in \mathbb{Q}.
+$$
+
+This partitions the cake into uncountably many colors — same color = differ by a rational; each color is **countably dense** across the entire cake.
+
+**The Vitali cut**: pick **one representative point** from each color, gather them into
+
+$$
+V \subseteq [0,1].
+$$
+
+This step picks from **uncountably many colors at once** — **only possible with the Axiom of Choice**. $V$ is a strange set: it spans the whole cake, but each color contributes exactly one point.
+
+**Weighing fails: the trap of countably many equal pieces**
+
+Don't weigh $V$ directly — look at how its **translates** tile the cake. Translate $V$ along a rational $q$ to get
+
+$$
+V_q = (V + q)\bmod 1.
+$$
+
+The family $\{V_q : q\in\mathbb{Q}\cap[0,1]\}$ satisfies three things:
+
+1. **Pairwise disjoint**: if two translates shared a point, the original representatives would be the same color — but $V$ has only one representative per color. Contradiction.
+2. **Together they cover the whole cake $[0,1)$**: every point belongs to some color and can be written as (that color's representative) + (some $q$).
+3. **Each translate has the same weight** (call it $c$): they are all translates of $V$, and **translation does not change weight**.
+
+Now weigh: countably many copies of weight $c$ tile the cake disjointly, so
+
+$$
+1 = \underbrace{c + c + c + \cdots}_{\text{countably many}}.
+$$
+
+**The fatal problem**: no choice of $c$ works —
+
+- If $c = 0$: $0 + 0 + 0 + \cdots = 0 \ne 1$;
+- If $c \gt 0$ (even $0.0001$): countably many positives sum to $\infty \ne 1$.
+
+**Never equals 1.** So $V$ has no self-consistent weight — it is a **bad knife**, non-measurable.
+
+**Why not $\tfrac{1}{n}$? Why doesn't a convergent series save it?**
+
+Intuitively you might say "just give each piece $\tfrac{1}{n}$" —
+
+- "**$\tfrac{1}{n}$ works**" requires a **finite count of $n$ pieces**. $5\times\tfrac15 = 1$ works because there are 5 pieces. Here the count is **countably infinite**, with no finite $n$ you can write down.
+- "But geometric series $\sum 1/2^n = 1$ sums infinitely many terms to 1, doesn't it?" — yes, but each term is **of different size**, with the series converging because the tail shrinks. Vitali's curse is **forcing each piece to be the same size** (translation invariance demands it), with no "shrinking tail" escape.
+
+"**Equal + countably infinite**" is a dead end: positive $\times \infty = \infty$, zero $\times \infty = 0$, with no value in between that can stop at 1.
+
+**Contrast with m(ℚ) = 0**
+
+This is exactly the watershed between §3.3 and §3.4, and the real punchline of the Vitali section — **both sides use "countable additivity + translation invariance," but in opposite directions**:
+
+| | Copy structure | Weight of each piece | Sum over infinitely many | Conclusion |
+|---|---|---|---|---|
+| **m(ℚ)=0** (§3.3) | Cover $\mathbb{Q}$ with blankets, **overlaps allowed** | Can **decrease** as $\varepsilon/2^n$ | Converges, **shrinkable to anything** | $m(\mathbb{Q})=0$ |
+| **Vitali** (§3.4) | Translates $V_q$, **forced disjoint** | Translation invariance forces **all equal** $c$ | **Only 0 or ∞**, always skipping 1 | $V$ non-measurable |
+
+Blanket covering works because "the pieces can be made smaller and smaller" (decreasing series converge); Vitali fails because "the pieces must all be equal" (geometric series are forbidden).
+
+**The roots are the same toolset; the directions are opposite.**
+
+**This answers "why we need a σ-algebra"**
+
+If we insisted on assigning weights to every subset of $2^\mathbb{R}$, sets like Vitali — whose accounts don't balance — would sneak in, breaking the whole weight system into self-contradiction (forced to admit $1 = 0$ or $1 = \infty$).
+
+The strategy of measure theory: **only license the "good knives"** — define the measure on sets that cut consistently (those in the σ-algebra), and refuse bad knives like Vitali outright.
+
+$$
+\boxed{\,\text{σ-algebra} = \text{the registry of all good knives}\,}
+$$
+
+This is the deeper meaning of the parenthetical in §3.2:
+
+$$
+\text{open / closed / Borel / their countable closures and complements} \subsetneq \mathcal{L}(\mathbb{R}) \subsetneq 2^\mathbb{R}.
+$$
+
+Every set you can "naturally write down" in practice lives in $\mathcal{L}(\mathbb{R})$. The Vitali set **requires** the axiom of choice to construct, and **no concrete element $v\in V$ can be written down** — it is more of a "theoretical entity in the ZFC axiom system" than a set that would actually appear in analysis.
+
+> **What it means**: the Vitali set is a mirror. It shows the power of Lebesgue measure has a ceiling — it cannot be extended to all of $2^\mathbb{R}$ while preserving **translation invariance + countable additivity + being defined on every subset**. **Any two of the three are compatible; all three together collapse.** Lebesgue's choice is to sacrifice the third (restrict to $\mathcal{L}$), keeping the first two — this trade-off is the foundational stance of measure theory.
+
+{{< /details >}}
+
+{{< details summary="Proof: the Vitali set is not Lebesgue measurable (formal version)" >}}
+
+**Step 1: equivalence relation and choice of representatives.**
+
+On $[0,1]$, define $x\sim y\iff x-y\in\mathbb{Q}$. This is an equivalence relation, partitioning $[0,1]$ into uncountably many equivalence classes, each countable and dense.
+
+By the **axiom of choice**, pick one representative from each class to form $V\subseteq[0,1]$.
+
+**Step 2: translation construction.**
+
+Enumerate $\mathbb{Q}\cap[0,1]=\{q_1, q_2, \ldots\}$. Define
+
+$$
+V_n=(V+q_n)\bmod 1\subseteq[0,1].
+$$
+
+**Claim A (disjointness)**: $V_n\cap V_m = \emptyset$ when $n\ne m$.
+
+Proof: if $x\in V_n\cap V_m$, then $\exists v_1, v_2\in V$ with $v_1+q_n\equiv v_2+q_m\pmod 1$, i.e. $v_1-v_2\in\mathbb{Q}$, so $v_1\sim v_2$. But $V$ has only one representative per class, so $v_1=v_2 \Rightarrow q_n=q_m$, contradiction.
+
+**Claim B (covering)**: $[0,1]\subseteq\bigcup_n V_n$.
+
+Proof: $\forall x\in[0,1]$, the representative of $x$'s class is some $v\in V$, so $x-v\in\mathbb{Q}\cap[-1,1]$. Take $q_n = x-v\bmod 1\in\mathbb{Q}\cap[0,1]$; then $x\in V+q_n\pmod 1 = V_n$.
+
+**Step 3: derive a contradiction.**
+
+Suppose $V$ is Lebesgue measurable. By **translation invariance** of Lebesgue measure (and the isometric mod-1 operation), $m(V_n) = m(V)$ for all $n$.
+
+By disjointness and countable additivity,
+
+$$
+m([0,1]) = m\!\left(\bigsqcup_n V_n\right) = \sum_{n=1}^\infty m(V_n) = \sum_{n=1}^\infty m(V).
+$$
+
+The LHS $= 1$. The RHS:
+
+- $m(V) = 0$ $\Rightarrow$ sum $= 0$;
+- $m(V) \gt 0$ $\Rightarrow$ sum $= \infty$.
+
+Both cases contradict LHS $=1$. So $V$ is not Lebesgue measurable. $\square$
+
+{{< /details >}}
 
 ---
 
@@ -266,6 +433,35 @@ $$
 {{< /details >}}
 
 This theorem is the **bridge** of Lebesgue integration: first define the integral on simple functions (trivial), then extend to all nonnegative measurable functions via staircase approximation. **"From below" and "monotonically increasing"** are both essential — they ensure the supremum in §5 behaves well, and they will be the natural setup for MCT in Part 7.
+
+### Counterexample Preview: the Walking Tall Bump
+
+So what if we **drop the monotonicity constraint**? Consider this simple-function sequence:
+
+$$
+f_n(x) = n\,\mathbf{1}_{(0,\,1/n)}(x).
+$$
+
+Each $f_n$ is a simple function (a single step of height $n$ and width $\tfrac{1}{n}$). The pointwise limit:
+
+- $x = 0$: always outside the bump, so $f_n(0) = 0$;
+- $x \gt 0$: once $n$ is large enough that $\tfrac{1}{n}\lt x$, the bump has slid past $x$ and $f_n(x) = 0$.
+
+So $f_n\to 0$ **everywhere**. $\{f_n\}$ looks superficially like a simple-function approximation of $f = 0$ — **but it is not a staircase approximation**.
+
+**Why not**: a staircase approximation requires $\varphi_n\le f$ (from below) and $\varphi_n\le\varphi_{n+1}$ (monotone). Here $f = 0$, while each $f_n$ is **far above $0$** on its bump; and the bump's position and shape keep changing ($f_1$'s bump on $(0,1)$, $f_2$'s on $(0,\tfrac12)$, …), neither "from below" nor "monotone."
+
+**The consequence shows up in the integrals**:
+
+$$
+\int_0^1 f_n\,dm = n\cdot\tfrac{1}{n} = 1\quad\forall n.
+$$
+
+Following the "staircase + MCT" logic, the integrals should converge to $\int 0\,dm = 0$. Instead they are **constantly 1** — a full unit of mass is missing. That 1 unit "escaped into the infinitely tall and infinitely thin bump."
+
+> **Preview of Part 7 §3.4**: This same walking-bump will be put in front of all three convergence theorems (MCT, Fatou, DCT) at once, so each theorem's reaction to the same pathology can be inspected — the downstream payoff of staircase approximation's "from below, monotone" requirement.
+
+The "from below + monotone" of staircase approximation and the "nonnegative + monotonically increasing" of MCT are **two ends of the same vein**: without them, simple-function sequences can behave entirely uncontrollably.
 
 ---
 

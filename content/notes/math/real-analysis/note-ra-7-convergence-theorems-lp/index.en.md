@@ -207,6 +207,79 @@ Back to the moving spike: $f_n=n\mathbf{1}_{[0,1/n]}$. A dominating $g\ge f_n$ a
 
 In practice the most-used is **DCT** — as soon as you find a "clearly integrable" dominating function (e.g. $f_n$ uniformly bounded, or majorized by $|f|+1$), you can swap.
 
+### Worked Example: the Walking Tall Bump Meets All Three Theorems
+
+§2 and §3 each touched the same spike $f_n = n\,\mathbf{1}_{(0,\,1/n)}$ from a single angle — Fatou's section used it to illustrate the one-sided inequality, and DCT's section used it to illustrate "no dominator exists." Part 6 §4 also previewed it as a "not a staircase approximation" counterexample. Here we **put it in front of all three theorems at once** and watch how each reacts to the same pathology — the capstone of §3 before we close.
+
+**Replay of the case (one line per step)**
+
+**Pointwise limit**: $\forall x\gt 0$, once $n$ is large the bump has slid past $x$, so $f_n(x) = 0$; at $x = 0$ the point is always outside the bump. Hence $\lim_n f_n(x) = 0$ **everywhere**.
+
+**Per-term integral**: each $f_n$ is a rectangle of height $n$ and width $\tfrac{1}{n}$,
+
+$$
+\int_0^1 f_n\,dm = n\cdot\tfrac{1}{n} = 1\quad\forall n.
+$$
+
+**The contradiction surfaces**:
+
+$$
+\lim_n \int_0^1 f_n\,dm = 1 \ne 0 = \int_0^1 \lim_n f_n\,dm.
+$$
+
+Each $f_n$ is perfectly well-behaved, yet integration **lost exactly 1 unit of mass**.
+
+**Where did the mass go**: it did not disappear. It **escaped into the infinitely tall, infinitely thin bump** — the bump grows narrower and taller, pressing toward $x=0$. At the moment of the limit, the bump becomes "infinitely tall, zero-width," and area 1 is stuffed into a **vertical line of measure zero**; the integral cannot see anything on null sets, so 1 unit "evaporates."
+
+**The three theorems react one by one**
+
+**① MCT: not applicable — correctly steps aside**
+
+MCT requires $f_n$ monotonically increasing. But this sequence of spikes shifts and reshapes ($f_1$'s bump on $(0,1)$, $f_2$'s on $(0,\tfrac12)$, …); there is no $f_n\le f_{n+1}$ relation at all.
+
+MCT checks its hypothesis → **finds non-monotonicity** → **refuses to apply**. It says nothing wrong — it simply **does not guarantee anything for this case**. $\checkmark$
+
+**② Fatou: applicable, gives a strict inequality**
+
+Fatou only needs nonnegativity; it must hold. Plugging in:
+
+$$
+\int\liminf_n f_n\,dm \le \liminf_n \int f_n\,dm\ \Longrightarrow\ 0 \le 1.\quad\checkmark
+$$
+
+Fatou honestly gives $\le$, and here it is **strict** — it tells you precisely: **"Mass may leak; the LHS can be smaller than the RHS."** It is not lying; this single direction is all it ever promised.
+
+**③ DCT: not applicable — no ceiling exists**
+
+DCT requires an integrable $g$ with $|f_n|\le g$. On $x\in(\tfrac{1}{n+1}, \tfrac{1}{n})$, the tallest bump is $f_n$ of height $n\approx \tfrac{1}{x}$. So $g(x)$ must be on the order of $\tfrac{1}{x}$. But
+
+$$
+\int_0^1 \tfrac{1}{x}\,dx = +\infty.
+$$
+
+The ceiling is **non-integrable** → DCT **refuses to apply**. $\checkmark$
+
+**The three theorems' verdicts on the same case**
+
+| Theorem | Checks hypothesis | Verdict | Correct? |
+|---|---|---|---|
+| MCT | Monotone? | No → not applicable | $\checkmark$ no false guarantee |
+| Fatou | Nonnegative? | Yes → gives $0\le 1$ | $\checkmark$ correct direction |
+| DCT | Integrable dominator? | No → not applicable | $\checkmark$ no false guarantee |
+
+**Key insight**: this case is "pathological" precisely because it **simultaneously evades MCT's monotonicity and DCT's ceiling** — which is exactly why those two theorems set those two hypotheses. **Conditions are not red tape; each one is precisely blocking one mode of mass escape.**
+
+Fatou is the only theorem applicable without conditions, at the cost of giving a one-sided inequality — and that strict $0\le 1$ is the **forensic fingerprint** of "1 unit of mass having escaped."
+
+**One-sentence wrap-up**
+
+Pathological cases do not break theorems — they only make theorems whose **hypotheses fail stay silent**. All the wisdom of the three convergence theorems lives in their hypotheses:
+
+- The stronger the conditions you provide (monotonicity / dominator), the stronger the conclusion you get back (equality);
+- Give nothing, and Fatou still guarantees you a one-sided inequality.
+
+This is how measure theory "works" — **not by blindly plugging into formulas, but by checking hypotheses first and then deciding what to claim back**.
+
 ---
 
 ## 4. $L^p$ Spaces
