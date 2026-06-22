@@ -1,0 +1,78 @@
+/* 代码块亮色化 + VS Code Light+ 风格语法配色
+   hugo.yaml 设 markup.highlight.noClasses=false（用 CSS class 高亮），
+   于是这里可以用 CSS 完全自定义每类 token 的颜色。
+   PaperMod 自带的 chroma-styles.css 是深色（catppuccin），这套覆盖把它
+   改成 VS Code Light+ 浅底深字配色。本文件最后加载，优先级最高。
+   ⚠ 全站生效，影响所有 note/post 的代码块。 */
+
+/* —— 容器 / 背景：压成浅灰，覆盖 PaperMod 默认深底 —— */
+:root { --code-block-bg: #f6f8fa; }
+.post-content div.highlight,
+.post-content div.highlight pre,
+.post-content pre.chroma {
+  background-color: #f6f8fa !important;
+}
+
+/* 基础文字色（未被 token 类命中的普通文字）：改回近黑 */
+.post-content pre.chroma,
+.post-content pre.chroma code,
+.post-content pre code {
+  color: #1f2328 !important;
+}
+
+/* —— VS Code Light+ 调色板 —— */
+/* 关键字：def/return/for/if/import/and/or/not/in、True/False/None -> 蓝 */
+.post-content .chroma .k,
+.post-content .chroma .kd,
+.post-content .chroma .kn,
+.post-content .chroma .kr,
+.post-content .chroma .kc,
+.post-content .chroma .ow { color: #0000ff; }
+/* 类型 / 类名 / 命名空间 -> 青 */
+.post-content .chroma .kt,
+.post-content .chroma .nc,
+.post-content .chroma .nn { color: #267f99; }
+/* 函数名（def 处）/ 魔术方法 / 装饰器 -> 金棕 */
+.post-content .chroma .nf,
+.post-content .chroma .fm,
+.post-content .chroma .nd { color: #795e26; }
+/* 内置 / self、cls -> 蓝 */
+.post-content .chroma .nb,
+.post-content .chroma .bp { color: #0000ff; }
+/* 字符串 -> 暗红 */
+.post-content .chroma .s,
+.post-content .chroma .s1,
+.post-content .chroma .s2,
+.post-content .chroma .sb,
+.post-content .chroma .sc,
+.post-content .chroma .sd,
+.post-content .chroma .se,
+.post-content .chroma .sh,
+.post-content .chroma .si,
+.post-content .chroma .sx { color: #a31515; }
+/* 注释 -> 绿，斜体 */
+.post-content .chroma .c,
+.post-content .chroma .c1,
+.post-content .chroma .cm,
+.post-content .chroma .cp,
+.post-content .chroma .ch,
+.post-content .chroma .cs { color: #008000; font-style: italic; }
+/* 数字 -> 绿 */
+.post-content .chroma .m,
+.post-content .chroma .mi,
+.post-content .chroma .mf,
+.post-content .chroma .mh,
+.post-content .chroma .mo,
+.post-content .chroma .mb,
+.post-content .chroma .il { color: #098658; }
+/* 普通标识符 / 变量 -> 深navy（VS Code 变量色，近黑带蓝） */
+.post-content .chroma .n,
+.post-content .chroma .nv,
+.post-content .chroma .vc,
+.post-content .chroma .vg,
+.post-content .chroma .vi,
+.post-content .chroma .na,
+.post-content .chroma .py { color: #001080; }
+/* 运算符 / 标点 -> 黑 */
+.post-content .chroma .o,
+.post-content .chroma .p { color: #1f2328; }

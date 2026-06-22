@@ -39,6 +39,8 @@ markup:
             - ['\(', '\)']
     renderer:
       unsafe: true
+  highlight:
+    noClasses: false
 
 params:
   author:
@@ -146,14 +148,11 @@ params:
       en: "Research Questions"
     items:
       zh:
-        - "Streaming k-means：边做 assignment，边累计每个簇的 sum/count，避免存储大规模中间矩阵。"
-        - "反演中的能量解释：除了 σ 太小导致分母敏感之外，寻找更好的直觉和表述。"
         - "能量视角元篇综合：L² 谱家族（Born / Ax=b / 卷积）与信息家族（KL / 熵）如何在高斯 / 指数族下会师？"
+        - "混合精度 loss scaling 的 principled scale：能否从梯度分布直接推出最优 S？（S*=O/梯度右尾 sup；左尾=fp16 可行性判据；预测 per-layer scaling；SGD 守更新能量，Adam 守可表示性）"
       en:
-        - "Can Transformer sequences be understood through convergence: do BERT token representations show increasingly stable clusters across layers?"
-        - "Streaming k-means: accumulate each cluster's sum/count during assignment to avoid storing large intermediate matrices."
-        - "Energy interpretation in inversion: find a clearer explanation beyond small σ making the denominator sensitive."
         - "Energy-view meta-synthesis: where does the L² spectral family (Born / Ax=b / convolution) meet the information family (KL / entropy) — Gaussian / exponential family as the bridge? "
+        - "Principled scale for mixed-precision loss scaling: can the optimal S be derived from the gradient distribution? (S* = O / gradient right-tail sup; left tail = fp16 viability criterion; predicts per-layer scaling; SGD preserves update energy, Adam preserves representability)"
 
   socialIcons:
     - name: GitHub
