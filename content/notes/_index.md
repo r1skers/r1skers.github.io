@@ -33,13 +33,22 @@ aliases:
 </details>
 
 <details class="note-subgroup">
-<summary><strong>Fourier / Laplace / 线性系统</strong></summary>
+<summary><strong>信号与系统</strong></summary>
 
-这条线作为实分析与泛函的应用分支：从 Hilbert 空间、正交展开和算子语言，落到信号与系统里的变换方法。
+这条线作为实分析与泛函的应用分支：从 Hilbert 空间、正交展开和算子语言，落到信号与系统里的变换方法（Fourier / Laplace / 线性系统）。
 
 - [**第 1 篇** — 傅里叶变换](/notes/math/linear-systems/note-linsys-1-fourier)
 - [**第 2 篇** — 拉普拉斯变换](/notes/math/linear-systems/note-linsys-2-laplace)
 - [**第 3 篇** — RLC 电路：微分方程与拉普拉斯方法](/notes/math/linear-systems/note-linsys-3-laplace-pde)
+
+</details>
+
+<details class="note-subgroup">
+<summary><strong>优化与变分</strong></summary>
+
+约束优化与变分法的笔记。先以独立单篇逐个介绍核心对象（拉格朗日乘子、KKT、对偶、欧拉–拉格朗日方程……），日后再用一篇总结把它们串成整体。
+
+- [**拉格朗日乘子法** — 拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/)
 
 </details>
 

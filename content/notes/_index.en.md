@@ -30,13 +30,22 @@ summary: "An index of course notes and self-study records."
 </details>
 
 <details class="note-subgroup">
-<summary><strong>Fourier / Laplace / Linear Systems</strong></summary>
+<summary><strong>Signals and Systems</strong></summary>
 
-This branch hangs under real and functional analysis: Hilbert spaces, orthogonal expansions, and operators become the transform methods used in signals and systems.
+This branch hangs under real and functional analysis: Hilbert spaces, orthogonal expansions, and operators become the transform methods used in signals and systems (Fourier / Laplace / linear systems).
 
 - [**Part 1** — Fourier Transform](/en/notes/math/linear-systems/note-linsys-1-fourier)
 - [**Part 2** — Laplace Transform](/en/notes/math/linear-systems/note-linsys-2-laplace)
 - [**Part 3** — RLC Circuit Analysis: Differential Equations vs. Laplace Transform](/en/notes/math/linear-systems/note-linsys-3-laplace-pde)
+
+</details>
+
+<details class="note-subgroup">
+<summary><strong>Optimization and Calculus of Variations</strong></summary>
+
+Notes on constrained optimization and the calculus of variations. Each core idea (Lagrange multipliers, KKT, duality, the Euler–Lagrange equation…) is introduced as a standalone piece for now, to be tied together by a synthesis note later.
+
+- [**Lagrange Multipliers** — The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/)
 
 </details>
 
