@@ -118,6 +118,7 @@ Starting from GPU memory hierarchy, IO-aware algorithms, and inference systems, 
 
 - [**1. FlashAttention v1** — IO-Aware Attention and Tiling Softmax](/en/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/)
 - [**2. Online Softmax** — Original Derivation and Top-K Fusion](/en/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/)
+- [**3. Reproduce and Verify** — Implementing Tiled Attention and Verifying tiled==naive with Invariants](/en/notes/systems/ai-infra/note-systems-io-attn-3-toy-implementation/)
 
 </details>
 

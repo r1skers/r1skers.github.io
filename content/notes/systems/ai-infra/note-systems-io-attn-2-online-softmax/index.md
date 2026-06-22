@@ -13,13 +13,13 @@ aliases:
 
 # 底层架构 / IO 感知注意力 Part 2：Online Softmax 原始推导
 
-[上一篇](/notes/笔记-底层架构-io感知注意力1-flashattention-v1-与-tiling-softmax/) 把 FlashAttention v1 里的分块 softmax 更新写成了 **rebase trick**。这一篇往前追一步：这个 trick 不是 FA1 发明的，它来自 Milakov 和 Gimelshein 2018 年的 NVIDIA tech report：
+[上一篇](/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/) 把 FlashAttention v1 里的分块 softmax 更新写成了 **rebase trick**。这一篇往前：这个 trick 不是 FA1 发明的，它来自 Milakov 和 Gimelshein 2018 年的 NVIDIA tech report：
 
 [Online normalizer calculation for softmax (Milakov & Gimelshein, 2018)](https://arxiv.org/abs/1805.02867)
 
-原论文很短，只有 8 页，目标也很直接：**减少 softmax 的 global memory 访问**。它最初面对的不是 attention，而是 NMT / 大词表语言模型里的输出层 softmax。词表大小 $V$ 动辄 $10\text{K}$ 到 $100\text{K}$，每次 decode 都要对整张 vocabulary 做 softmax，然后经常还要接 top-K。这个过程算得不重，但搬数据很重。
+原论文很短，只有 8 页，目标很直接：**减少 softmax 的 global memory 访问**。它最初面对的不是 attention，而是 NMT / 大词表语言模型里的输出层 softmax。词表大小 $V$ 动辄 $10\text{K}$ 到 $100\text{K}$，每次 decode 都要对整张 vocabulary 做 softmax，然后经常还要接 top-K。这个过程算得不多，但搬数据很麻烦。
 
-这篇 paper 我读完后的压缩版大概是：
+这篇 paper 读完感觉上大概是：
 
 > 把 safe softmax 里“先找 max、再算 normalizer”的两次扫描，合并成一次 online normalizer 扫描。
 
@@ -28,8 +28,8 @@ aliases:
 # Abstract
 
 - **问题**：naive softmax 只扫两遍数据，但 $e^{x_i}$ 容易 overflow；safe softmax 用 max-subtract 解决数值稳定性，却需要扫三遍数据。对于大词表 softmax，这多出来的一遍 global memory 访问会变成实际瓶颈。
-- **方法**：在线维护两个量：running max $m_i$ 和 running normalizer $d_i$。每来一个新元素，如果 max 改变，就把旧 normalizer 通过 $e^{m_\text{old}-m_\text{new}}$ 重新缩放到新基准。
-- **结果**：完整 softmax 仍然需要第二遍写输出，但 normalizer 的计算从两遍压成一遍。因此 safe softmax 从 `3 reads + 1 write` 回到 `2 reads + 1 write`。
+- **方法**：维护两个量：running max $m_i$ 和 running normalizer $d_i$。每来一个新元素，如果 max 改变，就把旧 normalizer 通过 $e^{m_\text{old}-m_\text{new}}$ 重新缩放到新基准。
+- **结果**：完整 softmax 仍然需要第二遍写输出，但 normalizer 的计算从两遍压缩成一遍。因此 safe softmax 从 `3 reads + 1 write` 回到 `2 reads + 1 write`。
 - **扩展**：把 online softmax 和 top-K 融成一个 kernel。因为 top-K 只需要前 $K$ 个概率，所以不必把整张 $V$ 长的概率向量写到 global memory 再读回来。
 - **跟 FA1 的关系**：FA1 把这里的一维 online normalizer 推广到二维 attention blocks。Algorithm 3 的 rebase 因子，正是 FlashAttention 中 $(m,\ell)$ 逐块更新的原型。
 
@@ -45,7 +45,7 @@ $$
 
 这里的计算量并不大：每个元素做一次指数、一次加法或除法。麻烦在于要反复扫描长度为 $V$ 的向量。
 
-如果 $V$ 是 50K，一个 batch 里有很多行，每行都要扫多遍，那么 bottleneck 很快就不在 ALU，而在 memory bandwidth。论文一开始就把问题定性得很清楚：**softmax 是一个 memory-bound operation**。
+如果 $V$ 是 50K，一个 batch 里有很多行，每行都要扫多遍，那么 bottleneck 很快就不在 ALU，而在 memory bandwidth。论文一开始就说得很清楚：**softmax 是一个 memory-bound operation**。
 
 下面三种算法，本质上是在比较：
 
@@ -570,7 +570,7 @@ Milakov & Gimelshein 这篇 paper 解决的问题很小，但思想很干净：
 # 个人笔记
 {{< details summary="Notes" >}}
 
-![Online Softmax 1](/notes/笔记-底层架构-io感知注意力2-online-softmax-原始推导/online-softmax-back.jpg)
-![Online Softmax 2](/notes/笔记-底层架构-io感知注意力2-online-softmax-原始推导/online-softmax-front.jpg)
+![Online Softmax 1](/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/online-softmax-back.jpg)
+![Online Softmax 2](/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/online-softmax-front.jpg)
 
 {{< /details >}}

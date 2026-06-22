@@ -381,7 +381,7 @@ FA1 论文同时证明了一个下界（基于经典的 Aggarwal–Vitter I/O �
 # 个人笔记
 {{< details summary="Notes" >}}
 
-![Flash Attention 1](/notes/笔记-底层架构-io感知注意力1-flashattention-v1-与-tiling-softmax/flash-attention-front.jpg)
-![Flash Attention 2](/notes/笔记-底层架构-io感知注意力1-flashattention-v1-与-tiling-softmax/flash-attention-back.jpg)
+![Flash Attention 1](/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/flash-attention-front.jpg)
+![Flash Attention 2](/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/flash-attention-back.jpg)
 
 {{< /details >}}

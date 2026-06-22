@@ -11,7 +11,7 @@ aliases:
 
 # Systems / IO-Aware Attention Part 2: The Original Online Softmax Derivation
 
-In the [previous note](/notes/笔记-底层架构-io感知注意力1-flashattention-v1-与-tiling-softmax/), I called the blockwise softmax update in FlashAttention v1 a **rebase trick**. This note traces that trick back to its source: Milakov and Gimelshein's 2018 NVIDIA tech report:
+In the [previous note](/en/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/), I called the blockwise softmax update in FlashAttention v1 a **rebase trick**. This note traces that trick back to its source: Milakov and Gimelshein's 2018 NVIDIA tech report:
 
 [Online normalizer calculation for softmax (Milakov & Gimelshein, 2018)](https://arxiv.org/abs/1805.02867)
 
@@ -575,7 +575,7 @@ More importantly, it gave FlashAttention a ready-made mathematical component: on
 
 {{< details summary="Notes" >}}
 
-![Online Softmax 1](/notes/笔记-底层架构-io感知注意力2-online-softmax-原始推导/online-softmax-back.jpg)
-![Online Softmax 2](/notes/笔记-底层架构-io感知注意力2-online-softmax-原始推导/online-softmax-front.jpg)
+![Online Softmax 1](/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/online-softmax-back.jpg)
+![Online Softmax 2](/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/online-softmax-front.jpg)
 
 {{< /details >}}

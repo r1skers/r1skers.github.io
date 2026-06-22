@@ -121,6 +121,7 @@ aliases:
 
 - [**1. FlashAttention v1** — IO 感知注意力与 tiling-softmax](/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/)
 - [**2. Online Softmax** — 原始推导与 top-K fusion](/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/)
+- [**3. 复现与验证** — 亲手实现 tiled attention 并用 invariant 验证 tiled==naive](/notes/systems/ai-infra/note-systems-io-attn-3-toy-implementation/)
 
 </details>
 
