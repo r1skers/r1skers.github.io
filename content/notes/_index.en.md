@@ -65,6 +65,13 @@ Notes on constrained optimization and the calculus of variations. Each core idea
 
 </details>
 
+<details class="note-subgroup">
+<summary><strong>Problem Set</strong></summary>
+
+- [**Exercises and Solutions**](/en/notes/problems/) — Companion problems grouped by topic, listed one by one.
+
+</details>
+
 </details>
 
 <details>

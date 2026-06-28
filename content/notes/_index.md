@@ -68,6 +68,13 @@ aliases:
 
 </details>
 
+<details class="note-subgroup">
+<summary><strong>问题集</strong></summary>
+
+- [**练习与参考解答**](/notes/problems/) — 配套笔记的题目，按主题分小节、逐题列举。
+
+</details>
+
 </details>
 
 <details>
