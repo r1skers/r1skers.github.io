@@ -1,6 +1,6 @@
 ---
 date: '2026-06-07T00:00:00+09:00'
-draft: false
+draft: true
 title: "A Generalized Energy View: Structure, Information, and Representation"
 summary: "A meta-synthesis for the energy-view series: not a grand unified energy theory, but a structural comparison table across L², information, and geometry, with attention to the gaps."
 description: "Starting from the Born, Ax=b, and convolution posts, this essay compares roles such as state, scalar relation, residual, weak direction, prior, and flow across L², information, and geometry."

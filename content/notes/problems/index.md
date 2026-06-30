@@ -130,6 +130,108 @@ $$
 
 {{< /details >}}
 
+### 拉格朗日乘子与 Gibbs 不等式：高斯-最大熵分布
+
+在所有均值为 $\mu$、方差为 $\sigma^2$ 的连续概率密度中，最大化微分熵 $h[p]=-\int p\ln p\,dx$。分别用拉格朗日乘子（对密度做变分）与 Gibbs 不等式证明最大熵分布是高斯 $\mathcal N(\mu,\sigma^2)$，体会两者是同一件事的两种语言。
+
+*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [大一统知识地图 · 熵](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+
+{{< details summary="参考解答" >}}
+
+**拉格朗日语言（变分找驻点）.** 三条约束 $\int p\,dx=1$、$\int xp\,dx=\mu$、$\int(x-\mu)^2p\,dx=\sigma^2$ 各配一个乘子，作泛函
+
+$$
+L[p]=-\int p\ln p\,dx+\lambda_0\Big(\int p\,dx-1\Big)+\lambda_1\Big(\int xp\,dx-\mu\Big)+\lambda_2\Big(\int(x-\mu)^2p\,dx-\sigma^2\Big).
+$$
+
+对密度 $p(x)$ 取变分 $\delta L/\delta p=0$（被积式对 $p$ 逐点求偏导；这里没有 $p'$ 项，欧拉–拉格朗日退化成逐点条件）：
+
+$$
+-\ln p(x)-1+\lambda_0+\lambda_1 x+\lambda_2(x-\mu)^2=0
+\ \Longrightarrow\
+p(x)=\exp\!\big(\lambda_0-1+\lambda_1 x+\lambda_2(x-\mu)^2\big).
+$$
+
+右边是 $\exp(\text{$x$ 的二次式})$，必为高斯形。三条约束定常数（归一 + 均值 + 方差）给出 $\lambda_1=0,\ \lambda_2=-\tfrac{1}{2\sigma^2}$，即
+
+$$
+p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\Big(-\frac{(x-\mu)^2}{2\sigma^2}\Big)=\mathcal N(\mu,\sigma^2).
+$$
+
+（微分熵凹、约束线性，这个唯一驻点即全局最大。）
+
+**Gibbs 语言（全局不等式）.** 记 $g=\mathcal N(\mu,\sigma^2)$。对任意同均值 $\mu$、同方差 $\sigma^2$ 的密度 $p$，KL 非负：
+
+$$
+0\le D(p\,\|\,g)=\int p\ln\frac{p}{g}\,dx=-h(p)-\int p\ln g\,dx
+\ \Longrightarrow\
+h(p)\le-\int p\ln g\,dx.
+$$
+
+关键：$\ln g(x)=-\tfrac12\ln(2\pi\sigma^2)-\tfrac{(x-\mu)^2}{2\sigma^2}$ 是 $x$ 的二次式，故 $-\int p\ln g$ **只通过 $p$ 的归一与二阶矩起作用**，而它们与 $g$ 相同：
+
+$$
+-\int p\ln g\,dx=\tfrac12\ln(2\pi\sigma^2)+\frac{1}{2\sigma^2}\underbrace{\int p\,(x-\mu)^2\,dx}_{=\sigma^2}=\tfrac12\ln(2\pi e\sigma^2)=h(g).
+$$
+
+于是 $h(p)\le h(g)$，等号当且仅当 $p=g$。最大微分熵 $h_{\max}=\tfrac12\ln(2\pi e\sigma^2)$。
+
+**两种语言.** 拉格朗日解变分一阶条件，直接定出最优分布的**形状**（$\exp$ 二次式 = 高斯）；Gibbs 用 KL 非负 +「与高斯的交叉熵只看二阶矩」，直接给出 $h\le h(g)$ 的**全局上界**、等号刻画最优。一个「长什么样」、一个「为什么没人比它高」——和 E1 同套路，只是这里从有限维升到了**对密度的变分**（笔记第 8 节那半场）。
+
+**两个细节.** ① 这里是**微分熵**（连续），可负、不具坐标不变性，但「给定矩下最大」这一相对结论是干净的；② 约束须**同时**固定均值与方差，Gibbs 那步正是靠 $p,g$ 两矩相同。
+
+{{< /details >}}
+
+### 拉格朗日乘子与凸对偶：softmax-最大熵分布
+
+$n$ 个结局，每个有一个「得分」$z_i$。在期望得分 $\sum_i p_i z_i$ 固定的约束下最大化熵 $H(p)=-\sum_i p_i\ln p_i$。用拉格朗日乘子证明最大熵分布是 softmax $p_i=e^{\beta z_i}/\sum_j e^{\beta z_j}$；再换凸对偶的语言看 softmax 是 log-sum-exp 的梯度。
+
+*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [大一统知识地图 · 熵](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+
+{{< details summary="参考解答" >}}
+
+**拉格朗日语言（找驻点）.** 约束 $\sum_i p_i=1$、$\sum_i p_i z_i=\bar z$。拉格朗日函数
+
+$$
+L=-\sum_i p_i\ln p_i+\lambda\Big(\sum_i p_i-1\Big)+\beta\Big(\sum_i p_i z_i-\bar z\Big).
+$$
+
+对 $p_i$ 求偏导置零：
+
+$$
+\frac{\partial L}{\partial p_i}=-\ln p_i-1+\lambda+\beta z_i=0
+\ \Longrightarrow\
+p_i=e^{\lambda-1+\beta z_i}\propto e^{\beta z_i}.
+$$
+
+归一化给出
+
+$$
+p_i=\frac{e^{\beta z_i}}{\sum_j e^{\beta z_j}}=\operatorname{softmax}(\beta z)_i.
+$$
+
+乘子 $\beta$（「逆温度」）由期望约束 $\bar z$ 定：$\beta\to 0$ 退回均匀（E1），$\beta\to\infty$ 集中到最大的 $z_i$（硬 argmax）。
+
+**凸对偶语言（softmax 是 ∇ log-sum-exp）.** 换个等价问法：把熵当正则项，在单纯形 $\Delta$ 上做带熵正则的线性极大化
+
+$$
+\max_{p\in\Delta}\ \langle p,z\rangle+\tfrac1\beta H(p).
+$$
+
+同样的拉格朗日（归一约束）解出同一个 $p=\operatorname{softmax}(\beta z)$，而最优值正是
+
+$$
+\tfrac1\beta\ln\sum_i e^{\beta z_i}=\tfrac1\beta\operatorname{LSE}(\beta z),
+\qquad
+\nabla\operatorname{LSE}(z)=\operatorname{softmax}(z).
+$$
+
+log-sum-exp 是负熵在单纯形上的**凸共轭**，softmax 就是这个凸势的梯度。
+
+**两种视角.** 拉格朗日：最大熵 + 期望约束直接解出 $e^{\beta z}$ 的形状；凸对偶：softmax 是 LSE 的梯度、LSE 是负熵的共轭。
+
+{{< /details >}}
+
 ---
 
 ## 鸽笼原理

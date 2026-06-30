@@ -133,6 +133,108 @@ That is: Lagrange solves the **continuous relaxation** of the integer problem; e
 
 {{< /details >}}
 
+### The Gaussian as a maximum-entropy distribution (Lagrange multipliers and Gibbs)
+
+Among all continuous probability densities with mean $\mu$ and variance $\sigma^2$, maximize the differential entropy $h[p]=-\int p\ln p\,dx$. Prove, both via Lagrange multipliers (a variation on the density) and via Gibbs' inequality, that the maximum-entropy distribution is the Gaussian $\mathcal N(\mu,\sigma^2)$, and appreciate that the two are one thing in two languages.
+
+*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Knowledge map · Entropy](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+
+{{< details summary="Reference solution" >}}
+
+**Lagrange language (variation, find the stationary point).** Attach a multiplier to each of the three constraints $\int p\,dx=1$, $\int xp\,dx=\mu$, $\int(x-\mu)^2p\,dx=\sigma^2$, forming the functional
+
+$$
+L[p]=-\int p\ln p\,dx+\lambda_0\Big(\int p\,dx-1\Big)+\lambda_1\Big(\int xp\,dx-\mu\Big)+\lambda_2\Big(\int(x-\mu)^2p\,dx-\sigma^2\Big).
+$$
+
+Take the variation $\delta L/\delta p=0$ (differentiate the integrand pointwise with respect to $p$; with no $p'$ term, the Euler–Lagrange equation reduces to a pointwise condition):
+
+$$
+-\ln p(x)-1+\lambda_0+\lambda_1 x+\lambda_2(x-\mu)^2=0
+\ \Longrightarrow\
+p(x)=\exp\!\big(\lambda_0-1+\lambda_1 x+\lambda_2(x-\mu)^2\big).
+$$
+
+The right side is $\exp(\text{quadratic in }x)$, necessarily a Gaussian. The three constraints (normalization + mean + variance) fix the constants to $\lambda_1=0,\ \lambda_2=-\tfrac{1}{2\sigma^2}$, i.e.
+
+$$
+p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\Big(-\frac{(x-\mu)^2}{2\sigma^2}\Big)=\mathcal N(\mu,\sigma^2).
+$$
+
+(Differential entropy is concave and the constraints are linear, so this unique stationary point is the global maximum.)
+
+**Gibbs language (a global inequality).** Let $g=\mathcal N(\mu,\sigma^2)$. For any density $p$ with the same mean $\mu$ and variance $\sigma^2$, the KL divergence is nonnegative:
+
+$$
+0\le D(p\,\|\,g)=\int p\ln\frac{p}{g}\,dx=-h(p)-\int p\ln g\,dx
+\ \Longrightarrow\
+h(p)\le-\int p\ln g\,dx.
+$$
+
+Key: $\ln g(x)=-\tfrac12\ln(2\pi\sigma^2)-\tfrac{(x-\mu)^2}{2\sigma^2}$ is quadratic in $x$, so $-\int p\ln g$ **depends on $p$ only through its normalization and second moment**, which match those of $g$:
+
+$$
+-\int p\ln g\,dx=\tfrac12\ln(2\pi\sigma^2)+\frac{1}{2\sigma^2}\underbrace{\int p\,(x-\mu)^2\,dx}_{=\sigma^2}=\tfrac12\ln(2\pi e\sigma^2)=h(g).
+$$
+
+Hence $h(p)\le h(g)$, with equality iff $p=g$. The maximum differential entropy is $h_{\max}=\tfrac12\ln(2\pi e\sigma^2)$.
+
+**The two languages.** Lagrange solves the variational first-order condition and pins down the **shape** of the optimum ($\exp$ of a quadratic = Gaussian); Gibbs uses nonnegativity of KL plus "the cross-entropy with a Gaussian sees only the second moment" to hand you the **global upper bound** $h\le h(g)$, with equality marking the optimum. One says "what it looks like," the other "why nothing beats it" — the same pattern as E1, only here lifted from finite dimensions to a **variation on the density** (§8 of the note).
+
+**Two details.** ① This is **differential** entropy (continuous): it can be negative and is not coordinate-invariant, but the relative statement "maximal given the moments" is clean; ② the constraint must fix **both** mean and variance — the Gibbs step relies precisely on $p,g$ sharing both moments.
+
+{{< /details >}}
+
+### softmax as a maximum-entropy distribution (Lagrange multipliers and convex duality)
+
+$n$ outcomes, each with a "score" $z_i$. Maximize the entropy $H(p)=-\sum_i p_i\ln p_i$ subject to a fixed expected score $\sum_i p_i z_i$. Prove via Lagrange multipliers that the maximum-entropy distribution is the softmax $p_i=e^{\beta z_i}/\sum_j e^{\beta z_j}$; then, in the language of convex duality, see softmax as the gradient of log-sum-exp.
+
+*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Knowledge map · Entropy](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+
+{{< details summary="Reference solution" >}}
+
+**Lagrange language (find the stationary point).** Constraints $\sum_i p_i=1$ and $\sum_i p_i z_i=\bar z$. The Lagrangian is
+
+$$
+L=-\sum_i p_i\ln p_i+\lambda\Big(\sum_i p_i-1\Big)+\beta\Big(\sum_i p_i z_i-\bar z\Big).
+$$
+
+Set the partial derivatives to zero:
+
+$$
+\frac{\partial L}{\partial p_i}=-\ln p_i-1+\lambda+\beta z_i=0
+\ \Longrightarrow\
+p_i=e^{\lambda-1+\beta z_i}\propto e^{\beta z_i}.
+$$
+
+Normalizing gives
+
+$$
+p_i=\frac{e^{\beta z_i}}{\sum_j e^{\beta z_j}}=\operatorname{softmax}(\beta z)_i.
+$$
+
+The multiplier $\beta$ (the "inverse temperature") is set by the expected-score constraint $\bar z$: $\beta\to 0$ returns the uniform distribution, $\beta\to\infty$ concentrates on the largest $z_i$ (the hard argmax).
+
+**Convex-duality language (softmax is $\nabla$ log-sum-exp).** An equivalent phrasing: treat the entropy as a regularizer and do entropy-regularized linear maximization over the simplex $\Delta$,
+
+$$
+\max_{p\in\Delta}\ \langle p,z\rangle+\tfrac1\beta H(p).
+$$
+
+The same Lagrange step (normalization constraint) yields the same $p=\operatorname{softmax}(\beta z)$, and the optimal value is exactly
+
+$$
+\tfrac1\beta\ln\sum_i e^{\beta z_i}=\tfrac1\beta\operatorname{LSE}(\beta z),
+\qquad
+\nabla\operatorname{LSE}(z)=\operatorname{softmax}(z).
+$$
+
+Log-sum-exp is the **convex conjugate** of negative entropy on the simplex, and softmax is the gradient of that convex potential.
+
+**Two views.** Lagrange: max-entropy plus the expected-score constraint solves directly for the $e^{\beta z}$ shape; convex duality: softmax is the gradient of LSE, and LSE is the conjugate of negative entropy.
+
+{{< /details >}}
+
 ---
 
 ## The Pigeonhole Principle
