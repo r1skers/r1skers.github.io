@@ -182,6 +182,8 @@ $$
 
 {{< /details >}}
 
+<a id="softmax-maximum-entropy"></a>
+
 ### 拉格朗日乘子与凸对偶：softmax-最大熵分布
 
 $n$ 个结局，每个有一个「得分」$z_i$。在期望得分 $\sum_i p_i z_i$ 固定的约束下最大化熵 $H(p)=-\sum_i p_i\ln p_i$。用拉格朗日乘子证明最大熵分布是 softmax $p_i=e^{\beta z_i}/\sum_j e^{\beta z_j}$；再换凸对偶的语言看 softmax 是 log-sum-exp 的梯度。
