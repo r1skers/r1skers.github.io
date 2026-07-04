@@ -19,4 +19,8 @@ This section is organized as numbered project tracks. It is where I keep materia
     - `Artifact 5.1.1`: [PCA Whitening Synthetic Demo](/en/artifacts/05-1-1-pca-whitening-demo/)
   - `Artifact 5.2`: [Linear Probe View](/en/artifacts/05-2-linear-probe-view/)
   - `Artifact 5.3`: [Fisher Discriminant View](/en/artifacts/05-3-fisher-view/)
-
+- `Artifact 6`: [Value-Aware Sparse Attention: From Entropy Pruning to Error-Aware Pruning](/en/artifacts/06-value-aware-sparse-attention/)
+  - `Artifact 6.1`: [Formulas and Phenomenon Observation](/en/artifacts/06-1-formulas-and-phenomenon-observation/)
+  - `Artifact 6.2`: [Cheap Value Proxies](/en/artifacts/06-2-cheap-value-proxies/)
+  - `Artifact 6.3`: [Real Attention: From BERT to GPT-2](/en/artifacts/06-3-real-attention-cross-model/)
+  - `Artifact 6.4`: [Metric Boundary: Local Error Is Not a Behavioral Oracle](/en/artifacts/06-4-metric-boundary/)

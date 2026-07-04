@@ -23,3 +23,8 @@ aliases:
     - `Artifact 5.1.1`：[PCA Whitening 各向异性聚类 Demo](/artifacts/05-1-1-pca-whitening-demo/)
   - `Artifact 5.2`：[Linear probe 视角](/artifacts/05-2-linear-probe-view/)
   - `Artifact 5.3`：[Fisher 几何视角](/artifacts/05-3-fisher-view/)
+- `Artifact 6`：[Value-Aware Sparse Attention：从熵剪枝到误差感知剪枝](/artifacts/06-value-aware-sparse-attention/)
+  - `Artifact 6.1`：[公式推导与现象观察](/artifacts/06-1-formulas-and-phenomenon-observation/)
+  - `Artifact 6.2`：[Cheap Value Proxies](/artifacts/06-2-cheap-value-proxies/)
+  - `Artifact 6.3`：[真实 Attention：从 BERT 到 GPT-2 迁移](/artifacts/06-3-real-attention-cross-model/)
+  - `Artifact 6.4`：[Metric Boundary：局部误差不是行为 Oracle](/artifacts/06-4-metric-boundary/)
