@@ -24,18 +24,24 @@ BERT 学到的文档级 topic 信息，到底是以什么形式编码进表征�
 
 ## 视角清单
 
-- **5.1 [聚类视角](/artifacts/05-1-clustering-view/)** —— 用 KMeans 等无监督聚类作为探针：topic-aligned 几何结构如何随层、随 preprocessing 变化？发现 stability 单独看会被各向异性误导。
+- **5.1 [聚类视角](/artifacts/05-1-clustering-view/)** —— 用 KMeans 等无监督聚类作为探针：topic-aligned 几何结构如何随层、随 preprocessing 变化？发现 stability 不等于 semantic alignment，anisotropy 是可能的干扰之一、但不是唯一解释。
 - **5.1.1 [PCA Whitening 合成 demo](/artifacts/05-1-1-pca-whitening-demo/)** —— 5.1 的方法学边注：用合成 anisotropic mixture 隔离 whitening 的几何机制。
-- **5.2 [Linear probe 视角](/artifacts/05-2-linear-probe-view/)** —— 用每层逻辑回归测 topic 的线性可解码度。发现：监督线性探针能读出无监督聚类完全读不到的 topic 信息（random-init 上聚类趴地板、探针远超 chance）—— **可线性解码 ≠ 结构自组织**。
-- **5.3 [Fisher 视角](/artifacts/05-3-fisher-view/)** —— LDA 分类器（与 5.2 互证）+ Fisher 迹比 η² 几何。发现几何（η²）与分类器（准确率）在 random-init 上分道扬镳，揭示统一原理：**话题信息藏在低方差方向，重加权的方法（whitening / $S_W^{-1}$ / 学权重）才读得到，尊重原始方差的方法（朴素聚类 / η²）看到地板**。
+- **5.2 [Linear probe 视角](/artifacts/05-2-linear-probe-view/)** —— 用每层逻辑回归测 topic 的线性可解码度。random-init 的线性探针高于分类 chance，而 clustering alignment 很低（NMI 约 0.06）—— **可线性解码 ≠ 结构自组织**；NMI 与 accuracy 也不能共用一条 `0.05` chance 线。
+- **5.3 [Fisher 视角](/artifacts/05-3-fisher-view/)** —— LDA 分类器（与 5.2 互证）+ Fisher 迹比 η² 几何。它最可靠的发现是几何总量与分类器读出可以分歧；这种分歧本身不能唯一定位到 low-variance directions。
 
-## 统一发现（across probes）
+## 2026-07 科学收口
 
-三个视角拼到一起，可以被一句话统起来：
+> **Closure note（2026-07）：** 后续 direction-level spectrum audit 反驳并收紧了初版“topic signal 主要藏在 low-variance tail”的解释。在 raw centered pretrained L12 embeddings 上，PC1 的 per-PC $\eta^2=0.669$；前 100 个高方差 PCs 包含 **82.4%** 总方差，却包含 **98.7%** observed between-class scatter；PC variance 与 per-PC $\eta^2$ 的 Spearman 为 **+0.718**。这些标签 attribution 使用同一批 `n=2000` 样本，属于 **exploratory / descriptive** 诊断，不是 held-out confirmation。
 
-> **话题信息可以藏在低方差方向里。重加权方向的方法（PCA 白化 / LDA 的 $S_W^{-1}$ / 逻辑回归学的权重）能读到它；尊重原始方差的几何探针（朴素聚类 / Fisher 迹比 η²）会漏掉它。**
+因此，初版的“低方差方向统一原理”不再作为 finding 保留。数据支持的是更窄的解释：pretrained L12 的 topic-aligned class-mean structure 主要集中在 **leading subspace**；whitening 的收益更像是在这个 leading subspace 内做 **spectral rebalancing**，而不是从完整谱的低方差尾部“捞回”主要信号。这个机制解释仍是描述性的，不是 attention 或 whitening 的因果证明。
 
-最强证据是 random-init BERT 的"分裂人格"：**无监督聚类看它趴地板、Fisher η² 也趴地板，但线性探针远高于 chance**——topic 信号一直在，只是埋在低方差方向、被高方差 nuisance 盖住。决定"读不读得到"的不是监督与否，而是**方法重不重加权方向**。
+## 收口后的统一结论（across probes）
+
+> **Linear decodability、unsupervised cluster alignment、Fisher trace geometry 与 direction-level spectrum attribution 是不同 measurement operators；它们对同一表征给出不同 verdict 并不矛盾，也不能互相替代。**
+
+random-init 上的线性可读性也不再被解释成“低方差 residual 中已经存在同一种 semantic organization”。它仍使用 pretrained tokenizer，mean-pooled random token embeddings 可以保留 lexical / random-feature cues；anisotropy 可能影响 distance-based clustering，但不是经当前实验识别出的唯一原因。需要 TF-IDF、random projection、多 random seeds 与干预实验，才能继续做机制归因。
+
+旧 three-view overlay 仍保留在 child artifacts 中，作为当时的 **legacy exploratory overlay**：它展示不同曲线的形状对照，但归一化后的跨指标叠图不能证明共享机制。
 
 ## 这个系列想说什么
 

@@ -62,6 +62,32 @@ aliases:
 </details>
 
 <details class="note-subgroup">
+<summary><strong>信息论与信息几何</strong></summary>
+
+从自信息、熵与 KL 建立共同基础，随后分成 Information Geometry 主线与 Shannon / Source Coding 支线。当前重点在信息几何；Shannon 支线暂止于 AEP 与典型集，不展开信道理论。
+
+- [**Part 0 路线图** — 共同基础与两条分支](/notes/math/information-theory/note-it-0-roadmap/)
+
+**共同基础**
+
+- [**信息论 Part 1** — 自信息、熵与平均不确定性](/notes/math/information-theory/note-it-1-entropy-self-information/)
+- [**信息论 Part 2** — 联合熵、条件熵与链式法则](/notes/math/information-theory/note-it-2-joint-conditional-entropy/)
+- [**信息论 Part 3** — 交叉熵、KL 散度与互信息](/notes/math/information-theory/note-it-3-cross-entropy-kl-mutual-information/)
+
+**Information Geometry 主线**
+
+- [**G1** — Score Function 与 Fisher Information](/notes/math/information-geometry/note-ig-1-score-fisher/)
+- [**G2** — KL 的局部二阶结构、Natural Gradient 与 K-FAC](/notes/math/information-geometry/note-ig-2-kl-natural-gradient/)
+- [**G3** — 指数族、Log-partition 与 Expectation Parameter](/notes/math/information-geometry/note-ig-3-exponential-family/)
+- [**G4** — Legendre 对偶、Bregman 散度与 KL](/notes/math/information-geometry/note-ig-4-dual-bregman/)
+
+**Shannon / Source Coding 支线**
+
+- [**S1** — AEP、典型集与熵的渐近意义](/notes/math/information-theory/note-it-4-aep-typical-set/)
+
+</details>
+
+<details class="note-subgroup">
 <summary><strong>复分析</strong></summary>
 
 - [**复变 1** — 复变函数](/notes/math/complex-analysis/note-math-1-complex-analysis)
@@ -71,7 +97,11 @@ aliases:
 <details class="note-subgroup">
 <summary><strong>问题集</strong></summary>
 
-- [**练习与参考解答**](/notes/problems/) — 配套笔记的题目，按主题分小节、逐题列举。
+配套笔记的题目，按学科分子页、逐题列举，每题附可展开的参考解答。
+
+- [**实分析**](/notes/problems/real-analysis/) — 数列、完备性、测度、$L^p$；单工具起步，解答先给骨架。
+- [**优化与变分**](/notes/problems/optimization-variation/) — 拉格朗日乘子、最大熵、softmax、凸对偶。
+- [**其他**](/notes/problems/misc/) — 鸽笼原理等组合 / 离散杂题。
 
 </details>
 

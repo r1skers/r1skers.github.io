@@ -68,7 +68,11 @@ Notes on constrained optimization and the calculus of variations. Each core idea
 <details class="note-subgroup">
 <summary><strong>Problem Set</strong></summary>
 
-- [**Exercises and Solutions**](/en/notes/problems/) — Companion problems grouped by topic, listed one by one.
+Companion problems grouped into per-subject subpages, listed one by one, each with a collapsible reference solution.
+
+- [**Real Analysis**](/en/notes/problems/real-analysis/) — sequences, completeness, measure, $L^p$; single-tool to start, skeleton-first solutions.
+- [**Optimization and Calculus of Variations**](/en/notes/problems/optimization-variation/) — Lagrange multipliers, maximum entropy, softmax, convex duality.
+- [**Miscellaneous**](/en/notes/problems/misc/) — the pigeonhole principle and other combinatorics / discrete puzzles.
 
 </details>
 

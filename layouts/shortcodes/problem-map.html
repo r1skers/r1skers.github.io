@@ -1,0 +1,126 @@
+{{- $kind := .Get "kind" | default "home" -}}
+{{- $lang := .Page.Lang | default "zh" -}}
+{{- $isEn := eq $lang "en" -}}
+{{- $title := "" -}}
+{{- if eq $kind "real-analysis" -}}
+  {{- $title = cond $isEn "Sequence toolkit" "数列工具箱" -}}
+{{- else if eq $kind "optimization" -}}
+  {{- $title = cond $isEn "Two languages for one optimum" "一个最优点，两种语言" -}}
+{{- else if eq $kind "misc" -}}
+  {{- $title = cond $isEn "Pigeonhole pattern" "鸽笼题的固定动作" -}}
+{{- else -}}
+  {{- $title = cond $isEn "Workbook map" "问题集地图" -}}
+{{- end -}}
+
+<figure class="problem-map problem-map-{{ $kind }}" aria-labelledby="problem-map-title-{{ $kind }}">
+  <svg viewBox="0 0 920 300" role="img" aria-labelledby="problem-map-title-{{ $kind }} problem-map-desc-{{ $kind }}">
+    <title id="problem-map-title-{{ $kind }}">{{ $title }}</title>
+    <desc id="problem-map-desc-{{ $kind }}">
+      {{- if eq $kind "real-analysis" -}}
+        {{- cond $isEn "A compact map of the main proof moves in this real-analysis problem set." "这张图概括实分析问题集中反复出现的证明动作。" -}}
+      {{- else if eq $kind "optimization" -}}
+        {{- cond $isEn "A compact map connecting Lagrange multipliers, convexity, entropy, and duality." "这张图把拉格朗日、凸性、熵和对偶的关系压成一条路径。" -}}
+      {{- else if eq $kind "misc" -}}
+        {{- cond $isEn "A compact map of the count, label, collide proof pattern." "这张图概括先造标签、再数抽屉、最后碰撞推出结构的证明套路。" -}}
+      {{- else -}}
+        {{- cond $isEn "A compact overview of the problem-set branches." "这张图概括问题集的三个分支。" -}}
+      {{- end -}}
+    </desc>
+    <defs>
+      <marker id="pm-arrow-{{ $kind }}" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L8,3 z" />
+      </marker>
+    </defs>
+    <rect class="pm-frame" x="18" y="18" width="884" height="264" rx="8" />
+    <text class="pm-title" x="52" y="64">{{ $title }}</text>
+
+    {{- if eq $kind "real-analysis" -}}
+      <g class="pm-node" transform="translate(56 105)">
+        <rect width="174" height="92" rx="7" />
+        <text x="22" y="34">{{ cond $isEn "Tail control" "尾部控制" }}</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "finite head + small tail" "有限头部 + 小尾巴" }}</text>
+      </g>
+      <g class="pm-node" transform="translate(270 105)">
+        <rect width="174" height="92" rx="7" />
+        <text x="22" y="34">Cauchy</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "summable gaps" "相邻差可求和" }}</text>
+      </g>
+      <g class="pm-node" transform="translate(484 105)">
+        <rect width="174" height="92" rx="7" />
+        <text x="22" y="34">MCT</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "monotone + bounded" "单调 + 有界" }}</text>
+      </g>
+      <g class="pm-node" transform="translate(698 105)">
+        <rect width="166" height="92" rx="7" />
+        <text x="22" y="34">B-W</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "extract a subsequence" "榨出子列" }}</text>
+      </g>
+      <path class="pm-link" d="M230 151 H270" />
+      <path class="pm-link" d="M444 151 H484" />
+      <path class="pm-link" d="M658 151 H698" />
+    {{- else if eq $kind "optimization" -}}
+      <g class="pm-node" transform="translate(62 112)">
+        <rect width="190" height="96" rx="7" />
+        <text x="22" y="34">Lagrange</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "where it is attained" "在哪取到" }}</text>
+      </g>
+      <g class="pm-node pm-node-accent" transform="translate(365 92)">
+        <rect width="190" height="136" rx="7" />
+        <text x="24" y="38">{{ cond $isEn "Entropy optimum" "熵的最优点" }}</text>
+        <text class="pm-small" x="24" y="70">uniform / code / Gaussian</text>
+        <text class="pm-small" x="24" y="98">softmax</text>
+      </g>
+      <g class="pm-node" transform="translate(668 112)">
+        <rect width="190" height="96" rx="7" />
+        <text x="22" y="34">Jensen / KL</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "why it cannot improve" "为什么下不去" }}</text>
+      </g>
+      <path class="pm-link" d="M252 160 H365" />
+      <path class="pm-link" d="M555 160 H668" />
+      <text class="pm-note" x="354" y="258">{{ cond $isEn "stationarity and global inequality meet at the same point" "一阶条件和全局不等式在同一个点会师" }}</text>
+    {{- else if eq $kind "misc" -}}
+      <g class="pm-node" transform="translate(58 110)">
+        <rect width="180" height="96" rx="7" />
+        <text x="22" y="34">{{ cond $isEn "Objects" "造鸽子" }}</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "points / sums / terms" "点 / 前缀和 / 项" }}</text>
+      </g>
+      <g class="pm-node" transform="translate(282 110)">
+        <rect width="180" height="96" rx="7" />
+        <text x="22" y="34">{{ cond $isEn "Labels" "造笼子" }}</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "parity / residue / odd part" "奇偶 / 余数 / 奇部" }}</text>
+      </g>
+      <g class="pm-node" transform="translate(506 110)">
+        <rect width="180" height="96" rx="7" />
+        <text x="22" y="34">{{ cond $isEn "Collision" "数一数" }}</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "more objects than labels" "鸽子多于笼子" }}</text>
+      </g>
+      <g class="pm-node pm-node-accent" transform="translate(730 110)">
+        <rect width="132" height="96" rx="7" />
+        <text x="22" y="34">{{ cond $isEn "Structure" "推出结构" }}</text>
+        <text class="pm-small" x="22" y="62">{{ cond $isEn "the target pair" "目标那一对" }}</text>
+      </g>
+      <path class="pm-link" d="M238 158 H282" />
+      <path class="pm-link" d="M462 158 H506" />
+      <path class="pm-link" d="M686 158 H730" />
+    {{- else -}}
+      <g class="pm-node" transform="translate(72 105)">
+        <rect width="210" height="108" rx="7" />
+        <text x="24" y="38">{{ cond $isEn "Real Analysis" "实分析" }}</text>
+        <text class="pm-small" x="24" y="68">{{ cond $isEn "sequences, completeness" "数列、完备性" }}</text>
+      </g>
+      <g class="pm-node pm-node-accent" transform="translate(355 85)">
+        <rect width="210" height="148" rx="7" />
+        <text x="24" y="44">{{ cond $isEn "Optimization" "优化与变分" }}</text>
+        <text class="pm-small" x="24" y="78">{{ cond $isEn "entropy, duality" "熵、对偶" }}</text>
+        <text class="pm-small" x="24" y="106">{{ cond $isEn "two-language proofs" "两种语言证明" }}</text>
+      </g>
+      <g class="pm-node" transform="translate(638 105)">
+        <rect width="210" height="108" rx="7" />
+        <text x="24" y="38">{{ cond $isEn "Miscellaneous" "其他" }}</text>
+        <text class="pm-small" x="24" y="68">{{ cond $isEn "pigeonhole patterns" "鸽笼原理套路" }}</text>
+      </g>
+      <path class="pm-link" d="M282 159 H355" />
+      <path class="pm-link" d="M565 159 H638" />
+    {{- end -}}
+  </svg>
+</figure>

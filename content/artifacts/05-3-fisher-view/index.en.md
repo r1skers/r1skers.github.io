@@ -2,8 +2,8 @@
 date: '2026-06-06T00:00:00+09:00'
 draft: false
 title: "[Artifact-5.3] BERT Fisher View — Pilot Note"
-summary: "The Fisher view of the Artifact-5 multi-probe series: use LDA as a supervised linear probe (cross-checking 5.2 logistic regression), and use the Fisher trace ratio η²=tr(S_B)/tr(S_T) to measure topic 'within-class compactness / between-class separation' geometry directly. The geometry (η²) and the classifier (accuracy) diverge on random-init — revealing the mechanism running through the whole umbrella: topic information lives in low-variance directions, and only direction-reweighting methods read it."
-description: "Artifact-5.3 is the Fisher view child artifact of the BERT representation-probes series: reuse cached representations, measure layerwise topic separability with both an LDA classifier and the Fisher trace ratio, and unify the 5.1 clustering / 5.2 logistic / 5.3 Fisher views under one 'low-variance discriminative directions + reweighting' thread."
+summary: "The Fisher view of the Artifact-5 multi-probe series: compare an LDA linear probe with the Fisher trace ratio η²=tr(S_B)/tr(S_T). Their random-init divergence establishes measurement non-equivalence; a later spectrum audit rejects the initial low-variance-tail unifying account."
+description: "Artifact-5.3 reuses cached representations to compare an LDA classifier, Fisher trace geometry, and direction-level PCA attribution. Its scientific closure centers measurement non-equivalence and leading-subspace spectral rebalancing."
 tags:
   - "Artifact"
   - "BERT"
@@ -19,6 +19,8 @@ math: true
 
 Source project: [bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability).
 This artifact is the complete record of the 5.3 Fisher view, finished 2026-06. It shares the same cached BERT layerwise representations with 5.1 / 5.2 — only the probe changes.
+
+> **2026-07 closure note:** This page originally treated “low aggregate η² + high probe accuracy” as unique evidence that topic signal lives in low-variance directions. A later same-sample direction-level audit tested that account directly: on raw centered pretrained L12, PC1 has per-PC $\eta^2=0.669$; the first 100 PCs hold **82.4%** of variance but **98.7%** of between-class scatter; the Spearman correlation between PC variance and per-PC $\eta^2$ is **+0.718**. The low-variance-tail unifying hypothesis is therefore rejected and retired. What remains is **measurement non-equivalence + leading-subspace spectral rebalancing**. These attributions are exploratory/descriptive, not held-out confirmation.
 
 ## 1. Positioning: same representation, third ruler
 
@@ -36,7 +38,7 @@ This artifact is the complete record of the 5.3 Fisher view, finished 2026-06. I
 
 > In one line: 5.1 does the puzzle with the answer key face-down then checks it; 5.2 / 5.3 do it with the answer key face-up.
 
-5.3's unique contribution is not "another supervised linear classifier," but that **Fisher provides a classifier-independent pure geometry scalar** — so we can split "geometry" from "classifier" and watch them diverge, the divergence itself being the mechanism of the whole umbrella.
+5.3's unique contribution is not “another supervised linear classifier,” but that **Fisher provides a classifier-independent descriptive geometry scalar**. This separates aggregate geometry from predictive readout. Their divergence establishes that the measurements are not interchangeable, but does not uniquely identify a hidden mechanism.
 
 ---
 
@@ -94,7 +96,7 @@ This is 5.3's key point and easy to get wrong: η², LDA, and logistic regressio
 | | Cut? | **Pick directions / reweight?** | Nature |
 |---|---|---|---|
 | **Fisher η²** | No | **No** — sum over 768 dims weighted by their own variance (isotropic) | descriptive |
-| **LDA / logistic regression** | Flat cut | **Yes** — hunt for the most-separating direction, amplifying "low-variance but useful" ones | predictive |
+| **LDA / logistic regression** | Flat cut | **Yes** — recombine directions according to the training objective, covariance, and regularization | predictive |
 
 Both come from the same ingredients ($S_W, S_B$); the usage differs: **η² sums the scatter uniformly; LDA uses $S_W^{-1}S_B$ to pick the best cut direction.** Same ingredients, one "measures evenly," the other "picks a direction and cuts."
 
@@ -115,7 +117,7 @@ Both come from the same ingredients ($S_W, S_B$); the usage differs: **η² sums
 
 LDA (Gaussian analytical optimum) and logistic regression (convex optimum) curves **nearly coincide**: two linear optima from different starting points give the same `separability(L)`.
 
-> Conclusion: the curve is **not a byproduct of one classifier; it is a real property of the representation**.
+> Conclusion: the curve is robust to these two regularized linear estimators. It remains a probe-dependent readout and does not show that the model natively uses the decoded information.
 
 As in 5.2, random-init's LDA accuracy is also **well above chance (0.05)** and decays with depth.
 
@@ -131,58 +133,59 @@ As in 5.2, random-init's LDA accuracy is also **well above chance (0.05)** and d
 | random-init η² | 0.023 | 0.023 | 0.023 | 0.023 |
 
 - **pretrained**: η² rises ~3.5× across depth, three-staged (early rise — mid plateau — strong L10-12 rise), peaking at L11. Yet even at its strongest, only **~15%** of total variance is between-class.
-- **random-init**: **near the floor ~0.023 throughout** (the random-label floor is about $(K-1)/(N-1)\approx0.01$, so there is only faint real signal), **flat across layers**, about 7× below pretrained's peak.
+- **random-init**: about 0.023 throughout, roughly flat and about 7× below pretrained's peak. $(K-1)/(N-1)\approx0.01$ is only the scale of a same-sample null reference, not an empirical permutation confidence interval from this experiment.
 
 ---
 
-## 6. Core finding: geometry vs classifier diverge on random-init
+## 6. Core observation: geometry vs classifier diverge on random-init
 
 Put results A and B side by side for random-init:
 
 | Measurement on random-init | Result | Resembles |
 |---|---|---|
-| Fisher **geometry** η² | ~0.023, **near floor** | like 5.1 clustering |
+| Fisher **geometry** η² | ~0.023, low and nearly flat | like 5.1's low alignment |
 | LDA / logreg **classifier** accuracy | 0.28–0.38, **well above chance** | like 5.2 probe |
 
-**The same random-init representation: pure geometry says "almost no between-class structure," the classifier says "plenty of topic is readable."** How can both hold?
+**The same random-init representation has low aggregate geometry, yet a classifier predicts part of the topic label.** How can both hold?
 
-### 6.1 Explanation: the signal hides in low-variance directions; only reweighting sees it
+### 6.1 Retired explanation: signal hides in the low-variance tail
 
-η² and clustering both **see the world by variance** — they measure "what fraction of total variance is between-class." But BERT's (especially random-init's) topic-discriminative directions are **low-variance** (buried in the narrow-cone residual, see 5.1 §15 anisotropy). So:
+The 2026-06 account was: aggregate η² is low while linear accuracy is high, therefore discriminative signal must live in low-variance directions that LDA / logreg amplify. That inference is **not identifiable**. Accumulation across many weak directions, covariance structure, regularization, and lexical/random-feature cues can produce the same “low aggregate / high readout” pattern.
 
-- η² / clustering: **weight by raw variance** → low-variance discriminative directions are drowned → random-init looks like a floor.
-- LDA ($S_W^{-1}$) / logistic regression (learned weights $w$): **reweight directions** → amplify the low-variance discriminative direction → random-init well above chance.
+The 2026-07 audit directly computes each raw centered PCA direction's variance, per-PC η², and between-scatter contribution. On pretrained L12:
 
-> What decides "can you read the topic" is **not "supervised vs unsupervised," but "does the method reweight directions."**
-> The Fisher pair (geometry η² without reweighting / LDA classifier with reweighting) **isolates this variable** by itself.
+- PC1 per-PC $\eta^2=0.669$;
+- PC≤100 contains 82.4% of variance and 98.7% of between-class scatter;
+- Spearman(PC variance, per-PC $\eta^2$) = +0.718.
 
-### 6.2 This thread unifies the whole umbrella
+This points opposite to “the main signal lives in the full spectrum's low-variance tail.” It supports a narrower description: topic-aligned class-mean structure is concentrated in the **leading subspace**. Because whitening retains the first 100 PCs and rescales them, its benefit is more consistent with **spectral rebalancing within the leading subspace**. No causal whitening intervention is established here.
 
-| Method | Reweights directions? | On random-init |
+### 6.2 Revised umbrella: the rulers are not equivalent
+
+| Method | Measurement operator | What it cannot establish alone |
 |---|---|---|
-| 5.1 naive clustering | No | floor |
-| **5.1 whitening + clustering** | **Yes** (whitening = rescaling each direction) | unpacks the structure |
-| 5.3 Fisher geometry η² | No | floor |
-| 5.2 logistic regression | Yes (learned $w$) | well above chance |
-| 5.3 LDA classifier | Yes ($S_W^{-1}$ + shrinkage) | well above chance |
+| 5.1 clustering + NMI | label alignment after an unsupervised partition | that information is absent / that NMI chance is 0.05 |
+| whitening + clustering | changes distance weighting within leading PCs | that the main signal comes from the low-variance tail |
+| Fisher trace η² | aggregates class-mean scatter fraction over directions | where each direction lies / whether a classifier can decode it |
+| logreg / shrinkage LDA | fits a labeled linear decision rule | native model use / awareness of the information |
 
-> **Unifying principle: BERT's topic information lives in low-variance directions. Any method that reweights directions (whitening / $S_W^{-1}$ / learned weights) can read it; any method that respects the raw variance geometry (naive clustering / Fisher trace ratio η²) sees the floor.**
+> **Revised conclusion: linear decodability, cluster alignment, aggregate Fisher geometry, and direction-level spectral attribution measure different objects. They may disagree; the disagreement is a result, not unique proof of one mechanism.**
 
-5.1 once "got lucky" unpacking the structure via whitening; 5.3 gives it a **supervised-geometry explanation**: whitening's reweighting is the same kind of operation as LDA's $S_W^{-1}$ and logreg's $w$.
+Random-init's above-chance probe may also come from lexical cues preserved by the pretrained tokenizer and mean-pooled random token features. Anisotropy may affect distance-based clustering, but is not the unique cause isolated by this experiment.
 
 ---
 
 ## 7. What to look at: the "gap" between η² and accuracy
 
-One curve is not enough — **putting η² (no direction-picking) and acc (best direction picked) side by side, the gap is the information**:
+One curve is not enough. Putting η² and accuracy together reveals measurement sensitivity, but their “gap” does not by itself locate the signal in variance rank:
 
 | Situation | η² | acc | Reading |
 |---|---|---|---|
-| Signal **out in the open** | high | high | separation is on a high-variance direction; picking doesn't matter |
-| Signal **buried in low variance** | **low** | **high** | invisible in raw geometry, but the right direction cuts it → **this is random-init** |
-| Truly no signal | low | low (≈chance) | nothing separates it |
+| aggregate and readout both strong | high | high | both measurements are strong; direction location still needs spectral attribution |
+| aggregate weak, readout strong | low | high | the readout uses structure not prominent in the aggregate trace; low variance is only one possible cause |
+| both measurements weak | low | low | both are weak under this probe / sample / regularization; information is not proven universally absent |
 
-> **The gap = how much picking directions (reweighting) helps = how low-variance the topic signal is buried.** Not a vague "some other factor," but **precisely the one factor of "low-variance discriminative directions"**: small contribution to η² (variance-weighted), large contribution to the probe (direction-picking) — comparing the two forces it out.
+> **The gap only says that two operators have different sensitivity.** To ask where signal lies in variance rank, measure per-direction attribution directly, as in the 2026-07 audit.
 
 Three views in one line: **clustering asks "does it self-separate," Fisher η² asks "without picking a direction, does it separate at all," the probe asks "with the best direction, can it be separated."**
 
@@ -190,33 +193,34 @@ Three views in one line: **clustering asks "does it self-separate," Fisher η² 
 
 ## 8. Three-view synthesis
 
-![Three-view synthesis](three_view_synthesis.png)
+![Legacy exploratory three-view overlay](three_view_synthesis.png)
 
-The synthesis figure (left: pretrained, normalized shapes; right: random-init, native units) uses the three **classifier/alignment** views (5.1 NMI / 5.2 logreg acc / 5.3 LDA acc). Fisher's **geometry** η² adds a fourth clue: on the right, the supervised probes are "well above chance" on random-init, while η² tells you the **raw geometry is actually a floor** — the difference between them is exactly the work of "reweighting."
+> **Current status: legacy exploratory overlay.** The left min-max normalizes different metrics while the right retains native units. It is useful for recalling curve shapes, not for establishing a shared mechanism or treating NMI≈0.06 as classification chance 0.05. Fisher η² and the direction-level audit should be read as separate measurements.
 
 ---
 
 ## 9. Conclusions
 
-1. LDA (analytical optimum) and logistic regression (convex optimum) give nearly the same `separability(L)` → the curve is a real property of the representation, not an estimator artifact.
+1. Shrinkage LDA and logistic regression give nearly the same `separability(L)` → the trend is robust to two regularized linear estimators.
 2. Fisher geometry η²: pretrained rises to ~0.15 (peak L11, three-staged), random-init stays near the ~0.023 floor throughout.
-3. **Geometry vs classifier diverge on random-init**: pure geometry (η²) says "almost no between-class structure," the classifier (LDA/logreg) says "topic is readable."
-4. Explanation: the discriminative signal is in **low-variance directions**; variance-weighting methods (η²/clustering) miss it, reweighting methods ($S_W^{-1}$ / $w$ / whitening) read it.
-5. **This "low-variance directions + reweighting" thread unifies the whole umbrella**: what decides readability is not supervision, but whether directions are reweighted.
+3. **Aggregate geometry and classifier readout diverge on random-init**. This is measurement non-equivalence, not unique evidence for a low-variance mechanism.
+4. The direction-level audit contradicts the low-variance-tail hypothesis: pretrained-L12 between scatter is concentrated in the leading subspace.
+5. Whitening is better described as leading-subspace spectral rebalancing; random-init readout still needs lexical/random-feature and multiple-seed controls.
 
 Short version:
 
-> Fisher gives two readings of the same representation: a raw geometry scalar (η², which puts random-init near the floor like clustering) and an LDA classifier (which, like logistic regression, reads random-init well above chance). Their divergence pinpoints the mechanism behind the whole umbrella — topic information lives in low-variance directions, visible only to methods that reweight directions (whitening, $S_W^{-1}$, learned weights), invisible to variance-respecting methods (naive clustering, the Fisher trace ratio).
+> Fisher gives two non-equivalent readings of the same representation: aggregate class-mean geometry and regularized linear readout. Their divergence motivates direct direction-level measurement; that audit localizes pretrained-L12 between-class scatter to the leading subspace and retires the low-variance-tail explanation.
 
 ---
 
 ## 10. Current boundaries
 
 - Only 20 Newsgroups, `n=2000` pilot scale, one random seed.
-- η² is a **global, isotropic, coarse** geometry scalar (trace ratio), direction-agnostic; it and classifier accuracy measure different facets, so fine differences like "η² flat / classifier decaying" should not be over-interpreted.
+- η² is a **global, rotation-invariant, coarse** geometry scalar (trace ratio), direction-agnostic; it and classifier accuracy measure different facets, so fine differences like "η² flat / classifier decaying" should not be over-interpreted.
 - η² depends on the label set: a different labeling (e.g. sentiment instead of topic) changes it; it is "**a geometric property of layer L's representation as seen through the 20NG topic labels**," not a task-free intrinsic property.
 - The full Fisher discriminant ($S_W^{-1}S_B$ eigenspectrum) is not done — the trace ratio is used deliberately to avoid high-dim singularity.
-- "Low-variance directions + reweighting" is a mechanistic **hypothesis**, consistent with 5.1's anisotropy geometry and the 5.1.1 synthetic demo, but not causally verified at the direction level on BERT.
+- The 2026-07 direction-level attribution uses labels on the same `n=2000` sample and is a descriptive audit without an independent confirmation split.
+- The initial “low-variance directions + reweighting” unifying hypothesis is contradicted and retired. Leading-subspace rebalancing remains descriptive, not causally verified.
 
 ---
 
@@ -237,8 +241,14 @@ Embeddings reuse the cached `outputs/cache/*.npz` (if absent, first run `experim
 .\.venv\Scripts\python.exe experiments\probe\fisher_geometry.py
 ```
 
-### A.3 Three-view synthesis figure
+### A.3 Legacy exploratory three-view overlay
 
 ```powershell
 .\.venv\Scripts\python.exe experiments\synthesis\plot_three_view.py
+```
+
+### A.4 2026-07 direction-level spectrum audit
+
+```powershell
+.\.venv\Scripts\python.exe experiments\probe\run_spectral_attribution.py
 ```

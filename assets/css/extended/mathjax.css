@@ -1,0 +1,9 @@
+/* Keep wide display equations inside the article column on narrow screens. */
+.post-content mjx-container[display="true"] {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.2rem;
+  -webkit-overflow-scrolling: touch;
+}

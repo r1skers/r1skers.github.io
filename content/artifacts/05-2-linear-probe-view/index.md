@@ -2,7 +2,7 @@
 date: '2026-06-06T00:00:00+09:00'
 draft: false
 title: "[Artifact-5.2] BERT 线性探针视角 Pilot Note"
-summary: "Artifact-5 多视角对照系列的线性探针视角：在 BERT 每一层的文档片段表征上训练逻辑回归，测话题信息的「线性可解码度」随层如何变化，并与随机初始化对照、与 5.1 聚类视角对照——发现监督线性探针能读出无监督聚类完全读不到的话题信息。"
+summary: "Artifact-5 多视角对照系列的线性探针视角：在 BERT 每一层的文档片段表征上训练逻辑回归，测话题信息的「线性可解码度」随层如何变化，并与随机初始化、聚类和 Fisher 几何对照——发现 linear decodability 与 unsupervised alignment 是不同 measurement。"
 description: "Artifact-5.2 是 BERT 表征探针系列下的线性探针视角 child artifact：复用 5.1 缓存的层间表征，用逐层逻辑回归 + 5 折交叉验证测话题线性可分性，pretrained vs random-init 对照，并与聚类视角三角对照，给出可复现的监督探针完整记录。"
 tags:
   - "Artifact"
@@ -22,6 +22,8 @@ aliases:
 
 项目地址：[bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability)（本地 `D:\Dev\repos\bert-cluster-stability`）。
 这篇 artifact 是 5.2 线性探针视角的完整记录，完成于 2026-06。它和 5.1 共享同一份缓存的 BERT 层间表征，只换了「探针」。
+
+> **2026-07 closure note：** 本页保留原始 pilot 的实验记录，但撤回“topic signal 主要藏在 low-variance residual、anisotropy 是唯一根因”的机制表述。后续 same-sample direction-level audit 显示：raw centered pretrained L12 的 PC1 per-PC $\eta^2=0.669$；前 100 PCs 含 **82.4%** 方差、**98.7%** between-class scatter；variance 与 per-PC $\eta^2$ 的 Spearman 为 **+0.718**。这是 exploratory/descriptive attribution，不是 held-out confirmation；它把解释收紧为 **leading-subspace spectral rebalancing**。
 
 ## 1. 目标
 
@@ -122,21 +124,21 @@ $$
 1. **预训练曲线随深度上升**，L10–L12 再抬头，L12 最强——和 5.1 聚类 NMI 的"末段增强"呼应。
 2. **随机初始化曲线反向衰减**，但**全程远高于 chance（0.05）**。
 
-### 4.1 random-init 为什么不在地板，而且为什么衰减
+### 4.1 random-init 为什么不在地板：可检验解释，而非既定机制
 
-L0 是 embedding 层的 mean-pool ≈ **一袋词向量 ≈ BOW 的随机投影**。20NG 的 BOW 本来就线性可分，所以**随机权重在 L0 就能拿 0.38**——这部分可读性是**架构白送的，不是学来的**。
+L0 的 mean-pool 可以近似看成**一袋随机词向量**。但 random-init control 仍使用 pretrained WordPiece tokenizer；mean-pooled random token embeddings 可能像高维 random features 一样保留 lexical cues。因此 L0 的 0.38 与“词汇线索经过随机映射仍可线性读取”一致，**不等于随机 BERT 已经学会了 topic organization**。
 
-往深走，随机的非线性 mixing 在**逐层破坏**这种线性可读性 → 衰减。而预训练反过来，在**逐层构建**话题几何 → 上升。
+往深走，random-init probe accuracy 下降，而 pretrained 上升；这是观察到的 contrast。没有 TF-IDF、显式 BOW random projection、多 random seeds 或 module intervention 时，不能把下降唯一归因为“随机 mixing 逐层销毁词汇结构”。
 
-> 深度对两个模型做的是**相反的事**：预训练在搭话题结构，随机初始化在销毁输入端的词汇结构。
+> 深度对两条 probe 曲线产生相反趋势；它提示 pretraining 改变了信息的线性可达性，但还不是对内部机制的因果分解。
 
-因此真正归因给"学习"的，不是 pretrained 的绝对值，而是：
+可以把两条曲线的差写成一个**描述性 contrast**：
 
 $$
-\text{预训练贡献}(L) \approx \text{pretrained}(L) - \text{random-init}(L)
+\text{probe gap}(L) = \text{pretrained}(L) - \text{random-init}(L)
 $$
 
-这个差随层张开（L12 ≈ 0.62 − 0.28 = 0.34）。
+这个差随层张开（L12 ≈ 0.62 − 0.28 = 0.34），但单 seed 的差值不是“pretraining contribution”的无偏因果估计。
 
 ---
 
@@ -144,20 +146,22 @@ $$
 
 这是 5.2 真正的 payoff，也是整个"多探针三角测量"的意义所在。
 
-![三视角合成图](three_view_synthesis.png)
+![Legacy exploratory three-view overlay](three_view_synthesis.png)
 
-**左图（pretrained，归一化）**：把三个视角各自 min-max 归一化后看形状——5.1 聚类 / 5.2 逻辑回归 / 5.3 LDA **在"话题信息在哪层浮现"上基本一致**（早升—中段—末段强升），聚类的深度依赖最强，两条监督探针几乎重叠。→ 三视角**形状互证**。
+> **图的当前身份：legacy exploratory overlay。** 它是 2026-06 的曲线形状对照；不同指标经 min-max normalization 后叠在一起，不能证明它们测到同一机制，也不能单凭曲线拐点定位“能力在哪层涌现”。
 
-**右图（random-init，原始单位）**：核心分歧。**聚类趴在地板（NMI ≈ 0.06 ≈ chance），监督探针却有 ~0.38 且随深度衰减。**
+**左图（pretrained，归一化）**：三条曲线有相似的早升—平台—末段再升形状，这是值得继续检验的 observation，而不是 emergence proof。
+
+**右图（random-init，原始单位）**：clustering semantic alignment 很低（NMI 约 0.06），监督探针则约 0.38 并随深度下降。**NMI 没有 classification accuracy 那条 `1/20=0.05` chance baseline**；这里不能写成“NMI ≈ chance 0.05”。
 
 同一份随机初始化权重：
 
-- **无监督聚类**说"什么话题结构都没有"；
-- **监督线性探针**说"有，而且不少"。
+- **无监督聚类**在这套 distance / preprocessing / clusterer 下得到很低的 topic alignment；
+- **监督线性探针**说明标签可从同一表征中线性预测。
 
-为什么分歧？回到 5.1 的几何解释：随机初始化的表征**各向异性极强**（窄锥，平均成对余弦 ≈ 0.97）。无监督聚类被这个窄锥主方向带偏，只能切出一个与话题无关的 trivial cut；但话题信号**一直在低方差残差里**，监督探针有标签当老师，**直接钻进残差找判别方向**，绕开了主方向。
+为什么分歧？random-init 的强 anisotropy（平均成对余弦约 0.97）可能影响 distance-based clustering，但它不是当前设计识别出的唯一原因。clustering 与 probe 的目标函数、metric、covariance weighting 和标签使用都不同；random-init 还可能通过 tokenizer 与随机词特征保留 lexical cues。后续 spectrum audit 更直接反驳了“主要信号一直躲在完整谱低方差尾部”的说法。
 
-> **聚类是各向异性的受害者；线性探针对各向异性近乎免疫**（逻辑回归能把可逆线性畸变吸收进权重）。
+> **可靠结论是 measurement 不等价。** Anisotropy 是候选解释之一；low-variance tail 不是被本实验确认的统一机制。
 
 也就是说：
 
@@ -176,7 +180,7 @@ $$
 | LDA pretrained | 0.597 | 0.636 |
 | LDA random-init | 0.372 | 0.283 |
 
-LDA 曲线和逻辑回归**几乎重合**。两个出发点完全不同的线性最优（一个靠梯度纠错、一个靠类内/类间散度的解析解）给出同一条曲线 → **这条 `可分性(L)` 不是某个分类器的副产物，是表征的真实性质。**
+LDA 曲线和逻辑回归**几乎重合**。两个出发点不同的 regularized linear estimators 给出相近曲线 → 逐层 probe 趋势对这两种 estimator choice 稳健；这仍不等于“模型自身使用了被 probe 读出的信息”。
 
 （实现细节：高维下 `S_W`（768×768）由 ~1600 样本估计、接近奇异，所以 LDA 用 `lsqr + 自动 shrinkage`。这是个小注脚——"解析最优"在高维下**也得正则化**，和逻辑回归的 `C` 是同一件事的两种长相。）
 
@@ -198,14 +202,15 @@ LDA 曲线和逻辑回归**几乎重合**。两个出发点完全不同的线性
 
 1. 预训练 BERT 中，话题信息的线性可解码度**随层上升**，L10–L12 最强（L12 acc ≈ 0.62 vs chance 0.05）。
 2. 随机初始化 BERT 的线性可解码度**全程远高于 chance**，但随层**衰减**——与预训练相反。
-3. random-init L0 的高起点 ≈ BOW 随机投影；可读性主要是**架构白送**，预训练贡献藏在 `pretrained − random` 的差里，且随深度张开。
-4. **可线性解码 ≠ 结构自组织**：监督线性探针能读出无监督聚类完全读不到的话题信息（random-init 上聚类趴地板、探针远超 chance）。
-5. 这个分歧的几何根源是各向异性——聚类是其受害者，线性探针对其近乎免疫。
-6. 逻辑回归与 Fisher LDA 两个监督最优曲线几乎重合 → 结论不是单一估计器的产物。
+3. random-init 的高起点与 lexical / random-feature cues 一致，但当前没有 TF-IDF 或显式 random-projection control，不能归因成“架构白送”。
+4. **可线性解码 ≠ 结构自组织**：linear probe accuracy 与 clustering NMI 是不同 measurement，不能互相替代，也不能共用 chance baseline。
+5. anisotropy 可能影响聚类，但不是唯一已识别根因；probe 目标、distance geometry、covariance 与 lexical cues 都可能贡献。
+6. 逻辑回归与 shrinkage LDA 曲线几乎重合 → 趋势对两种线性 estimator 稳健，而非证明模型会 native-use 这些信息。
+7. direction-level audit 反驳 low-variance-tail 解释：pretrained L12 的 topic-aligned between scatter 高度集中在 leading PCs；whitening 更像 leading-subspace 内的 spectral rebalancing。
 
 短版结论：
 
-> Across BERT layers, topic information becomes increasingly **linearly decodable** in pretrained BERT (peaking at L12), but linear decodability is decoupled from unsupervised cluster structure: a linear probe reads topic information well above chance even from random-init BERT — information that clustering, derailed by anisotropy, cannot see at all.
+> Across BERT layers, pretrained topic labels become increasingly **linearly decodable**, while random-init remains partly decodable, plausibly from lexical/random-feature cues. Linear readout, clustering alignment, and Fisher geometry give non-equivalent verdicts; the spectrum audit localizes pretrained-L12 class-mean scatter to the leading subspace rather than the low-variance tail.
 
 ---
 
@@ -215,14 +220,15 @@ LDA 曲线和逻辑回归**几乎重合**。两个出发点完全不同的线性
 - 对照只 1 个 random seed；`C` 固定未扫。
 - 趋势稳健（两探针一致、CV 误差带窄），但**绝对数值是 pilot 级**。
 - pooling 仍是 mean-pool，未系统比较 CLS / IDF 加权等。
+- 2026-07 spectrum attribution 在同一 `n=2000` 样本上使用标签，属于 descriptive audit；没有独立 confirmation split，也没有把 whitening 效果做成因果干预。
 
 ---
 
-## 10. 下一步
+## 10. 收口后的开放问题
 
-1. 三视角 synthesis 已成图（本页 §5）；下一步是把它写进**整个 umbrella 的综述 + SOP 段落**。
-2. 时间允许则 scale 到全量 20NG（窄 scope 验证主效应）。
-3. 5.3 Fisher 视角的独立成文（几何/曲率解释 random-init 衰减）。
+1. 用 TF-IDF、显式 BOW random projection 与多个 random-init seeds 校准 lexical/random-feature explanation。
+2. 若继续做确认性研究，预注册独立 split；PCA / preprocessing 只在 train fit，最后在 held-out data 上评估。
+3. 新项目应把 decodability、native behavior 与 causal intervention 分开，而不是继续从 probe curve 推断 emergence。
 
 ---
 
@@ -244,8 +250,14 @@ embeddings 复用 5.1 已缓存的 `outputs/cache/*.npz`（若不存在，先跑
 .\.venv\Scripts\python.exe experiments\probe\plot_linear_probe.py --csv outputs/tables/probe/lda_probe.csv --filename lda_probe_accuracy.png
 ```
 
-### A.3 三视角合成图
+### A.3 Legacy 三视角 exploratory overlay
 
 ```powershell
 .\.venv\Scripts\python.exe experiments\synthesis\plot_three_view.py
+```
+
+### A.4 2026-07 direction-level spectrum audit
+
+```powershell
+.\.venv\Scripts\python.exe experiments\probe\run_spectral_attribution.py
 ```

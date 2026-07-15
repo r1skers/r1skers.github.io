@@ -37,7 +37,7 @@ $$
 
 这个推导在本篇里给了一个**制造不同熵 regime 的合法旋钮**。实验里用 `q_scale` 缩放 $Q$（等价于缩放 logits、反比调温度），从接近均匀（高熵）一路扫到接近 one-hot（低熵），后面所有 regime 结论都建立在这根轴上。
 
-softmax / 最大熵的推导见[问题集：拉格朗日乘子与凸对偶：softmax-最大熵分布](/notes/problems/#softmax-maximum-entropy)。
+softmax / 最大熵的推导见[问题集：拉格朗日乘子与凸对偶：softmax-最大熵分布](/notes/problems/optimization-variation/#softmax-maximum-entropy)。
 
 ### 1.2 剪枝误差分解（项目核心）
 

@@ -1,0 +1,11 @@
+{{- $title := .Get "title" -}}
+{{- if not $title -}}
+  {{- warnf "missing value for param 'title' in problem-exercise shortcode: %s" .Position -}}
+{{- end -}}
+
+<section class="problem-exercise">
+  <h3>{{ $title | markdownify }}</h3>
+  <div class="problem-statement">
+    {{ .Inner | markdownify }}
+  </div>
+</section>

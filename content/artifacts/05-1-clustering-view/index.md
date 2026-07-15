@@ -23,6 +23,8 @@ aliases:
 项目地址：[bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability)（本地 `D:\Dev\repos\bert-cluster-stability`）。  
 这篇 artifact 是 5.1 聚类视角的完整记录，不是最终论文式结论；目的是把目前已经跑通的实验链和阶段性判断先固定下来。完成于 2026-05。
 
+> **2026-07 closure note：** 本页保留 5.1 的原始实验链，但 §11/§15 中把 whitening 收益唯一归因于 anisotropy、或把 topic signal 放进 low-variance residual 的早期解释已被收紧。后续 direction-level audit 显示 pretrained L12 的前 100 PCs 含 82.4% 方差和 98.7% between-class scatter；因此最终表述是 **leading-subspace spectral rebalancing**，不是 low-variance-tail 证明。详见 [Artifact 5 umbrella](/artifacts/05-bert-representation-probes/) 的科学收口。
+
 ## 1. 目标
 
 本页是 5.1 聚类视角的完整记录，对应仓库 `bert-cluster-stability`：  
@@ -365,9 +367,9 @@ pairwise ARI across all partitions
 2. 随机初始化模型的 baseline stability 最高，但 NMI 接近地板。这是一个稳定但无意义的 partition。
 3. 白化之后，随机初始化模型的 stability 从约 0.64 暴跌到约 0.22，而预训练模型仍维持在约 0.45。
 
-因此，**resampling stability alone is not a reliable indicator of clustering quality**。它必须和 NMI / purity 这类 alignment 指标一起看。一个 partition 可以非常稳定，却只是各向异性几何反复给出的同一种 trivial cut。
+因此，**resampling stability alone is not a reliable indicator of clustering quality**。它必须和 NMI / purity 这类 alignment 指标一起看。一个 partition 可以非常稳定，却只是在重复某种一致的、未必语义相关的几何切分。
 
-这也反过来支持 §15 的几何解释：如果 random-init 的高 stability 来自窄锥各向异性，那么 whitening 消掉主方向后，这种伪稳定就应该坍塌；实验结果正是如此。
+这个 pattern 与 §15 的 anisotropy 候选解释相容，但不能唯一识别它：whitening 同时改变中心、保留子空间和各方向尺度，stability 的下降不能单独证明因果机制。
 
 ---
 
@@ -412,7 +414,7 @@ alignment: 这个 partition 是否接近 topic labels？
 stability: 这个 partition 是否对采样扰动可重复？
 ```
 
-当前结果显示，best recipe 在 pretrained BERT 上给出更高的 alignment，同时维持与 baseline 接近的 stability；而 random-init 的高 stability 只是一个 anisotropy artifact。
+当前结果显示，best recipe 在 pretrained BERT 上给出更高的 alignment，同时维持与 baseline 接近的 stability；random-init 的高 stability 则说明某种稳定几何可以与语义 alignment 脱钩。anisotropy 是候选原因之一，不是这里被隔离出的唯一原因。
 
 ---
 
@@ -431,23 +433,23 @@ stability: 这个 partition 是否对采样扰动可重复？
 
 ---
 
-## 14. 下一步
+## 14. 收口状态
 
-下一步不是继续无限试算法，而是补强主故事：
+本页现作为 **completed exploratory study** 保留，不再继续无限试算法。若未来另做 confirmation，应在看 test labels 前冻结协议：
 
-1. scale 到全量 20NG（n ≈ 18k，窄 scope 验证主效应）
-2. 如果时间允许，再做 Wiki / Reddit / arXiv 的跨语料 domain separability 扩展
-3. polish artifact 和 SOP-ready paragraph
+1. 使用独立 train/test split，并只在 train fit PCA/whitening/centroids；
+2. 报告 AMI 或 permutation-calibrated NMI；
+3. 加入 TF-IDF、random projection 与多个 random-init seeds。
 
-更完整的 Stage 3 follow-up 框架目前仍放在本地 planning notes 中；本 artifact 只固定 W1 pilot 的实验链和阶段性发现。
+这些步骤没有在本 artifact 中执行；它只固定 pilot 实验链、负结果和修正后的证据边界。
 
 ---
 
-## 15. 为什么白化会有用：一个几何说明
+## 15. 白化为什么可能有用：一个历史候选解释
 
 §5–§7 给出了一个经验事实：把 BERT L12 表征做 PCA 白化到约 100 维之后，球面 KMeans 在 20NG 上的话题 NMI 从约 0.36 抬到约 0.45。这一节用更基本的几何语言尝试解释**为什么会这样**。
 
-它不是严格定理，目的是把"经验现象"翻译成"几何原因"。
+它不是严格定理，也没有在 BERT 上隔离出唯一因果机制；下面保留的是产生后续检验的几何假说。
 
 ### 15.1 各向异性 = 窄锥
 
@@ -476,7 +478,7 @@ $$
 
 - $\bar{x}$ ：全局均值（所有点共享）
 - $s_i\, v_1$ ：在主方向 $v_1$ 上的标量投影
-- $r_i$ ：残差，**话题相关的信号大概率主要藏在这里**
+- $r_i$ ：主方向以外的残差；初版假说把主要 topic signal 放在这里，2026-07 spectrum audit 不支持把它当成已证结论
 
 在 $\bar{x},\, v_1,\, r_i$ 大致正交的近似下：
 
@@ -492,9 +494,9 @@ $$
 \cos(x_i, x_j) \approx 1 - O\!\left(\frac{\text{话题信号}}{\|\bar{x}\|^2}\right).
 $$
 
-**含义**：所有对的余弦相似度都被钉在接近 1 的位置，话题信息 $r_i^\top r_j$ 只贡献一个二阶小修正。KMeans 看到的相似度矩阵几乎是"全亮"的；要靠这个矩阵区分簇，等于让算法在噪声层做决定。
+**候选含义**：共同方向可以把所有 pairwise cosine 推向较窄区间，使 residual differences 在 raw cosine 中权重较小。但当前实验没有证明 topic signal 等同于 $r_i^\top r_j$，也没有证明这就是 clustering gap 的唯一来源。
 
-这就是为什么在原始表征上跑 Lloyd / 球面 KMeans，NMI 上不去 —— 不是 KMeans 算法不行，而是**余弦几何在 $\bar{x}$ 主导下退化了**。
+因此，common-direction dominance 是 raw Lloyd / spherical KMeans 表现较弱的一个可检验解释；不能据此排除 objective、subspace selection、lexical structure 或其它几何因素。
 
 ### 15.3 PCA 白化做了什么
 
@@ -518,7 +520,7 @@ $$
 
 直觉对应：白化 + 欧式距离在原空间等价于 **Mahalanobis 距离**。所以"球面 KMeans + 白化表征"约等于在原空间用 Mahalanobis 距离做 KMeans，限制在前 $k$ 个主成分子空间上。
 
-这也就解释了 §6 的层间现象 —— 不只是 L12 NMI 涨，**L0 NMI 也从约 0.07 跳到约 0.20**。原始 L0 表征不是没有话题信号，而是被 $\bar{x}$ 和窄锥共同压住了；白化把它们解压出来。
+这与 §6 的层间现象相容：不只是 L12 NMI 涨，**L0 NMI 也从约 0.07 跳到约 0.20**。它说明 reweighting 改变了 clustering 可访问的结构，但不唯一证明结构此前被 $\bar{x}$ 和窄锥“压住”。
 
 ### 15.4 为什么 $d \approx 100$ 看起来是最优点
 
@@ -526,16 +528,16 @@ $$
 
 定义两个相互对立的项：
 
-- **信号子空间覆盖度** $(d)$：前 $d$ 个主成分能捕获多少话题相关方向。$d$ 越大覆盖越多，**偏差越小**。
-- **噪声放大代价** $(d)$：白化那一步的 $1/\sqrt{\lambda_i}$ 会把小奇异值方向放大。$d$ 太大时，保留的方向里 $\lambda_i$ 已接近噪声底板，**重标定等于放大噪声 → 方差越大**。
+- **retained-subspace coverage** $(d)$：增加 $d$ 会保留更多方向，但这些方向是否提供独立 topic signal 仍需 band ablation。
+- **small-eigenvalue amplification** $(d)$：白化的 $1/\sqrt{\lambda_i}$ 会提高小奇异值方向的权重；它们可能是有用结构，也可能主要增加估计噪声。
 
-经验最优大致是这两项相抵之处：
+可以把经验最优写成一个待检验的 schematic trade-off，而不是已拟合出的定律：
 
 $$
 d^\star \approx \arg\max_d\, \big[\, \text{coverage}(d) \;-\; \text{noise penalty}(d) \,\big].
 $$
 
-**一个数值上的巧合（也可能不是巧合）**：预训练 BERT L12 原始表征的参与比 (participation ratio) 约 38。白化到 $d = 100$ 后，得到的子空间参与比约 95，几乎用满了 100 维 —— 说明在 100 维以下，每个保留方向都还在贡献有效方差；超过 100，就开始白化噪声方向了。
+**一个描述性数值**：预训练 BERT L12 原始表征的 participation ratio 约 38；白化到 $d = 100$ 后约 95。它说明 whitening 后 retained variance 更均匀，不说明每个方向都携带独立 topic signal，也不能把 $d>100$ 全部称为噪声。
 
 **几个诚实的边界**：
 

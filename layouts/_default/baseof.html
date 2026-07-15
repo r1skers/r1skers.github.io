@@ -50,6 +50,9 @@
 {{- if .IsHome -}}
 {{- $bodyClasses = $bodyClasses | append "is-home" -}}
 {{- end -}}
+{{- if .Params.problemPage -}}
+{{- $bodyClasses = $bodyClasses | append "problem-workbook" -}}
+{{- end -}}
 
 {{- $bodyStyleParts := slice -}}
 {{- if and $bgEnabled (eq $bgScope "page") (ne $bgURL "") -}}

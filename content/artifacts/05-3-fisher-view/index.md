@@ -2,8 +2,8 @@
 date: '2026-06-06T00:00:00+09:00'
 draft: false
 title: "[Artifact-5.3] BERT Fisher 几何视角 Pilot Note"
-summary: "Artifact-5 多视角对照系列的 Fisher 视角：用 LDA 作监督线性探针（与 5.2 逻辑回归互证），并用 Fisher 迹比 η²=tr(S_B)/tr(S_T) 直接量话题的「类内紧凑 / 类间分离」几何。发现几何（η²）和分类器（准确率）在随机初始化上分道扬镳——揭示出贯穿整个 umbrella 的机制：话题信息藏在低方差方向，重加权的方法才读得到。"
-description: "Artifact-5.3 是 BERT 表征探针系列的 Fisher 几何视角 child artifact：复用缓存表征，用 LDA 分类器 + Fisher 迹比双重测量层间话题可分性，统一 5.1 聚类 / 5.2 逻辑回归 / 5.3 Fisher 三视角于'低方差判别方向 + 重加权'一条主线。"
+summary: "Artifact-5 多视角对照系列的 Fisher 视角：用 LDA 作监督线性探针（与 5.2 逻辑回归互证），并用 Fisher 迹比 η²=tr(S_B)/tr(S_T) 量话题的类内/类间几何。二者在 random-init 上分歧，说明 measurement operators 不等价；后续 spectrum audit 否定了初版 low-variance-tail 统一解释。"
+description: "Artifact-5.3 复用缓存表征，以 LDA 分类器、Fisher 迹比和 direction-level PCA attribution 对照逐层话题可分性；科学收口把主结论改为 measurement non-equivalence 与 leading-subspace spectral rebalancing。"
 tags:
   - "Artifact"
   - "BERT"
@@ -24,6 +24,8 @@ aliases:
 项目地址：[bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability)（本地 `D:\Dev\repos\bert-cluster-stability`）。
 这篇 artifact 是 5.3 Fisher 几何视角的完整记录，完成于 2026-06。它和 5.1 / 5.2 共享同一份缓存的 BERT 层间表征，只换了「探针」。
 
+> **2026-07 closure note：** 本页最初把“低 aggregate η² + 高 probe accuracy”唯一解释为 topic signal 藏在 low-variance directions。后续 same-sample direction-level audit 直接检验了这个说法：raw centered pretrained L12 的 PC1 per-PC $\eta^2=0.669$；前 100 PCs 含 **82.4%** 方差却含 **98.7%** between-class scatter；PC variance 与 per-PC $\eta^2$ 的 Spearman 为 **+0.718**。因此 low-variance-tail 统一假说被反驳并撤回；保留的是 **measurement 不等价 + leading-subspace spectral rebalancing**。这些 attribution 是 exploratory/descriptive，不是 held-out confirmation。
+
 ## 1. 定位：同一份表征，第三把尺子
 
 5.1 用无监督聚类，5.2 用逻辑回归，5.3 用 **Fisher / LDA**。三者是同一张表里的近亲——按"**生成式 vs 判别式**"和"**用不用标签**"两个轴排开：
@@ -40,7 +42,7 @@ aliases:
 
 > 一句话：5.1 是"扣着答案做题、做完对答案"；5.2 / 5.3 是"答案正面朝上做题"。
 
-5.3 真正的独有贡献不是"再做一遍监督线性分类"，而是：**Fisher 给出一个不依赖分类器的纯几何量**，于是我们能把"几何"和"分类器"拆开看——它们会分道扬镳，而分歧本身就是整个 umbrella 的机制所在。
+5.3 真正的独有贡献不是"再做一遍监督线性分类"，而是：**Fisher 给出一个不依赖分类器的描述性几何量**，于是能把"aggregate geometry"和"predictive readout"拆开看。它们的分歧证明两种 measurement 不可互换，但分歧本身不唯一识别某个隐藏机制。
 
 ---
 
@@ -98,7 +100,7 @@ L12 实数（标准化后）：
 | | 切吗 | **挑方向 / 重加权吗** | 性质 |
 |---|---|---|---|
 | **Fisher η²** | 不切 | **不挑**——768 维按各自方差**平摊**着量（各向同性）| 描述 |
-| **LDA / 逻辑回归** | 直切 | **挑**——专找最能分开的方向，把"低方差但好用"的方向**放大** | 预测 |
+| **LDA / 逻辑回归** | 直切 | **挑**——按训练目标、协方差与正则化重组方向 | 预测 |
 
 两边同源（都来自 $S_W, S_B$ 这套料），用法不同：**η² 平摊量散布；LDA 用 $S_W^{-1}S_B$ 挑最佳切方向。** 同一堆料，一个"平摊着量"，一个"挑方向切"。
 
@@ -119,7 +121,7 @@ L12 实数（标准化后）：
 
 LDA（高斯解析最优）和逻辑回归（凸优化最优）**曲线几乎重合**：两个出发点完全不同的线性最优给出同一条 `可分性(L)`。
 
-> 结论：这条曲线**不是某个分类器的副产物，是表征的真实性质**。
+> 结论：这条曲线对两种 regularized linear estimators 稳健；它仍是 probe-dependent readout，不证明模型 native-use 了这些信息。
 
 和 5.2 一样，random-init 的 LDA 准确率也**远高于 chance（0.05）**、且随层衰减。
 
@@ -135,58 +137,59 @@ LDA（高斯解析最优）和逻辑回归（凸优化最优）**曲线几乎重
 | random-init η² | 0.023 | 0.023 | 0.023 | 0.023 |
 
 - **pretrained**：η² 随层升约 3.5×，三段式（早升—中段平台—L10-12 强升），峰在 L11。但即便最强，也只有 **~15%** 的总方差是类间的。
-- **random-init**：**全程接近地板 ~0.023**（纯随机标签的理论底约 $(K-1)/(N-1)\approx0.01$，所以只有微弱真信号），**不随层变化**，比 pretrained 峰值低约 7×。
+- **random-init**：全程约 0.023，低于 pretrained 峰值约 7×且近乎不随层变化。$(K-1)/(N-1)\approx0.01$ 只是 same-sample null 的量级参考，不是本实验跑出的 permutation confidence interval。
 
 ---
 
-## 6. 核心发现：几何 vs 分类器，在 random-init 上分道扬镳
+## 6. 核心观察：几何 vs 分类器，在 random-init 上分道扬镳
 
 把结果 A、B 并到一起看 random-init：
 
 | random-init 上的测量 | 结果 | 像谁 |
 |---|---|---|
-| Fisher **几何** η² | ~0.023，**接近地板** | 像 5.1 聚类 |
+| Fisher **几何** η² | ~0.023，低且近乎平坦 | 像 5.1 的低 alignment |
 | LDA / logreg **分类器**准确率 | 0.28–0.38，**远超 chance** | 像 5.2 探针 |
 
-**同一份随机初始化表征：纯几何说"几乎没有类间结构"，分类器却说"读得出不少话题"。** 怎么会同时成立？
+**同一份随机初始化表征：aggregate geometry 很低，分类器却能预测部分话题。** 两者为何可以同时成立？
 
-### 6.1 解释：判别信号藏在低方差方向，重加权才看得到
+### 6.1 被撤回的解释：判别信号藏在 low-variance tail
 
-η² 和聚类都**按方差大小看世界**——衡量"类间差异在总方差里占多大份额"。而 BERT（尤其 random-init）的话题判别方向是**低方差**的（藏在窄锥残差里，见 5.1 §15 各向异性分析）。于是：
+2026-06 初版推理是：aggregate η² 低、linear accuracy 高，所以判别信号必然藏在 low-variance directions，LDA / logreg 靠重加权把它放大。这个推理**不可识别**：许多弱方向的联合累积、协方差结构、regularization、lexical/random-feature cues，都可能产生同样的“低总量 / 高 readout”组合。
 
-- η² / 聚类：**按原始方差平摊** → 低方差的判别方向被淹没 → random-init 看着像地板。
-- LDA（$S_W^{-1}$）/ 逻辑回归（学权重 $w$）：**重加权方向** → 把低方差判别方向**放大**出来 → random-init 远超 chance。
+2026-07 的 direction-level audit 直接在 raw centered PCA basis 中计算每个 PC 的 variance、per-PC η² 与 between-scatter contribution。pretrained L12 上：
 
-> 决定"读不读得到话题"的，**不是"监督 vs 无监督"，而是"这个方法重不重加权方向"**。
-> Fisher 这一对（几何 η² 不重加权 / LDA 分类器重加权）把这个变量**单独隔离**了出来。
+- PC1 per-PC $\eta^2=0.669$；
+- PC≤100：82.4% variance，98.7% between-class scatter；
+- variance 与 per-PC $\eta^2$ 的 Spearman = +0.718。
 
-### 6.2 这条线统一了整个 umbrella
+这与“主要信号藏在完整谱低方差尾部”方向相反。它支持更窄的描述：topic-aligned class-mean structure 集中在 **leading subspace**；whitening 保留前 100 PCs 再重标定，收益更可能来自 leading-subspace 内的 **spectral rebalancing**。这里仍没有做 whitening 的 causal intervention。
 
-| 方法 | 是否重加权方向 | random-init 上 |
+### 6.2 收口后的 umbrella：不同尺子不等价
+
+| 方法 | measurement operator | 它不能单独推出什么 |
 |---|---|---|
-| 5.1 朴素聚类 | 否 | 地板 |
-| **5.1 whitening + 聚类** | **是**（白化 = 重标定各方向）| 把结构解压出来 |
-| 5.3 Fisher 几何 η² | 否 | 地板 |
-| 5.2 逻辑回归 | 是（学 $w$）| 远超 chance |
-| 5.3 LDA 分类器 | 是（$S_W^{-1}$ + shrinkage）| 远超 chance |
+| 5.1 clustering + NMI | 无监督 partition 后量 label alignment | 信息不存在 / NMI 的 chance 是 0.05 |
+| whitening + clustering | leading PCs 内改变 distance weighting | 主要信号来自 low-variance tail |
+| Fisher trace η² | 汇总所有方向的 class-mean scatter fraction | 每个方向在哪里、分类器能否读出 |
+| logreg / shrinkage LDA | 带标签拟合线性 decision rule | 模型自身会使用该信息 / 意识到该信息 |
 
-> **统一原理：BERT 的话题信息藏在低方差方向。任何重加权方向的方法（白化 / $S_W^{-1}$ / 学权重）都能读到它；任何尊重原始方差几何的方法（朴素聚类 / Fisher 迹比 η²）都看到地板。**
+> **收口后的统一结论：linear decodability、cluster alignment、aggregate Fisher geometry 与 direction-level spectral attribution 测的是不同对象。它们可以分歧；分歧是结果，不是某个机制的唯一证明。**
 
-5.1 当初靠 whitening "碰运气"解压结构，5.3 在这里给了它一个**监督几何的解释**：whitening 的重加权，和 LDA 的 $S_W^{-1}$、logreg 的 $w$ 是同一类操作。
+random-init 的 above-chance probe 还可能来自 pretrained tokenizer 保留的 lexical cues 与 mean-pooled random token features。anisotropy 可能影响 distance-based clustering，但不是当前实验隔离出的唯一原因。
 
 ---
 
 ## 7. 该看什么：η² 与准确率的"落差"
 
-单看一条不够，**把 η²（不挑方向）和 acc（挑最优方向）并起来看，落差才是信息**：
+单看一条不够；把 η² 与 acc 并起来，能看出 measurement sensitivity，但不能从“落差”直接反推出信号所在的 variance rank：
 
 | 情况 | η² | acc | 读出 |
 |---|---|---|---|
-| 信号**摆在明面** | 高 | 高 | 话题分离就在大方差方向上，挑不挑都行 |
-| 信号**埋在低方差** | **低** | **高** | 原始几何看不出，挑对方向就能切 → **random-init 正是这样** |
-| 真没信号 | 低 | 低（≈chance）| 怎么挑都切不开 |
+| aggregate 与 readout 都强 | 高 | 高 | 两种 measurement 都强；方向位置仍需谱分解 |
+| aggregate 弱、readout 强 | 低 | 高 | readout 能利用 aggregate trace 未突出的结构；可能原因不止 low variance |
+| 两种 measurement 都弱 | 低 | 低 | 在当前 probe / sample / regularization 下都弱；不能证明信息绝对不存在 |
 
-> **落差 = 挑方向（重加权）帮了多大忙 = 话题信号埋得有多低方差。** 这不是泛泛的"有别的因素"，而是**精确指向"低方差判别方向"这一个因素**：它对 η²（按方差看）贡献小，对探针（挑方向）贡献大，两者一比就把它逼出来。
+> **落差只说明两个 operator 对结构的敏感性不同。** 要回答“信号在哪个 variance rank”，必须像 2026-07 audit 那样直接做 per-direction attribution。
 
 三视角合一句：**聚类问"自发分不分得开"，Fisher η² 问"不挑方向本来分不分得开"，探针问"挑最优方向能不能分开"。**
 
@@ -194,33 +197,34 @@ LDA（高斯解析最优）和逻辑回归（凸优化最优）**曲线几乎重
 
 ## 8. 三视角合成
 
-![三视角合成图](three_view_synthesis.png)
+![Legacy exploratory three-view overlay](three_view_synthesis.png)
 
-合成图（左：pretrained 归一化形状；右：random-init 原始单位）用的是三个**分类器/对齐**视角（5.1 NMI / 5.2 logreg acc / 5.3 LDA acc）。Fisher **几何** η² 给它加了第四条线索：右图里监督探针在 random-init 上"远超 chance"，而 η² 告诉你**原始几何其实是地板**——两者之差，正是"重加权"的功劳。
+> **图的当前身份：legacy exploratory overlay。** 左侧对不同指标做 min-max normalization，右侧又保留 native units；它适合回看曲线形状，不适合证明共享机制或把 NMI≈0.06 当成 classification chance 0.05。Fisher η² 与 direction-level audit 应作为独立 measurement 阅读。
 
 ---
 
 ## 9. 当前结论
 
-1. LDA（解析最优）与逻辑回归（凸最优）的 `可分性(L)` 曲线几乎重合 → 曲线是表征的真实性质，非估计器副产物。
+1. shrinkage LDA 与逻辑回归的 `可分性(L)` 曲线几乎重合 → 趋势对两种 regularized linear estimators 稳健。
 2. Fisher 几何 η²：pretrained 随层升至 ~0.15（峰 L11，三段式），random-init 全程接近 ~0.023 地板。
-3. **几何 vs 分类器在 random-init 上分歧**：纯几何（η²）说"几乎无类间结构"，分类器（LDA/logreg）说"话题可读"。
-4. 解释：判别信号在**低方差方向**；按方差看世界的方法（η²/聚类）漏掉，重加权的方法（$S_W^{-1}$ / $w$ / whitening）读到。
-5. **这条"低方差方向 + 重加权"统一了整个 umbrella**：决定能否读到话题的不是监督与否，而是是否重加权方向。
+3. **aggregate geometry vs classifier 在 random-init 上分歧**；这是 measurement non-equivalence，不是 low-variance mechanism 的唯一证明。
+4. direction-level audit 反驳 low-variance-tail 假说：pretrained-L12 between scatter 高度集中在 leading subspace。
+5. whitening 更适合描述为 leading-subspace spectral rebalancing；random-init readout 仍需 lexical/random-feature 与多 seed controls。
 
 短版结论：
 
-> Fisher gives two readings of the same representation: a raw geometry scalar (η², which puts random-init near the floor like clustering) and an LDA classifier (which, like logistic regression, reads random-init well above chance). Their divergence pinpoints the mechanism behind the whole umbrella — topic information lives in low-variance directions, visible only to methods that reweight directions (whitening, $S_W^{-1}$, learned weights), invisible to variance-respecting methods (naive clustering, the Fisher trace ratio).
+> Fisher gives two non-equivalent readings of the same representation: aggregate class-mean geometry and regularized linear readout. Their divergence motivates direct direction-level measurement; that audit localizes pretrained-L12 between-class scatter to the leading subspace and retires the low-variance-tail explanation.
 
 ---
 
 ## 10. 当前边界
 
 - 只在 20 Newsgroups、`n=2000` pilot 规模、单 random seed。
-- η² 是**全局各向同性**的粗粒度几何量（迹比），不分方向；它和分类器准确率本就度量不同侧面，"η² 平 / 分类器衰减"这类细节差异不宜过度解读。
+- η² 是**全局、rotation-invariant** 的粗粒度几何量（迹比），不分方向；它和分类器准确率本就度量不同侧面，"η² 平 / 分类器衰减"这类细节差异不宜过度解读。
 - η² 依赖标签集：换一套标签（如情感而非话题）会变；它是"**第 L 层表征在 20NG 话题视角下的几何性质**"，非脱离任务的内禀属性。
 - 完整 Fisher 判别（$S_W^{-1}S_B$ 特征谱）未做——刻意用迹比避开高维奇异。
-- "低方差方向 + 重加权"是机制**假说**，与 5.1 各向异性几何、5.1.1 合成 demo 自洽，但未在 BERT 上做方向级因果验证。
+- 2026-07 direction-level attribution 用同一 `n=2000` 样本标签，属于 descriptive audit；没有 independent confirmation split。
+- 初版“低方差方向 + 重加权”统一假说已被 spectrum audit 反驳并撤回。leading-subspace rebalancing 仍是描述性解释，未做因果验证。
 
 ---
 
@@ -241,8 +245,14 @@ embeddings 复用缓存的 `outputs/cache/*.npz`（若不存在，先跑 `experi
 .\.venv\Scripts\python.exe experiments\probe\fisher_geometry.py
 ```
 
-### A.3 三视角合成图
+### A.3 Legacy 三视角 exploratory overlay
 
 ```powershell
 .\.venv\Scripts\python.exe experiments\synthesis\plot_three_view.py
+```
+
+### A.4 2026-07 direction-level spectrum audit
+
+```powershell
+.\.venv\Scripts\python.exe experiments\probe\run_spectral_attribution.py
 ```

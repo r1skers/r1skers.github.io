@@ -2,7 +2,7 @@
 date: '2026-06-06T00:00:00+09:00'
 draft: false
 title: "[Artifact-5.2] BERT Linear Probe View — Pilot Note"
-summary: "The linear-probe view of the Artifact-5 multi-probe series: train per-layer logistic regression on BERT document-segment representations to measure how linearly decodable topic information is across layers, against a random-init control and against the 5.1 clustering view — finding that a supervised linear probe reads topic information that unsupervised clustering cannot."
+summary: "The linear-probe view of the Artifact-5 multi-probe series: train per-layer logistic regression on BERT document-segment representations and compare random-init, clustering, and Fisher geometry — showing that linear decodability and unsupervised alignment are different measurements."
 description: "Artifact-5.2 is the linear-probe child artifact of the BERT representation-probes series: reuse the cached layerwise representations from 5.1, measure topic linear separability with per-layer logistic regression and 5-fold cross-validation, pretrained vs random-init, and triangulate against the clustering view."
 tags:
   - "Artifact"
@@ -19,6 +19,8 @@ math: true
 
 Source project: [bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability).
 This artifact is the complete record of the 5.2 linear-probe view, finished 2026-06. It shares the same cached BERT layerwise representations with 5.1 — only the probe changes.
+
+> **2026-07 closure note:** This page preserves the original pilot record but withdraws the mechanism claim that topic signal mainly lives in a low-variance residual and anisotropy is the unique cause. A later same-sample direction-level audit found that raw centered pretrained L12 has per-PC $\eta^2=0.669$ on PC1; the first 100 PCs contain **82.4%** of variance and **98.7%** of between-class scatter; the Spearman correlation between variance and per-PC $\eta^2$ is **+0.718**. This is exploratory/descriptive attribution, not held-out confirmation, and narrows the account to **leading-subspace spectral rebalancing**.
 
 ## 1. Goal
 
@@ -118,21 +120,21 @@ Two things worth noting:
 1. **The pretrained curve rises with depth**, ticking up again at L10–L12, strongest at L12 — echoing the "late-layer boost" of 5.1's clustering NMI.
 2. **The random-init curve decays in reverse**, but stays **well above chance (0.05)** throughout.
 
-### 4.1 Why random-init is not at the floor, and why it decays
+### 4.1 Why random-init is not at the floor: a testable account, not an established mechanism
 
-L0 is the embedding layer's mean-pool ≈ **a bag of word vectors ≈ a random projection of BOW**. 20NG's BOW is already linearly separable, so **random weights get 0.38 at L0** — this readability is **a free gift of the architecture, not learned**.
+L0 mean-pooling can be approximated as **a bag of random word vectors**. But the random-init control still uses the pretrained WordPiece tokenizer; mean-pooled random token embeddings can retain lexical cues as high-dimensional random features. L0's 0.38 is therefore consistent with lexical information surviving a random map; it does **not** show that random BERT learned topic organization.
 
-Going deeper, random nonlinear mixing **destroys** that linear readability layer by layer → decay. Pretraining does the opposite — it **builds** topic geometry layer by layer → rise.
+At greater depth, random-init probe accuracy falls while pretrained accuracy rises. That is an observed contrast. Without TF-IDF, an explicit BOW random projection, multiple random seeds, or module interventions, the fall cannot be uniquely attributed to random mixing “destroying” lexical structure.
 
-> Depth does **opposite things** to the two models: pretraining constructs topic structure, random-init destroys the input-side lexical structure.
+> Depth produces opposite probe trends in the two models. This suggests that pretraining changes linear accessibility, but it is not yet a causal decomposition of the internal mechanism.
 
-So what truly attributes to "learning" is not pretrained's absolute value, but:
+The two curves can be compared through a **descriptive contrast**:
 
 $$
-\text{pretraining contribution}(L) \approx \text{pretrained}(L) - \text{random-init}(L)
+\text{probe gap}(L) = \text{pretrained}(L) - \text{random-init}(L)
 $$
 
-and this gap widens with depth (L12 ≈ 0.62 − 0.28 = 0.34).
+The gap widens with depth (L12 ≈ 0.62 − 0.28 = 0.34), but a one-seed difference is not an unbiased causal estimate of “pretraining contribution.”
 
 ---
 
@@ -140,20 +142,22 @@ and this gap widens with depth (L12 ≈ 0.62 − 0.28 = 0.34).
 
 This is 5.2's real payoff, and the point of the whole "multi-probe triangulation."
 
-![Three-view synthesis](three_view_synthesis.png)
+![Legacy exploratory three-view overlay](three_view_synthesis.png)
 
-**Left (pretrained, normalized)**: min-max normalize each view, compare shapes — 5.1 clustering / 5.2 logreg / 5.3 LDA **broadly agree on where in depth topic information emerges** (early rise — mid plateau — strong late rise); clustering is most depth-dependent, the two supervised probes nearly overlap. → the three views **corroborate on shape**.
+> **Current status of this figure: legacy exploratory overlay.** It is the 2026-06 curve-shape comparison. Overlaying different metrics after min-max normalization cannot show that they measure one mechanism, nor can a bend in these curves locate where a capability “emerges.”
 
-**Right (random-init, native units)**: the core divergence. **Clustering floors (NMI ≈ 0.06 ≈ chance), but the supervised probes sit at ~0.38 and decay with depth.**
+**Left (pretrained, normalized):** the three curves share a rough early-rise / plateau / late-rise shape. That is an observation worth testing, not emergence evidence.
+
+**Right (random-init, native units):** clustering semantic alignment is low (NMI about 0.06), whereas the supervised probes start near 0.38 and decay. **NMI does not have classification accuracy's `1/20=0.05` chance baseline**; it must not be written as “NMI ≈ chance 0.05.”
 
 Same random-init weights:
 
-- **Unsupervised clustering** says "there is no topic structure at all";
-- **The supervised linear probe** says "there is, and quite a lot."
+- **Unsupervised clustering** gives low topic alignment under this distance / preprocessing / clusterer recipe;
+- **The supervised linear probe** shows that labels are linearly predictable from the same representation.
 
-Why the divergence? Back to 5.1's geometric account: random-init representations are **extremely anisotropic** (a narrow cone, mean pairwise cosine ≈ 0.97). Unsupervised clustering is dragged toward this cone's dominant direction and can only make a topic-irrelevant trivial cut; but the topic signal **lives all along in the low-variance residual**, and the supervised probe, with labels as a teacher, **drills straight into the residual to find the discriminative direction**, bypassing the dominant axis.
+Why the divergence? Strong random-init anisotropy (mean pairwise cosine about 0.97) may affect distance-based clustering, but the current design does not identify it as the unique cause. Clustering and probes differ in objective, metric, covariance weighting, and label usage; random-init may also retain lexical cues through its tokenizer and random word features. The later spectrum audit directly contradicts the claim that the main signal lives in the full spectrum's low-variance tail.
 
-> **Clustering is a victim of anisotropy; the linear probe is nearly immune to it** (logistic regression can absorb an invertible linear distortion into its weights).
+> **The durable conclusion is measurement non-equivalence.** Anisotropy is one candidate contributor; the low-variance tail is not a mechanism established by this experiment.
 
 In other words:
 
@@ -172,7 +176,7 @@ In other words:
 | LDA pretrained | 0.597 | 0.636 |
 | LDA random-init | 0.372 | 0.283 |
 
-The LDA curve nearly **coincides** with logistic regression. Two linear optima from completely different starting points (one by gradient correction, one by an analytic within/between-scatter solution) give the same curve → **this `separability(L)` is not a byproduct of one classifier; it is a real property of the representation.**
+The LDA curve nearly **coincides** with logistic regression. Two regularized linear estimators give similar curves → the layerwise probe trend is robust to these two estimator choices. This still does not show that the model natively uses the information read by the probe.
 
 (Implementation note: in high dimensions `S_W` (768×768) estimated from ~1600 samples is near-singular, so LDA uses `lsqr + auto shrinkage`. A small footnote in itself — the "analytical optimum" **also needs regularization** in high dimensions, the same thing as logistic regression's `C` in another guise.)
 
@@ -194,14 +198,15 @@ The pilot collapses to six points:
 
 1. In pretrained BERT, topic linear decodability **rises with depth**, strongest at L10–L12 (L12 acc ≈ 0.62 vs chance 0.05).
 2. Random-init BERT's linear decodability is **well above chance throughout** but **decays with depth** — opposite to pretrained.
-3. Random-init's high L0 ≈ a random projection of BOW; the readability is mostly **a free architectural gift**, with pretraining's contribution in the `pretrained − random` gap, widening with depth.
-4. **Linear decodability ≠ cluster self-organization**: a supervised linear probe reads topic information that unsupervised clustering cannot (on random-init, clustering floors while the probe is well above chance).
-5. The geometric root of the divergence is anisotropy — clustering is its victim, the linear probe nearly immune.
-6. Logistic regression and Fisher LDA, two supervised optima, give nearly the same curve → the result is not an artifact of one estimator.
+3. Random-init's high start is consistent with lexical / random-feature cues, but no TF-IDF or explicit random-projection control currently identifies the source.
+4. **Linear decodability ≠ cluster self-organization**: probe accuracy and clustering NMI are different measurements, are not interchangeable, and do not share a chance baseline.
+5. Anisotropy may affect clustering but is not the uniquely identified cause; objective, distance geometry, covariance, and lexical cues may all contribute.
+6. Logistic regression and shrinkage LDA nearly agree → the trend is robust to two linear estimator choices, not proof of native model use.
+7. The direction-level audit contradicts the low-variance-tail account: pretrained-L12 topic-aligned between scatter is concentrated in leading PCs; whitening is better described as leading-subspace spectral rebalancing.
 
 Short version:
 
-> Across BERT layers, topic information becomes increasingly **linearly decodable** in pretrained BERT (peaking at L12), but linear decodability is decoupled from unsupervised cluster structure: a linear probe reads topic information well above chance even from random-init BERT — information that clustering, derailed by anisotropy, cannot see at all.
+> Across BERT layers, pretrained topic labels become increasingly **linearly decodable**, while random-init remains partly decodable, plausibly from lexical/random-feature cues. Linear readout, clustering alignment, and Fisher geometry give non-equivalent verdicts; the spectrum audit localizes pretrained-L12 class-mean scatter to the leading subspace rather than the low-variance tail.
 
 ---
 
@@ -211,14 +216,15 @@ Short version:
 - Only one random seed for the control; `C` fixed, not swept.
 - The trends are robust (two probes agree, tight CV bands), but **absolute numbers are pilot-grade**.
 - Pooling is still mean-pool; CLS / IDF-weighted alternatives not systematically compared.
+- The 2026-07 spectrum attribution uses labels on the same `n=2000` sample. It is a descriptive audit, with neither an independent confirmation split nor a causal whitening intervention.
 
 ---
 
-## 10. Next steps
+## 10. Open questions after closure
 
-1. The three-view synthesis figure is done (§5); next is to write it into the **umbrella synthesis + SOP paragraph**.
-2. Scale to full 20NG (narrow scope, to confirm the main effect) if time allows.
-3. A standalone writeup of the 5.3 Fisher view (geometric explanation of the random-init decay).
+1. Calibrate the lexical/random-feature account with TF-IDF, an explicit BOW random projection, and multiple random-init seeds.
+2. Any confirmatory continuation should preregister an independent split, fit PCA / preprocessing on train only, and evaluate once on held-out data.
+3. A follow-on project should separate decodability, native behavior, and causal intervention instead of inferring emergence from probe curves.
 
 ---
 
@@ -240,8 +246,14 @@ Embeddings reuse 5.1's cached `outputs/cache/*.npz` (if absent, first run `exper
 .\.venv\Scripts\python.exe experiments\probe\plot_linear_probe.py --csv outputs/tables/probe/lda_probe.csv --filename lda_probe_accuracy.png
 ```
 
-### A.3 Three-view synthesis figure
+### A.3 Legacy exploratory three-view overlay
 
 ```powershell
 .\.venv\Scripts\python.exe experiments\synthesis\plot_three_view.py
+```
+
+### A.4 2026-07 direction-level spectrum audit
+
+```powershell
+.\.venv\Scripts\python.exe experiments\probe\run_spectral_attribution.py
 ```

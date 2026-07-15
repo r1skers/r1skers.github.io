@@ -23,6 +23,8 @@ aliases:
 Project repo: [bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability).  
 This artifact records the W1 pilot, not a final paper-style result. The goal is to lock down the experimental chain and staged conclusions that are already working.
 
+> **2026-07 closure note:** This page preserves the original 5.1 experiment chain, but the early account that uniquely attributed whitening gains to anisotropy or placed topic signal in a low-variance residual has been narrowed. A later direction-level audit found that pretrained L12's first 100 PCs contain 82.4% of variance and 98.7% of between-class scatter. The final description is **leading-subspace spectral rebalancing**, not proof of a low-variance tail. See the [Artifact 5 umbrella](/en/artifacts/05-bert-representation-probes/) closure.
+
 ## 1. Goal
 
 This page records the clustering view of `bert-cluster-stability` (completed 2026-05):  
@@ -379,28 +381,28 @@ Open limits:
 - Main sample is `n=2000`, not yet scaled to full ~18k
 - Document-segment pooling uses mean-pool only; CLS / no-special-token / IDF-weighted variants not systematically compared
 - `d≈100` is an empirical sweet spot; the mechanistic explanation is still informal
-- Stability ARI under the best recipe is not yet filled in
+- Stability and semantic alignment are separated explicitly; high random-init stability is not treated as semantic validity
 - 20NG labels are not the only reasonable semantic granularity — the K=10 coarse-class merging is interesting in its own right
 
 ---
 
-## 14. Next Steps
+## 14. Closure status
 
-The next step is not to keep sweeping algorithms indefinitely, but to firm up the main story:
+This page now closes as a **completed exploratory study**. A separate confirmation would need to freeze the protocol before test-label inspection:
 
-1. Add stability ARI under the best recipe (subset-resample validation of partition robustness)
-2. Scale up to full 20NG (n ≈ 18k, estimated CPU ~2 hours)
-3. If time permits, add the Wiki / Reddit / arXiv cross-corpus domain-separability stretch
+1. fit PCA, whitening, and centroids on train only;
+2. use AMI or a permutation-calibrated NMI on held-out data;
+3. add lexical/random-feature and multiple-random-seed controls.
 
-A fuller Stage 3 follow-up framing lives in local planning notes; this artifact only locks down the W1 pilot's experimental chain and staged findings.
+Those steps were not executed here; this artifact locks down the pilot chain, negative results, and revised evidence boundary.
 
 ---
 
-## 15. A Geometric Note on Why Whitening Helps
+## 15. A historical candidate account of why whitening may help
 
 §5–§7 give an empirical fact: PCA-whitening BERT L12 representations down to about 100 components lifts the 20NG topic NMI from ~0.36 to ~0.45 under spherical KMeans. This section tries to explain **why**, in basic geometric language.
 
-It is not a theorem. The goal is to translate "empirical phenomenon" into "geometric cause".
+It is not a theorem and does not isolate a unique BERT mechanism. The account below is retained as the hypothesis that motivated later checks.
 
 ### 15.1 Anisotropy as a narrow cone
 
@@ -429,7 +431,7 @@ $$
 
 - $\bar{x}$ : the global mean (shared by all points)
 - $s_i\, v_1$ : the scalar projection along the leading direction $v_1$
-- $r_i$ : the residual, where **topic-relevant signal most likely lives**
+- $r_i$ : the residual outside the leading direction; the early hypothesis placed the main topic signal here, but the 2026-07 spectrum audit does not support treating that as established
 
 Assuming approximate orthogonality between $\bar{x}$, $v_1$, and $r_i$:
 
@@ -445,9 +447,9 @@ $$
 \cos(x_i, x_j) \approx 1 - O\!\left(\frac{\text{topic signal}}{\|\bar{x}\|^2}\right).
 $$
 
-**The meaning**: all pairwise cosines are pinned close to 1, and the topic information $r_i^\top r_j$ only contributes a second-order correction. The similarity matrix that KMeans sees is essentially "all bright". Asking the algorithm to discriminate clusters under that matrix is asking it to decide in the noise floor.
+**Candidate reading**: a common direction can compress pairwise cosine values into a narrow range, reducing the raw-cosine weight of residual differences. The current experiment does not establish that topic information equals $r_i^\top r_j$, or that this is the clustering gap's unique source.
 
-That is why Lloyd / spherical KMeans on raw representations cannot push NMI higher — not because KMeans is the wrong algorithm, but because **cosine geometry has degenerated under the dominance of $\bar{x}$**.
+Common-direction dominance is therefore one testable account of weaker raw Lloyd / spherical KMeans performance; objective choice, subspace selection, lexical structure, and other geometry remain alternatives.
 
 ### 15.3 PCA whitening as decorrelation + rescaling
 
@@ -471,7 +473,7 @@ Now $z_i^\top z_j = \sum_k a_{ik} a_{jk}$ — every direction contributes equall
 
 Equivalent view: whitening + Euclidean distance in the whitened space equals **Mahalanobis distance** in the original space. So "spherical KMeans on whitened representations" is approximately Mahalanobis-distance KMeans in the original space, restricted to the top-$k$ principal subspace.
 
-This also explains the layer-wise pattern in §6 — it is not just L12 NMI that rises; **L0 NMI also jumps from ~0.07 to ~0.20**. The original L0 representations are not signal-free; they were just compressed by $\bar{x}$ and the narrow cone. Whitening decompresses them.
+This is consistent with the layer-wise pattern in §6 — it is not just L12 NMI that rises; **L0 NMI also jumps from ~0.07 to ~0.20**. Reweighting changes the structure accessible to clustering, but does not uniquely prove that a mean shift and narrow cone had hidden it.
 
 ### 15.4 Why $d \approx 100$ looks like a sweet spot
 
@@ -479,16 +481,16 @@ The whitening-dimension sweep in §7 puts the NMI peak around $d \approx 100$. T
 
 Two opposing terms:
 
-- **Signal-subspace coverage**$(d)$: how many topic-relevant directions the top-$d$ PCs capture. Larger $d$ → more coverage → **lower bias**.
-- **Noise-amplification penalty**$(d)$: the $1/\sqrt{\lambda_i}$ rescaling amplifies small-singular-value directions. When $d$ is too large, the retained $\lambda_i$ get close to the noise floor, and rescaling amplifies noise — **higher variance**.
+- **Retained-subspace coverage**$(d)$: larger $d$ keeps more directions, but whether each adds independent topic signal requires band ablation.
+- **Small-eigenvalue amplification**$(d)$: the $1/\sqrt{\lambda_i}$ rescaling raises the weight of small-singular-value directions; those directions may add useful structure or estimation noise.
 
-The empirical optimum is roughly where they cross:
+The empirical optimum can be sketched as a trade-off hypothesis, not a fitted law:
 
 $$
 d^\star \approx \arg\max_d\, \big[\, \text{coverage}(d) \;-\; \text{noise penalty}(d) \,\big].
 $$
 
-**A numerical coincidence (or perhaps not)**: pretrained BERT L12 raw representations have participation ratio ≈ 38. After whitening to $d = 100$, the resulting subspace has PR ≈ 95 — using almost all 100 dimensions. This suggests that below 100 dimensions every retained direction is still contributing useful variance, while beyond 100 we start whitening noise directions.
+**A descriptive number**: pretrained BERT L12 raw representations have participation ratio ≈ 38; after whitening to $d = 100$, PR is ≈ 95. This shows that retained variance becomes more even. It does not show that every direction carries independent topic signal or that all dimensions beyond 100 are noise.
 
 **A few honest disclaimers**:
 

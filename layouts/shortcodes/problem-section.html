@@ -1,0 +1,17 @@
+{{- $title := .Get "title" -}}
+{{- if not $title -}}
+  {{- warnf "missing value for param 'title' in problem-section shortcode: %s" .Position -}}
+{{- end -}}
+{{- $open := false -}}
+{{- if eq (.Get "open") "true" -}}
+  {{- $open = true -}}
+{{- end -}}
+
+<details class="problem-section"{{ if $open }} open{{ end }}>
+  <summary>
+    <span class="problem-section-title">{{ $title | markdownify }}</span>
+  </summary>
+  <div class="problem-section-body">
+    {{ .Inner | markdownify }}
+  </div>
+</details>
