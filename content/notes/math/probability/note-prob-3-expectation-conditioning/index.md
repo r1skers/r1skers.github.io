@@ -51,9 +51,9 @@ $$
 
 $$
 \mathbb E[|X|]
-=
+\mathrel{=}
 \mathbb E[X^+]+\mathbb E[X^-]
-<\infty,
+\lt\infty,
 $$
 
 则称 $X$ 可积，并定义
@@ -86,7 +86,7 @@ $$
 
 $$
 \mathbb E[g(X)]
-=
+\mathrel{=}
 \int_{\mathbb R}g(x)\,\mu_X(dx).
 $$
 
@@ -128,7 +128,7 @@ $$
 
 $$
 \mathbb E[g(X)]
-=
+\mathrel{=}
 \sum_{x\in S}g(x)p_X(x),
 $$
 
@@ -136,7 +136,7 @@ $$
 
 $$
 \mathbb E[g(X)]
-=
+\mathrel{=}
 \int_{\mathbb R}g(x)f_X(x)\,dx.
 $$
 
@@ -144,13 +144,13 @@ $$
 
 ## 3. 方差与常见分布的矩
 
-设 $X\in L^2(P)$，即 $\mathbb E[X^2]<\infty$。
+设 $X\in L^2(P)$，即 $\mathbb E[X^2]\lt\infty$。
 
 **定义（方差）**：
 
 $$
 \operatorname{Var}(X)
-=
+\mathrel{=}
 \mathbb E\!\left[(X-\mathbb E[X])^2\right].
 $$
 
@@ -164,7 +164,7 @@ $$
 
 $$
 \operatorname{Var}(X)
-=
+\mathrel{=}
 \mathbb E[X^2]-\mathbb E[X]^2.
 $$
 
@@ -294,7 +294,7 @@ $$
 
 $$
 \mathbb E[Z^2]
-=
+\mathrel{=}
 \frac1{\sqrt{2\pi}}
 \int_{-\infty}^\infty z^2e^{-z^2/2}\,dz
 =1.
@@ -362,7 +362,7 @@ $$
 
 $$
 P(X\in A,Y\in B)
-=
+\mathrel{=}
 P(X\in A)P(Y\in B).
 $$
 
@@ -389,7 +389,7 @@ $$
 
 $$
 \mathbb E[g(X)h(Y)]
-=
+\mathrel{=}
 \mathbb E[g(X)]\mathbb E[h(Y)].
 $$
 
@@ -399,9 +399,9 @@ $$
 
 $$
 \mathbb E[|g(X)h(Y)|]
-=
+\mathrel{=}
 \mathbb E[|g(X)|]\mathbb E[|h(Y)|]
-<\infty.
+\lt\infty.
 $$
 
 所以乘积可积；再应用二维 LOTUS 与 Fubini 定理：
@@ -427,7 +427,7 @@ $$
 
 $$
 \operatorname{Cov}(X,Y)
-=
+\mathrel{=}
 \mathbb E[(X-\mathbb E[X])(Y-\mathbb E[Y])].
 $$
 
@@ -435,7 +435,7 @@ $$
 
 $$
 \operatorname{Cov}(X,Y)
-=
+\mathrel{=}
 \mathbb E[XY]-\mathbb E[X]\mathbb E[Y].
 $$
 
@@ -449,16 +449,16 @@ $$
 
 $$
 \operatorname{Var}\!\left(\sum_{i=1}^nX_i\right)
-=
+\mathrel{=}
 \sum_{i=1}^n\operatorname{Var}(X_i)
-+2\sum_{1\le i<j\le n}\operatorname{Cov}(X_i,X_j).
++2\sum_{1\le i\lt j\le n}\operatorname{Cov}(X_i,X_j).
 $$
 
 若 $X_i$ 相互独立，则乘积期望分解给出所有交叉协方差为 $0$，从而
 
 $$
 \operatorname{Var}\!\left(\sum_{i=1}^nX_i\right)
-=
+\mathrel{=}
 \sum_{i=1}^n\operatorname{Var}(X_i).
 $$
 
@@ -470,9 +470,9 @@ $$
 
 $$
 p_{X\mid Y}(x\mid y)
-=
+\mathrel{=}
 P(X=x\mid Y=y)
-=
+\mathrel{=}
 \frac{p_{X,Y}(x,y)}{p_Y(y)}.
 $$
 
@@ -480,7 +480,7 @@ $$
 
 $$
 f_{X\mid Y}(x\mid y)
-=
+\mathrel{=}
 \frac{f_{X,Y}(x,y)}{f_Y(y)}.
 $$
 
@@ -516,7 +516,7 @@ $$
 
 $$
 \mathbb E[X\mid Y]
-=
+\mathrel{=}
 \mathbb E[X\mid\sigma(Y)].
 $$
 
@@ -524,7 +524,7 @@ $$
 
 $$
 \mathbb E[X\mid Y=y]
-=
+\mathrel{=}
 \sum_xx\,p_{X\mid Y}(x\mid y),
 $$
 
@@ -536,7 +536,7 @@ $$
 
 $$
 \mathbb E[aX+bZ\mid\mathcal G]
-=
+\mathrel{=}
 a\mathbb E[X\mid\mathcal G]
 +b\mathbb E[Z\mid\mathcal G],
 $$
@@ -561,7 +561,7 @@ $$
 
 $$
 \mathbb E[ZX\mid\mathcal G]
-=
+\mathrel{=}
 Z\mathbb E[X\mid\mathcal G]
 \quad\text{a.s.}
 $$
@@ -582,7 +582,7 @@ $$
 
 $$
 \mathbb E[\mathbb E[X\mid\mathcal G]\mid\mathcal H]
-=
+\mathrel{=}
 \mathbb E[X\mid\mathcal H]
 \quad\text{a.s.}
 $$
@@ -599,7 +599,7 @@ $$
 
 $$
 \mathbb E[Y\mid\mathcal H]
-=
+\mathrel{=}
 \mathbb E[X\mid\mathcal H].
 $$
 
@@ -609,7 +609,7 @@ $$
 
 $$
 \mathbb E[\mathbb E[X\mid\mathcal G]]
-=
+\mathrel{=}
 \mathbb E[X].
 $$
 
@@ -617,7 +617,7 @@ $$
 
 $$
 \mathbb E[X]
-=
+\mathrel{=}
 \sum_y\mathbb E[X\mid Y=y]P(Y=y),
 $$
 
@@ -633,7 +633,7 @@ $$
 
 $$
 \operatorname{Var}(X\mid\mathcal G)
-=
+\mathrel{=}
 \mathbb E\!\left[
 (X-\mathbb E[X\mid\mathcal G])^2
 \mid\mathcal G
@@ -644,9 +644,9 @@ $$
 
 $$
 \operatorname{Var}(X\mid\mathcal G)
-=
+\mathrel{=}
 \mathbb E[X^2\mid\mathcal G]
--
+\mathbin{-}
 \mathbb E[X\mid\mathcal G]^2.
 $$
 
@@ -654,7 +654,7 @@ $$
 
 $$
 \operatorname{Var}(X)
-=
+\mathrel{=}
 \mathbb E[\operatorname{Var}(X\mid\mathcal G)]
 +
 \operatorname{Var}(\mathbb E[X\mid\mathcal G]).
@@ -706,7 +706,7 @@ $$
 
 $$
 \mathbb E[(X-M)^2]
-=
+\mathrel{=}
 \mathbb E[\operatorname{Var}(X\mid\mathcal G)],
 $$
 
@@ -734,13 +734,13 @@ $$
 
 $$
 \mathbb E[\mathbb E[X\mid\mathcal G]]
-=
+\mathrel{=}
 \mathbb E[X],
 $$
 
 $$
 \operatorname{Var}(X)
-=
+\mathrel{=}
 \mathbb E[\operatorname{Var}(X\mid\mathcal G)]
 +
 \operatorname{Var}(\mathbb E[X\mid\mathcal G]).

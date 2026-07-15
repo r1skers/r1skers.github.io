@@ -70,7 +70,7 @@ $$
 
 它度量所有方向或所有元素的总平方误差。
 
-给定 $k<r$，低秩近似问题是
+给定 $k\lt r$，低秩近似问题是
 
 $$
 \min_{\operatorname{rank}(B)\le k}\|A-B\|.
@@ -89,7 +89,7 @@ $$
 
 ## 2. Eckart–Young–Mirsky 定理
 
-**定理**：对任意 $0\le k<r$，截断 SVD 同时满足
+**定理**：对任意 $0\le k\lt r$，截断 SVD 同时满足
 
 $$
 \min_{\operatorname{rank}(B)\le k}
@@ -214,7 +214,7 @@ $$
 
 而 $A_k$ 恰好达到等号，Frobenius 部分得证。
 
-当 $1\le k<r$ 时，如果
+当 $1\le k\lt r$ 时，如果
 
 $$
 \sigma_k>\sigma_{k+1},
@@ -389,7 +389,7 @@ $$
 
 这是一条精确恒等式：先旋转到协方差特征基，再把第 $i$ 个方向除以标准差 $\sqrt{\lambda_i}$。
 
-若 $S$ 只有秩 $r<d$，零特征值方向无法被求逆。此时有两种不同操作：
+若 $S$ 只有秩 $r\lt d$，零特征值方向无法被求逆。此时有两种不同操作：
 
 1. 只在 $\operatorname{range}(S)$ 上使用 $\Lambda_r^{-1/2}V_r^{\mathsf T}$，得到 $r$ 维精确白化；
 2. 使用
@@ -686,7 +686,7 @@ $$
 
 $$
 \|\alpha\|_0
-<\frac{\operatorname{spark}(D)}2,
+\lt\frac{\operatorname{spark}(D)}2,
 $$
 
 则 $\alpha$ 是 $b$ 的唯一最稀疏表示。
@@ -702,7 +702,7 @@ $$
 $$
 \|\alpha-\beta\|_0
 \le\|\alpha\|_0+\|\beta\|_0
-<\operatorname{spark}(D).
+\lt\operatorname{spark}(D).
 $$
 
 这意味着少于 $\operatorname{spark}(D)$ 个字典列线性相关，与定义矛盾。故 $\alpha=\beta$。证毕。
@@ -752,7 +752,7 @@ $$
 
 $$
 \|\alpha\|_0
-<\frac12\left(1+\frac1{\mu(D)}\right),
+\lt\frac12\left(1+\frac1{\mu(D)}\right),
 $$
 
 稀疏表示便唯一。
@@ -778,7 +778,7 @@ $$
 **定理（coherence 恢复条件）**：设 $\mu(D)>0$。若 $b=D\alpha$，$\alpha$ 为 $k$-稀疏，并满足
 
 $$
-k<\frac12\left(1+\frac1{\mu(D)}\right),
+k\lt\frac12\left(1+\frac1{\mu(D)}\right),
 $$
 
 则 $\alpha$ 是 basis pursuit 的唯一解。若 $\mu(D)=0$，$D$ 满列秩，可行系数本来就唯一，因此不需要这一充分条件。
@@ -809,14 +809,14 @@ $$
 $$
 \|h_S\|_1
 \le\frac{k\mu(D)}{1+\mu(D)}\|h\|_1
-<\frac12\|h\|_1
+\lt\frac12\|h\|_1
 =\frac12\bigl(\|h_S\|_1+\|h_{S^c}\|_1\bigr).
 $$
 
 所以
 
 $$
-\|h_S\|_1<\|h_{S^c}\|_1.
+\|h_S\|_1\lt\|h_{S^c}\|_1.
 $$
 
 任何其他可行点都写成 $\alpha+h$，且
@@ -825,7 +825,7 @@ $$
 \|\alpha+h\|_1
 =\|\alpha_S+h_S\|_1+\|h_{S^c}\|_1
 \ge\|\alpha\|_1-\|h_S\|_1+\|h_{S^c}\|_1
->\|\alpha\|_1.
+\mathrel{>}\|\alpha\|_1.
 $$
 
 故 $\alpha$ 是唯一极小点。证毕。

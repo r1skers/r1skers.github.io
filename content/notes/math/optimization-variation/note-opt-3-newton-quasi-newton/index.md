@@ -63,7 +63,7 @@ $$
 
 $$
 m_k(p)
-=
+\mathrel{=}
 f(x_k)+g_k^\top p+\frac12p^\top H_kp.
 $$
 
@@ -71,7 +71,7 @@ $$
 
 $$
 \nabla_pm_k(p)
-=
+\mathrel{=}
 g_k+H_kp
 =0.
 $$
@@ -133,7 +133,7 @@ $$
 且 $g_k\ne0$，则 Newton 方向是严格下降方向：
 
 $$
-g_k^\top p_k^{\mathrm N}<0.
+g_k^\top p_k^{\mathrm N}\lt0.
 $$
 
 **证明**：
@@ -142,7 +142,7 @@ $$
 
 $$
 g_k^\top p_k^{\mathrm N}
-=
+\mathrel{=}
 -g_k^\top H_k^{-1}g_k.
 $$
 
@@ -152,7 +152,7 @@ $$
 g_k^\top H_k^{-1}g_k>0.
 $$
 
-因此 $g_k^\top p_k^{\mathrm N}<0$。证毕。
+因此 $g_k^\top p_k^{\mathrm N}\lt0$。证毕。
 
 如果 $H_k$ 不定，Newton 方程的解可能不是二次模型的极小点，也不一定是下降方向。因此“解出 Newton 方程”与“得到可靠更新”是两个不同问题。
 
@@ -165,15 +165,15 @@ $$
 $$
 x_{k+1}=x_k+\alpha_kp_k,
 \qquad
-0<\alpha_k\le1.
+0\lt\alpha_k\le1.
 $$
 
 只要 $p_k$ 是下降方向，就可以用 Armijo 条件选择步长。给定
 
 $$
-0<c<1,
+0\lt c\lt1,
 \qquad
-0<\beta<1,
+0\lt\beta\lt1,
 $$
 
 从候选集合
@@ -197,7 +197,7 @@ $$
 **定理**：若 $f$ 在 $x_k$ 可微且
 
 $$
-g_k^\top p_k<0,
+g_k^\top p_k\lt0,
 $$
 
 则充分小的正步长 $\alpha$ 满足 Armijo 条件。因此回溯线搜索在有限次缩短后终止。
@@ -208,7 +208,7 @@ $$
 
 $$
 f(x_k+\alpha p_k)
-=
+\mathrel{=}
 f(x_k)+\alpha g_k^\top p_k+o(\alpha).
 $$
 
@@ -224,11 +224,11 @@ $$
 
 当 $\alpha\downarrow0$。
 
-因为 $g_k^\top p_k<0$ 且 $0<c<1$，
+因为 $g_k^\top p_k\lt0$ 且 $0\lt c\lt1$，
 
 $$
 g_k^\top p_k
-<
+\lt
 c\,g_k^\top p_k.
 $$
 
@@ -302,7 +302,7 @@ $$
 
 $$
 x_{k+1}
-=
+\mathrel{=}
 x_k-\nabla^2f(x_k)^{-1}\nabla f(x_k)
 $$
 
@@ -335,7 +335,7 @@ $$
 
 $$
 \nabla f(x_k)
-=
+\mathrel{=}
 \int_0^1
 H(x^\star+te_k)e_k\,dt.
 $$
@@ -391,10 +391,10 @@ $$
 若初始误差足够小，使闭球包含于 $\mathcal U$ 且
 
 $$
-\frac{M}{2m}\|e_0\|<1,
+\frac{M}{2m}\|e_0\|\lt1,
 $$
 
-上述界还给出 $\|e_{k+1}\|<\|e_k\|$，从而迭代始终留在该球中。证毕。
+上述界还给出 $\|e_{k+1}\|\lt\|e_k\|$，从而迭代始终留在该球中。证毕。
 
 误差下一步与当前误差平方成正比，这才是“局部二次收敛”的准确含义。
 
@@ -428,7 +428,7 @@ $$
 
 $$
 y_k
-=
+\mathrel{=}
 \int_0^1
 \nabla^2f(x_k+ts_k)s_k\,dt.
 $$
@@ -489,9 +489,9 @@ BFGS 更新定义为
 
 $$
 B_+
-=
+\mathrel{=}
 B
--
+\mathbin{-}
 \frac{Bss^\top B}{s^\top Bs}
 +
 \frac{yy^\top}{y^\top s}.
@@ -526,7 +526,7 @@ $$
 B_+s
 &=
 Bs
--
+\mathbin{-}
 \frac{Bss^\top Bs}{s^\top Bs}
 +
 \frac{yy^\top s}{y^\top s}\\
@@ -561,9 +561,9 @@ $$
 
 $$
 z^\top B_+z
-=
+\mathrel{=}
 z^\top Bz
--
+\mathbin{-}
 \frac{(z^\top Bs)^2}{s^\top Bs}
 +
 \frac{(z^\top y)^2}{y^\top s}.
@@ -595,9 +595,9 @@ $$
 
 $$
 \frac{(z^\top y)^2}{y^\top s}
-=
+\mathrel{=}
 c^2y^\top s
->0.
+\mathrel{>}0.
 $$
 
 因此对每个 $z\ne0$ 都有
@@ -645,7 +645,7 @@ $$
 y_k^\top s_k
 \ge
 \mu\|s_k\|^2
->0
+\mathrel{>}0
 $$
 
 只要 $s_k\ne0$。
@@ -679,9 +679,9 @@ $$
 因为
 
 $$
-c_2-1<0,
+c_2-1\lt0,
 \qquad
-\nabla f(x_k)^\top p_k<0,
+\nabla f(x_k)^\top p_k\lt0,
 $$
 
 右侧严格为正。因此 Wolfe 条件可以在非全局强凸的情形下为已接受的步提供 BFGS 曲率条件。
@@ -712,7 +712,7 @@ $$
 
 $$
 G_{k+1}
-=
+\mathrel{=}
 \bigl(I-\rho_ks_ky_k^\top\bigr)
 G_k
 \bigl(I-\rho_ky_ks_k^\top\bigr)
@@ -734,7 +734,7 @@ $$
 
 $$
 \bigl(I-\rho_ky_ks_k^\top\bigr)y_k
-=
+\mathrel{=}
 y_k-\rho_ky_k(s_k^\top y_k)
 =0.
 $$
@@ -758,7 +758,7 @@ $$
 
 $$
 z^\top G_{k+1}z
-=
+\mathrel{=}
 w^\top G_kw
 +
 \rho_k(s_k^\top z)^2.

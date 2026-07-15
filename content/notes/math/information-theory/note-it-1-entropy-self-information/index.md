@@ -281,7 +281,7 @@ $$
 $$
 h(\lambda v)
 =\lambda h(v)-\lambda v\log\lambda
->\lambda h(v)+(1-\lambda)h(0).
+\mathrel{>}\lambda h(v)+(1-\lambda)h(0).
 $$
 
 结合 $h(0)=0$，可知连续延拓后的 $h$ 在整个 $[0,1]$ 上严格凹。

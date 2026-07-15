@@ -89,7 +89,7 @@ $$
 
 $$
 P(T_1=k)
-=
+\mathrel{=}
 P(X_1=0,\ldots,X_{k-1}=0,X_k=1)
 =(1-p)^{k-1}p,
 $$
@@ -110,7 +110,7 @@ $$
 
 1. $N(0)=0$ a.s.，且样本路径取非负整数、右连续、每次跳跃大小为 $1$；
 2. 不相交时间区间上的增量相互独立；
-3. 对 $0\le s<t$，
+3. 对 $0\le s\lt t$，
 
 $$
 N(t)-N(s)
@@ -150,9 +150,9 @@ $$
 
 $$
 P(T_1>t)
-=
+\mathrel{=}
 P(N(t)=0)
-=
+\mathrel{=}
 e^{-\lambda t}.
 $$
 
@@ -186,7 +186,7 @@ $$
 
 $$
 P(X_{n+1}=j\mid\mathcal F_n)
-=
+\mathrel{=}
 P_n(X_n,j)
 \quad\text{a.s.},
 $$
@@ -203,7 +203,7 @@ $$
 
 $$
 P(X_{n+1}=j\mid X_n=i,\ldots,X_0=i_0)
-=
+\mathrel{=}
 P_n(i,j).
 $$
 
@@ -229,7 +229,7 @@ $$
 
 $$
 P_{ij}^{(m+n)}
-=
+\mathrel{=}
 \sum_{k\in S}P_{ik}^{(m)}P_{kj}^{(n)}.
 $$
 
@@ -247,7 +247,7 @@ $$
 
 $$
 P(X_{m+n}=j\mid\mathcal F_m)
-=
+\mathrel{=}
 P_{X_mj}^{(n)}
 \quad\text{a.s.}
 $$
@@ -267,7 +267,7 @@ $$
 
 $$
 P_{ij}^{(m+n)}
-=
+\mathrel{=}
 \sum_{k\in S}
 P_{ik}^{(m)}P_{kj}^{(n)}.
 $$
@@ -308,7 +308,7 @@ $$
 
 $$
 \bar\mu_n
-=
+\mathrel{=}
 \frac1n\sum_{k=0}^{n-1}\mu P^k.
 $$
 
@@ -368,7 +368,7 @@ $$
 
 $$
 \int_0^TN(t)\,dt
-=
+\mathrel{=}
 \sum_i
 \left|[a_i,d_i)\cap[0,T]\right|,
 $$
@@ -386,11 +386,11 @@ $$
 $$
 
 $$
-\frac1{A(T)}\sum_{i=1}^{A(T)}W_i\to W<\infty,
+\frac1{A(T)}\sum_{i=1}^{A(T)}W_i\to W\lt\infty,
 $$
 
 $$
-\frac1T\int_0^TN(t)\,dt\to L<\infty.
+\frac1T\int_0^TN(t)\,dt\to L\lt\infty.
 $$
 
 再假设跨越时间窗边界的任务所造成的截断差满足
@@ -399,7 +399,7 @@ $$
 \frac1T
 \left|
 \int_0^TN(t)\,dt
--
+\mathbin{-}
 \sum_{i=1}^{A(T)}W_i
 \right|
 \to0.
@@ -417,7 +417,7 @@ $$
 
 $$
 \frac1T\int_0^TN(t)\,dt
-=
+\mathrel{=}
 \frac1T\sum_{i=1}^{A(T)}W_i+o(1).
 $$
 
@@ -425,7 +425,7 @@ $$
 
 $$
 \frac1T\sum_{i=1}^{A(T)}W_i
-=
+\mathrel{=}
 \frac{A(T)}T
 \left(
 \frac1{A(T)}\sum_{i=1}^{A(T)}W_i
@@ -460,7 +460,7 @@ $$
 \rho=\frac\lambda\mu.
 $$
 
-**定理**：若 $\rho<1$，平稳分布为
+**定理**：若 $\rho\lt1$，平稳分布为
 
 $$
 \pi_n=(1-\rho)\rho^n,
@@ -495,7 +495,7 @@ $$
 1=\pi_0\sum_{n=0}^\infty\rho^n.
 $$
 
-几何级数有限当且仅当 $\rho<1$，此时 $\pi_0=1-\rho$。local balance 蕴含完整 global balance，因此该分布满足连续时间链的平稳方程 $\pi Q=0$。
+几何级数有限当且仅当 $\rho\lt1$，此时 $\pi_0=1-\rho$。local balance 蕴含完整 global balance，因此该分布满足连续时间链的平稳方程 $\pi Q=0$。
 
 若 $\rho\ge1$，$\sum_n\rho^n$ 发散，不能归一化成概率分布。
 
@@ -505,9 +505,9 @@ $$
 
 $$
 L
-=
+\mathrel{=}
 \sum_{n=0}^\infty n(1-\rho)\rho^n
-=
+\mathrel{=}
 \frac\rho{1-\rho}.
 $$
 
@@ -515,7 +515,7 @@ $$
 
 $$
 W=\frac L\lambda
-=
+\mathrel{=}
 \frac1{\mu-\lambda}.
 $$
 
@@ -535,11 +535,11 @@ $$
 
 $$
 W_q=\frac{L_q}\lambda
-=
+\mathrel{=}
 \frac\rho{\mu-\lambda}.
 $$
 
-这些公式的平稳解释依赖 $\rho<1$；当 $\lambda\uparrow\mu$ 时，分母 $\mu-\lambda$ 把平均人数与等待时间推向无穷。
+这些公式的平稳解释依赖 $\rho\lt1$；当 $\lambda\uparrow\mu$ 时，分母 $\mu-\lambda$ 把平均人数与等待时间推向无穷。
 
 ---
 
@@ -569,7 +569,7 @@ $$
 
 $$
 \mathbb E[X^r]
-=
+\mathrel{=}
 r\int_0^\infty x^{r-1}P(X>x)\,dx,
 $$
 
@@ -581,17 +581,17 @@ $$
 
 $$
 X^r
-=
+\mathrel{=}
 \int_0^{X^r}du
-=
-\int_0^\infty\mathbf1_{\{u<X^r\}}\,du.
+\mathrel{=}
+\int_0^\infty\mathbf1_{\{u\lt X^r\}}\,du.
 $$
 
 被积函数非负，Tonelli 定理给出
 
 $$
 \mathbb E[X^r]
-=
+\mathrel{=}
 \int_0^\infty P(X^r>u)\,du.
 $$
 
@@ -599,7 +599,7 @@ $$
 
 $$
 \mathbb E[X^r]
-=
+\mathrel{=}
 r\int_0^\infty x^{r-1}P(X>x)\,dx.
 $$
 
@@ -614,7 +614,7 @@ $$
 则
 
 $$
-r<\alpha\Longrightarrow\mathbb E[X^r]<\infty,
+r\lt\alpha\Longrightarrow\mathbb E[X^r]\lt\infty,
 $$
 
 $$
@@ -633,7 +633,7 @@ $$
 
 $$
 q_p(X)
-=
+\mathrel{=}
 \inf\{t:F_X(t)\ge p\},
 \qquad p\in(0,1).
 $$
@@ -664,7 +664,7 @@ $$
 
 $$
 \{M_m\le t\}
-=
+\mathrel{=}
 \bigcap_{i=1}^m\{X_i\le t\}.
 $$
 
@@ -672,7 +672,7 @@ $$
 
 $$
 P(M_m\le t)
-=
+\mathrel{=}
 \prod_{i=1}^mP(X_i\le t)
 =F_X(t)^m.
 $$
@@ -694,7 +694,7 @@ $$
 
 $$
 P(M_m>t)
-=
+\mathrel{=}
 P\!\left(\bigcup_{i=1}^m\{X_i>t\}\right)
 \le
 \sum_{i=1}^mP(X_i>t).

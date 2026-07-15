@@ -117,7 +117,7 @@ $$
 If $a(i)>b(i)$, the point is closer to another cluster than to its own:
 
 $$
-s(i)<0.
+s(i)\lt0.
 $$
 
 The overall silhouette score is usually the average over all samples.

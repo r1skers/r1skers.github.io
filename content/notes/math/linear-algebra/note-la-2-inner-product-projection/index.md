@@ -83,7 +83,7 @@ $$
 
 $$
 \langle x,ay+bz\rangle
-=
+\mathrel{=}
 \overline a\,\langle x,y\rangle
 +
 \overline b\,\langle x,z\rangle.
@@ -101,9 +101,9 @@ $$
 
 $$
 \|ax\|^2
-=
+\mathrel{=}
 \langle ax,ax\rangle
-=
+\mathrel{=}
 |a|^2\langle x,x\rangle.
 $$
 
@@ -129,7 +129,7 @@ $$
 
 $$
 \alpha
-=
+\mathrel{=}
 \frac{\langle x,y\rangle}{\langle y,y\rangle},
 \qquad
 r=x-\alpha y.
@@ -139,7 +139,7 @@ $$
 
 $$
 \langle r,y\rangle
-=
+\mathrel{=}
 \langle x,y\rangle-\alpha\langle y,y\rangle
 =0.
 $$
@@ -148,9 +148,9 @@ $$
 
 $$
 \|x\|^2
-=
+\mathrel{=}
 \|\alpha y+r\|^2
-=
+\mathrel{=}
 |\alpha|^2\|y\|^2+\|r\|^2
 \ge
 |\alpha|^2\|y\|^2.
@@ -160,7 +160,7 @@ $$
 
 $$
 |\alpha|^2\|y\|^2
-=
+\mathrel{=}
 \frac{|\langle x,y\rangle|^2}{\|y\|^2}.
 $$
 
@@ -223,7 +223,7 @@ $$
 
 $$
 \|x+y\|^2
-=
+\mathrel{=}
 \|x\|^2+\|y\|^2.
 $$
 
@@ -246,7 +246,7 @@ $$
 
 $$
 \left\|\sum_{i=1}^k v_i\right\|^2
-=
+\mathrel{=}
 \sum_{i=1}^k\|v_i\|^2.
 $$
 
@@ -266,9 +266,9 @@ $$
 
 $$
 0
-=
+\mathrel{=}
 \left\langle\sum_i a_iv_i,v_j\right\rangle
-=
+\mathrel{=}
 a_j\|v_j\|^2.
 $$
 
@@ -294,7 +294,7 @@ $$
 
 $$
 \operatorname{span}\{q_1,\ldots,q_j\}
-=
+\mathrel{=}
 \operatorname{span}\{v_1,\ldots,v_j\}.
 $$
 
@@ -312,24 +312,24 @@ $$
 
 $$
 u_j
-=
+\mathrel{=}
 v_j-\sum_{i=1}^{j-1}\langle v_j,q_i\rangle q_i.
 $$
 
-对任意 $\ell<j$，
+对任意 $\ell\lt j$，
 
 $$
 \begin{aligned}
 \langle u_j,q_\ell\rangle
 &=
 \langle v_j,q_\ell\rangle
--
+\mathbin{-}
 \sum_{i=1}^{j-1}
 \langle v_j,q_i\rangle
 \langle q_i,q_\ell\rangle\\
 &=
 \langle v_j,q_\ell\rangle
--
+\mathbin{-}
 \langle v_j,q_\ell\rangle
 =0.
 \end{aligned}
@@ -341,7 +341,7 @@ $$
 
 $$
 \operatorname{span}\{q_1,\ldots,q_{j-1}\}
-=
+\mathrel{=}
 \operatorname{span}\{v_1,\ldots,v_{j-1}\},
 $$
 
@@ -355,8 +355,8 @@ $$
 
 $$
 v_j
-=
-u_j+\sum_{i<j}\langle v_j,q_i\rangle q_i
+\mathrel{=}
+u_j+\sum_{i\lt j}\langle v_j,q_i\rangle q_i
 $$
 
 属于 $\operatorname{span}\{q_1,\ldots,q_j\}$。结合归纳假设，两个逐级张成空间相等。证毕。
@@ -371,7 +371,7 @@ $$
 
 $$
 S^\perp
-=
+\mathrel{=}
 \{x\in V:\langle x,s\rangle=0,\ \forall s\in S\}.
 $$
 
@@ -420,7 +420,7 @@ $$
 
 $$
 S^\perp
-=
+\mathrel{=}
 \operatorname{span}\{q_{k+1},\ldots,q_n\}.
 $$
 
@@ -440,7 +440,7 @@ $$
 
 $$
 \|x-p\|
-=
+\mathrel{=}
 \min_{s\in S}\|x-s\|.
 $$
 
@@ -472,7 +472,7 @@ $$
 
 $$
 \|x-s\|^2
-=
+\mathrel{=}
 \|x-p\|^2+\|p-s\|^2
 \ge
 \|x-p\|^2.
@@ -486,7 +486,7 @@ $$
 
 $$
 P_Sx
-=
+\mathrel{=}
 \sum_{i=1}^k\langle x,q_i\rangle q_i.
 $$
 
@@ -576,13 +576,13 @@ $$
 
 $$
 \mathbb F^m
-=
+\mathrel{=}
 \mathcal C(A)\oplus\mathcal N(A^*),
 $$
 
 $$
 \mathbb F^n
-=
+\mathrel{=}
 \mathcal C(A^*)\oplus\mathcal N(A),
 $$
 
@@ -748,7 +748,7 @@ $$
 
 $$
 P_Sx
-=
+\mathrel{=}
 \underset{s\in S}{\operatorname{argmin}}\ \|x-s\|,
 $$
 

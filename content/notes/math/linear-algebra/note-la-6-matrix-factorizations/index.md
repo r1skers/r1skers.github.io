@@ -214,7 +214,7 @@ $$
 
 $$
 r_{ij}=q_i^*a_j
-\quad(i<j),
+\quad(i\lt j),
 $$
 
 则

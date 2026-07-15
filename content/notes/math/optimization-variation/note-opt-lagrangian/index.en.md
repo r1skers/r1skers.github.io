@@ -224,7 +224,7 @@ $$
 \mu_j\ge 0,\qquad \mu_j\,h_j(x^*)=0\ \ (\text{complementary slackness}).
 $$
 
-The intuition for complementary slackness: an inequality constraint is either "against the boundary" ($h_j=0$, where $\mu_j>0$ is allowed and it behaves like an equality constraint) or "slack in the interior" ($h_j<0$, where $\mu_j=0$ and the constraint is inactive). KKT will be covered later.
+The intuition for complementary slackness: an inequality constraint is either "against the boundary" ($h_j=0$, where $\mu_j>0$ is allowed and it behaves like an equality constraint) or "slack in the interior" ($h_j\lt0$, where $\mu_j=0$ and the constraint is inactive). KKT will be covered later.
 
 ---
 

@@ -158,7 +158,7 @@ $$
 p(x)=\exp\!\big(\lambda_0-1+\lambda_1 x+\lambda_2(x-\mu)^2\big).
 $$
 
-右边是 $\exp(\text{$x$ 的二次式})$，必为高斯形。三条约束定常数（归一 + 均值 + 方差）给出 $\lambda_1=0,\ \lambda_2=-\tfrac{1}{2\sigma^2}$，即
+右边是 $\exp(q(x))$，其中 $q$ 是关于 $x$ 的二次式，因此它必为高斯形。三条约束定常数（归一 + 均值 + 方差）给出 $\lambda_1=0,\ \lambda_2=-\tfrac{1}{2\sigma^2}$，即
 
 $$
 p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\Big(-\frac{(x-\mu)^2}{2\sigma^2}\Big)=\mathcal N(\mu,\sigma^2).

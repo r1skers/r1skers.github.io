@@ -79,7 +79,7 @@ In standard form $s^2+2\alpha s+\omega_0^2=0$, we have:
 - Damping factor $\alpha=\frac{R}{2L}=\frac{100}{2(0.004)}=12500$
 - Resonant frequency $\omega_0=\frac{1}{\sqrt{LC}}=\frac{1}{\sqrt{0.004\times10^{-7}}}=50000$
 
-Since $\alpha<\omega_0$, the system is underdamped and roots are $s_{1,2}=-\alpha\pm j\omega_d$.
+Since $\alpha\lt\omega_0$, the system is underdamped and roots are $s_{1,2}=-\alpha\pm j\omega_d$.
 
 $$\omega_d=\sqrt{\omega_0^2-\alpha^2}=\sqrt{50000^2-12500^2}=12500\sqrt{15}\ \text{rad/s}$$
 

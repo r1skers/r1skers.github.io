@@ -217,7 +217,7 @@ Extra Practice: Laurent + Singularity Type</summary>
 
   $$
   \frac{1}{(z-1)(z-2)}=\frac1{z-2}-\frac1{z-1}\quad
-  \frac1{z-2}=-\sum_{n=0}^{\infty}(z-1)^n\ (|z-1|<1)
+  \frac1{z-2}=-\sum_{n=0}^{\infty}(z-1)^n\ (|z-1|\lt1)
   $$
 
   So

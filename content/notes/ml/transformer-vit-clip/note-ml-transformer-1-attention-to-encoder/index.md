@@ -471,7 +471,7 @@ final accuracy = 1.000   total time = 15.7s
 
 为了尝试逼出 PE 必要性，把任务改成：
 
-> 序列里有**两个 identical max tokens**（位置 $p_1 < p_2$，token 值都是 $V-1$）。输出 **$p_2$**——第二个出现的位置。
+> 序列里有**两个 identical max tokens**（位置 $p_1 \lt p_2$，token 值都是 $V-1$）。输出 **$p_2$**——第二个出现的位置。
 
 数据生成：
 

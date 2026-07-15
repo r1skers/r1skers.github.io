@@ -132,7 +132,7 @@ $$
 
 $$
 B_n
-=
+\mathrel{=}
 \bigcup_{k\ge n}\{|X_k-X|>\varepsilon\}.
 $$
 
@@ -140,7 +140,7 @@ $$
 
 $$
 B
-=
+\mathrel{=}
 \limsup_{n\to\infty}\{|X_n-X|>\varepsilon\}
 $$
 
@@ -214,7 +214,7 @@ $$
 
 ## 3. Markov 与 Chebyshev 不等式
 
-**定理（Markov inequality）**：若 $Y\ge0$ a.s. 且 $\mathbb E[Y]<\infty$，则对每个 $a>0$，
+**定理（Markov inequality）**：若 $Y\ge0$ a.s. 且 $\mathbb E[Y]\lt\infty$，则对每个 $a>0$，
 
 $$
 P(Y\ge a)
@@ -289,7 +289,7 @@ $$
 $$
 \mathbb E[X_1]=\mu,
 \qquad
-\operatorname{Var}(X_1)=\sigma^2<\infty,
+\operatorname{Var}(X_1)=\sigma^2\lt\infty,
 $$
 
 则
@@ -310,9 +310,9 @@ $$
 
 $$
 \operatorname{Var}(\bar X_n)
-=
+\mathrel{=}
 \frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
-=
+\mathrel{=}
 \frac{\sigma^2}{n}.
 $$
 
@@ -332,7 +332,7 @@ $$
 **定理（Kolmogorov SLLN，i.i.d. 版本）**：若 $X_i$ i.i.d. 且
 
 $$
-\mathbb E[|X_1|]<\infty,
+\mathbb E[|X_1|]\lt\infty,
 $$
 
 则
@@ -354,14 +354,14 @@ $$
 $$
 \mathbb E[X_1]=\mu,
 \qquad
-0<\operatorname{Var}(X_1)=\sigma^2<\infty,
+0\lt\operatorname{Var}(X_1)=\sigma^2\lt\infty,
 $$
 
 则
 
 $$
 \frac{\sqrt n(\bar X_n-\mu)}\sigma
-=
+\mathrel{=}
 \frac{\sum_{i=1}^n(X_i-\mu)}{\sigma\sqrt n}
 \xrightarrow{d}
 \mathcal N(0,1).
@@ -391,15 +391,15 @@ $$
 
 $$
 \mathcal D_+
-=
-\{\lambda>0:\mathbb E[e^{\lambda Y}]<\infty\}
+\mathrel{=}
+\{\lambda>0:\mathbb E[e^{\lambda Y}]\lt\infty\}
 $$
 
 非空。任取 $\lambda\in\mathcal D_+$。由 $x\mapsto e^{\lambda x}$ 单调递增，
 
 $$
 P(Y\ge t)
-=
+\mathrel{=}
 P(e^{\lambda Y}\ge e^{\lambda t}).
 $$
 
@@ -456,7 +456,7 @@ $$
 
 $$
 \mathbb E_\lambda[g(Y)]
-=
+\mathrel{=}
 \frac{\mathbb E[g(Y)e^{\lambda Y}]}
 {\mathbb E[e^{\lambda Y}]}.
 $$
@@ -465,7 +465,7 @@ $$
 
 $$
 \psi''(\lambda)
-=
+\mathrel{=}
 \operatorname{Var}_\lambda(Y).
 $$
 
@@ -499,14 +499,14 @@ $$
 
 $$
 \psi(\lambda)
-=
+\mathrel{=}
 \psi(0)+\lambda\psi'(0)
 +\int_0^\lambda(\lambda-s)\psi''(s)\,ds
 \le
 \frac{\lambda^2(b-a)^2}{8}.
 $$
 
-指数化即得结论。$\lambda<0$ 时同一积分论证仍成立。
+指数化即得结论。$\lambda\lt0$ 时同一积分论证仍成立。
 
 {{< /details >}}
 
@@ -691,7 +691,7 @@ $$
 
 $$
 \operatorname{supp}(p)
-=
+\mathrel{=}
 \{x\in\mathcal X:p(x)>0\}.
 $$
 
@@ -711,7 +711,7 @@ $$
 
 $$
 \frac1n\sum_{i=1}^nZ_i
-=
+\mathrel{=}
 -\frac1n\log_2p(X^n)
 \xrightarrow{P}H(X).
 $$

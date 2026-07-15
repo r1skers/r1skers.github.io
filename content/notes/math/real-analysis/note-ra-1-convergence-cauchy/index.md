@@ -40,7 +40,7 @@ $$
 严格的定义是：
 
 $$
-\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ |a_n-a|<\varepsilon.
+\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ |a_n-a|\lt\varepsilon.
 $$
 
 即：
@@ -61,13 +61,13 @@ $$
 按照定义，需要证明：
 
 $$
-\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ \left|\frac{1}{n}-0\right|<\varepsilon.
+\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ \left|\frac{1}{n}-0\right|\lt\varepsilon.
 $$
 
 也就是要让
 
 $$
-\frac{1}{n}<\varepsilon.
+\frac{1}{n}\lt\varepsilon.
 $$
 
 从目标不等式倒推：
@@ -91,13 +91,13 @@ $$
 因此
 
 $$
-\frac{1}{n}<\varepsilon.
+\frac{1}{n}\lt\varepsilon.
 $$
 
 于是
 
 $$
-\left|\frac{1}{n}-0\right|<\varepsilon.
+\left|\frac{1}{n}-0\right|\lt\varepsilon.
 $$
 
 所以
@@ -137,7 +137,7 @@ $$
 因为 $a_n\to a$，所以对于正数 $\varepsilon/2>0$，存在自然数 $N$，使得当 $n\ge N$ 时，
 
 $$
-|a_n-a|<\frac{\varepsilon}{2}.
+|a_n-a|\lt\frac{\varepsilon}{2}.
 $$
 
 于是当 $n\ge N$ 时，
@@ -145,7 +145,7 @@ $$
 $$
 |2a_n-2a|
 =2|a_n-a|
-<2\cdot\frac{\varepsilon}{2}
+\lt2\cdot\frac{\varepsilon}{2}
 =\varepsilon.
 $$
 
@@ -182,13 +182,13 @@ $$
 因为 $a_n\to a$，所以存在 $N_1$，使得当 $n\ge N_1$ 时，
 
 $$
-|a_n-a|<\frac{\varepsilon}{2}.
+|a_n-a|\lt\frac{\varepsilon}{2}.
 $$
 
 因为 $b_n\to b$，所以存在 $N_2$，使得当 $n\ge N_2$ 时，
 
 $$
-|b_n-b|<\frac{\varepsilon}{2}.
+|b_n-b|\lt\frac{\varepsilon}{2}.
 $$
 
 取
@@ -206,7 +206,7 @@ $$
 |(a_n+b_n)-(a+b)|
 &=|(a_n-a)+(b_n-b)|\\
 &\le |a_n-a|+|b_n-b|\\
-&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+&\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
 &=\varepsilon.
 \end{aligned}
 $$
@@ -276,7 +276,7 @@ $$
 任取 $\varepsilon>0$。因为 $a_n\to a$，存在 $N$，使得当 $n\ge N$ 时，
 
 $$
-|a_n-a|<\varepsilon.
+|a_n-a|\lt\varepsilon.
 $$
 
 于是当 $n\ge N$ 时，
@@ -284,7 +284,7 @@ $$
 $$
 \big||a_n|-|a|\big|
 \le |a_n-a|
-<\varepsilon.
+\lt\varepsilon.
 $$
 
 所以
@@ -320,7 +320,7 @@ $$
 因为 $a_n\to a$，取误差要求 $\varepsilon=1$，存在 $N$，使得当 $n\ge N$ 时，
 
 $$
-|a_n-a|<1.
+|a_n-a|\lt1.
 $$
 
 于是当 $n\ge N$ 时，
@@ -329,7 +329,7 @@ $$
 |a_n|
 =|(a_n-a)+a|
 \le |a_n-a|+|a|
-<1+|a|.
+\lt1+|a|.
 $$
 
 这说明从第 $N$ 项以后，尾部有界。
@@ -348,8 +348,8 @@ $$
 
 则：
 
-- 若 $n<N$，由 $M$ 的定义，$|a_n|\le M$；
-- 若 $n\ge N$，有 $|a_n|<1+|a|\le M$。
+- 若 $n\ltN$，由 $M$ 的定义，$|a_n|\le M$；
+- 若 $n\ge N$，有 $|a_n|\lt1+|a|\le M$。
 
 所以对所有 $n$，都有
 
@@ -398,13 +398,13 @@ $$
 因为 $a_n\to a$，存在 $N_1$，使得当 $n\ge N_1$ 时，
 
 $$
-|a_n-a|<\frac{\varepsilon}{2}.
+|a_n-a|\lt\frac{\varepsilon}{2}.
 $$
 
 因为 $a_n\to b$，存在 $N_2$，使得当 $n\ge N_2$ 时，
 
 $$
-|a_n-b|<\frac{\varepsilon}{2}.
+|a_n-b|\lt\frac{\varepsilon}{2}.
 $$
 
 取
@@ -420,7 +420,7 @@ $$
 |a-b|
 &=|a-a_n+a_n-b|\\
 &\le |a-a_n|+|a_n-b|\\
-&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+&\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
 &=\varepsilon.
 \end{aligned}
 $$
@@ -428,7 +428,7 @@ $$
 所以对任意 $\varepsilon>0$，都有
 
 $$
-|a-b|<\varepsilon.
+|a-b|\lt\varepsilon.
 $$
 
 由于 $|a-b|\ge 0$，这只能说明
@@ -464,7 +464,7 @@ $$
 数列 $(a_n)$ 是柯西列，若
 
 $$
-\forall \varepsilon>0,\ \exists N,\ \forall m,n\ge N,\ |a_n-a_m|<\varepsilon.
+\forall \varepsilon>0,\ \exists N,\ \forall m,n\ge N,\ |a_n-a_m|\lt\varepsilon.
 $$
 
 注意这里比较的是尾巴里的任意两项：
@@ -496,15 +496,15 @@ $$
 因为 $a_n\to a$，所以对 $\varepsilon/2>0$，存在 $N$，使得当 $k\ge N$ 时，
 
 $$
-|a_k-a|<\frac{\varepsilon}{2}.
+|a_k-a|\lt\frac{\varepsilon}{2}.
 $$
 
 于是当 $m,n\ge N$ 时，
 
 $$
-|a_n-a|<\frac{\varepsilon}{2},
+|a_n-a|\lt\frac{\varepsilon}{2},
 \qquad
-|a_m-a|<\frac{\varepsilon}{2}.
+|a_m-a|\lt\frac{\varepsilon}{2}.
 $$
 
 用 $a$ 做桥：
@@ -514,7 +514,7 @@ $$
 |a_n-a_m|
 &=|a_n-a+a-a_m|\\
 &\le |a_n-a|+|a_m-a|\\
-&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+&\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
 &=\varepsilon.
 \end{aligned}
 $$

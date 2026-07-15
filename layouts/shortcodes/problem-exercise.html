@@ -4,8 +4,8 @@
 {{- end -}}
 
 <section class="problem-exercise">
-  <h3>{{ $title | markdownify }}</h3>
+  <h3>{{ $title | .Page.RenderString }}</h3>
   <div class="problem-statement">
-    {{ .Inner | markdownify }}
+    {{ .Inner | strings.TrimSpace | .Page.RenderString (dict "display" "block") }}
   </div>
 </section>

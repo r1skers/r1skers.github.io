@@ -200,7 +200,7 @@ At absolute zero, states below $E_F$ are fully occupied and states above are emp
 $$
 f(E)=
 \begin{cases}
-1,&E<E_F\\
+1,&E\lt E_F\\
 0,&E>E_F
 \end{cases}
 $$

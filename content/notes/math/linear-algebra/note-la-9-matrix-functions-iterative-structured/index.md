@@ -24,7 +24,7 @@ f(A)
 \longrightarrow
 x_{k+1}=Gx_k+c
 \longrightarrow
-\rho(G)<1
+\rho(G)\lt1
 \longrightarrow
 \text{结构化矩阵向量乘}.
 $$
@@ -67,7 +67,7 @@ $$
 f(z)=\sum_{j=0}^\infty c_jz^j
 $$
 
-的收敛半径为 $R$。若某个次乘矩阵范数满足 $\|A\|<R$，则定义
+的收敛半径为 $R$。若某个次乘矩阵范数满足 $\|A\|\lt R$，则定义
 
 $$
 f(A)=\sum_{j=0}^\infty c_jA^j.
@@ -79,7 +79,7 @@ $$
 \sum_{j=0}^\infty\|c_jA^j\|
 \le
 \sum_{j=0}^\infty|c_j|\|A\|^j
-<\infty,
+\lt\infty,
 $$
 
 矩阵级数绝对收敛。
@@ -191,7 +191,7 @@ $$
 \rho(B)=\max_{\lambda\in\sigma(B)}|\lambda|
 $$
 
-满足 $\rho(B)<1$。
+满足 $\rho(B)\lt1$。
 
 此时
 
@@ -212,9 +212,9 @@ $$
 B^kv=\lambda^kv.
 $$
 
-$B^k\to0$ 迫使 $|\lambda|<1$，故 $2\Rightarrow3$。
+$B^k\to0$ 迫使 $|\lambda|\lt1$，故 $2\Rightarrow3$。
 
-若 $\rho(B)<1$，把 $B$ 化为 Jordan 形式。每个 Jordan 块可写成
+若 $\rho(B)\lt1$，把 $B$ 化为 Jordan 形式。每个 Jordan 块可写成
 
 $$
 J=\lambda I+N,
@@ -229,7 +229,7 @@ J^k
 \lambda^{k-s}N^s.
 $$
 
-每项都是关于 $k$ 的多项式乘以 $|\lambda|^k$；当 $|\lambda|<1$ 时都趋于零，而且 $\sum_k\|J^k\|$ 收敛。有限多个 Jordan 块合并后，$\sum B^k$ 收敛，故 $3\Rightarrow1$。
+每项都是关于 $k$ 的多项式乘以 $|\lambda|^k$；当 $|\lambda|\lt1$ 时都趋于零，而且 $\sum_k\|J^k\|$ 收敛。有限多个 Jordan 块合并后，$\sum B^k$ 收敛，故 $3\Rightarrow1$。
 
 最后，部分和满足
 
@@ -248,10 +248,10 @@ $$
 更强但更易检查的充分条件是
 
 $$
-\|B\|<1.
+\|B\|\lt1.
 $$
 
-它自动蕴含 $\rho(B)\le\|B\|<1$，并给出截断误差界
+它自动蕴含 $\rho(B)\le\|B\|\lt1$，并给出截断误差界
 
 $$
 \left\|
@@ -312,10 +312,10 @@ $$
 **定理**：stationary iteration 对每个初值 $x_0$ 都收敛到唯一解，当且仅当
 
 $$
-\rho(G)<1.
+\rho(G)\lt1.
 $$
 
-**证明**：由上一节，$G^k\to0$ 当且仅当 $\rho(G)<1$。而
+**证明**：由上一节，$G^k\to0$ 当且仅当 $\rho(G)\lt1$。而
 
 $$
 x_k-x_*=G^k(x_0-x_*).
@@ -374,13 +374,13 @@ $$
 \|G_J\|_\infty
 =\max_i
 \frac{\sum_{j\ne i}|a_{ij}|}{|a_{ii}|}
-<1.
+\lt1.
 $$
 
 所以
 
 $$
-\rho(G_J)\le\|G_J\|_\infty<1.
+\rho(G_J)\le\|G_J\|_\infty\lt1.
 $$
 
 由 stationary iteration 定理，Jacobi 收敛。证毕。
@@ -411,7 +411,7 @@ $$
 $$
 \beta_i
 =\frac{
-\sum_{j<i}|a_{ij}|\beta_j
+\sum_{j\lt i}|a_{ij}|\beta_j
 +\sum_{j>i}|a_{ij}|
 }{|a_{ii}|}.
 $$
@@ -419,7 +419,7 @@ $$
 **定理（Sassenfeld）**：若
 
 $$
-\beta=\max_i\beta_i<1,
+\beta=\max_i\beta_i\lt1,
 $$
 
 则 Gauss–Seidel 收敛，并且
@@ -441,7 +441,7 @@ $$
 |e_{i,k+1}|
 \le
 \frac{
-\sum_{j<i}|a_{ij}|\,|e_{j,k+1}|
+\sum_{j\lt i}|a_{ij}|\,|e_{j,k+1}|
 +\sum_{j>i}|a_{ij}|\,|e_{j,k}|
 }{|a_{ii}|}.
 $$
@@ -460,9 +460,9 @@ $$
 \le\beta_i\|e_k\|_\infty.
 $$
 
-对 $i$ 取最大值即得结论。因为 $\beta<1$，误差几何收缩。证毕。
+对 $i$ 取最大值即得结论。因为 $\beta\lt1$，误差几何收缩。证毕。
 
-严格按行对角占优会通过归纳推出每个 $\beta_i<1$，所以它也是 Gauss–Seidel 的充分条件。另有一个标准结论：Hermitian 正定矩阵也保证 Gauss–Seidel 收敛，可由二次能量的逐坐标下降证明；这一结论在本文不再另证，也不作为后续推导的依赖。
+严格按行对角占优会通过归纳推出每个 $\beta_i\lt1$，所以它也是 Gauss–Seidel 的充分条件。另有一个标准结论：Hermitian 正定矩阵也保证 Gauss–Seidel 收敛，可由二次能量的逐坐标下降证明；这一结论在本文不再另证，也不作为后续推导的依赖。
 
 ---
 
@@ -569,7 +569,7 @@ p_k^*r_{k+1}
 =0.
 $$
 
-对 $j<k$，利用归纳假设中的 $p_j^*r_k=0$ 与 $p_j^*Ap_k=0$，
+对 $j\lt k$，利用归纳假设中的 $p_j^*r_k=0$ 与 $p_j^*Ap_k=0$，
 
 $$
 p_j^*r_{k+1}
@@ -591,7 +591,7 @@ $$
 Ap_j=\frac{r_j-r_{j+1}}{\alpha_j}
 $$
 
-以及残差两两正交，对 $j<k$ 有
+以及残差两两正交，对 $j\lt k$ 有
 
 $$
 p_j^*Ar_{k+1}
@@ -726,7 +726,7 @@ $$
 
 $$
 p_k(\lambda)
-=
+\mathrel{=}
 \frac{
 T_k\!\left(
 \dfrac{\lambda_{\max}+\lambda_{\min}-2\lambda}
@@ -819,7 +819,7 @@ $$
 
 $$
 A\otimes B
-=
+\mathrel{=}
 \begin{pmatrix}
 a_{11}B&\cdots&a_{1n}B\\
 \vdots&\ddots&\vdots\\
@@ -1072,7 +1072,7 @@ $$
 
 | 结构 | 可利用的代数事实 | 主要节省 |
 |---|---|---|
-| $\rho(G)<1$ | $G^k\to0$，Neumann 级数收敛 | 用反复更新替代显式逆 |
+| $\rho(G)\lt1$ | $G^k\to0$，Neumann 级数收敛 | 用反复更新替代显式逆 |
 | 严格对角占优 | Jacobi / Gauss–Seidel 收缩 | 便宜的 stationary iteration |
 | Hermitian 正定 | CG 的 $A$-内积与 Krylov 最优性 | 只需矩阵向量乘，不需分解 |
 | Hadamard + PSD | Schur 乘积仍 PSD | 保持核与协方差结构 |

@@ -158,7 +158,7 @@ $$
 
 $$
 f^\top Lf
-=
+\mathrel{=}
 \frac{1}{2}\sum_{i,j}W_{ij}(f_i-f_j)^2.
 $$
 

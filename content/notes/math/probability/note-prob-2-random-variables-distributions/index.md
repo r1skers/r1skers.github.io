@@ -87,9 +87,9 @@ $$
 
 $$
 \mu_X(B)
-=
+\mathrel{=}
 P(X\in B)
-=
+\mathrel{=}
 P(X^{-1}(B)),
 \qquad B\in\mathcal B(\mathbb R).
 $$
@@ -169,16 +169,16 @@ $$
 
 {{< details summary="证明：CDF 跳跃等于点质量" >}}
 
-事件 $\{X\le t\}$ 随 $t\uparrow x$ 从下逼近 $\{X<x\}$，所以
+事件 $\{X\le t\}$ 随 $t\uparrow x$ 从下逼近 $\{X\lt x\}$，所以
 
 $$
-F_X(x-)=P(X<x).
+F_X(x-)=P(X\lt x).
 $$
 
 又
 
 $$
-\{X\le x\}=\{X<x\}\mathbin{\dot\cup}\{X=x\},
+\{X\le x\}=\{X\lt x\}\mathbin{\dot\cup}\{X=x\},
 $$
 
 因此
@@ -346,9 +346,9 @@ $$
 
 $$
 P(T>m+n\mid T>m)
-=
+\mathrel{=}
 \frac{(1-p)^{m+n}}{(1-p)^m}
-=
+\mathrel{=}
 P(T>n).
 $$
 
@@ -382,7 +382,7 @@ $$
 
 ### Uniform 分布
 
-若 $a<b$，定义
+若 $a\lt b$，定义
 
 $$
 X\sim\operatorname{Uniform}(a,b)
@@ -421,7 +421,7 @@ $$
 
 $$
 P(T>s+t\mid T>s)
-=
+\mathrel{=}
 \frac{e^{-\lambda(s+t)}}{e^{-\lambda s}}
 =e^{-\lambda t}
 =P(T>t).
@@ -439,7 +439,7 @@ $$
 
 $$
 f_X(x)
-=
+\mathrel{=}
 \frac1{\sqrt{2\pi}\sigma}
 \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
 $$
@@ -462,7 +462,7 @@ $$
 
 $$
 I^2
-=
+\mathrel{=}
 \iint_{\mathbb R^2}e^{-(x^2+y^2)/2}\,dx\,dy.
 $$
 
@@ -470,7 +470,7 @@ $$
 
 $$
 I^2
-=
+\mathrel{=}
 \int_0^{2\pi}\int_0^\infty e^{-r^2/2}r\,dr\,d\theta
 =2\pi.
 $$
@@ -491,7 +491,7 @@ Part 2 只回答随机变量“按怎样的概率落在各处”。要得到平�
 
 $$
 \mathbb E[g(X)]
-=
+\mathrel{=}
 \int_{\mathbb R}g(x)\,\mu_X(dx).
 $$
 

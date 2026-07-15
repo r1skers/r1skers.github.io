@@ -28,6 +28,6 @@
 {{ end }}
 
 <p><details {{ if $open }} open=true {{ end }}>
-  <summary markdown="span">{{ $summary | markdownify }}</summary>
-  {{ .Inner | markdownify }}
+  <summary markdown="span">{{ $summary | .Page.RenderString }}</summary>
+  {{ .Inner | strings.TrimSpace | .Page.RenderString (dict "display" "block") }}
 </details></p>

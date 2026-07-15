@@ -467,7 +467,7 @@ Compare with Stage-1 ResNet: plain20 vs resnet20 on CIFAR-10 are close. The real
 
 To genuinely force PE necessity, change the task to:
 
-> The sequence has **two identical max tokens** (positions $p_1 < p_2$, both with value $V-1$). Output **$p_2$** — the second occurrence.
+> The sequence has **two identical max tokens** (positions $p_1 \lt p_2$, both with value $V-1$). Output **$p_2$** — the second occurrence.
 
 Data generation:
 

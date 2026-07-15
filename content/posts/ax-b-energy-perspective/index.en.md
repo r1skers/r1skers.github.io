@@ -267,7 +267,7 @@ $$ \hat{x}_1 = \frac{10}{100.1}\,b_1 \approx 0.0999\,b_1, \qquad \hat{x}_2 = \fr
 - $v_1$: $1 - 100\,\eta$
 - $v_2$: $1 - 10^{-4}\,\eta$
 
-For the $v_1$ direction not to diverge, we need $\eta < 0.02$. Then the contraction factor along $v_2$ is at least $> 0.999998$ — **each step shrinks the $v_2$ error by at most two parts per million**. Reducing the $v_2$ error to $1/10$ of its original value takes about $10^6$ iterations, an astronomical number compared to the $v_1$ direction.
+For the $v_1$ direction not to diverge, we need $\eta \lt 0.02$. Then the contraction factor along $v_2$ is at least $> 0.999998$ — **each step shrinks the $v_2$ error by at most two parts per million**. Reducing the $v_2$ error to $1/10$ of its original value takes about $10^6$ iterations, an astronomical number compared to the $v_1$ direction.
 
 ---
 

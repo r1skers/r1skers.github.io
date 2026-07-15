@@ -38,7 +38,7 @@ $$
 if:
 
 $$
-\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ |a_n-a|<\varepsilon.
+\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ |a_n-a|\lt\varepsilon.
 $$
 
 In words:
@@ -58,13 +58,13 @@ $$
 By definition, we need to prove:
 
 $$
-\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ \left|\frac{1}{n}-0\right|<\varepsilon.
+\forall \varepsilon>0,\ \exists N,\ \forall n\ge N,\ \left|\frac{1}{n}-0\right|\lt\varepsilon.
 $$
 
 That means we want
 
 $$
-\frac{1}{n}<\varepsilon.
+\frac{1}{n}\lt\varepsilon.
 $$
 
 Work backward from the target inequality:
@@ -88,13 +88,13 @@ $$
 and therefore
 
 $$
-\frac{1}{n}<\varepsilon.
+\frac{1}{n}\lt\varepsilon.
 $$
 
 So
 
 $$
-\left|\frac{1}{n}-0\right|<\varepsilon.
+\left|\frac{1}{n}-0\right|\lt\varepsilon.
 $$
 
 Hence
@@ -134,7 +134,7 @@ Take any $\varepsilon>0$.
 Since $a_n\to a$, for the positive number $\varepsilon/2>0$, there exists a natural number $N$ such that when $n\ge N$,
 
 $$
-|a_n-a|<\frac{\varepsilon}{2}.
+|a_n-a|\lt\frac{\varepsilon}{2}.
 $$
 
 Then when $n\ge N$,
@@ -142,7 +142,7 @@ Then when $n\ge N$,
 $$
 |2a_n-2a|
 =2|a_n-a|
-<2\cdot\frac{\varepsilon}{2}
+\lt2\cdot\frac{\varepsilon}{2}
 =\varepsilon.
 $$
 
@@ -179,13 +179,13 @@ Take any $\varepsilon>0$.
 Since $a_n\to a$, there exists $N_1$ such that when $n\ge N_1$,
 
 $$
-|a_n-a|<\frac{\varepsilon}{2}.
+|a_n-a|\lt\frac{\varepsilon}{2}.
 $$
 
 Since $b_n\to b$, there exists $N_2$ such that when $n\ge N_2$,
 
 $$
-|b_n-b|<\frac{\varepsilon}{2}.
+|b_n-b|\lt\frac{\varepsilon}{2}.
 $$
 
 Choose
@@ -203,7 +203,7 @@ $$
 |(a_n+b_n)-(a+b)|
 &=|(a_n-a)+(b_n-b)|\\
 &\le |a_n-a|+|b_n-b|\\
-&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+&\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
 &=\varepsilon.
 \end{aligned}
 $$
@@ -273,7 +273,7 @@ Now prove the original claim.
 Take any $\varepsilon>0$. Since $a_n\to a$, there exists $N$ such that when $n\ge N$,
 
 $$
-|a_n-a|<\varepsilon.
+|a_n-a|\lt\varepsilon.
 $$
 
 Thus when $n\ge N$,
@@ -281,7 +281,7 @@ Thus when $n\ge N$,
 $$
 \big||a_n|-|a|\big|
 \le |a_n-a|
-<\varepsilon.
+\lt\varepsilon.
 $$
 
 Therefore
@@ -317,7 +317,7 @@ $$
 Since $a_n\to a$, choose the error requirement $\varepsilon=1$. Then there exists $N$ such that when $n\ge N$,
 
 $$
-|a_n-a|<1.
+|a_n-a|\lt1.
 $$
 
 Thus when $n\ge N$,
@@ -326,7 +326,7 @@ $$
 |a_n|
 =|(a_n-a)+a|
 \le |a_n-a|+|a|
-<1+|a|.
+\lt1+|a|.
 $$
 
 This shows that the tail, starting from the $N$-th term, is bounded.
@@ -345,8 +345,8 @@ $$
 
 Then:
 
-- if $n<N$, by the definition of $M$, $|a_n|\le M$;
-- if $n\ge N$, then $|a_n|<1+|a|\le M$.
+- if $n\ltN$, by the definition of $M$, $|a_n|\le M$;
+- if $n\ge N$, then $|a_n|\lt1+|a|\le M$.
 
 So for every $n$,
 
@@ -395,13 +395,13 @@ Take any $\varepsilon>0$.
 Since $a_n\to a$, there exists $N_1$ such that when $n\ge N_1$,
 
 $$
-|a_n-a|<\frac{\varepsilon}{2}.
+|a_n-a|\lt\frac{\varepsilon}{2}.
 $$
 
 Since $a_n\to b$, there exists $N_2$ such that when $n\ge N_2$,
 
 $$
-|a_n-b|<\frac{\varepsilon}{2}.
+|a_n-b|\lt\frac{\varepsilon}{2}.
 $$
 
 Choose
@@ -417,7 +417,7 @@ $$
 |a-b|
 &=|a-a_n+a_n-b|\\
 &\le |a-a_n|+|a_n-b|\\
-&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+&\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
 &=\varepsilon.
 \end{aligned}
 $$
@@ -425,7 +425,7 @@ $$
 So for every $\varepsilon>0$,
 
 $$
-|a-b|<\varepsilon.
+|a-b|\lt\varepsilon.
 $$
 
 Since $|a-b|\ge 0$, this can only mean
@@ -461,7 +461,7 @@ Definition:
 A sequence $(a_n)$ is a Cauchy sequence if
 
 $$
-\forall \varepsilon>0,\ \exists N,\ \forall m,n\ge N,\ |a_n-a_m|<\varepsilon.
+\forall \varepsilon>0,\ \exists N,\ \forall m,n\ge N,\ |a_n-a_m|\lt\varepsilon.
 $$
 
 Notice that we are comparing any two terms in the tail:
@@ -493,15 +493,15 @@ Take any $\varepsilon>0$.
 Since $a_n\to a$, for $\varepsilon/2>0$, there exists $N$ such that when $k\ge N$,
 
 $$
-|a_k-a|<\frac{\varepsilon}{2}.
+|a_k-a|\lt\frac{\varepsilon}{2}.
 $$
 
 Thus when $m,n\ge N$,
 
 $$
-|a_n-a|<\frac{\varepsilon}{2},
+|a_n-a|\lt\frac{\varepsilon}{2},
 \qquad
-|a_m-a|<\frac{\varepsilon}{2}.
+|a_m-a|\lt\frac{\varepsilon}{2}.
 $$
 
 Use $a$ as a bridge:
@@ -511,7 +511,7 @@ $$
 |a_n-a_m|
 &=|a_n-a+a-a_m|\\
 &\le |a_n-a|+|a_m-a|\\
-&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+&\lt\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
 &=\varepsilon.
 \end{aligned}
 $$

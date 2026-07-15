@@ -101,7 +101,7 @@ $$
 
 $$
 x_0+\mathcal N(A)
-=
+\mathrel{=}
 \{x_0+z:z\in\mathcal N(A)\}.
 $$
 
@@ -187,7 +187,7 @@ $$
 
 $$
 \mathbb F^n
-=
+\mathrel{=}
 \mathcal N(A)^\perp\oplus\mathcal N(A).
 $$
 
@@ -195,7 +195,7 @@ $$
 
 $$
 A_0
-=
+\mathrel{=}
 A\big|_{\mathcal N(A)^\perp}
 :
 \mathcal N(A)^\perp
@@ -249,7 +249,7 @@ $$
 
 $$
 A^+
-=
+\mathrel{=}
 A_0^{-1}P_{\mathcal C(A)}
 :
 \mathbb F^m\to\mathbb F^n.
@@ -265,9 +265,9 @@ $$
 
 $$
 AA^+b
-=
+\mathrel{=}
 A_0A_0^{-1}P_{\mathcal C(A)}b
-=
+\mathrel{=}
 P_{\mathcal C(A)}b.
 $$
 
@@ -293,9 +293,9 @@ $$
 
 $$
 A^+Ax
-=
+\mathrel{=}
 A_0^{-1}Ax_{\perp}
-=
+\mathrel{=}
 x_{\perp}.
 $$
 
@@ -303,7 +303,7 @@ $$
 
 $$
 A^+A=P_{\mathcal N(A)^\perp}
-=
+\mathrel{=}
 P_{\mathcal C(A^*)}.
 $$
 
@@ -433,7 +433,7 @@ $$
 
 $$
 x^\dagger
-=
+\mathrel{=}
 \underset{x}{\operatorname{argmin}}
 \left\{
 \|x\|:
@@ -447,9 +447,9 @@ $$
 
 $$
 Ax^\dagger
-=
+\mathrel{=}
 AA^+b
-=
+\mathrel{=}
 P_{\mathcal C(A)}b.
 $$
 
@@ -479,7 +479,7 @@ Pythagoras 给出
 
 $$
 \|x\|^2
-=
+\mathrel{=}
 \|x^\dagger\|^2+\|z\|^2
 \ge
 \|x^\dagger\|^2.
@@ -591,7 +591,7 @@ $$
 
 $$
 \mathcal N(A)^\perp
-=
+\mathrel{=}
 \operatorname{span}\{v_1,\ldots,v_r\}.
 $$
 
@@ -599,7 +599,7 @@ $$
 
 $$
 P_{\mathcal C(A)}b
-=
+\mathrel{=}
 \sum_{i=1}^r\langle b,u_i\rangle u_i.
 $$
 
@@ -613,7 +613,7 @@ $$
 
 $$
 A^+b
-=
+\mathrel{=}
 \sum_{i=1}^r
 \frac{\langle b,u_i\rangle}{\sigma_i}v_i.
 $$
@@ -628,7 +628,7 @@ $$
 
 $$
 \Sigma^+_{ii}
-=
+\mathrel{=}
 \begin{cases}
 \sigma_i^{-1},&1\le i\le r,\\
 0,&i>r.

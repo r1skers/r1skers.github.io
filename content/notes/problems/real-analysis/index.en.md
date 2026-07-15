@@ -39,7 +39,7 @@ $$
 
 Reduce: let $b_n=a_n-a$, so $b_n\to 0$; it suffices to show $\frac1n\sum_{k=1}^n b_k\to 0$.
 
-Take any $\varepsilon>0$. Since $b_n\to 0$, there is $N$ with $|b_n|<\varepsilon/2$ for $n>N$. Split the sum into the **first $N$ terms** and the **rest**:
+Take any $\varepsilon>0$. Since $b_n\to 0$, there is $N$ with $|b_n|\lt\varepsilon/2$ for $n>N$. Split the sum into the **first $N$ terms** and the **rest**:
 
 $$
 \left|\frac1n\sum_{k=1}^n b_k\right|
@@ -47,11 +47,11 @@ $$
 +\underbrace{\frac1n\sum_{k=N+1}^n |b_k|}_{\text{controlled tail}}.
 $$
 
-**Tail**: $n-N$ terms, each $<\varepsilon/2$, so $<\frac{n-N}{n}\cdot\frac\varepsilon2<\frac\varepsilon2$.
+**Tail**: $n-N$ terms, each $\lt\varepsilon/2$, so $\lt\frac{n-N}{n}\cdot\frac\varepsilon2\lt\frac\varepsilon2$.
 
-**Head**: $C:=\sum_{k=1}^N|b_k|$ is a **fixed constant** ($N$ is fixed), so $\frac Cn\to 0$; take $n>2C/\varepsilon$ to make it $<\varepsilon/2$.
+**Head**: $C:=\sum_{k=1}^N|b_k|$ is a **fixed constant** ($N$ is fixed), so $\frac Cn\to 0$; take $n>2C/\varepsilon$ to make it $\lt\varepsilon/2$.
 
-Thus for $n>\max(N,\,2C/\varepsilon)$ the two pieces total $<\varepsilon$. $\blacksquare$
+Thus for $n>\max(N,\,2C/\varepsilon)$ the two pieces total $\lt\varepsilon$. $\blacksquare$
 
 **Key**: the head is a "fixed finite sum $\div\ n\to\infty$," which vanishes on its own; the tail is pinned down by convergence. This is the same vein as Part 1's "convergence controls the tail, finitely many head terms are covered separately" — **new statement, same verb**.
 
@@ -73,14 +73,14 @@ For $m>n$, use the triangle inequality to split the large-gap difference into a 
 
 $$
 |a_m-a_n|\le\sum_{k=n}^{m-1}|a_{k+1}-a_k|\le\sum_{k=n}^{m-1}\frac1{2^k}
-<\sum_{k=n}^{\infty}\frac1{2^k}=\frac{1}{2^{n-1}}.
+\lt\sum_{k=n}^{\infty}\frac1{2^k}=\frac{1}{2^{n-1}}.
 $$
 
-Take any $\varepsilon>0$, choose $N$ with $2^{1-N}<\varepsilon$; then for $m>n\ge N$, $|a_m-a_n|<2^{1-n}\le 2^{1-N}<\varepsilon$. So $(a_n)$ is Cauchy.
+Take any $\varepsilon>0$, choose $N$ with $2^{1-N}\lt\varepsilon$; then for $m>n\ge N$, $|a_m-a_n|\lt2^{1-n}\le 2^{1-N}\lt\varepsilon$. So $(a_n)$ is Cauchy.
 
 By **completeness** of $\mathbb R$ (Part 2 §8), Cauchy $\Rightarrow$ convergent. $\blacksquare$
 
-**Key**: "must prove convergence without knowing the limit" is the signature trigger for the Cauchy criterion. Summable consecutive differences (geometric series) $\Rightarrow$ controllable gap differences $\Rightarrow$ Cauchy. Replacing $1/2^n$ with any $c_n$ satisfying $\sum c_n<\infty$ works just the same.
+**Key**: "must prove convergence without knowing the limit" is the signature trigger for the Cauchy criterion. Summable consecutive differences (geometric series) $\Rightarrow$ controllable gap differences $\Rightarrow$ Cauchy. Replacing $1/2^n$ with any $c_n$ satisfying $\sum c_n\lt\infty$ works just the same.
 
 {{< /details >}}
 

@@ -168,6 +168,132 @@ function Get-FrontMatterData {
     }
 }
 
+function Get-MarkdownMathIssues {
+    param(
+        [string]$Path,
+        [string]$RepoRoot
+    )
+
+    $issues = New-Object System.Collections.Generic.List[string]
+    $lines = Get-Content -LiteralPath $Path -Encoding UTF8
+    $relativePath = $Path.Substring($RepoRoot.Length + 1).Replace("\", "/")
+
+    $inFrontMatter = $lines.Count -gt 0 -and $lines[0].Trim() -eq "---"
+    $inFence = $false
+    $fenceCharacter = $null
+    $fenceLength = 0
+    $inDisplayMath = $false
+    $displayMathStart = 0
+    $inBracketDisplayMath = $false
+    $bracketDisplayMathStart = 0
+
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $line = $lines[$i]
+        $trimmed = $line.Trim()
+        $lineNumber = $i + 1
+
+        if ($inFrontMatter) {
+            if ($i -gt 0 -and $trimmed -eq "---") {
+                $inFrontMatter = $false
+            }
+            continue
+        }
+
+        if (-not $inDisplayMath -and -not $inBracketDisplayMath -and $line -match '^\s*(`{3,}|~{3,})') {
+            $marker = $Matches[1]
+            if (-not $inFence) {
+                $inFence = $true
+                $fenceCharacter = $marker[0]
+                $fenceLength = $marker.Length
+            } elseif ($marker[0] -eq $fenceCharacter -and $marker.Length -ge $fenceLength) {
+                $inFence = $false
+                $fenceCharacter = $null
+                $fenceLength = 0
+            }
+            continue
+        }
+
+        if ($inFence) {
+            continue
+        }
+
+        if ($trimmed -eq '$$') {
+            $inDisplayMath = -not $inDisplayMath
+            if ($inDisplayMath) {
+                $displayMathStart = $lineNumber
+            }
+            continue
+        }
+
+        if (-not $inDisplayMath -and $trimmed -eq '\[') {
+            $inBracketDisplayMath = $true
+            $bracketDisplayMathStart = $lineNumber
+            continue
+        }
+
+        if (-not $inDisplayMath -and $trimmed -eq '\]') {
+            if (-not $inBracketDisplayMath) {
+                [void]$issues.Add("Display math closes with '\]' without an opening delimiter: ${relativePath}:$lineNumber")
+            }
+            $inBracketDisplayMath = $false
+            continue
+        }
+
+        if ($inDisplayMath -or $inBracketDisplayMath) {
+            if ($line.Contains('<')) {
+                [void]$issues.Add("Math contains a literal '<' that the browser can parse as HTML; use '\lt': ${relativePath}:$lineNumber")
+            } elseif ($trimmed -match '^[=-]+$') {
+                [void]$issues.Add("Math block has a standalone Markdown setext marker: ${relativePath}:$lineNumber")
+            } elseif ($line -match '^\s*>') {
+                [void]$issues.Add("Math block starts with a Markdown blockquote marker: ${relativePath}:$lineNumber")
+            } elseif ($line -match '^\s*#{1,6}(\s|$)') {
+                [void]$issues.Add("Math block starts with a Markdown heading marker: ${relativePath}:$lineNumber")
+            } elseif ($line -match '^\s*([-+*]|\d+[.)])\s+') {
+                [void]$issues.Add("Math block starts with a Markdown list marker: ${relativePath}:$lineNumber")
+            } elseif ($line -match '^\s*(`{3,}|~{3,})') {
+                [void]$issues.Add("Math block starts with a Markdown fence marker: ${relativePath}:$lineNumber")
+            } elseif ($line -match '^\s*<[/!?A-Za-z]') {
+                [void]$issues.Add("Math block starts like a raw HTML block: ${relativePath}:$lineNumber")
+            }
+            continue
+        }
+
+        $withoutInlineCode = [regex]::Replace($line, '(`+).*?\1', '')
+        $inlineMathPatterns = @(
+            '(?<!\\)\$\$(.*?)(?<!\\)\$\$',
+            '\\\[(.*?)\\\]',
+            '(?<![\\$])\$(?!\$)(.*?)(?<!\\)\$(?!\$)',
+            '\\\((.*?)\\\)'
+        )
+        foreach ($pattern in $inlineMathPatterns) {
+            foreach ($match in [regex]::Matches($withoutInlineCode, $pattern)) {
+                if ($match.Groups[1].Value.Contains('<')) {
+                    [void]$issues.Add("Math contains a literal '<' that the browser can parse as HTML; use '\lt': " + $relativePath + ":" + $lineNumber)
+                }
+            }
+        }
+
+        if ($withoutInlineCode -match '\\(?:text|mathrm|operatorname)\{[^}]*\$(?=[^}]*\})') {
+            [void]$issues.Add("Inline math contains a nested dollar delimiter: ${relativePath}:$lineNumber")
+        }
+
+        $singleDollarCount = ([regex]::Matches($withoutInlineCode, '(?<![\\$])\$(?!\$)')).Count
+        if (($singleDollarCount % 2) -ne 0) {
+            [void]$issues.Add("Inline math has an unmatched dollar delimiter: ${relativePath}:$lineNumber")
+        }
+    }
+
+    if ($inDisplayMath) {
+        [void]$issues.Add("Display math opened with '$$' is not closed: ${relativePath}:$displayMathStart")
+    }
+
+    if ($inBracketDisplayMath) {
+        [void]$issues.Add("Display math opened with '\[' is not closed: ${relativePath}:$bracketDisplayMathStart")
+    }
+
+    return $issues.ToArray()
+}
+
 $repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location -LiteralPath $repoRoot
 
@@ -193,6 +319,13 @@ if (-not $SkipBuild) {
 
 $contentRoot = Join-Path $repoRoot "content"
 $contentFiles = Get-ChildItem -LiteralPath $contentRoot -Recurse -File -Filter "*.md"
+
+foreach ($file in $contentFiles) {
+    foreach ($issue in (Get-MarkdownMathIssues -Path $file.FullName -RepoRoot $repoRoot)) {
+        [void]$errors.Add($issue)
+    }
+}
+
 $pages = foreach ($file in $contentFiles) {
     Get-FrontMatterData -Path $file.FullName -RepoRoot $repoRoot
 }

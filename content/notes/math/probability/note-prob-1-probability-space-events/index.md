@@ -45,7 +45,7 @@ $$
 
 $$
 \bigcap_{n=1}^\infty A_n
-=
+\mathrel{=}
 \left(\bigcup_{n=1}^\infty A_n^c\right)^c
 \in\mathcal F.
 $$
@@ -63,7 +63,7 @@ $$
 
 $$
 P\!\left(\bigcup_{n=1}^\infty A_n\right)
-=
+\mathrel{=}
 \sum_{n=1}^\infty P(A_n),
 $$
 
@@ -167,7 +167,7 @@ $$
 
 $$
 A\cup B
-=
+\mathrel{=}
 (A\setminus B)\mathbin{\dot\cup}(A\cap B)\mathbin{\dot\cup}(B\setminus A).
 $$
 
@@ -285,7 +285,7 @@ P(A_n)=1-P(A_n^c)
 1-P(A^c)=P(A).
 $$
 
-概率测度有限，因此这里不需要额外的 $P(A_1)<\infty$ 假设；对一般测度，从上连续性需要这一有限性条件。
+概率测度有限，因此这里不需要额外的 $P(A_1)\lt\infty$ 假设；对一般测度，从上连续性需要这一有限性条件。
 
 {{< /details >}}
 
@@ -297,7 +297,7 @@ $$
 
 $$
 P(A\mid B)
-=
+\mathrel{=}
 \frac{P(A\cap B)}{P(B)}.
 $$
 
@@ -325,7 +325,7 @@ $$
 
 $$
 P\!\left(\bigcap_{k=1}^nA_k\right)
-=
+\mathrel{=}
 P(A_1)
 \prod_{k=2}^n
 P\!\left(A_k\mid\bigcap_{j=1}^{k-1}A_j\right).
@@ -371,7 +371,7 @@ $$
 
 $$
 P(A_{i_1}\cap\cdots\cap A_{i_k})
-=
+\mathrel{=}
 \prod_{j=1}^kP(A_{i_j}).
 $$
 
@@ -405,9 +405,9 @@ $$
 
 $$
 A=A\cap\Omega
-=
+\mathrel{=}
 A\cap\left(\bigcup_iB_i\right)
-=
+\mathrel{=}
 \bigcup_i(A\cap B_i),
 $$
 
@@ -435,7 +435,7 @@ $$
 
 $$
 P(B_j\mid A)
-=
+\mathrel{=}
 \frac{P(A\mid B_j)P(B_j)}
 {\sum_{i=1}^\infty P(A\mid B_i)P(B_i)}.
 $$
@@ -446,9 +446,9 @@ $$
 
 $$
 P(B_j\mid A)
-=
+\mathrel{=}
 \frac{P(A\cap B_j)}{P(A)}
-=
+\mathrel{=}
 \frac{P(A\mid B_j)P(B_j)}{P(A)}.
 $$
 
@@ -466,7 +466,7 @@ $$
 
 $$
 P(A\mid B)
-=
+\mathrel{=}
 \frac{P(B\mid A)P(A)}{P(B)},
 \qquad P(B)>0.
 $$

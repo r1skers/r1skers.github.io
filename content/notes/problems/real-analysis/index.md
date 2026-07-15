@@ -39,7 +39,7 @@ $$
 
 化简：令 $b_n=a_n-a$，则 $b_n\to 0$，只需证 $\frac1n\sum_{k=1}^n b_k\to 0$。
 
-任取 $\varepsilon>0$。由 $b_n\to 0$，存在 $N$ 使 $n>N$ 时 $|b_n|<\varepsilon/2$。把和拆成**前 $N$ 项**与**其后**：
+任取 $\varepsilon>0$。由 $b_n\to 0$，存在 $N$ 使 $n>N$ 时 $|b_n|\lt\varepsilon/2$。把和拆成**前 $N$ 项**与**其后**：
 
 $$
 \left|\frac1n\sum_{k=1}^n b_k\right|
@@ -47,11 +47,11 @@ $$
 +\underbrace{\frac1n\sum_{k=N+1}^n |b_k|}_{\text{尾部控制}}.
 $$
 
-**尾部**：共 $n-N$ 项、每项 $<\varepsilon/2$，故 $<\frac{n-N}{n}\cdot\frac\varepsilon2<\frac\varepsilon2$。
+**尾部**：共 $n-N$ 项、每项 $\lt\varepsilon/2$，故 $\lt\frac{n-N}{n}\cdot\frac\varepsilon2\lt\frac\varepsilon2$。
 
-**头部**：$C:=\sum_{k=1}^N|b_k|$ 是**固定常数**（$N$ 已定），故 $\frac Cn\to 0$；取 $n>2C/\varepsilon$ 即 $<\varepsilon/2$。
+**头部**：$C:=\sum_{k=1}^N|b_k|$ 是**固定常数**（$N$ 已定），故 $\frac Cn\to 0$；取 $n>2C/\varepsilon$ 即 $\lt\varepsilon/2$。
 
-于是 $n>\max(N,\,2C/\varepsilon)$ 时两段合计 $<\varepsilon$。$\blacksquare$
+于是 $n>\max(N,\,2C/\varepsilon)$ 时两段合计 $\lt\varepsilon$。$\blacksquare$
 
 **关键**：头部是"固定的有限和 $\div\ n\to\infty$"，自然归零；尾部靠收敛压住。这正是 Part 1「收敛控制尾巴、有限项单独兜住」的同一根血脉——**换个题面，同一个动词**。
 
@@ -73,14 +73,14 @@ $$
 
 $$
 |a_m-a_n|\le\sum_{k=n}^{m-1}|a_{k+1}-a_k|\le\sum_{k=n}^{m-1}\frac1{2^k}
-<\sum_{k=n}^{\infty}\frac1{2^k}=\frac{1}{2^{n-1}}.
+\lt\sum_{k=n}^{\infty}\frac1{2^k}=\frac{1}{2^{n-1}}.
 $$
 
-任取 $\varepsilon>0$，取 $N$ 使 $2^{1-N}<\varepsilon$；则 $m>n\ge N$ 时 $|a_m-a_n|<2^{1-n}\le 2^{1-N}<\varepsilon$。故 $(a_n)$ 是 Cauchy 列。
+任取 $\varepsilon>0$，取 $N$ 使 $2^{1-N}\lt\varepsilon$；则 $m>n\ge N$ 时 $|a_m-a_n|\lt2^{1-n}\le 2^{1-N}\lt\varepsilon$。故 $(a_n)$ 是 Cauchy 列。
 
 由 $\mathbb R$ 的**完备性**（Part 2 §8），Cauchy $\Rightarrow$ 收敛。$\blacksquare$
 
-**关键**：「不知极限是谁却要证收敛」是 Cauchy 判据的招牌触发条件。相邻差可求和（几何级数）$\Rightarrow$ 跨度差可控 $\Rightarrow$ Cauchy。把 $1/2^n$ 换成任何满足 $\sum c_n<\infty$ 的 $c_n$ 都成立。
+**关键**：「不知极限是谁却要证收敛」是 Cauchy 判据的招牌触发条件。相邻差可求和（几何级数）$\Rightarrow$ 跨度差可控 $\Rightarrow$ Cauchy。把 $1/2^n$ 换成任何满足 $\sum c_n\lt\infty$ 的 $c_n$ 都成立。
 
 {{< /details >}}
 

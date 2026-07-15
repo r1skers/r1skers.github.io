@@ -15,7 +15,7 @@ math: true
 
 $$
 x_{k+1}
-=
+\mathrel{=}
 x_k-\eta\nabla f(x_k).
 $$
 
@@ -63,7 +63,7 @@ $$
 \nabla f(x)^\top v
 \ge
 -\|\nabla f(x)\|\,\|v\|
-=
+\mathrel{=}
 -\|\nabla f(x)\|.
 $$
 
@@ -103,7 +103,7 @@ $$
 
 $$
 f(y)-f(x)
-=
+\mathrel{=}
 \int_0^1
 \nabla f(x+td)^\top d\,dt.
 $$
@@ -137,7 +137,7 @@ $$
 
 $$
 \int_0^1Lt\|d\|^2\,dt
-=
+\mathrel{=}
 \frac L2\|d\|^2.
 $$
 
@@ -168,7 +168,7 @@ f(x_k)-\eta\|g_k\|^2
 \frac L2\eta^2\|g_k\|^2\\
 &=
 f(x_k)
--
+\mathbin{-}
 \eta\left(1-\frac{L\eta}{2}\right)
 \|g_k\|^2.
 \end{aligned}
@@ -177,7 +177,7 @@ $$
 所以当
 
 $$
-0<\eta<\frac2L
+0\lt\eta\lt\frac2L
 $$
 
 时，只要 $g_k\ne0$，该上界就保证严格下降。
@@ -214,7 +214,7 @@ $$
 f(x_K)
 \le
 f(x_0)
--
+\mathbin{-}
 \frac1{2L}
 \sum_{k=0}^{K-1}\|\nabla f(x_k)\|^2.
 $$
@@ -230,7 +230,7 @@ $$
 因此
 
 $$
-\min_{0\le k<K}
+\min_{0\le k\lt K}
 \|\nabla f(x_k)\|^2
 \le
 \frac{
@@ -283,7 +283,7 @@ x_k-x^\star-\frac1L g_k
 \right\|^2\\
 &=
 \|x_k-x^\star\|^2
--
+\mathbin{-}
 \frac2L g_k^\top(x_k-x^\star)
 +
 \frac1{L^2}\|g_k\|^2.
@@ -337,7 +337,7 @@ f(x_{k+1})-f(x^\star)
 f(x_K)-f(x^\star)
 $$
 
-对所有 $k<K$ 成立。于是
+对所有 $k\lt K$ 成立。于是
 
 $$
 K\bigl(f(x_K)-f(x^\star)\bigr)
@@ -408,7 +408,7 @@ $$
 f(x_{k+1})-f(x^\star)
 &\le
 f(x_k)-f(x^\star)
--
+\mathbin{-}
 \frac1{2L}\|\nabla f(x_k)\|^2\\
 &\le
 \left(1-\frac\mu L\right)
@@ -428,7 +428,7 @@ $$
 因为
 
 $$
-0\le1-\frac\mu L<1
+0\le1-\frac\mu L\lt1
 $$
 
 所以误差按几何级数衰减；$\mu=L$ 时该上界退化为一步到达的零因子。条件数
@@ -444,7 +444,7 @@ $$
 若
 
 $$
-0<\eta\le\frac1L,
+0\lt\eta\le\frac1L,
 $$
 
 单步下降与强凸梯度下界给出
@@ -490,7 +490,7 @@ $$
 
 $$
 \nabla f(x_k)
-=
+\mathrel{=}
 \overline H_k(x_k-x^\star),
 $$
 
@@ -498,7 +498,7 @@ $$
 
 $$
 \overline H_k
-=
+\mathrel{=}
 \int_0^1
 \nabla^2f\bigl(x^\star+t(x_k-x^\star)\bigr)\,dt.
 $$
@@ -513,7 +513,7 @@ $$
 
 $$
 e_{k+1}
-=
+\mathrel{=}
 (I-\eta\overline H_k)e_k.
 $$
 
@@ -529,20 +529,20 @@ $$
 
 $$
 q(\eta)
-=
+\mathrel{=}
 \max_{\lambda\in[\mu,L]}
 |1-\eta\lambda|
-=
+\mathrel{=}
 \max\{|1-\eta\mu|,\ |1-\eta L|\}.
 $$
 
 当
 
 $$
-0<\eta<\frac2L
+0\lt\eta\lt\frac2L
 $$
 
-时 $q(\eta)<1$。使两个端点误差绝对值相等，得到最优固定步长
+时 $q(\eta)\lt1$。使两个端点误差绝对值相等，得到最优固定步长
 
 $$
 \eta_\star=\frac2{L+\mu},
@@ -552,9 +552,9 @@ $$
 
 $$
 q(\eta_\star)
-=
+\mathrel{=}
 \frac{L-\mu}{L+\mu}
-=
+\mathrel{=}
 \frac{\kappa-1}{\kappa+1}.
 $$
 
@@ -580,7 +580,7 @@ $$
 
 $$
 A
-=
+\mathrel{=}
 \sum_{i=1}^r
 \sigma_i u_iv_i^\top,
 \qquad
@@ -597,14 +597,14 @@ $$
 
 $$
 x_{k+1}
-=
+\mathrel{=}
 (I-\eta A^\top A)x_k+\eta A^\top b.
 $$
 
 为使每个非零奇异方向单调进入，先取
 
 $$
-0<\eta\le\frac1{\sigma_1^2}.
+0\lt\eta\le\frac1{\sigma_1^2}.
 $$
 
 ### 8.1 每个奇异方向的标量递推
@@ -621,7 +621,7 @@ $$
 
 $$
 z_{k+1,i}
-=
+\mathrel{=}
 (1-\eta\sigma_i^2)z_{k,i}
 +
 \eta\sigma_i\beta_i.
@@ -631,7 +631,7 @@ $$
 
 $$
 z_{k,i}
-=
+\mathrel{=}
 \frac{
 1-(1-\eta\sigma_i^2)^k
 }{\sigma_i}
@@ -642,7 +642,7 @@ $$
 
 $$
 x_k
-=
+\mathrel{=}
 \sum_{i=1}^r
 \underbrace{
 \left[
@@ -659,7 +659,7 @@ $$
 
 $$
 x^\dagger
-=
+\mathrel{=}
 \sum_{i=1}^r
 \frac{u_i^\top b}{\sigma_i}v_i.
 $$
@@ -668,7 +668,7 @@ $$
 
 $$
 g_k(\sigma)
-=
+\mathrel{=}
 1-(1-\eta\sigma^2)^k.
 $$
 
@@ -712,12 +712,12 @@ $$
 
 | 假设 | 步长 | 由本文证明的结论 |
 |---|---:|---|
-| $L$-光滑 | $0<\eta<2/L$ | 单步上界保证非驻点处下降 |
+| $L$-光滑 | $0\lt\eta\lt2/L$ | 单步上界保证非驻点处下降 |
 | $L$-光滑且有下界 | $\eta=1/L$ | 最小梯度范数平方为 $O(1/K)$ |
 | 凸且 $L$-光滑 | $\eta=1/L$ | 函数值差为 $O(1/K)$ |
 | $\mu$-强凸且 $L$-光滑 | $\eta=1/L$ | 函数值差按 $(1-\mu/L)^k$ 衰减 |
 | $C^2$ 且 $\mu I\preceq H\preceq LI$ | $\eta=2/(L+\mu)$ | 距离因子为 $(L-\mu)/(L+\mu)$ |
-| 线性最小二乘 | $0<\eta\le1/\sigma_1^2$ | 单调谱滤波表达 |
+| 线性最小二乘 | $0\lt\eta\le1/\sigma_1^2$ | 单调谱滤波表达 |
 
 步长不是与问题结构无关的超参数。它与最大曲率 $L$、最小曲率 $\mu$ 以及线性问题中的奇异值谱直接绑定。
 
@@ -731,7 +731,7 @@ $$
 f(x-\eta\nabla f(x))
 \le
 f(x)
--
+\mathbin{-}
 \eta\left(1-\frac{L\eta}{2}\right)
 \|\nabla f(x)\|^2.
 $$
@@ -740,7 +740,7 @@ $$
 
 $$
 g_k(\sigma)
-=
+\mathrel{=}
 1-(1-\eta\sigma^2)^k
 $$
 

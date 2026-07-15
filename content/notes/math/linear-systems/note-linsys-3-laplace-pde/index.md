@@ -78,7 +78,7 @@ $$s^2 + 25000s + 2,500,000,000 = 0$$
 - 阻尼系数 $\alpha=\frac{R}{2L}=\frac{100}{2(0.004)}=12500$  
 - 固有角频率 $\omega_0=\frac{1}{\sqrt{LC}}=\frac{1}{\sqrt{0.004\times10^{-7}}}=50000$  
 
-因为 $\alpha<\omega_0$，系统为欠阻尼，根为 $s_{1,2}=-\alpha\pm j\omega_d$。  
+因为 $\alpha\lt\omega_0$，系统为欠阻尼，根为 $s_{1,2}=-\alpha\pm j\omega_d$。
 
 $$\omega_d=\sqrt{\omega_0^2-\alpha^2}=\sqrt{50000^2-12500^2}=12500\sqrt{15}\ \text{rad/s}$$
 

@@ -9,9 +9,9 @@
 
 <details class="problem-section"{{ if $open }} open{{ end }}>
   <summary>
-    <span class="problem-section-title">{{ $title | markdownify }}</span>
+    <span class="problem-section-title">{{ $title | .Page.RenderString }}</span>
   </summary>
   <div class="problem-section-body">
-    {{ .Inner | markdownify }}
+    {{ .Inner | strings.TrimSpace | .Page.RenderString (dict "display" "block") }}
   </div>
 </details>

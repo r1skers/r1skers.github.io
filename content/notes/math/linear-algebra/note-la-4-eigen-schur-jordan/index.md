@@ -74,7 +74,7 @@ $$
 
 $$
 E_\lambda
-=
+\mathrel{=}
 \ker(T-\lambda I).
 $$
 
@@ -106,7 +106,7 @@ $$
 
 $$
 [T]
-=
+\mathrel{=}
 \begin{pmatrix}
 B & C\\
 0 & D
@@ -172,7 +172,7 @@ $$
 \det\bigl(P^{-1}(tI-A)P\bigr)\\
 &=
 \det(tI-A)
-=
+\mathrel{=}
 \chi_A(t).
 \end{aligned}
 $$
@@ -226,7 +226,7 @@ $$
 
 $$
 \chi_A(t)
-=
+\mathrel{=}
 \prod_{i=1}^s(t-\lambda_i)^{a_i},
 $$
 
@@ -236,7 +236,7 @@ $$
 
 $$
 g_i=\dim E_{\lambda_i}
-=
+\mathrel{=}
 \dim\ker(A-\lambda_iI).
 $$
 
@@ -265,13 +265,13 @@ $$
 
 $$
 \chi_A(t)
-=
+\mathrel{=}
 \det
 \begin{pmatrix}
 (t-\lambda_i)I_{g_i} & -C\\
 0 & tI-D
 \end{pmatrix}
-=
+\mathrel{=}
 (t-\lambda_i)^{g_i}\det(tI-D).
 $$
 
@@ -361,7 +361,7 @@ $$
 
 $$
 Q_1^*AQ_1
-=
+\mathrel{=}
 \begin{pmatrix}
 \lambda_1 & w^*\\
 0 & A_1
@@ -380,7 +380,7 @@ $$
 
 $$
 \widetilde U
-=
+\mathrel{=}
 \begin{pmatrix}
 1&0\\
 0&U
@@ -393,9 +393,9 @@ $$
 
 $$
 Q^*AQ
-=
+\mathrel{=}
 \widetilde U^*(Q_1^*AQ_1)\widetilde U
-=
+\mathrel{=}
 \begin{pmatrix}
 \lambda_1 & w^*U\\
 0 & T_1
@@ -408,7 +408,7 @@ $$
 
 $$
 \chi_T(t)
-=
+\mathrel{=}
 \prod_{j=1}^n(t-t_{jj}),
 $$
 
@@ -472,7 +472,7 @@ $$
 
 $$
 (tI-A)\operatorname{adj}(tI-A)
-=
+\mathrel{=}
 \chi_A(t)I.
 $$
 
@@ -480,13 +480,13 @@ $$
 
 $$
 \operatorname{adj}(tI-A)
-=
+\mathrel{=}
 B_0+B_1t+\cdots+B_{n-1}t^{n-1},
 $$
 
 $$
 \chi_A(t)
-=
+\mathrel{=}
 c_0+c_1t+\cdots+c_{n-1}t^{n-1}+t^n.
 $$
 
@@ -536,7 +536,7 @@ $$
 
 $$
 G_\lambda
-=
+\mathrel{=}
 \ker(A-\lambda I)^n.
 $$
 
@@ -592,7 +592,7 @@ $$
 
 $$
 \chi_A(t)
-=
+\mathrel{=}
 \prod_{i=1}^s(t-\lambda_i)^{a_i}.
 $$
 
@@ -600,7 +600,7 @@ $$
 
 $$
 \mathbb C^n
-=
+\mathrel{=}
 G_{\lambda_1}\oplus\cdots\oplus G_{\lambda_s},
 $$
 
@@ -608,7 +608,7 @@ $$
 
 $$
 G_{\lambda_i}
-=
+\mathrel{=}
 \ker(A-\lambda_iI)^{a_i}.
 $$
 
@@ -616,7 +616,7 @@ $$
 
 $$
 N_i
-=
+\mathrel{=}
 (A-\lambda_iI)\big|_{G_{\lambda_i}}
 $$
 
@@ -721,7 +721,7 @@ $$
 
 $$
 J_\ell(0)
-=
+\mathrel{=}
 \begin{pmatrix}
 0&1&&0\\
 &0&\ddots&\\
@@ -744,7 +744,7 @@ $$
 
 $$
 J_\ell(\lambda)
-=
+\mathrel{=}
 \begin{pmatrix}
 \lambda&1&&0\\
 &\lambda&\ddots&\\
@@ -759,9 +759,9 @@ $$
 
 $$
 P^{-1}AP
-=
+\mathrel{=}
 J
-=
+\mathrel{=}
 \operatorname{diag}
 \bigl(
 J_{\ell_1}(\lambda_1),
@@ -778,9 +778,9 @@ Jordan 块除排列顺序外唯一。
 
 $$
 d_j
-=
+\mathrel{=}
 \dim\ker(A-\lambda I)^j
--
+\mathbin{-}
 \dim\ker(A-\lambda I)^{j-1}.
 $$
 
@@ -788,7 +788,7 @@ $$
 
 $$
 d_j
-=
+\mathrel{=}
 \#\{\text{尺寸至少为 }j\text{ 的 }\lambda\text{-Jordan 块}\}.
 $$
 
@@ -796,7 +796,7 @@ $$
 
 $$
 d_j-d_{j+1}
-=
+\mathrel{=}
 \#\{\text{尺寸恰为 }j\text{ 的 }\lambda\text{-Jordan 块}\}.
 $$
 

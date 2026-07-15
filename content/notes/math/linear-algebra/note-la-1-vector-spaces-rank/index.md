@@ -96,7 +96,7 @@ $$
 
 $$
 \operatorname{span}S
-=
+\mathrel{=}
 \left\{
 \sum_{i=1}^k a_iv_i:a_i\in\mathbb F
 \right\}.
@@ -315,7 +315,7 @@ $$
 
 $$
 \dim V
-=
+\mathrel{=}
 \dim\ker T+\dim\operatorname{im}T.
 $$
 
@@ -423,9 +423,9 @@ $$
 
 $$
 \mathcal C(A)
-=
+\mathrel{=}
 \operatorname{im}A
-=
+\mathrel{=}
 \operatorname{span}\{a_1,\ldots,a_n\}.
 $$
 
@@ -520,13 +520,13 @@ $$
 
 $$
 \mathbb F^m
-=
+\mathrel{=}
 \mathcal C(A)\oplus\mathcal N(A^*),
 $$
 
 $$
 \mathbb F^n
-=
+\mathrel{=}
 \mathcal C(A^*)\oplus\mathcal N(A),
 $$
 
@@ -546,7 +546,7 @@ $$
 
 $$
 \dim V
-=
+\mathrel{=}
 \dim\ker T+\dim\operatorname{im}T,
 $$
 

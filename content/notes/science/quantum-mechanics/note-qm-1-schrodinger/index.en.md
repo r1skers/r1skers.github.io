@@ -214,7 +214,7 @@ Infinite Square Potential Well Diagram
 </details>
 
 First, let's establish the simplest model. Imagine an electron trapped in a box with a width of $L$, where the walls are infinitely high, and the electron can never escape.<p>
-Inside the well ($0 < x < L$): $V(x) = 0$ (the electron flies freely).<p>
+Inside the well ($0 \lt x \lt L$): $V(x) = 0$ (the electron flies freely).<p>
 Outside the well (other regions): $V(x) = \infty$ (the electron can never reach there, with a probability of 0).
 
 The calculation is as follows: <p>
@@ -350,13 +350,13 @@ Similarly, according to the above diagram
 $$
 V(x) =
 \begin{cases}
-  0, & |x| < \frac{L}{2} \\\\
+  0, & |x| \lt \frac{L}{2} \\\\
   V_0, & \text{otherwise}
 \end{cases}
 $$
 
-We need to divide into three domains: domain 1 ($x<-\frac{L}{2}$), domain 2 ($-\frac{L}{2}<x<\frac{L}{2}$), and domain 3 ($x>\frac{L}{2}$).<p>
-First, let's analyze domain 2 ($-\frac{L}{2}<x<\frac{L}{2}$), which is similar to an infinite potential well:
+We need to divide into three domains: domain 1 ($x\lt-\frac{L}{2}$), domain 2 ($-\frac{L}{2}\lt x\lt\frac{L}{2}$), and domain 3 ($x>\frac{L}{2}$).<p>
+First, let's analyze domain 2 ($-\frac{L}{2}\lt x\lt\frac{L}{2}$), which is similar to an infinite potential well:
 
 $$\psi'' + k^2\psi = 0$$
 
@@ -364,7 +364,7 @@ The general solution in mathematics is:
 
 $$\psi_{II}(x) = A_2\cos(kx) +B_2\sin(kx)$$
 
-Domain 1 ($x < -\frac{L}{2}$):
+Domain 1 ($x \lt -\frac{L}{2}$):
 
 $$\psi'' - \kappa^2\psi = 0$$
 

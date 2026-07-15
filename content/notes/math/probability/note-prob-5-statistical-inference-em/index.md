@@ -87,7 +87,7 @@ $$
 
 $$
 L(\theta;x_{1:n})
-=
+\mathrel{=}
 \prod_{i=1}^np_\theta(x_i),
 $$
 
@@ -95,7 +95,7 @@ $$
 
 $$
 \ell(\theta;x_{1:n})
-=
+\mathrel{=}
 \sum_{i=1}^n\ln p_\theta(x_i).
 $$
 
@@ -109,9 +109,9 @@ $$
 
 $$
 \widehat\Theta_{\mathrm{MLE}}(x)
-=
+\mathrel{=}
 \operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)
-=
+\mathrel{=}
 \operatorname*{arg\,max}_{\theta\in\Theta}\ell(\theta;x).
 $$
 
@@ -150,14 +150,14 @@ $$
 现在把参数本身放在概率空间上。设先验分布 $\Pi$ 相对于参数空间上的支配测度 $m$ 有密度 $\pi(\theta)$。若
 
 $$
-0<\int_\Theta L(\vartheta;x)\pi(\vartheta)\,m(d\vartheta)<\infty,
+0\lt\int_\Theta L(\vartheta;x)\pi(\vartheta)\,m(d\vartheta)\lt\infty,
 $$
 
 Bayes 公式给出后验密度
 
 $$
 \pi(\theta\mid x)
-=
+\mathrel{=}
 \frac{L(\theta;x)\pi(\theta)}
 {\int_\Theta L(\vartheta;x)\pi(\vartheta)\,m(d\vartheta)}.
 $$
@@ -166,7 +166,7 @@ $$
 
 $$
 \widehat\Theta_{\mathrm{MAP}}(x)
-=
+\mathrel{=}
 \operatorname*{arg\,max}_{\theta\in\Theta}
 \pi(\theta\mid x).
 $$
@@ -175,7 +175,7 @@ $$
 
 $$
 \widehat\Theta_{\mathrm{MAP}}(x)
-=
+\mathrel{=}
 \operatorname*{arg\,max}_{\theta\in\Theta}
 \left[\ell(\theta;x)+\ln\pi(\theta)\right].
 $$
@@ -231,7 +231,7 @@ $$
 
 $$
 P_\theta(\theta\in C(X))
-=
+\mathrel{=}
 P_\theta(T_\theta(X)\in A)
 =1-\alpha.
 $$
@@ -298,7 +298,7 @@ $$
 
 $$
 \mathbb E_\theta[\varphi_\alpha(X)]
-=
+\mathrel{=}
 P_\theta(p(X)\le\alpha)
 \le\alpha.
 $$
@@ -325,7 +325,7 @@ $$
 
 $$
 \varphi^*(x)
-=
+\mathrel{=}
 \mathbf1_{\{f_1(x)>kf_0(x)\}}
 +
 \gamma\mathbf1_{\{f_1(x)=kf_0(x)\}}
@@ -349,7 +349,7 @@ $$
 (\varphi-\varphi^*)(f_1-kf_0)\le0.
 $$
 
-因为当 $f_1>kf_0$ 时 $\varphi^*=1$，故 $\varphi-\varphi^*\le0$；当 $f_1<kf_0$ 时 $\varphi^*=0$，故 $\varphi-\varphi^*\ge0$；在等号集合上第二因子为零。
+因为当 $f_1>kf_0$ 时 $\varphi^*=1$，故 $\varphi-\varphi^*\le0$；当 $f_1\lt kf_0$ 时 $\varphi^*=0$，故 $\varphi-\varphi^*\ge0$；在等号集合上第二因子为零。
 
 积分得到
 
@@ -414,7 +414,7 @@ $$
 
 $$
 p_\theta(x)
-=
+\mathrel{=}
 \int p_\theta(x,z)\,\nu(dz),
 $$
 
@@ -422,7 +422,7 @@ $$
 
 $$
 \ell(\theta;x)
-=
+\mathrel{=}
 \ln\int p_\theta(x,z)\,\nu(dz).
 $$
 
@@ -436,7 +436,7 @@ $$
 
 $$
 p_\theta(z\mid x)
-=
+\mathrel{=}
 \frac{p_\theta(x,z)}{p_\theta(x)}.
 $$
 
@@ -444,9 +444,9 @@ $$
 
 $$
 \mathcal L(q,\theta)
-=
+\mathrel{=}
 \mathbb E_q[\ln p_\theta(x,Z)]
--
+\mathbin{-}
 \mathbb E_q[\ln q(Z)].
 $$
 
@@ -456,7 +456,7 @@ $$
 
 $$
 \ln p_\theta(x)
-=
+\mathrel{=}
 \mathcal L(q,\theta)
 +
 D_{\mathrm{KL}}\!\left(q\|p_\theta(\cdot\mid x)\right).
@@ -468,7 +468,7 @@ $$
 
 $$
 \ln p_\theta(z\mid x)
-=
+\mathrel{=}
 \ln p_\theta(x,z)-\ln p_\theta(x).
 $$
 
@@ -516,7 +516,7 @@ $$
 
 $$
 q^{(t)}(z)
-=
+\mathrel{=}
 p_{\theta^{(t)}}(z\mid x).
 $$
 
@@ -524,7 +524,7 @@ $$
 
 $$
 \mathcal L(q^{(t)},\theta^{(t)})
-=
+\mathrel{=}
 \ell(\theta^{(t)};x).
 $$
 
@@ -541,7 +541,7 @@ $$
 
 $$
 Q(\theta\mid\theta^{(t)})
-=
+\mathrel{=}
 \mathbb E_{Z\mid x,\theta^{(t)}}
 [\ln p_\theta(x,Z)].
 $$
@@ -576,7 +576,7 @@ E-step 使当前参数处的 KL 为零，所以
 
 $$
 \mathcal L(q^{(t)},\theta^{(t)})
-=
+\mathrel{=}
 \ell(\theta^{(t)};x).
 $$
 
@@ -588,7 +588,7 @@ $$
 \mathcal L(q^{(t)},\theta^{(t+1)})
 \ge
 \mathcal L(q^{(t)},\theta^{(t)})
-=
+\mathrel{=}
 \ell(\theta^{(t)};x).
 $$
 
@@ -610,7 +610,7 @@ MLE 最大化数据项，MAP 最大化数据项与先验项之和；置信集由
 
 $$
 \ln p_\theta(x)
-=
+\mathrel{=}
 \mathcal L(q,\theta)
 +D_{\mathrm{KL}}(q\|p_\theta(\cdot\mid x))
 $$

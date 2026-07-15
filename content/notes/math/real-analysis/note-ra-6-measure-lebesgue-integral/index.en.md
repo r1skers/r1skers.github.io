@@ -58,7 +58,7 @@ Lebesgue reverses direction — **slice the range** instead of the domain.
 > **Counting-money metaphor**: a pile of coins on a table, count the total.
 >
 > - **Riemann method**: count them one by one in the position they sit in (by position);
-> - **Lebesgue method**: first sort by denomination (a $1 pile, $5 pile, $10 pile…), count each pile and multiply by face value, then sum (by face value).
+> - **Lebesgue method**: first sort by denomination (a one-dollar pile, five-dollar pile, ten-dollar pile…), count each pile and multiply by face value, then sum (by face value).
 >
 > When the coins are scattered chaotically (highly discontinuous function), **piling by face value** is obviously more efficient.
 

@@ -53,7 +53,7 @@ $$
 
 $$
 f(x+h)
-=
+\mathrel{=}
 f(x)+Df(x)[h]+r_x(h),
 $$
 
@@ -71,7 +71,7 @@ $$
 
 $$
 f(x+h)-f(x)
-=
+\mathrel{=}
 Df(x)[h]+o(\|h\|).
 $$
 
@@ -81,7 +81,7 @@ $$
 
 $$
 Df(x)[h]
-=
+\mathrel{=}
 \nabla f(x)^\top h
 \qquad
 \text{对所有 }h\in\mathbb R^n.
@@ -93,7 +93,7 @@ $$
 
 $$
 \nabla f(x)
-=
+\mathrel{=}
 \begin{pmatrix}
 \partial_1f(x)\\
 \vdots\\
@@ -109,7 +109,7 @@ $$
 
 $$
 D_vf(x)
-=
+\mathrel{=}
 \lim_{t\to0}
 \frac{f(x+tv)-f(x)}{t},
 $$
@@ -120,9 +120,9 @@ $$
 
 $$
 D_vf(x)
-=
+\mathrel{=}
 Df(x)[v]
-=
+\mathrel{=}
 \nabla f(x)^\top v.
 $$
 
@@ -132,7 +132,7 @@ $$
 
 $$
 f(x+tv)-f(x)
-=
+\mathrel{=}
 tDf(x)[v]+o(|t|\,\|v\|).
 $$
 
@@ -192,9 +192,9 @@ $$
 
 $$
 \nabla^2f(x)
-=
+\mathrel{=}
 D(\nabla f)(x)
-=
+\mathrel{=}
 \bigl(\partial_j(\partial_i f)(x)\bigr)_{i,j=1}^n.
 $$
 
@@ -202,13 +202,13 @@ $$
 
 $$
 \phi'(t)
-=
+\mathrel{=}
 \nabla f(x+tv)^\top v,
 $$
 
 $$
 \phi''(t)
-=
+\mathrel{=}
 v^\top\nabla^2f(x+tv)v.
 $$
 
@@ -226,7 +226,7 @@ $$
 
 $$
 \partial_j(\partial_i f)(x)
-=
+\mathrel{=}
 \partial_i(\partial_j f)(x),
 $$
 
@@ -238,7 +238,7 @@ $$
 
 $$
 \Delta(s,t)
-=
+\mathrel{=}
 f(x+se_i+te_j)-f(x+se_i)-f(x+te_j)+f(x).
 $$
 
@@ -246,7 +246,7 @@ $$
 
 $$
 \Delta(s,t)
-=
+\mathrel{=}
 \int_0^s\int_0^t
 \partial_j(\partial_i f)(x+ue_i+ve_j)
 \,dv\,du.
@@ -256,7 +256,7 @@ $$
 
 $$
 \Delta(s,t)
-=
+\mathrel{=}
 \int_0^t\int_0^s
 \partial_i(\partial_j f)(x+ue_i+ve_j)
 \,du\,dv.
@@ -294,7 +294,7 @@ $$
 
 $$
 f(x+h)
-=
+\mathrel{=}
 f(x)+\nabla f(x)^\top h
 +
 \int_0^1
@@ -307,7 +307,7 @@ $$
 
 $$
 \phi(1)
-=
+\mathrel{=}
 \phi(0)+\phi'(0)
 +
 \int_0^1(1-t)\phi''(t)\,dt.
@@ -317,7 +317,7 @@ $$
 
 $$
 f(x+h)
-=
+\mathrel{=}
 f(x)+\nabla f(x)^\top h
 +
 \int_0^1
@@ -328,7 +328,7 @@ $$
 
 $$
 f(x+h)
-=
+\mathrel{=}
 f(x)+\nabla f(x)^\top h
 +
 \frac12h^\top\nabla^2f(x)h
@@ -369,7 +369,7 @@ $$
 
 $$
 \phi''(0)
-=
+\mathrel{=}
 v^\top\nabla^2f(x^\star)v.
 $$
 
@@ -411,7 +411,7 @@ f(x^\star+h)-f(x^\star)
 \int_0^1(1-t)\frac m2\|h\|^2\,dt\\
 &=
 \frac m4\|h\|^2
->0.
+\mathrel{>}0.
 \end{aligned}
 $$
 
@@ -470,7 +470,7 @@ $$
 0\le t\le1.
 $$
 
-由 $f$ 凸，$\phi$ 是一元凸函数。对 $0<t\le1$，
+由 $f$ 凸，$\phi$ 是一元凸函数。对 $0\lt t\le1$，
 
 $$
 \phi(t)
@@ -490,7 +490,7 @@ $$
 
 $$
 \nabla f(x)^\top(y-x)
-=
+\mathrel{=}
 \phi'(0)
 \le
 f(y)-f(x).
@@ -544,7 +544,7 @@ $$
 f(y)
 \ge
 f(x^\star)+\nabla f(x^\star)^\top(y-x^\star)
-=
+\mathrel{=}
 f(x^\star).
 $$
 
@@ -590,7 +590,7 @@ $$
 
 $$
 \phi''(t)
-=
+\mathrel{=}
 (y-x)^\top
 \nabla^2f(x+t(y-x))
 (y-x)
@@ -655,7 +655,7 @@ $$
 
 $$
 \frac12\|y\|^2-\frac12\|x\|^2-x^\top(y-x)
-=
+\mathrel{=}
 \frac12\|y-x\|^2,
 $$
 
@@ -731,7 +731,7 @@ $$
 
 $$
 \nabla f(y)-\nabla f(x)
-=
+\mathrel{=}
 \int_0^1
 \nabla^2f(x+t(y-x))(y-x)\,dt.
 $$
@@ -754,7 +754,7 @@ $$
 
 $$
 \|\nabla^2f(x)v\|
-=
+\mathrel{=}
 \lim_{t\to0}
 \frac{\|\nabla f(x+tv)-\nabla f(x)\|}{|t|}
 \le L.
@@ -841,7 +841,7 @@ $$
 
 $$
 f(x+h)
-=
+\mathrel{=}
 f(x)+\nabla f(x)^\top h
 +
 \int_0^1(1-t)

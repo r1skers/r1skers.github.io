@@ -358,7 +358,7 @@ q_scale=4.0 :  82/128 行可改进，平均降  2.4%，最高 15.9%
 在当前受限设定下，信号层级可以概括为：
 
 $$
-\text{entropy} \approx \text{fixed-}k \;<\; \text{dropped-mass} \;<\; \text{restricted oracle} \;<\; \text{set-selection oracle（未做）}.
+\text{entropy} \approx \text{fixed-}k \;\lt\; \text{dropped-mass} \;\lt\; \text{restricted oracle} \;\lt\; \text{set-selection oracle（未做）}.
 $$
 
 主线陈述：
