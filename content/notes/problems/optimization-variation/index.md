@@ -29,7 +29,7 @@ $$
 
 在约束 $\sum_i p_i=1$ 下的最大值；分别用拉格朗日乘子法与 Jensen 不等式证明它在 $p_1=p_2=p_3=\tfrac13$ 取到，并体会两者是同一件事的两种语言。
 
-*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [大一统知识地图 · 熵](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [信息论 Part 1 · 自信息与熵](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 
@@ -85,7 +85,7 @@ $$
 
 给定信源分布 $p=(p_1,\dots,p_n)$，给每个符号配一个二元前缀码、码长 $l_i$。任何唯一可译码都满足 **Kraft 不等式** $\sum_i 2^{-l_i}\le 1$。求最小化期望码长 $\bar L=\sum_i p_i l_i$ 的最优码长（先把 $l_i$ 放松成实数），证明最小期望长度恰为熵 $H(p)=-\sum_i p_i\log_2 p_i$；再用 Gibbs / KL 不等式给出同一结论的另一种语言，并说明整数约束带来的差距。
 
-*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [大一统知识地图 · 熵](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [信息论 Part 1 · 自信息与熵](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 
@@ -138,7 +138,7 @@ $$
 
 在所有均值为 $\mu$、方差为 $\sigma^2$ 的连续概率密度中，最大化微分熵 $h[p]=-\int p\ln p\,dx$。分别用拉格朗日乘子（对密度做变分）与 Gibbs 不等式证明最大熵分布是高斯 $\mathcal N(\mu,\sigma^2)$，体会两者是同一件事的两种语言。
 
-*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [大一统知识地图 · 熵](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [信息论 Part 1 · 自信息与熵](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 
@@ -194,7 +194,7 @@ $$
 
 $n$ 个结局，每个有一个「得分」$z_i$。在期望得分 $\sum_i p_i z_i$ 固定的约束下最大化熵 $H(p)=-\sum_i p_i\ln p_i$。用拉格朗日乘子证明最大熵分布是 softmax $p_i=e^{\beta z_i}/\sum_j e^{\beta z_j}$；再换凸对偶的语言看 softmax 是 log-sum-exp 的梯度。
 
-*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [大一统知识地图 · 熵](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*参考：[拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/) · [信息论 Part 1 · 自信息与熵](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 

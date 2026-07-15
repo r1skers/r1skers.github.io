@@ -1,9 +1,9 @@
 ---
 date: '2026-05-27T00:00:00+09:00'
 draft: false
-title: '线性代数大一统笔记 Part 0：矩阵、线性映射与坐标语言'
-summary: "线性代数重写计划的基础篇：从矩阵不是数表、而是线性映射在选定基下的坐标表示出发，统一几何、结构、分解、近似、稳定性、优化、方程和计算八条主线。"
-description: "线性代数基础篇：矩阵、线性映射、基、坐标、复合、换基，以及线性代数地图中八个一级分支如何从同一个核心对象长出来。"
+title: '线性代数 Part 0：矩阵、线性映射与坐标语言'
+summary: "线性代数证明型系列的基础篇：从矩阵不是数表、而是线性映射在选定基下的坐标表示出发，给出 LA1–LA9 的静态阅读路线。"
+description: "线性代数基础篇：矩阵、线性映射、基、坐标、复合与换基，以及 LA1–LA9 如何从同一个核心对象依次展开。"
 tags: ["Linear Algebra", "Matrix", "Linear Map", "Basis", "Coordinates"]
 categories: ["Crucible"]
 math: true
@@ -33,7 +33,7 @@ $$
 \text{计算与解释}.
 $$
 
-这也是大一统地图从中心的矩阵 $A$ 出发，再长出八条主支的原因。
+这也是整套 LA0–LA9 系列从矩阵 $A$ 出发，再依次展开代数结构、几何、方程、谱、分解、近似、稳定性与计算的原因。
 
 ---
 
@@ -296,11 +296,23 @@ $$
 
 ---
 
-## 6. 地图的八条主支
+## 6. LA1–LA9 静态路线图
 
-八条主支可以看成八种追问。
+Part 0 负责统一语言，后续九篇按下面的依赖顺序展开：
 
-### 6.1 几何：这个映射怎样改变长度、角度和子空间？
+1. [**LA1：向量空间、基、秩与四基本子空间**](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)：先确定线性映射的定义域、值域、核、像与秩。
+2. [**LA2：内积、正交投影与最小二乘**](/notes/math/linear-algebra/note-la-2-inner-product-projection/)：在 LA1 的子空间语言上加入几何结构。
+3. [**LA3：线性方程、伪逆与最小范数解**](/notes/math/linear-algebra/note-la-3-linear-equations-pseudoinverse/)：把可解性、最小二乘与非唯一解统一到 $A^+$。
+4. [**LA4：特征值、不变子空间、Schur 与 Jordan**](/notes/math/linear-algebra/note-la-4-eigen-schur-jordan/)：研究线性映射在自身作用下保持不变的方向与子空间。
+5. [**LA5：对称、正规、二次型与谱定理**](/notes/math/linear-algebra/note-la-5-symmetric-normal-psd-spectral/)：利用额外结构得到正交对角化与能量解释。
+6. [**LA6：LU、QR、Cholesky、SVD 与极分解**](/notes/math/linear-algebra/note-la-6-matrix-factorizations/)：把复杂映射拆成可解释、可计算的基本部分。
+7. [**LA7：低秩近似、PCA 与结构化近似**](/notes/math/linear-algebra/note-la-7-low-rank-pca/)：从 SVD 进入最优近似与降维。
+8. [**LA8：条件数、数值稳定性与正则化**](/notes/math/linear-algebra/note-la-8-conditioning-stability-regularization/)：区分问题敏感性、算法稳定性与正则化作用。
+9. [**LA9：矩阵函数、迭代法与结构化计算**](/notes/math/linear-algebra/note-la-9-matrix-functions-iterative-structured/)：把谱与分解落实为大规模计算方法。
+
+下面保留八种横向追问，作为这条顺序路线的主题索引；它们不再是另一套目录。
+
+### 6.1 几何：这个映射怎样改变长度、角度和子空间？（LA2）
 
 一旦空间里有了内积
 
@@ -326,7 +338,7 @@ $$
 
 正交投影、四基本子空间、最小二乘，都会从这里出来。
 
-### 6.2 结构：这个矩阵有什么内在形状？
+### 6.2 结构：这个矩阵有什么内在形状？（LA5）
 
 有些矩阵不是普通矩阵，它们带有额外结构。
 
@@ -357,7 +369,7 @@ $$
 
 结构越强，可解释性和可计算性通常越好。
 
-### 6.3 分解：能不能把复杂映射拆成简单映射？
+### 6.3 分解：能不能把复杂映射拆成简单映射？（LA6）
 
 矩阵分解的共同问题是：
 
@@ -381,7 +393,7 @@ $$
 
 QR、LU、Cholesky、Schur、谱分解也类似。它们不是孤立算法，而是在用不同方式拆开同一个线性映射。
 
-### 6.4 近似：如果不能完整保留，保留什么最重要？
+### 6.4 近似：如果不能完整保留，保留什么最重要？（LA7）
 
 真实问题里，矩阵可能太大、太吵、太高维。
 
@@ -396,7 +408,7 @@ PCA 就是这条支路的重要节点。它把数据矩阵的主要变化方向�
 
 无监督学习里的聚类前表示，也接在这里：先理解表征空间的方向、尺度和邻域，再谈聚类。
 
-### 6.5 稳定性：这个计算结果靠不靠谱？
+### 6.5 稳定性：这个计算结果靠不靠谱？（LA8）
 
 线性代数不只问能不能算，还问算出来是否可信。
 
@@ -417,7 +429,7 @@ $$
 
 这条支路会把线性代数从“精确公式”带到“可靠计算”。
 
-### 6.6 优化：很多问题其实是在最小化某个量
+### 6.6 优化：很多问题其实是在最小化某个量（优化系列）
 
 最小二乘问题
 
@@ -442,7 +454,7 @@ $$
 
 也就是说，优化不是线性代数之外的东西。很多优化问题的骨架就是矩阵、内积、投影和正定性。
 
-### 6.7 方程：什么时候有解，解有多少，哪个解最好？
+### 6.7 方程：什么时候有解，解有多少，哪个解最好？（LA1–LA3）
 
 方程支从
 
@@ -463,7 +475,7 @@ $$
 
 方程不是单纯求 $x$。它是在问 $A$ 这个映射是否能把某个输入送到目标 $b$。
 
-### 6.8 计算：如何真正把这些东西算出来？
+### 6.8 计算：如何真正把这些东西算出来？（LA6、LA9）
 
 最后才是计算。
 
@@ -518,22 +530,23 @@ $$
 
 ---
 
-## 8. 这篇之后
+## 8. 下一篇与完整顺序
 
 这一篇只回答：
 
 > 矩阵到底是什么？
 
-接下来每篇都会围着中心往外展开：
+下一篇是 [**LA1：向量空间、基、秩与四基本子空间**](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)。完整顺序为：
 
-- 几何篇：内积、范数、正交、投影和四基本子空间；
-- 结构篇：对称、正定、投影矩阵、低秩与特殊结构；
-- 分解篇：SVD、QR、LU、Cholesky、Schur 与谱分解；
-- 近似篇：低秩近似、PCA、投影近似与随机化近似；
-- 稳定性篇：条件数、扰动、病态性与正则化；
-- 优化篇：最小二乘、梯度、Hessian、KKT；
-- 方程篇：可解性、唯一性、伪逆、最小范数解；
-- 计算篇：消元、换基、矩阵乘法、矩阵函数与迭代法。
+- [LA1：向量空间、基、秩与四基本子空间](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)；
+- [LA2：内积、正交投影与最小二乘](/notes/math/linear-algebra/note-la-2-inner-product-projection/)；
+- [LA3：线性方程、伪逆与最小范数解](/notes/math/linear-algebra/note-la-3-linear-equations-pseudoinverse/)；
+- [LA4：特征值、不变子空间、Schur 与 Jordan](/notes/math/linear-algebra/note-la-4-eigen-schur-jordan/)；
+- [LA5：对称、正规、二次型与谱定理](/notes/math/linear-algebra/note-la-5-symmetric-normal-psd-spectral/)；
+- [LA6：LU、QR、Cholesky、SVD 与极分解](/notes/math/linear-algebra/note-la-6-matrix-factorizations/)；
+- [LA7：低秩近似、PCA 与结构化近似](/notes/math/linear-algebra/note-la-7-low-rank-pca/)；
+- [LA8：条件数、数值稳定性与正则化](/notes/math/linear-algebra/note-la-8-conditioning-stability-regularization/)；
+- [LA9：矩阵函数、迭代法与结构化计算](/notes/math/linear-algebra/note-la-9-matrix-functions-iterative-structured/)。
 
 $$
 \text{对象}

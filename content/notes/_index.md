@@ -13,9 +13,18 @@ aliases:
 <details class="note-subgroup">
 <summary><strong>线性代数</strong></summary>
 
-> 🗺️ [**大一统知识地图**](https://r1skers.github.io/r1skers-knowledge-map/) — 独立知识地图站。支持搜索、拖动缩放、节点卡片与 `?node=` 链接分享。
+以定义、定理和证明为主线；Part 0 给出全系列静态路线，后续九篇依次承接代数结构、几何、方程、谱、分解、近似、稳定性与计算。
 
-- [**Part 0** — 矩阵、线性映射与坐标语言](/notes/math/linear-algebra/note-la-0-foundation/) — 系列地基：矩阵作为线性映射的坐标表示
+- [**Part 0** — 矩阵、线性映射与坐标语言](/notes/math/linear-algebra/note-la-0-foundation/)
+- [**Part 1** — 向量空间、基、秩与四基本子空间](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)
+- [**Part 2** — 内积、正交投影与最小二乘](/notes/math/linear-algebra/note-la-2-inner-product-projection/)
+- [**Part 3** — 线性方程、伪逆与最小范数解](/notes/math/linear-algebra/note-la-3-linear-equations-pseudoinverse/)
+- [**Part 4** — 特征值、不变子空间、Schur 与 Jordan](/notes/math/linear-algebra/note-la-4-eigen-schur-jordan/)
+- [**Part 5** — 对称、正规、二次型与谱定理](/notes/math/linear-algebra/note-la-5-symmetric-normal-psd-spectral/)
+- [**Part 6** — LU、QR、Cholesky、SVD 与极分解](/notes/math/linear-algebra/note-la-6-matrix-factorizations/)
+- [**Part 7** — 低秩近似、PCA 与结构化近似](/notes/math/linear-algebra/note-la-7-low-rank-pca/)
+- [**Part 8** — 条件数、数值稳定性与正则化](/notes/math/linear-algebra/note-la-8-conditioning-stability-regularization/)
+- [**Part 9** — 矩阵函数、迭代法与结构化计算](/notes/math/linear-algebra/note-la-9-matrix-functions-iterative-structured/)
 
 </details>
 
@@ -46,18 +55,28 @@ aliases:
 <details class="note-subgroup">
 <summary><strong>优化与变分</strong></summary>
 
-约束优化与变分法的笔记。先以独立单篇逐个介绍核心对象（拉格朗日乘子、KKT、对偶、欧拉–拉格朗日方程……），日后再用一篇总结把它们串成整体。
+从局部微分结构出发，依次建立凸性、一阶收敛与二阶方法；随后进入约束优化和变分分支。
 
-- [**拉格朗日乘子法** — 拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/)
+- [**Part 0 路线图** — 从局部几何到约束与变分](/notes/math/optimization-variation/note-opt-0-roadmap/)
+- [**Part 1** — 梯度、Hessian、Taylor 与凸性](/notes/math/optimization-variation/note-opt-1-gradient-hessian-convexity/)
+- [**Part 2** — 梯度下降、收敛率与谱滤波](/notes/math/optimization-variation/note-opt-2-gradient-descent/)
+- [**Part 3** — Newton、阻尼与拟 Newton](/notes/math/optimization-variation/note-opt-3-newton-quasi-newton/)
+- [**约束与变分入口** — 拉格朗日函数与拉格朗日算子](/notes/math/optimization-variation/note-opt-lagrangian/)
 
 </details>
 
 <details class="note-subgroup">
 <summary><strong>概率与统计</strong></summary>
 
-- 概率论
-- 数理统计
-- 随机过程
+从概率空间与事件代数出发，经随机变量、分布、期望和条件结构，分流到渐近理论、统计推断与随机过程。
+
+- [**Part 0 路线图** — 从概率空间到统计推断与随机过程](/notes/math/probability/note-prob-0-roadmap/)
+- [**Part 1** — 概率空间、条件概率、独立性与 Bayes](/notes/math/probability/note-prob-1-probability-space-events/)
+- [**Part 2** — 随机变量、CDF 与常见分布族](/notes/math/probability/note-prob-2-random-variables-distributions/)
+- [**Part 3** — 期望、联合分布、条件期望与方差分解](/notes/math/probability/note-prob-3-expectation-conditioning/)
+- [**Part 4** — 收敛方式、大数定律、中心极限定理与集中不等式](/notes/math/probability/note-prob-4-limits-concentration/)
+- [**Part 5** — Likelihood、MLE、MAP、区间、检验与 EM](/notes/math/probability/note-prob-5-statistical-inference-em/)
+- [**Part 6** — 随机过程、Markov 链、排队与尾延迟](/notes/math/probability/note-prob-6-stochastic-processes-queues/)
 
 </details>
 

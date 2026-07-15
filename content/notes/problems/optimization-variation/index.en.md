@@ -29,7 +29,7 @@ $$
 
 subject to $\sum_i p_i=1$; prove via both the method of Lagrange multipliers and Jensen's inequality that it is attained at $p_1=p_2=p_3=\tfrac13$, and appreciate that the two are one thing in two languages.
 
-*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Knowledge map · Entropy](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Information Theory Part 1 · Self-information and entropy](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 
@@ -87,7 +87,7 @@ with equality iff $1/p_i$ is constant, i.e. $p_i=\tfrac13$.
 
 Given a source distribution $p=(p_1,\dots,p_n)$, assign each symbol a binary prefix code with length $l_i$. Any uniquely decodable code satisfies the **Kraft inequality** $\sum_i 2^{-l_i}\le 1$. Find the lengths minimizing the expected code length $\bar L=\sum_i p_i l_i$ (relaxing $l_i$ to reals), prove the minimum equals the entropy $H(p)=-\sum_i p_i\log_2 p_i$; then give the same result in another language via the Gibbs / KL inequality, and note the gap caused by integrality.
 
-*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Knowledge map · Entropy](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Information Theory Part 1 · Self-information and entropy](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 
@@ -140,7 +140,7 @@ That is: Lagrange solves the **continuous relaxation** of the integer problem; e
 
 Among all continuous probability densities with mean $\mu$ and variance $\sigma^2$, maximize the differential entropy $h[p]=-\int p\ln p\,dx$. Prove, both via Lagrange multipliers (a variation on the density) and via Gibbs' inequality, that the maximum-entropy distribution is the Gaussian $\mathcal N(\mu,\sigma^2)$, and appreciate that the two are one thing in two languages.
 
-*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Knowledge map · Entropy](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Information Theory Part 1 · Self-information and entropy](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 
@@ -196,7 +196,7 @@ Hence $h(p)\le h(g)$, with equality iff $p=g$. The maximum differential entropy 
 
 $n$ outcomes, each with a "score" $z_i$. Maximize the entropy $H(p)=-\sum_i p_i\ln p_i$ subject to a fixed expected score $\sum_i p_i z_i$. Prove via Lagrange multipliers that the maximum-entropy distribution is the softmax $p_i=e^{\beta z_i}/\sum_j e^{\beta z_j}$; then, in the language of convex duality, see softmax as the gradient of log-sum-exp.
 
-*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Knowledge map · Entropy](https://r1skers.github.io/r1skers-knowledge-map/?map=probability&node=%E7%86%B5)*
+*See also: [The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/) · [Information Theory Part 1 · Self-information and entropy](/notes/math/information-theory/note-it-1-entropy-self-information/)*
 
 {{% /problem-exercise %}}
 

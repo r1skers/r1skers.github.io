@@ -13,7 +13,9 @@ aliases:
 
 # 优化与变分：拉格朗日函数与拉格朗日算子
 
-这是「优化与变分」里的独立一篇，主题是约束优化的拉格朗日乘子法。先把这一篇要走的主线拉出来：
+> 本篇承接 [Part 3：Newton、阻尼与拟 Newton](/notes/math/optimization-variation/note-opt-3-newton-quasi-newton/)，把无约束驻点系统扩展到等式约束与变分；全系列依赖见 [Part 0 路线图](/notes/math/optimization-variation/note-opt-0-roadmap/)。
+
+本篇主题是约束优化的拉格朗日乘子法。先把要走的主线拉出来：
 
 $$
 \text{无约束驻点}
@@ -433,3 +435,7 @@ $$
 5. 把「构造 $L$ 并求驻点」打包成拉格朗日算子 $\mathcal{L}=\nabla_{(x,\lambda)}L$，优化变成求 $\mathcal{L}=0$ 的根；
 6. 多约束改成 $\lambda^\top g$，不等式约束升级为 KKT（互补松弛）；
 7. 把向量换成函数、把 $f$ 换成泛函 $J$，同一个算子就成了欧拉–拉格朗日算子——这是通往变分法的门。
+
+[上一篇：优化与变分 Part 3——Newton、阻尼与拟 Newton](/notes/math/optimization-variation/note-opt-3-newton-quasi-newton/)
+
+[返回：优化与变分 Part 0——从局部几何到约束与变分](/notes/math/optimization-variation/note-opt-0-roadmap/)

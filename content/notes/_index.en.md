@@ -10,9 +10,18 @@ summary: "An index of course notes and self-study records."
 <details class="note-subgroup">
 <summary><strong>Linear Algebra</strong></summary>
 
-> 🗺️ [**Unified Knowledge Map**](https://r1skers.github.io/r1skers-knowledge-map/) — Standalone knowledge map site with search, draggable canvas, node cards, and shareable `?node=` URLs.
+The proof-first LA0–LA9 series is currently available in Chinese only. The links below intentionally open the Chinese pages; English translations have not been published.
 
-- [**Part 0** — Matrix, Linear Map, and Coordinate Language](/notes/math/linear-algebra/note-la-0-foundation/) — The series foundation: matrix as the coordinate representation of a linear map
+- [**LA0** — 矩阵、线性映射与坐标语言](/notes/math/linear-algebra/note-la-0-foundation/)
+- [**LA1** — 向量空间、基、秩与四基本子空间](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)
+- [**LA2** — 内积、正交投影与最小二乘](/notes/math/linear-algebra/note-la-2-inner-product-projection/)
+- [**LA3** — 线性方程、伪逆与最小范数解](/notes/math/linear-algebra/note-la-3-linear-equations-pseudoinverse/)
+- [**LA4** — 特征值、不变子空间、Schur 与 Jordan](/notes/math/linear-algebra/note-la-4-eigen-schur-jordan/)
+- [**LA5** — 对称、正规、二次型与谱定理](/notes/math/linear-algebra/note-la-5-symmetric-normal-psd-spectral/)
+- [**LA6** — LU、QR、Cholesky、SVD 与极分解](/notes/math/linear-algebra/note-la-6-matrix-factorizations/)
+- [**LA7** — 低秩近似、PCA 与结构化近似](/notes/math/linear-algebra/note-la-7-low-rank-pca/)
+- [**LA8** — 条件数、数值稳定性与正则化](/notes/math/linear-algebra/note-la-8-conditioning-stability-regularization/)
+- [**LA9** — 矩阵函数、迭代法与结构化计算](/notes/math/linear-algebra/note-la-9-matrix-functions-iterative-structured/)
 
 </details>
 
@@ -43,7 +52,14 @@ This branch hangs under real and functional analysis: Hilbert spaces, orthogonal
 <details class="note-subgroup">
 <summary><strong>Optimization and Calculus of Variations</strong></summary>
 
-Notes on constrained optimization and the calculus of variations. Each core idea (Lagrange multipliers, KKT, duality, the Euler–Lagrange equation…) is introduced as a standalone piece for now, to be tied together by a synthesis note later.
+The proof-first O0–O3 sequence is currently available in Chinese only. These links intentionally open the Chinese pages:
+
+- [**O0** — 从局部几何到约束与变分](/notes/math/optimization-variation/note-opt-0-roadmap/)
+- [**O1** — 梯度、Hessian、Taylor 与凸性](/notes/math/optimization-variation/note-opt-1-gradient-hessian-convexity/)
+- [**O2** — 梯度下降、收敛率与谱滤波](/notes/math/optimization-variation/note-opt-2-gradient-descent/)
+- [**O3** — Newton、阻尼与拟 Newton](/notes/math/optimization-variation/note-opt-3-newton-quasi-newton/)
+
+The existing English note on constrained optimization remains available:
 
 - [**Lagrange Multipliers** — The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/)
 
@@ -52,9 +68,15 @@ Notes on constrained optimization and the calculus of variations. Each core idea
 <details class="note-subgroup">
 <summary><strong>Probability and Statistics</strong></summary>
 
-- Probability Theory
-- Mathematical Statistics
-- Stochastic Processes
+The proof-first P0–P6 series is currently available in Chinese only. The links below intentionally open the Chinese pages; English translations have not been published.
+
+- [**P0 路线图** — 从概率空间到统计推断与随机过程](/notes/math/probability/note-prob-0-roadmap/)
+- [**P1** — 概率空间、条件概率、独立性与 Bayes](/notes/math/probability/note-prob-1-probability-space-events/)
+- [**P2** — 随机变量、CDF 与常见分布族](/notes/math/probability/note-prob-2-random-variables-distributions/)
+- [**P3** — 期望、联合分布、条件期望与方差分解](/notes/math/probability/note-prob-3-expectation-conditioning/)
+- [**P4** — 收敛方式、大数定律、中心极限定理与集中不等式](/notes/math/probability/note-prob-4-limits-concentration/)
+- [**P5** — Likelihood、MLE、MAP、区间、检验与 EM](/notes/math/probability/note-prob-5-statistical-inference-em/)
+- [**P6** — 随机过程、Markov 链、排队与尾延迟](/notes/math/probability/note-prob-6-stochastic-processes-queues/)
 
 </details>
 

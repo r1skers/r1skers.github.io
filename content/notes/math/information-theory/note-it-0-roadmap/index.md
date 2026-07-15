@@ -28,6 +28,19 @@ AEP 与典型集主要从**熵 + i.i.d. 重复 + 大数定律**长出；informat
 
 ---
 
+## 0. 概率论先修接口
+
+这组笔记不重复搭建概率论地基。若相关概念尚未稳定，可按需要回到下面四个接口：
+
+- [**P0：概率论路线图**](/notes/math/probability/note-prob-0-roadmap/)：确认概率基础、渐近理论、统计推断与随机过程之间的整体依赖；
+- [**P3：期望、联合分布、条件期望与方差分解**](/notes/math/probability/note-prob-3-expectation-conditioning/)：为熵、条件熵、互信息以及 score 的期望恒等式提供联合与条件结构；
+- [**P4：收敛方式、大数定律、中心极限定理与集中不等式**](/notes/math/probability/note-prob-4-limits-concentration/)：为 AEP 中样本平均的依概率收敛提供大数定律；
+- [**P5：Likelihood、MLE、MAP、区间、检验与 EM**](/notes/math/probability/note-prob-5-statistical-inference-em/)：为参数化模型、log-likelihood、score、Fisher information 与 information geometry 提供统计推断语境。
+
+它们不是一律必须从头重读：共同基础主要调用 P3，Shannon 渐近支线调用 P4，information geometry 主线则额外调用 P5。
+
+---
+
 ## 1. 共同基础
 
 共同基础先把“信息量”“多个变量”“两个分布之间的差异”三件事钉死：
