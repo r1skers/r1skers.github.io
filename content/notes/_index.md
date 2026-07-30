@@ -180,6 +180,28 @@ aliases:
 <summary><strong>系统与计算</strong></summary>
 
 <details class="note-subgroup">
+<summary><strong>误差分析与可靠计算</strong></summary>
+
+以具体 topic 为入口，追踪误差的定义、来源、传播、估计、控制与精度—成本权衡；推导结论与 Error Atlas 中的可复现实验互相校验。
+
+- [**主线说明** — 误差分析：从近似到可靠计算](/notes/systems/error-analysis/)
+
+<details class="note-subgroup">
+<summary><strong>Topic 1 — Taylor 展开</strong></summary>
+
+- [**父页面** — 从余项到误差控制](/notes/systems/error-analysis/taylor-expansion/)
+- [**Taylor 1** — 先把 \(R\)、\(O\)、\(o\) 与误差界说清楚](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
+- [**Taylor 2** — Lagrange、积分与 Peano 余项](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
+- [**Taylor 3** — 正确的界为什么可能没有说服力](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
+- [**Taylor 4** — 误差怎样传播](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
+- [**Taylor 5** — 从步长到 Richardson 外推](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
+- [**Taylor 6** — 把噪声写进误差预算](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
+
+</details>
+
+</details>
+
+<details class="note-subgroup">
 <summary><strong>底层架构 / AI Infra</strong></summary>
 
 从 GPU 内存层次、IO-aware 算法和推理系统出发，记录 AI infra 里那些真正卡住吞吐、延迟和显存的底层机制。

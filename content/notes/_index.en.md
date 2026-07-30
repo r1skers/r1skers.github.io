@@ -154,6 +154,28 @@ Reproduce a minimal encoder-only Transformer from self-attention and validate PE
 <summary><strong>Systems and Computation</strong></summary>
 
 <details class="note-subgroup">
+<summary><strong>Error Analysis and Reliable Computation</strong></summary>
+
+Enter through concrete topics and track how errors are defined, introduced, propagated, estimated, controlled, and traded against computational cost. Each derivation is checked against reproducible evidence in Error Atlas.
+
+- [**Series overview** — Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/)
+
+<details class="note-subgroup">
+<summary><strong>Topic 1 — Taylor Expansion</strong></summary>
+
+- [**Parent page** — From Remainders to Error Control](/en/notes/systems/error-analysis/taylor-expansion/)
+- [**Taylor 1** — First Define \(R\), \(O\), \(o\), and Error Bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
+- [**Taylor 2** — Lagrange, Integral, and Peano Remainders](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
+- [**Taylor 3** — Why a Correct Bound Can Still Be Unconvincing](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
+- [**Taylor 4** — How Errors Propagate](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
+- [**Taylor 5** — From Step Size to Richardson Extrapolation](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
+- [**Taylor 6** — Putting Noise Into the Error Budget](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
+
+</details>
+
+</details>
+
+<details class="note-subgroup">
 <summary><strong>AI Infrastructure</strong></summary>
 
 Starting from GPU memory hierarchy, IO-aware algorithms, and inference systems, this section tracks the low-level mechanisms that actually shape throughput, latency, and memory usage in AI infrastructure.
