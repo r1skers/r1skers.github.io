@@ -115,7 +115,7 @@ cross-entropy 或 log-softmax 则让抵消发生在浮点离散化之前。
 \sigma(d)=
 \begin{cases}
 \dfrac{1}{1+e^{-d}},&d\ge0,\\[6pt]
-\dfrac{e^d}{1+e^d},&d<0.
+\dfrac{e^d}{1+e^d},&d\lt0.
 \end{cases}
 \]
 

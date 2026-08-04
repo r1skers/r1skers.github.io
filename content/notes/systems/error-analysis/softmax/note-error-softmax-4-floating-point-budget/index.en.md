@@ -246,7 +246,7 @@ For FP32 and $n=1000$, with $u\approx6\times10^{-8}$:
 - the sequential bound is approximately $999u\approx6\times10^{-5}$;
 - a ten-level tree gives approximately $10u\approx6\times10^{-7}$.
 
-Not every input attains the bound. If all $q_i=1$, FP32 may accumulate the integer partial sums exactly while $n<2^{24}$, hiding the mechanism entirely. A more diagnostic construction is
+Not every input attains the bound. If all $q_i=1$, FP32 may accumulate the integer partial sums exactly while $n \lt 2^{24}$, hiding the mechanism entirely. A more diagnostic construction is
 
 \[
 q=(1,u,u,\ldots,u).
