@@ -1,24 +1,24 @@
 ---
 title: "笔记"
 description: "当前研究主线、主题档案与基础知识库。"
-summary: "按研究问题组织阅读路径，同时保留数学、机器学习、系统与工程的 canonical 知识归档。"
+summary: "按研究问题组织阅读路径，同时保留数学、机器学习、系统与工程领域的 canonical 知识归档。"
 aliases:
   - /study-notes/
   - /notebook/
 ---
 
-这里同时保留两种组织方式：基础知识按学科归档，研究材料按主题重新编排。同一篇文章只有一个 canonical home，但可以被多个主题档案引用。
+这里采用两种互补的组织方式：基础知识按学科归档，研究材料围绕问题重新编排。同一篇文章只有一个 canonical home，但可以被多个主题档案引用。
 
 <details open>
 <summary><strong>当前研究主线</strong></summary>
 
 ### 误差分析：从近似到可靠计算
 
-围绕 reference、approximation 与 metric，持续追踪误差的定义、来源、传播、估计、控制和精度—成本权衡。
+以 reference、approximation 与 metric 为起点，这条主线持续追踪误差的定义、来源、传播、估计、控制，以及精度与成本之间的权衡。
 
 - [**主线说明** — 误差分析：从近似到可靠计算](/notes/systems/error-analysis/)
 - [**Topic 1：Taylor 展开** — 从余项到误差控制](/notes/systems/error-analysis/taylor-expansion/)
-- [**Topic 2：Softmax 数值误差** — 研究 max subtraction、exp、累加、除法、cast 与计算顺序带来的 operation-level error](/notes/systems/error-analysis/softmax/)。
+- [**Topic 2：Softmax 数值误差** — 从方向性误差到有限精度，分析 subtract-max、exp、累加、除法与输入量化](/notes/systems/error-analysis/softmax/)
 
 <details class="note-subgroup">
 <summary><strong>Taylor Topic</strong></summary>

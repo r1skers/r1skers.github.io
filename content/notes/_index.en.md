@@ -1,27 +1,27 @@
 ---
 title: "Notes"
 description: "Current research threads, topic dossiers, and a foundations library."
-summary: "Problem-driven reading paths with canonical subject homes in mathematics, machine learning, systems, and engineering."
+summary: "Problem-driven reading paths alongside canonical subject-based archives in mathematics, machine learning, systems, and engineering."
 aliases:
   - /en/study-notes/
   - /en/notebook/
 ---
 
-This section keeps two complementary organizations. Foundations retain a canonical subject home, while research material is reassembled into problem-driven topic dossiers. An article is stored once but may participate in several reading paths.
+This section organizes its material in two complementary ways: foundations are archived by subject, while research material is rearranged around specific problems. Each article has one canonical home but may appear in several topic dossiers.
 
 <details open>
 <summary><strong>Current Research Thread</strong></summary>
 
 ### Error Analysis: From Approximation to Reliable Computation
 
-Starting from a reference, approximation, and metric, this thread tracks how errors are defined, introduced, propagated, estimated, controlled, and traded against cost.
+Starting with a reference, an approximation, and a metric, this thread follows how errors are defined, introduced, propagated, estimated, and controlled, as well as how accuracy is traded against cost.
 
 - [**Thread overview** — Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/)
 - [**Topic 1: Taylor Expansion** — From remainders to error control](/en/notes/systems/error-analysis/taylor-expansion/)
-- **Topic 2: Softmax Numerical Error (in progress)** — Operation-level error from max subtraction, exp, accumulation, division, casting, and evaluation order.
+- [**Topic 2: Softmax Numerical Error** — From directional error to finite precision, covering subtract-max, exp, accumulation, division, and input quantization](/en/notes/systems/error-analysis/softmax/)
 
 <details class="note-subgroup">
-<summary><strong>The three Taylor chapters</strong></summary>
+<summary><strong>The Taylor Topic</strong></summary>
 
 **I. Error language and representation**
 
