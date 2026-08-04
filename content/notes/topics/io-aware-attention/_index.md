@@ -1,7 +1,7 @@
 ---
 title: "主题档案：IO-Aware Attention"
-description: "把 Softmax 的数学结构、IO-aware 算法、分块复现和近似误差放进同一条阅读路径。"
-summary: "从 Online Softmax 到 FlashAttention，再到数值误差与 sparse-attention 误差的主题档案。"
+description: "把 Softmax 的数学结构、IO-aware 算法、分块复现和逐运算数值误差放进同一条阅读路径。"
+summary: "从 Online Softmax 到 FlashAttention，再到 exp、累加与除法误差的主题档案。"
 categories: ["Notes"]
 tags: ["AI Infra", "Attention", "Softmax"]
 series: ["IO-Aware Attention"]
@@ -22,9 +22,6 @@ note_kind: "topic-index"
 
 [复现并验证 online softmax 与 tiled attention](/notes/systems/ai-infra/note-systems-io-attn-3-toy-implementation/) 用 naive 结果作为 reference，通过 block-size invariance 和分量 invariant 验证实现。这一页是本主题的实验章节，而不是一条独立研究主线。
 
-## 4. 两条误差分支
+## 4. 误差分析接口
 
-- [误差分析主线](/notes/systems/error-analysis/) 的 Softmax Topic 研究 exp、累加、除法、cast 和计算顺序造成的 operation-level 数值误差。
-- [Artifact 6：Value-Aware Sparse Attention](/artifacts/06-value-aware-sparse-attention/) 研究稀疏剪枝造成的 attention output approximation error。
-
-二者需要严格区分：前者问“同一个数学 Softmax 被浮点实现后偏了多少”，后者问“主动删掉一部分 attention 后，输出改变了多少”。
+[误差分析主线](/notes/systems/error-analysis/)中的 Softmax Topic 研究 exp、累加、除法、cast 与计算顺序造成的 operation-level numerical error：同一个数学 Softmax 在不同浮点计算路径中怎样偏移。

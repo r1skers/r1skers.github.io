@@ -48,7 +48,7 @@ Starting from a reference, approximation, and metric, this thread tracks how err
 Topic dossiers assemble material from Notes, Artifacts, and code repositories into coherent problem chains without duplicating content or changing existing URLs.
 
 - [**Dossier index**](/en/notes/topics/)
-- [**IO-Aware Attention**](/en/notes/topics/io-aware-attention/) — Online Softmax, FlashAttention, tiled reproduction, numerical error, and sparse-approximation error.
+- [**IO-Aware Attention**](/en/notes/topics/io-aware-attention/) — Online Softmax, FlashAttention, tiled reproduction, and operation-level numerical error.
 - [**Variational Autoencoders**](/en/notes/topics/variational-autoencoders/) — ELBO, reparameterization, minimal reproduction, and CNN-VAE.
 - [**Representation Geometry**](/en/notes/topics/representation-geometry/) — PCA, whitening, clustering evaluation, and BERT representation probes.
 - [**Inverse Modeling and Reliable Computation**](/en/notes/topics/inverse-modeling/) — Forward models, observations, inversion, regularization, credibility, and project validation.

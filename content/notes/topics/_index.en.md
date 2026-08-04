@@ -11,7 +11,7 @@ A topic dossier does not replace the canonical subject home of an article. It as
 
 ## Current dossiers
 
-- [**IO-Aware Attention**](/en/notes/topics/io-aware-attention/) — Softmax, Online Softmax, FlashAttention, tiled reproduction, and sparse-approximation error.
+- [**IO-Aware Attention**](/en/notes/topics/io-aware-attention/) — Softmax, Online Softmax, FlashAttention, tiled reproduction, and operation-level numerical error.
 - [**Variational Autoencoders**](/en/notes/topics/variational-autoencoders/) — ELBO, reparameterization, a minimal reproduction, and CNN-VAE in one generative-model loop.
 - [**Representation Geometry**](/en/notes/topics/representation-geometry/) — PCA, whitening, clustering, evaluation, and multi-view BERT representation probes.
 - [**Inverse Modeling and Reliable Computation**](/en/notes/topics/inverse-modeling/) — Forward models, observations, parameter inversion, regularization, credibility, and engineering validation.

@@ -11,7 +11,7 @@ note_kind: "topic-index"
 
 ## 当前档案
 
-- [**IO-Aware Attention**](/notes/topics/io-aware-attention/) — 从 Softmax、Online Softmax 到 FlashAttention、分块复现与稀疏近似误差。
+- [**IO-Aware Attention**](/notes/topics/io-aware-attention/) — 从 Softmax、Online Softmax 到 FlashAttention、分块复现与逐运算数值误差。
 - [**Variational Autoencoder**](/notes/topics/variational-autoencoders/) — 把 ELBO、重参数化、最小复现和 CNN-VAE 放回同一个生成模型闭环。
 - [**表征几何**](/notes/topics/representation-geometry/) — 从 PCA、whitening、聚类与评估走到 BERT 多视角表征探针。
 - [**反问题与可靠计算**](/notes/topics/inverse-modeling/) — 从 forward model、观测与参数反演走到正则化、可信度和工程验证。

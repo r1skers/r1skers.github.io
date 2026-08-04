@@ -18,10 +18,10 @@ aliases:
 
 - [**主线说明** — 误差分析：从近似到可靠计算](/notes/systems/error-analysis/)
 - [**Topic 1：Taylor 展开** — 从余项到误差控制](/notes/systems/error-analysis/taylor-expansion/)
-- **Topic 2：Softmax 数值误差（研究中）** — 研究 max subtraction、exp、累加、除法、cast 与计算顺序带来的 operation-level error。
+- [**Topic 2：Softmax 数值误差** — 研究 max subtraction、exp、累加、除法、cast 与计算顺序带来的 operation-level error](/notes/systems/error-analysis/softmax/)。
 
 <details class="note-subgroup">
-<summary><strong>Taylor Topic 的三章</strong></summary>
+<summary><strong>Taylor Topic</strong></summary>
 
 **I. 误差语言与表示**
 
@@ -48,7 +48,7 @@ aliases:
 主题档案把分散在 Notes、Artifacts 和代码仓库中的材料组成完整问题链，不复制原文，也不改变原有 URL。
 
 - [**主题档案总览**](/notes/topics/)
-- [**IO-Aware Attention**](/notes/topics/io-aware-attention/) — Online Softmax、FlashAttention、分块复现、数值误差与稀疏近似误差。
+- [**IO-Aware Attention**](/notes/topics/io-aware-attention/) — Online Softmax、FlashAttention、分块复现与 operation-level 数值误差。
 - [**Variational Autoencoder**](/notes/topics/variational-autoencoders/) — ELBO、重参数化、最小复现与 CNN-VAE。
 - [**表征几何**](/notes/topics/representation-geometry/) — PCA、whitening、聚类评估与 BERT 表征探针。
 - [**反问题与可靠计算**](/notes/topics/inverse-modeling/) — forward model、观测、反演、正则化、可信度与项目验证。

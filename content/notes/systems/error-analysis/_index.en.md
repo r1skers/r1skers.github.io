@@ -60,7 +60,7 @@ It is an ideal first specimen: the formulas are transparent, yet they lead natur
 
 ### Topic 2: Softmax
 
-Softmax follows the actual floating-point computation graph through max subtraction, exp, normalizer accumulation, division, and output casting, then compares naive, safe, online, and blockwise evaluation orders. The investigation is still active; it will become a formal series after the conclusions stabilize. Related algorithms and reproductions are collected in the [IO-Aware Attention dossier](/en/notes/topics/io-aware-attention/).
+The first Softmax pass is now archived as [Softmax: From Directional Error to Finite Precision](/en/notes/systems/error-analysis/softmax/). It begins with directional error in a two-dimensional linear map, proceeds through Jacobians, singular values, and the probability simplex, and then follows subtract-max, exp, normalizer summation, division, and input quantization through the floating-point computation graph. GPU reduction, mixed precision, and blockwise implementations remain for a later systems pass; related algorithms and reproductions are also collected in the [IO-Aware Attention dossier](/en/notes/topics/io-aware-attention/).
 
 ## Project and Evidence
 
