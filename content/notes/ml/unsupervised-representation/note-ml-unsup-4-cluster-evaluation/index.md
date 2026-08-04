@@ -4,13 +4,17 @@ draft: false
 title: '机器学习 / 无监督学习 Part 4：聚类评估、外部指标与稳定性'
 summary: "聚类算法一定会给出结果，但结果是否有意义需要评估。本篇整理内部指标 silhouette、Davies-Bouldin、Calinski-Harabasz，外部指标 NMI、ARI、purity，以及 resampling stability 的基本直觉和使用边界。"
 description: "无监督学习第四篇：聚类评估。围绕内部指标、外部指标和稳定性，理解几何紧密度、语义标签对齐和扰动可复现性之间的区别。"
-tags: ["Unsupervised Learning", "Clustering Evaluation", "Silhouette", "Davies-Bouldin", "Calinski-Harabasz", "NMI", "ARI", "Purity", "Stability", "Resampling"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "Clustering"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
   - /notes/笔记-机器学习-无监督学习4-聚类评估内部指标外部指标与稳定性/
   - /notes/note-ml-unsup-4-cluster-evaluation/
 ---
+
+> **主题入口：** [表征几何档案](/notes/topics/representation-geometry/)
 
 # 机器学习 / 无监督学习 Part 4：聚类评估、外部指标与稳定性
 

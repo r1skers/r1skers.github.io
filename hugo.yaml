@@ -24,6 +24,7 @@ languages:
 taxonomies:
   category: categories
   tag: tags
+  series: series
 
 markup:
   goldmark:
@@ -54,7 +55,7 @@ params:
   HomeInfoParams:
     Title: "Hephaestus' Forge"
     Subtitle: "Engineering the stairs to apotheosis."
-    Content: "An engineering notebook for Notes, Posts, Tools, and Artifacts. I turn experiments into reproducible records and long-term growth."
+    Content: "An engineering notebook organized around error analysis, reliable computation, and reproducible evidence."
   backgrounds:
     home:
       enabled: true
@@ -142,13 +143,17 @@ params:
     limit: 3
     sections: ["notes", "tools", "posts", "artifacts"]
   homeFocus:
-    enabled: false
+    enabled: true
     title:
-      zh: "准备研究的问题"
-      en: "Research Questions"
+      zh: "当前研究"
+      en: "Current Research"
     items:
-      zh: []
-      en: []
+      zh:
+        - "[误差分析：从近似到可靠计算](/notes/systems/error-analysis/) — 当前 Topic：Softmax 的 exp、累加、除法与浮点计算路径。"
+        - "[主题档案](/notes/topics/) — 跨 Notes、Artifacts 与代码仓库组织完整问题链。"
+      en:
+        - "[Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/) — Current topic: exp, accumulation, division, and floating-point paths in Softmax."
+        - "[Topic Dossiers](/en/notes/topics/) — Complete problem-driven paths across Notes, Artifacts, and code repositories."
 
   socialIcons:
     - name: GitHub
@@ -175,6 +180,16 @@ menu:
       url: /categories/
       weight: 10
 
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 14
+
+    - identifier: series
+      name: Series
+      url: /series/
+      weight: 17
+
     - identifier: archives
       name: Archives
       url: /archives/
@@ -192,7 +207,7 @@ menu:
       name: Notes
       url: /notes/
       params:
-        description: "Study notes, field logs, and technical drafts."
+        description: "Current research threads, topic dossiers, and canonical foundations."
       weight: 20
 
     - identifier: tools

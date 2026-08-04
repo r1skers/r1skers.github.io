@@ -5,14 +5,14 @@ draft: false
 summary: "A two-stage parameter-inversion record for heat_kappa_inverse: generate `kappa -> features` data first, then regress `features -> kappa`, with ID/OOD and noisy robustness results."
 description: "Artifact-2.5 page for heat_kappa_inverse: dataset generation, inverse regression, ID/OOD analysis, sigma-k calibration, and current limits."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Heat Equation"
-  - "Parameter Inversion"
-  - "ID/OOD"
-  - "Robustness"
+  - "Computational Science"
+  - "Inverse Problem"
+  - "PDE"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 25
 ---
 

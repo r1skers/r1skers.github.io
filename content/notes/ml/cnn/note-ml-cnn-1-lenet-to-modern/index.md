@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / CNN 与视觉表征：从 LeNet-5 到 Modern CNN'
 summary: "从 LeNet-5 论文出发，复现一版尽量贴近原文的 CNN，再改写为现代训练习惯下的 CNN，并观察激活函数、通道数、池化方式和特征图。"
 description: "A study note on LeNet-5 and modern CNN variants on MNIST."
-tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-生成模型2-从lenet5到modern-cnn/
   - /notes/笔记-机器学习-cnn与视觉表征1-从lenet5到moderncnn/

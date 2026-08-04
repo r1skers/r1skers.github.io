@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 7：低秩近似、PCA 与结构化近似'
 summary: "从截断 SVD 出发证明 Eckart–Young–Mirsky 定理，再把同一最优子空间解释为 PCA；随后给出 randomized range finder、Nyström、NMF 与稀疏近似的严格定义、核心结论和边界。"
 description: "有限维矩阵近似笔记：Eckart–Young–Mirsky 定理及证明、PCA 的最大方差和最小重构误差等价性、whitening、随机化低秩近似、Nyström、非负矩阵分解、稀疏表示、spark 与 mutual coherence。"
-tags: ["Linear Algebra", "Low Rank Approximation", "Eckart-Young", "PCA", "Whitening", "Randomized SVD", "Nystrom", "NMF", "Sparse Approximation", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "PCA"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

@@ -4,8 +4,10 @@ draft: false
 title: '优化与变分：拉格朗日函数与拉格朗日算子'
 summary: "从无约束驻点出发，理解等式约束下「梯度必须对齐」的几何，引出拉格朗日函数 L(x,λ)，再把「构造 L 并求驻点」这件事抽象成拉格朗日算子，最后搭一座通向变分法欧拉–拉格朗日方程的桥。"
 description: "优化与变分入门笔记：约束优化的梯度对齐几何、拉格朗日乘子、拉格朗日函数 L(x,λ)，以及把驻点系统看成拉格朗日算子，并通向无穷维变分。"
-tags: ["Optimization", "Calculus of Variations", "Lagrangian", "Lagrange Multiplier", "Euler-Lagrange", "KKT"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Optimization", "Calculus of Variations"]
+categories: ["Notes"]
+series: ["Optimization and Variational Methods"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-优化-拉格朗日函数与拉格朗日算子/
   - /notes/note-opt-lagrangian/

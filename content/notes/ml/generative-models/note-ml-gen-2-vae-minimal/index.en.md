@@ -4,10 +4,14 @@ draft: false
 title: 'Machine Learning / Generative Models: A Minimal VAE Reproduction'
 summary: "A minimal PyTorch reproduction of an MLP-VAE on MNIST, connecting the encoder, reparameterization, decoder, ELBO loss, and experimental observations."
 description: "A minimal PyTorch reproduction of Variational Autoencoder on MNIST."
-tags: ["Generative Models", "VAE", "PyTorch", "MNIST", "Reproduction"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Generative Models", "VAE"]
+categories: ["Notes"]
+series: ["Variational Autoencoders"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Variational Autoencoders](/en/notes/topics/variational-autoencoders/)
 
 # Machine Learning / Generative Models: A Minimal VAE Reproduction
 

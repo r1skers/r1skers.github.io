@@ -4,8 +4,10 @@ draft: false
 title: 'Machine Learning / Transformer and Sequence Modeling: From Attention to the Encoder'
 summary: "Starting from the motivation behind self-attention, this note derives scaled dot-product attention, multi-head attention, masking, and positional encoding, then reproduces a minimal encoder-only Transformer in PyTorch and validates the necessity of PE on two synthetic tasks."
 description: "A study note on Transformer fundamentals — self-attention, multi-head, positional encoding, pre-norm encoder block — with a minimal encoder-only reforge on two synthetic argmax-style tasks."
-tags: ["Transformer", "Self-Attention", "Positional Encoding", "PyTorch", "Encoder"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Transformer", "Attention"]
+categories: ["Notes"]
+series: ["Transformer, ViT, and CLIP"]
+note_kind: "topic"
 aliases:
 ---
 

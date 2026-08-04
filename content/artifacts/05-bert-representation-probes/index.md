@@ -5,11 +5,13 @@ title: "[Artifact-5] BERT 表征探针：多视角对照"
 summary: "把同一份 BERT 文档片段表征用多种 probe 拆开来看：聚类视角、线性可读视角、Fisher 几何视角。每把尺子看到 BERT 学到了什么的一个不同侧面，没有任何一把单独足够。"
 description: "Artifact-5 是一个 umbrella artifact：以 BERT 文档片段表征为对象，按 probing 方法分成多个 child artifact 独立分析，每个视角独立可读，整体形成对照框架。"
 tags:
-  - "Artifact"
   - "BERT"
-  - "Representation Analysis"
+  - "Representation Geometry"
+  - "Machine Learning"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 50
 math: true
 ---

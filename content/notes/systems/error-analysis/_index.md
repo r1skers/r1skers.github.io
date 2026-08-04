@@ -6,6 +6,8 @@ summary: "一条按研究对象组织的长期主线：追踪误差的定义、�
 description: "以具体数学对象和计算系统为入口，建立可推导、可实验、可复现的误差分析方法。"
 tags: ["Error Analysis", "Numerical Analysis", "Reliability"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 1
 ---
 
@@ -58,7 +60,7 @@ weight: 1
 
 ### Topic 2：Softmax
 
-Softmax 将把标量局部传播推广到向量映射与 Jacobian，并继续研究 shift invariance、input quantization、overflow/underflow、cross-entropy 与计算精度。目前研究仍在进行，结论稳定后再归档为正式笔记。
+Softmax 将沿着实际浮点计算图研究 max subtraction、exp、normalizer 累加、除法与输出 cast 的 operation-level error，再比较 naive、safe、online 和 blockwise 计算顺序。目前研究仍在进行，结论稳定后再归档为正式笔记。相关算法与复现已汇入 [IO-Aware Attention 主题档案](/notes/topics/io-aware-attention/)。
 
 ## 项目与证据
 

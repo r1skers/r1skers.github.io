@@ -4,11 +4,15 @@ draft: false
 title: 'Machine Learning / Unsupervised Learning Part 3: KMeans, GMM, Hierarchical Clustering, and DBSCAN'
 summary: "A comparison of the core assumptions behind major clustering algorithms: KMeans as center prototypes, spherical KMeans as directional prototypes, GMM as probabilistic clouds, hierarchical clustering as tree structure, and DBSCAN / HDBSCAN as density connectivity."
 description: "The third note in the unsupervised learning series: KMeans, spherical KMeans, Gaussian Mixture Models, hierarchical clustering, DBSCAN, and HDBSCAN, focusing on what each algorithm assumes a cluster should look like."
-tags: ["Unsupervised Learning", "Clustering", "KMeans", "Spherical KMeans", "GMM", "EM Algorithm", "Hierarchical Clustering", "DBSCAN", "HDBSCAN", "Representation Geometry"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "Clustering"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
 ---
+
+> **Topic dossier:** [Representation Geometry](/en/notes/topics/representation-geometry/)
 
 # Machine Learning / Unsupervised Learning Part 3: KMeans, GMM, Hierarchical Clustering, and DBSCAN
 

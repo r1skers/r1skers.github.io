@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 0：从概率空间到统计推断与随机过程'
 summary: "以概率空间为共同起点，依次建立随机变量、分布、期望与条件结构，再分流到极限定理、统计推断、随机过程以及信息论。"
 description: "概率论系列路线图：概率空间、事件、随机变量、联合与条件结构、收敛和集中、统计推断、EM、随机过程、Markov 链、排队论，以及与信息论和信息几何的接口。"
-tags: ["Probability Theory", "Roadmap", "Random Variable", "Conditional Expectation", "Limit Theorem", "Statistical Inference", "Stochastic Process"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

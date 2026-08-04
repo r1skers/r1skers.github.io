@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 5：对称、正规、二次型与谱定理'
 summary: "在有限维实或复内积空间中，从伴随出发区分 Hermitian、normal 与 unitary，证明有限维谱定理，再以谱坐标刻画二次型、正定性、Gram 矩阵和协方差矩阵。"
 description: "有限维线性代数笔记：伴随矩阵、Hermitian 与正规矩阵、酉对角化、有限维谱定理、Rayleigh 商、正定与半正定、平方根、Gram 矩阵和协方差矩阵，并给出核心命题的证明。"
-tags: ["Linear Algebra", "Hermitian Matrix", "Normal Matrix", "Spectral Theorem", "Positive Semidefinite", "Quadratic Form", "Gram Matrix", "Covariance Matrix", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Spectral Methods"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

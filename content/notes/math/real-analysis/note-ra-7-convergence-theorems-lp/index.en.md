@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 7: MCT, Fatou, DCT, and L^p Spaces'
 summary: "Use the Lebesgue integral built in Part 6 to actually do things. The three convergence theorems settle the 'when can we swap limit and integral' question: MCT escorts via monotonicity, Fatou gives a one-sided inequality, DCT uses a dominating function to block mass escape. With the moving-spike counterexample, the relationship between the three is one glance. Then build L^p spaces: Hölder (the p-generalization of Cauchy–Schwarz), Minkowski (the L^p triangle inequality), Riesz–Fischer (L^p complete ⇒ Banach), L^2 as the unique inner-product-admitting L^p (linking to Part 3 Hilbert), and (L^p)*=L^q (linking to Part 4 duality). Parts 3 through 7 now form one continuous arc."
 description: "An advanced real-analysis note on the Lebesgue-integral form of the monotone convergence theorem (MCT), Fatou's lemma, the dominated convergence theorem (DCT), the implications among the three, the moving-spike counterexample and mass escape, the role of the ceiling/dominating function, L^p spaces, a.e. equivalence classes, Hölder's inequality (with Cauchy–Schwarz as the p=2 special case), Minkowski's inequality, the Riesz–Fischer completeness theorem, L^2 as the unique inner-product-admitting L^p, and (L^p)*=L^q duality pairing."
-tags: ["Real Analysis", "Measure Theory", "Lebesgue Integral", "Monotone Convergence", "Fatou", "Dominated Convergence", "Lp Space", "Holder", "Minkowski", "Riesz-Fischer", "Banach Space", "Hilbert Space", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Measure Theory"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-7-convergence-theorems-lp/
 ---

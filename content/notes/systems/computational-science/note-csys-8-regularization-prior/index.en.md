@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 8: Regularization, Priors, and Stable Inversion'
 summary: "With log-parameterization and L-BFGS-B, we can already obtain a more natural 16-dimensional blockwise inversion result. But a better solver does not automatically remove ill-posedness, so the next step is to explain why regularization and priors are still needed to stabilize the solution."
 description: "Part 8 on regularization, priors, and stable inversion for blockwise kappa recovery."
-tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Stability", "Kappa", "Reliability"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "Regularization"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 8: Regularization, Priors, and Stable Inversion
 

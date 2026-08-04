@@ -4,8 +4,9 @@ draft: false
 title: 'A Small Nonlinear Least-Squares Experiment: Comparing the Trajectories of Three Optimization Methods'
 summary: "Using a simple curve-fitting experiment to compare gradient descent, Newton's method, and Gauss-Newton on the same plot, focusing on how they move, how they converge, and where they finally stop."
 description: "A nonlinear least-squares fitting experiment around y=a exp(bt), showing the objective function, update directions, convergence trajectories, and final results of gradient descent, Newton's method, and Gauss-Newton."
-tags: ["Optimization", "Gradient Descent", "Newton's Method", "Gauss-Newton", "Least Squares", "Python"]
+tags: ["Optimization", "Numerical Methods", "Least Squares", "Numerical Stability"]
 categories: ["Posts"]
+series: ["Optimization Methods"]
 ---
 
 # Introduction

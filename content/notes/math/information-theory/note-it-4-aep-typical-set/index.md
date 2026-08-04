@@ -4,8 +4,10 @@ draft: false
 title: 'Shannon 支线 S1：AEP、典型集与熵的渐近意义'
 summary: "把长 i.i.d. 序列的每符号信息量写成样本均值，用大数定律证明 AEP，再证明典型集的概率质量、逐点概率界与基数界。"
 description: "信息论基础笔记：有限离散 i.i.d. 信源的块熵、弱渐近等分性 AEP、弱典型集、典型序列概率界、典型集基数上下界，以及熵作为渐近描述速率的计数基础。"
-tags: ["Information Theory", "AEP", "Typical Set", "Entropy", "Law of Large Numbers", "Source Coding", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Theory", "Entropy"]
+categories: ["Notes"]
+series: ["Information Theory"]
+note_kind: "foundation"
 ---
 
 # Shannon 支线 S1：AEP、典型集与熵的渐近意义

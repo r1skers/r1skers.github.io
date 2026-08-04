@@ -4,8 +4,9 @@ draft: false
 title: 'Gradient Descent, Newton''s Method, and Gauss-Newton: A Comparison of Three Optimization Methods'
 summary: "A comparison of gradient descent, Newton's method, and Gauss-Newton from the perspective of local approximation and update directions, explaining what information each method uses, why their convergence behavior differs, and what kinds of problems they fit best."
 description: "An intuition-first comparison of three optimization methods, from first-order information to second-order curvature and least-squares structure."
-tags: ["Optimization", "Gradient Descent", "Newton's Method", "Gauss-Newton", "Least Squares", "Numerical Methods"]
+tags: ["Optimization", "Numerical Methods", "Least Squares", "Numerical Stability"]
 categories: ["Posts"]
+series: ["Optimization Methods"]
 ---
 
 # Introduction

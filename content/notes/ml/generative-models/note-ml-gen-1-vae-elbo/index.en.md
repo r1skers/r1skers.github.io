@@ -4,11 +4,15 @@ draft: false
 title: 'Machine Learning / Generative Models: The Basic Idea of VAE and the ELBO'
 summary: "A study note around the core problem in the VAE paper: the intuition of Variational Autoencoder, the model structure, where ELBO comes from, and why the reparameterization trick is necessary."
 description: "A study note on the basic idea of Variational Autoencoder and the intuition behind ELBO."
-tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameterization"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Generative Models", "VAE"]
+categories: ["Notes"]
+series: ["Variational Autoencoders"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-机器学习-生成模型1-vae基本思想与elbo推导/
 ---
+
+> **Topic dossier:** [Variational Autoencoders](/en/notes/topics/variational-autoencoders/)
 
 # Machine Learning / Generative Models: The Basic Idea of VAE and the ELBO
 

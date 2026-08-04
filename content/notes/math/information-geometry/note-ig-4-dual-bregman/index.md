@@ -4,8 +4,10 @@ draft: false
 title: '信息几何 G4：Legendre 对偶、Bregman 散度与 KL'
 summary: "从指数族的 log-partition function 出发，构造其 Legendre 对偶，证明自然参数与期望参数互为对偶坐标、两套 Hessian 互逆，并严格推出 KL 等于方向反转的 Bregman 散度。"
 description: "信息几何进阶笔记：指数族的 Legendre–Fenchel 共轭、natural/expectation dual coordinates、对偶 Hessian、负熵与 base measure 修正、Bregman divergence、KL-Bregman 对应及 dually flat geometry。"
-tags: ["Information Geometry", "Legendre Duality", "Bregman Divergence", "KL Divergence", "Exponential Family", "Dual Coordinates", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Geometry", "KL Divergence"]
+categories: ["Notes"]
+series: ["Information Geometry"]
+note_kind: "foundation"
 ---
 
 # 信息几何 G4：Legendre 对偶、Bregman 散度与 KL

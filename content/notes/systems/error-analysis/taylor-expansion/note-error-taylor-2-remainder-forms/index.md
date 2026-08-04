@@ -4,8 +4,10 @@ draft: false
 title: '误差分析 · Taylor 2：Lagrange、积分与 Peano 余项'
 summary: "三种余项形式使用不同假设，也保留不同信息：未知中间点、区间贡献和局部渐近性不能互相混用。"
 description: "比较 Lagrange remainder、integral remainder 与 Peano remainder 的假设、结论和信息损失。"
-tags: ["Error Analysis", "Taylor Expansion", "Lagrange Remainder", "Peano Remainder"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 2
 ---
 

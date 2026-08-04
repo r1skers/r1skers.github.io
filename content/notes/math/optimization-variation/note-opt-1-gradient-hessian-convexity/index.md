@@ -4,8 +4,10 @@ draft: false
 title: '优化与变分 Part 1：梯度、Hessian、Taylor 与凸性'
 summary: "从 Fréchet 微分出发把梯度定义为导数的 Euclidean 表示，再把 Hessian 定义为梯度的导数；通过 Taylor 积分公式证明一阶与二阶最优性条件，并建立凸、强凸与光滑的梯度和 Hessian 判据。"
 description: "光滑优化基础：Fréchet 微分、方向导数、梯度、Hessian、Taylor 公式、局部最优性条件、凸函数的一阶与二阶判据、强凸性、L-光滑性及梯度单调性证明。"
-tags: ["Optimization", "Differential", "Gradient", "Hessian", "Taylor Theorem", "Convexity", "Strong Convexity", "Smoothness", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Optimization", "Taylor Expansion"]
+categories: ["Notes"]
+series: ["Optimization and Variational Methods"]
+note_kind: "foundation"
 math: true
 ---
 

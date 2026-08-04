@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 7：MCT、Fatou、DCT 与 L^p 空间'
 summary: "用 Part 6 造好的 Lebesgue 积分做事。三大收敛定理把『极限和积分能否换序』这件事讲透：MCT 单调护送、Fatou 单向不等、DCT 用支配函数挡住质量逃逸。配上质量逃逸的尖塔反例，三者关系一目了然。然后建 L^p 空间：Hölder（Cauchy–Schwarz 的 p 推广）、Minkowski（L^p 三角不等式）、Riesz–Fischer（L^p 完备 ⇒ Banach）、L^2 唯一可配内积（接 Part 3 Hilbert）、(L^p)*=L^q（接 Part 4 对偶）。Part 3-Part 7 至此一脉贯通。"
 description: "实分析进阶笔记：Lebesgue 积分版本的单调收敛定理 (MCT)、Fatou 引理、控制收敛定理 (DCT)、三者之间的蕴含关系、尖塔反例与质量逃逸、天花板/支配函数的作用、L^p 空间、a.e. 等价类、Hölder 不等式（Cauchy–Schwarz 是 p=2 的特例）、Minkowski 不等式、Riesz–Fischer 完备性定理、L^2 作为唯一可配内积的 L^p、(L^p)*=L^q 对偶配对。"
-tags: ["Real Analysis", "Measure Theory", "Lebesgue Integral", "Monotone Convergence", "Fatou", "Dominated Convergence", "Lp Space", "Holder", "Minkowski", "Riesz-Fischer", "Banach Space", "Hilbert Space", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Measure Theory"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析7-收敛定理与lp/
   - /notes/note-ra-7-convergence-theorems-lp/

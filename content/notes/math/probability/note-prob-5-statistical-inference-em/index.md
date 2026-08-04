@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 5：Likelihood、MLE、MAP、区间、检验与 EM'
 summary: "在受支配统计模型中定义 likelihood、MLE 与 MAP，以覆盖率和功效严格定义区间与检验，再由 ELBO–KL 恒等式推出 EM 的 E/M 两步和似然单调性。"
 description: "统计推断基础：统计模型、likelihood、MLE、MAP、置信集覆盖率、pivot 构造、假设检验、p-value、Neyman–Pearson 引理、隐变量模型、ELBO 与 EM 单调性证明。"
-tags: ["Statistics", "Likelihood", "Maximum Likelihood", "MAP", "Confidence Interval", "Hypothesis Testing", "Neyman-Pearson", "EM Algorithm", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory", "Statistics", "Latent Variable Models"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

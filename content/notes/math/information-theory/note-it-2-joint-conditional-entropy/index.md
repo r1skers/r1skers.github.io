@@ -4,8 +4,10 @@ draft: false
 title: '信息论 Part 2：联合熵、条件熵与链式法则'
 summary: "把熵从单个随机变量推广到变量对，定义联合熵与条件熵，证明链式法则、条件化不增熵以及联合熵的上下界。"
 description: "信息论基础笔记：有限离散随机变量的联合熵、条件熵、二元与多变量链式法则，条件熵为零的函数刻画，conditioning reduces entropy 与联合熵次可加性的证明。"
-tags: ["Information Theory", "Joint Entropy", "Conditional Entropy", "Chain Rule", "Independence", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Theory", "Entropy"]
+categories: ["Notes"]
+series: ["Information Theory"]
+note_kind: "foundation"
 ---
 
 # 信息论 Part 2：联合熵、条件熵与链式法则

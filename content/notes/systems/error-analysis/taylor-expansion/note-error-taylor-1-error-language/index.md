@@ -4,8 +4,10 @@ draft: false
 title: '误差分析 · Taylor 1：先把 R、O、o 与误差界说清楚'
 summary: "Taylor 研究的第一步不是套余项公式，而是区分真实余项、绝对误差、渐近阶和可计算上界。"
 description: "从 Taylor 余项定义出发，澄清 big-O、little-o、主导项与误差界的含义。"
-tags: ["Error Analysis", "Taylor Expansion", "Asymptotics", "Big O"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 1
 ---
 

@@ -4,8 +4,9 @@ draft: false
 title: "Reading Ax=b through an Engineering Energy Lens"
 summary: "Behind $Ax=b$ sits an implicit 'energy distribution map'. A's eigendecomposition reveals it; SVD and PCA branch off it (transfer vs. description), with rank, condition number, inversion, Ridge, and gradient descent hanging on as static and dynamic engineering consequences."
 description: "Around the single equation Ax=b, this post reads SVD, rank, condition number, inversion, Ridge, gradient descent, and PCA as two branches on A's energy-distribution map: one treats A as an operator (SVD transfer + GD dynamics), the other treats A as data (PCA description)."
-tags: ["Linear Algebra", "SVD", "Eigendecomposition", "Matrix", "Energy", "Rank", "Condition Number", "Ridge", "Regularization", "PCA", "Gradient Descent", "Optimization", "Engineering Perspective"]
+tags: ["Linear Algebra", "Numerical Stability", "Regularization", "Optimization"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # Setup

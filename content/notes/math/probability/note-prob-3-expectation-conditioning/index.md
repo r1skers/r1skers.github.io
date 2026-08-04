@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 3：期望、联合分布、条件期望与方差分解'
 summary: "把期望定义为概率空间上的 Lebesgue 积分，建立推前积分公式、方差与协方差，再从联合分布进入条件期望，证明塔律、全期望和全方差公式。"
 description: "概率论主干：期望与 LOTUS、常见分布的矩、方差、协方差、联合和边缘分布、条件分布、相对于 σ-代数的条件期望、塔律、条件方差与全方差公式。"
-tags: ["Probability Theory", "Expectation", "Variance", "Covariance", "Joint Distribution", "Conditional Expectation", "Tower Property", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

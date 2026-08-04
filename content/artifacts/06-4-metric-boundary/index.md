@@ -5,14 +5,14 @@ title: "[Artifact-6.4] Metric Boundary：局部误差不是行为 Oracle"
 summary: "Artifact-6 的第四份记录：在 BERT/GPT-2 真实 attention 上确认 rel-hat 是强局部 sparse-attention scorer 之后，继续把评价指标推过 W_O、next-token KL 和整层干预。结果显示局部误差控制能迁移到 W_O 投影层面，但 local oracle 不是 behavioral oracle；越接近读出结构，局部最优与 KL 最优的错位越明显。"
 description: "记录 Value-Aware Sparse Attention 的 metric-boundary 阶段：W_O-projected error、GPT-2 single-head next-token KL、whole-layer KL intervention，以及 local sparse-attention error 与 model-level behavioral impact 之间的边界。"
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "GPT-2"
-  - "Efficient Attention"
   - "Error Analysis"
-  - "Metric Boundary"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 64
 math: true
 ---

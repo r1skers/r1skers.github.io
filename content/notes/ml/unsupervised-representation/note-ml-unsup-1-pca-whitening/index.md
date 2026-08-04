@@ -4,13 +4,17 @@ draft: false
 title: '机器学习 / 无监督学习 Part 1：PCA、Whitening 与邻域可视化'
 summary: "从 PCA 的最大方差方向开始，理解线性降维、协方差谱分解、whitening 的几何尺度校正，以及 t-SNE / UMAP 这类邻域可视化方法为什么适合提出假设而不能直接证明簇结构。"
 description: "无监督学习第一篇：PCA、whitening、t-SNE 与 UMAP。围绕表征空间的方向、尺度、局部邻域和可视化误差，建立后续 embedding 聚类的几何基础。"
-tags: ["Unsupervised Learning", "PCA", "Whitening", "t-SNE", "UMAP", "Dimensionality Reduction", "Representation Geometry", "KL Divergence"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "PCA"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
   - /notes/笔记-机器学习-无监督学习1-pcawhitening与邻域可视化/
   - /notes/note-ml-unsup-1-pca-whitening/
 ---
+
+> **主题入口：** [表征几何档案](/notes/topics/representation-geometry/)
 
 # 机器学习 / 无监督学习 Part 1：PCA、Whitening 与邻域可视化
 

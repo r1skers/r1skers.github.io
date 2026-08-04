@@ -5,14 +5,14 @@ title: "[Artifact-5.1] BERT 聚类视角 Pilot Note"
 summary: "Artifact-5 多视角对照系列的聚类视角：比较 BERT 文档片段表征的层间话题对齐、PCA 白化、球面 KMeans、不同聚类器与 K 粒度，并补 subset-resampling stability 对照，观察 20 Newsgroups 语义结构如何在高层表示中浮现。"
 description: "Artifact-5.1 是 BERT 表征探针系列下的聚类视角 child artifact：从 BERT 层间表示抽取、随机初始化对照、白化维度扫描、聚类器对照、stability ARI 到簇—话题热力图解释，形成可复现的聚类视角完整记录。"
 tags:
-  - "Artifact"
   - "BERT"
   - "Clustering"
-  - "Representation Analysis"
-  - "PCA Whitening"
-  - "20 Newsgroups"
+  - "Representation Geometry"
+  - "PCA"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 51
 math: true
 aliases:

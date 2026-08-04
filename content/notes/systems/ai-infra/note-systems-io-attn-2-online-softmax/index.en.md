@@ -4,10 +4,14 @@ draft: false
 title: 'Systems / IO-Aware Attention Part 2: The Original Online Softmax Derivation'
 summary: "Milakov & Gimelshein's 2018 NVIDIA tech report starts from the memory-bound bottleneck of large-vocabulary softmax and compares three implementations: naive softmax is two-pass but unsafe, safe softmax adds one pass to avoid overflow, and online softmax merges max and normalizer calculation back into one scan. This is the direct source of FlashAttention v1's rebase trick."
 description: "A study note on Milakov & Gimelshein 2018 (arXiv 1805.02867). It compares naive, safe, and online softmax, derives the online normalizer recurrence, explains why it is mathematically equivalent to safe softmax, and follows the paper's fused softmax + top-K extension."
-tags: ["Online Softmax", "Softmax", "Memory Bandwidth", "Numerical Stability", "Top-K", "NMT", "AI Infra", "IO-aware"]
-categories: ["Crucible"]
+tags: ["Systems", "AI Infra", "Attention", "Softmax"]
+categories: ["Notes"]
+series: ["IO-Aware Attention"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [IO-Aware Attention](/en/notes/topics/io-aware-attention/)
 
 # Systems / IO-Aware Attention Part 2: The Original Online Softmax Derivation
 

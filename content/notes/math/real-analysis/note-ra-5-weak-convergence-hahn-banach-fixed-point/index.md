@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 5：弱收敛、Hahn–Banach 与 Banach 不动点定理'
 summary: "继续 Part 4 的对偶空间。先用 Hilbert 上 e_n ⇀ 0 这个反例把强/弱收敛的真实分歧钉死；再借 Banach–Alaoglu 把 BW 在无穷维里的失效一半地恢复回来。然后从 Hahn–Banach 拉出三个推论——保范延拓、范数对偶刻画、凸集分离——这是泛函分析里把抽象空间『看清楚』的扳手。最后用 Banach 不动点定理把这些工具落回数值方法：完备性是不动点存在的命根子，几何收敛速度直接挂在压缩常数 k 上，与条件数 κ 形成闭环。"
 description: "泛函分析进阶笔记：强收敛与弱收敛、弱收敛在 Hilbert 上的内积形式、弱下半连续性、Banach–Alaoglu 与弱列紧、Hahn–Banach 延拓定理及三个推论（保范延拓、范数对偶刻画、凸集分离）、Banach 不动点定理、压缩映射、完备性在不动点证明里的角色、几何收敛速度与条件数的联系。"
-tags: ["Functional Analysis", "Weak Convergence", "Strong Convergence", "Banach-Alaoglu", "Weak Compactness", "Hahn-Banach", "Banach Fixed Point", "Contraction Mapping", "Convergence Rate", "Condition Number", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Functional Analysis", "Convergence"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析5-弱收敛hahnbanach不动点/
   - /notes/笔记-泛函分析3-弱收敛hahnbanach不动点/

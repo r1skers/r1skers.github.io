@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / CNN 与视觉表征：ResNet，残差学习与退化问题'
 summary: "从 ResNet 论文和 CIFAR-10 轻量复现实验出发，理解 residual connection 如何缓解深层 plain network 的 degradation problem。"
 description: "A study note on ResNet, residual learning, degradation problem, CIFAR-10 reproduction, and visual backbone transfer."
-tags: ["CNN", "Visual Representation", "ResNet", "Residual Learning", "CIFAR-10", "PyTorch", "Deep Learning"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-CNN与视觉表征4-ResNet残差学习与退化问题/
   - /notes/笔记-机器学习-cnn与视觉表征4-resnet残差学习与退化问题/

@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 1: Convergence, Uniqueness, Boundedness, and Cauchy Sequences'
 summary: "Starting from the epsilon-N definition of sequence limits, this note organizes the basic language of real-analysis proofs and moves through uniqueness of limits, boundedness of convergent sequences, and Cauchy sequences."
 description: "An introductory real-analysis note on epsilon-N proofs, sequence convergence, uniqueness of limits, boundedness of convergent sequences, and the definition and intuition of Cauchy sequences."
-tags: ["Real Analysis", "Epsilon-N", "Sequence", "Convergence", "Cauchy Sequence", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-1-epsilon-n-and-cauchy-sequences/
 ---

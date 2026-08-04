@@ -3,8 +3,10 @@ date: '2025-10-29T19:01:21+09:00'
 draft: false
 title: 'Linear Systems Part 3: RLC Circuit Analysis (Differential Equations vs. Laplace Transform)'
 summary: "Compare two solution paths for second-order linear circuits: the traditional differential-equation method and the Laplace-transform method, highlighting Laplace advantages for initial-value problems."
-tags: ["RLC Circuit", "Differential Equations", "Laplace Transform", "Python", "Schemdraw","Eureka"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Signal & Systems", "Laplace Transform"]
+categories: ["Notes"]
+series: ["Signal and Systems"]
+note_kind: "foundation"
 aliases:
 ---
 

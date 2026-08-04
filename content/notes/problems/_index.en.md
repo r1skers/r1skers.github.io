@@ -4,8 +4,10 @@ draft: false
 title: 'Problem Set'
 summary: "Companion exercises grouped into per-subject subpages, each problem listed one per entry with a collapsible solution. Consolidated now and split later: a sparse subject shares a page, and a subject gets its own page once it grows."
 description: "A companion problem set for the math notes, grouped into per-subject subpages (Real Analysis, Optimization and Calculus of Variations, Miscellaneous), listed problem by problem with reference solutions."
-tags: ["Problems", "Exercises"]
-categories: ["Crucible"]
+tags: ["Exercises"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "topic-index"
 problemPage: true
 aliases:
   - /notes/problem-set/

@@ -4,8 +4,10 @@ draft: false
 title: '优化与变分 Part 3：Newton、阻尼与拟 Newton'
 summary: "从二阶 Taylor 模型推出 Newton 方程，证明正定 Hessian 下 Newton 方向为下降方向，并在 Hessian 局部 Lipschitz 时证明二次收敛；随后由梯度差构造割线方程，证明 BFGS 更新满足割线条件并在曲率条件下保持正定。"
 description: "二阶优化证明型笔记：Newton 法、局部二次收敛、阻尼与 Armijo 线搜索、拟 Newton 割线方程、BFGS Hessian 与逆 Hessian 更新、曲率条件和正定保持的证明边界。"
-tags: ["Optimization", "Newton Method", "Damped Newton", "Line Search", "Quasi-Newton", "Secant Equation", "BFGS", "Quadratic Convergence", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Optimization", "Numerical Methods"]
+categories: ["Notes"]
+series: ["Optimization and Variational Methods"]
+note_kind: "foundation"
 math: true
 ---
 

@@ -1,241 +1,227 @@
 ---
 title: "Notes"
-description: "Course notes and self-study records."
-summary: "An index of course notes and self-study records."
+description: "Current research threads, topic dossiers, and a foundations library."
+summary: "Problem-driven reading paths with canonical subject homes in mathematics, machine learning, systems, and engineering."
+aliases:
+  - /en/study-notes/
+  - /en/notebook/
 ---
 
+This section keeps two complementary organizations. Foundations retain a canonical subject home, while research material is reassembled into problem-driven topic dossiers. An article is stored once but may participate in several reading paths.
+
 <details open>
-<summary><strong>Mathematics</strong></summary>
+<summary><strong>Current Research Thread</strong></summary>
+
+### Error Analysis: From Approximation to Reliable Computation
+
+Starting from a reference, approximation, and metric, this thread tracks how errors are defined, introduced, propagated, estimated, controlled, and traded against cost.
+
+- [**Thread overview** — Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/)
+- [**Topic 1: Taylor Expansion** — From remainders to error control](/en/notes/systems/error-analysis/taylor-expansion/)
+- **Topic 2: Softmax Numerical Error (in progress)** — Operation-level error from max subtraction, exp, accumulation, division, casting, and evaluation order.
+
+<details class="note-subgroup">
+<summary><strong>The three Taylor chapters</strong></summary>
+
+**I. Error language and representation**
+
+- [Taylor 1 — (R), (O), (o), and error bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
+- [Taylor 2 — Lagrange, integral, and Peano remainders](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
+
+**II. Bounds and propagation**
+
+- [Taylor 3 — Why a correct bound can still be unconvincing](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
+- [Taylor 4 — How errors propagate](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
+
+**III. Error budgets and control**
+
+- [Taylor 5 — From step size to Richardson extrapolation](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
+- [Taylor 6 — Putting noise into the error budget](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
+
+</details>
+
+</details>
+
+<details open>
+<summary><strong>Topic Dossiers</strong></summary>
+
+Topic dossiers assemble material from Notes, Artifacts, and code repositories into coherent problem chains without duplicating content or changing existing URLs.
+
+- [**Dossier index**](/en/notes/topics/)
+- [**IO-Aware Attention**](/en/notes/topics/io-aware-attention/) — Online Softmax, FlashAttention, tiled reproduction, numerical error, and sparse-approximation error.
+- [**Variational Autoencoders**](/en/notes/topics/variational-autoencoders/) — ELBO, reparameterization, minimal reproduction, and CNN-VAE.
+- [**Representation Geometry**](/en/notes/topics/representation-geometry/) — PCA, whitening, clustering evaluation, and BERT representation probes.
+- [**Inverse Modeling and Reliable Computation**](/en/notes/topics/inverse-modeling/) — Forward models, observations, inversion, regularization, credibility, and project validation.
+
+</details>
+
+<details>
+<summary><strong>Foundations · Mathematics</strong></summary>
 
 <details class="note-subgroup">
 <summary><strong>Linear Algebra</strong></summary>
 
-The proof-first LA0–LA9 series is currently available in Chinese only. The links below intentionally open the Chinese pages; English translations have not been published.
+[Part 0 roadmap](/notes/math/linear-algebra/note-la-0-foundation/) connects linear maps and coordinates to spaces, equations, spectra, factorizations, approximation, stability, and structured computation.
 
-- [**LA0** — 矩阵、线性映射与坐标语言](/notes/math/linear-algebra/note-la-0-foundation/)
-- [**LA1** — 向量空间、基、秩与四基本子空间](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)
-- [**LA2** — 内积、正交投影与最小二乘](/notes/math/linear-algebra/note-la-2-inner-product-projection/)
-- [**LA3** — 线性方程、伪逆与最小范数解](/notes/math/linear-algebra/note-la-3-linear-equations-pseudoinverse/)
-- [**LA4** — 特征值、不变子空间、Schur 与 Jordan](/notes/math/linear-algebra/note-la-4-eigen-schur-jordan/)
-- [**LA5** — 对称、正规、二次型与谱定理](/notes/math/linear-algebra/note-la-5-symmetric-normal-psd-spectral/)
-- [**LA6** — LU、QR、Cholesky、SVD 与极分解](/notes/math/linear-algebra/note-la-6-matrix-factorizations/)
-- [**LA7** — 低秩近似、PCA 与结构化近似](/notes/math/linear-algebra/note-la-7-low-rank-pca/)
-- [**LA8** — 条件数、数值稳定性与正则化](/notes/math/linear-algebra/note-la-8-conditioning-stability-regularization/)
-- [**LA9** — 矩阵函数、迭代法与结构化计算](/notes/math/linear-algebra/note-la-9-matrix-functions-iterative-structured/)
-
-</details>
-
-<details class="note-subgroup">
-<summary><strong>Real Analysis and Functional Analysis</strong></summary>
-
-- [**Real Analysis 1** — Convergence, Uniqueness, Boundedness, and Cauchy Sequences](/en/notes/math/real-analysis/note-ra-1-convergence-cauchy)
-- [**Real Analysis 2** — The Supremum Axiom, Monotone Convergence, and the Equivalence Chain of Completeness](/en/notes/math/real-analysis/note-ra-2-supremum-completeness)
-- [**Real Analysis 3** — Metric Spaces, Normed Spaces, Hilbert Spaces, and the Foundations of Fourier](/en/notes/math/real-analysis/note-ra-3-metric-normed-hilbert-fourier)
-- [**Real Analysis 4** — Bounded Linear Operators, Dual Space, Spectral Theory, and Compact Operators](/en/notes/math/real-analysis/note-ra-4-operators-dual-spectrum-compact)
-- [**Real Analysis 5** — Weak Convergence, Hahn-Banach, and the Banach Fixed-Point Theorem](/en/notes/math/real-analysis/note-ra-5-weak-convergence-hahn-banach-fixed-point)
-- [**Real Analysis 6** — Measures, Measurable Functions, and the Lebesgue Integral](/en/notes/math/real-analysis/note-ra-6-measure-lebesgue-integral)
-- [**Real Analysis 7** — MCT, Fatou, DCT, and L^p Spaces](/en/notes/math/real-analysis/note-ra-7-convergence-theorems-lp)
+- [Part 1 — Vector spaces, bases, rank, and the four fundamental subspaces](/notes/math/linear-algebra/note-la-1-vector-spaces-rank/)
+- [Part 2 — Inner products, orthogonal projection, and least squares](/notes/math/linear-algebra/note-la-2-inner-product-projection/)
+- [Part 3 — Linear equations, pseudoinverses, and minimum-norm solutions](/notes/math/linear-algebra/note-la-3-linear-equations-pseudoinverse/)
+- [Part 4 — Eigenvalues, invariant subspaces, Schur, and Jordan](/notes/math/linear-algebra/note-la-4-eigen-schur-jordan/)
+- [Part 5 — Symmetry, normality, quadratic forms, and the spectral theorem](/notes/math/linear-algebra/note-la-5-symmetric-normal-psd-spectral/)
+- [Part 6 — LU, QR, Cholesky, SVD, and polar decomposition](/notes/math/linear-algebra/note-la-6-matrix-factorizations/)
+- [Part 7 — Low-rank approximation, PCA, and structured approximation](/notes/math/linear-algebra/note-la-7-low-rank-pca/)
+- [Part 8 — Conditioning, numerical stability, and regularization](/notes/math/linear-algebra/note-la-8-conditioning-stability-regularization/)
+- [Part 9 — Matrix functions, iterative methods, and structured computation](/notes/math/linear-algebra/note-la-9-matrix-functions-iterative-structured/)
 
 </details>
 
 <details class="note-subgroup">
-<summary><strong>Signals and Systems</strong></summary>
+<summary><strong>Real and Functional Analysis</strong></summary>
 
-This branch hangs under real and functional analysis: Hilbert spaces, orthogonal expansions, and operators become the transform methods used in signals and systems (Fourier / Laplace / linear systems).
-
-- [**Part 1** — Fourier Transform](/en/notes/math/linear-systems/note-linsys-1-fourier)
-- [**Part 2** — Laplace Transform](/en/notes/math/linear-systems/note-linsys-2-laplace)
-- [**Part 3** — RLC Circuit Analysis: Differential Equations vs. Laplace Transform](/en/notes/math/linear-systems/note-linsys-3-laplace-pde)
+- [Part 1 — Convergence, uniqueness, boundedness, and Cauchy sequences](/en/notes/math/real-analysis/note-ra-1-convergence-cauchy/)
+- [Part 2 — The supremum axiom, monotone convergence, and completeness](/en/notes/math/real-analysis/note-ra-2-supremum-completeness/)
+- [Part 3 — Metric, normed, and Hilbert spaces with Fourier foundations](/en/notes/math/real-analysis/note-ra-3-metric-normed-hilbert-fourier/)
+- [Part 4 — Bounded operators, dual spaces, spectra, and compact operators](/en/notes/math/real-analysis/note-ra-4-operators-dual-spectrum-compact/)
+- [Part 5 — Weak convergence, Hahn–Banach, and Banach fixed points](/en/notes/math/real-analysis/note-ra-5-weak-convergence-hahn-banach-fixed-point/)
+- [Part 6 — Measures, measurable functions, and the Lebesgue integral](/en/notes/math/real-analysis/note-ra-6-measure-lebesgue-integral/)
+- [Part 7 — MCT, Fatou, DCT, and (L^p) spaces](/en/notes/math/real-analysis/note-ra-7-convergence-theorems-lp/)
 
 </details>
 
 <details class="note-subgroup">
-<summary><strong>Optimization and Calculus of Variations</strong></summary>
+<summary><strong>Optimization and Variational Methods</strong></summary>
 
-The proof-first O0–O3 sequence is currently available in Chinese only. These links intentionally open the Chinese pages:
-
-- [**O0** — 从局部几何到约束与变分](/notes/math/optimization-variation/note-opt-0-roadmap/)
-- [**O1** — 梯度、Hessian、Taylor 与凸性](/notes/math/optimization-variation/note-opt-1-gradient-hessian-convexity/)
-- [**O2** — 梯度下降、收敛率与谱滤波](/notes/math/optimization-variation/note-opt-2-gradient-descent/)
-- [**O3** — Newton、阻尼与拟 Newton](/notes/math/optimization-variation/note-opt-3-newton-quasi-newton/)
-
-The existing English note on constrained optimization remains available:
-
-- [**Lagrange Multipliers** — The Lagrangian Function and the Lagrange Operator](/en/notes/math/optimization-variation/note-opt-lagrangian/)
+- [Part 0 roadmap — From local geometry to constraints and variation](/notes/math/optimization-variation/note-opt-0-roadmap/)
+- [Part 1 — Gradients, Hessians, Taylor expansion, and convexity](/notes/math/optimization-variation/note-opt-1-gradient-hessian-convexity/)
+- [Part 2 — Gradient descent, convergence rates, and spectral filtering](/notes/math/optimization-variation/note-opt-2-gradient-descent/)
+- [Part 3 — Newton, damping, and quasi-Newton methods](/notes/math/optimization-variation/note-opt-3-newton-quasi-newton/)
+- [Constraints and variation — The Lagrangian function and operator](/en/notes/math/optimization-variation/note-opt-lagrangian/)
 
 </details>
 
 <details class="note-subgroup">
 <summary><strong>Probability and Statistics</strong></summary>
 
-The proof-first P0–P6 series is currently available in Chinese only. The links below intentionally open the Chinese pages; English translations have not been published.
-
-- [**P0 路线图** — 从概率空间到统计推断与随机过程](/notes/math/probability/note-prob-0-roadmap/)
-- [**P1** — 概率空间、条件概率、独立性与 Bayes](/notes/math/probability/note-prob-1-probability-space-events/)
-- [**P2** — 随机变量、CDF 与常见分布族](/notes/math/probability/note-prob-2-random-variables-distributions/)
-- [**P3** — 期望、联合分布、条件期望与方差分解](/notes/math/probability/note-prob-3-expectation-conditioning/)
-- [**P4** — 收敛方式、大数定律、中心极限定理与集中不等式](/notes/math/probability/note-prob-4-limits-concentration/)
-- [**P5** — Likelihood、MLE、MAP、区间、检验与 EM](/notes/math/probability/note-prob-5-statistical-inference-em/)
-- [**P6** — 随机过程、Markov 链、排队与尾延迟](/notes/math/probability/note-prob-6-stochastic-processes-queues/)
+- [Part 0 roadmap — From probability spaces to inference and stochastic processes](/notes/math/probability/note-prob-0-roadmap/)
+- [Part 1 — Probability spaces, conditioning, independence, and Bayes](/notes/math/probability/note-prob-1-probability-space-events/)
+- [Part 2 — Random variables, CDFs, and distribution families](/notes/math/probability/note-prob-2-random-variables-distributions/)
+- [Part 3 — Expectation, joint distributions, conditioning, and variance decomposition](/notes/math/probability/note-prob-3-expectation-conditioning/)
+- [Part 4 — Modes of convergence, LLN, CLT, and concentration](/notes/math/probability/note-prob-4-limits-concentration/)
+- [Part 5 — Likelihood, MLE, MAP, intervals, tests, and EM](/notes/math/probability/note-prob-5-statistical-inference-em/)
+- [Part 6 — Stochastic processes, Markov chains, queues, and tail latency](/notes/math/probability/note-prob-6-stochastic-processes-queues/)
 
 </details>
 
 <details class="note-subgroup">
-<summary><strong>Complex Analysis</strong></summary>
+<summary><strong>Information Theory and Information Geometry</strong></summary>
 
-- [**Complex Analysis 1** — Complex Analysis](/en/notes/math/complex-analysis/note-math-1-complex-analysis)
+The [shared roadmap](/notes/math/information-theory/note-it-0-roadmap/) begins with entropy, cross-entropy, KL, and mutual information before branching into Information Geometry and Shannon / Source Coding.
+
+- [Information Theory 1 — Self-information, entropy, and uncertainty](/notes/math/information-theory/note-it-1-entropy-self-information/)
+- [Information Theory 2 — Joint entropy, conditional entropy, and chain rules](/notes/math/information-theory/note-it-2-joint-conditional-entropy/)
+- [Information Theory 3 — Cross-entropy, KL divergence, and mutual information](/notes/math/information-theory/note-it-3-cross-entropy-kl-mutual-information/)
+- [Information Geometry G1 — Score Function and Fisher Information](/notes/math/information-geometry/note-ig-1-score-fisher/)
+- [Information Geometry G2 — KL, Natural Gradient, and K-FAC](/notes/math/information-geometry/note-ig-2-kl-natural-gradient/)
+- [Information Geometry G3 — Exponential families and log-partition](/notes/math/information-geometry/note-ig-3-exponential-family/)
+- [Information Geometry G4 — Legendre duality, Bregman divergence, and KL](/notes/math/information-geometry/note-ig-4-dual-bregman/)
+- [Shannon S1 — AEP, typical sets, and the asymptotic meaning of entropy](/notes/math/information-theory/note-it-4-aep-typical-set/)
 
 </details>
 
 <details class="note-subgroup">
-<summary><strong>Problem Set</strong></summary>
+<summary><strong>Signals, Systems, and Complex Analysis</strong></summary>
 
-Companion problems grouped into per-subject subpages, listed one by one, each with a collapsible reference solution.
-
-- [**Real Analysis**](/en/notes/problems/real-analysis/) — sequences, completeness, measure, $L^p$; single-tool to start, skeleton-first solutions.
-- [**Optimization and Calculus of Variations**](/en/notes/problems/optimization-variation/) — Lagrange multipliers, maximum entropy, softmax, convex duality.
-- [**Miscellaneous**](/en/notes/problems/misc/) — the pigeonhole principle and other combinatorics / discrete puzzles.
+- [Fourier Transform](/en/notes/math/linear-systems/note-linsys-1-fourier/)
+- [Laplace Transform](/en/notes/math/linear-systems/note-linsys-2-laplace/)
+- [RLC circuits through differential equations and Laplace transforms](/en/notes/math/linear-systems/note-linsys-3-laplace-pde/)
+- [Complex functions: from analyticity to residues](/en/notes/math/complex-analysis/note-math-1-complex-analysis/)
 
 </details>
 
 </details>
 
 <details>
-<summary><strong>Machine Learning</strong></summary>
+<summary><strong>Foundations · Machine Learning</strong></summary>
 
 <details class="note-subgroup">
 <summary><strong>Unsupervised Learning and Representation Geometry</strong></summary>
 
-Starting from PCA and whitening, this series builds a toolkit for analyzing embedding spaces through direction, scale, neighborhood graphs, clustering assumptions, and stability.
-
-- [**0. Roadmap** — Core Questions in Unsupervised Learning](/notes/ml/unsupervised-representation/note-ml-unsup-0-roadmap/)
-- [**1. PCA / Whitening** — Principal Directions, Scale Correction, and Neighborhood Visualization](/en/notes/ml/unsupervised-representation/note-ml-unsup-1-pca-whitening/)
-- [**2. Spectral Methods** — Graph Laplacians, Structural Embeddings, and Spectral Clustering](/en/notes/ml/unsupervised-representation/note-ml-unsup-2-spectral/)
-- [**3. Clustering Algorithms** — KMeans, GMM, Hierarchical Clustering, and DBSCAN](/en/notes/ml/unsupervised-representation/note-ml-unsup-3-clustering-algorithms/)
-- [**4. Clustering Evaluation** — Internal Metrics, External Metrics, and Stability](/en/notes/ml/unsupervised-representation/note-ml-unsup-4-cluster-evaluation/)
+- [Roadmap and core questions](/notes/ml/unsupervised-representation/note-ml-unsup-0-roadmap/)
+- [PCA, Whitening, and neighborhood visualization](/en/notes/ml/unsupervised-representation/note-ml-unsup-1-pca-whitening/)
+- [Spectral Embedding and Spectral Clustering](/en/notes/ml/unsupervised-representation/note-ml-unsup-2-spectral/)
+- [KMeans, GMM, hierarchical clustering, and DBSCAN](/en/notes/ml/unsupervised-representation/note-ml-unsup-3-clustering-algorithms/)
+- [Clustering evaluation, external metrics, and stability](/en/notes/ml/unsupervised-representation/note-ml-unsup-4-cluster-evaluation/)
+- [Topic dossier: Representation Geometry](/en/notes/topics/representation-geometry/)
 
 </details>
 
 <details class="note-subgroup">
 <summary><strong>CNN and Visual Representation</strong></summary>
 
-This series follows CNNs from early handwritten digit recognition to large-scale ImageNet classification and then to deep visual backbones.
-
-- [**1. LeNet-5** — From LeNet-5 to Modern CNN](/en/notes/ml/cnn/note-ml-cnn-1-lenet-to-modern/)
-- [**2. AlexNet** — The Starting Point of Deep Visual Learning](/en/notes/ml/cnn/note-ml-cnn-2-alexnet/)
-- [**3. VGG** — Depth and Small Convolution Filters](/en/notes/ml/cnn/note-ml-cnn-3-vgg/)
-- [**4. ResNet** — Residual Learning and the Degradation Problem](/en/notes/ml/cnn/note-ml-cnn-4-resnet/)
+- [From LeNet-5 to modern CNNs](/en/notes/ml/cnn/note-ml-cnn-1-lenet-to-modern/)
+- [AlexNet: The beginning of deep vision](/en/notes/ml/cnn/note-ml-cnn-2-alexnet/)
+- [VGG: Depth and small convolution kernels](/en/notes/ml/cnn/note-ml-cnn-3-vgg/)
+- [ResNet: Residual learning and degradation](/en/notes/ml/cnn/note-ml-cnn-4-resnet/)
 
 </details>
 
 <details class="note-subgroup">
 <summary><strong>Transformer, ViT, and CLIP</strong></summary>
 
-Reproduce a minimal encoder-only Transformer from self-attention and validate PE necessity, carry the same encoder over to vision tasks as ViT, then stitch the two towers into a shared space for CLIP — completing the path from unimodal to multimodal alignment.
-
-- [**1. Transformer** — From Attention to the Encoder](/en/notes/ml/transformer-vit-clip/note-ml-transformer-1-attention-to-encoder/)
-- [**2. ViT** — From Patches to Attention-Based Classification](/en/notes/ml/transformer-vit-clip/note-ml-vit-1-patches-to-attention/)
-- [**3. CLIP** — From Contrastive Learning to a Shared Image-Text Space](/en/notes/ml/transformer-vit-clip/note-ml-clip-1-contrastive-to-shared-space/)
+- [Transformer: From attention to the encoder](/en/notes/ml/transformer-vit-clip/note-ml-transformer-1-attention-to-encoder/)
+- [ViT: From image patches to attention classification](/en/notes/ml/transformer-vit-clip/note-ml-vit-1-patches-to-attention/)
+- [CLIP: From contrastive learning to a shared image-text space](/en/notes/ml/transformer-vit-clip/note-ml-clip-1-contrastive-to-shared-space/)
 
 </details>
 
 <details class="note-subgroup">
 <summary><strong>Generative Models</strong></summary>
 
-- [**1. VAE** — The Basic Idea and the ELBO](/en/notes/ml/generative-models/note-ml-gen-1-vae-elbo/)
-- [**2. VAE** — A Minimal Reproduction](/en/notes/ml/generative-models/note-ml-gen-2-vae-minimal/)
-- [**3. CNN-VAE** — From MLPs to Convolutional Structure](/en/notes/ml/generative-models/note-ml-gen-3-cnn-vae/)
+- [Topic dossier: Variational Autoencoders](/en/notes/topics/variational-autoencoders/)
+- [The basic idea of VAE and the ELBO derivation](/en/notes/ml/generative-models/note-ml-gen-1-vae-elbo/)
+- [A minimal VAE reproduction](/en/notes/ml/generative-models/note-ml-gen-2-vae-minimal/)
+- [CNN-VAE: From MLP to convolution](/en/notes/ml/generative-models/note-ml-gen-3-cnn-vae/)
 
 </details>
 
 </details>
 
 <details>
+<summary><strong>Foundations · Systems, Physics, and Engineering</strong></summary>
+
+<details class="note-subgroup">
 <summary><strong>Systems and Computation</strong></summary>
 
-<details class="note-subgroup">
-<summary><strong>Error Analysis and Reliable Computation</strong></summary>
-
-Enter through concrete topics and track how errors are defined, introduced, propagated, estimated, controlled, and traded against computational cost. Each derivation is checked against reproducible evidence in Error Atlas.
-
-- [**Series overview** — Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/)
-
-<details class="note-subgroup">
-<summary><strong>Topic 1 — Taylor Expansion</strong></summary>
-
-- [**Parent page** — From Remainders to Error Control](/en/notes/systems/error-analysis/taylor-expansion/)
-- [**Taylor 1** — First Define \(R\), \(O\), \(o\), and Error Bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
-- [**Taylor 2** — Lagrange, Integral, and Peano Remainders](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
-- [**Taylor 3** — Why a Correct Bound Can Still Be Unconvincing](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
-- [**Taylor 4** — How Errors Propagate](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
-- [**Taylor 5** — From Step Size to Richardson Extrapolation](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
-- [**Taylor 6** — Putting Noise Into the Error Budget](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
+- [Topic dossier: IO-Aware Attention](/en/notes/topics/io-aware-attention/)
+- [Topic dossier: Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
+- [Error Analysis research thread](/en/notes/systems/error-analysis/)
 
 </details>
-
-</details>
-
-<details class="note-subgroup">
-<summary><strong>AI Infrastructure</strong></summary>
-
-Starting from GPU memory hierarchy, IO-aware algorithms, and inference systems, this section tracks the low-level mechanisms that actually shape throughput, latency, and memory usage in AI infrastructure.
-
-- [**1. FlashAttention v1** — IO-Aware Attention and Tiling Softmax](/en/notes/systems/ai-infra/note-systems-io-attn-1-flashattention/)
-- [**2. Online Softmax** — Original Derivation and Top-K Fusion](/en/notes/systems/ai-infra/note-systems-io-attn-2-online-softmax/)
-- [**3. Reproduce and Verify** — Implementing Tiled Attention and Verifying tiled==naive with Invariants](/en/notes/systems/ai-infra/note-systems-io-attn-3-toy-implementation/)
-
-</details>
-
-<details class="note-subgroup">
-<summary><strong>Computational Science and High-Reliability Systems Design</strong></summary>
-
-- [**Part 1** — Problem Setup and Spatial Field Construction](/en/notes/systems/computational-science/note-csys-1-problem-spatial-field)
-- [**Part 2** — From Terrain to Temporal Evolution](/en/notes/systems/computational-science/note-csys-2-terrain-to-time)
-- [**Part 3** — From Full Trajectories to Observations](/en/notes/systems/computational-science/note-csys-3-trajectory-to-observation)
-- [**Part 4** — From Observations to Parameter Inversion](/en/notes/systems/computational-science/note-csys-4-observation-to-inversion)
-- [**Part 5** — Parameter Inversion I: Finite-Difference Gradient and Gradient Descent](/en/notes/systems/computational-science/note-csys-5-finite-diff-gradient-descent)
-- [**Part 6** — Inversion Result Analysis and Parameter Credibility](/en/notes/systems/computational-science/note-csys-6-inversion-credibility)
-- [**Part 7** — From Finite-Difference Gradient Descent to L-BFGS and Log-Parameterization](/en/notes/systems/computational-science/note-csys-7-lbfgs-log-parameterization)
-- [**Part 8** — Regularization, Priors, and Stable Inversion](/en/notes/systems/computational-science/note-csys-8-regularization-prior)
-- [**Part 9** — Smoothness Terms, Prior Terms, and Regularization Strength](/en/notes/systems/computational-science/note-csys-9-smoothness-prior-strength)
-- [**Part 10** — A Full-Chain Summary from Spatial Fields to Stable Inversion](/en/notes/systems/computational-science/note-csys-10-summary)
-
-</details>
-
-</details>
-
-<details>
-<summary><strong>Physics and Engineering</strong></summary>
 
 <details class="note-subgroup">
 <summary><strong>Quantum Mechanics</strong></summary>
 
-- [**Part 1** — From Schrodinger to Wave Functions](/en/notes/science/quantum-mechanics/note-qm-1-schrodinger)
-- [**Part 2** — How Electrons Are Distributed](/en/notes/science/quantum-mechanics/note-qm-2-fermions)
+- [From the Schrödinger equation to wave functions](/en/notes/science/quantum-mechanics/note-qm-1-schrodinger/)
+- [How electrons are distributed](/en/notes/science/quantum-mechanics/note-qm-2-fermions/)
 
 </details>
 
 <details class="note-subgroup">
 <summary><strong>Rock Mechanics</strong></summary>
 
-- [**Part 1** — Mineral Composition, Structural Features, and Discontinuity Basics](/en/notes/science/rock-mechanics/note-rock-mech-1-basics)
+- [Mineral composition, structural features, and discontinuity basics](/en/notes/science/rock-mechanics/note-rock-mech-1-basics/)
 
 </details>
 
 </details>
 
 <details>
-<summary><strong>Planned</strong></summary>
+<summary><strong>Problems and Plans</strong></summary>
 
-<details class="note-subgroup">
-<summary><strong>Future Branches</strong></summary>
+- [Real Analysis problems](/en/notes/problems/real-analysis/)
+- [Optimization and Variational Methods problems](/en/notes/problems/optimization-variation/)
+- [Miscellaneous problems](/en/notes/problems/misc/)
 
-- GAN
-- Diffusion
-- Probabilistic Graphical Models
-- Electromagnetism
-- Electric Circuits
-
-</details>
+Planned foundation branches include GANs, diffusion models, probabilistic graphical models, electromagnetism, and circuits. A research topic enters the “current research” area only after it develops a clear question and evidence chain.
 
 </details>

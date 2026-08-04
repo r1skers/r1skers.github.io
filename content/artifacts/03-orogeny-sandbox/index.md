@@ -5,15 +5,14 @@ title: "[Artifact-3] Orogeny Sandbox 全链验证 / Orogeny Sandbox End-to-End V
 summary: "从高斯地形生成、PDE 扩散仿真、稳定域数据集构建到 multistep/CNN rollout 与 OOD+3σ 门控的完整链路记录。 / End-to-end record from Gaussian terrain generation and PDE diffusion to multistep/CNN rollout and OOD+3-sigma runtime gates."
 description: "Artifact 3 tracks the full PDE-to-ML pipeline in orogeny-sandbox, including frozen best multistep, CNN POC, and OOD gating."
 tags:
-  - "Artifact"
-  - "Orogeny Sandbox"
+  - "Computational Science"
   - "PDE"
-  - "Stencil Learning"
   - "CNN"
-  - "OOD"
   - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Inverse Modeling and Reliable Computation"
 weight: 30
 aliases:
   - /artifacts/orogeny-sandbox/

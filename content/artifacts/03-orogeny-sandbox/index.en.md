@@ -5,15 +5,14 @@ title: "[Artifact-3] Orogeny Sandbox End-to-End Validation"
 summary: "An end-to-end record from Gaussian terrain generation and PDE diffusion to stable-domain dataset construction, multistep/CNN rollout validation, and OOD plus 3-sigma runtime gates."
 description: "Artifact-3 tracks the full PDE-to-ML pipeline in orogeny-sandbox, including the frozen best multistep run, CNN proof-of-concept, and OOD runtime gating."
 tags:
-  - "Artifact"
-  - "Orogeny Sandbox"
+  - "Computational Science"
   - "PDE"
-  - "Stencil Learning"
   - "CNN"
-  - "OOD"
   - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Inverse Modeling and Reliable Computation"
 weight: 30
 ---
 

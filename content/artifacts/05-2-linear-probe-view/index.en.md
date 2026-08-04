@@ -5,14 +5,14 @@ title: "[Artifact-5.2] BERT Linear Probe View — Pilot Note"
 summary: "The linear-probe view of the Artifact-5 multi-probe series: train per-layer logistic regression on BERT document-segment representations and compare random-init, clustering, and Fisher geometry — showing that linear decodability and unsupervised alignment are different measurements."
 description: "Artifact-5.2 is the linear-probe child artifact of the BERT representation-probes series: reuse the cached layerwise representations from 5.1, measure topic linear separability with per-layer logistic regression and 5-fold cross-validation, pretrained vs random-init, and triangulate against the clustering view."
 tags:
-  - "Artifact"
   - "BERT"
-  - "Linear Probe"
-  - "Representation Analysis"
-  - "Logistic Regression"
-  - "20 Newsgroups"
+  - "Representation Geometry"
+  - "Machine Learning"
+  - "Visual Representation"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 52
 math: true
 ---

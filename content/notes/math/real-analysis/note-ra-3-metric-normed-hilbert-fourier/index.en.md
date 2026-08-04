@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 3: Metric Spaces, Normed Spaces, Hilbert Spaces, and the Foundations of Fourier'
 summary: "Starting from completeness of ℝ, this note lifts analysis to general spaces — adding metric, norm, and inner product layer by layer up to Hilbert space, and finally uses orthonormal bases and Parseval's identity to set Fourier series and the Fourier transform on rigorous footing."
 description: "An intermediate real-analysis note on metric spaces, normed spaces, Banach spaces, inner-product spaces, Hilbert spaces, the Cauchy–Schwarz inequality, the orthogonal decomposition theorem, orthogonal projection, Bessel's inequality, Parseval's identity, the L² foundation of Fourier series, and the Fourier transform as an infinite-dimensional change of coordinates."
-tags: ["Real Analysis", "Metric Space", "Normed Space", "Banach Space", "Hilbert Space", "Inner Product", "Cauchy-Schwarz", "Orthogonal Decomposition", "Fourier Series", "Fourier Transform", "Parseval", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Fourier Transform"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-3-metric-normed-hilbert-fourier/
 ---

@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 0：矩阵、线性映射与坐标语言'
 summary: "线性代数证明型系列的基础篇：从矩阵不是数表、而是线性映射在选定基下的坐标表示出发，给出 LA1–LA9 的静态阅读路线。"
 description: "线性代数基础篇：矩阵、线性映射、基、坐标、复合与换基，以及 LA1–LA9 如何从同一个核心对象依次展开。"
-tags: ["Linear Algebra", "Matrix", "Linear Map", "Basis", "Coordinates"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 aliases:
   - /notes/note-la-0-foundation/

@@ -4,7 +4,10 @@ date: '{{ .Date }}'
 draft: true
 summary: ""
 description: ""
-tags: []
-categories: []
-series: []
+tags:
+  - ""
+categories:
+  - "Posts"
+series:
+  - ""
 ---

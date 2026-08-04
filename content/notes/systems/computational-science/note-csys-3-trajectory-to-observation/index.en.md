@@ -4,17 +4,14 @@ date: '2026-02-26T00:00:00+09:00'
 draft: false
 summary: "Using orogeny-inversion-validation-lab as the running example, this note explains why a full truth trajectory cannot be used directly and how it is turned into sparse, noisy observations through time, space, and noise cuts."
 description: "Part 3 on converting full truth trajectories into sparse, noisy observations."
-tags:
-  - "PDE"
-  - "Observation"
-  - "Truth Trajectory"
-  - "Sampling"
-  - "Noise"
-  - "Numerical Methods"
-categories:
-  - "Crucible"
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 3: From Full Trajectories to Observations
 

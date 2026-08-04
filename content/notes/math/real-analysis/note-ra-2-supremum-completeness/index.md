@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 2：确界公理、单调收敛与完备性等价链'
 summary: "从 LUB 公理出发，沿着 MCT、闭区间套、B–W 一路推到 Cauchy 完备性，再用二分法把 Cauchy + Archimedes 推回 LUB，完整闭合 ℝ 上完备性的等价环。"
 description: "实分析进阶笔记：上确界与确界公理、Archimedes 性质、单调收敛定理、闭区间套定理、Bolzano–Weierstrass 定理、Cauchy 完备性，以及这五条命题在 ℝ 上的等价链与 Archimedean 条件的必要性。"
-tags: ["Real Analysis", "Completeness", "Supremum", "Monotone Convergence", "Bolzano-Weierstrass", "Cauchy Sequence", "Archimedean", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析2-完备性/
   - /notes/笔记-实分析2-确界公理、单调收敛与完备性等价链/

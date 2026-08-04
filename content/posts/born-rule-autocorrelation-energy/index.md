@@ -4,8 +4,9 @@ draft: false
 title: "概率只是归一化后的能量吗？Born 规则与自相关之间的隐秘联系"
 summary: "把信号处理和量子力学放到同一个希尔伯特空间视角下，重新理解能量、概率和内积之间为什么会长得如此相似。"
 description: "从自相关和 Born 规则的形式相似出发，理解能量、概率与希尔伯特空间内积之间的统一结构。"
-tags: ["Born's Rule", "Auto-correlation", "Signal Processing", "Quantum Mechanics", "Hilbert Space" , "Eureka" , "Interdisciplinary"]
+tags: ["Quantum Mechanics", "Signal & Systems", "Information Theory", "Functional Analysis"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # 问题

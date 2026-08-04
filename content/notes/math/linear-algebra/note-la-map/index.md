@@ -4,8 +4,10 @@ draft: false
 title: '线性代数知识地图迁移说明'
 summary: "旧知识地图入口的兼容页：线性代数内容已经迁移为 LA0–LA9 的静态证明型系列。"
 description: "线性代数旧地图链接的兼容与迁移说明，以及 LA0–LA9 静态系列入口。"
-tags: ["Linear Algebra", "Map", "Index"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "compatibility"
 ShowToc: false
 ShowReadingTime: false
 aliases:

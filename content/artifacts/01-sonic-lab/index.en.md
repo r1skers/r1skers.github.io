@@ -4,8 +4,9 @@ draft: false
 title: "[Artifact-1] Sonic Lab Development Log"
 summary: "A long-running development log for Sonic Lab, focused on the embedded data path, PC-side analysis loop, and iterative validation checkpoints."
 description: "Artifact-1 summary page for Sonic Lab: end-to-end acoustic anomaly detection experiments, checkpoints, and implementation records."
-tags: ["STM32", "Embedded C", "Python", "DevLog"]
+tags: ["Systems", "STM32", "Signal & Systems"]
 categories: ["Artifacts"]
+series: ["Embedded Systems"]
 weight: 10
 ---
 

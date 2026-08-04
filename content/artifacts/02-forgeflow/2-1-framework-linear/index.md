@@ -5,12 +5,13 @@ draft: false
 summary: "聚焦 linear_xy 的 App 隔离 baseline：从配置、执行到验收口径的完整记录。 / Focus on app-isolated linear_xy baseline: config, execution, and acceptance."
 description: "Linear baseline page for Artifact-2, aligned to ForgeFlowApps mainline path."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Baseline"
-  - "Linear"
+  - "Computational Science"
+  - "Linear Algebra"
+  - "Numerical Methods"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 21
 aliases:
   - /artifacts/forgeflow-framework/

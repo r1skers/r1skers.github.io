@@ -4,8 +4,10 @@ draft: false
 title: '问题集 · 实分析'
 summary: "实分析笔记的配套练习——从 Part 1-2 的数列与完备性起步，每题单工具，参考解答顶部先给一句话骨架（该调用哪个动词），再展开细节。"
 description: "实分析配套习题集：Cesàro 平均、快速 Cauchy、limsup 存在、子列极限唯一等，按 Part 分小节，附骨架式参考解答。"
-tags: ["Problems", "Exercises", "Real Analysis"]
-categories: ["Crucible"]
+tags: ["Exercises", "Real Analysis"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "exercise"
 problemPage: true
 ---
 

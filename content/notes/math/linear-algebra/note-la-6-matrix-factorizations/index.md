@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 6：LU、QR、Cholesky、SVD 与极分解'
 summary: "把矩阵分解放回各自的存在条件：消元产生带主元的 LU，正交化产生 QR，正定性产生 Cholesky，谱定理作用于 A* A 产生任意矩形矩阵的 SVD，并由 SVD 重组出极分解。"
 description: "有限维矩阵分解笔记：PA=LU、thin QR、Cholesky、SVD 与 polar decomposition 的存在条件、唯一性边界、构造与核心证明，并说明 Schur 和 Jordan 在一般方阵理论中的位置。"
-tags: ["Linear Algebra", "Matrix Factorization", "LU", "QR", "Cholesky", "SVD", "Polar Decomposition", "Numerical Linear Algebra", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Numerical Methods"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

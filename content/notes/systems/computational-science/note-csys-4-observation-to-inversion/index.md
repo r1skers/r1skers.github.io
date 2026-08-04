@@ -4,8 +4,10 @@ draft: false
 title: '计算科学与高可靠系统设计第4部分：从观测数据到参数反演'
 summary: "在 observation 已知、参数场 κ 未知的条件下，说明反演问题如何被建立起来，以及为什么它会自然变成一个基于 forward model 的参数优化问题。"
 description: "Part 4 on defining the inversion problem from observations."
-tags: ["PDE", "Observation", "Inverse Problem", "Parameter Inversion", "Forward Model", "Kappa"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学4-参数反演与OOD告警/
   - /notes/笔记-计算科学与高可靠系统设计4-参数反演与ood告警/
@@ -14,6 +16,8 @@ aliases:
   - /notes/笔记-计算科学与高可靠系统设计4-单步与多步误差分析/
   - /notes/note-csys-4-observation-to-inversion/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 4：从观测数据到参数反演
 

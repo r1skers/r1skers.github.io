@@ -4,10 +4,14 @@ draft: false
 title: 'Systems / IO-Aware Attention Part 1: FlashAttention v1 and Tiling Softmax'
 summary: "Starting from the GPU memory hierarchy and arithmetic intensity, this note reframes attention as a memory-bound problem; derives the exact equivalence behind tiling + online softmax's rebase trick; explains recompute in backward; and traces where the $O(N^2 d^2 / M)$ HBM traffic complexity comes from. FA1's ingredients — tiling, online softmax, and recompute — are all old tricks. Its real contribution is redefining the efficiency problem from FLOPs to HBM bandwidth."
 description: "A study note on FlashAttention v1 — reframing attention as a memory-bound problem on top of the GPU memory hierarchy, deriving online softmax's rebase trick as mathematically exact, the recompute trade-off for backward, and the $O(N^2 d^2 / M)$ HBM traffic complexity plus its Aggarwal-Vitter lower bound."
-tags: ["FlashAttention", "Attention", "Transformer", "GPU", "Memory Hierarchy", "IO-aware", "Online Softmax", "AI Infra"]
-categories: ["Crucible"]
+tags: ["Systems", "AI Infra", "Attention", "Softmax"]
+categories: ["Notes"]
+series: ["IO-Aware Attention"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [IO-Aware Attention](/en/notes/topics/io-aware-attention/)
 
 # Systems / IO-Aware Attention Part 1: FlashAttention v1 and Tiling Softmax
 

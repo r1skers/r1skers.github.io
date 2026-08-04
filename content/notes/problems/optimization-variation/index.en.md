@@ -4,8 +4,10 @@ draft: false
 title: 'Problem Set · Optimization and Calculus of Variations'
 summary: "Companion exercises for the optimization notes — Lagrange multipliers, maximum entropy, softmax, convex duality; mostly 'one thing in two languages' (one says where it is attained, the other why you cannot go lower)."
 description: "An optimization / calculus-of-variations problem set: maximum entropy via Lagrange multipliers and Jensen/Gibbs/KL, optimal code length, the Gaussian as max-entropy, softmax and convex duality, with reference solutions."
-tags: ["Problems", "Exercises", "Optimization", "Calculus of Variations"]
-categories: ["Crucible"]
+tags: ["Exercises", "Optimization"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "exercise"
 problemPage: true
 ---
 

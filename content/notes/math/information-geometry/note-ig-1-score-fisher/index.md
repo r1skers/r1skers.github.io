@@ -4,8 +4,10 @@ draft: false
 title: '信息几何 G1：Score Function 与 Fisher Information'
 summary: "从正则参数化概率模型出发定义 score function，证明 score 零均值、Fisher information 的半正定性及其 score covariance 与 negative expected Hessian 两种等价形式，并建立坐标变换规则。"
 description: "信息几何基础笔记：正则参数化分布族、score function、零均值恒等式、Fisher information matrix、正定性与可辨识性、negative expected Hessian identity，以及 Fisher metric 在重参数化下的张量变换。"
-tags: ["Information Geometry", "Score Function", "Fisher Information", "Statistical Manifold", "Reparameterization", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Geometry", "Probability Theory"]
+categories: ["Notes"]
+series: ["Information Geometry"]
+note_kind: "foundation"
 ---
 
 # 信息几何 G1：Score Function 与 Fisher Information

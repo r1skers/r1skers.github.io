@@ -4,14 +4,18 @@ draft: false
 title: '计算科学与高可靠系统设计第7部分：从有限差分梯度下降到 L-BFGS 与对数参数化'
 summary: "Part 5 的有限差分 + 梯度下降已经能让反演跑起来，但参数约束、步长控制与收敛效率仍然比较粗糙。本篇说明为什么要把优化变量从 κ 切到 log κ，并把求解器升级为 L-BFGS-B。"
 description: "Part 7 on log-parameterization and L-BFGS-B for more stable blockwise kappa inversion."
-tags: ["PDE", "Inverse Problem", "Optimization", "L-BFGS-B", "Log Parameterization", "Kappa", "Reliability"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学7-l-bfgs-b与log参数化/
   - /notes/笔记-计算科学与高可靠系统设计7-从有限差分梯度下降到l-bfgs与对数参数化/
   - /notes/笔记-计算科学与高可靠系统设计7-求解器升级/
   - /notes/note-csys-7-lbfgs-log-parameterization/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 7：从有限差分梯度下降到 L-BFGS 与对数参数化
 

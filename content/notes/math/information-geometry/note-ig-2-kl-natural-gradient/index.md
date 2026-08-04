@@ -4,8 +4,10 @@ draft: false
 title: '信息几何 G2：KL 的局部二阶结构与 Natural Gradient'
 summary: "把 KL divergence 限制到参数化分布族，证明它在对角线上的一阶导数消失、二阶 Hessian 等于 Fisher information，并从局部 KL trust region 推导 natural gradient，最后以 K-FAC 作为可选应用桥接。"
 description: "信息几何进阶笔记：参数化 KL、Fisher metric 的 KL-Hessian 来源、KL 二阶 Taylor 展开、natural gradient 的约束最速下降推导、坐标一致性、奇异 Fisher 与 damping，以及作为可选应用桥接的 K-FAC Kronecker factorization。"
-tags: ["Information Geometry", "KL Divergence", "Fisher Metric", "Natural Gradient", "K-FAC", "Trust Region", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Geometry", "KL Divergence"]
+categories: ["Notes"]
+series: ["Information Geometry"]
+note_kind: "foundation"
 ---
 
 # 信息几何 G2：KL 的局部二阶结构与 Natural Gradient

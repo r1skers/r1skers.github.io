@@ -5,14 +5,14 @@ title: "[Artifact-6.3] 真实 Attention：从 BERT 到 GPT-2 迁移"
 summary: "Artifact-6 的第三份记录：把 cheap value-aware sparse attention 从合成台架切入真实 attention map。BERT 暴露了 absolute scorer 与 relative objective 的错配，推动 UTC-abs 修正为 UTC-rel-hat；exact-budget 协议排除了 comparable-row 筛选偏差；GPT-2 causal attention 零修改迁移说明 rel-hat 不是 BERT-only trick。"
 description: "记录 Value-Aware Sparse Attention 的真实数据阶段：BERT QKV 提取与 sanity check、UTC-abs/UTC-rel/UTC-rel-hat 的演化、threshold protocol 的 saturation 问题、exact-budget 评测、21 个 starvation failure 的诊断，以及 GPT-2 跨模型验证。"
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
   - "BERT"
-  - "GPT-2"
-  - "Efficient Attention"
   - "Error Analysis"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 63
 math: true
 ---

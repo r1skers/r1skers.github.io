@@ -5,11 +5,13 @@ draft: false
 summary: "ForgeFlow 的长期工程记录：框架本体、linear baseline，以及一系列 App 级验证。"
 description: "Artifact-2 索引页：按顺序收纳 ForgeFlow 框架本体、baseline 与各个 App 验证页面。"
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Framework"
+  - "Computational Science"
+  - "Inverse Problem"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 20
 aliases:
   - /artifacts/forgeflow/

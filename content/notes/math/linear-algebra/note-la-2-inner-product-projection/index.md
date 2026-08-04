@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 2：内积、正交投影与最小二乘'
 summary: "在有限维实或复向量空间上加入内积，从 Cauchy–Schwarz 推出范数与正交几何，经 Gram–Schmidt 构造正交基，证明投影定理、四基本子空间的正交分解与最小二乘正规方程。"
 description: "有限维内积空间笔记：内积、范数、Cauchy–Schwarz、正交、Gram–Schmidt、正交补、投影定理、投影矩阵、四基本子空间正交分解、正规方程与最小二乘。"
-tags: ["Linear Algebra", "Inner Product", "Cauchy-Schwarz", "Orthogonality", "Gram-Schmidt", "Projection", "Least Squares", "Normal Equations", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Numerical Methods"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 1：收敛、唯一性、有界性与柯西列'
 summary: "从数列极限的 ε-N 定义开始，整理实分析证明的基本语言与常见套路，并一路走到极限唯一性、收敛列有界性和柯西列。"
 description: "实分析入门笔记：从 ε-N 证明出发，理解数列收敛、极限唯一性、收敛列有界性，以及柯西列的定义与直觉。"
-tags: ["Real Analysis", "Epsilon-N", "Sequence", "Convergence", "Cauchy Sequence", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析1-epsilon-n与柯西列/
   - /notes/笔记-实分析1-收敛、唯一性、有界性与柯西列/

@@ -4,8 +4,10 @@ draft: false
 title: '岩体力学 Part 1：矿物组成、结构特征与结构面基础'
 summary: "基于课堂速记，系统梳理岩石矿物组成、颗粒与胶结特征、风化指标、结构面特征量和岩体结构类型，作为后续强度与稳定性分析的基础底板。"
 description: "岩体力学基础：矿物组成、微观结构、风化指标、结构面特征量与岩体结构类型。"
-tags: ["Rock Mechanics", "Petrophysics", "Engineering Geology", "Mineralogy", "Discontinuity", "Weathering"]
-categories: ["Crucible"]
+tags: ["Science", "Rock Mechanics"]
+categories: ["Notes"]
+series: ["Rock Mechanics"]
+note_kind: "foundation"
 aliases:
   - /notes/note-rock-mech-1-basics/
 ---

@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 4：收敛方式、大数定律、中心极限定理与集中不等式'
 summary: "区分几乎必然、依概率、Lᵖ 与依分布收敛，证明它们的基本蕴含关系，再由 Markov 和 Chebyshev 得到弱大数定律，并建立 Hoeffding 与 Chernoff 指数尾界。"
 description: "概率极限定理：四种随机变量收敛、Markov 和 Chebyshev 不等式、弱强大数定律、Lindeberg–Lévy 中心极限定理、Hoeffding lemma、不等式与 Chernoff 方法及证明依赖。"
-tags: ["Probability Theory", "Convergence", "Law of Large Numbers", "Central Limit Theorem", "Concentration Inequality", "Hoeffding Inequality", "Chernoff Bound", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory", "Convergence"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

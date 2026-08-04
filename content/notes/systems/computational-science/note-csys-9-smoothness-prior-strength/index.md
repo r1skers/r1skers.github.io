@@ -4,14 +4,18 @@ draft: false
 title: '计算科学与高可靠系统设计第9部分：平滑项、先验项与正则化强度'
 summary: "Part 8 已经说明了正则化为什么有必要。接下来这一篇继续往下，说明平滑项和先验项到底怎样写进目标函数，以及正则化强度会怎样改变最终 blockwise 反演结果的形状。"
 description: "Part 9 on smoothness terms, prior terms, and regularization strength in blockwise inversion."
-tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Smoothness", "Stability", "Kappa"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "Regularization"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学9-正则化强度/
   - /notes/笔记-计算科学与高可靠系统设计9-平滑项、先验项与正则化强度/
   - /notes/笔记-计算科学与高可靠系统设计9-平滑项与先验项/
   - /notes/note-csys-9-smoothness-prior-strength/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 9：平滑项、先验项与正则化强度
 

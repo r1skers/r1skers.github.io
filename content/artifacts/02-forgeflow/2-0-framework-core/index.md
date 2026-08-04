@@ -5,12 +5,13 @@ draft: false
 summary: "定义 ForgeFlow v1 的框架本体：核心职责、运行契约、模式分支与 App 隔离边界。 / Define ForgeFlow v1 core: responsibilities, runtime contracts, mode branches, and app-isolation boundaries."
 description: "Framework core document for Artifact-2: architecture, config contract, and run modes."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Framework"
-  - "Architecture"
+  - "Computational Science"
+  - "Software Architecture"
+  - "Numerical Methods"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 20
 aliases:
   - /artifacts/forgeflow-core/

@@ -5,14 +5,14 @@ draft: false
 summary: "The app-level benchmark record for heat_periodic: long-horizon simulation, exact-solution convergence checks, and surrogate rollout validation."
 description: "Artifact-2.4 page for heat_periodic: periodic heat-equation benchmark with exact convergence studies, surrogate fitting, and rollout evaluation."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Heat Equation"
-  - "Periodic Boundary"
+  - "Computational Science"
+  - "PDE"
   - "Convergence"
-  - "Surrogate"
+  - "Numerical Analysis"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 24
 ---
 

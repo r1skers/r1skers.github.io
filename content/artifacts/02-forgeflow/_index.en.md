@@ -5,11 +5,13 @@ draft: false
 summary: "Long-running ForgeFlow engineering records: framework core, linear baseline, and a sequence of app-level validations."
 description: "Artifact-2 index page: an ordered track of the ForgeFlow framework core, baseline runs, and app-level validation pages."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Framework"
+  - "Computational Science"
+  - "Inverse Problem"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 20
 ---
 

@@ -3,8 +3,10 @@ date: '2026-01-03T10:17:00+09:00'
 draft: false
 title: '量子力学第2部分：电子如何分布'
 summary: "从直觉上理解电子如何占据量子态：从概率密度、费米-狄拉克统计到晶体中的电子分布，把电子重新看作概率性的量子对象而非局域粒子。"
-tags: ["Quantum Mechanics", "Physics", "Electron Distribution", "Probability", "Condensed Matter"]
-categories: ["Crucible"]
+tags: ["Science", "Quantum Mechanics", "Probability Theory"]
+categories: ["Notes"]
+series: ["Quantum Mechanics"]
+note_kind: "foundation"
 aliases:
   - /notes/note-qm-2-fermions/
 ---

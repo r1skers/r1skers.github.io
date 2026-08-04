@@ -4,10 +4,14 @@ draft: false
 title: 'Systems / IO-Aware Attention Part 3: Reproducing and Verifying Online Softmax and Tiled Attention'
 summary: "The first two notes read FlashAttention v1 and the original online softmax derivation; this one builds it. I implement naive and tiled+online-softmax attention in numpy, then pin down tiled==naive with an invariant suite. The focus is not the algorithm (covered in the first two notes) but the verification design — block-size invariance is the strongest invariant — plus two numerical insights: error is a precision floor, not an accumulation, and the rebase recurrence has gain≈1. It closes by drawing the boundary: this is only mathematical correctness; hardware performance and low-precision behavior are not yet verified."
 description: "A hands-on companion to the IO-aware attention notes: implementing naive and tiled+online-softmax attention in numpy and verifying tiled==naive via an invariant suite. Focuses on verification design (block-size invariance as the strongest invariant) and two numerical insights — error is a precision floor not an accumulation, and the rebase recurrence has gain≈1 — then draws the boundary between mathematical exactness and unverified hardware performance."
-tags: ["FlashAttention", "Online Softmax", "Attention", "Numerical Stability", "Invariant Testing", "AI Infra", "IO-aware"]
-categories: ["Crucible"]
+tags: ["Systems", "AI Infra", "Attention", "Softmax"]
+categories: ["Notes"]
+series: ["IO-Aware Attention"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [IO-Aware Attention](/en/notes/topics/io-aware-attention/)
 
 # Systems / IO-Aware Attention Part 3: Reproducing and Verifying Online Softmax and Tiled Attention
 

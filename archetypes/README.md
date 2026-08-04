@@ -14,13 +14,14 @@ These templates are auto-applied when creating new content with `hugo new`.
 
 - Common fields: `title`, `date`, `draft`, `summary`, `description`, `tags`
 - Section-specific defaults:
-  - `notes`: `categories: ["Notes"]`
-  - `tools`: `categories: ["Automata"]`, `layout: "tool"`
-  - `artifacts`: `categories: ["Projects"]`
+  - `notes`: `categories: ["Notes"]`, `series`, `note_kind`
+  - `posts`: `categories: ["Posts"]`, `series`
+  - `tools`: `categories: ["Tools"]`, `layout: "tool"`
+  - `artifacts`: `categories: ["Artifacts"]`, `series`
   - `thinking`: `categories: ["Thinking"]`
 
 ## Recommended Checklist Before Publish
 
 1. Fill `summary` and `description`.
-2. Review `tags` and `categories`.
+2. Add two to four reusable concept `tags`; put a reading sequence or project family in `series`.
 3. Set `draft: false`.

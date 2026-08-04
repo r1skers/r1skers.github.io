@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 10: A Full-Chain Summary from Spatial Fields to Stable Inversion'
 summary: "This part no longer introduces a new solver component. Instead, it compresses Parts 1-9 back into one closed chain: from spatial-field construction, PDE evolution, and observation generation to parameter inversion, solver upgrades, regularization, and result interpretation."
 description: "Part 10 as a full-chain summary from spatial fields to stable inversion."
-tags: ["PDE", "Inverse Problem", "Regularization", "Optimization", "Observation", "Reliability", "Summary"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "Regularization"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 10: A Full-Chain Summary from Spatial Fields to Stable Inversion
 

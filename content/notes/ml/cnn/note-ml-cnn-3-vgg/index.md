@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / CNN 与视觉表征：VGG，深度与小卷积核'
 summary: "从 VGG 论文出发，理解为什么统一使用 3x3 小卷积核、规则化堆叠和增加深度，能把 AlexNet 之后的 CNN 推向更强的视觉表征，并自然引出 ResNet。"
 description: "A study note on VGG, repeated 3x3 convolutions, VGG-16 architecture, parameter count, and the bridge from AlexNet to ResNet."
-tags: ["CNN", "Visual Representation", "VGG", "ImageNet", "Deep Learning", "Computer Vision"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-CNN与视觉表征3-VGG深度与小卷积核/
   - /notes/笔记-机器学习-cnn与视觉表征3-vgg深度与小卷积核/

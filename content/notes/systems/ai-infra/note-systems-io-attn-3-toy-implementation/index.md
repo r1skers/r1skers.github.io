@@ -4,12 +4,16 @@ draft: false
 title: '底层架构 / IO 感知注意力 Part 3：复现并验证 online softmax 与 tiled attention'
 summary: "前两篇读了 FlashAttention v1 和 online softmax 的原始推导，这一篇把它建出来：用 numpy 实现 naive / tiled+online-softmax 两版 attention，再用一套 invariant 把 tiled==naive 钉死。重点不在算法（前两篇讲过），而在验证设计——block-size invariance 是最强的一条——以及两个数值洞见：误差是精度地板而非累积，rebase 公式的增益≈1。最后划清边界：这只是数学正确性，硬件性能和低精度行为还没证。"
 description: "A hands-on companion to the IO-aware attention notes: implementing naive and tiled+online-softmax attention in numpy and verifying tiled==naive via an invariant suite. Focuses on verification design (block-size invariance as the strongest invariant) and two numerical insights — error is a precision floor not an accumulation, and the rebase recurrence has gain≈1 — then draws the boundary between mathematical exactness and unverified hardware performance."
-tags: ["FlashAttention", "Online Softmax", "Attention", "Numerical Stability", "Invariant Testing", "AI Infra", "IO-aware"]
-categories: ["Crucible"]
+tags: ["Systems", "AI Infra", "Attention", "Softmax"]
+categories: ["Notes"]
+series: ["IO-Aware Attention"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-底层架构-io感知注意力3-复现并验证-online-softmax-与-tiled-attention/
   - /notes/note-systems-io-attn-3-toy-implementation/
 ---
+
+> **主题入口：** [IO-Aware Attention 档案](/notes/topics/io-aware-attention/)
 
 # 底层架构 / IO 感知注意力 Part 3：复现并验证 online softmax 与 tiled attention
 

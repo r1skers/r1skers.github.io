@@ -3,8 +3,10 @@ date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: 'Linear Systems Part 2: Laplace Transform'
 summary: "A compact reference of Laplace transform analysis, inverse transform, core properties, and common transform pairs for circuit and system solving."
-tags: [ "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Signal & Systems", "Laplace Transform"]
+categories: ["Notes"]
+series: ["Signal and Systems"]
+note_kind: "foundation"
 aliases:
 ---
 

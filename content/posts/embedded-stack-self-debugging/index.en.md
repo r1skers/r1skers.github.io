@@ -4,8 +4,9 @@ draft: false
 title: 'Self-Debugging My Place in the Embedded Stack'
 summary: "A self-debugging record: I used engineering stress tests to resolve my confusion about where I fit in the embedded stack. I confirmed that instead of obsessing over bottom-layer registers, I’m strongest in the middle layer—where data flow, validation, and embedded algorithms live."
 description: "Not debugging firmware this time, but debugging where I fit in the embedded stack."
-tags: ["Learning Notes", "Embedded Systems", "System Integration", "STM32"]
+tags: ["Systems", "STM32", "Reliability"]
 categories: ["Posts"]
+series: ["Embedded Systems"]
 ---
 
 # Why I Wrote This

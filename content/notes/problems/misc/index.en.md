@@ -4,8 +4,10 @@ draft: false
 title: 'Problem Set · Miscellaneous'
 summary: "Odds and ends not yet worth their own page — currently one pigeonhole set: integer midpoints, consecutive subsums, divisibility pairs, Erdős–Szekeres monotone subsequences, all the 'count + compare' pattern."
 description: "A combinatorics / discrete problem set: four classic pigeonhole problems (integer midpoint, consecutive subsum divisible by n, a divisibility pair among n+1 of {1..2n}, Erdős–Szekeres monotone subsequences), with reference solutions."
-tags: ["Problems", "Exercises", "Pigeonhole", "Combinatorics"]
-categories: ["Crucible"]
+tags: ["Exercises"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "exercise"
 problemPage: true
 ---
 

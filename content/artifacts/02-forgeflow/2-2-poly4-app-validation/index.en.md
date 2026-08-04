@@ -5,12 +5,13 @@ draft: false
 summary: "The first real app-level validation case for poly4_cubic: inputs, pipeline order, outputs, and acceptance criteria."
 description: "Artifact-2.2 page for poly4_cubic: the first real app-level ForgeFlow validation with polynomial feature expansion and supervised evaluation."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Poly4"
-  - "Validation"
+  - "Computational Science"
+  - "Numerical Methods"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 22
 ---
 

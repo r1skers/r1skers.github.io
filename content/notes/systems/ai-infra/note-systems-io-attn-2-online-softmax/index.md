@@ -4,12 +4,16 @@ draft: false
 title: '底层架构 / IO 感知注意力 Part 2：Online Softmax 原始推导'
 summary: "Milakov & Gimelshein 2018 的 8 页 NVIDIA tech report。它从大词表 softmax 的 memory-bound 瓶颈出发，对比 naive、safe 和 online 三种 softmax：naive 扫两遍但不安全，safe 多扫一遍解决 overflow，online 把 max 和 normalizer 合并到同一次扫描里，恢复到两遍访存。这就是 FlashAttention v1 里 rebase trick 的直接源头。"
 description: "A study note on Milakov & Gimelshein 2018 (arXiv 1805.02867). It compares naive, safe, and online softmax, derives the online normalizer recurrence, explains why it is mathematically equivalent to safe softmax, and follows the paper's fused softmax + top-K extension."
-tags: ["Online Softmax", "Softmax", "Memory Bandwidth", "Numerical Stability", "Top-K", "NMT", "AI Infra", "IO-aware"]
-categories: ["Crucible"]
+tags: ["Systems", "AI Infra", "Attention", "Softmax"]
+categories: ["Notes"]
+series: ["IO-Aware Attention"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-底层架构-io感知注意力2-online-softmax-原始推导/
   - /notes/note-systems-io-attn-2-online-softmax/
 ---
+
+> **主题入口：** [IO-Aware Attention 档案](/notes/topics/io-aware-attention/)
 
 # 底层架构 / IO 感知注意力 Part 2：Online Softmax 原始推导
 

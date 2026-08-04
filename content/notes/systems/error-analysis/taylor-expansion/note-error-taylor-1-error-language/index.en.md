@@ -4,8 +4,10 @@ draft: false
 title: 'Error Analysis · Taylor 1: First Define R, O, o, and Error Bounds'
 summary: "The first step is not applying a remainder theorem, but separating the exact remainder, absolute error, asymptotic order, and computable bound."
 description: "A precise vocabulary for Taylor remainders, big-O, little-o, leading terms, and numerical error bounds."
-tags: ["Error Analysis", "Taylor Expansion", "Asymptotics", "Big O"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 1
 ---
 
@@ -153,4 +155,3 @@ Once this vocabulary is fixed, we can compare how much information different rem
 ---
 
 **Next:** [Taylor 2: Lagrange, Integral, and Peano Remainders](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
-

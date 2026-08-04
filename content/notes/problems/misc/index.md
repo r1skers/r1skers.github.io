@@ -4,8 +4,10 @@ draft: false
 title: '问题集 · 其他'
 summary: "暂未单独成册的杂题——目前是鸽笼原理一组：整点中点、连续子段和、整除对、Erdős–Szekeres 单调子列，全是「数 + 比」的套路。"
 description: "组合 / 离散杂题集：鸽笼原理的四道经典题（整点中点、连续子段和被 n 整除、{1..2n} 取 n+1 个必有整除对、Erdős–Szekeres 单调子列），附参考解答。"
-tags: ["Problems", "Exercises", "Pigeonhole", "Combinatorics"]
-categories: ["Crucible"]
+tags: ["Exercises"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "exercise"
 problemPage: true
 ---
 

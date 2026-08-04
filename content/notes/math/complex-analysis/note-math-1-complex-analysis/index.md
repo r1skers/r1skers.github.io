@@ -3,8 +3,10 @@ date: '2026-02-06T22:00:00+09:00'
 draft: false
 title: '数学第1部分：复变函数'
 summary: "从一个实积分问题出发，沿着‘复数几何 -> 解析函数 -> 围道积分 -> 留数’的链条建立复变函数直觉。"
-tags: ["Complex Analysis", "Contour Integrals", "Residues", "Real Integrals"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Complex Analysis"]
+categories: ["Notes"]
+series: ["Complex Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/note-math-1-complex-analysis/
 ---

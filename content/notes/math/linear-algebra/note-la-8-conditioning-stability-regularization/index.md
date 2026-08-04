@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 8：条件数、数值稳定性与正则化'
 summary: "把误差责任分成三层：扰动理论描述问题本身的敏感度，后向稳定性描述算法是否额外添乱，正则化则主动改变病态反演。证明条件数误差界、到奇异矩阵的距离，并推导 Tikhonov、TSVD 与 early stopping 的谱滤波形式。"
 description: "数值线性代数基础：算子范数、条件数、右端与矩阵扰动界、距离奇异性、前向和后向误差、QR 与正规方程的稳定性差异、Tikhonov、截断 SVD、L1 和 Landweber early stopping。"
-tags: ["Linear Algebra", "Condition Number", "Perturbation Theory", "Backward Stability", "Regularization", "Tikhonov", "Truncated SVD", "Early Stopping", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Numerical Stability", "Regularization"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

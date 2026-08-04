@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 6: Inversion Result Analysis and Parameter Credibility'
 summary: "Part 5 gives us a parameter set that can explain the observations reasonably well, but that does not automatically make it the true parameter field. This part separates observation fit, validation ability, and truth-level comparison."
 description: "Part 6 on inversion-result analysis, validation, and parameter credibility."
-tags: ["PDE", "Inverse Problem", "Observation", "Validation", "Parameter Inversion", "Reliability", "Identifiability"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 6: Inversion Result Analysis and Parameter Credibility
 

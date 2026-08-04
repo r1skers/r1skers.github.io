@@ -4,8 +4,9 @@ draft: false
 title: '一个非线性最小二乘小实验：三种优化方法的轨迹对比'
 summary: "用一个简单的曲线拟合实验，把梯度下降、牛顿法和高斯牛顿放到同一张图里比较，看看它们是怎么走、怎么收敛，以及最后停在什么位置。"
 description: "围绕 y=a exp(bt) 的非线性最小二乘拟合实验，展示梯度下降、牛顿法与高斯牛顿的目标函数、更新方向、收敛轨迹与最终结果。"
-tags: ["Optimization", "Gradient Descent", "Newton's Method", "Gauss-Newton", "Least Squares", "Python"]
+tags: ["Optimization", "Numerical Methods", "Least Squares", "Numerical Stability"]
 categories: ["Posts"]
+series: ["Optimization Methods"]
 ---
 
 # 引言

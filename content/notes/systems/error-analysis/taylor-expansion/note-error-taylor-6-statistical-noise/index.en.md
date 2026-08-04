@@ -4,8 +4,10 @@ draft: false
 title: 'Error Analysis · Taylor 6: Putting Noise Into the Error Budget'
 summary: "A central difference with correlated noise connects Taylor truncation bias, random variance, MSE, and optimal step size in one verifiable model."
 description: "Bias--variance decomposition, correlation, Monte Carlo validation, and optimal step size for a noisy central-difference estimator."
-tags: ["Error Analysis", "Monte Carlo", "Bias Variance", "Finite Difference"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion", "Monte Carlo"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 6
 ---
 
@@ -229,4 +231,3 @@ The complete experiment, tests, and closed-book rewrite are preserved in [Error 
 ---
 
 **Topic complete:** [Return to the Taylor Expansion parent page](/en/notes/systems/error-analysis/taylor-expansion/)
-

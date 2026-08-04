@@ -5,12 +5,13 @@ draft: false
 summary: "Defines the ForgeFlow v1 framework core: responsibilities, runtime contract, execution modes, and app-isolation boundaries."
 description: "Framework core page for Artifact-2: architecture, config contract, execution modes, and the boundary between core flow and app logic."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Framework"
-  - "Architecture"
+  - "Computational Science"
+  - "Software Architecture"
+  - "Numerical Methods"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 20
 ---
 

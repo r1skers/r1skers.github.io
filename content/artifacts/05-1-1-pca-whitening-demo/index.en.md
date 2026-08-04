@@ -5,14 +5,14 @@ title: "[Artifact-5.1.1] How PCA Whitening Repairs Anisotropy-Driven Clustering 
 summary: "A methodological footnote to Artifact-5.1 clustering view. A minimal synthetic experiment: when an unrelated high-variance direction dominates the vector space, KMeans cleanly clusters by the wrong axis. PCA whitening rescales directions and lets the true low-energy cluster structure become readable again."
 description: "Artifact-5.1.1 is a micro-artifact under the Artifact-5.1 clustering view; it also serves as an experimental footnote to the PCA whitening formula in the unsupervised learning notes. It uses a controlled synthetic dataset to expose the relationship between anisotropy, false stability, PCA whitening, and clustering recovery."
 tags:
-  - "Artifact"
-  - "PCA Whitening"
+  - "PCA"
   - "Clustering"
   - "Representation Geometry"
   - "Unsupervised Learning"
-  - "Synthetic Demo"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 52
 math: true
 aliases:

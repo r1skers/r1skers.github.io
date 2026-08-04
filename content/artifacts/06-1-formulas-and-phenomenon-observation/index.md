@@ -5,12 +5,14 @@ title: "[Artifact-6.1] 公式推导与现象观察"
 summary: "Artifact-6 的第一份动手记录：推导并浮点级验证剪枝误差分解 ‖o−õ‖=δ‖μ_R−μ_S‖；用 q_scale 扫描发现误差主导因子随熵 regime 单调切换；等预算三方对比量化 value 信息的增量价值（尖锐区 Q,K-only 吃掉 97% 差距，高熵区为零甚至为负）；one-swap 实验证明 top-k-by-p 不是集合最优。"
 description: "Artifact-6.1 记录 value-aware sparse attention 项目的 stage 0 到 v1：从 softmax 的熵正则推导和误差分解恒等式出发，经 entropy 基线、regime 扫描、matched-budget 层级对比，到 restricted oracle 的边界确认。"
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "Top-k Pruning"
   - "Error Analysis"
+  - "Numerical Analysis"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 61
 math: true
 ---

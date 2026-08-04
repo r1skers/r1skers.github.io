@@ -4,8 +4,10 @@ draft: false
 title: 'Taylor Expansion: From Remainders to Error Control'
 summary: "The first complete error-analysis topic: begin with a Taylor remainder and proceed to bounds, propagation, numerical stability, and optimal step size."
 description: "A full pass through error definition, representation, estimation, propagation, control, and experimental verification using Taylor expansion."
-tags: ["Error Analysis", "Taylor Expansion", "Numerical Analysis"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "topic-index"
 weight: 1
 ---
 
@@ -81,4 +83,3 @@ Taylor expansion is only the first stop. The mathematical object will change whe
 ---
 
 **Start reading:** [Taylor 1: First Define \(R\), \(O\), \(o\), and Error Bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
-

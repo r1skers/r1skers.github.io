@@ -5,13 +5,14 @@ title: "[Artifact-4] DEM Landform Stability Demo Review"
 summary: "A small terrain-analysis experiment based on public DEM data: compare slope and curvature-proxy responses under different preprocessing strengths, and track the difference between broad landform stability and small-scale terrain sensitivity."
 description: "Artifact-4 documents the dem-landform-stability-lab learning chain: study-area cropping, DEM preprocessing, whole-area terrain metrics, local window comparison, and a careful review of interpretation limits."
 tags:
-  - "Artifact"
-  - "DEM"
-  - "Terrain Analysis"
-  - "Geomorphology"
-  - "Preprocessing"
+  - "Computational Science"
+  - "Geoscience"
+  - "Numerical Methods"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Inverse Modeling and Reliable Computation"
 weight: 40
 ---
 

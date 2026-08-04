@@ -4,8 +4,10 @@ draft: false
 title: 'Problem Set · Real Analysis'
 summary: "Companion exercises for the real-analysis notes — starting from the sequences and completeness of Parts 1-2, each problem single-tool, each solution led by a one-line skeleton (which verb to reach for) before the details."
 description: "A real-analysis problem set: Cesàro means, fast Cauchy sequences, existence of limsup, uniqueness of subsequential limits, etc., grouped by Part with skeleton-first reference solutions."
-tags: ["Problems", "Exercises", "Real Analysis"]
-categories: ["Crucible"]
+tags: ["Exercises", "Real Analysis"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "exercise"
 problemPage: true
 ---
 

@@ -5,8 +5,9 @@ draft: true
 summary: ""
 description: ""
 tags:
-  - "Project"
+  - ""
 categories:
-  - "Projects"
-series: []
+  - "Artifacts"
+series:
+  - ""
 ---

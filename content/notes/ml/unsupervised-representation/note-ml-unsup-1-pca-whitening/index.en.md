@@ -4,11 +4,15 @@ draft: false
 title: 'Machine Learning / Unsupervised Learning Part 1: PCA, Whitening, and Neighborhood Visualization'
 summary: "Starting from PCA's maximum-variance directions, this note builds the geometric foundation for embedding analysis: linear dimensionality reduction, covariance eigenspectra, whitening as scale correction, and why t-SNE / UMAP should be used to form hypotheses rather than prove cluster structure."
 description: "The first note in the unsupervised learning series: PCA, whitening, t-SNE, and UMAP, centered on representation geometry, direction, scale, local neighborhoods, and visualization error."
-tags: ["Unsupervised Learning", "PCA", "Whitening", "t-SNE", "UMAP", "Dimensionality Reduction", "Representation Geometry", "KL Divergence"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "PCA"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
 ---
+
+> **Topic dossier:** [Representation Geometry](/en/notes/topics/representation-geometry/)
 
 # Machine Learning / Unsupervised Learning Part 1: PCA, Whitening, and Neighborhood Visualization
 

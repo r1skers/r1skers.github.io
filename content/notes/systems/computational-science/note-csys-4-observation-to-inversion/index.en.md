@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 4: From Observations to Parameter Inversion'
 summary: "With observations known and the kappa field unknown, this part defines the inverse problem and explains why it naturally becomes a forward-model-based parameter optimization task."
 description: "Part 4 on defining the inversion problem from observations."
-tags: ["PDE", "Observation", "Inverse Problem", "Parameter Inversion", "Forward Model", "Kappa"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 4: From Observations to Parameter Inversion
 

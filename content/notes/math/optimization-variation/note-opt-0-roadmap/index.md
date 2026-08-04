@@ -4,8 +4,10 @@ draft: false
 title: '优化与变分 Part 0：从局部几何到约束与变分'
 summary: "重排优化与变分系列的依赖顺序：先用微分、梯度、Hessian 与凸性描述目标函数，再证明梯度下降、Newton 与拟 Newton 的收敛机制，最后接入现有的拉格朗日乘子与变分入口。"
 description: "优化与变分路线图：微分、梯度、Hessian、凸性、梯度下降、Newton、BFGS、约束优化、拉格朗日函数与欧拉–拉格朗日方向的依赖关系和证明边界。"
-tags: ["Optimization", "Calculus of Variations", "Gradient", "Hessian", "Convexity", "Gradient Descent", "Newton Method", "BFGS", "Lagrangian", "Roadmap"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Optimization"]
+categories: ["Notes"]
+series: ["Optimization and Variational Methods"]
+note_kind: "foundation"
 math: true
 ---
 

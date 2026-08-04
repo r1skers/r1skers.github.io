@@ -5,13 +5,14 @@ title: "[Artifact-6.2] Cheap Value Proxies"
 summary: "Artifact-6 的第二份记录：v1 证明 value 信息的价值集中在高熵 regime，但 restricted oracle 需要读取 dropped V，不能直接部署。本文尝试用 UTC 这类 cheap value proxy 近似 value 质心位移，并在 mixed-regime 合成台架上发现：预算转移比简单信号路由更重要，hybrid-b 在合成阶段稳定优于纯 mass 与纯 UTC。"
 description: "从 value-aware sparse attention 的误差分解出发，记录切入真实数据前的 Stage 1：Uniform-Tail Centroid proxy、predictor correlation 与 allocation quality 的分离、entropy 角色降级、mixed-regime budget delegation，以及为什么下一步必须换到真实 attention map。"
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "Value-Aware Attention"
-  - "Efficient Attention"
   - "Error Analysis"
+  - "Numerical Stability"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 62
 math: true
 ---

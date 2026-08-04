@@ -4,8 +4,10 @@ draft: false
 title: 'Taylor 展开：从余项到误差控制'
 summary: "误差分析的第一个完整 topic：从 Taylor 余项出发，走到误差界、传播、数值稳定性和最优步长。"
 description: "用 Taylor 展开走完一次误差的定义、表示、估计、传播、控制与实验验证。"
-tags: ["Error Analysis", "Taylor Expansion", "Numerical Analysis"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "topic-index"
 weight: 1
 ---
 

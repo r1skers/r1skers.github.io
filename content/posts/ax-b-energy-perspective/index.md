@@ -4,8 +4,9 @@ draft: false
 title: "从工程能量视角重新看 Ax=b"
 summary: "$Ax=b$ 背后隐含一张'能量高低分布'——A 的特征值分解给出这张地图。沿着这张地图，SVD 与 PCA 是两路分支（传递 vs 描述），中间挂着满秩、条件数、求逆、Ridge、梯度下降这些静态与动态的工程后果。"
 description: "围绕 Ax=b 一个等式，把 SVD、满秩、条件数、求逆、Ridge、梯度下降、PCA 都看作 A 能量分布这张地图上的两路分支：一条把 A 当算子（SVD 传递 + GD 动力学），一条把 A 当数据（PCA 描述）。"
-tags: ["Linear Algebra", "SVD", "Eigendecomposition", "Matrix", "Energy", "Rank", "Condition Number", "Ridge", "Regularization", "PCA", "Gradient Descent", "Optimization", "Engineering Perspective"]
+tags: ["Linear Algebra", "Numerical Stability", "Regularization", "Optimization"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # 起点

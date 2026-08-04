@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 3：线性方程、伪逆与最小范数解'
 summary: "从 Ax=b 的可解性与唯一性开始，证明全部精确解和最小二乘解的结构；随后把 A 限制到零空间的正交补上，构造 Moore–Penrose 伪逆，并证明它给出唯一的最小范数最小二乘解。"
 description: "有限维线性方程理论：Ax=b 的可解性、唯一性、通解、最小二乘解、最小范数解、Moore–Penrose 四条件、伪逆的坐标无关构造、满秩公式与 SVD 表达。"
-tags: ["Linear Algebra", "Linear Equations", "Solvability", "Least Squares", "Minimum Norm", "Moore-Penrose Pseudoinverse", "SVD", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Numerical Methods"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

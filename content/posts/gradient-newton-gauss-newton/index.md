@@ -4,8 +4,9 @@ draft: false
 title: '梯度下降、牛顿法与高斯牛顿：三种优化方法分析'
 summary: "从局部近似与迭代方向的角度比较梯度下降、牛顿法和高斯牛顿，说明它们分别利用了哪些信息、为什么收敛行为不同，以及各自适合什么问题。"
 description: "一篇面向优化直觉的比较文章：从一阶信息、二阶信息到 least-squares 结构，系统理解梯度下降、牛顿法与高斯牛顿的联系、差异与优缺点。"
-tags: ["Optimization", "Gradient Descent", "Newton's Method", "Gauss-Newton", "Least Squares", "Numerical Methods"]
+tags: ["Optimization", "Numerical Methods", "Least Squares", "Numerical Stability"]
 categories: ["Posts"]
+series: ["Optimization Methods"]
 ---
 
 # 引言

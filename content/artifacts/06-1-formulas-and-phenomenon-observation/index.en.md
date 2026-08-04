@@ -5,12 +5,14 @@ title: "[Artifact-6.1] Formulas and Phenomenon Observation"
 summary: "The first stage of Artifact-6: derive and verify the sparse-attention pruning identity ‖o−õ‖=δ‖μ_R−μ_S‖, map entropy regimes with q_scale, compare fixed-k / dropped-mass / restricted oracle at matched budget, and show why top-k-by-probability is not set-optimal."
 description: "Stage 0 to v1 of the value-aware sparse attention project: softmax as entropy-regularized optimization, exact pruning-error decomposition, synthetic q_scale regimes, matched-budget allocation, and the boundary of the restricted oracle."
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "Top-k Pruning"
   - "Error Analysis"
+  - "Numerical Analysis"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 61
 math: true
 ---

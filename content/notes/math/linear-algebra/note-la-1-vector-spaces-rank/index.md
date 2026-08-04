@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 1：向量空间、基、秩与四基本子空间'
 summary: "从子空间、张成与线性无关开始，建立有限维向量空间的基与维数，再以线性映射的核和像证明秩—零度定理，最后把矩阵的四基本子空间放进同一张代数结构图。"
 description: "有限维线性代数基础：向量空间、子空间、张成、线性无关、基、维数、线性映射、核、像、秩—零度定理、行秩等于列秩，以及矩阵四基本子空间的定义与维数。"
-tags: ["Linear Algebra", "Vector Space", "Basis", "Dimension", "Linear Map", "Rank-Nullity", "Fundamental Subspaces", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

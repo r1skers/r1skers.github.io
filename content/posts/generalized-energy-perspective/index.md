@@ -4,8 +4,9 @@ draft: true
 title: "广义能量视角：结构、信息与表示"
 summary: "一篇能量视角系列的导览式收口长文：不是提出大一统能量理论，而是整理一张 L²、信息与几何之间的结构对照表，并观察它的空格。"
 description: "从 Born / Ax=b / 卷积三篇出发，把状态、账本、残差、弱方向、先验与流这些角色放进 L²、信息、几何三列里对照；相似处可以借鉴，空格处可能是问题。"
-tags: ["Energy Perspective", "Hilbert Space", "Information Theory", "Geometry", "Gaussian", "Exponential Family", "Meta-Synthesis"]
+tags: ["Information Theory", "Information Geometry", "Exponential Family", "Functional Analysis"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # 引子：尝试寻找某些领域间的共通之处

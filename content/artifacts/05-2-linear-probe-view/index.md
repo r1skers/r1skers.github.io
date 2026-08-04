@@ -5,14 +5,14 @@ title: "[Artifact-5.2] BERT 线性探针视角 Pilot Note"
 summary: "Artifact-5 多视角对照系列的线性探针视角：在 BERT 每一层的文档片段表征上训练逻辑回归，测话题信息的「线性可解码度」随层如何变化，并与随机初始化、聚类和 Fisher 几何对照——发现 linear decodability 与 unsupervised alignment 是不同 measurement。"
 description: "Artifact-5.2 是 BERT 表征探针系列下的线性探针视角 child artifact：复用 5.1 缓存的层间表征，用逐层逻辑回归 + 5 折交叉验证测话题线性可分性，pretrained vs random-init 对照，并与聚类视角三角对照，给出可复现的监督探针完整记录。"
 tags:
-  - "Artifact"
   - "BERT"
-  - "Linear Probe"
-  - "Representation Analysis"
-  - "Logistic Regression"
-  - "20 Newsgroups"
+  - "Representation Geometry"
+  - "Machine Learning"
+  - "Visual Representation"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 52
 math: true
 aliases:

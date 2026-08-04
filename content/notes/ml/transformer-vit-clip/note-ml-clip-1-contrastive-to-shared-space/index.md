@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / CLIP 与多模态对齐：从对比学习到图文共享空间'
 summary: "从'用自然语言代替 label'的范式革命出发，把 InfoNCE 一步步推成 B 选 1 的分类问题，再讲透对称形式、温度、L2 normalize 三件核心组件；之后把已有的 ViT 改装成 image encoder、用 causal Transformer + EOS feature 写 text encoder，拼成双塔结构；最后在 CIFAR-10 + 模板 caption 上跑训练，sim_gap 从 0 推到 0.45，并通过 similarity heatmap 直观看到 contrastive learning 把语义几何投到单位球面的过程。"
 description: "A study note on CLIP — reframing image-text alignment as B-way classification, deriving symmetric InfoNCE loss, understanding learnable temperature and the batch-size coupling, L2 normalize as spherical geometry, causal text encoder with EOS feature extraction, and CIFAR-10 sanity training that visualizes emergent semantic structure on the unit sphere."
-tags: ["CLIP", "Contrastive Learning", "InfoNCE", "Multimodal", "Vision-Language", "Symmetric Loss", "Causal Self-Attention", "Temperature", "PyTorch"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Contrastive Learning", "Multimodal"]
+categories: ["Notes"]
+series: ["Transformer, ViT, and CLIP"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-clip1-从对比学习到图文共享空间/
   - /notes/笔记-机器学习-clip与多模态对齐1-从对比学习到图文共享空间/

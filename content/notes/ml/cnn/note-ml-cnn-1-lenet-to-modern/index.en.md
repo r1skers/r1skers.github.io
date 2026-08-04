@@ -4,8 +4,10 @@ draft: false
 title: 'Machine Learning / CNN and Visual Representation: From LeNet-5 to Modern CNN'
 summary: "Starting from the LeNet-5 paper, this note reproduces a paper-like CNN, rewrites it as a modern CNN, and studies activations, channel width, pooling, and feature maps."
 description: "A study note on LeNet-5 and modern CNN variants on MNIST."
-tags: ["CNN", "Visual Representation", "LeNet-5", "PyTorch", "MNIST"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
 ---
 

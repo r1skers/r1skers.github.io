@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 4：特征值、不变子空间、Schur 与 Jordan'
 summary: "从特征向量对应的一维不变子空间开始，经特征多项式、代数与几何重数证明可对角化判据；再证明复 Schur 分解，并由 Cayley–Hamilton、主分解与幂零链构造 Jordan 标准型。"
 description: "有限维谱理论基础：特征值、特征向量、不变子空间、特征多项式、代数重数、几何重数、可对角化、复 Schur 分解、Cayley–Hamilton 定理、广义特征空间与 Jordan 标准型。"
-tags: ["Linear Algebra", "Eigenvalue", "Invariant Subspace", "Characteristic Polynomial", "Diagonalization", "Schur Decomposition", "Cayley-Hamilton", "Jordan Form", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Spectral Methods"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

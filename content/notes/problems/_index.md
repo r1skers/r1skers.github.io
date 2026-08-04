@@ -4,8 +4,10 @@ draft: false
 title: '问题集'
 summary: "配套笔记的练习题，按学科分子页收录，每题一条、附可展开的参考解答。先合后分：题少时挤一页，攒多了拆独立子页。"
 description: "数学笔记的配套练习题集，按学科分子页（实分析、优化与变分、其他），逐题列举、附参考解答；不少题带「换种语言再证一遍」的提示。"
-tags: ["Problems", "Exercises"]
-categories: ["Crucible"]
+tags: ["Exercises"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "topic-index"
 problemPage: true
 aliases:
   - /notes/note-problems/

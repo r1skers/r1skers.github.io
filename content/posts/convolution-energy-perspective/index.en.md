@@ -4,8 +4,9 @@ draft: false
 title: "Convolution under an Energy Lens: The Wiener Filter Is Ridge in the Fourier Basis"
 summary: "Putting convolution on the natural extension of Ax=b's energy map: a convolution operator's energy basis is always the Fourier basis, $\\sigma_k$ is the magnitude of the frequency response, and the Wiener filter is literally Ridge in the Fourier basis."
 description: "Starting from translation invariance, this post shows why a convolution operator's energy basis is fixed to the Fourier basis, then maps the previous Ax=b energy view directly onto filtering, deconvolution, Wiener filtering, and Landweber iteration."
-tags: ["Linear Algebra", "Convolution", "Fourier Transform", "Signal Processing", "Wiener Filter", "Deconvolution", "Energy", "Engineering Perspective"]
+tags: ["Linear Algebra", "Fourier Transform", "Signal & Systems", "Inverse Problem"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # Setup

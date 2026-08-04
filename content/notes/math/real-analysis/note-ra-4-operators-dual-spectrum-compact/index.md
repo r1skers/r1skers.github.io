@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 4：有界线性算子、对偶空间、谱理论与紧算子'
 summary: "从 Hilbert 空间走到算子。先把有界 ⟺ 连续这条等价钉死，建立 𝓑(X,Y) 与对偶空间 X*，由 Riesz 表示定理把 Hilbert 空间和它的对偶等同；再上谱理论与自伴算子，最后到紧算子的谱定理——把反问题里『小奇异值放大噪声』这件事翻译成谱语言，自然引出 Tikhonov 正则化的滤子解释。"
 description: "泛函分析进阶笔记：有界线性算子、算子范数、有界与连续的等价、算子空间 𝓑(X,Y)、对偶空间、Riesz 表示定理、谱与预解集、伴随与自伴算子、紧算子、紧自伴算子的谱定理、反问题的病态性、Tikhonov 与截断 SVD 的谱层面解释。"
-tags: ["Functional Analysis", "Bounded Operator", "Operator Norm", "Dual Space", "Riesz Representation", "Spectrum", "Self-Adjoint", "Compact Operator", "Spectral Theorem", "Inverse Problem", "Tikhonov Regularization", "SVD", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Functional Analysis", "Inverse Problem"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析4-有界算子谱与紧算子/
   - /notes/笔记-实分析4-有界算子对偶谱与紧算子/

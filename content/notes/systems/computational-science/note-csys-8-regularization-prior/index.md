@@ -4,14 +4,18 @@ draft: false
 title: '计算科学与高可靠系统设计第8部分：正则化、先验与稳定反演'
 summary: "通过 log 参数化和 L-BFGS-B，我们已经能更自然地得到一个 16 维 blockwise 反演结果。但更好的求解器并不会自动消除病态性，因此下一步需要讨论正则化和先验如何让这个解更稳定。"
 description: "Part 8 on regularization, priors, and stable inversion for blockwise kappa recovery."
-tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Stability", "Kappa", "Reliability"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "Regularization"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学8-正则化与先验/
   - /notes/笔记-计算科学与高可靠系统设计8-正则化、先验与稳定反演/
   - /notes/笔记-计算科学与高可靠系统设计8-稳定反演/
   - /notes/note-csys-8-regularization-prior/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 8：正则化、先验与稳定反演
 

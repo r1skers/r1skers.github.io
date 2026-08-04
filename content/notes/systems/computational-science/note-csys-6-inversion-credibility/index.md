@@ -4,14 +4,18 @@ draft: false
 title: '计算科学与高可靠系统设计第6部分：反演结果分析与参数可信度'
 summary: "Part 5 得到的是一组能够较好解释 observation 的参数，但这并不自动等于真参数。本篇开始区分 observation 拟合、validation 能力与 truth-level 对照，并讨论结果到底该怎么看。"
 description: "Part 6 on inversion-result analysis, validation, and parameter credibility."
-tags: ["PDE", "Inverse Problem", "Observation", "Validation", "Parameter Inversion", "Reliability", "Identifiability"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学6-参数反演-l-bfgs-b/
   - /notes/笔记-计算科学与高可靠系统设计6-参数反演2-参数处理/
   - /notes/笔记-计算科学与高可靠系统设计6-反演结果分析与参数可信度/
   - /notes/note-csys-6-inversion-credibility/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 6：反演结果分析与参数可信度
 

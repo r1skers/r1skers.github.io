@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 9: Smoothness Terms, Prior Terms, and Regularization Strength'
 summary: "Part 8 explained why regularization is necessary. This part continues by showing how smoothness terms and prior terms are written into the objective, and how regularization strength changes the shape of the final blockwise inversion result."
 description: "Part 9 on smoothness terms, prior terms, and regularization strength in blockwise inversion."
-tags: ["PDE", "Inverse Problem", "Regularization", "Prior", "Smoothness", "Stability", "Kappa"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "Regularization"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 9: Smoothness Terms, Prior Terms, and Regularization Strength
 

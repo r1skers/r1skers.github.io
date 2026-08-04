@@ -5,9 +5,9 @@ draft: true
 summary: ""
 description: ""
 tags:
-  - "Tool"
+  - ""
 categories:
-  - "Automata"
+  - "Tools"
 weight: 10
 layout: "tool"
 ---

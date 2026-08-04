@@ -5,14 +5,14 @@ title: "[Artifact-6.3] Real Attention: From BERT to GPT-2"
 summary: "The third stage of Artifact-6: move cheap value-aware sparse-attention scoring from synthetic regimes to real BERT and GPT-2 attention. BERT exposes objective, denominator, and protocol failures; UTC-rel-hat and exact-budget evaluation fix them; GPT-2 validates that the local scorer ladder is not a BERT-only artifact."
 description: "Real-model validation for Value-Aware Sparse Attention: BERT QKV extraction, UTC-abs/UTC-rel/UTC-rel-hat, exact-budget evaluation, starvation failures, and GPT-2 cross-model validation."
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
   - "BERT"
-  - "GPT-2"
-  - "Efficient Attention"
   - "Error Analysis"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 63
 math: true
 ---

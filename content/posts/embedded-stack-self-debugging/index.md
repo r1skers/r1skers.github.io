@@ -4,8 +4,9 @@ draft: false
 title: '在嵌入式栈里重新定位自己'
 summary: "一篇关于自我调试的记录：我用工程压力测试的方式重新判断自己在嵌入式栈中的位置，最后确认自己更适合中间层，也就是数据流、验证和嵌入式算法所在的区域。"
 description: "不是调试固件，而是调试自己的位置感：我到底适合嵌入式系统栈的哪一层。"
-tags: ["学习记录", "嵌入式系统", "系统集成", "STM32"]
+tags: ["Systems", "STM32", "Reliability"]
 categories: ["Posts"]
+series: ["Embedded Systems"]
 ---
 
 # 为什么写这篇

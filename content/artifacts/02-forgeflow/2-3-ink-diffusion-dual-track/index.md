@@ -5,13 +5,14 @@ draft: false
 summary: "记录 ink_diffusion 的双轨流程：PDE 显式仿真主线 + surrogate 监督学习支线，并给出当前验收结果。 / Document the dual-track ink_diffusion flow: PDE simulation mainline + supervised surrogate branch with recorded acceptance results."
 description: "Artifact-2.3 for ink diffusion: simulation pipeline, surrogate dataset build, and validation metrics."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Ink Diffusion"
-  - "Simulation"
-  - "Surrogate"
+  - "Computational Science"
+  - "PDE"
+  - "Numerical Methods"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 23
 aliases:
   - /artifacts/forgeflow-ink-diffusion/

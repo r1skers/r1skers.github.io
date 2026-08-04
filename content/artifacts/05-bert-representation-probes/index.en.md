@@ -5,11 +5,13 @@ title: "[Artifact-5] BERT Representation Probes: A Multi-View Comparison"
 summary: "Same BERT document-segment representations, viewed through multiple probes: clustering, linear separability, Fisher-style geometric compactness. Each lens reveals a different facet of what BERT learned; none is sufficient alone."
 description: "Artifact-5 is an umbrella for a multi-view analysis of BERT document-segment representations. Each child artifact applies a distinct probing method independently, together forming a comparative framework."
 tags:
-  - "Artifact"
   - "BERT"
-  - "Representation Analysis"
+  - "Representation Geometry"
+  - "Machine Learning"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 50
 math: true
 ---

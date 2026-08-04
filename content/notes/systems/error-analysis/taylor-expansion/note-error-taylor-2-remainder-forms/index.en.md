@@ -4,8 +4,10 @@ draft: false
 title: 'Error Analysis · Taylor 2: Lagrange, Integral, and Peano Remainders'
 summary: "The three forms use different assumptions and preserve different information: an unknown point, interval-wide contributions, and local asymptotic decay are not interchangeable."
 description: "A comparison of the assumptions, conclusions, and information loss in Lagrange, integral, and Peano remainders."
-tags: ["Error Analysis", "Taylor Expansion", "Lagrange Remainder", "Peano Remainder"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 2
 ---
 
@@ -170,4 +172,3 @@ Information decreases while computability increases. The next note shows how the
 ---
 
 **Next:** [Taylor 3: Why a Correct Bound Can Still Be Unconvincing](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
-

@@ -5,12 +5,13 @@ draft: false
 summary: "首个真实 App 级验证文档：记录 poly4_cubic 从配置到产出的完整执行顺序与验收口径。 / First real app-level validation runbook for poly4_cubic."
 description: "Engineering runbook for poly4_cubic: setup, pipeline order, outputs, and acceptance criteria."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Poly4"
-  - "Validation"
+  - "Computational Science"
+  - "Numerical Methods"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 22
 aliases:
   - /artifacts/forgeflow-01-poly4-first-app-validation/

@@ -4,8 +4,9 @@ draft: true
 title: "A Generalized Energy View: Structure, Information, and Representation"
 summary: "A meta-synthesis for the energy-view series: not a grand unified energy theory, but a structural comparison table across L², information, and geometry, with attention to the gaps."
 description: "Starting from the Born, Ax=b, and convolution posts, this essay compares roles such as state, scalar relation, residual, weak direction, prior, and flow across L², information, and geometry."
-tags: ["Energy Perspective", "Hilbert Space", "Information Theory", "Geometry", "Gaussian", "Exponential Family", "Meta-Synthesis"]
+tags: ["Information Theory", "Information Geometry", "Exponential Family", "Functional Analysis"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # Setup: Looking for Shared Structure

@@ -4,8 +4,9 @@ draft: false
 title: 'STM32 学习中第一次遇到的大困难'
 summary: "一篇关于 STM32 开发中“幽灵串口”问题的排障记录：一次看起来像工具链迁移失败的问题，最后却被证明只是物理接线错误。"
 description: "从 Keil 迁移到 CLion 之后，一次 USART 调试失败如何一步步被定位为物理层接线问题。"
-tags: ["STM32","硬件调试","环境搭建","UART"]
+tags: ["Systems", "STM32", "Reliability"]
 categories: ["Posts"]
+series: ["Embedded Systems"]
 ---
 
 # 背景

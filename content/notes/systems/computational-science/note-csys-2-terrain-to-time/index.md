@@ -4,14 +4,18 @@ draft: false
 title: '计算科学与高可靠系统设计第2部分：从地形到时间演化'
 summary: "以 orogeny-inversion-validation-lab 为实例，把 Part 1 中的离散地形接上演化方程，说明梯度、kappa、通量与 CFL 如何展开一条 forward trajectory。"
 description: "Part 2 on attaching the terrain to a PDE and evolving it into a forward trajectory."
-tags: ["PDE", "Time Marching", "CFL", "Flux", "Irregular Grid", "Numerical Methods"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学2-误差分析与理查德森外推/
   - /notes/笔记-计算科学与高可靠系统设计2-从地形到时间演化/
   - /notes/笔记-计算科学与高可靠系统设计2-系统可靠性与误差控制/
   - /notes/note-csys-2-terrain-to-time/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # Part 2：从地形到时间演化
 

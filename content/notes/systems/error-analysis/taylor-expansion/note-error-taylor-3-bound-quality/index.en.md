@@ -4,8 +4,10 @@ draft: false
 title: 'Error Analysis · Taylor 3: Why a Correct Bound Can Still Be Unconvincing'
 summary: "Covering the actual error is only the minimum requirement; a coarse supremum bound can completely miss that an approximation is converging."
 description: "An analysis of validity, tightness, singularities, and interval information loss using the Taylor remainder of 1/(1-x)."
-tags: ["Error Analysis", "Taylor Expansion", "Error Bounds", "Numerical Analysis"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 3
 ---
 
@@ -154,4 +156,3 @@ The next step places the error inside a longer computation and asks how it is pr
 ---
 
 **Next:** [Taylor 4: How Errors Propagate](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
-

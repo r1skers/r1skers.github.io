@@ -4,8 +4,10 @@ draft: false
 title: '底层架构 / IO 感知注意力 Part 1：FlashAttention v1 与 tiling-softmax'
 summary: "从 GPU 内存层次和 arithmetic intensity 入手，把 attention 重新框定为 memory-bound 问题；推导 tiling + online softmax 的 rebase 等价性、recompute 的反传论证，以及 $O(N^2 d^2 / M)$ 复杂度的来历与硬件代入。FA1 的算法零件——tiling、online softmax、recompute——都是教科书老把戏；它真正贡献的是把效率问题从 FLOPs 重新定义为 HBM 带宽。"
 description: "A study note on FlashAttention v1 — reframing attention as a memory-bound problem on top of the GPU memory hierarchy, deriving online softmax's rebase trick as mathematically exact (not approximate), the recompute trade-off for backward, and the $O(N^2 d^2 / M)$ HBM traffic complexity plus its Aggarwal-Vitter lower bound."
-tags: ["FlashAttention", "Attention", "Transformer", "GPU", "Memory Hierarchy", "IO-aware", "Online Softmax", "AI Infra"]
-categories: ["Crucible"]
+tags: ["Systems", "AI Infra", "Attention", "Softmax"]
+categories: ["Notes"]
+series: ["IO-Aware Attention"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-flashattention-v1/
   - /notes/笔记-底层架构-flashattention-v1/
@@ -13,6 +15,8 @@ aliases:
   - /notes/笔记-底层架构-io感知注意力1-flashattention-v1与tiling-softmax/
   - /notes/note-systems-io-attn-1-flashattention/
 ---
+
+> **主题入口：** [IO-Aware Attention 档案](/notes/topics/io-aware-attention/)
 
 # 底层架构 / IO 感知注意力 Part 1：FlashAttention v1 与 tiling-softmax
 

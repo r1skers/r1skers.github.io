@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 6：测度、可测函数与 Lebesgue 积分'
 summary: "从 Riemann 积分的失败案例（Dirichlet 函数）出发，把『切定义域 vs 切值域』的直觉换成严格的 σ-代数 + 测度框架。Lebesgue 测度作为『质量分布』把 m(ℚ)=0 这种反直觉结论变成毯子覆盖的两行计算。再借可测函数 + 简单函数 + 阶梯逼近定理把 Lebesgue 积分一砖一瓦造出来，最后用 a.e. 等价类把『积分对零测集免疫』这件事内建到底层。Part 6 是把积分这件事从『区间和』升级到『质量加权』，下一篇 Part 7 才开始用它。"
 description: "实分析进阶笔记：Riemann 与 Lebesgue 积分的对照（切定义域 vs 切值域）、σ-代数、测度的定义与可数可加性、Lebesgue 测度的外测度覆盖定义、m(ℚ)=0 的毯子覆盖证明、Dirac 测度与 Radon–Nikodym 预告、可测函数、简单函数与示性函数、从下方阶梯逼近定理、Lebesgue 积分的三步构造（简单 → 非负 → 一般可测）、几乎处处 (a.e.) 等价类。"
-tags: ["Real Analysis", "Measure Theory", "Sigma Algebra", "Lebesgue Measure", "Measurable Function", "Simple Function", "Lebesgue Integral", "Almost Everywhere", "Dirac Measure", "Radon-Nikodym", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Measure Theory"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析6-测度lebesgue积分/
   - /notes/note-ra-6-measure-lebesgue-integral/

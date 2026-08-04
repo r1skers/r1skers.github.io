@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 4: Bounded Linear Operators, Dual Space, Spectral Theory, and Compact Operators'
 summary: "From Hilbert space to operators. First pin down the bounded ⟺ continuous equivalence, build 𝓑(X,Y) and the dual space X*, identify a Hilbert space with its dual via the Riesz representation theorem; then climb spectral theory and self-adjoint operators, and finally reach the spectral theorem for compact operators — translating the inverse-problem fact that 'small singular values amplify noise' into spectral language, which naturally leads to the filter interpretation of Tikhonov regularization."
 description: "An intermediate functional-analysis note on bounded linear operators, operator norm, the equivalence of bounded and continuous, the operator space 𝓑(X,Y), the dual space, the Riesz representation theorem, spectrum and resolvent set, adjoint and self-adjoint operators, compact operators, the spectral theorem for compact self-adjoint operators, ill-posedness of inverse problems, and the spectral interpretation of Tikhonov regularization and truncated SVD."
-tags: ["Functional Analysis", "Bounded Operator", "Operator Norm", "Dual Space", "Riesz Representation", "Spectrum", "Self-Adjoint", "Compact Operator", "Spectral Theorem", "Inverse Problem", "Tikhonov Regularization", "SVD", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Functional Analysis", "Inverse Problem"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-4-operators-dual-spectrum-compact/
   - /notes/functional-analysis-2-operators-dual-spectrum/

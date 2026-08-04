@@ -4,8 +4,10 @@ draft: false
 title: '优化与变分 Part 2：梯度下降、收敛率与谱滤波'
 summary: "从 L-光滑性证明下降引理，再分析固定步长梯度下降：一般光滑目标得到驻点复杂度，凸目标得到 O(1/k) 函数值速率，强凸目标得到线性收敛；最后在线性最小二乘中推导 early stopping 的奇异值滤波公式。"
 description: "梯度下降证明型笔记：下降引理、步长范围、非凸梯度范数界、凸 O(1/k) 收敛率、强凸线性收敛、最优固定步长，以及 early stopping 在线性最小二乘中的谱正则化解释。"
-tags: ["Optimization", "Gradient Descent", "Descent Lemma", "Convex Optimization", "Strong Convexity", "Convergence Rate", "Early Stopping", "Spectral Filtering", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Optimization", "Numerical Methods"]
+categories: ["Notes"]
+series: ["Optimization and Variational Methods"]
+note_kind: "foundation"
 math: true
 ---
 

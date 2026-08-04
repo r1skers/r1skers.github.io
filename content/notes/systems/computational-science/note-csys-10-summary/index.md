@@ -4,14 +4,18 @@ draft: false
 title: '计算科学与高可靠系统设计第10部分：从空间场到稳定反演的完整链条总结'
 summary: "这一篇不再继续引入新的求解技术，而是把前面 Part 1-9 的整条链重新压缩成一个闭环：从空间场构造、PDE 演化、observation 生成，到参数反演、求解器升级、正则化与结果解释。"
 description: "Part 10 as a full-chain summary from spatial fields to stable inversion."
-tags: ["PDE", "Inverse Problem", "Regularization", "Optimization", "Observation", "Reliability", "Summary"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "Regularization"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学10-完整链条总结/
   - /notes/笔记-计算科学与高可靠系统设计10-从空间场到稳定反演的完整链条总结/
   - /notes/笔记-计算科学与高可靠系统设计10-完整闭环总结/
   - /notes/note-csys-10-summary/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 10：从空间场到稳定反演的完整链条总结
 

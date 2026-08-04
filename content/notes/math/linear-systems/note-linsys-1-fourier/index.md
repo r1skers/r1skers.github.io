@@ -3,8 +3,10 @@ date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: '线性系统第1部分：傅里叶变换'
 summary: "从正交性出发，串起傅里叶级数与傅里叶变换的核心逻辑：为什么可分解、如何求系数、如何走向连续频谱。"
-tags: [ "Fourier Transform", "Laplace Transform", "Convolution", "Sampling", "Signal & Systems"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Signal & Systems", "Fourier Transform"]
+categories: ["Notes"]
+series: ["Signal and Systems"]
+note_kind: "foundation"
 aliases:
   - /notes/note-linsys-1-fourier/
 ---

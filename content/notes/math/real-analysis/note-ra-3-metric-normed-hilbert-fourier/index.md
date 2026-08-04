@@ -4,8 +4,10 @@ draft: false
 title: '实分析 Part 3：度量空间、赋范空间、Hilbert 空间与傅里叶基础'
 summary: "从 ℝ 的完备性出发把分析推广到一般空间——度量、范数、内积一层一层加结构，直到 Hilbert 空间，最后用正交归一基与 Parseval 等式把傅里叶级数和傅里叶变换装回严格基础。"
 description: "实分析进阶笔记：度量空间、赋范空间、Banach 空间、内积空间、Hilbert 空间、Cauchy–Schwarz 不等式、正交分解定理、正交投影、Bessel 不等式、Parseval 等式、傅里叶级数的 L² 基础，以及傅里叶变换作为无穷维坐标变换的视角。"
-tags: ["Real Analysis", "Metric Space", "Normed Space", "Banach Space", "Hilbert Space", "Inner Product", "Cauchy-Schwarz", "Orthogonal Decomposition", "Fourier Series", "Fourier Transform", "Parseval", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Fourier Transform"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/笔记-实分析3-度量赋范hilbert与傅里叶/
   - /notes/note-ra-3-metric-normed-hilbert-fourier/

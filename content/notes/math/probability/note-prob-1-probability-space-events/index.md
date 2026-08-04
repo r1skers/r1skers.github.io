@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 1：概率空间、条件概率、独立性与 Bayes'
 summary: "从概率空间三元组出发，证明概率测度的基本推论，再由条件概率建立乘法公式、独立性、全概率公式与 Bayes 公式。"
 description: "概率论基础：样本空间、σ-代数、概率测度、事件运算、概率的连续性、条件概率、独立性、全概率公式与 Bayes 公式及其证明。"
-tags: ["Probability Theory", "Probability Space", "Conditional Probability", "Independence", "Bayes Theorem", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

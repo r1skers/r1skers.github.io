@@ -4,13 +4,17 @@ draft: false
 title: '机器学习 / 生成模型：CNN-VAE，从 MLP 到卷积结构'
 summary: "在已经跑通 MLP-VAE 的基础上，把 encoder 和 decoder 换成 CNN，理解卷积结构为什么更适合图像，以及 CNN-VAE 在 MNIST 上带来的实验变化。"
 description: "A study note on replacing an MLP VAE with a convolutional VAE on MNIST."
-tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Generative Models", "VAE"]
+categories: ["Notes"]
+series: ["Variational Autoencoders"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-生成模型1-3-cnn-vae从mlp到卷积结构/
   - /notes/笔记-机器学习-生成模型3-cnnvae从mlp到卷积结构/
   - /notes/note-ml-gen-3-cnn-vae/
 ---
+
+> **主题入口：** [Variational Autoencoder 档案](/notes/topics/variational-autoencoders/)
 
 # 机器学习 / 生成模型：CNN-VAE，从 MLP 到卷积结构
 

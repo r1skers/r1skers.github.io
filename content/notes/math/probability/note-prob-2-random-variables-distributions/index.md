@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 2：随机变量、CDF 与常见分布族'
 summary: "把随机变量定义为可测映射，用推前测度与 CDF 描述其分布，区分离散分布、绝对连续分布，并建立常见计数与等待时间分布族。"
 description: "概率论基础：随机变量的可测性、分布与推前测度、CDF 的单调性和右连续性、离散与绝对连续分布、Bernoulli、Binomial、Geometric、Poisson、Uniform、Exponential 与 Normal 分布。"
-tags: ["Probability Theory", "Random Variable", "CDF", "Probability Distribution", "Discrete Distribution", "Continuous Distribution", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

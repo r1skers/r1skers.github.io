@@ -4,13 +4,17 @@ draft: false
 title: '机器学习 / 无监督学习 Part 2：Spectral Embedding 与 Spectral Clustering'
 summary: "从样本近邻图出发，理解图拉普拉斯、低频特征向量、spectral embedding 和 spectral clustering。重点解释它们如何把点云改写成图结构表示，以及为什么 spectral clustering 可以看成“先换表达方式，再做 KMeans”。"
 description: "无监督学习第二篇：spectral embedding 与 spectral clustering。围绕相似度图、图拉普拉斯、低频特征向量、图上平滑性和 attention 类比，理解基于图结构的非线性聚类。"
-tags: ["Unsupervised Learning", "Spectral Embedding", "Spectral Clustering", "Graph Laplacian", "Graph Learning", "KMeans", "Representation Geometry"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "Spectral Methods"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
   - /notes/笔记-机器学习-无监督学习2-spectralembedding与spectralclustering/
   - /notes/note-ml-unsup-2-spectral/
 ---
+
+> **主题入口：** [表征几何档案](/notes/topics/representation-geometry/)
 
 # 机器学习 / 无监督学习 Part 2：Spectral Embedding 与 Spectral Clustering
 

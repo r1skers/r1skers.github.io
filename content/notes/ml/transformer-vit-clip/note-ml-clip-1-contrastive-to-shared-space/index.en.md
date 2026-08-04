@@ -4,8 +4,10 @@ draft: false
 title: 'Machine Learning / CLIP and Multimodal Alignment: From Contrastive Learning to a Shared Image-Text Space'
 summary: "Starting from the paradigm shift of 'replacing labels with natural language', this note derives InfoNCE step by step as a B-way classification problem, then explains the three core components — symmetric loss, temperature, and L2 normalize. We then refit the existing ViT into an image encoder, write a text encoder with causal Transformer + EOS feature extraction, and assemble them into a dual-tower CLIP. Finally we run sanity training on CIFAR-10 + template captions, push sim_gap from 0 to 0.45, and use a similarity heatmap to watch contrastive learning project semantic geometry onto the unit sphere."
 description: "A study note on CLIP — reframing image-text alignment as B-way classification, deriving symmetric InfoNCE loss, understanding learnable temperature and the batch-size coupling, L2 normalize as spherical geometry, causal text encoder with EOS feature extraction, and CIFAR-10 sanity training that visualizes emergent semantic structure on the unit sphere."
-tags: ["CLIP", "Contrastive Learning", "InfoNCE", "Multimodal", "Vision-Language", "Symmetric Loss", "Causal Self-Attention", "Temperature", "PyTorch"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Contrastive Learning", "Multimodal"]
+categories: ["Notes"]
+series: ["Transformer, ViT, and CLIP"]
+note_kind: "topic"
 aliases:
 ---
 

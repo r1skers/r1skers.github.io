@@ -5,14 +5,14 @@ title: "[Artifact-5.3] BERT Fisher 几何视角 Pilot Note"
 summary: "Artifact-5 多视角对照系列的 Fisher 视角：用 LDA 作监督线性探针（与 5.2 逻辑回归互证），并用 Fisher 迹比 η²=tr(S_B)/tr(S_T) 量话题的类内/类间几何。二者在 random-init 上分歧，说明 measurement operators 不等价；后续 spectrum audit 否定了初版 low-variance-tail 统一解释。"
 description: "Artifact-5.3 复用缓存表征，以 LDA 分类器、Fisher 迹比和 direction-level PCA attribution 对照逐层话题可分性；科学收口把主结论改为 measurement non-equivalence 与 leading-subspace spectral rebalancing。"
 tags:
-  - "Artifact"
   - "BERT"
-  - "Fisher Discriminant"
-  - "LDA"
-  - "Representation Analysis"
-  - "20 Newsgroups"
+  - "Information Geometry"
+  - "Representation Geometry"
+  - "Machine Learning"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 53
 math: true
 aliases:

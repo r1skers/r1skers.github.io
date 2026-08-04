@@ -4,15 +4,10 @@ date: '2026-02-26T00:00:00+09:00'
 draft: false
 summary: "以 orogeny-inversion-validation-lab 为实例，说明为什么不能直接使用完整 truth trajectory，以及如何通过时间、空间和噪声三刀把它转成 observation 数据。"
 description: "Part 3 on converting full truth trajectories into sparse, noisy observations."
-tags:
-  - "PDE"
-  - "Observation"
-  - "Truth Trajectory"
-  - "Sampling"
-  - "Noise"
-  - "Numerical Methods"
-categories:
-  - "Crucible"
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学3-ink-diffusion串联总结/
   - /notes/笔记-计算科学与高可靠系统设计3-反问题与数据驱动-ink-diffusion/
@@ -20,6 +15,8 @@ aliases:
   - /notes/笔记-计算科学与高可靠系统设计3-学习过程与研究闭环/
   - /notes/note-csys-3-trajectory-to-observation/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # 计算科学与高可靠系统设计 Part 3：从完整轨迹到观测数据
 

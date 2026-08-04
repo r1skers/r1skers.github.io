@@ -4,8 +4,10 @@ draft: false
 title: '信息论 Part 3：交叉熵、KL 散度与互信息'
 summary: "从真实分布 p 与描述分布 q 的错配出发，定义交叉熵与 KL 散度，证明 Gibbs 不等式，再把 KL 施加于联合分布与边缘乘积分布，得到互信息的等价形式与独立性刻画。"
 description: "信息论基础笔记：交叉熵、KL 散度、交叉熵分解、Gibbs 不等式、互信息的 KL 定义、熵等价式、条件 KL 表示、非负性、独立性与上界证明。"
-tags: ["Information Theory", "Cross Entropy", "KL Divergence", "Gibbs Inequality", "Mutual Information", "Independence", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Theory", "KL Divergence"]
+categories: ["Notes"]
+series: ["Information Theory"]
+note_kind: "foundation"
 ---
 
 # 信息论 Part 3：交叉熵、KL 散度与互信息

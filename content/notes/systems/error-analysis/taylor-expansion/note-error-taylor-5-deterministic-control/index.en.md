@@ -4,8 +4,10 @@ draft: false
 title: 'Error Analysis · Taylor 5: From Step Size to Richardson Extrapolation'
 summary: "Use scale-dependent error to measure convergence order and cancel the leading term, while observing how truncation and rounding jointly limit usable step sizes."
 description: "Observed order, Richardson extrapolation, stable representations, and a deterministic finite-difference error budget."
-tags: ["Error Analysis", "Finite Difference", "Richardson Extrapolation", "Floating Point"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion", "Floating Point"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 5
 ---
 
@@ -159,4 +161,3 @@ Source code, CSV data, and metadata are available in the [Taylor experiments in 
 ---
 
 **Next:** [Taylor 6: Putting Noise Into the Error Budget](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
-

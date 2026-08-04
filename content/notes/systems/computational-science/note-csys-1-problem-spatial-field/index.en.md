@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 1: Problem Setup and Spatial Field Construction'
 summary: "Using orogeny-inversion-validation-lab as the example, this part introduces the problem setup, initial terrain construction, and the geometric intuition of irregular grids and control volumes."
 description: "Part 1 on problem setup, initial terrain construction, and irregular-grid geometry."
-tags: ["PDE", "Spatial Discretization", "Irregular Grid", "Control Volume", "Numerical Methods", "Physics Modeling"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Part 1: Problem Setup and Spatial Field Construction
 

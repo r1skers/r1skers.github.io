@@ -5,13 +5,14 @@ title: "[Artifact-4] DEM 地貌稳定性 Demo 复盘"
 summary: "一个基于公开 DEM 的小型地形分析实验：比较不同预处理强度下坡度与曲率代理指标的响应，观察大尺度地貌骨架与小尺度地形表达的稳定性差异。"
 description: "Artifact-4 记录 dem-landform-stability-lab 的完整学习链：研究区裁剪、DEM 预处理、整区地形指标比较、局部窗口对照，以及对地貌解释边界的复盘。"
 tags:
-  - "Artifact"
-  - "DEM"
-  - "Terrain Analysis"
-  - "Geomorphology"
-  - "Preprocessing"
+  - "Computational Science"
+  - "Geoscience"
+  - "Numerical Methods"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Inverse Modeling and Reliable Computation"
 weight: 40
 ---
 

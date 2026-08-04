@@ -4,8 +4,10 @@ draft: false
 title: '概率论 Part 6：随机过程、Markov 链、排队与尾延迟'
 summary: "把随机变量扩展为按时间索引的随机变量族，建立 Bernoulli 与 Poisson 过程、Markov 链和平稳分布，再从样本路径证明 Little's Law，并用尾分布与分位数刻画重尾和 tail latency。"
 description: "随机过程基础：有限维分布、Bernoulli process、Poisson process、Markov chain、Chapman–Kolmogorov 方程、平稳分布、M/M/1、Little's Law、regular variation、重尾与高分位尾延迟。"
-tags: ["Probability Theory", "Stochastic Process", "Poisson Process", "Markov Chain", "Stationary Distribution", "Queueing Theory", "Little's Law", "Heavy Tail", "Tail Latency", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Probability Theory", "Stochastic Processes"]
+categories: ["Notes"]
+series: ["Probability and Statistics"]
+note_kind: "foundation"
 math: true
 ---
 

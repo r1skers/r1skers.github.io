@@ -4,8 +4,10 @@ draft: false
 title: '问题集 · 优化与变分'
 summary: "优化与变分笔记的配套练习——拉格朗日乘子、最大熵、softmax、凸对偶，多为「同一件事的两种语言」（一个「在哪取到」、一个「为什么下不去」）。"
 description: "优化与变分配套习题集：拉格朗日乘子与 Jensen/Gibbs/KL 下的最大熵、最优码长、高斯最大熵、softmax 与凸对偶，附参考解答。"
-tags: ["Problems", "Exercises", "Optimization", "Calculus of Variations"]
-categories: ["Crucible"]
+tags: ["Exercises", "Optimization"]
+categories: ["Notes"]
+series: ["Problems"]
+note_kind: "exercise"
 problemPage: true
 ---
 

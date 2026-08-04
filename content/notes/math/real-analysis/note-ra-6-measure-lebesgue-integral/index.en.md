@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 6: Measures, Measurable Functions, and the Lebesgue Integral'
 summary: "Starting from Riemann's failure case (Dirichlet's function), upgrade the 'slice the domain vs. slice the range' intuition into a rigorous σ-algebra + measure framework. With Lebesgue measure as 'mass distribution,' the counter-intuitive m(ℚ)=0 becomes a two-line blanket-covering calculation. Then build the Lebesgue integral piece by piece via measurable functions + simple functions + the staircase approximation theorem, and bake 'integration is immune to null sets' into the foundation through a.e. equivalence classes. Part 6 upgrades integration from 'interval sums' to 'mass weighting'; Part 7 will put it to work."
 description: "An intermediate real-analysis note on Riemann vs. Lebesgue integration (slicing the domain vs. the range), σ-algebras, measures with countable additivity, the outer-measure / covering definition of Lebesgue measure, the blanket-covering proof that m(ℚ)=0, the Dirac measure and a Radon–Nikodym preview, measurable functions, simple and indicator functions, the staircase approximation theorem, the three-step construction of the Lebesgue integral (simple → nonnegative → general measurable), and almost-everywhere (a.e.) equivalence classes."
-tags: ["Real Analysis", "Measure Theory", "Sigma Algebra", "Lebesgue Measure", "Measurable Function", "Simple Function", "Lebesgue Integral", "Almost Everywhere", "Dirac Measure", "Radon-Nikodym", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Measure Theory"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-6-measure-lebesgue-integral/
 ---

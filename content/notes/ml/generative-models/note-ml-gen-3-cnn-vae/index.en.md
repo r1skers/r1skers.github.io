@@ -4,10 +4,14 @@ draft: false
 title: 'Machine Learning / Generative Models: CNN-VAE, from MLPs to Convolutional Structure'
 summary: "Starting from the MLP-VAE baseline, this note replaces the encoder and decoder with CNNs and studies why convolutional structure is better suited to images."
 description: "A study note on replacing an MLP VAE with a convolutional VAE on MNIST."
-tags: ["Generative Models", "VAE", "CNN", "PyTorch", "MNIST"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Generative Models", "VAE"]
+categories: ["Notes"]
+series: ["Variational Autoencoders"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Variational Autoencoders](/en/notes/topics/variational-autoencoders/)
 
 # Machine Learning / Generative Models: CNN-VAE, from MLPs to Convolutional Structure
 

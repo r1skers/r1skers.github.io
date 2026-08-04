@@ -4,11 +4,15 @@ draft: false
 title: 'Machine Learning / Unsupervised Learning Part 2: Spectral Embedding and Spectral Clustering'
 summary: "Starting from nearest-neighbor graphs, this note explains the graph Laplacian, low-frequency eigenvectors, spectral embedding, and spectral clustering. The core view is that spectral clustering first rewrites the data into a graph-structural representation, then applies KMeans."
 description: "The second note in the unsupervised learning series: spectral embedding and spectral clustering, centered on similarity graphs, graph Laplacians, low-frequency eigenvectors, graph smoothness, and the analogy with attention."
-tags: ["Unsupervised Learning", "Spectral Embedding", "Spectral Clustering", "Graph Laplacian", "Graph Learning", "KMeans", "Representation Geometry"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "Spectral Methods"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
 ---
+
+> **Topic dossier:** [Representation Geometry](/en/notes/topics/representation-geometry/)
 
 # Machine Learning / Unsupervised Learning Part 2: Spectral Embedding and Spectral Clustering
 

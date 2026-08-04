@@ -5,12 +5,14 @@ title: "[Artifact-6] Value-Aware Sparse Attention：从熵剪枝到误差感知�
 summary: "以 top-k 稀疏注意力的输出误差为目标，从精确分解 ‖o−õ‖=δ‖μ_R−μ_S‖ 出发，系统对照 entropy / dropped-mass / value-geometry 三类剪枝信号。发现误差的主导因子随注意力尖锐程度发生 regime 切换，而 value 信息的增量价值恰好集中在高熵 regime。"
 description: "Artifact-6 是一个 umbrella artifact：以稀疏注意力剪枝误差分析为对象，从误差分解恒等式出发建立信号层级（fixed-k → entropy → dropped-mass → restricted value-aware oracle），每个阶段独立成 child artifact。"
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "Efficient Attention"
   - "Error Analysis"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 60
 math: true
 ---

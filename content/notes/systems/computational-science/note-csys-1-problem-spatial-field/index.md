@@ -4,13 +4,17 @@ draft: false
 title: '计算科学与高可靠系统设计第1部分：问题背景与空间场构造'
 summary: "以 orogeny-inversion-validation-lab 为实例，先讲问题背景、初始地形构造，以及 irregular grid 和 control volume 的几何直觉。"
 description: "Part 1 on problem setup, initial terrain construction, and irregular-grid geometry."
-tags: ["PDE", "Spatial Discretization", "Irregular Grid", "Control Volume", "Numerical Methods", "Physics Modeling"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-应用数学1-偏微分方程/
   - /notes/笔记-计算科学与高可靠系统设计1-问题背景与空间场构造/
   - /notes/note-csys-1-problem-spatial-field/
 ---
+
+> **主题入口：** [反问题与可靠计算档案](/notes/topics/inverse-modeling/)
 
 # Part 1：问题背景与空间场构造
 

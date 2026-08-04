@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 7: From Finite-Difference Gradient Descent to L-BFGS and Log-Parameterization'
 summary: "Part 5 already makes inversion run, but parameter constraints, step-size control, and convergence behavior are still rather crude. This part explains why we switch from optimizing κ directly to optimizing log κ, and why the solver is upgraded to L-BFGS-B."
 description: "Part 7 on log-parameterization and L-BFGS-B for more stable blockwise kappa inversion."
-tags: ["PDE", "Inverse Problem", "Optimization", "L-BFGS-B", "Log Parameterization", "Kappa", "Reliability"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Computational Science & High-Reliability Systems Design Part 7: From Finite-Difference Gradient Descent to L-BFGS and Log-Parameterization
 

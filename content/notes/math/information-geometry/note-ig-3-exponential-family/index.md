@@ -4,8 +4,10 @@ draft: false
 title: '信息几何 G3：指数族、Log-partition 与 Expectation Parameter'
 summary: "从指数族的归一化结构定义 log-partition function，证明其梯度等于充分统计量的期望、Hessian 等于协方差，并由此得到 Fisher information 等于 log-partition Hessian。"
 description: "信息几何进阶笔记：正则指数族、natural parameter、充分统计量、log-partition function、expectation parameter、score、log-partition 的一二阶导数、Fisher information、凸性、minimality 与自然/均值坐标映射。"
-tags: ["Information Geometry", "Exponential Family", "Log-Partition Function", "Expectation Parameter", "Fisher Information", "Convexity", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Geometry", "Probability Theory"]
+categories: ["Notes"]
+series: ["Information Geometry"]
+note_kind: "foundation"
 ---
 
 # 信息几何 G3：指数族、Log-partition 与 Expectation Parameter

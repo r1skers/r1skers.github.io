@@ -4,8 +4,10 @@ draft: false
 title: '线性代数 Part 9：矩阵函数、迭代法与结构化计算'
 summary: "从幂级数定义矩阵函数，证明 Neumann 级数与谱半径条件；再统一 stationary iteration、Jacobi、Gauss–Seidel 和共轭梯度的收敛机制，最后整理 Hadamard、Kronecker、稀疏、循环结构与量化误差的线性代数接口。"
 description: "有限维计算线性代数笔记：矩阵指数、Neumann 级数、固定点迭代、Jacobi、Gauss-Seidel、Sassenfeld 条件、共轭梯度及条件数收敛界、Hadamard 与 Schur 乘积定理、Kronecker、vec、循环矩阵、稀疏计算和量化误差界。"
-tags: ["Linear Algebra", "Matrix Function", "Matrix Exponential", "Neumann Series", "Jacobi", "Gauss-Seidel", "Conjugate Gradient", "Kronecker Product", "Sparse Matrix", "Quantization", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Linear Algebra", "Numerical Methods"]
+categories: ["Notes"]
+series: ["Linear Algebra"]
+note_kind: "foundation"
 math: true
 ---
 

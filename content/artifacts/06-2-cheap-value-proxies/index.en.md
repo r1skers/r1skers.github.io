@@ -5,13 +5,14 @@ title: "[Artifact-6.2] Cheap Value Proxies"
 summary: "The second stage of Artifact-6: the restricted oracle proves that value geometry matters, but it reads dropped V. This note designs UTC as a cheap value proxy, separates predictor correlation from allocation quality, and shows on mixed-regime synthetic data that budget delegation matters more than naive signal routing."
 description: "Stage 1 of Value-Aware Sparse Attention: Uniform-Tail Centroid proxy, allocation quality vs predictor correlation, entropy demotion, mixed-regime budget delegation, and why the next step must move to real attention maps."
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "Value-Aware Attention"
-  - "Efficient Attention"
   - "Error Analysis"
+  - "Numerical Stability"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 62
 math: true
 ---

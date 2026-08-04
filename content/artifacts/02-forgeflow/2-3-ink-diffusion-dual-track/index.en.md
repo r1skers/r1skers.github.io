@@ -5,13 +5,14 @@ draft: false
 summary: "The ink_diffusion dual-track engineering record: PDE simulation mainline plus supervised surrogate branch, with the current acceptance results."
 description: "Artifact-2.3 page for ink diffusion: simulation pipeline, surrogate dataset building, report plots, and gate-based validation."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Ink Diffusion"
-  - "Simulation"
-  - "Surrogate"
+  - "Computational Science"
+  - "PDE"
+  - "Numerical Methods"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 23
 ---
 

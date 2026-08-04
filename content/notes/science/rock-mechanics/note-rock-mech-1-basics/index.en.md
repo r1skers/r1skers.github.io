@@ -4,8 +4,10 @@ draft: false
 title: 'Rock Mechanics Part 1: Mineral Composition, Structural Features, and Discontinuity Basics'
 summary: "基于课堂速记，系统梳理岩石矿物组成、颗粒与胶结特征、风化指标、结构面特征量和岩体结构类型，作为后续强度与稳定性分析的基础底板。"
 description: "Rock mechanics fundamentals: minerals, microstructure, weathering, discontinuity descriptors, and rock-mass structure types."
-tags: ["Rock Mechanics", "Petrophysics", "Engineering Geology", "Mineralogy", "Discontinuity", "Weathering"]
-categories: ["Crucible"]
+tags: ["Science", "Rock Mechanics"]
+categories: ["Notes"]
+series: ["Rock Mechanics"]
+note_kind: "foundation"
 aliases:
 ---
 

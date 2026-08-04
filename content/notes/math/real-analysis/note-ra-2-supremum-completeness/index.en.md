@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 2: The Supremum Axiom, Monotone Convergence, and the Equivalence Chain of Completeness'
 summary: "Starting from the LUB axiom, this note walks the chain through MCT, the nested-interval theorem, Bolzano–Weierstrass, and Cauchy completeness, then uses a bisection argument to push Cauchy + Archimedean back to LUB, closing the equivalence ring on ℝ."
 description: "An intermediate real-analysis note on the supremum and LUB axiom, the Archimedean property, the monotone convergence theorem, the nested-interval theorem, the Bolzano–Weierstrass theorem, Cauchy completeness, the equivalence chain of these five statements on ℝ, and the necessity of the Archimedean hypothesis."
-tags: ["Real Analysis", "Completeness", "Supremum", "Monotone Convergence", "Bolzano-Weierstrass", "Cauchy Sequence", "Archimedean", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-2-completeness/
 ---

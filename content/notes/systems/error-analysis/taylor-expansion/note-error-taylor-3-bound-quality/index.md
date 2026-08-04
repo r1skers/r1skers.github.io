@@ -4,8 +4,10 @@ draft: false
 title: '误差分析 · Taylor 3：正确的界为什么可能没有说服力'
 summary: "误差界始终覆盖真实误差只是最低要求；一个粗糙 supremum bound 可能完全看不见近似正在收敛。"
 description: "用 1/(1-x) 的 Taylor 余项分析 bound validity、tightness、奇点和区间信息压缩。"
-tags: ["Error Analysis", "Taylor Expansion", "Error Bounds", "Numerical Analysis"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 3
 ---
 

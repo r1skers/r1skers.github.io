@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / Transformer 与序列建模：从注意力到编码器'
 summary: "从 self-attention 的动机出发，推导 scaled dot-product、multi-head、masking 与 positional encoding，最后用 PyTorch 复现一个最小 encoder-only Transformer，并在两个合成任务上验证 PE 的必要性。"
 description: "A study note on Transformer fundamentals — self-attention, multi-head, positional encoding, pre-norm encoder block — with a minimal encoder-only reforge on two synthetic argmax-style tasks."
-tags: ["Transformer", "Self-Attention", "Positional Encoding", "PyTorch", "Encoder"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Transformer", "Attention"]
+categories: ["Notes"]
+series: ["Transformer, ViT, and CLIP"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-transformer1-从注意力到编码器/
   - /notes/笔记-机器学习-transformer与序列建模1-从注意力到编码器/

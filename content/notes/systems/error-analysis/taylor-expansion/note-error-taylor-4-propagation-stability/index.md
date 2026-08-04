@@ -4,8 +4,10 @@ draft: false
 title: '误差分析 · Taylor 4：误差怎样传播'
 summary: "输出误差约等于敏感度乘输入误差，但这只是局部一阶模型；完整分析还要区分 conditioning、stability 和浮点求值路径。"
 description: "从 Taylor 线性化推导误差传播，区分问题敏感性与算法稳定性，并解释 cancellation。"
-tags: ["Error Analysis", "Error Propagation", "Conditioning", "Numerical Stability"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion", "Numerical Stability"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 4
 ---
 

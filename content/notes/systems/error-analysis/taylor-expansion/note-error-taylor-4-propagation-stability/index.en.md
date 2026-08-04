@@ -4,8 +4,10 @@ draft: false
 title: 'Error Analysis · Taylor 4: How Errors Propagate'
 summary: "Output error is approximately sensitivity times input error, but only as a local first-order model; a complete analysis also separates conditioning, stability, correlation, and floating-point evaluation paths."
 description: "Taylor linearization as an error-propagation model, with conditioning, numerical stability, cancellation, and correlated errors."
-tags: ["Error Analysis", "Error Propagation", "Conditioning", "Numerical Stability"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion", "Numerical Stability"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 4
 ---
 
@@ -163,4 +165,3 @@ A complete propagation statement must specify local versus global behavior, abso
 ---
 
 **Next:** [Taylor 5: From Step Size to Richardson Extrapolation](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
-

@@ -3,8 +3,10 @@ date: '2025-11-22T10:17:00+09:00'
 draft: false
 title: 'Quantum Mechanics Part 1: From Schrödinger to Wave Functions'
 summary: "Reviewing quantum mechanics from an engineering perspective: the failure of classical theory, wave-particle duality, derivation of the Schrödinger equation, and potential-well wavefunction visualization."
-tags: ["Quantum Mechanics", "Physics", "Python", "Matplotlib", "Schrödinger Equation"]
-categories: ["Crucible"]
+tags: ["Science", "Quantum Mechanics"]
+categories: ["Notes"]
+series: ["Quantum Mechanics"]
+note_kind: "foundation"
 aliases:
 ---
 

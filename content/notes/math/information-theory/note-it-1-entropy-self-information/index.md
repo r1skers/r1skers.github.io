@@ -4,8 +4,10 @@ draft: false
 title: '信息论 Part 1：自信息、熵与平均不确定性'
 summary: "从独立事件的信息可加性出发推出对数形式的自信息，再把熵定义为平均自信息，并证明熵的非负性、最大值与凹性。"
 description: "信息论基础笔记：有限离散字母表上的自信息与 Shannon 熵，自信息对数形式的刻画，熵的非负性、零点、最大熵上界及凹性证明。"
-tags: ["Information Theory", "Self-Information", "Entropy", "Shannon Entropy", "Concavity", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Theory", "Entropy"]
+categories: ["Notes"]
+series: ["Information Theory"]
+note_kind: "foundation"
 ---
 
 # 信息论 Part 1：自信息、熵与平均不确定性

@@ -4,8 +4,10 @@ draft: false
 title: '信息论与信息几何 Part 0：共同基础与两条分支'
 summary: "重新整理信息论系列的真实依赖图：熵、联合/条件结构、交叉熵、KL 与互信息构成共同基础；随后分别进入 Shannon 渐近支线与以 Fisher metric、natural gradient、指数族和 Bregman 对偶为核心的信息几何主线。"
 description: "信息论与信息几何路线图：共同基础、AEP/典型集的 Shannon 支线、Score/Fisher/KL 局部结构/Natural Gradient/指数族/Legendre 对偶/Bregman 散度的信息几何主线，以及 bits 与 nats 的接口。"
-tags: ["Information Theory", "Information Geometry", "Roadmap", "Entropy", "KL Divergence", "Fisher Information"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Information Theory", "KL Divergence"]
+categories: ["Notes"]
+series: ["Information Theory"]
+note_kind: "foundation"
 ---
 
 # 信息论与信息几何 Part 0：共同基础与两条分支

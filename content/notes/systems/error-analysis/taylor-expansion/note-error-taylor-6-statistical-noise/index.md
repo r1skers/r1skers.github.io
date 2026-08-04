@@ -4,8 +4,10 @@ draft: false
 title: '误差分析 · Taylor 6：把噪声写进误差预算'
 summary: "带相关噪声的中心差分把 Taylor 截断偏差、随机方差、MSE 和最优步长连接成一个可验证模型。"
 description: "推导 noisy central difference 的 bias–variance 分解、相关性效应、Monte Carlo 验证和最优步长。"
-tags: ["Error Analysis", "Monte Carlo", "Bias Variance", "Finite Difference"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion", "Monte Carlo"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 6
 ---
 

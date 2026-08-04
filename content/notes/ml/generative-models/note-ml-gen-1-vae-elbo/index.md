@@ -4,13 +4,17 @@ draft: false
 title: '机器学习 / 生成模型：VAE 的基本思想与 ELBO 推导'
 summary: "围绕 VAE 论文中的核心问题，整理 Variational Autoencoder 的基本直觉、模型结构、ELBO 的来历，以及 reparameterization trick 为什么必要。"
 description: "A study note on the basic idea of Variational Autoencoder and the intuition behind ELBO."
-tags: ["Generative Models", "VAE", "ELBO", "Latent Variable Model", "Reparameterization"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Generative Models", "VAE"]
+categories: ["Notes"]
+series: ["Variational Autoencoders"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-生成模型1-vae基本思想与elbo推导/
   - /notes/笔记-生成模型1-1-VariationalAutoencoder的基本思想与ELBO推导/
   - /notes/note-ml-gen-1-vae-elbo/
 ---
+
+> **主题入口：** [Variational Autoencoder 档案](/notes/topics/variational-autoencoders/)
 
 # 机器学习 / 生成模型：VAE 的基本思想与 ELBO 推导
 

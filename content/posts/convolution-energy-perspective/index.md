@@ -4,8 +4,9 @@ draft: false
 title: "卷积的能量视角：维纳滤波是 Fourier 基下的 Ridge"
 summary: "把卷积放到 Ax=b 能量地图的延长线上：卷积算子的能量基永远是 Fourier，$\\sigma_k$ 是频率响应的幅度，Wiener 滤波就是 Fourier 基下的 Ridge。"
 description: "从平移不变性出发，看清卷积算子的能量基为什么固定成 Fourier 基，并把上一篇 Ax=b 的能量视角直接对位到滤波、反卷积、Wiener、Landweber 这一族信号处理操作上。"
-tags: ["Linear Algebra", "Convolution", "Fourier Transform", "Signal Processing", "Wiener Filter", "Deconvolution", "Energy", "Engineering Perspective"]
+tags: ["Linear Algebra", "Fourier Transform", "Signal & Systems", "Inverse Problem"]
 categories: ["Posts"]
+series: ["Energy Perspective"]
 ---
 
 # 起点

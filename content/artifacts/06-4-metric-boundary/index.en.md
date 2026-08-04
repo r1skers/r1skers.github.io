@@ -5,14 +5,14 @@ title: "[Artifact-6.4] Metric Boundary: Local Error Is Not a Behavioral Oracle"
 summary: "The fourth stage of Artifact-6: after validating UTC-rel-hat as a strong local sparse-attention scorer on BERT/GPT-2, push the metric through W_O, GPT-2 next-token KL, and whole-layer intervention. The local scorer story survives W_O with attenuation, but local restricted oracles are not behavioral oracles."
 description: "Metric-boundary experiments for Value-Aware Sparse Attention: W_O-projected error, GPT-2 single-head next-token KL, whole-layer KL intervention, and the boundary between local sparse-attention error and model-level behavior."
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "GPT-2"
-  - "Efficient Attention"
   - "Error Analysis"
-  - "Metric Boundary"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 64
 math: true
 ---

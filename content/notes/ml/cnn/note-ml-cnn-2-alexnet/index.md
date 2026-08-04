@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / CNN 与视觉表征：AlexNet，深度视觉时代的起点'
 summary: "从论文和轻量复现出发，理解 AlexNet 如何用大规模 CNN、ReLU、GPU、dropout 和数据增强推动 ImageNet 分类突破。"
 description: "A study note on AlexNet, its architecture, ImageNet classification setup, and lightweight PyTorch reproduction."
-tags: ["CNN", "Visual Representation", "AlexNet", "Image Classification", "ImageNet", "PyTorch", "Deep Learning"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-生成模型3-cnn的下一步alexnet/
   - /notes/笔记-机器学习-cnn与视觉表征2-alexnet深度视觉时代的起点/

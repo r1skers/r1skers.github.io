@@ -4,8 +4,10 @@ draft: false
 title: 'Machine Learning / CNN and Visual Representation: AlexNet, the Starting Point of Deep Visual Learning'
 summary: "A study note on how AlexNet combined large CNNs, ReLU, GPU training, dropout, and data augmentation to break through ImageNet classification."
 description: "A study note on AlexNet, its architecture, ImageNet classification setup, and lightweight PyTorch reproduction."
-tags: ["CNN", "Visual Representation", "AlexNet", "Image Classification", "ImageNet", "PyTorch", "Deep Learning"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
 ---
 

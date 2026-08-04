@@ -4,13 +4,17 @@ draft: false
 title: '机器学习 / 无监督学习 Part 3：KMeans、GMM、层次聚类与 DBSCAN'
 summary: "整理主要聚类算法的核心假设：KMeans 的中心原型、spherical KMeans 的方向原型、GMM 的概率云、层次聚类的树结构，以及 DBSCAN / HDBSCAN 的密度连通视角。"
 description: "无监督学习第三篇：KMeans、spherical KMeans、Gaussian Mixture Model、hierarchical clustering、DBSCAN 与 HDBSCAN。重点比较不同算法对“簇”的不同假设。"
-tags: ["Unsupervised Learning", "Clustering", "KMeans", "Spherical KMeans", "GMM", "EM Algorithm", "Hierarchical Clustering", "DBSCAN", "HDBSCAN", "Representation Geometry"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "Clustering"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
   - /notes/笔记-机器学习-无监督学习3-kmeansgmm层次聚类与dbscan/
   - /notes/note-ml-unsup-3-clustering-algorithms/
 ---
+
+> **主题入口：** [表征几何档案](/notes/topics/representation-geometry/)
 
 # 机器学习 / 无监督学习 Part 3：KMeans、GMM、层次聚类与 DBSCAN
 

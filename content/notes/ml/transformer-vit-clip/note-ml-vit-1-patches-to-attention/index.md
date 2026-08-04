@@ -4,8 +4,10 @@ draft: false
 title: '机器学习 / ViT 与视觉 Transformer：从图像分块到注意力分类'
 summary: "从'图像即 token 序列'的核心思想出发，推导 patch embedding 与 Conv2d(stride=kernel) 的数学等价性，理清 CLS、learnable PE、reused EncoderBlock 各自承担的角色，最后用 PyTorch 在 MNIST / CIFAR-10 上复现一个最小 ViT，并通过 attention rollout 验证模型确实学到判别 patch。"
 description: "A study note on Vision Transformer (ViT) — patch embedding as Conv2d(stride=kernel), CLS token, learnable position embedding, reused encoder block, the inductive-bias trade-off, and attention rollout visualization. Built on top of the Transformer module from the previous note."
-tags: ["ViT", "Vision Transformer", "Patch Embedding", "Self-Attention", "Attention Rollout", "PyTorch"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Transformer", "Visual Representation"]
+categories: ["Notes"]
+series: ["Transformer, ViT, and CLIP"]
+note_kind: "topic"
 aliases:
   - /notes/笔记-vit1-从图像分块到注意力分类/
   - /notes/笔记-机器学习-vit与视觉transformer1-从图像分块到注意力分类/

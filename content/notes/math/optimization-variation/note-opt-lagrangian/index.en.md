@@ -4,8 +4,10 @@ draft: false
 title: 'Optimization and Calculus of Variations: The Lagrangian Function and the Lagrange Operator'
 summary: "Starting from unconstrained stationarity, this note builds the geometry of 'gradients must align' under an equality constraint, introduces the Lagrangian L(x,λ), abstracts 'build L and solve for stationarity' into a Lagrange operator, and bridges to the Euler–Lagrange equation of the calculus of variations."
 description: "An introductory optimization-and-variation note: the gradient-alignment geometry of constrained optimization, Lagrange multipliers, the Lagrangian L(x,λ), viewing the stationarity system as a Lagrange operator, and the bridge to infinite-dimensional variation."
-tags: ["Optimization", "Calculus of Variations", "Lagrangian", "Lagrange Multiplier", "Euler-Lagrange", "KKT"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Optimization", "Calculus of Variations"]
+categories: ["Notes"]
+series: ["Optimization and Variational Methods"]
+note_kind: "foundation"
 aliases:
   - /notes/optimization-lagrangian-function-and-operator/
 ---

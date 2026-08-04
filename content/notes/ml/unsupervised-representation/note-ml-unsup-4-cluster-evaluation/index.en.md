@@ -4,11 +4,15 @@ draft: false
 title: 'Machine Learning / Unsupervised Learning Part 4: Clustering Evaluation, External Metrics, and Stability'
 summary: "Clustering algorithms always return results, but those results need evaluation. This note covers internal metrics such as silhouette, Davies-Bouldin, and Calinski-Harabasz; external metrics such as NMI, ARI, and purity; and the role of resampling stability."
 description: "The fourth note in the unsupervised learning series: clustering evaluation through internal metrics, external metrics, and stability, distinguishing geometric compactness, semantic label alignment, and robustness under perturbation."
-tags: ["Unsupervised Learning", "Clustering Evaluation", "Silhouette", "Davies-Bouldin", "Calinski-Harabasz", "NMI", "ARI", "Purity", "Stability", "Resampling"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "Unsupervised Learning", "Representation Geometry", "Clustering"]
+categories: ["Notes"]
+series: ["Unsupervised Representation"]
+note_kind: "topic"
 math: true
 aliases:
 ---
+
+> **Topic dossier:** [Representation Geometry](/en/notes/topics/representation-geometry/)
 
 # Machine Learning / Unsupervised Learning Part 4: Clustering Evaluation, External Metrics, and Stability
 

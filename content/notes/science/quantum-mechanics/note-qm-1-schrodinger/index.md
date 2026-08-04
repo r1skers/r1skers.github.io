@@ -3,8 +3,10 @@ date: '2025-11-22T10:17:00+09:00'
 draft: false
 title: '量子力学第1部分：从薛定谔方程到波函数'
 summary: "从工程视角回顾量子力学基础：经典理论失效、波粒二象性、薛定谔方程推导与势阱波函数可视化。"
-tags: ["Quantum Mechanics", "Physics", "Python", "Matplotlib", "Schrödinger Equation"]
-categories: ["Crucible"]
+tags: ["Science", "Quantum Mechanics"]
+categories: ["Notes"]
+series: ["Quantum Mechanics"]
+note_kind: "foundation"
 aliases:
   - /notes/note-qm-1-schrodinger/
 ---

@@ -5,14 +5,14 @@ title: "[Artifact-5.3] BERT Fisher View — Pilot Note"
 summary: "The Fisher view of the Artifact-5 multi-probe series: compare an LDA linear probe with the Fisher trace ratio η²=tr(S_B)/tr(S_T). Their random-init divergence establishes measurement non-equivalence; a later spectrum audit rejects the initial low-variance-tail unifying account."
 description: "Artifact-5.3 reuses cached representations to compare an LDA classifier, Fisher trace geometry, and direction-level PCA attribution. Its scientific closure centers measurement non-equivalence and leading-subspace spectral rebalancing."
 tags:
-  - "Artifact"
   - "BERT"
-  - "Fisher Discriminant"
-  - "LDA"
-  - "Representation Analysis"
-  - "20 Newsgroups"
+  - "Information Geometry"
+  - "Representation Geometry"
+  - "Machine Learning"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 53
 math: true
 ---

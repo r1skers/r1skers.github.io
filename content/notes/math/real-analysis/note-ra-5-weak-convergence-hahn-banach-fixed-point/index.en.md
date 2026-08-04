@@ -4,8 +4,10 @@ draft: false
 title: 'Real Analysis Part 5: Weak Convergence, Hahn–Banach, and the Banach Fixed-Point Theorem'
 summary: "Continuing Part 4's dual-space toolkit. First use the e_n ⇀ 0 counterexample in Hilbert space to pin down the true gap between strong and weak convergence; then use Banach–Alaoglu to half-recover BW in infinite dimensions. From Hahn–Banach pull out three corollaries — norm-preserving extension, dual characterization of the norm, separation of convex sets — the wrench by which functional analysis 'looks at' abstract spaces. Finally use the Banach fixed-point theorem to ground all of this in numerical methods: completeness is the lifeline of fixed-point existence, the geometric convergence rate hangs directly on the contraction constant k, which closes a loop with the condition number κ."
 description: "An advanced functional-analysis note on strong vs. weak convergence, the inner-product form of weak convergence on Hilbert space, weak lower semicontinuity, Banach–Alaoglu and weak sequential compactness, the Hahn–Banach extension theorem and its three corollaries (norm-preserving extension, dual characterization of the norm, separation of convex sets), the Banach fixed-point theorem, contraction mappings, the role of completeness in the fixed-point proof, and the link between geometric convergence rate and the condition number."
-tags: ["Functional Analysis", "Weak Convergence", "Strong Convergence", "Banach-Alaoglu", "Weak Compactness", "Hahn-Banach", "Banach Fixed Point", "Contraction Mapping", "Convergence Rate", "Condition Number", "Proof"]
-categories: ["Crucible"]
+tags: ["Mathematics", "Real Analysis", "Functional Analysis", "Convergence"]
+categories: ["Notes"]
+series: ["Real and Functional Analysis"]
+note_kind: "foundation"
 aliases:
   - /notes/real-analysis-5-weak-convergence-hahn-banach-fixed-point/
   - /notes/functional-analysis-3-weak-convergence-hahn-banach-fixed-point/

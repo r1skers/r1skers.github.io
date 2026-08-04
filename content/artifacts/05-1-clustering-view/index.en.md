@@ -5,14 +5,14 @@ title: "[Artifact-5.1] BERT Clustering View — Pilot Note"
 summary: "The clustering view inside the Artifact-5 multi-probe series: compares layerwise topic alignment, PCA whitening, spherical KMeans, alternative clusterers, K granularity, and subset-resampling stability on BERT document-segment representations from 20 Newsgroups."
 description: "Artifact-5.1 is the clustering-view child artifact under the BERT representation probes umbrella. It packages the clustering-view findings of bert-cluster-stability: from BERT layer extraction, random-init control, whitening-dimension sweep, clusterer comparison, and stability ARI to cluster-topic heatmap interpretation."
 tags:
-  - "Artifact"
   - "BERT"
   - "Clustering"
-  - "Representation Analysis"
-  - "PCA Whitening"
-  - "20 Newsgroups"
+  - "Representation Geometry"
+  - "PCA"
 categories:
   - "Artifacts"
+series:
+  - "Representation Geometry"
 weight: 51
 math: true
 aliases:

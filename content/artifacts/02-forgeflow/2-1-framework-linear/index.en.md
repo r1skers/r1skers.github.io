@@ -5,12 +5,13 @@ draft: false
 summary: "The minimal app-isolated ForgeFlow baseline around linear_xy: config, run path, regression logic, and acceptance criteria."
 description: "Artifact-2.1 page for the linear_xy baseline: config, supervised runbook, metric gates, and recorded validation results."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Baseline"
-  - "Linear"
+  - "Computational Science"
+  - "Linear Algebra"
+  - "Numerical Methods"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 21
 ---
 

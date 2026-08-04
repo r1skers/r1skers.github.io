@@ -5,12 +5,14 @@ title: "[Artifact-6] Value-Aware Sparse Attention: From Entropy Pruning to Error
 summary: "An umbrella artifact for a research-style implementation project on sparse-attention pruning error. Starting from the exact identity ‖o−õ‖=δ‖μ_R−μ_S‖, the series maps when dropped mass is sufficient, when value geometry matters, how cheap value-aware proxies behave, and where local error stops being a behavioral oracle."
 description: "Artifact-6 studies sparse attention approximation through an exact output-error decomposition, synthetic regimes, cheap value-aware proxies, real BERT/GPT-2 attention maps, and metric-boundary tests through W_O and next-token KL."
 tags:
-  - "Artifact"
+  - "Attention"
   - "Sparse Attention"
-  - "Efficient Attention"
   - "Error Analysis"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "Value-Aware Sparse Attention"
 weight: 60
 math: true
 ---

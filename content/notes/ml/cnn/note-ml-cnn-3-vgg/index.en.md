@@ -4,8 +4,10 @@ draft: false
 title: 'Machine Learning / CNN and Visual Representation: VGG, Depth and Small Convolution Filters'
 summary: "A study note on why VGG uses repeated 3x3 convolutions, regular deep stacks, and controlled depth comparisons to push CNN visual representations beyond AlexNet and toward ResNet."
 description: "A study note on VGG, repeated 3x3 convolutions, VGG-16 architecture, parameter count, and the bridge from AlexNet to ResNet."
-tags: ["CNN", "Visual Representation", "VGG", "ImageNet", "Deep Learning", "Computer Vision"]
-categories: ["Crucible"]
+tags: ["Machine Learning", "CNN", "Visual Representation"]
+categories: ["Notes"]
+series: ["CNN and Visual Representation"]
+note_kind: "topic"
 aliases:
 ---
 

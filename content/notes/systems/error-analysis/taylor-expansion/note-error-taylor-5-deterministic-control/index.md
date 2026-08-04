@@ -4,8 +4,10 @@ draft: false
 title: '误差分析 · Taylor 5：从步长到 Richardson 外推'
 summary: "利用误差的尺度规律测量收敛阶，再消去主导误差；同时观察截断误差与浮点舍入怎样共同决定可用步长。"
 description: "从有限差分推导 observed order、Richardson extrapolation、稳定表示和确定性误差预算。"
-tags: ["Error Analysis", "Finite Difference", "Richardson Extrapolation", "Floating Point"]
+tags: ["Error Analysis", "Numerical Analysis", "Taylor Expansion", "Floating Point"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 5
 ---
 

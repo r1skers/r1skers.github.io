@@ -6,6 +6,8 @@ summary: "A long-running, topic-driven study of how errors are defined, introduc
 description: "A reproducible approach to error analysis built from concrete mathematical objects and computing systems."
 tags: ["Error Analysis", "Numerical Analysis", "Reliability"]
 categories: ["Notes"]
+series: ["Error Analysis"]
+note_kind: "research"
 weight: 1
 ---
 
@@ -58,7 +60,7 @@ It is an ideal first specimen: the formulas are transparent, yet they lead natur
 
 ### Topic 2: Softmax
 
-Softmax extends scalar local propagation to vector maps and Jacobians. It also introduces shift invariance, input quantization, overflow and underflow, cross-entropy, and configurable precision. The investigation is still active; it will become a formal series after the conclusions stabilize.
+Softmax follows the actual floating-point computation graph through max subtraction, exp, normalizer accumulation, division, and output casting, then compares naive, safe, online, and blockwise evaluation orders. The investigation is still active; it will become a formal series after the conclusions stabilize. Related algorithms and reproductions are collected in the [IO-Aware Attention dossier](/en/notes/topics/io-aware-attention/).
 
 ## Project and Evidence
 
@@ -67,4 +69,3 @@ Derivations, source code, tests, CSV files, metadata, and figures live in [Error
 ---
 
 **Enter the first topic:** [Taylor Expansion: From Remainders to Error Control](/en/notes/systems/error-analysis/taylor-expansion/)
-

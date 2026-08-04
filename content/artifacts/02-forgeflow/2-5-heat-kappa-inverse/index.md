@@ -5,14 +5,14 @@ draft: false
 summary: "`heat_kappa_inverse` 的两阶段参数反演记录：先生成 `kappa -> features` 数据，再做 `features -> kappa` 回归，并给出 ID/OOD/噪声鲁棒性结果。 / Two-stage parameter-inversion record for `heat_kappa_inverse`: build `kappa -> features` data first, then regress `features -> kappa`, with ID/OOD/noise robustness results."
 description: "Artifact-2.5 for heat_kappa_inverse: dataset generation, inverse regression, ID/OOD analysis, and sigma-k anomaly calibration."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Heat Equation"
-  - "Parameter Inversion"
-  - "ID/OOD"
-  - "Robustness"
+  - "Computational Science"
+  - "Inverse Problem"
+  - "PDE"
+  - "Reliability"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 25
 aliases:
   - /artifacts/forgeflow-heat-kappa-inverse/

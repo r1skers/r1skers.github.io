@@ -5,14 +5,14 @@ draft: false
 summary: "`heat_periodic` 的 App 级基准验证（long_t 主线）：周期热方程长时仿真、解析解收敛性评估（时间/空间）、以及 surrogate rollout 记录。 / App-level benchmark validation for `heat_periodic` with long_t mainline: long-horizon periodic heat simulation, exact-solution convergence checks (temporal/spatial), and surrogate rollout records."
 description: "Artifact-2.4 for heat_periodic with long_t simulation baseline, exact convergence studies, surrogate rollout, and acceptance gates."
 tags:
-  - "Artifact"
-  - "ForgeFlow"
-  - "Heat Equation"
-  - "Periodic Boundary"
+  - "Computational Science"
+  - "PDE"
   - "Convergence"
-  - "Surrogate"
+  - "Numerical Analysis"
 categories:
   - "Artifacts"
+series:
+  - "ForgeFlow"
 weight: 24
 aliases:
   - /artifacts/forgeflow-heat-periodic-benchmark/

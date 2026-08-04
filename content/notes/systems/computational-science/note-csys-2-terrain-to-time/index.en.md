@@ -4,10 +4,14 @@ draft: false
 title: 'Computational Science & High-Reliability Systems Design Part 2: From Terrain to Temporal Evolution'
 summary: "Using orogeny-inversion-validation-lab as the running example, this note connects the discrete terrain from Part 1 to the evolution equation and shows how gradients, kappa, flux, and CFL unfold into a forward trajectory."
 description: "Part 2 on attaching the terrain to a PDE and evolving it into a forward trajectory."
-tags: ["PDE", "Time Marching", "CFL", "Flux", "Irregular Grid", "Numerical Methods"]
-categories: ["Crucible"]
+tags: ["Computational Science", "Inverse Problem", "Reliability", "PDE"]
+categories: ["Notes"]
+series: ["Inverse Modeling and Reliable Computation"]
+note_kind: "topic"
 aliases:
 ---
+
+> **Topic dossier:** [Inverse Modeling and Reliable Computation](/en/notes/topics/inverse-modeling/)
 
 # Part 2: From Terrain to Temporal Evolution
 
