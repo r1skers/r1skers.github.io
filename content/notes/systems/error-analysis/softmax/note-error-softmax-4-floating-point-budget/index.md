@@ -332,14 +332,15 @@ exp 差异误差没有出现在总量偏差里，因为它只在类别之间重�
 | --- | --- |
 | exp 共同相对误差被 normalization 消掉 | 精确代数推导与 Jacobian 解释 |
 | 一阶预算 $\epsilon_i-\bar\epsilon-\eta+\delta_i$ | 标准浮点误差模型推导 |
-| 顺序求和 $O(nu)$、树形求和 $O(\log n\,u)$ | 理论上界，实验待完成 |
+| 顺序求和 $O(nu)$、树形求和 $O(\log n\,u)$ | 理论上界；受控 layout 与 stress 实验见下一篇 |
 | $2^{24}$ 处单位 logit difference 丢失 | FP32 可复现实验、测试、CSV 与 metadata |
-| 下溢时分量相对误差可达 $100\%$ | 边界反例；consumer-dependent 处置尚待系统整理 |
+| 下溢时分量相对误差可达 $100\%$ | 边界反例；consumer-dependent 分类与处置见第 6 篇 |
 
-下一阶段不再继续增加误差公式，而是建立“故障—metric/consumer—处置”
-决策链，再把 tree reduction、mixed precision、fast exp、kernel fusion 与
-非确定求和顺序放到 GPU 实现中验证。
+下一阶段不再继续增加误差公式。下一篇先冻结 reduction 实际收到的 FP32
+numerators，再用 $q=(1,2^{-24},\ldots,2^{-24})$ 把预算中的 $\eta$ 放大成
+可复现故障，并比较 sequential、pairwise、Kahan 和更宽 accumulator。随后再把
+这些 observation 接入“故障—consumer—metric—tolerance—处置”决策链。
 
 ---
 
-**本 Topic 第一轮完成：** [返回 Softmax 父页面](/notes/systems/error-analysis/softmax/)
+**下一篇：** [Softmax 5：求和顺序怎样吞掉尾部小量](/notes/systems/error-analysis/softmax/note-error-softmax-5-summation-stagnation/)

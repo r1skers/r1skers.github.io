@@ -60,7 +60,7 @@ weight: 1
 
 ### Topic 2：Softmax
 
-Softmax 第一轮已归档为 [Softmax：从方向性误差到有限精度](/notes/systems/error-analysis/softmax/)。这一轮从二维线性映射的方向性误差进入 Jacobian、singular values 与概率单纯形，再沿实际浮点计算图追踪 subtract-max、exp、normalizer 求和、除法和输入量化。GPU reduction、mixed precision 与 blockwise 实现留到后续系统阶段；相关算法与复现也汇入 [IO-Aware Attention 主题档案](/notes/topics/io-aware-attention/)。
+Softmax 当前阶段归档为 [Softmax：从方向性误差到有限精度](/notes/systems/error-analysis/softmax/)。这一轮从二维线性映射的方向性误差进入 Jacobian、singular values 与概率单纯形，再沿实际浮点计算图追踪 subtract-max、exp、normalizer 求和、除法和输入量化，并建立“故障—consumer—metric—tolerance—处置”的首个受控案例。GPU reduction、mixed precision 与 blockwise 实现留到后续系统阶段；相关算法与复现也汇入 [IO-Aware Attention 主题档案](/notes/topics/io-aware-attention/)。
 
 ## 项目与证据
 

@@ -2,8 +2,8 @@
 date: '2026-08-04T00:10:00+09:00'
 draft: false
 title: 'Softmax: From Directional Error to Finite Precision'
-summary: "A route from directional propagation through the Jacobian to the probability simplex, stable evaluation, input quantization, and an operation-level floating-point error budget."
-description: "A complete Softmax error-analysis pass from problem conditioning to algorithmic stability, tracing how exp, summation, and division change the output probabilities."
+summary: "A route from directional propagation through stable evaluation and an operation-level error budget to summation stagnation and a first consumer-specific mitigation case."
+description: "Use Softmax to connect conditioning, algorithmic stability, input-representation error, summation stagnation, and consumer-specific mitigation."
 tags: ["Error Analysis", "Numerical Analysis", "Softmax", "Floating Point"]
 categories: ["Notes"]
 series: ["Error Analysis"]
@@ -24,8 +24,9 @@ From the perspective of error analysis, however, that formula quickly separates 
 - Why does subtract-max prevent overflow but fail to restore an input difference that has already been lost?
 - How do exp, accumulation of the normalizer, and final division each enter the probability error?
 - Why does a probability sum of exactly $1$ still fail to prove that every component is correct?
+- After finding a summation failure, why can we not immediately declare a tree, Kahan, or a wider accumulator to be better?
 
-This pass does not begin with the Softmax formula itself. It first returns to a minimal two-dimensional linear map, establishes that error has a direction, and then moves through Jacobians, singular values, the probability simplex, and the finite-precision computation graph.
+This pass does not begin with the Softmax formula itself. It first returns to a minimal two-dimensional linear map, establishes that error has a direction, and then moves through Jacobians, singular values, the probability simplex, the finite-precision computation graph, summation stagnation, and consumer-specific mitigation.
 
 ## Route Through the Topic
 
@@ -57,6 +58,14 @@ and interprets the matrix action as “subtract the probability-weighted mean, t
 
 and derives a first-order budget for exp, summation, and division. It explains why normalization removes a common relative error, which errors move the result off the probability simplex, and why underflow abruptly invalidates the small-relative-error model.
 
+### 5. How Summation Order Swallows Small Tail Terms
+
+[How Summation Order Swallows Small Tail Terms](/en/notes/systems/error-analysis/softmax/note-error-softmax-5-summation-stagnation/) freezes the FP32 numerators received by the Sum stage. It begins with $q=(1,u,u)$, scales the half-ULP stagnation mechanism into a measurable stress case, and then uses binary and decimal midpoint controls to separate input quantization from reduction error. The controls also provide a concrete input on which the fixed pairwise implementation is not correctly rounded.
+
+### 6. From Observation to Consumer-Specific Mitigation
+
+[From Observation to Consumer-Specific Mitigation](/en/notes/systems/error-analysis/softmax/note-error-softmax-6-consumer-specific-mitigation/) separates raw observations, policy-free summaries, consumer policies, and assessments. The same summary is evaluated under a tolerance policy and a correct-rounding policy, showing that a result can pass a consumer tolerance without being correctly rounded. The article then builds a failure--consumer--metric--tolerance--mitigation chain for the input, exp, sum, and division stages.
+
 ## The Boundaries Established in This Pass
 
 These notes repeatedly separate three questions:
@@ -67,7 +76,7 @@ These notes repeatedly separate three questions:
 
 All three can occur in one computation, but they cannot be summarized by the single phrase “Softmax is numerically unstable.”
 
-This pass contains one reproducible FP32 input-quantization experiment. The difference between sequential and tree summation is currently a theoretical prediction rather than registered experimental evidence. GPU reduction, mixed precision, fast exp, and kernel fusion remain for a later implementation pass.
+This pass contains a reproducible FP32 input-quantization experiment, a first versioned summation-stress artifact, midpoint boundary controls, and a first consumer-specific failure-to-mitigation chain. GPU reduction graphs and the accuracy--cost frontier on target hardware have not yet been measured.
 
 Derivations, source code, tests, CSV data, and metadata are preserved in [Error Atlas](https://github.com/r1skers/error-atlas/tree/main/topics/softmax).
 

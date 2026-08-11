@@ -2,8 +2,8 @@
 date: '2026-08-04T00:10:00+09:00'
 draft: false
 title: 'Softmax：从方向性误差到有限精度'
-summary: "从 Jacobian 的方向性传播出发，走到概率单纯形、稳定求值、输入量化和逐操作浮点误差预算。"
-description: "用 Softmax 完成一次从问题条件性到算法稳定性的误差分析，并追踪 exp、求和与除法怎样改变概率。"
+summary: "从 Jacobian 的方向性传播出发，走到稳定求值、浮点误差预算、求和停滞机制与首个 consumer-specific 故障处置案例。"
+description: "用 Softmax 连接问题条件性、算法稳定性、输入表示误差、求和停滞和 consumer-specific 处置。"
 tags: ["Error Analysis", "Numerical Analysis", "Softmax", "Floating Point"]
 categories: ["Notes"]
 series: ["Error Analysis"]
@@ -24,10 +24,11 @@ p_i=\frac{e^{z_i}}{\sum_j e^{z_j}}.
 - subtract-max 为什么能避免 overflow，却救不回已经丢失的输入差值？
 - exp、normalizer 求和和最终除法，各自怎样进入概率误差？
 - 为什么概率和恰好为 $1$，仍不能证明每个分量都算对了？
+- 发现一个求和故障后，为什么不能直接宣布 tree、Kahan 或更高精度更好？
 
 这一轮不是从 Softmax 公式直接开始，而是先回到最小的二维线性映射，建立
-“误差有方向”这一事实，再逐步进入 Jacobian、singular values、概率单纯形
-和有限精度计算图。
+“误差有方向”这一事实，再逐步进入 Jacobian、singular values、概率单纯形、
+有限精度计算图、求和停滞与 consumer-specific 处置。
 
 ## 本轮路线
 
@@ -71,9 +72,29 @@ $1/2$ 上界的区别。
 normalization 消掉、哪些误差会使结果离开概率单纯形，以及为什么下溢会让
 小相对误差模型突然失效。
 
-## 这一轮真正建立的边界
+### 5. 求和顺序怎样吞掉尾部小量
 
-这四篇会反复区分三类问题：
+[求和顺序怎样吞掉尾部小量](/notes/systems/error-analysis/softmax/note-error-softmax-5-summation-stagnation/)
+冻结 Sum stage 实际收到的 FP32 numerators，先用 $q=(1,u,u)$ 定位半 ULP
+停滞，再把尾项扩展为可测的 stress case。stored-input reference 是 $17/16$，
+head-first sequential FP32 却返回 $1$；fixed pairwise、Kahan 与 FP64
+accumulator 在这个注册案例上恢复 reference。随后用 midpoint 两侧的 binary 与
+decimal controls 验证 ties-to-even，分开 input quantization 与 reduction error，
+并给出 fixed pairwise 不能 correctly round 的受控反例。
+
+### 6. 从观测走到 consumer-specific 处置
+
+[从观测到 consumer-specific 处置](/notes/systems/error-analysis/softmax/note-error-softmax-6-consumer-specific-mitigation/)
+把 raw observation、summary、consumer policy 和 assessment 分开，避免把
+repeatability 当作 accuracy，也避免从一个 failure 名称直接跳到固定处置。
+同一个 policy-free summary 分别接受 consumer tolerance 与 correct-rounding
+policy，展示 tolerance pass 不代表 correctly rounded。最后按 input、exp、sum
+和 division stage 建立
+failure—consumer—metric—tolerance—mitigation 决策链。
+
+## 边界
+
+这六篇会反复区分三类问题：
 
 - **问题条件性**：精确 Softmax 怎样响应输入扰动，由 Jacobian 和它的谱描述；
 - **求值算法稳定性**：具体浮点路径额外引入多少误差，由 exp、求和和除法的
@@ -82,9 +103,9 @@ normalization 消掉、哪些误差会使结果离开概率单纯形，以及为
 
 三者可以出现在同一条计算链里，却不能用同一句“Softmax 数值不稳定”概括。
 
-本轮已经有一个可复现的 FP32 输入量化实验。顺序求和与树形求和的误差差异
-目前只有理论预测，尚未注册为实验事实；GPU reduction、mixed precision、
-fast exp 与 kernel fusion 也留到后续实现阶段。
+本轮已有一个可复现的 FP32 输入量化实验、首个版本化求和 stress artifact、
+midpoint boundary controls，以及第一条 consumer-specific 故障处置链。目标硬件
+上的 GPU reduction graph 与 accuracy-cost frontier 尚未测量。
 
 推导、源码、测试、CSV 与 metadata 保存在
 [Error Atlas](https://github.com/r1skers/error-atlas/tree/main/topics/softmax)。

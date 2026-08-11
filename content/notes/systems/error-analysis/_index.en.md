@@ -60,7 +60,7 @@ It is an ideal first specimen: the formulas are transparent, yet they lead natur
 
 ### Topic 2: Softmax
 
-The first Softmax pass is now archived as [Softmax: From Directional Error to Finite Precision](/en/notes/systems/error-analysis/softmax/). It begins with directional error in a two-dimensional linear map, proceeds through Jacobians, singular values, and the probability simplex, and then follows subtract-max, exp, normalizer summation, division, and input quantization through the floating-point computation graph. GPU reduction, mixed precision, and blockwise implementations remain for a later systems pass; related algorithms and reproductions are also collected in the [IO-Aware Attention dossier](/en/notes/topics/io-aware-attention/).
+The current Softmax pass is archived as [Softmax: From Directional Error to Finite Precision](/en/notes/systems/error-analysis/softmax/). It begins with directional error in a two-dimensional linear map, proceeds through Jacobians, singular values, and the probability simplex, then follows subtract-max, exp, normalizer summation, division, and input quantization through the floating-point computation graph. It also establishes a first controlled failure--consumer--metric--tolerance--mitigation case. GPU reduction, mixed precision, and blockwise implementations remain for a later systems pass; related algorithms and reproductions are also collected in the [IO-Aware Attention dossier](/en/notes/topics/io-aware-attention/).
 
 ## Project and Evidence
 

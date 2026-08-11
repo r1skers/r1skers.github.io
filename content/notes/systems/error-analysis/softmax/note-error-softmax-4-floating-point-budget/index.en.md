@@ -252,7 +252,7 @@ Not every input attains the bound. If all $q_i=1$, FP32 may accumulate the integ
 q=(1,u,u,\ldots,u).
 \]
 
-With $1$ first, subsequent small terms may be rounded away one at a time. Combining the small terms before adding them to $1$ is more likely to preserve them. This comparison is currently a theoretical prediction and an experimental design, not yet a registered result in Error Atlas.
+With $1$ first, subsequent small terms may be rounded away one at a time. Combining the small terms before adding them to $1$ is more likely to preserve them. The next article turns this construction into registered controlled layouts and stress cases.
 
 ## 7. Why a Probability Sum of 1 Is Not Enough
 
@@ -325,12 +325,12 @@ This conflict cannot be resolved by labeling the algorithm simply “stable” o
 | --- | --- |
 | Normalization removes common relative exp error | Exact algebra and the Jacobian interpretation |
 | First-order budget $\epsilon_i-\bar\epsilon-\eta+\delta_i$ | Standard floating-point error-model derivation |
-| Sequential $O(nu)$ versus tree $O(\log n\,u)$ summation | Theoretical bounds; experiment still pending |
+| Sequential $O(nu)$ versus tree $O(\log n\,u)$ summation | Theoretical bounds; controlled layouts and stress experiments appear in the next article |
 | Loss of a unit logit difference at $2^{24}$ | Reproducible FP32 experiment, tests, CSV, and metadata |
-| Componentwise relative error can reach $100\%$ under underflow | Boundary counterexample; consumer-dependent mitigation remains to be organized |
+| Componentwise relative error can reach $100\%$ under underflow | Boundary counterexample; consumer-dependent classification and mitigation appear in Article 6 |
 
-The next stage should not add more error formulas. It should construct a failure--metric/consumer--mitigation decision chain, then test tree reduction, mixed precision, fast exp, kernel fusion, and nondeterministic summation order in a GPU implementation.
+The next stage should not add more error formulas. The next article freezes the FP32 numerators received by the reduction, scales $\eta$ into a reproducible failure with $q=(1,2^{-24},\ldots,2^{-24})$, and compares sequential, pairwise, Kahan, and wider accumulation. The following article then connects those observations to a failure--consumer--metric--tolerance--mitigation decision chain.
 
 ---
 
-**This first Topic pass is complete:** [Return to the Softmax parent page](/en/notes/systems/error-analysis/softmax/)
+**Next:** [Softmax 5: How Summation Order Swallows Small Tail Terms](/en/notes/systems/error-analysis/softmax/note-error-softmax-5-summation-stagnation/)
