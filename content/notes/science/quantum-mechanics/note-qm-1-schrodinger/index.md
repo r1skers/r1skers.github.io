@@ -3,6 +3,7 @@ date: '2025-11-22T10:17:00+09:00'
 draft: false
 title: '量子力学第1部分：从薛定谔方程到波函数'
 summary: "从工程视角回顾量子力学基础：经典理论失效、波粒二象性、薛定谔方程推导与势阱波函数可视化。"
+description: "从工程视角理解波粒二象性、薛定谔方程及势阱中的波函数。"
 tags: ["Science", "Quantum Mechanics"]
 categories: ["Notes"]
 series: ["Quantum Mechanics"]

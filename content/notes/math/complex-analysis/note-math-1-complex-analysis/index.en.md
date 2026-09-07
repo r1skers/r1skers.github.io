@@ -3,6 +3,7 @@ date: '2026-02-06T22:00:00+09:00'
 draft: false
 title: 'Mathematics Part 1: Complex Analysis'
 summary: "Starting from a real integral and building intuition through the chain: complex geometry -> analytic functions -> contour integrals -> residues."
+description: "Build intuition for complex analysis through complex geometry, analytic functions, contour integrals, and residues."
 tags: ["Mathematics", "Complex Analysis"]
 categories: ["Notes"]
 series: ["Complex Analysis"]

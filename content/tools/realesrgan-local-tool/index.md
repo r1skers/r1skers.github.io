@@ -3,6 +3,7 @@ title: "RealESRGAN Local Tool (Download)"
 date: "2026-02-16T00:00:00+08:00"
 draft: false
 summary: "Download, unzip, and run RealESRGAN locally."
+description: "Download and run a packaged RealESRGAN image upscaling tool locally on Windows."
 tags: ["Tooling", "Image Processing", "Machine Learning"]
 categories: ["Tools"]
 weight: 3

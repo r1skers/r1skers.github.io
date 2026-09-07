@@ -3,6 +3,7 @@ date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: '线性系统第1部分：傅里叶变换'
 summary: "从正交性出发，串起傅里叶级数与傅里叶变换的核心逻辑：为什么可分解、如何求系数、如何走向连续频谱。"
+description: "从正交性出发，理解傅里叶分解、系数计算以及从离散频谱到连续频谱的过渡。"
 tags: ["Mathematics", "Signal & Systems", "Fourier Transform"]
 categories: ["Notes"]
 series: ["Signal and Systems"]

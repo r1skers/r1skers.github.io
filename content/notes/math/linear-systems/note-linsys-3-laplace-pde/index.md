@@ -3,6 +3,7 @@ date: '2025-10-29T19:01:21+09:00'
 draft: false
 title: '线性系统第3部分：RLC电路分析（微分方程 vs 拉普拉斯变换）'
 summary: "比较二阶线性电路的两种求解路径：传统微分方程法与拉普拉斯变换法，并展示拉普拉斯在含初值问题中的工程优势。"
+description: "比较二阶 RLC 电路的微分方程法与拉普拉斯变换法，说明后者处理初值问题的优势。"
 tags: ["Mathematics", "Signal & Systems", "Laplace Transform"]
 categories: ["Notes"]
 series: ["Signal and Systems"]

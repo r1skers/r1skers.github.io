@@ -3,6 +3,7 @@ date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: '线性系统第2部分：拉普拉斯变换'
 summary: "整理拉普拉斯变换的分析式、逆变换、核心性质与常用变换对，并用于后续电路与系统求解。"
+description: "整理拉普拉斯变换、逆变换、核心性质与常用变换对，并用于电路和系统求解。"
 tags: ["Mathematics", "Signal & Systems", "Laplace Transform"]
 categories: ["Notes"]
 series: ["Signal and Systems"]

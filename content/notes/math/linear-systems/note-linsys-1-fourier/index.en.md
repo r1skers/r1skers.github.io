@@ -3,6 +3,7 @@ date: '2025-11-12T10:17:00+09:00'
 draft: false
 title: 'Linear Systems Part 1: Fourier Transform'
 summary: "Starting from orthogonality to connect Fourier series and Fourier transform: why decomposition works, how coefficients are computed, and how discrete spectra become continuous."
+description: "Connect Fourier series and transforms through orthogonality, coefficient calculation, and the transition from discrete to continuous spectra."
 tags: ["Mathematics", "Signal & Systems", "Fourier Transform"]
 categories: ["Notes"]
 series: ["Signal and Systems"]
