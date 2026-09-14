@@ -53,6 +53,9 @@
 {{- if .Params.problemPage -}}
 {{- $bodyClasses = $bodyClasses | append "problem-workbook" -}}
 {{- end -}}
+{{- if .Params.softmaxArticle -}}
+{{- $bodyClasses = $bodyClasses | append "softmax-article" -}}
+{{- end -}}
 
 {{- $bodyStyleParts := slice -}}
 {{- if and $bgEnabled (eq $bgScope "page") (ne $bgURL "") -}}

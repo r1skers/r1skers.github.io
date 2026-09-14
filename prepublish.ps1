@@ -369,20 +369,25 @@ foreach ($item in $pagesForMetadata) {
     }
 }
 
+# Hugo scopes aliases per language, so the same alias path in a zh and an en
+# page resolves to two different URLs. Key the check by language + alias.
 $aliasOwners = @{}
 foreach ($item in $pages) {
+    $lang = if ($item.Path -match '\.en\.md$') { "en" } else { "zh" }
     foreach ($alias in $item.Aliases) {
-        if (-not $aliasOwners.ContainsKey($alias)) {
-            $aliasOwners[$alias] = New-Object System.Collections.Generic.List[string]
+        $key = "$lang|$alias"
+        if (-not $aliasOwners.ContainsKey($key)) {
+            $aliasOwners[$key] = New-Object System.Collections.Generic.List[string]
         }
-        [void]$aliasOwners[$alias].Add($item.Path)
+        [void]$aliasOwners[$key].Add($item.Path)
     }
 }
 
 foreach ($entry in $aliasOwners.GetEnumerator()) {
     if ($entry.Value.Count -gt 1) {
         $owners = ($entry.Value | Sort-Object -Unique) -join ", "
-        [void]$errors.Add("Duplicate alias '$($entry.Key)' found in: $owners")
+        $aliasText = $entry.Key -replace '^[a-z]+\|', ''
+        [void]$errors.Add("Duplicate alias '$aliasText' found in: $owners")
     }
 }
 

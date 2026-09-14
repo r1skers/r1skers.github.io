@@ -1,0 +1,36 @@
+/* Opt-in reading surface for the stage-article pilot. */
+body.softmax-article.page-bg.page-bg-article .post-single {
+    background: rgba(252, 251, 248, 0.96);
+    border-color: rgba(49, 91, 138, 0.18);
+}
+[data-theme="dark"] body.softmax-article.page-bg.page-bg-article .post-single {
+    background: rgba(23, 27, 33, 0.97);
+    border-color: rgba(140, 184, 232, 0.22);
+}
+.softmax-article .post-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+    line-height: 1.4;
+}
+.softmax-article .post-description {
+    font-size: 1rem;
+    color: var(--secondary);
+}
+.softmax-article .post-content {
+    line-height: 1.85;
+}
+.softmax-article .post-content h2 {
+    margin-top: 38px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+.softmax-article .post-content h3 {
+    font-size: 1.15rem;
+}
+.softmax-article .post-content [id] {
+    scroll-margin-top: 24px;
+}
+.softmax-article .post-content blockquote {
+    padding: 12px 16px;
+    border-left-color: #4779aa;
+    background: rgba(86, 133, 178, 0.08);
+}

@@ -3,8 +3,8 @@ title: "Notes"
 description: "Current research threads, topic dossiers, and a foundations library."
 summary: "Problem-driven reading paths alongside canonical subject-based archives in mathematics, machine learning, systems, and engineering."
 aliases:
-  - /en/study-notes/
-  - /en/notebook/
+  - /study-notes/
+  - /notebook/
 ---
 
 This section organizes its material in two complementary ways: foundations are archived by subject, while research material is rearranged around specific problems. Each article has one canonical home but may appear in several topic dossiers.
@@ -25,18 +25,18 @@ Starting with a reference, an approximation, and a metric, this thread follows h
 
 **I. Error language and representation**
 
-- [Taylor 1 — (R), (O), (o), and error bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
-- [Taylor 2 — Lagrange, integral, and Peano remainders](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
+- [Taylor 1 — (R), (O), (o), and error bounds](/en/notes/systems/error-analysis/taylor-expansion/error-language/)
+- [Taylor 2 — Lagrange, integral, and Peano remainders](/en/notes/systems/error-analysis/taylor-expansion/remainder-forms/)
 
 **II. Bounds and propagation**
 
-- [Taylor 3 — Why a correct bound can still be unconvincing](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
-- [Taylor 4 — How errors propagate](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
+- [Taylor 3 — Why a correct bound can still be unconvincing](/en/notes/systems/error-analysis/taylor-expansion/bound-quality/)
+- [Taylor 4 — How errors propagate](/en/notes/systems/error-analysis/taylor-expansion/propagation-stability/)
 
 **III. Error budgets and control**
 
-- [Taylor 5 — From step size to Richardson extrapolation](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
-- [Taylor 6 — Putting noise into the error budget](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
+- [Taylor 5 — From step size to Richardson extrapolation](/en/notes/systems/error-analysis/taylor-expansion/deterministic-control/)
+- [Taylor 6 — Putting noise into the error budget](/en/notes/systems/error-analysis/taylor-expansion/statistical-noise/)
 
 </details>
 

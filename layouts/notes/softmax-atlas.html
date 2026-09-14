@@ -1,0 +1,19 @@
+{{- define "main" -}}
+<article class="softmax-atlas-page">
+  <header class="page-header softmax-atlas-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <div class="post-description">{{ . | markdownify }}</div>
+    {{- end }}
+  </header>
+
+  <div class="post-content softmax-atlas">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}
+    {{- .Content -}}
+    {{- end }}
+  </div>
+</article>
+{{- end -}}

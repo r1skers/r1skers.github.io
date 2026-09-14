@@ -32,19 +32,19 @@ From the perspective of error analysis, however, the real protagonist is \(R_n(x
 
 ### 1. Fix the Error Vocabulary
 
-[First Define the Error: \(R\), \(O\), \(o\), and Bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/) separates the exact remainder, absolute error, asymptotic order, and computable bound. Big-\(O\) and little-\(o\) are not upper and lower limits; they are different asymptotic comparisons.
+[First Define the Error: \(R\), \(O\), \(o\), and Bounds](/en/notes/systems/error-analysis/taylor-expansion/error-language/) separates the exact remainder, absolute error, asymptotic order, and computable bound. Big-\(O\) and little-\(o\) are not upper and lower limits; they are different asymptotic comparisons.
 
 ### 2. Compare Three Remainder Forms
 
-[Lagrange, Integral, and Peano Remainders](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/) compares an unknown intermediate point, a weighted interval integral, and a local asymptotic statement.
+[Lagrange, Integral, and Peano Remainders](/en/notes/systems/error-analysis/taylor-expansion/remainder-forms/) compares an unknown intermediate point, a weighted interval integral, and a local asymptotic statement.
 
 ### 3. Ask Whether a Bound Is Useful, Not Only Valid
 
-[Why a Correct Bound Can Still Be Unconvincing](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/) uses \(1/(1-x)\) to show how a legal Lagrange bound can miss exponential convergence after a supremum discards positional structure.
+[Why a Correct Bound Can Still Be Unconvincing](/en/notes/systems/error-analysis/taylor-expansion/bound-quality/) uses \(1/(1-x)\) to show how a legal Lagrange bound can miss exponential convergence after a supremum discards positional structure.
 
 ### 4. Put the Error Into a Computation
 
-[How Errors Propagate: Sensitivity, Conditioning, and Stability](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/) begins with
+[How Errors Propagate: Sensitivity, Conditioning, and Stability](/en/notes/systems/error-analysis/taylor-expansion/propagation-stability/) begins with
 
 \[
 \Delta y\approx f'(x)\Delta x
@@ -54,11 +54,11 @@ without treating it as a global law. It then separates problem sensitivity from 
 
 ### 5. Control Deterministic Error
 
-[From Step Size to Richardson Extrapolation](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/) turns a Taylor leading term into observed order, extrapolation, and a finite-difference error budget.
+[From Step Size to Richardson Extrapolation](/en/notes/systems/error-analysis/taylor-expansion/deterministic-control/) turns a Taylor leading term into observed order, extrapolation, and a finite-difference error budget.
 
 ### 6. Add Random Noise to the Same Budget
 
-[Putting Noise Into the Error Budget](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/) validates the bias--variance decomposition for a noisy central difference, separates the inner sample size \(N\) from the outer Monte Carlo count \(M\), and derives the optimal step size.
+[Putting Noise Into the Error Budget](/en/notes/systems/error-analysis/taylor-expansion/statistical-noise/) validates the bias--variance decomposition for a noisy central difference, separates the inner sample size \(N\) from the outer Monte Carlo count \(M\), and derives the optimal step size.
 
 ## The Result Is a Workflow, Not One Formula
 
@@ -82,4 +82,4 @@ Taylor expansion is only the first stop. The mathematical object will change whe
 
 ---
 
-**Start reading:** [Taylor 1: First Define \(R\), \(O\), \(o\), and Error Bounds](/en/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
+**Start reading:** [Taylor 1: First Define \(R\), \(O\), \(o\), and Error Bounds](/en/notes/systems/error-analysis/taylor-expansion/error-language/)

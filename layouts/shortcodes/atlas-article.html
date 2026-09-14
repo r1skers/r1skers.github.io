@@ -1,0 +1,11 @@
+{{- /* 阶段读物条目。page 为草稿或不存在时（例如生产构建、或该语言尚未翻译），
+       自动回退到 fallback 指定的既有文章，避免地图指向不存在的页面。 */ -}}
+{{- $page := site.GetPage (.Get "page") -}}
+{{- $frag := .Get "fragment" | default "" -}}
+{{- $en := eq site.Language.Lang "en" -}}
+{{- if $page -}}
+{{- $kind := cond $page.Draft (cond $en "Draft · under review" "样稿 · 待审计") (cond $en "Stage article" "专题文章") -}}
+<li><a href="{{ $page.RelPermalink }}{{ $frag }}"><span class="atlas-kind">{{ $kind }}</span><span class="atlas-reading-title">{{ .Get "label" | default $page.Title }}</span><span class="atlas-link-end"><span aria-hidden="true">→</span></span></a></li>
+{{- else -}}
+<li><a href="{{ .Get "fallback" }}"><span class="atlas-kind">{{ cond $en "Existing article" "已有文章" }}</span><span class="atlas-reading-title">{{ .Get "fallbackTitle" }}</span><span class="atlas-link-end"><span aria-hidden="true">→</span></span></a></li>
+{{- end -}}

@@ -1,0 +1,2 @@
+{{- $en := eq site.Language.Lang "en" -}}
+<li class="atlas-pending"><span class="atlas-kind">{{ cond $en "To be completed" "待完成" }}</span><span class="atlas-reading-title">{{ .Get "title" }}</span></li>

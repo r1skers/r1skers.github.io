@@ -16,8 +16,8 @@ series:
 weight: 52
 math: true
 aliases:
-  - /en/artifacts/05-1-pca-whitening-demo/
-  - /en/artifacts/pca-whitening-demo/
+  - /artifacts/05-1-pca-whitening-demo/
+  - /artifacts/pca-whitening-demo/
 ---
 
 Source project: synthetic whitening demo inside `bert-cluster-stability`.  

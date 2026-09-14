@@ -16,8 +16,8 @@ series:
 weight: 51
 math: true
 aliases:
-  - /en/artifacts/05-bert-cluster-stability/
-  - /en/artifacts/bert-cluster-stability/
+  - /artifacts/05-bert-cluster-stability/
+  - /artifacts/bert-cluster-stability/
 ---
 
 Project repo: [bert-cluster-stability](https://github.com/r1skers/bert-cluster-stability).  

@@ -3,8 +3,8 @@ title: "About"
 layout: "about"
 url: "/en/about/"
 aliases:
-  - /en/about-me/
-  - /en/profile/
+  - /about-me/
+  - /profile/
 summary: "Who I am, what I am building, and where this blog is heading."
 description: "A concise profile page for r1skers."
 name: "r1skers"

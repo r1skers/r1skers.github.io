@@ -32,19 +32,19 @@ f(x)=
 
 ### 1. 先固定误差语言
 
-[先把误差说清楚：\(R\)、\(O\)、\(o\) 与误差界](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/) 区分 exact remainder、absolute error、asymptotic order 与 computable bound。这里最重要的纠正是：big-\(O\) 和 little-\(o\) 不是“上限和下限”，而是两种不同的渐近比较。
+[先把误差说清楚：\(R\)、\(O\)、\(o\) 与误差界](/notes/systems/error-analysis/taylor-expansion/error-language/) 区分 exact remainder、absolute error、asymptotic order 与 computable bound。这里最重要的纠正是：big-\(O\) 和 little-\(o\) 不是“上限和下限”，而是两种不同的渐近比较。
 
 ### 2. 比较三种余项表示
 
-[Lagrange、积分与 Peano：三种余项保留了什么](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/) 比较未知中间点、区间积分与局部渐近式。三者表达的是同一个近似问题，却使用不同假设并保留不同信息。
+[Lagrange、积分与 Peano：三种余项保留了什么](/notes/systems/error-analysis/taylor-expansion/remainder-forms/) 比较未知中间点、区间积分与局部渐近式。三者表达的是同一个近似问题，却使用不同假设并保留不同信息。
 
 ### 3. 不只问界对不对，还要问界有没有用
 
-[正确的界为什么可能没有说服力](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/) 用 \(1/(1-x)\) 展示一个合法的 Lagrange bound 怎样错过真实的指数收敛。问题不在定理，而在取 supremum 时丢失了导数与积分 kernel 的位置关系。
+[正确的界为什么可能没有说服力](/notes/systems/error-analysis/taylor-expansion/bound-quality/) 用 \(1/(1-x)\) 展示一个合法的 Lagrange bound 怎样错过真实的指数收敛。问题不在定理，而在取 supremum 时丢失了导数与积分 kernel 的位置关系。
 
 ### 4. 让误差进入计算链
 
-[误差怎样传播：敏感度、conditioning 与 stability](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/) 从
+[误差怎样传播：敏感度、conditioning 与 stability](/notes/systems/error-analysis/taylor-expansion/propagation-stability/) 从
 
 \[
 \Delta y\approx f'(x)\Delta x
@@ -54,11 +54,11 @@ f(x)=
 
 ### 5. 控制确定性误差
 
-[从步长到外推：确定性误差怎样被测量和消除](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/) 把 Taylor 主导项变成 observed order、Richardson extrapolation 和 finite-difference error budget，并比较 naive 与 stable representation。
+[从步长到外推：确定性误差怎样被测量和消除](/notes/systems/error-analysis/taylor-expansion/deterministic-control/) 把 Taylor 主导项变成 observed order、Richardson extrapolation 和 finite-difference error budget，并比较 naive 与 stable representation。
 
 ### 6. 把随机噪声放进同一个预算
 
-[把噪声写进误差预算：MSE、相关性与最优步长](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/) 用带相关噪声的中心差分验证 bias–variance 分解，区分估计器内部采样数 \(N\) 与外层 Monte Carlo 重复数 \(M\)，并推导最优步长。
+[把噪声写进误差预算：MSE、相关性与最优步长](/notes/systems/error-analysis/taylor-expansion/statistical-noise/) 用带相关噪声的中心差分验证 bias–variance 分解，区分估计器内部采样数 \(N\) 与外层 Monte Carlo 重复数 \(M\)，并推导最优步长。
 
 ## 最后得到工作流
 
@@ -84,4 +84,4 @@ Taylor 展开只是第一站。后续进入 Softmax、低精度计算和 CPU–G
 
 ---
 
-**开始阅读：** [Taylor 1：先把 \(R\)、\(O\)、\(o\) 与误差界说清楚](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
+**开始阅读：** [Taylor 1：先把 \(R\)、\(O\)、\(o\) 与误差界说清楚](/notes/systems/error-analysis/taylor-expansion/error-language/)

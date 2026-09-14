@@ -1,14 +1,14 @@
 ---
 date: '2026-08-04T00:00:00+09:00'
 draft: false
-title: '误差分析 · Softmax 3：数学等价为什么不等于数值稳定'
-summary: "subtract-max 能消除正指数 overflow，却不能恢复量化前已经丢失的 logit difference；问题条件性、算法稳定性和输入表示必须分开。"
-description: "比较 naive Softmax、稳定 log-sum-exp 与 fused cross-entropy，并用 FP32 在 2^24 附近的边界实验解释输入量化。"
+title: 'Softmax 稳定求值：subtract-max、log-sum-exp 与各自的边界'
+summary: "subtract-max 消除正指数 overflow 但不管尾部下溢；先算概率再取 log 会拆开本可解析抵消的因子；问题条件性与算法稳定性必须分开问。"
+description: "比较 naive Softmax、稳定 log-sum-exp 与 fused cross-entropy 各自解决了什么问题、又留下什么边界。"
 tags: ["Error Analysis", "Softmax", "Numerical Stability", "Floating Point"]
 categories: ["Notes"]
 series: ["Error Analysis"]
 note_kind: "research"
-weight: 3
+weight: 99
 ---
 
 精确 Softmax 满足平移不变性：
@@ -141,93 +141,8 @@ naive Softmax 仍可能在 $z=(1000,999)$ 上溢出。
 $\|J_s\|_2\le1/2$ 回答第一问；overflow、exp approximation、求和和
 除法舍入回答第二问。
 
-## 5. 稳定公式不是时间机器
-
-考虑数学输入
-
-\[
-z(M)=(M+1,M).
-\]
-
-精确 Softmax 始终只看见差值 $1$，第一概率始终约为 $0.7310586$。但若
-先把 logits 存为 FP32，再执行 subtract-max，实验观察到：
-
-\[
-M=2^{23}
-\Rightarrow
-\widehat z_1-\widehat z_2=1,
-\qquad
-\widehat p_1\approx0.7310586,
-\]
-
-\[
-M=2^{24}
-\Rightarrow
-\widehat z_1-\widehat z_2=0,
-\qquad
-\widehat p_1=0.5.
-\]
-
-在 $2^{24}$ 附近，FP32 相邻可表示数的间隔已经是 $2$。单位差在
-subtract-max 之前就被量化抹掉，后面的稳定算法只能忠实计算
-
-\[
-s(2^{24},2^{24})=(0.5,0.5).
-\]
-
-若 $Q$ 表示 FP32 量化，一般有
-
-\[
-Q(z-m\mathbf1)
-\ne
-Q(z)-\max(Q(z))\mathbf1.
-\]
-
-在更高精度里先中心化，再转成低精度，可能保留差值；先量化后中心化则无法
-恢复已经消失的信息。
-
-## 6. 总误差需要按来源拆开
-
-令真实输入为 $z$，存储后的输入为 $\widetilde z$，最终程序输出为
-$\widehat p$。则
-
-\[
-\widehat p-s(z)=
-\underbrace{\widehat p-s(\widetilde z)}_{\text{求值误差}}
-+
-\underbrace{s(\widetilde z)-s(z)}_{\text{输入量化的传播}}.
-\]
-
-在 $2^{24}$ 实验中，第一项很小：稳定算法正确计算了 stored logits。主要
-偏差来自第二项。
-
-这也说明原始 logits 的整体相对误差可能是一个糟糕 metric。巨大的共同偏移
-会让
-
-\[
-\frac{\|\widetilde z-z\|}{\|z\|}
-\]
-
-显得极小，但 Softmax 真正在意的差值已经发生 $100\%$ 误差。更合理的诊断
-对象是 pairwise logit differences，或去掉共同平移后的 centered logits：
-
-\[
-Pz,
-\qquad
-P=I-\frac1K\mathbf1\mathbf1^T.
-\]
-
-一句话收口：
-
-\[
-\boxed{
-\text{稳定算法可以避免制造新灾难，但不能恢复输入阶段已经丢失的信息。}
-}
-\]
-
-完整 FP32 边界实验、测试、CSV、metadata 与 closed-book rewrite 保存在
-[Error Atlas](https://github.com/r1skers/error-atlas/tree/main/topics/softmax/experiments)。
-
 ---
 
-**下一篇：** [Softmax 4：把 exp、求和与除法写进误差预算](/notes/systems/error-analysis/softmax/note-error-softmax-4-floating-point-budget/)
+**已移出本文：** 输入量化、$2^{24}$ 边界与总误差按来源的拆分，现已并入[输入表示与平移](/notes/systems/error-analysis/softmax/input-and-shift/) —— 那里有更完整的推导、ties-to-even 的反例，以及平移自身舍入的上界。完整的 FP32 边界实验、测试、CSV 与 closed-book rewrite 保存在 [Error Atlas](https://github.com/r1skers/error-atlas/tree/17ffd2a/topics/softmax/experiments)。
+
+**下一篇：** [把 exp、求和与除法写进误差预算](/notes/systems/error-analysis/softmax/error-budget/)

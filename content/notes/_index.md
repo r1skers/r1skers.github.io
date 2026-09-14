@@ -25,18 +25,18 @@ aliases:
 
 **I. 误差语言与表示**
 
-- [Taylor 1 — (R)、(O)、(o) 与误差界](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-1-error-language/)
-- [Taylor 2 — Lagrange、积分与 Peano 余项](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-2-remainder-forms/)
+- [Taylor 1 — (R)、(O)、(o) 与误差界](/notes/systems/error-analysis/taylor-expansion/error-language/)
+- [Taylor 2 — Lagrange、积分与 Peano 余项](/notes/systems/error-analysis/taylor-expansion/remainder-forms/)
 
 **II. 界与传播**
 
-- [Taylor 3 — 正确的界为什么可能没有说服力](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-3-bound-quality/)
-- [Taylor 4 — 误差怎样传播](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-4-propagation-stability/)
+- [Taylor 3 — 正确的界为什么可能没有说服力](/notes/systems/error-analysis/taylor-expansion/bound-quality/)
+- [Taylor 4 — 误差怎样传播](/notes/systems/error-analysis/taylor-expansion/propagation-stability/)
 
 **III. 误差预算与控制**
 
-- [Taylor 5 — 从步长到 Richardson 外推](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-5-deterministic-control/)
-- [Taylor 6 — 把噪声写进误差预算](/notes/systems/error-analysis/taylor-expansion/note-error-taylor-6-statistical-noise/)
+- [Taylor 5 — 从步长到 Richardson 外推](/notes/systems/error-analysis/taylor-expansion/deterministic-control/)
+- [Taylor 6 — 把噪声写进误差预算](/notes/systems/error-analysis/taylor-expansion/statistical-noise/)
 
 </details>
 
