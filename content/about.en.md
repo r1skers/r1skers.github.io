@@ -27,8 +27,8 @@ Mostly to learn things and keep some records.
 
 Roughly these areas:
 
-1. Use error analysis as the current research thread, tracing error sources in approximation, numerical implementation, and system-level computation.
-2. Continue studying reliable computation, inverse problems, parameter estimation, and the connection between algorithms and systems.
+1. Use error analysis as Thread One, tracing error sources in approximation, numerical implementation, and system-level computation.
+2. Follow the Poisson equation as Thread Two, from variational structure to discretization, CPU/CUDA implementations, and computational checks.
 3. Turn derivations, reproductions, experiments, and code into evidence that can be rerun and reviewed.
 
 ## Main Content on This Site

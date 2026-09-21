@@ -10,11 +10,12 @@ aliases:
 This section organizes its material in two complementary ways: foundations are archived by subject, while research material is rearranged around specific problems. Each article has one canonical home but may appear in several topic dossiers.
 
 <details open>
-<summary><strong>Current Research Thread</strong></summary>
+<summary><strong>Current Research Threads</strong></summary>
 
-### Error Analysis: From Approximation to Reliable Computation
+<details class="note-subgroup">
+<summary><strong>Thread One: Error Analysis (In Progress)</strong></summary>
 
-Starting with a reference, an approximation, and a metric, this thread follows how errors are defined, introduced, propagated, estimated, and controlled, as well as how accuracy is traded against cost.
+This thread covers error definitions, sources, propagation, estimation, control, and accuracy–cost tradeoffs. The first Taylor-expansion pass is complete, and the current Softmax numerical-error stage has been archived; the thread will continue to expand.
 
 - [**Thread overview** — Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/)
 - [**Topic 1: Taylor Expansion** — From remainders to error control](/en/notes/systems/error-analysis/taylor-expansion/)
@@ -37,6 +38,19 @@ Starting with a reference, an approximation, and a metric, this thread follows h
 
 - [Taylor 5 — From step size to Richardson extrapolation](/en/notes/systems/error-analysis/taylor-expansion/deterministic-control/)
 - [Taylor 6 — Putting noise into the error budget](/en/notes/systems/error-analysis/taylor-expansion/statistical-noise/)
+
+</details>
+
+</details>
+
+<details class="note-subgroup">
+<summary><strong>Thread Two: Poisson Equation (In Progress)</strong></summary>
+
+Starting with a one-dimensional energy functional, this thread moves through discrete equations, iterative solvers, and CPU/CUDA implementations before checking the computed result against the original equation. The guided smooth-case M1 derivation and its bilingual stage article are complete; discretization and experiments have not started.
+
+- [**Thread overview** — Poisson Equation: From Variational Structure to CUDA](/en/notes/systems/poisson-equation/)
+- [**Stage 1: One-dimensional variation** — From an energy functional to a unique minimizer](/en/notes/systems/poisson-equation/variation-unique-minimum/) — Weak form, minimality, and uniqueness.
+- **Later stages:** One-dimensional discrete energy and differences, two-dimensional iteration, CPU/CUDA implementations, and error and performance validation.
 
 </details>
 

@@ -12,9 +12,10 @@ aliases:
 <details open>
 <summary><strong>当前研究主线</strong></summary>
 
-### 误差分析：从近似到可靠计算
+<details class="note-subgroup">
+<summary><strong>主线一：误差分析（进行中）</strong></summary>
 
-以 reference、approximation 与 metric 为起点，这条主线持续追踪误差的定义、来源、传播、估计、控制，以及精度与成本之间的权衡。
+围绕误差的定义、来源、传播、估计、控制与精度成本权衡展开。目前已完成 Taylor 展开的第一轮整理，Softmax 数值误差完成当前阶段，后续仍会继续扩展。
 
 - [**主线说明** — 误差分析：从近似到可靠计算](/notes/systems/error-analysis/)
 - [**Topic 1：Taylor 展开** — 从余项到误差控制](/notes/systems/error-analysis/taylor-expansion/)
@@ -37,6 +38,19 @@ aliases:
 
 - [Taylor 5 — 从步长到 Richardson 外推](/notes/systems/error-analysis/taylor-expansion/deterministic-control/)
 - [Taylor 6 — 把噪声写进误差预算](/notes/systems/error-analysis/taylor-expansion/statistical-noise/)
+
+</details>
+
+</details>
+
+<details class="note-subgroup">
+<summary><strong>主线二：泊松方程（进行中）</strong></summary>
+
+从一维能量泛函出发，逐步走向离散方程、迭代求解与 CPU/CUDA 实现，最后回到原方程检查计算结果。目前完成的是 M1 光滑版本的引导推导及其中英文阶段文章，离散化与实验尚未开始。
+
+- [**主线说明** — 泊松方程：从变分结构到 CUDA](/notes/systems/poisson-equation/)
+- [**阶段 1：一维变分** — 从能量泛函到唯一最小点](/notes/systems/poisson-equation/variation-unique-minimum/) — 弱形式、最小性与唯一性。
+- **后续阶段：** 一维离散能量与差分、二维迭代、CPU/CUDA 实现、误差与性能验证。
 
 </details>
 

@@ -149,10 +149,12 @@ params:
       en: "Current Research"
     items:
       zh:
-        - "[误差分析：从近似到可靠计算](/notes/systems/error-analysis/) — 当前 Topic：Softmax 的 exp、累加、除法与浮点计算路径。"
+        - "[主线一：误差分析（进行中）](/notes/systems/error-analysis/) — 追踪误差的定义、来源、传播、估计、控制与精度成本权衡。"
+        - "[主线二：泊松方程（进行中）](/notes/systems/poisson-equation/) — 从一维变分走向离散、迭代与计算验证；当前完成 M1。"
         - "[主题档案](/notes/topics/) — 跨 Notes、Artifacts 与代码仓库组织完整问题链。"
       en:
-        - "[Error Analysis: From Approximation to Reliable Computation](/en/notes/systems/error-analysis/) — Current topic: exp, accumulation, division, and floating-point paths in Softmax."
+        - "[Thread One: Error Analysis (In Progress)](/en/notes/systems/error-analysis/) — Error definitions, sources, propagation, estimation, control, and accuracy–cost tradeoffs."
+        - "[Thread Two: Poisson Equation (In Progress)](/en/notes/systems/poisson-equation/) — From one-dimensional variation to discretization, iteration, and computational checks; M1 is complete."
         - "[Topic Dossiers](/en/notes/topics/) — Complete problem-driven paths across Notes, Artifacts, and code repositories."
 
   socialIcons:
