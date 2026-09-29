@@ -25,18 +25,18 @@ $$
 
 [![Two grounded parallel plates with uniform space charge between them, together with the potential profile: the midpoint reaches 10 V and each plate carries an induced surface charge of −4 μC/m²](parallel-plate-space-charge.svg)](parallel-plate-space-charge.svg)
 
-Let $x\in[0,L]$ denote position, $\varphi(x)$ the electric potential, and $E(x)$ the $x$ component of the electric field. The field is the negative gradient of the potential:
+Let $X\in[0,L]$ denote position, $\varphi(X)$ the electric potential, and $E(X)$ the $X$ component of the electric field. The field is the negative gradient of the potential:
 
 $$
-E=-\frac{d\varphi}{dx}.
+E=-\frac{d\varphi}{dX}.
 $$
 
-Gauss's law states that the electric flux through a closed surface equals the enclosed free charge. Take a thin slab $[x,x+\Delta x]$ with unit plate area. The flux difference across its two faces equals the charge inside:
+Gauss's law states that the electric flux through a closed surface equals the enclosed free charge. Take a thin slab $[X,X+\Delta X]$ with unit plate area. The flux difference across its two faces equals the charge inside:
 
 $$
-\varepsilon_dE(x+\Delta x)-\varepsilon_dE(x)=\rho\,\Delta x
+\varepsilon_dE(X+\Delta X)-\varepsilon_dE(X)=\rho\,\Delta X
 \qquad\Longrightarrow\qquad
-\varepsilon_d\frac{dE}{dx}=\rho.
+\varepsilon_d\frac{dE}{dX}=\rho.
 $$
 
 Substituting $E=-\varphi'$ gives the equation to solve:
@@ -46,34 +46,34 @@ $$
 \qquad\varphi(0)=\varphi(L)=0.
 $$
 
-The unknown is the entire potential curve $\varphi(x)$. The charge density $\rho$ is prescribed, the differential equation constrains the interior of the dielectric, and the two boundary conditions come from grounding the plates.
+The unknown is the entire potential curve $\varphi(X)$. The charge density $\rho$ is prescribed, the differential equation constrains the interior of the dielectric, and the two boundary conditions come from grounding the plates.
 
 To scale the interval to $[0,1]$, set
 
 $$
-\xi=\frac{x}{L},
-\qquad u(\xi)=\varphi(L\xi).
+x=\frac{X}{L},
+\qquad u(x)=\varphi(Lx).
 $$
 
-$\xi$ is a dimensionless relative coordinate ($\xi=0.5$ is the midpoint), while $u$ remains a potential measured in volts. No shift in the reference level is needed because the grounded boundaries are already zero. The problem becomes
+$x$ is a dimensionless relative coordinate ($x=0.5$ is the midpoint), while $u$ remains a potential measured in volts. No shift in the reference level is needed because the grounded boundaries are already zero. The problem becomes
 
 $$
--u''(\xi)=f(\xi),\qquad 0\lt\xi\lt1,
+-u''(x)=f(x),\qquad 0\lt x\lt1,
 \qquad u(0)=u(1)=0,
 $$
 
 where
 
 $$
-f(\xi)=\frac{L^2\rho}{\varepsilon_d}=80\,\mathrm V.
+f(x)=\frac{L^2\rho}{\varepsilon_d}=80\,\mathrm V.
 $$
 
-The charge is uniform here, so $f$ is constant. If it varies with position, $\rho=\rho(x)$, the same scaling gives $f(\xi)=L^2\rho(L\xi)/\varepsilon_d$; the derivation below applies to a general $f(\xi)$. In a region without volume charge, $f=0$ and the equation reduces to Laplace's equation.
+The charge is uniform here, so $f$ is constant. If it varies with position, $\rho=\rho(X)$, the same scaling gives $f(x)=L^2\rho(Lx)/\varepsilon_d$; the derivation below applies to a general $f(x)$. In a region without volume charge, $f=0$ and the equation reduces to Laplace's equation.
 
 This is the one-dimensional Poisson equation studied here. The simple example can be integrated twice to obtain
 
 $$
-u(\xi)=\frac f2\,\xi(1-\xi).
+u(x)=\frac f2\,x(1-x).
 $$
 
 With $f=80\,\mathrm V$, the midpoint potential is $f/8=10\,\mathrm V$, matching the curve in the figure. This is a value from the analytic model, not a measurement or a numerical experiment.
@@ -89,18 +89,18 @@ $$
 For any candidate $v\in\mathcal V$, define
 
 $$
-J[v]=\int_0^1\left[\frac12(v')^2-fv\right]d\xi.
+J[v]=\int_0^1\left[\frac12(v')^2-fv\right]dx.
 $$
 
 $J$ takes an entire curve and returns a number. Its first term measures spatial variation in that curve; its second describes the interaction between the prescribed charge and the candidate potential. For the electrostatic model above, it comes from
 
 $$
 \mathcal E[\varphi]
-=\int_0^L\left[\frac{\varepsilon_d}{2}E^2-\rho\varphi\right]dx,
+=\int_0^L\left[\frac{\varepsilon_d}{2}E^2-\rho\varphi\right]dX,
 \qquad E=-\varphi',
 $$
 
-after scaling the coordinate and multiplying by a positive constant. Substituting $\varphi(x)=u(x/L)$ gives
+after scaling the coordinate and multiplying by a positive constant. Substituting $\varphi(X)=u(X/L)$ gives
 
 $$
 \mathcal E[\varphi]=\frac{\varepsilon_d}{L}\,J[u].
@@ -111,11 +111,11 @@ The functionals differ only by a positive factor, so they have the same minimizi
 The word “energy” needs some care here. $\mathcal E$ has units of $\mathrm{J/m^2}$ per unit plate area, and its first term, $\frac{\varepsilon_d}{2}E^2$, is indeed the electrostatic field-energy density. Yet $\mathcal E$ is not the energy stored in the system. At the minimizer, integration by parts gives
 
 $$
-\int_0^L\frac{\varepsilon_d}{2}E^2dx
-=\frac12\int_0^L\rho\varphi\,dx,
+\int_0^L\frac{\varepsilon_d}{2}E^2dX
+=\frac12\int_0^L\rho\varphi\,dX,
 $$
 
-and therefore $\mathcal E=-\frac12\int_0^L\rho\varphi\,dx$, the negative of the field energy. In what follows, $\mathcal E$ is used only as the variational functional that produces Poisson's equation; its value is not interpreted directly as the electrostatic energy stored in the system.
+and therefore $\mathcal E=-\frac12\int_0^L\rho\varphi\,dX$, the negative of the field energy. In what follows, $\mathcal E$ is used only as the variational functional that produces Poisson's equation; its value is not interpreted directly as the electrostatic energy stored in the system.
 
 # Admissible changes to a candidate function
 
@@ -129,15 +129,15 @@ $\alpha$ is a real scalar controlling the magnitude and sign of the change. It i
 
 The zero-endpoint condition is closed under addition and scalar multiplication, so $\mathcal V$ is a linear space and the candidates and perturbation directions may come from the same set. This relies on grounding both plates. If the two plates were held at different voltages, the candidate set would no longer be closed under addition: adding two candidates would double their endpoint voltages. One would first subtract a known function satisfying the boundary data to reduce the problem to homogeneous boundary conditions.
 
-For example, take $\eta(\xi)=4\xi(1-\xi)$. It vanishes at both endpoints and equals one at the midpoint. Setting $\alpha=0.1$ raises the candidate midpoint potential by $0.1\,\mathrm V$ while keeping both plates grounded. These are different candidate curves for the same charge distribution. They need not satisfy Poisson's equation in advance; the minimization problem selects the physical curve from among them.
+For example, take $\eta(x)=4x(1-x)$. It vanishes at both endpoints and equals one at the midpoint. Setting $\alpha=0.1$ raises the candidate midpoint potential by $0.1\,\mathrm V$ while keeping both plates grounded. These are different candidate curves for the same charge distribution. They need not satisfy Poisson's equation in advance; the minimization problem selects the physical curve from among them.
 
 Substituting $v+\alpha\eta$ into the functional and expanding the square gives the exact identity
 
 $$
 \begin{aligned}
 J[v+\alpha\eta]-J[v]
-&=\alpha\int_0^1(v'\eta'-f\eta)\,d\xi\\
-&\quad+\frac{\alpha^2}{2}\int_0^1(\eta')^2\,d\xi.
+&=\alpha\int_0^1(v'\eta'-f\eta)\,dx\\
+&\quad+\frac{\alpha^2}{2}\int_0^1(\eta')^2\,dx.
 \end{aligned}
 $$
 
@@ -146,7 +146,7 @@ Differentiate with respect to $\alpha$ and then set $\alpha=0$. The first variat
 $$
 \delta J[v;\eta]
 =\left.\frac{d}{d\alpha}J[v+\alpha\eta]\right|_{\alpha=0}
-=\int_0^1(v'\eta'-f\eta)\,d\xi.
+=\int_0^1(v'\eta'-f\eta)\,dx.
 $$
 
 # From a minimizer to the weak form
@@ -154,7 +154,7 @@ $$
 Suppose now that $u$ is a minimizer. For every $\eta\in\mathcal V$, the one-variable function $g(\alpha)=J[u+\alpha\eta]$ has a local minimum at $\alpha=0$. Because $\alpha$ can vary on both sides of zero, a necessary condition is $g'(0)=0$. Hence
 
 $$
-\int_0^1u'\eta'\,d\xi=\int_0^1f\eta\,d\xi
+\int_0^1u'\eta'\,dx=\int_0^1f\eta\,dx
 \qquad\text{for every }\eta\in\mathcal V.
 $$
 
@@ -165,8 +165,8 @@ Here both $u$ and $\eta$ lie in $\mathcal V$. If only $f\in L^2(0,1)$ is assumed
 If we additionally assume $u\in C^2([0,1])$ and $f\in C([0,1])$, classical integration by parts gives
 
 $$
-\int_0^1u'\eta'\,d\xi
-=[u'\eta]_0^1-\int_0^1u''\eta\,d\xi.
+\int_0^1u'\eta'\,dx
+=[u'\eta]_0^1-\int_0^1u''\eta\,dx.
 $$
 
 The boundary term vanishes because $\eta(0)=\eta(1)=0$; the endpoint values of $u'$ need not vanish. Returning to the two plates makes that distinction concrete. The endpoint slopes are in fact nonzero:
@@ -181,21 +181,21 @@ In physical units, the fields at the plates are $E(0)=-40\,\mathrm{kV/m}$ and $E
 The weak form therefore becomes
 
 $$
-\int_0^1(-u''-f)\eta\,d\xi=0
+\int_0^1(-u''-f)\eta\,dx=0
 \qquad\text{for every }\eta\in\mathcal V.
 $$
 
 The phrase “for every” is decisive. If the continuous residual $r=-u''-f$ were positive at an interior point, it would remain positive on some small interval $[a,b]\subset(0,1)$. Choose a nonnegative, nonzero perturbation supported only on that interval, for example
 
 $$
-\eta(\xi)=
+\eta(x)=
 \begin{cases}
-(\xi-a)^2(b-\xi)^2, & a\le\xi\le b,\\
+(x-a)^2(b-x)^2, & a\le x\le b,\\
 0, & \text{elsewhere}.
 \end{cases}
 $$
 
-This function is $C^1$, vanishes at the endpoints, and belongs to $\mathcal V$. It would give $\int_0^1r\eta\,d\xi>0$, contradicting the weak form. The negative case is analogous. Under the added smoothness assumptions, $r=0$, so $-u''=f$ holds pointwise on $(0,1)$.
+This function is $C^1$, vanishes at the endpoints, and belongs to $\mathcal V$. It would give $\int_0^1r\eta\,dx>0$, contradicting the weak form. The negative case is analogous. Under the added smoothness assumptions, $r=0$, so $-u''=f$ holds pointwise on $(0,1)$.
 
 # Why does the weak form give a unique minimizer?
 
@@ -205,8 +205,8 @@ $$
 \begin{aligned}
 J[v]-J[u]
 &=J[u+w]-J[u]\\
-&=\underbrace{\int_0^1(u'w'-fw)\,d\xi}_{=0\text{ by the weak form with }\eta=w}
-+\frac12\int_0^1(w')^2\,d\xi\\
+&=\underbrace{\int_0^1(u'w'-fw)\,dx}_{=0\text{ by the weak form with }\eta=w}
++\frac12\int_0^1(w')^2\,dx\\
 &\geq 0.
 \end{aligned}
 $$
@@ -215,21 +215,21 @@ Thus, whenever such a weak solution exists, it is a **global** minimizer. In phy
 
 $$
 \mathcal E[\varphi_v]-\mathcal E[\varphi_u]
-=\frac{\varepsilon_d}{2}\int_0^L(E_v-E_u)^2dx.
+=\frac{\varepsilon_d}{2}\int_0^L(E_v-E_u)^2dX.
 $$
 
 The excess functional value of a candidate equals the squared discrepancy in its electric field.
 
-When does equality hold? In the present smooth setting, $\int_0^1(w')^2\,d\xi=0$ implies $w'=0$, so $w$ is constant. Since $w(0)=0$, it follows that $w\equiv0$ and $v=u$. The homogeneous boundary condition removes arbitrary constant shifts, making the minimizer unique. The weak solution is also unique: if $u_1$ and $u_2$ both satisfy the weak form, subtract the two identities and choose $\eta=u_1-u_2$ to obtain $u_1=u_2$ by the same argument.
+When does equality hold? In the present smooth setting, $\int_0^1(w')^2\,dx=0$ implies $w'=0$, so $w$ is constant. Since $w(0)=0$, it follows that $w\equiv0$ and $v=u$. The homogeneous boundary condition removes arbitrary constant shifts, making the minimizer unique. The weak solution is also unique: if $u_1$ and $u_2$ both satisfy the weak form, subtract the two identities and choose $\eta=u_1-u_2$ to obtain $u_1=u_2$ by the same argument.
 
 One final direction completes the answer to the opening question. The physical potential in the example is a classical solution: $u\in C^2([0,1])$ and $-u''=f$. Read the integration-by-parts calculation in reverse: multiply the equation by any $\eta\in\mathcal V$ and integrate. The boundary term again vanishes because $\eta(0)=\eta(1)=0$, yielding the weak form. The classical solution therefore satisfies the weak form and, by the energy-difference identity, is the unique global minimizer of $J$.
 
-The two-plate example can be checked directly. Take $u=\frac f2\xi(1-\xi)$ and the earlier $\eta=4\xi(1-\xi)$. Then
+The two-plate example can be checked directly. Take $u=\frac f2x(1-x)$ and the earlier $\eta=4x(1-x)$. Then
 
 $$
-\int_0^1u'\eta'\,d\xi=\frac{2f}{3}=\int_0^1f\eta\,d\xi,
+\int_0^1u'\eta'\,dx=\frac{2f}{3}=\int_0^1f\eta\,dx,
 \qquad
-\int_0^1(\eta')^2\,d\xi=\frac{16}{3}.
+\int_0^1(\eta')^2\,dx=\frac{16}{3}.
 $$
 
 The first-order term vanishes exactly, leaving
@@ -247,11 +247,11 @@ In this first stage, $\mathcal V$ connects three descriptions: the pointwise dif
 | Direction | Additional assumptions | Reason |
 |---|---|---|
 | Minimizer $\Rightarrow$ weak form | None beyond the setup | $\alpha$ varies on both sides of zero, so $g'(0)=0$ |
-| Weak form $\Rightarrow$ unique global minimizer | None beyond the setup | Exact energy difference, $\int_0^1(w')^2\,d\xi\ge0$, and homogeneous boundary data exclude constants |
+| Weak form $\Rightarrow$ unique global minimizer | None beyond the setup | Exact energy difference, $\int_0^1(w')^2\,dx\ge0$, and homogeneous boundary data exclude constants |
 | Weak form $\Rightarrow$ pointwise $-u''=f$ | $u\in C^2$ and continuous $f$ | Integration by parts and arbitrary local perturbations |
 | $-u''=f$ $\Rightarrow$ weak form | $u\in C^2$ | The same integration-by-parts identity read in reverse |
 
-The next question is suggested by the uniqueness proof itself: it uses the fact that $\int_0^1(w')^2\,d\xi=0$ together with $w(0)=0$ forces $w\equiv0$. When $v$ becomes a vector of grid values, what replaces this argument? How does the squared-gradient integral become a discrete energy, and how does that energy connect to the finite-difference matrix?
+The next question is suggested by the uniqueness proof itself: it uses the fact that $\int_0^1(w')^2\,dx=0$ together with $w(0)=0$ forces $w\equiv0$. When $v$ becomes a vector of grid values, what replaces this argument? How does the squared-gradient integral become a discrete energy, and how does that energy connect to the finite-difference matrix?
 
 ---
 

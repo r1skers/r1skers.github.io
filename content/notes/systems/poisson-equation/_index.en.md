@@ -26,8 +26,11 @@ $$
 ## Current progress
 
 - **M1 · One-dimensional variation:** The key smooth-case derivation was completed with hints and corrections, followed by a bilingual stage article: [The One-Dimensional Poisson Equation: From an Energy Functional to a Unique Minimizer](/en/notes/systems/poisson-equation/variation-unique-minimum/).
-- **M2 · One-dimensional discrete structure:** Not started. The next step connects continuous energy, discrete energy, and the finite-difference matrix.
-- **M3–M5 · Two dimensions, CPU/CUDA, and validation:** Not started. There is no implementation or experimental data yet.
+- **M2 · One-dimensional discrete structure:** The guided derivation covers centered differences, boundary assembly, positive definiteness, and discrete energy, followed by a bilingual stage article: [The One-Dimensional Poisson Equation: From Centered Differences to Discrete Energy](/en/notes/systems/poisson-equation/centered-difference-discrete-energy/).
+- **Experimental checkpoint · Sine mode:** The second-order amplitude bias of a fixed mode was derived from the continuous and discrete eigenvalues and checked on three grids. The [Chinese article](/notes/systems/poisson-equation/sine-mode-convergence/) is published.
+- **Appendix A1 · Rigorous foundations:** A Chinese draft is under review. It revisits function spaces, density of test functions, interface conditions, the current boundary of the existence argument, and the conditional relationship between finite differences and finite elements.
+- **M3 · Two dimensions and CPU:** The five-point stencil, guided Jacobi convergence analysis, CPU double buffering, and checks against independent discrete reference solutions are complete. The stage article is pending.
+- **M4–M5 · CUDA and final validation:** Not started.
 
 This is a learning and reproduction thread. Each stage reports only what has actually been derived or checked. Error analysis remains part of the final validation stage.
 

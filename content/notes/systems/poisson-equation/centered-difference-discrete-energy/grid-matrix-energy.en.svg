@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="title desc">
+  <title id="title">From a uniform grid to a matrix and discrete energy for the one-dimensional Poisson equation</title>
+  <desc id="desc">The upper half shows the interval from zero to one divided into four pieces. The endpoint values U0 equals zero and U4 equals one are fixed, the interior values U1, U2, and U3 are unknown, and the source f equals two. The lower half shows the centered difference, tridiagonal matrix equation, and matrix energy, emphasizing that adjacent-node differences connect all three.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f4e8ff"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="50%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; fill: #241a16; }
+      .title { font-size: 22px; font-weight: 700; }
+      .sub { font-size: 13px; fill: #725d52; }
+      .label { font-size: 15px; font-weight: 600; }
+      .small { font-size: 12px; fill: #725d52; }
+      .tiny { font-size: 10.5px; fill: #725d52; }
+      .formula { font-size: 16px; font-family: Cambria Math, "STIX Two Math", Georgia, serif; }
+      .node { stroke: #9a3412; stroke-width: 2.2; }
+      .tick { stroke: #7c2d12; stroke-width: 1.5; }
+      .card { fill: rgba(255,255,255,0.72); stroke: #d7c5bc; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="740" height="440" rx="22" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="38" y="50" class="title">From the grid to the matrix, then back to energy</text>
+  <text x="38" y="76" class="sub">The same adjacent-node differences appear in the stencil, quadratic form, and piecewise-linear slopes</text>
+
+  <text x="40" y="116" class="label">Uniform grid: N = 4, h = 1/4, f ≡ 2</text>
+  <rect x="92" y="146" width="576" height="12" rx="6" fill="url(#bar)" opacity="0.78"/>
+  <line x1="92" y1="152" x2="668" y2="152" stroke="#7c2d12" stroke-width="2"/>
+
+  <g text-anchor="middle">
+    <g><line x1="92" y1="137" x2="92" y2="168" class="tick"/><circle cx="92" cy="152" r="8" fill="#fff7ed" class="node"/><text x="92" y="198" class="label">U₀ = 0</text><text x="92" y="220" class="small">fixed boundary</text></g>
+    <g><line x1="236" y1="137" x2="236" y2="168" class="tick"/><circle cx="236" cy="152" r="8" fill="#fb923c" class="node"/><text x="236" y="198" class="label">U₁</text><text x="236" y="220" class="small">unknown</text></g>
+    <g><line x1="380" y1="137" x2="380" y2="168" class="tick"/><circle cx="380" cy="152" r="8" fill="#f97316" class="node"/><text x="380" y="198" class="label">U₂</text><text x="380" y="220" class="small">unknown</text></g>
+    <g><line x1="524" y1="137" x2="524" y2="168" class="tick"/><circle cx="524" cy="152" r="8" fill="#a78bfa" class="node"/><text x="524" y="198" class="label">U₃</text><text x="524" y="220" class="small">unknown</text></g>
+    <g><line x1="668" y1="137" x2="668" y2="168" class="tick"/><circle cx="668" cy="152" r="8" fill="#fff7ed" class="node"/><text x="668" y="198" class="label">U₄ = 1</text><text x="668" y="220" class="small">fixed boundary</text></g>
+  </g>
+
+  <g class="small" text-anchor="middle">
+    <text x="164" y="132">U₁−U₀</text>
+    <text x="308" y="132">U₂−U₁</text>
+    <text x="452" y="132">U₃−U₂</text>
+    <text x="596" y="132">U₄−U₃</text>
+  </g>
+
+  <path d="M380,240 L380,264" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="34" y="278" width="212" height="128" rx="15" class="card"/>
+  <text x="52" y="306" class="label">1. Centered difference</text>
+  <text x="140" y="341" class="formula" text-anchor="middle">−Uᵢ₋₁ + 2Uᵢ − Uᵢ₊₁</text>
+  <text x="140" y="367" class="formula" text-anchor="middle">= h² fᵢ</text>
+  <text x="140" y="392" class="small" text-anchor="middle">Local truncation error O(h²)</text>
+
+  <path d="M252,342 L274,342" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="282" y="278" width="196" height="128" rx="15" class="card"/>
+  <text x="300" y="306" class="label">2. Matrix equation</text>
+  <text x="380" y="339" class="formula" text-anchor="middle">A U = b</text>
+  <text x="380" y="365" class="formula" text-anchor="middle">A = tridiag(−1, 2, −1)</text>
+  <text x="380" y="386" class="tiny" text-anchor="middle">Right boundary 1 enters</text>
+  <text x="380" y="399" class="tiny" text-anchor="middle">the last entry of b</text>
+
+  <path d="M484,342 L506,342" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="514" y="278" width="212" height="128" rx="15" class="card"/>
+  <text x="532" y="306" class="label">3. Discrete energy</text>
+  <text x="620" y="339" class="formula" text-anchor="middle">E(V) = ½ VᵀAV − bᵀV</text>
+  <text x="620" y="365" class="formula" text-anchor="middle">zᵀAz = Σ(zᵢ₊₁−zᵢ)²</text>
+  <text x="620" y="386" class="tiny" text-anchor="middle">A is symmetric positive definite</text>
+  <text x="620" y="399" class="tiny" text-anchor="middle">⇒ unique minimizer</text>
+
+  <text x="380" y="430" class="sub" text-anchor="middle">Adjacent-difference squares are the structure shared by all three descriptions</text>
+</svg>

@@ -46,11 +46,15 @@ This thread covers error definitions, sources, propagation, estimation, control,
 <details class="note-subgroup">
 <summary><strong>Thread Two: Poisson Equation (In Progress)</strong></summary>
 
-Starting with a one-dimensional energy functional, this thread moves through discrete equations, iterative solvers, and CPU/CUDA implementations before checking the computed result against the original equation. The guided smooth-case M1 derivation and its bilingual stage article are complete; discretization and experiments have not started.
+Starting with a one-dimensional energy functional, this thread moves through discrete equations, iterative solvers, and CPU/CUDA implementations before checking the computed result against the original equation. M1–M3 are complete: two bilingual stage articles and one Chinese sine-mode experiment article are published, and the two-dimensional Jacobi CPU core has been checked against independent discrete reference solutions. The rigorous foundations appendix remains a Chinese draft; CUDA and final validation have not started.
 
 - [**Thread overview** — Poisson Equation: From Variational Structure to CUDA](/en/notes/systems/poisson-equation/)
 - [**Stage 1: One-dimensional variation** — From an energy functional to a unique minimizer](/en/notes/systems/poisson-equation/variation-unique-minimum/) — Weak form, minimality, and uniqueness.
-- **Later stages:** One-dimensional discrete energy and differences, two-dimensional iteration, CPU/CUDA implementations, and error and performance validation.
+- [**Stage 2: One-dimensional discrete structure** — From centered differences to discrete energy](/en/notes/systems/poisson-equation/centered-difference-discrete-energy/) — Boundary assembly, positive definiteness, and discrete energy.
+- [**Experimental checkpoint: Sine mode** — The two sides of the one-dimensional Poisson equation](/notes/systems/poisson-equation/sine-mode-convergence/) — Continuous and discrete eigenvalues, amplitude error, and a three-grid check; Chinese article.
+- **Appendix 1: Rigorous foundations** — Function spaces, density of test functions, interface conditions, the current boundary of the existence argument, and the conditional relationship between finite differences and finite elements; the Chinese draft is under review.
+- **Stage 3: Two dimensions and CPU** — The five-point stencil, Jacobi convergence, double buffering, and checks against independent discrete reference solutions are complete; the stage article is pending.
+- **Later stages:** CUDA implementation and error and performance validation.
 
 </details>
 

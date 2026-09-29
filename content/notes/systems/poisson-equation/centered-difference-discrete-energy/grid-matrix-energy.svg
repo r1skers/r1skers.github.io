@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="title desc">
+  <title id="title">一维泊松方程从均匀网格到矩阵与离散能量</title>
+  <desc id="desc">上半部分展示区间零到一被分成四段，端点 U0 等于零、U4 等于一，内部节点 U1、U2、U3 未知，源项 f 等于二。下半部分依次展示中心差分、三对角矩阵方程和矩阵能量，强调相邻节点差连接三者。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f4e8ff"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="50%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif; fill: #241a16; }
+      .title { font-size: 22px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #725d52; }
+      .label { font-size: 15px; font-weight: 600; }
+      .small { font-size: 13px; fill: #725d52; }
+      .formula { font-size: 16px; font-family: Cambria Math, "STIX Two Math", Georgia, serif; }
+      .node { stroke: #9a3412; stroke-width: 2.2; }
+      .tick { stroke: #7c2d12; stroke-width: 1.5; }
+      .card { fill: rgba(255,255,255,0.72); stroke: #d7c5bc; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="740" height="440" rx="22" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="38" y="50" class="title">从网格到矩阵，再回到能量</text>
+  <text x="38" y="76" class="sub">同一组相邻节点差，同时出现在中心差分、矩阵二次型与分段线性函数的斜率中</text>
+
+  <text x="40" y="116" class="label">均匀网格：N = 4，h = 1/4，f ≡ 2</text>
+  <rect x="92" y="146" width="576" height="12" rx="6" fill="url(#bar)" opacity="0.78"/>
+  <line x1="92" y1="152" x2="668" y2="152" stroke="#7c2d12" stroke-width="2"/>
+
+  <g text-anchor="middle">
+    <g><line x1="92" y1="137" x2="92" y2="168" class="tick"/><circle cx="92" cy="152" r="8" fill="#fff7ed" class="node"/><text x="92" y="198" class="label">U₀ = 0</text><text x="92" y="220" class="small">固定边界</text></g>
+    <g><line x1="236" y1="137" x2="236" y2="168" class="tick"/><circle cx="236" cy="152" r="8" fill="#fb923c" class="node"/><text x="236" y="198" class="label">U₁</text><text x="236" y="220" class="small">未知</text></g>
+    <g><line x1="380" y1="137" x2="380" y2="168" class="tick"/><circle cx="380" cy="152" r="8" fill="#f97316" class="node"/><text x="380" y="198" class="label">U₂</text><text x="380" y="220" class="small">未知</text></g>
+    <g><line x1="524" y1="137" x2="524" y2="168" class="tick"/><circle cx="524" cy="152" r="8" fill="#a78bfa" class="node"/><text x="524" y="198" class="label">U₃</text><text x="524" y="220" class="small">未知</text></g>
+    <g><line x1="668" y1="137" x2="668" y2="168" class="tick"/><circle cx="668" cy="152" r="8" fill="#fff7ed" class="node"/><text x="668" y="198" class="label">U₄ = 1</text><text x="668" y="220" class="small">固定边界</text></g>
+  </g>
+
+  <g class="small" text-anchor="middle">
+    <text x="164" y="132">U₁−U₀</text>
+    <text x="308" y="132">U₂−U₁</text>
+    <text x="452" y="132">U₃−U₂</text>
+    <text x="596" y="132">U₄−U₃</text>
+  </g>
+
+  <path d="M380,240 L380,264" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="34" y="278" width="212" height="128" rx="15" class="card"/>
+  <text x="52" y="306" class="label">1. 中心差分</text>
+  <text x="140" y="341" class="formula" text-anchor="middle">−Uᵢ₋₁ + 2Uᵢ − Uᵢ₊₁</text>
+  <text x="140" y="367" class="formula" text-anchor="middle">= h² fᵢ</text>
+  <text x="140" y="392" class="small" text-anchor="middle">局部截断误差 O(h²)</text>
+
+  <path d="M252,342 L274,342" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="282" y="278" width="196" height="128" rx="15" class="card"/>
+  <text x="300" y="306" class="label">2. 矩阵方程</text>
+  <text x="380" y="339" class="formula" text-anchor="middle">A U = b</text>
+  <text x="380" y="365" class="formula" text-anchor="middle">A = tridiag(−1, 2, −1)</text>
+  <text x="380" y="392" class="small" text-anchor="middle">右边界 1 进入 b 的最后一项</text>
+
+  <path d="M484,342 L506,342" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="514" y="278" width="212" height="128" rx="15" class="card"/>
+  <text x="532" y="306" class="label">3. 离散能量</text>
+  <text x="620" y="339" class="formula" text-anchor="middle">E(V) = ½ VᵀAV − bᵀV</text>
+  <text x="620" y="365" class="formula" text-anchor="middle">zᵀAz = Σ(zᵢ₊₁−zᵢ)²</text>
+  <text x="620" y="392" class="small" text-anchor="middle">A 对称正定 ⇒ 唯一最小点</text>
+
+  <text x="380" y="430" class="sub" text-anchor="middle">相邻差平方是三条描述共享的结构</text>
+</svg>

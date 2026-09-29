@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous solution, grid nodes, and piecewise-linear representation</title>
+  <desc id="desc">For a one-dimensional Poisson problem with negative second derivative equal to two and boundary values zero and one, the orange parabola is the analytic solution u equals two x minus x squared. The purple segments join five uniform grid nodes. The discrete nodes lie exactly on the continuous curve in this quadratic example, while the segments between them still differ from the smooth curve.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f5edff"/>
+    </linearGradient>
+    <marker id="axis-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#69564d"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; fill: #241a16; }
+      .title { font-size: 22px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #725d52; }
+      .label { font-size: 14px; font-weight: 600; }
+      .small { font-size: 12px; fill: #725d52; }
+      .axis { stroke: #69564d; stroke-width: 1.5; }
+      .grid { stroke: #d8c8c0; stroke-width: 1; stroke-dasharray: 4 5; }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="740" height="420" rx="22" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="38" y="48" class="title">How does a continuous curve become finitely many nodes?</text>
+  <text x="38" y="74" class="sub">−u″ = 2, u(0) = 0, u(1) = 1; take N = 4 and h = 1/4</text>
+
+  <!-- Plot grid: x in [0,1], u in [0,1]. -->
+  <g>
+    <line x1="100" y1="295" x2="680" y2="295" class="grid"/>
+    <line x1="100" y1="230" x2="680" y2="230" class="grid"/>
+    <line x1="100" y1="165" x2="680" y2="165" class="grid"/>
+    <line x1="100" y1="100" x2="680" y2="100" class="grid"/>
+    <line x1="245" y1="100" x2="245" y2="360" class="grid"/>
+    <line x1="390" y1="100" x2="390" y2="360" class="grid"/>
+    <line x1="535" y1="100" x2="535" y2="360" class="grid"/>
+    <line x1="680" y1="100" x2="680" y2="360" class="grid"/>
+  </g>
+
+  <line x1="100" y1="360" x2="708" y2="360" class="axis" marker-end="url(#axis-arrow)"/>
+  <line x1="100" y1="360" x2="100" y2="84" class="axis" marker-end="url(#axis-arrow)"/>
+
+  <!-- Area between the exact parabola and its piecewise-linear interpolant. -->
+  <path d="M100,360 Q390,100 680,100 L535,116.25 L390,165 L245,246.25 L100,360 Z"
+        fill="#fbbf24" opacity="0.14"/>
+
+  <!-- Piecewise-linear interpolant through the five nodes. -->
+  <path d="M100,360 L245,246.25 L390,165 L535,116.25 L680,100"
+        fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5"/>
+
+  <!-- Exact solution u(x)=2x-x^2, represented exactly as a quadratic Bezier curve. -->
+  <path d="M100,360 Q390,100 680,100"
+        fill="none" stroke="#c2410c" stroke-width="3"/>
+
+  <g fill="#fff7ed" stroke="#7c3aed" stroke-width="2.3">
+    <circle cx="100" cy="360" r="5.5"/>
+    <circle cx="245" cy="246.25" r="5.5"/>
+    <circle cx="390" cy="165" r="5.5"/>
+    <circle cx="535" cy="116.25" r="5.5"/>
+    <circle cx="680" cy="100" r="5.5"/>
+  </g>
+
+  <g class="small" text-anchor="middle">
+    <text x="100" y="382">0</text>
+    <text x="245" y="382">1/4</text>
+    <text x="390" y="382">1/2</text>
+    <text x="535" y="382">3/4</text>
+    <text x="680" y="382">1</text>
+  </g>
+  <g class="small" text-anchor="end">
+    <text x="89" y="364">0</text>
+    <text x="89" y="299">1/4</text>
+    <text x="89" y="234">1/2</text>
+    <text x="89" y="169">3/4</text>
+    <text x="89" y="104">1</text>
+  </g>
+  <text x="716" y="365" class="label">x</text>
+  <text x="82" y="88" class="label">u</text>
+
+  <g class="small">
+    <text x="112" y="344">U₀</text>
+    <text x="254" y="238">U₁</text>
+    <text x="400" y="157">U₂</text>
+    <text x="545" y="108">U₃</text>
+    <text x="688" y="94">U₄</text>
+  </g>
+
+  <g transform="translate(122 88)">
+    <rect x="0" y="0" width="282" height="54" rx="10" fill="#fffaf5" opacity="0.9" stroke="#e3d2c9"/>
+    <line x1="14" y1="18" x2="52" y2="18" stroke="#c2410c" stroke-width="3"/>
+    <text x="62" y="22" class="small">Exact solution u(x) = 2x − x²</text>
+    <line x1="14" y1="38" x2="52" y2="38" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="8 5"/>
+    <text x="62" y="42" class="small">Piecewise-linear nodal interpolant</text>
+  </g>
+
+  <text x="390" y="407" class="small" text-anchor="middle">Exact nodal agreement is special to this quadratic example.</text>
+  <text x="390" y="422" class="small" text-anchor="middle">It does not establish second-order convergence in general.</text>
+</svg>
