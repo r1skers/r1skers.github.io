@@ -46,14 +46,14 @@ aliases:
 <details class="note-subgroup">
 <summary><strong>主线二：泊松方程（进行中）</strong></summary>
 
-从一维能量泛函出发，逐步走向离散方程、迭代求解与 CPU/CUDA 实现，最后回到原方程检查计算结果。目前已完成 M1–M3：两篇中英文阶段文章与一篇正弦模态中文实验文章已经发布，二维 Jacobi CPU 核心及独立离散参考解校验已经完成；严谨性附录仍是中文草稿，CUDA 与最终验证尚未开始。
+从一维能量泛函出发，逐步走向离散方程、迭代求解与 CPU/CUDA 实现，最后回到原方程检查计算结果。目前已完成 M1–M3：三篇中英文阶段文章与一篇正弦模态中文实验文章已经发布；严谨性附录仍是中文草稿，CUDA 与最终验证尚未开始。
 
 - [**主线说明** — 泊松方程：从变分结构到 CUDA](/notes/systems/poisson-equation/)
 - [**阶段 1：一维变分** — 从能量泛函到唯一最小点](/notes/systems/poisson-equation/variation-unique-minimum/) — 弱形式、最小性与唯一性。
 - [**阶段 2：一维离散结构** — 从中心差分到离散能量](/notes/systems/poisson-equation/centered-difference-discrete-energy/) — 边界组装、对称正定性与离散能量。
 - [**实验检查点：正弦模态** — 一维泊松方程的两边](/notes/systems/poisson-equation/sine-mode-convergence/) — 连续与离散特征值、幅度误差及三档网格验证。
 - **附录 1：严谨性补遗** — 函数空间、测试函数稠密性、界面条件、存在性边界及有限差分/有限元的受限对应；中文初稿正在审计。
-- **阶段 3：二维与 CPU** — 五点格式、Jacobi 收敛、双缓冲实现与独立离散参考解校验已经完成；阶段文章待整理。
+- [**阶段 3：二维与 CPU** — 从五点格式到可验证的 Jacobi CPU 求解](/notes/systems/poisson-equation/two-dimensional-jacobi-cpu/) — 五点格式、Jacobi 收敛、双缓冲实现与独立离散参考解校验。
 - **后续阶段：** CUDA 实现、误差与性能验证。
 
 </details>

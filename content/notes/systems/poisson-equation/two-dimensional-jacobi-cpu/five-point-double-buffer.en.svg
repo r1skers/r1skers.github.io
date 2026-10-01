@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" role="img" aria-labelledby="title desc">
+  <title id="title">Five-point stencil and Jacobi double buffering</title>
+  <desc id="desc">The left panel shows an interior grid point and its four direct neighbors. The right panel shows one Jacobi sweep reading only the old array, writing the new array, and swapping their roles afterward.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#76584b"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; fill: #241a16; }
+      .title { font-size: 24px; font-weight: 700; }
+      .heading { font-size: 17px; font-weight: 700; }
+      .label { font-size: 14px; font-weight: 600; }
+      .small { font-size: 12px; fill: #725d52; }
+      .grid { stroke: #cdbeb6; stroke-width: 1.4; }
+      .arrow { stroke: #76584b; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="900" height="410" rx="22" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="36" y="48" class="title">From the five-point equation to one Jacobi sweep</text>
+
+  <g transform="translate(35 72)">
+    <rect x="0" y="0" width="405" height="315" rx="18" fill="#ffffff" fill-opacity="0.72" stroke="#e6d8d0"/>
+    <text x="22" y="34" class="heading">Five-point stencil at one interior node</text>
+
+    <g transform="translate(50 58)">
+      <line x1="0" y1="0" x2="220" y2="0" class="grid"/>
+      <line x1="0" y1="70" x2="220" y2="70" class="grid"/>
+      <line x1="0" y1="140" x2="220" y2="140" class="grid"/>
+      <line x1="0" y1="0" x2="0" y2="140" class="grid"/>
+      <line x1="55" y1="0" x2="55" y2="140" class="grid"/>
+      <line x1="110" y1="0" x2="110" y2="140" class="grid"/>
+      <line x1="165" y1="0" x2="165" y2="140" class="grid"/>
+      <line x1="220" y1="0" x2="220" y2="140" class="grid"/>
+
+      <circle cx="110" cy="70" r="18" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+      <circle cx="55" cy="70" r="14" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+      <circle cx="165" cy="70" r="14" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+      <circle cx="110" cy="0" r="14" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+      <circle cx="110" cy="140" r="14" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+
+      <path d="M75 70 L90 70" class="arrow"/>
+      <path d="M145 70 L130 70" class="arrow"/>
+      <path d="M110 22 L110 48" class="arrow"/>
+      <path d="M110 118 L110 92" class="arrow"/>
+
+      <text x="110" y="75" text-anchor="middle" class="label">new</text>
+      <text x="55" y="102" text-anchor="middle" class="small">left</text>
+      <text x="165" y="102" text-anchor="middle" class="small">right</text>
+      <text x="142" y="6" class="small">above</text>
+      <text x="142" y="146" class="small">below</text>
+    </g>
+
+    <text x="22" y="252" class="label">Center 4; each neighbor −1</text>
+    <text x="22" y="278" class="small">4Uᵢⱼ − Uᵢ₋₁,ⱼ − Uᵢ₊₁,ⱼ − Uᵢ,ⱼ₋₁ − Uᵢ,ⱼ₊₁ = h²fᵢⱼ</text>
+  </g>
+
+  <g transform="translate(465 72)">
+    <rect x="0" y="0" width="420" height="315" rx="18" fill="#ffffff" fill-opacity="0.72" stroke="#e6d8d0"/>
+    <text x="22" y="34" class="heading">Read old values; write new values</text>
+
+    <g transform="translate(35 66)">
+      <rect x="0" y="0" width="130" height="145" rx="14" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+      <text x="65" y="30" text-anchor="middle" class="label">Old array A</text>
+      <text x="65" y="58" text-anchor="middle" class="small">U⁽ᵏ⁾</text>
+      <text x="65" y="90" text-anchor="middle" class="small">All four neighbors</text>
+      <text x="65" y="112" text-anchor="middle" class="small">are read here</text>
+
+      <path d="M145 72 L210 72" class="arrow"/>
+      <text x="178" y="58" text-anchor="middle" class="small">one sweep</text>
+
+      <rect x="225" y="0" width="130" height="145" rx="14" fill="#ffedd5" stroke="#d97706" stroke-width="2"/>
+      <text x="290" y="30" text-anchor="middle" class="label">New array B</text>
+      <text x="290" y="58" text-anchor="middle" class="small">U⁽ᵏ⁺¹⁾</text>
+      <text x="290" y="90" text-anchor="middle" class="small">Every interior value</text>
+      <text x="290" y="112" text-anchor="middle" class="small">is overwritten here</text>
+
+      <path d="M290 162 C290 205,65 205,65 162" class="arrow"/>
+      <text x="178" y="210" text-anchor="middle" class="small">After swap, B is the next old array</text>
+    </g>
+
+    <text x="22" y="300" class="small">Both boundaries stay zero; k counts iterations, not physical time.</text>
+  </g>
+</svg>
