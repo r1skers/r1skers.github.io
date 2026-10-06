@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Two-dimensional CUDA thread mapping and Jacobi double buffering</title>
+  <desc id="desc">On the left, nine 16 by 16 thread blocks cover a 35 by 35 grid. The 33 by 33 interior nodes update, while boundary nodes and threads outside the grid do not. The marked thread is at column 32 and row 23, giving linear index 837. On the right, the current and scratch pointers exchange read and write roles between the fixed device allocations buf0 and buf1 over three Jacobi sweeps; the data itself is not moved.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#76584b"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; fill: #241a16; }
+      .title { font-size: 26px; font-weight: 700; }
+      .heading { font-size: 20px; font-weight: 700; }
+      .body { font-size: 15px; fill: #725d52; }
+      .label { font-size: 14px; }
+      .small { font-size: 13px; fill: #725d52; }
+      .tiny { font-size: 12px; fill: #725d52; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Consolas, "Cascadia Mono", monospace; font-size: 13.5px; }
+      .halo { paint-order: stroke; stroke: #fdf8f4; stroke-width: 5px; stroke-linejoin: round; }
+      .arrow { stroke: #76584b; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="8" y="8" width="1184" height="664" rx="26" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="54" y="56" class="title">From Thread Coordinates to the Next Jacobi Sweep</text>
+  <text x="54" y="84" class="body">Map threads to grid positions, then exchange the read and write roles of two device allocations</text>
+
+  <rect x="42" y="108" width="620" height="520" rx="20" fill="#ffffff" fill-opacity="0.72" stroke="#e6d8d0"/>
+  <text x="70" y="146" class="heading">① Covering a 35×35 Grid with Threads</text>
+  <text x="70" y="173" class="body">N=34, block=16×16, grid=3×3</text>
+
+  <rect x="88" y="205" width="408" height="408" fill="#e9ddd5"/>
+  <rect x="88" y="205" width="297.5" height="297.5" fill="#f8ece1" stroke="#76584b" stroke-width="1.2"/>
+  <rect x="96.5" y="213.5" width="280.5" height="280.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+
+  <path d="M224 205V613 M360 205V613 M88 341H496 M88 477H496" stroke="#b9a79c" stroke-width="1.5" fill="none"/>
+  <text x="236.75" y="290" text-anchor="middle" class="heading" paint-order="stroke" stroke="#ede9fe" stroke-width="7" stroke-linejoin="round">33×33 interior nodes</text>
+  <text x="236.75" y="316" text-anchor="middle" class="body" paint-order="stroke" stroke="#ede9fe" stroke-width="6" stroke-linejoin="round">1,089 updates</text>
+  <rect x="88" y="205" width="408" height="408" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="7 6"/>
+
+  <line x1="511" y1="222" x2="573" y2="222" stroke="#d97706" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="511" y="246" class="small">3×3 blocks</text>
+  <text x="511" y="266" class="small">2,304 threads</text>
+
+  <text x="100" y="530" class="small">Inside the thin line: 35×35 grid, including its boundary</text>
+  <text x="100" y="552" class="small">Boundary and out-of-range threads skip the update branch</text>
+
+  <circle cx="364.25" cy="404.75" r="6.5" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>
+  <line x1="372" y1="404.75" x2="504" y2="404.75" stroke="#76584b" stroke-width="1.4"/>
+  <text x="511" y="352" class="mono">(col,row)=(32,23)</text>
+  <text x="511" y="372" class="mono">k = 23×35+32</text>
+  <text x="511" y="392" class="mono">  = 837</text>
+  <text x="511" y="424" class="small">Interior thread:</text>
+  <text x="511" y="444" class="small">perform the five-point update</text>
+
+  <rect x="686" y="108" width="472" height="520" rx="20" fill="#ffffff" fill-opacity="0.72" stroke="#e6d8d0"/>
+  <text x="714" y="146" class="heading">② Rotating Two Device Allocations</text>
+  <text x="714" y="173" class="body">Swap pointers; never copy the entire grid</text>
+  <text x="714" y="198" class="small">Colors follow allocations; columns follow pointer roles</text>
+
+  <text x="724" y="232" class="small">Sweep</text>
+  <text x="872.5" y="224" text-anchor="middle" class="small">current points to</text>
+  <text x="872.5" y="241" text-anchor="middle" class="tiny">read only</text>
+  <text x="1053.5" y="224" text-anchor="middle" class="small">scratch points to</text>
+  <text x="1053.5" y="241" text-anchor="middle" class="tiny">write only</text>
+
+  <text x="730" y="283" class="heading">0 → 1</text>
+  <rect x="805" y="250" width="135" height="52" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="872.5" y="281" text-anchor="middle" class="mono">buf0 : U⁽⁰⁾</text>
+  <rect x="986" y="250" width="135" height="52" rx="10" fill="#ffedd5" stroke="#d97706" stroke-width="2"/>
+  <text x="1053.5" y="281" text-anchor="middle" class="mono">buf1 : U⁽¹⁾</text>
+  <line x1="944" y1="276" x2="981" y2="276" class="arrow"/>
+
+  <path d="M1054 308 C1054 338 872 327 872 352" class="arrow" stroke-dasharray="5 4"/>
+  <text x="963" y="337" text-anchor="middle" class="small halo">swap pointers</text>
+
+  <text x="730" y="391" class="heading">1 → 2</text>
+  <rect x="805" y="358" width="135" height="52" rx="10" fill="#ffedd5" stroke="#d97706" stroke-width="2"/>
+  <text x="872.5" y="389" text-anchor="middle" class="mono">buf1 : U⁽¹⁾</text>
+  <rect x="986" y="358" width="135" height="52" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="1053.5" y="389" text-anchor="middle" class="mono">buf0 : U⁽²⁾</text>
+  <line x1="944" y1="384" x2="981" y2="384" class="arrow"/>
+
+  <path d="M1054 416 C1054 446 872 435 872 460" class="arrow" stroke-dasharray="5 4"/>
+  <text x="963" y="445" text-anchor="middle" class="small halo">swap pointers</text>
+
+  <text x="730" y="499" class="heading">2 → 3</text>
+  <rect x="805" y="466" width="135" height="52" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="872.5" y="497" text-anchor="middle" class="mono">buf0 : U⁽²⁾</text>
+  <rect x="986" y="466" width="135" height="52" rx="10" fill="#ffedd5" stroke="#d97706" stroke-width="2"/>
+  <text x="1053.5" y="497" text-anchor="middle" class="mono">buf1 : U⁽³⁾</text>
+  <line x1="944" y1="492" x2="981" y2="492" class="arrow"/>
+
+  <rect x="714" y="548" width="416" height="58" rx="12" fill="#ffffff" fill-opacity="0.8" stroke="#e6d8d0"/>
+  <text x="922" y="573" text-anchor="middle" class="small">Odd counts end in buf1; even counts end in buf0.</text>
+  <text x="922" y="592" text-anchor="middle" class="small">Pointer swaps do not move data.</text>
+</svg>
