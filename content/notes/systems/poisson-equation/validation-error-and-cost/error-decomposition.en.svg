@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Four objects and three differences in a Poisson computation</title>
+  <desc id="desc">Samples of the exact continuous solution connect to the exact discrete solution, exact-arithmetic iteration k, and floating-point iteration k. The links represent discretization error, exact-arithmetic iteration error, and accumulated rounding difference. The lower cards show what is held fixed in each check.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#76584b"/>
+    </marker>
+    <style>
+      text{font-family:Inter,"Segoe UI","Noto Sans SC","Microsoft YaHei",Arial,sans-serif;fill:#241a16}
+      .title{font-size:27px;font-weight:700}.sub{font-size:15px;fill:#725d52}
+      .node-title{font-size:20px;font-weight:700}.node-math{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:27px;font-style:italic}
+      .edge-math{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:17px;font-style:italic;fill:#725d52}
+      .var{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-style:italic}.up{font-style:normal}
+      .body{font-size:14px;fill:#725d52}.edge{font-size:15px;font-weight:700}
+      .card-title{font-size:17px;font-weight:700}.card-body{font-size:13px;fill:#725d52}
+      .arrow{stroke:#76584b;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect x="8" y="8" width="1184" height="604" rx="26" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="54" y="58" class="title">Four objects, three differences</text>
+  <text x="54" y="87" class="sub">An “error” is meaningful only after its reference object is fixed</text>
+
+  <rect x="50" y="134" width="235" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#d97706" stroke-width="2"/>
+  <text x="167.5" y="166" text-anchor="middle" class="node-title" font-size="17">Continuous solution</text>
+  <text x="167.5" y="187" text-anchor="middle" class="body">sampled on the grid</text>
+  <text x="167.5" y="220" text-anchor="middle" class="node-math">u<tspan font-size="18" dy="7">h</tspan></text>
+  <text x="167.5" y="254" text-anchor="middle" class="body">The original continuous problem</text>
+
+  <rect x="355" y="134" width="235" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#7c3aed" stroke-width="2"/>
+  <text x="472.5" y="171" text-anchor="middle" class="node-title">Exact discrete solution</text>
+  <text x="472.5" y="220" text-anchor="middle" class="node-math">U<tspan font-size="18" dy="7">h</tspan><tspan class="up" font-size="18" dx="-6" dy="-20">∗</tspan></text>
+  <text x="472.5" y="254" text-anchor="middle" class="body">True solution of the five-point system</text>
+
+  <rect x="660" y="134" width="235" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#0f766e" stroke-width="2"/>
+  <text x="777.5" y="171" text-anchor="middle" class="node-title" font-size="17">Exact arithmetic step k</text>
+  <text x="777.5" y="220" text-anchor="middle" class="node-math">U<tspan class="up" font-size="18" dy="7">ex</tspan><tspan font-size="18" dx="-13.5" dy="-20"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan></text>
+  <text x="777.5" y="254" text-anchor="middle" class="body">Jacobi with the same input</text>
+
+  <rect x="965" y="134" width="185" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#be123c" stroke-width="2"/>
+  <text x="1057.5" y="166" text-anchor="middle" class="node-title" font-size="17">Floating-point</text>
+  <text x="1057.5" y="187" text-anchor="middle" class="body">step <tspan class="var">k</tspan></text>
+  <text x="1057.5" y="220" text-anchor="middle" class="node-math">U<tspan class="up" font-size="18" dy="7">FP</tspan><tspan font-size="18" dx="-16" dy="-20"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan></text>
+  <text x="1057.5" y="254" text-anchor="middle" class="body">CPU or GPU output</text>
+
+  <line x1="288" y1="207" x2="350" y2="207" class="arrow"/>
+  <text x="319" y="190" text-anchor="middle" class="edge">discretize</text>
+  <text x="319" y="305" text-anchor="middle" class="edge-math">U<tspan font-size="12" dy="4">h</tspan><tspan class="up" font-size="12" dx="-4" dy="-12">∗</tspan><tspan class="up" dy="8"> − </tspan>u<tspan font-size="12" dy="4">h</tspan></text>
+
+  <line x1="593" y1="207" x2="655" y2="207" class="arrow"/>
+  <text x="624" y="180" text-anchor="middle" class="edge">finite</text>
+  <text x="624" y="199" text-anchor="middle" class="edge">iteration</text>
+  <text x="624" y="305" text-anchor="middle" class="edge-math">U<tspan class="up" font-size="12" dy="4">ex</tspan><tspan font-size="12" dx="-9" dy="-12"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan><tspan class="up" dy="8"> − </tspan>U<tspan font-size="12" dy="4">h</tspan><tspan class="up" font-size="12" dx="-4" dy="-12">∗</tspan></text>
+
+  <line x1="898" y1="207" x2="960" y2="207" class="arrow"/>
+  <text x="929" y="180" text-anchor="middle" class="edge">FP</text>
+  <text x="929" y="199" text-anchor="middle" class="edge">rounding</text>
+  <text x="929" y="305" text-anchor="middle" class="edge-math">U<tspan class="up" font-size="12" dy="4">FP</tspan><tspan font-size="12" dx="-11" dy="-12"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan><tspan class="up" dy="8"> − </tspan>U<tspan class="up" font-size="12" dy="4">ex</tspan><tspan font-size="12" dx="-9" dy="-12"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan></text>
+
+  <text x="54" y="359" class="title" font-size="22">What does each check hold fixed?</text>
+
+  <rect x="50" y="389" width="340" height="166" rx="18" fill="#ffffff" fill-opacity=".78" stroke="#e6d8d0"/>
+  <circle cx="83" cy="426" r="15" fill="#ffedd5" stroke="#d97706"/>
+  <text x="83" y="431" text-anchor="middle" class="card-title">1</text>
+  <text x="111" y="432" class="card-title">Grid refinement</text>
+  <text x="78" y="470" class="card-body">First keep iteration/reference difference below</text>
+  <text x="78" y="493" class="card-body">1% of discretization/reference difference.</text>
+  <text x="78" y="526" class="body">Check: second-order spatial trend</text>
+
+  <rect x="430" y="389" width="340" height="166" rx="18" fill="#ffffff" fill-opacity=".78" stroke="#e6d8d0"/>
+  <circle cx="463" cy="426" r="15" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="463" y="431" text-anchor="middle" class="card-title">2</text>
+  <text x="491" y="432" class="card-title">Same input and step count</text>
+  <text x="458" y="470" class="card-body">Freeze the received FP64 input; run both the</text>
+  <text x="458" y="493" class="card-body">rational reference and FP code for <tspan class="var">k</tspan> steps.</text>
+  <text x="458" y="526" class="body">Check: accumulated rounding difference</text>
+
+  <rect x="810" y="389" width="340" height="166" rx="18" fill="#ffffff" fill-opacity=".78" stroke="#e6d8d0"/>
+  <circle cx="843" cy="426" r="15" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="843" y="431" text-anchor="middle" class="card-title">3</text>
+  <text x="871" y="432" class="card-title">Same conditions and session</text>
+  <text x="838" y="470" class="card-body">CPU/GPU share <tspan class="var">N</tspan>, <tspan class="var">K</tspan>, FP64, input, and boundary.</text>
+  <text x="838" y="493" class="card-body">Compare final arrays and scoped total time.</text>
+  <text x="838" y="526" class="body">Check: implementation agreement and cost</text>
+</svg>

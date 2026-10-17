@@ -46,7 +46,7 @@ This thread covers error definitions, sources, propagation, estimation, control,
 <details class="note-subgroup">
 <summary><strong>Thread Two: Poisson Equation (In Progress)</strong></summary>
 
-Starting with a one-dimensional energy functional, this thread moves through discrete equations, iterative solvers, and CPU/CUDA implementations before checking the computed result against the original equation. M1–M4 are complete: four bilingual stage articles and one Chinese sine-mode experiment article are published. The rigorous foundations appendix remains under review, and final validation has not started.
+Starting with a one-dimensional energy functional, this thread moves through discrete equations, iterative solvers, and CPU/CUDA implementations before checking the computed result against the original equation. M1–M5 are complete within the guided study and reproduction scope: five bilingual stage articles and one Chinese sine-mode experiment article are published, while the rigorous foundations appendix remains under review.
 
 - [**Thread overview** — Poisson Equation: From Variational Structure to CUDA](/en/notes/systems/poisson-equation/)
 - [**Stage 1: One-dimensional variation** — From an energy functional to a unique minimizer](/en/notes/systems/poisson-equation/variation-unique-minimum/) — Weak form, minimality, and uniqueness.
@@ -55,7 +55,7 @@ Starting with a one-dimensional energy functional, this thread moves through dis
 - **Appendix 1: Rigorous foundations** — Function spaces, density of test functions, interface conditions, the current boundary of the existence argument, and the conditional relationship between finite differences and finite elements; the Chinese draft is under review.
 - [**Stage 3: Two dimensions and CPU** — From the five-point stencil to a verifiable Jacobi CPU solve](/en/notes/systems/poisson-equation/two-dimensional-jacobi-cpu/) — Five-point discretization, Jacobi convergence, double buffering, and checks against independent discrete reference solutions.
 - [**Stage 4: CUDA consistency** — From CPU Jacobi to CUDA consistency](/en/notes/systems/poisson-equation/cuda-jacobi-consistency/) — Thread mapping, boundary guards, device-side double buffering, and fixed-count pointwise comparisons.
-- **Later stage:** Continuous-solution error, residual stopping, floating-point differences, and performance validation.
+- [**Stage 5: Back to the continuous equation** — From error decomposition to computational cost](/en/notes/systems/poisson-equation/validation-error-and-cost/) — Three-grid second-order behavior, a same-step rounding comparison, CPU/GPU accuracy, and same-session cost measurements.
 
 </details>
 

@@ -46,7 +46,7 @@ aliases:
 <details class="note-subgroup">
 <summary><strong>主线二：泊松方程（进行中）</strong></summary>
 
-从一维能量泛函出发，逐步走向离散方程、迭代求解与 CPU/CUDA 实现，最后回到原方程检查计算结果。目前已完成 M1–M4：四篇中英文阶段文章和一篇正弦模态中文实验文章已经发布；严谨性附录正在审计，最终验证尚未开始。
+从一维能量泛函出发，逐步走向离散方程、迭代求解与 CPU/CUDA 实现，最后回到原方程检查计算结果。目前 M1–M5 已按引导学习与复现范围完成：五篇中英文阶段文章和一篇正弦模态中文实验文章已经发布；严谨性附录仍在审计。
 
 - [**主线说明** — 泊松方程：从变分结构到 CUDA](/notes/systems/poisson-equation/)
 - [**阶段 1：一维变分** — 从能量泛函到唯一最小点](/notes/systems/poisson-equation/variation-unique-minimum/) — 弱形式、最小性与唯一性。
@@ -55,7 +55,7 @@ aliases:
 - **附录 1：严谨性补遗** — 函数空间、测试函数稠密性、界面条件、存在性边界及有限差分/有限元的受限对应；中文初稿正在审计。
 - [**阶段 3：二维与 CPU** — 从五点格式到可验证的 Jacobi CPU 求解](/notes/systems/poisson-equation/two-dimensional-jacobi-cpu/) — 五点格式、Jacobi 收敛、双缓冲实现与独立离散参考解校验。
 - [**阶段 4：CUDA 一致性** — 从 CPU Jacobi 到 CUDA 一致性](/notes/systems/poisson-equation/cuda-jacobi-consistency/) — 线程映射、边界守卫、设备端双缓冲与固定轮数逐项对照。
-- **后续阶段：** 连续解误差、残差停止、浮点差异与性能验证。
+- [**阶段 5：回到连续方程** — 从误差分解到计算成本](/notes/systems/poisson-equation/validation-error-and-cost/) — 三档二阶趋势、同轮数舍入对照、CPU/GPU 准确性与同机成本。
 
 </details>
 

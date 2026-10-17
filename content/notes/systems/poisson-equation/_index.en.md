@@ -31,7 +31,7 @@ $$
 - **Appendix A1 · Rigorous foundations:** A Chinese draft is under review. It revisits function spaces, density of test functions, interface conditions, the current boundary of the existence argument, and the conditional relationship between finite differences and finite elements.
 - **M3 · Two dimensions and CPU:** The five-point stencil, guided Jacobi convergence analysis, CPU double buffering, and checks against independent discrete reference solutions are complete, followed by a bilingual stage article: [The Two-Dimensional Poisson Equation: From the Five-Point Stencil to a Verifiable Jacobi CPU Solve](/en/notes/systems/poisson-equation/two-dimensional-jacobi-cpu/).
 - **M4 · CUDA consistency:** The CUDA kernel, thread indexing, device-side double buffering, and fixed-count CPU/GPU comparisons are complete, followed by a bilingual stage article: [The Two-Dimensional Poisson Equation: From CPU Jacobi to CUDA Consistency](/en/notes/systems/poisson-equation/cuda-jacobi-consistency/).
-- **M5 · Final validation:** Not started. The planned checks separate continuous-solution error, residual stopping, floating-point differences, and performance.
+- **M5 · Back to the continuous equation:** Error decomposition, three-grid CPU/GPU validation, a CPU rounding comparison, and same-session cost measurements are complete, followed by a bilingual stage article: [The Two-Dimensional Poisson Equation: From Error Decomposition to Computational Cost](/en/notes/systems/poisson-equation/validation-error-and-cost/).
 
 This is a learning and reproduction thread. Each stage reports only what has actually been derived or checked. Error analysis remains part of the final validation stage.
 

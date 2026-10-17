@@ -31,7 +31,7 @@ $$
 - **附录 A1 · 严谨性补遗：** 回看函数空间、测试函数稠密性、界面条件、存在性边界与有限差分/有限元的受限对应；中文初稿正在审计。
 - **M3 · 二维与 CPU：** 五点格式、Jacobi 收敛分析、CPU 双缓冲与独立离散参考解校验已经完成，并发布中英文阶段文章：[二维泊松方程：从五点格式到可验证的 Jacobi CPU 求解](/notes/systems/poisson-equation/two-dimensional-jacobi-cpu/)。
 - **M4 · CUDA 一致性：** CUDA kernel、线程索引、设备端双缓冲与固定轮数 CPU/GPU 对照已经完成，并发布中英文阶段文章：[二维泊松方程：从 CPU Jacobi 到 CUDA 一致性](/notes/systems/poisson-equation/cuda-jacobi-consistency/)。
-- **M5 · 最终验证：** 尚未开始；计划分别检查连续解误差、残差停止、浮点差异与性能。
+- **M5 · 回到连续方程：** 误差分解、三档 CPU/GPU 网格验证、CPU 舍入对照与同机成本记录已经完成，并发布中英文阶段文章：[二维泊松方程：从误差分解到计算成本](/notes/systems/poisson-equation/validation-error-and-cost/)。
 
 这是一条学习与复现路线，阶段性内容只报告已经推导或实际检查过的结果。误差分析仍是末尾验证的重要部分，但不是整条主线的名称。
 

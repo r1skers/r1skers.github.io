@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">泊松方程计算中的四个对象与三段差异</title>
+  <desc id="desc">从连续精确解的网格采样出发，依次连接精确离散解、精确算术第 k 轮和实际浮点第 k 轮。三条连接分别表示离散误差、精确算术迭代误差和累计舍入差；下方列出网格加密、同轮精确参考和 CPU GPU 对照各自检查的对象。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#76584b"/>
+    </marker>
+    <style>
+      text{font-family:Inter,"Segoe UI","Noto Sans SC","Microsoft YaHei",Arial,sans-serif;fill:#241a16}
+      .title{font-size:27px;font-weight:700}.sub{font-size:15px;fill:#725d52}
+      .node-title{font-size:20px;font-weight:700}.node-math{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:27px;font-style:italic}
+      .edge-math{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-size:17px;font-style:italic;fill:#725d52}
+      .var{font-family:"Cambria Math","STIX Two Math",Georgia,serif;font-style:italic}.up{font-style:normal}
+      .body{font-size:14px;fill:#725d52}.edge{font-size:15px;font-weight:700}
+      .card-title{font-size:17px;font-weight:700}.card-body{font-size:13px;fill:#725d52}
+      .arrow{stroke:#76584b;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect x="8" y="8" width="1184" height="604" rx="26" fill="url(#bg)" stroke="#ead5ca"/>
+  <text x="54" y="58" class="title">四个对象，三段差异</text>
+  <text x="54" y="87" class="sub">“误差”只有在参考对象固定后才有明确含义</text>
+
+  <rect x="50" y="134" width="235" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#d97706" stroke-width="2"/>
+  <text x="167.5" y="171" text-anchor="middle" class="node-title">连续解的网格采样</text>
+  <text x="167.5" y="220" text-anchor="middle" class="node-math">u<tspan font-size="18" dy="7">h</tspan></text>
+  <text x="167.5" y="254" text-anchor="middle" class="body">要回答的连续问题</text>
+
+  <rect x="355" y="134" width="235" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#7c3aed" stroke-width="2"/>
+  <text x="472.5" y="171" text-anchor="middle" class="node-title">精确离散解</text>
+  <text x="472.5" y="220" text-anchor="middle" class="node-math">U<tspan font-size="18" dy="7">h</tspan><tspan class="up" font-size="18" dx="-6" dy="-20">∗</tspan></text>
+  <text x="472.5" y="254" text-anchor="middle" class="body">五点方程真正的解</text>
+
+  <rect x="660" y="134" width="235" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#0f766e" stroke-width="2"/>
+  <text x="777.5" y="171" text-anchor="middle" class="node-title">精确算术第 <tspan class="var">k</tspan> 轮</text>
+  <text x="777.5" y="220" text-anchor="middle" class="node-math">U<tspan class="up" font-size="18" dy="7">ex</tspan><tspan font-size="18" dx="-13.5" dy="-20"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan></text>
+  <text x="777.5" y="254" text-anchor="middle" class="body">相同输入的 Jacobi 迭代</text>
+
+  <rect x="965" y="134" width="185" height="148" rx="18" fill="#ffffff" fill-opacity=".82" stroke="#be123c" stroke-width="2"/>
+  <text x="1057.5" y="171" text-anchor="middle" class="node-title">实际浮点第 <tspan class="var">k</tspan> 轮</text>
+  <text x="1057.5" y="220" text-anchor="middle" class="node-math">U<tspan class="up" font-size="18" dy="7">FP</tspan><tspan font-size="18" dx="-16" dy="-20"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan></text>
+  <text x="1057.5" y="254" text-anchor="middle" class="body">CPU 或 GPU 输出</text>
+
+  <line x1="288" y1="207" x2="350" y2="207" class="arrow"/>
+  <text x="319" y="190" text-anchor="middle" class="edge">离散</text>
+  <text x="319" y="305" text-anchor="middle" class="edge-math">U<tspan font-size="12" dy="4">h</tspan><tspan class="up" font-size="12" dx="-4" dy="-12">∗</tspan><tspan class="up" dy="8"> − </tspan>u<tspan font-size="12" dy="4">h</tspan></text>
+
+  <line x1="593" y1="207" x2="655" y2="207" class="arrow"/>
+  <text x="624" y="180" text-anchor="middle" class="edge">有限轮</text>
+  <text x="624" y="199" text-anchor="middle" class="edge">迭代</text>
+  <text x="624" y="305" text-anchor="middle" class="edge-math">U<tspan class="up" font-size="12" dy="4">ex</tspan><tspan font-size="12" dx="-9" dy="-12"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan><tspan class="up" dy="8"> − </tspan>U<tspan font-size="12" dy="4">h</tspan><tspan class="up" font-size="12" dx="-4" dy="-12">∗</tspan></text>
+
+  <line x1="898" y1="207" x2="960" y2="207" class="arrow"/>
+  <text x="929" y="180" text-anchor="middle" class="edge">浮点</text>
+  <text x="929" y="199" text-anchor="middle" class="edge">舍入</text>
+  <text x="929" y="305" text-anchor="middle" class="edge-math">U<tspan class="up" font-size="12" dy="4">FP</tspan><tspan font-size="12" dx="-11" dy="-12"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan><tspan class="up" dy="8"> − </tspan>U<tspan class="up" font-size="12" dy="4">ex</tspan><tspan font-size="12" dx="-9" dy="-12"><tspan class="up">(</tspan>k<tspan class="up">)</tspan></tspan></text>
+
+  <text x="54" y="359" class="title" font-size="22">三种检查分别固定什么？</text>
+
+  <rect x="50" y="389" width="340" height="166" rx="18" fill="#ffffff" fill-opacity=".78" stroke="#e6d8d0"/>
+  <circle cx="83" cy="426" r="15" fill="#ffedd5" stroke="#d97706"/>
+  <text x="83" y="431" text-anchor="middle" class="card-title">1</text>
+  <text x="111" y="432" class="card-title">网格加密</text>
+  <text x="78" y="470" class="card-body">先把迭代参考差压到离散参考差的 1% 内，</text>
+  <text x="78" y="493" class="card-body">再比较 <tspan class="var">h</tspan>、<tspan class="var">h</tspan>/2 下相对连续解的误差比。</text>
+  <text x="78" y="526" class="body">检查：二阶空间离散趋势</text>
+
+  <rect x="430" y="389" width="340" height="166" rx="18" fill="#ffffff" fill-opacity=".78" stroke="#e6d8d0"/>
+  <circle cx="463" cy="426" r="15" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="463" y="431" text-anchor="middle" class="card-title">2</text>
+  <text x="491" y="432" class="card-title">同输入、同轮数</text>
+  <text x="458" y="470" class="card-body">冻结程序收到的 FP64 输入，让有理数参考和</text>
+  <text x="458" y="493" class="card-body">浮点程序都执行同样的 <tspan class="var">k</tspan> 轮 Jacobi。</text>
+  <text x="458" y="526" class="body">检查：累计舍入差</text>
+
+  <rect x="810" y="389" width="340" height="166" rx="18" fill="#ffffff" fill-opacity=".78" stroke="#e6d8d0"/>
+  <circle cx="843" cy="426" r="15" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="843" y="431" text-anchor="middle" class="card-title">3</text>
+  <text x="871" y="432" class="card-title">同数值条件、同一会话</text>
+  <text x="838" y="470" class="card-body">CPU/GPU 使用相同 <tspan class="var">N</tspan>、<tspan class="var">K</tspan>、FP64、输入与边界，</text>
+  <text x="838" y="493" class="card-body">分别比较最终数组与约定范围内的总用时。</text>
+  <text x="838" y="526" class="body">检查：实现一致性与实际成本</text>
+</svg>
