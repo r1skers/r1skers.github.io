@@ -150,11 +150,11 @@ params:
     items:
       zh:
         - "[主线一：误差分析（进行中）](/notes/systems/error-analysis/) — 追踪误差的定义、来源、传播、估计、控制与精度成本权衡。"
-        - "[主线二：泊松方程（进行中）](/notes/systems/poisson-equation/) — M1–M5 已完成，从一维变分走到 CPU/CUDA、误差分解与成本验证；M5 中英文阶段文章已发布。"
+        - "[主线二：泊松方程（进行中）](/notes/systems/poisson-equation/) — M1–M5 与主线后自主重写已完成，从一维变分走到 CPU/CUDA、误差分解、成本验证与独立重建；总结中英文文章已发布。"
         - "[主题档案](/notes/topics/) — 跨 Notes、Artifacts 与代码仓库组织完整问题链。"
       en:
         - "[Thread One: Error Analysis (In Progress)](/en/notes/systems/error-analysis/) — Error definitions, sources, propagation, estimation, control, and accuracy–cost tradeoffs."
-        - "[Thread Two: Poisson Equation (In Progress)](/en/notes/systems/poisson-equation/) — M1–M5 are complete, from one-dimensional variation through CPU/CUDA to error decomposition and cost validation; the bilingual M5 stage article is published."
+        - "[Thread Two: Poisson Equation (In Progress)](/en/notes/systems/poisson-equation/) — M1–M5 and the self-directed rewrite are complete, from one-dimensional variation through CPU/CUDA to error decomposition, cost validation, and independent reconstruction; the bilingual summary is published."
         - "[Topic Dossiers](/en/notes/topics/) — Complete problem-driven paths across Notes, Artifacts, and code repositories."
 
   socialIcons:

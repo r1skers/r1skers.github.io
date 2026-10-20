@@ -32,6 +32,7 @@ $$
 - **M3 · 二维与 CPU：** 五点格式、Jacobi 收敛分析、CPU 双缓冲与独立离散参考解校验已经完成，并发布中英文阶段文章：[二维泊松方程：从五点格式到可验证的 Jacobi CPU 求解](/notes/systems/poisson-equation/two-dimensional-jacobi-cpu/)。
 - **M4 · CUDA 一致性：** CUDA kernel、线程索引、设备端双缓冲与固定轮数 CPU/GPU 对照已经完成，并发布中英文阶段文章：[二维泊松方程：从 CPU Jacobi 到 CUDA 一致性](/notes/systems/poisson-equation/cuda-jacobi-consistency/)。
 - **M5 · 回到连续方程：** 误差分解、三档 CPU/GPU 网格验证、CPU 舍入对照与同机成本记录已经完成，并发布中英文阶段文章：[二维泊松方程：从误差分解到计算成本](/notes/systems/poisson-equation/validation-error-and-cost/)。
+- **主线后 · 自主重写：** 从一次 Jacobi sweep 重新搭建 Python 循环、NumPy 向量化、CUDA kernel、残差停止与同步计时，并发布中英文总结：[泊松方程阶段总结：从一次 Jacobi sweep 到 NumPy 与 CUDA](/notes/systems/poisson-equation/self-directed-rewrite/)。
 
 这是一条学习与复现路线，阶段性内容只报告已经推导或实际检查过的结果。误差分析仍是末尾验证的重要部分，但不是整条主线的名称。
 
