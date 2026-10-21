@@ -141,6 +141,89 @@ $$
 g_{1,1}=\cos\frac{\pi}{N}.
 $$
 
+<details class="note-subgroup">
+<summary><strong>Derivation: why is the factor $\cos(\pi/N)$?</strong></summary>
+
+Let $U^*$ denote the solution of the discrete equation, and define the error after step $k$ by
+
+$$
+e_{i,j}^{(k)}=U_{i,j}^{(k)}-U_{i,j}^*.
+$$
+
+$U^*$ satisfies the same Jacobi fixed-point relation. Subtracting that relation from the iteration cancels the source term and leaves the error-propagation equation
+
+$$
+e_{i,j}^{(k+1)}
+=\frac14\left(
+e_{i-1,j}^{(k)}+e_{i+1,j}^{(k)}
++e_{i,j-1}^{(k)}+e_{i,j+1}^{(k)}
+\right).
+$$
+
+Suppose that the error at step $k$ is a general $(p,q)$ sine mode,
+
+$$
+e_{i,j}^{(k)}
+=a_k
+\sin\frac{p\pi i}{N}
+\sin\frac{q\pi j}{N},
+$$
+
+where $a_k$ is its amplitude. The identity
+
+$$
+\sin((i-1)\theta)+\sin((i+1)\theta)
+=2\cos\theta\sin(i\theta)
+$$
+
+gives
+
+$$
+e_{i-1,j}^{(k)}+e_{i+1,j}^{(k)}
+=2\cos\frac{p\pi}{N}\,e_{i,j}^{(k)}
+$$
+
+in the horizontal direction, and similarly
+
+$$
+e_{i,j-1}^{(k)}+e_{i,j+1}^{(k)}
+=2\cos\frac{q\pi}{N}\,e_{i,j}^{(k)}
+$$
+
+in the vertical direction. Substitution into the error equation gives
+
+$$
+e_{i,j}^{(k+1)}
+=\frac12\left(
+\cos\frac{p\pi}{N}
++\cos\frac{q\pi}{N}
+\right)e_{i,j}^{(k)}.
+$$
+
+Thus the one-step error-amplification factor for a general $(p,q)$ mode is
+
+$$
+g_{p,q}
+=\frac12\left(
+\cos\frac{p\pi}{N}
++\cos\frac{q\pi}{N}
+\right).
+$$
+
+The present source contains only the $(1,1)$ sine mode, so the corresponding discrete solution has the same mode. Because the initial state is zero, the initial error $e^{(0)}=-U^*$ contains only this mode, and Jacobi iteration does not turn it into other modes. Setting $p=q=1$ therefore gives
+
+$$
+g_{1,1}
+=\frac12\left(
+\cos\frac{\pi}{N}+\cos\frac{\pi}{N}
+\right)
+=\cos\frac{\pi}{N}.
+$$
+
+The zero initial state makes this particular experiment start from a single error mode. The factor $g_{p,q}$ itself is a property of the Jacobi error-propagation operator and does not depend on the initial state. A general error can be decomposed into several sine modes, each multiplied by its own $g_{p,q}$.
+
+</details>
+
 For even $N$, the initial maximum residual $2\pi^2$ is attained at the center node. The residual then receives the same factor $g_{1,1}$ on each step, so the required iteration count is predicted by
 
 $$
